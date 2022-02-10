@@ -1,0 +1,12 @@
+{
+  "name": "luke-SNAW__dendron",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Luke-SNAW/Luke-SNAW.github.io.git",
+  "author": "Luke SNAW <xyarsg@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@dendronhq/dendron-cli": "^0.81.0"
+  }
+}

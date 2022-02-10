@@ -1,0 +1,8 @@
+node_modules
+.dendron.*
+build
+seeds
+
+.next
+
+.next
