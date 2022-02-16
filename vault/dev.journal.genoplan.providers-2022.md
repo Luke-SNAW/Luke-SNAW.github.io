@@ -2,7 +2,7 @@
 id: vraxgLNbz4avNqaOsYGtS
 title: Providers 2022
 desc: ""
-updated: 1644478165552
+updated: 1644971899963
 created: 1644454051239
 ---
 
@@ -21,3 +21,11 @@ desk-web과 같은 next.js base
 [App runner -> RDS 불가](https://github.com/aws/apprunner-roadmap/issues/1)
 
 [^1]: www-2018, biz-admin은 project setting과 component 등의 거의 동일한데 copy & paste로 작업했더니 한 쪽에서 component 수정이 필요할 경우 다른 쪽에 copy & paste 작업을 해야 함.
+
+# Policy
+
+## www: 문진
+
+문진 수정 기한 7일.
+
+의사가 이미 승인했다면, 문진 수정되더라도 승인 취소되진 않음 from [미팅](https://calendar.google.com/calendar/event?action=VIEW&eid=N3ZxNzM5ZW1xbnQ2YnAyc2o2MDhlYTN2Z2UgbHVrZUBnZW5vcGxhbi5jb20&tok=MTYjYmVuQGdlbm9wbGFuLmNvbWU1NTg4Nzc0MjI1Yzk0ZmJmYjAxYTJmNThhYWNmZWQ1ZmM4NjQwMTg&ctz=Asia%2FSeoul&hl=ko&es=1)
