@@ -2,10 +2,11 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1645682295423
+updated: 1646012655960
 created: 1645666821126
 ---
 
+- 🌠 [Some reasons for disliking react hooks](https://blog.bitsrc.io/some-reasons-for-disliking-react-hooks-80f1e18eb9b3)
 - [React - The Missing Parts](https://acko.net/blog/react-the-missing-parts/)
 - [Microsoft Office rewrite in React.js nears completion](https://react-etc.net/entry/microsoft-office-rewrite-to-react-js-nears-completion)
 - [The Perils of Rehydration: Understanding how Gatsby/Next manage server-side rendering and rehydration](https://www.joshwcomeau.com/react/the-perils-of-rehydration/)

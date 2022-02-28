@@ -2,10 +2,11 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1645751733171
+updated: 1646011681062
 created: 1645751512675
 ---
 
+- [Move over JavaScript: Back-end languages are coming to the front-end](https://github.com/readme/featured/server-side-languages-for-front-end): A NEW CROP OF SERVER-SIDE TOOLS IS MAKING IT POSSIBLE TO BUILD WEB UIS WITHOUT JAVASCRIPT.
 - [Why Efficient Hydration in JavaScript Frameworks is so Challenging](https://dev.to/this-is-learning/why-efficient-hydration-in-javascript-frameworks-is-so-challenging-1ca3)
 - [Web Quality Assurance: From User Requirements To Web Risk Management](https://www.smashingmagazine.com/2021/09/journey-into-web-quality-assurance/)
   - [The Web Quality Assurance Checklist](https://checklists.opquast.com/en/web-quality-assurance/): 240 rules to improve your sites and take better care of your users - Version 4 - 2020-2025
