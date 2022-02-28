@@ -2,8 +2,9 @@
 id: mq3s6vq7lgdul6mobam7vck
 title: Journal
 desc: ""
-updated: 1645750984376
+updated: 1646022711173
 created: 1645750982391
+published: false
 ---
 
 # Neural
