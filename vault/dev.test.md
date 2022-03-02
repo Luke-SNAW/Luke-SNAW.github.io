@@ -2,9 +2,25 @@
 id: 1mi9m99hBJq32lfoqGdNB
 title: Test
 desc: ""
-updated: 1645055122655
+updated: 1646264227298
 created: 1645055059758
 ---
 
 - [TDD Changed My Life](https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80)
 - [A Comparative Case Study on the Impact of Test-Driven Development on Program Design and Test Coverage](https://ieeexplore.ieee.org/abstract/document/4343755)
+- [5 Questions Every Unit Test Must Answer](https://medium.com/javascript-scene/what-every-unit-test-needs-f6cd34d9836d)
+- [Why I use Tape Instead of Mocha & So Should You](https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4)
+- [Rethinking Unit Test Assertions](https://medium.com/javascript-scene/rethinking-unit-test-assertions-55f59358253f)
+- [Why I Never Use Shallow Rendering](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering)
+
+  > With shallow rendering, I can refactor my component's implementation and my tests break. With shallow rendering, I can break my application and my tests say everything's still working.
+
+  - [For actual unit testing](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering#for-actual-unittesting)
+
+# [HOW NOT TO WRITE PROPERTY TESTS IN JAVASCRIPT](https://jrsinclair.com/articles/2021/how-not-to-write-property-tests-in-javascript/)
+
+As tests, integration, and end-to-end tests deliver the most value. But like with Test Driven Development (TDD), tests aren’t the point.  
+I became enthusiastic about TDD because when I practised it, I wrote better code. The _discipline_ of thinking about tests forced me to clarify my intent. I started writing code in smaller, more comprehensible chunks. Not only did the code need less maintenance, but when it did, I dreaded going back to the old code less.  
+Then I discovered property-based testing. It takes all those benefits of TDD and increases them an order of magnitude. I thought I understood my code. Then I started thinking about properties and learned I did not. Instead of thinking about whether my code _worked_ I began to think about whether it’s _correct_.  
+Experienced software engineers all give lip service to “thinking through edge cases.” We’re supposed to consider every possible thing the world might throw at our code. Property tests force you to actually do it.  
+It’s not just about edge cases though. Thinking about properties is a mindset. And this mindset is so valuable that it’s worth practising, _even if you delete all the tests aftewards._ Sure, you’d then need to write some other tests to catch regressions. But if property tests are slowing your builds, delete them. Copy the properties into code comments or add `.skip` to your tests so you can get them back if you need. The tests aren’t the point, they’re a side-benefit.
