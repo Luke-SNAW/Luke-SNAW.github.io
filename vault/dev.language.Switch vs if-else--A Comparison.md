@@ -2,7 +2,7 @@
 id: h1Xiu9HcFfjIwSPhAZy3Z
 title: "Switch vs if…else: A Comparison"
 desc: ""
-updated: 1644825576363
+updated: 1646364671471
 created: 1644825544998
 ---
 
