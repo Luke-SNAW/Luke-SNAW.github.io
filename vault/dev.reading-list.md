@@ -2,7 +2,7 @@
 id: pc5x8fihvgy53vw9f9ws7vc
 title: Reading List
 desc: ""
-updated: 1646036764001
+updated: 1646699307905
 created: 1645682628574
 ---
 
@@ -14,3 +14,7 @@ created: 1645682628574
 - [[dev.functional-programming.FP+Monads]]
 - https://justine.lol/lambda/
   - https://news.ycombinator.com/item?id=30493713
+
+# WIP
+
+- [[dev.javascript.language.JavaScript Execution Context – How JS Works Behind The Scenes]]

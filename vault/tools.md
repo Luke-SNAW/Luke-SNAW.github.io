@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1646265578185
+updated: 1646699590092
 created: 1644799670081
 ---
 
@@ -49,3 +49,8 @@ created: 1644799670081
 - [reveal-md](https://github.com/webpro/reveal-md): reveal.js on steroids! Get beautiful reveal.js presentations from any Markdown file.
 - [Slidev](https://github.com/slidevjs/slidev): Presentation Slides for Developers (Beta)
 - [Pandoc](https://pandoc.org/): a universal document converter
+
+# Documentation
+
+- [readme.so](https://github.com/octokatherine/readme.so): An online drag-and-drop editor to easily build READMEs
+- [resume.io](https://resume.io/): ONLINE RESUME BUILDER
