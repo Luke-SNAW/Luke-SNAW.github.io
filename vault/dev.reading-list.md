@@ -2,10 +2,11 @@
 id: pc5x8fihvgy53vw9f9ws7vc
 title: Reading List
 desc: ""
-updated: 1646699307905
+updated: 1646822738569
 created: 1645682628574
 ---
 
+- [James Coglan: Practical functional programming: pick two | JSConf EU 2014](https://www.youtube.com/watch?v=XcS-LdEBUkE)
 - [[dev.test.HOW TO GET STARTED WITH PROPERTY-BASED TESTING IN JAVASCRIPT USING FAST-CHECK#references]]
 - 🌟 [Hooks: React’s do-notation](https://devanshj.me/writings/hooks-reacts-do-notation)
 - [Algebraic Effects for the Rest of Us](https://overreacted.io/algebraic-effects-for-the-rest-of-us/)
