@@ -13,3 +13,7 @@ created: 1644971383110
 
 - [Ticket Number Generator, by OneHat](https://chrome.google.com/webstore/detail/ticket-number-generator-b/mkiflbeenlaomokhbibbgillnkppgane)
 - [StoryPoint for Asana](https://chrome.google.com/webstore/detail/storypoint-for-asana/ipkcinfcdhhcmibffhlklololceffgnc)
+
+# A11y
+
+- [taba11y](https://chrome.google.com/webstore/detail/taba11y/aocppmckdocdjkphmofnklcjhdidgmga/related) - Visualise tab order with ease

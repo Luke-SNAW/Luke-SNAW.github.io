@@ -10,3 +10,4 @@ created: 1646613084338
   - [1000x Faster Spelling Correction algorithm](https://seekstorm.com/blog/1000x-spelling-correction/)
 - [Why […‘👩‍❤️‍💋‍👨’] returns [‘👩’, ‘‍’, ‘❤’, ‘️’, ‘‍’, ‘💋’, ‘‍’, ‘👨’] in JavaScript?](https://medium.com/frontend-canteen/why-%EF%B8%8F-returns-%EF%B8%8F-in-javascript-7b890e3a13b2)
 - [Bugs in Hello World](https://blog.sunfishcode.online/bugs-in-hello-world/)
+- [Tailwind CSS Docs Workflow for Alfred](https://github.com/techouse/alfred-tailwindcss-docs)

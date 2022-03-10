@@ -12,3 +12,4 @@ created: 1644885695231
   - details
   - meter
   - progress
+- [Explain the First 10 Lines of Twitter’s Source Code to Me](https://css-tricks.com/explain-the-first-10-lines-of-twitter-source-code/)

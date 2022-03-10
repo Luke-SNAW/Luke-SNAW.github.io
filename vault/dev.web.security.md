@@ -2,7 +2,7 @@
 id: fm8vm79bnyq6fq1gu2oq2zr
 title: Security
 desc: ""
-updated: 1646612211170
+updated: 1646870714883
 created: 1645751778639
 ---
 
@@ -15,4 +15,4 @@ created: 1645751778639
 - [Trusted Types API for JavaScript DOM Security](https://blog.bitsrc.io/trusted-types-api-for-javascript-dom-security-fcdafa927e73)
 - [Don’t try to sanitize input. Escape output.](https://benhoyt.com/writings/dont-sanitize-do-escape/)
   - https://news.ycombinator.com/item?id=29921276
-- [Retrieving your browsing history through a CAPTCHA](https://varun.ch/history): The `:visited` pseudo-class poses privacy risks for people who surf the web. As a user, you can stop web pages from tracking your history by disabling visited link highlighting in your web browser.
+- [Retrieving your browsing history through a CAPTCHA](https://varun.ch/history) - The `:visited` pseudo-class poses privacy risks for people who surf the web. As a user, you can stop web pages from tracking your history by disabling visited link highlighting in your web browser.
