@@ -2,11 +2,11 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1646011939695
+updated: 1647146253402
 created: 1646011769978
 ---
 
-- [Dendron](https://github.com/dendronhq/dendron): The personal knowledge management (PKM) tool that grows as you do!
+- [Dendron](https://github.com/dendronhq/dendron) - The personal knowledge management (PKM) tool that grows as you do!
 - [P42 JavaScript Assistant: Refactoring Hints & Automation](https://marketplace.visualstudio.com/items?itemName=p42ai.refactor#p42refactor)
 - Markdown All in One
   - section numbering : Ctrl+Alt+P -> section
@@ -16,15 +16,16 @@ created: 1646011769978
 - Regions With Colors
 - Prettier-Standard
 - Add jsdoc comments
-- [GistPad](https://github.com/lostintangent/gistpad): VS Code extension for managing and sharing code snippets, notes and interactive samples using GitHub Gists
+- [GistPad](https://github.com/lostintangent/gistpad) - VS Code extension for managing and sharing code snippets, notes and interactive samples using GitHub Gists
 - [Database Client](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-database-client2)
-- [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh): Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.
+- [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) - Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.
 
 # Testing
 
-- [Live Frame](https://marketplace.visualstudio.com/items?itemName=jevakallio.vscode-live-frame): Live preview your web application inside VS Code
-- [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman): Mark/Highlight code blocks
+- [Live Frame](https://marketplace.visualstudio.com/items?itemName=jevakallio.vscode-live-frame) - Live preview your web application inside VS Code
+- [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman) - Mark/Highlight code blocks
 - [AI Doc Writer for JavaScript, TypeScript, Python, and PHP](https://marketplace.visualstudio.com/items?itemName=mintlify.document): The AI powered documentation writer
+- [XState VSCode](https://marketplace.visualstudio.com/items?itemName=statelyai.stately-vscode) - Visual editing, autocomplete and typegen for XState
 
 # Etc
 

@@ -2,7 +2,7 @@
 id: VR93wLLm4G5ngJpglyKwb
 title: Chrome Extensions
 desc: ""
-updated: 1644971986965
+updated: 1647147251338
 created: 1644971383110
 ---
 
@@ -16,4 +16,6 @@ created: 1644971383110
 
 # A11y
 
-- [taba11y](https://chrome.google.com/webstore/detail/taba11y/aocppmckdocdjkphmofnklcjhdidgmga/related) - Visualise tab order with ease
+- [taba11y](https://chrome.google.com/webstore/detail/taba11y/aocppmckdocdjkphmofnklcjhdidgmga/) - Visualise tab order with ease
+- [Google Chrome Lighthouse](https://github.com/GoogleChrome/lighthouse)
+  - [Microsoft Accessibility Insights for Web](https://chrome.google.com/webstore/detail/accessibility-insights-fo/pbjjkligggfmakdaogkfomddhfmpjeni/)

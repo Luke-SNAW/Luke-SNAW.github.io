@@ -2,7 +2,7 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1646183959441
+updated: 1647146366828
 created: 1645666821126
 ---
 
@@ -14,3 +14,4 @@ created: 1645666821126
 - [React with TypeScript Cheatsheet. An answer to all your React typing…](https://blog.bitsrc.io/react-with-typescript-cheatsheet-9dd891dc5bfe)
 - [Avoid React Re-Renders with Automatic Batching](https://blog.bitsrc.io/avoid-react-re-renders-with-automatic-batching-dc8a76ce6de4): batching is not applied to cases like promises, setTimeout, native event handlers, and so on by default. Starting from React 18, there is a new root API called createRoot which allows you to use all the concurrent features of React 18.
 - [REACT: USESTATE VS USEREDUCER](https://tasoskakour.com/blog/react-use-state-vs-use-reducer): see section of `Comparing the two implementations`
+- [The React Cheatsheet for 2022](https://www.freecodecamp.org/news/the-react-cheatsheet)
