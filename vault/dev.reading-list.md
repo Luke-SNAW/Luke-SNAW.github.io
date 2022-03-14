@@ -6,6 +6,8 @@ updated: 1646822738569
 created: 1645682628574
 ---
 
+- [Tao of React - Software Design, Architecture & Best Practices](https://alexkondov.com/tao-of-react/)
+- [Code Smells](https://refactoring.guru/refactoring/smells)
 - [James Coglan: Practical functional programming: pick two | JSConf EU 2014](https://www.youtube.com/watch?v=XcS-LdEBUkE)
 - [[dev.test.HOW TO GET STARTED WITH PROPERTY-BASED TESTING IN JAVASCRIPT USING FAST-CHECK#references]]
 - 🌟 [Hooks: React’s do-notation](https://devanshj.me/writings/hooks-reacts-do-notation)

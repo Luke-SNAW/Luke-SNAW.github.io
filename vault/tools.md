@@ -9,6 +9,12 @@ created: 1644799670081
 - [n8n](https://github.com/n8n-io/n8n) - Free and open fair-code licensed node based Workflow Automation Tool. Easily automate tasks across different services.
 - [KeePassXC ](https://github.com/keepassxreboot/keepassxc) is a cross-platform community-driven port of the Windows application “Keepass Password Safe”.
 
+# New letter
+
+## Dev
+
+- https://alexkondov.com/
+
 # Web browser extensions
 
 - [SingleFile](https://github.com/gildas-lormeau/SingleFile) is a Web Extension (and a CLI tool) compatible with Chrome, Firefox (Desktop and Mobile), Microsoft Edge, Vivaldi, Brave, Waterfox, Yandex browser, and Opera. It helps you to save a complete web page into a single HTML file.
@@ -55,3 +61,7 @@ created: 1644799670081
 
 - [readme.so](https://github.com/octokatherine/readme.so) - An online drag-and-drop editor to easily build READMEs
 - [resume.io](https://resume.io/) - ONLINE RESUME BUILDER
+
+# Testing
+
+- [Smort](https://www.smort.io/) lets you easily edit, annotate and share articles.
