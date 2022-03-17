@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1646870653895
+updated: 1647480365998
 created: 1644799670081
 ---
 
@@ -13,7 +13,7 @@ created: 1644799670081
 
 ## Dev
 
-- https://alexkondov.com/
+- [Code Philosophy](https://www.codephilosophy.co/) - https://alexkondov.com/
 
 # Web browser extensions
 
@@ -61,6 +61,10 @@ created: 1644799670081
 
 - [readme.so](https://github.com/octokatherine/readme.so) - An online drag-and-drop editor to easily build READMEs
 - [resume.io](https://resume.io/) - ONLINE RESUME BUILDER
+
+# Network
+
+- [tailscale](https://tailscale.com/) - Zero config VPN. Installs on any device in minutes, manages firewall rules for you, and works from anywhere.
 
 # Testing
 

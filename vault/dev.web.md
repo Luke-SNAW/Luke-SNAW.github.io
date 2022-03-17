@@ -25,3 +25,7 @@ created: 1645751512675
 # Stats
 
 - [An annual state of the web report for 2021](https://almanac.httparchive.org/en/2021/table-of-contents)
+
+# Webview Case
+
+- [Inspecting Web Views in macOS](https://blog.jim-nielsen.com/2022/inspecting-web-views-in-macos/)

@@ -24,8 +24,8 @@ created: 1646011769978
 
 - [Live Frame](https://marketplace.visualstudio.com/items?itemName=jevakallio.vscode-live-frame) - Live preview your web application inside VS Code
 - [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman) - Mark/Highlight code blocks
-- [AI Doc Writer for JavaScript, TypeScript, Python, and PHP](https://marketplace.visualstudio.com/items?itemName=mintlify.document): The AI powered documentation writer
 - [XState VSCode](https://marketplace.visualstudio.com/items?itemName=statelyai.stately-vscode) - Visual editing, autocomplete and typegen for XState
+- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
 # Etc
 

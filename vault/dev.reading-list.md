@@ -20,4 +20,5 @@ created: 1645682628574
 
 # WIP
 
+- [[dev.functional-programming.A primer on functional architecture]]
 - [[dev.javascript.language.JavaScript Execution Context – How JS Works Behind The Scenes]]

@@ -2,7 +2,7 @@
 id: oupetc54rid9460a481qly3
 title: Tools
 desc: ""
-updated: 1646012049967
+updated: 1647479326045
 created: 1646012035359
 ---
 
@@ -25,3 +25,8 @@ created: 1646012035359
 - [joi](https://github.com/sideway/joi) - The most powerful data validation library for JS
 - [Ajv JSON schema validator](https://github.com/ajv-validator/ajv) - The fastest JSON schema Validator. Supports JSON Schema draft-04/06/07/2019-09/2020-12 and JSON Type Definition (RFC8927)
 - [express-validator](https://github.com/express-validator/express-validator) - An express.js middleware for validator.js.
+
+# Log
+
+- [winston](https://github.com/winstonjs/winston) is designed to be a simple and universal logging library with support for multiple transports. A transport is essentially a storage device for your logs. Each winston logger can have multiple transports (see: [Transports](https://github.com/winstonjs/winston#transports)) configured at different levels (see: [Logging levels](https://github.com/winstonjs/winston#logging-levels)). For example, one may want error logs to be stored in a persistent remote location (like a database), but all logs output to the console or a local file.
+- 🌲 [pino](https://github.com/pinojs/pino) - super fast, all natural json logger
