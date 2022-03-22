@@ -2,7 +2,7 @@
 id: 1v3zueuge3dc4szjhatotul
 title: Tools
 desc: ""
-updated: 1647562741269
+updated: 1647822669465
 created: 1646130002277
 ---
 
@@ -12,7 +12,6 @@ created: 1646130002277
 - [Replacing Sass - Shopify/foundational-design-system-proto](https://github.com/Shopify/foundational-design-system-proto/discussions/44)
 - [CSS Solutions - Solution analysis for Polaris Foundations](https://docs.google.com/spreadsheets/d/1rxrRTlbNWiLVu-Q5IK7xh5O1FmWcjyAS2XN7jiPrhYM/edit#gid=0)
 - [unocss](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
-- [PostCSS](https://github.com/postcss/postcss) is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
 - [open-props](https://github.com/argyleink/open-props) - CSS custom properties to help accelerate adaptive and consistent design.
 - [Tailwind CSS Components](https://postsrc.com/components)
 - [CSS Protips](https://github.com/AllThingsSmitty/css-protips) - Open Source CSS Variables. A collection of tips to help take your CSS skills pro
@@ -31,3 +30,8 @@ created: 1646130002277
 - [SQIP](https://github.com/axe312ger/sqip) is a SVG-based LQIP technique.
 - [Fluent System Icons](https://github.com/microsoft/fluentui-system-icons) are a collection of familiar, friendly and modern icons from Microsoft.
   - [Fluenticons Viewer](https://fluenticons.co/)
+
+# Divops
+
+- [CSS Checker](https://github.com/ruilisi/css-checker) - Show Similar & Duplicated CSS Scripts with Diff in Seconds!
+- [PostCSS](https://github.com/postcss/postcss) is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
