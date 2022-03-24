@@ -2,12 +2,13 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1647908657726
+updated: 1648596459108
 created: 1644799670081
 ---
 
 - [n8n](https://github.com/n8n-io/n8n) - Free and open fair-code licensed node based Workflow Automation Tool. Easily automate tasks across different services.
 - [KeePassXC ](https://github.com/keepassxreboot/keepassxc) is a cross-platform community-driven port of the Windows application “Keepass Password Safe”.
+- [Zulip](https://github.com/zulip/zulip/) is an open-source team collaboration tool with unique [topic-based threading](https://zulip.com/why-zulip/) that combines the best of email and chat to make remote work productive and delightful.
 
 # New letter
 
@@ -42,6 +43,8 @@ created: 1644799670081
 - [Slidev](https://github.com/slidevjs/slidev) - Presentation Slides for Developers (Beta)
 - [Pandoc](https://pandoc.org/) - a universal document converter
 - [Every Time Zone](https://everytimezone.com/s/9d95c4da) - Never warp your brain with time zone math again.
+- [Ilograph](https://www.ilograph.com/) - Interactive Diagrams
+- [diagrams.net](https://www.diagrams.net/) - Security-first diagramming for teams.
 
 # Documentation
 
