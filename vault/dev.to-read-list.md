@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1648536558054
+updated: 1648684306996
 created: 1645681934406
 ---
 
@@ -12,6 +12,7 @@ created: 1645681934406
 - https://mbeaudru.github.io/modern-js-cheatsheet/
 - https://itnext.io/frontend-interview-cheatsheet-that-helped-me-to-get-offer-on-amazon-and-linkedin-cba9584e33c7
 - [How a Kalman filter works, in pictures](https://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/)
+  - https://news.ycombinator.com/item?id=29473271
   - https://www.youtube.com/playlist?app=desktop&list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT
 - [Neural Networks from Scratch](https://aegeorge42.github.io/)
   - https://colah.github.io/posts/2015-08-Backprop/
@@ -27,6 +28,8 @@ created: 1645681934406
 - [19 Web Security Interview Questions for Front End Developers](https://www.fullstack.cafe/blog/web-security-interview-questions)
 - https://cuddly-octo-palm-tree.com/tags/monad-tutorial/
 - [How to build a second brain as a software developer](https://aseemthakar.com/how-to-build-a-second-brain-as-a-software-developer/)
+- https://www.kalzumeus.com/2012/01/23/salary-negotiation/
+- https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/
 
 # PL
 
@@ -84,6 +87,8 @@ created: 1645681934406
 
 - [PlantUML](https://plantuml.com/ko/)
 - [Getting Started with Tmux [Beginner's Guide]](https://linuxhandbook.com/tmux/)
+- https://httptoolkit.tech/
+- https://github.com/httpie/httpie
 
 # Long Term
 

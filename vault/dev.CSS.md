@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1647909310186
+updated: 1648775957302
 created: 1646129148306
 ---
 
@@ -13,6 +13,7 @@ created: 1646129148306
   - [:is() does not work with pseudo-element selectors (for now)](https://www.bram.us/2021/03/19/three-important-things-you-should-know-about-css-is/#simple-selectors)
 
 - [When to Avoid the text-decoration Shorthand Property](https://css-tricks.com/when-to-avoid-css-text-decoration-shorthand/) - [CSS underline bugs in Chrome](https://css-tricks.com/css-underlines-are-too-thin-and-too-low-in-chrome/)
+- [revert](https://developer.mozilla.org/en-US/docs/Web/CSS/revert)
 
 # Cascade Precedence
 

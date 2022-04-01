@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1647147332940
+updated: 1649036982068
 created: 1644882116217
 ---
 
@@ -21,3 +21,8 @@ created: 1644882116217
 # A11y
 
 - [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+- [A11y Dialog](https://github.com/KittyGiraudel/a11y-dialog)
+
+# Prettier
+
+- Proposals for nested ternary formatting [#9561](https://github.com/prettier/prettier/issues/9561)
