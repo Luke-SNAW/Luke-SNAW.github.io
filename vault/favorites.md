@@ -16,10 +16,9 @@ published: false
 - Colombia - 10%?
 - Sanghai - 5%?
 - Stockholm - 5%?
+- Indonesia - 에스프레소 2배 안되게...
 
 ### 불호
-
-- Indonesia
 
 ## Jardin Reve - 쟈뎅 레브
 
@@ -46,3 +45,10 @@ published: false
 # body-wash
 
 - 닥터브로너스 베이비 언센티드 퓨어 캐스틸 솝 950ml
+
+# hardware
+
+## ear gear
+
+- [수월우 네임리스 무명 오픈형 이어폰 초장기 베스트셀링 CCAW](https://smartstore.naver.com/ankihouse/products/4943556472?NaPm=ct%3Dl1h8kloa%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3D%7Chk%3Dedc80cb23a4af1b011cb2a65d93ed857f48c36d3) - 43,800원, 2022/04/02~
+- [PRESONUS Eris E4.5](https://smartstore.naver.com/shure/products/3475931270?NaPm=ct%3Dl1hab7bf%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3D%7Chk%3D5518671b62025add914db44f9893ed5d5fa44ae1) -262,000원, 2021/01/12~
