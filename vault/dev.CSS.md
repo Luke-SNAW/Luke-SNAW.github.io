@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1648775957302
+updated: 1649315342117
 created: 1646129148306
 ---
 
@@ -14,6 +14,8 @@ created: 1646129148306
 
 - [When to Avoid the text-decoration Shorthand Property](https://css-tricks.com/when-to-avoid-css-text-decoration-shorthand/) - [CSS underline bugs in Chrome](https://css-tricks.com/css-underlines-are-too-thin-and-too-low-in-chrome/)
 - [revert](https://developer.mozilla.org/en-US/docs/Web/CSS/revert)
+- [media query: hover](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover)
+- [media query: pointer](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer)
 
 # Cascade Precedence
 
