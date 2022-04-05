@@ -2,8 +2,14 @@
 id: 1mi9m99hBJq32lfoqGdNB
 title: Test
 desc: ""
-updated: 1646264227298
+updated: 1649132289706
 created: 1645055059758
+---
+
+- QA - 제품 개발단계에서 품질보증 활동 (고품질 확보)
+- QC - 제품 양산 단계에서 품질관리 (불량품 제거)
+- QE - QA/QC를 수행하기 위한 모든 엔지니어링 활동 (자동화 T/C설계, 테스트용 데이터 생성)
+
 ---
 
 - [TDD Changed My Life](https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80)
