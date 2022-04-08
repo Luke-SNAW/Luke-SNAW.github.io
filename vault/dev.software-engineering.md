@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1645514211869
+updated: 1649476767969
 created: 1645514209965
 ---
 
@@ -19,3 +19,4 @@ created: 1645514209965
 - [Best career advice: ask for feedback](https://xdg.me/ask-for-feedback/)
 - [Programming to Interface Vs to Implementation](https://dmitripavlutin.com/interface-vs-implementation/)
 - [The Catalog of Design Patterns](https://refactoring.guru/design-patterns/catalog)
+- [Make It Work Make It Right Make It Fast](https://wiki.c2.com/?MakeItWorkMakeItRightMakeItFast) is an assertion that if you can "make it right", you'll be able to "make it fast" later.

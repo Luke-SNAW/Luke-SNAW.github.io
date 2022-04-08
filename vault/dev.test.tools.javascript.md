@@ -2,12 +2,13 @@
 id: l0icikuzriyciqacnfsyfnx
 title: JavaScript
 desc: ""
-updated: 1646183128229
+updated: 1649482347978
 created: 1646182938803
 ---
 
 - [Faker](https://github.com/faker-js/faker): Generate massive amounts of fake data in the browser and node.js
 - [Responsively App](https://github.com/responsively-org/responsively-app): A modified web browser that helps in responsive web development.
+- [Real World Testing with Cypress](https://learn.cypress.io/)
 - [Cypress Real Events](https://github.com/dmtrKovalenko/cypress-real-events)
 
 ---

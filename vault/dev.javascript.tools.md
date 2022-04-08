@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1649036982068
+updated: 1649462674200
 created: 1644882116217
 ---
 
@@ -13,6 +13,8 @@ created: 1644882116217
   - You can load only required features or use it without global namespace pollution.
 - [imaskjs](https://github.com/uNmAnNeR/imaskjs) - vanilla javascript input mask
 - [neo.mjs](https://github.com/neomjs/neo) - Web Worker enhanced frontend framework.
+- [Rome](https://github.com/rome/tools) is a formatter, linter, bundler, and [more](https://rome.tools/#philosophy) for JavaScript, TypeScript, JSON, HTML, Markdown, and CSS.
+  - Rome is designed to replace Babel, ESLint, webpack, Prettier, Jest, and others.
 
 # CSS
 
