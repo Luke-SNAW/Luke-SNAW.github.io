@@ -2,12 +2,14 @@
 id: 4qo9ma0z0yu1czns6pxl7y5
 title: Favorites
 desc: ""
-updated: 1648204390388
+updated: 1649405059355
 created: 1648204390388
 published: false
 ---
 
 # 캡슐 커피
+
+어쩔 땐 정말 좋았는데 어쩔 땐 그저 그렇고... QA보단 내 컨디션?에 변동 때문이겠지?
 
 ## Nescafe
 

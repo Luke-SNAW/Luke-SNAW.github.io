@@ -2,8 +2,14 @@
 id: 5rioe4k2rdpntjifq3le9h6
 title: Tweaking In The Browser
 desc: ""
-updated: 1649314538758
+updated: 1649384639577
 created: 1649314199352
+---
+
+Avoid context switching.  
+Focus on each step. Do not think about the next step.  
+ex. Draft → Refine → Design → Implement → Refactoring → Optimizing.
+
 ---
 
 https://ishadeed.com/article/tweaking-in-the-browser/
