@@ -2,13 +2,18 @@
 id: vd87oonlcrya7pyvpsn4ort
 title: Posture
 desc: ""
-updated: 1649455332383
+updated: 1649853935816
 created: 1649455134642
 ---
 
 # Core
 
 ## ASIS
+
+### 2022/04/13
+
+그냥 ASIS 밑을 늘려 ASIS는 들어올리는 느낌으로 + 옵션으로 둔근 조이기  
+하니 뒷꿈치 저림만 있고 나머지는 거의 없음
 
 ### 2022/04/09
 
