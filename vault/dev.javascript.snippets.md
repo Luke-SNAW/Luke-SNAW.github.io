@@ -2,7 +2,7 @@
 id: vjlre6d942v52sjkc0u3a95
 title: Snippets
 desc: ""
-updated: 1649406994247
+updated: 1649893451075
 created: 1649396518867
 ---
 
@@ -18,3 +18,5 @@ const person = {
   ...(age >= 18 || (isValid && { card: 0 })),
 };
 ```
+
+# [58 JavaScript Tips and Tricks for Web Developers](https://blog.bitsrc.io/common-js-development-skills-5053f0a74ced)
