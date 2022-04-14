@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1649476767969
+updated: 1649980432627
 created: 1645514209965
 ---
 
@@ -20,3 +20,8 @@ created: 1645514209965
 - [Programming to Interface Vs to Implementation](https://dmitripavlutin.com/interface-vs-implementation/)
 - [The Catalog of Design Patterns](https://refactoring.guru/design-patterns/catalog)
 - [Make It Work Make It Right Make It Fast](https://wiki.c2.com/?MakeItWorkMakeItRightMakeItFast) is an assertion that if you can "make it right", you'll be able to "make it fast" later.
+- [Eight tips to Write Functions like a Senior Developer](https://medium.com/@dhruba-dahal/eight-tips-to-write-functions-like-a-senior-developer-794140719351)
+  - Do one thing and do it well
+  - Never use flag arguments
+  - Prefer exceptions over error codes
+  - Make separation between command and query

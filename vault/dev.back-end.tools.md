@@ -2,11 +2,12 @@
 id: TN3SWriksRFA35jnzNKzy
 title: Tools
 desc: ""
-updated: 1648772664399
+updated: 1649976005844
 created: 1645523891283
 ---
 
 - [appwrite](https://github.com/appwrite/appwrite) - Secure Backend Server for Web, Mobile & Flutter Developers 🚀 AKA the 100% open-source Firebase alternative.
+- [mkcert](https://github.com/FiloSottile/mkcert) is a simple tool for making locally-trusted development certificates. It requires no configuration.
 
 # API
 

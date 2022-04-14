@@ -2,13 +2,14 @@
 id: VR93wLLm4G5ngJpglyKwb
 title: Chrome Extensions
 desc: ""
-updated: 1647908669556
+updated: 1649979519859
 created: 1644971383110
 ---
 
 - [Screenity](https://chrome.google.com/webstore/detail/screenity-screen-recorder/kbbdabhdfibnancpjfhlkhafgdilcnji)
 - [Altair GraphQL Client](https://chrome.google.com/webstore/detail/altair-graphql-client/flnheeellpciglgpaodhkhmapeljopja)
 - [30 Seconds of Knowledge](https://chrome.google.com/webstore/detail/30-seconds-of-knowledge/mmgplondnjekobonklacmemikcnhklla)
+- [Wordtune](https://chrome.google.com/webstore/detail/wordtune-ai-powered-writi/nllcnknpjnininklegdoijpljgdjkijc) - AI-powered Writing Companion
 
 # Accessibility
 
