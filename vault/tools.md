@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1649898268507
+updated: 1650237535744
 created: 1644799670081
 ---
 
@@ -15,6 +15,10 @@ created: 1644799670081
 - [KeePassXC ](https://github.com/keepassxreboot/keepassxc) is a cross-platform community-driven port of the Windows application “Keepass Password Safe”.
 - [Zulip](https://github.com/zulip/zulip/) is an open-source team collaboration tool with unique [topic-based threading](https://zulip.com/why-zulip/) that combines the best of email and chat to make remote work productive and delightful.
 - [Privacy Tools](https://www.privacytools.io/) - Encryption Against Mass Surveillance
+- [YT-DLP](https://github.com/yt-dlp/yt-dlp) - A youtube-dl fork with additional features and fixes
+  - https://news.ycombinator.com/item?id=31061163
+    - I had never used youtube-dl until the story happened. I downloaded for windows and its speeds were throttled to around 50kB/s. Posters on Stack recommended the ytdlp fork which i tried and it was 5-10 MB/s. Just fyi
+      - The workaround for vanilla youtube-dl is to use it with aria2 ...
 
 # New letter
 
