@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1649462674200
+updated: 1650524252295
 created: 1644882116217
 ---
 
@@ -15,6 +15,7 @@ created: 1644882116217
 - [neo.mjs](https://github.com/neomjs/neo) - Web Worker enhanced frontend framework.
 - [Rome](https://github.com/rome/tools) is a formatter, linter, bundler, and [more](https://rome.tools/#philosophy) for JavaScript, TypeScript, JSON, HTML, Markdown, and CSS.
   - Rome is designed to replace Babel, ESLint, webpack, Prettier, Jest, and others.
+- [Fasy](https://github.com/getify/fasy) - FP iterators that are both eager and asynchronous
 
 # CSS
 

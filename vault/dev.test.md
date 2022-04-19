@@ -2,7 +2,7 @@
 id: 1mi9m99hBJq32lfoqGdNB
 title: Test
 desc: ""
-updated: 1649480063771
+updated: 1650327191314
 created: 1645055059758
 ---
 
@@ -28,6 +28,18 @@ created: 1645055059758
   > With shallow rendering, I can refactor my component's implementation and my tests break. With shallow rendering, I can break my application and my tests say everything's still working.
 
   - [For actual unit testing](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering#for-actual-unittesting)
+
+# [An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach](https://dl.acm.org/doi/10.1145/2961111.2962592)
+
+- Replication study, 39 professionals, real projects
+- No significant difference between test-first and test-last development
+- "The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."
+
+# [What Do We Know about Test-Driven Development?](https://ieeexplore.ieee.org/document/5604358)
+
+## How Effective is Test-Driven Development?
+
+…evidence from controlled experiments suggests an improvement in productivity when TDD is used. However…pilot studies provide mixed evidence, some in favor of and others against TDD. In the industrial studies…evidence suggests that TDD yields worse productivity. Even when considering only the more rigorous studies…the evidence is equally split for and against a positive effect.
 
 # [HOW NOT TO WRITE PROPERTY TESTS IN JAVASCRIPT](https://jrsinclair.com/articles/2021/how-not-to-write-property-tests-in-javascript/)
 

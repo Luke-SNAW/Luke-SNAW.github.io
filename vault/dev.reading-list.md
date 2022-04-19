@@ -2,12 +2,13 @@
 id: pc5x8fihvgy53vw9f9ws7vc
 title: Reading List
 desc: ""
-updated: 1650264772469
+updated: 1650327454877
 created: 1645682628574
 ---
 
 - https://mostly-adequate.gitbook.io/mostly-adequate-guide/
 - https://github.com/getify/Functional-Light-JS
+- [Building Software Together](https://buildtogether.tech/)
 - [The Pragmatic Programmers](https://medium.com/pragmatic-programmers/directory-of-pragmatic-programmer-books-on-medium-6a5cbadbd4b4)
   - [Design and Build Great Web APIs](https://medium.com/pragmatic-programmers/table-of-contents-38e94a9476f2)
 - https://lethain.com/tags/management/

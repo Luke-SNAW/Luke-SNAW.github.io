@@ -2,7 +2,7 @@
 id: l0icikuzriyciqacnfsyfnx
 title: JavaScript
 desc: ""
-updated: 1650241637405
+updated: 1650413492793
 created: 1646182938803
 ---
 

@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1650237535744
+updated: 1650524002100
 created: 1644799670081
 ---
 
@@ -59,4 +59,5 @@ created: 1644799670081
 
 # Testing
 
+- [Take the pain out of git conflict resolution: use diff3](https://blog.nilbus.com/take-the-pain-out-of-git-conflict-resolution-use-diff3/)
 - [Smort](https://www.smort.io/) lets you easily edit, annotate and share articles.
