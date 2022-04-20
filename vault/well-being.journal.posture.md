@@ -2,13 +2,17 @@
 id: vd87oonlcrya7pyvpsn4ort
 title: Posture
 desc: ""
-updated: 1649893950704
+updated: 1650462013341
 created: 1649455134642
 ---
 
 # Core
 
 ## ASIS
+
+### 2002/04/20
+
+그냥 발바닥 무게 중심을 앞꿈치 아치 시작하는 곳으로 두니까 지금까지는 제일 낫다
 
 ### 2022/04/13
 
