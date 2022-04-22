@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1650158685817
+updated: 1650844830914
 created: 1646264359213
 ---
 
@@ -19,6 +19,7 @@ created: 1646264359213
 - [Cheetah Grid](https://github.com/future-architect/cheetah-grid) - The fastest open-source data table for web.
 - [Delivering 3D Scenes to the Web](https://rd.nytimes.com/projects/delivering-3d-scenes-to-the-web) - NY shares four demos that showcase the methods that it has found most useful for publishing photogrammetry to the web.
 - [Shepherd](https://github.com/shipshapecode/shepherd) - Guide your users through a tour of your app
+- [Lexical](https://github.com/facebook/lexical) is an extensible text editor framework that provides excellent reliability, accessibility and performance.
 
 # Scroll
 
