@@ -2,7 +2,7 @@
 id: 1v3zueuge3dc4szjhatotul
 title: Tools
 desc: ""
-updated: 1647822669465
+updated: 1650933399290
 created: 1646130002277
 ---
 
@@ -30,6 +30,12 @@ created: 1646130002277
 - [SQIP](https://github.com/axe312ger/sqip) is a SVG-based LQIP technique.
 - [Fluent System Icons](https://github.com/microsoft/fluentui-system-icons) are a collection of familiar, friendly and modern icons from Microsoft.
   - [Fluenticons Viewer](https://fluenticons.co/)
+
+## Tailwind
+
+- [daisyUI](https://github.com/saadeghi/daisyui) - The most popular, free and open-source Tailwind CSS component library
+- 🦹‍♂️ [Twin](https://github.com/ben-rogerson/twin.macro) blends the magic of Tailwind with the flexibility of css-in-js (emotion, styled-components, stitches and goober) at build time.
+- 🐳 [HyperUI](https://github.com/markmead/hyperui) is a free, open source Tailwind CSS component library.
 
 # Divops
 
