@@ -2,7 +2,7 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1651501098378
+updated: 1651534711710
 created: 1648376118821
 ---
 
@@ -19,6 +19,7 @@ created: 1648376118821
 - split squat. 12kg 1 x 5 맨 몸 1 x 5
   - 12kg. 1 x 5 했는데, dead lift 후 이기도 하고, 자세도 잘 못 잡아서 당분간 맨몸으로 하자
   - lunge인 줄 알았는데 split squat 동작이었네
+- 좀 모자른가 싶었는데 신경계에는 부담이었던 듯. 운동 후 정신이 멍... 해서 씻고 바로 잠
 
 # 04
 

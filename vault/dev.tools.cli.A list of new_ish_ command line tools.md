@@ -2,7 +2,7 @@
 id: yn68lbuog9rseo4kzfqz6sw
 title: A list of new(ish) command line tools
 desc: ""
-updated: 1649891511842
+updated: 1651019173026
 created: 1649891027466
 ---
 
@@ -59,6 +59,9 @@ Here are some tools that are not exactly replacements for standard tools:
 **JSON/YAML/CSV things:**
 
 - [jq](https://stedolan.github.io/jq/) (a great JSON-wrangling tool)
+  - https://github.com/stedolan/jq
+  - https://earthly.dev/blog/jq-select/
+  - https://news.ycombinator.com/item?id=31166956
 - [jc](https://github.com/kellyjonbrazil/jc) (convert various tools’ output into JSON)
 - [jo](https://github.com/jpmens/jo) (create JSON objects)
 - [yq](https://github.com/mikefarah/yq) (like `jq`, but for YAML). there’s also [another yq](https://github.com/kislyuk/yq)
