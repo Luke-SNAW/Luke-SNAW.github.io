@@ -2,14 +2,24 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1650793913386
+updated: 1651319329425
 created: 1648376118821
 ---
 
-상체 deloading - 5월 1일  
-하체 deloading - 5월 7일
+상체 deloading - 5월 23일  
+하체 deloading - 5월 23일
 
 # 04
+
+# 30
+
+- squat 12kg. 2 x 14, 15, 10
+- 30분 후 dead lift 12kg. 10
+  - 한 번 수행하기도 힘드네... 자세 잡는 것도 힘들고. 하긴.. 스퀏하고 다리 떨리긴 하더라
+
+# deloading
+
+- 상체 5월 1일, 하체 5월 7일 였는데 [[04 안면통+치통|well-being.journal.dental#04-안면통치통]] 때문에 강제로 4월 25~29일
 
 # 24
 
