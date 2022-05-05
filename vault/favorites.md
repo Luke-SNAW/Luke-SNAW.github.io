@@ -2,7 +2,7 @@
 id: 4qo9ma0z0yu1czns6pxl7y5
 title: Favorites
 desc: ""
-updated: 1649405059355
+updated: 1651709162576
 created: 1648204390388
 published: false
 ---
@@ -43,6 +43,10 @@ published: false
 - Smoky Midnight
   - 그냥 그럼.
   - Intensity 8/8. 과테말라 40%, 콜롬비아 40%, 인도네시아 20%
+
+## 이마트 캡슐커피
+
+싼데 딱히... 그냥 믹스를 사먹자
 
 # body-wash
 

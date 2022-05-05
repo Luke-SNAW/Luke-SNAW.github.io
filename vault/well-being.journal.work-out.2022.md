@@ -2,7 +2,7 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1651534711710
+updated: 1651756914082
 created: 1648376118821
 ---
 
@@ -10,6 +10,13 @@ created: 1648376118821
 하체 deloading - 5월 23일
 
 # 05
+
+## 05
+
+- squat 12kg. 3 x 15
+  - 오른 무릎 뚝뚝. 마지막 세트 12개부터 살짝 자세 풀림
+- split dead? 7, 10, 7
+  - 자세는 별로인 듯. squat 후에 하니 허벅지에 힘이 안 들어가긴 하네
 
 ## 02
 
