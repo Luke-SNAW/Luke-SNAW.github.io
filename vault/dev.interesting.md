@@ -1,8 +1,8 @@
 ---
 id: moi1qs3lz3lg69m5f5fw8xz
-title: Miscellaneous
+title: Interesting
 desc: ""
-updated: 1651454739944
+updated: 1651800400182
 created: 1646613084338
 ---
 
@@ -14,6 +14,8 @@ created: 1646613084338
 - [Browser in the Dark: flashlights with CSS and canvas](https://voussoir.net/writing/browser_in_the_dark)
 - [A City in a Bottle 🌆](https://mobile.twitter.com/KilledByAPixel/status/1517294627996545024)
   - [Decoding A City In A Bottle](https://observablehq.com/@darabos/decoding-a-city-in-a-bottle)
+- [Mechanical Watch](https://ciechanow.ski/mechanical-watch/) - WebGL code https://ciechanow.ski/js/watch.js
+- [Including "And. And. And. And. And." in a Google doc causes it to crash](https://support.google.com/docs/thread/162510194/including-and-and-and-and-and-in-a-google-doc-causes-it-to-crash?hl=en)
 
 # [Web scraping is legal, US appeals court reaffirms](https://techcrunch.com/2022/04/18/web-scraping-legal-court/)
 

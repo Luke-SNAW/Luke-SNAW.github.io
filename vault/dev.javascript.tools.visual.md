@@ -2,17 +2,13 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1650844830914
+updated: 1651796858106
 created: 1646264359213
 ---
 
 - [TypeIt](https://github.com/alexmacarthur/typeit) - The Most Versatile JavaScript Animated Typing Utility on the Planet
-- [Atrament](https://github.com/jakubfiala/atrament.js) - A small JS library for beautiful drawing and handwriting on the HTML Canvas.
-- [html2canvas](https://github.com/niklasvh/html2canvas) - Screenshots with JavaScript
 - [imaskjs](https://github.com/uNmAnNeR/imaskjs) - vanilla javascript input mask
-- [Viewer.js](https://github.com/fengyuanchen/viewerjs) - JavaScript image viewer.
 - [deck.gl](https://github.com/visgl/deck.gl) - WebGL2 powered geospatial visualization layers
-- [🍃 Leaflet](https://github.com/Leaflet/Leaflet) - JavaScript library for mobile-friendly interactive maps
 - [Golden Layout](https://github.com/golden-layout/golden-layout) - A multi window layout manager for webapps
 - [color](https://github.com/Qix-/color) - Javascript color conversion and manipulation library
 - [timeago.js](https://github.com/hustcc/timeago.js) - 🕗 ⌛ timeago.js is a tiny(2.0 kb) library used to format date with `*** time ago` statement.
@@ -20,6 +16,14 @@ created: 1646264359213
 - [Delivering 3D Scenes to the Web](https://rd.nytimes.com/projects/delivering-3d-scenes-to-the-web) - NY shares four demos that showcase the methods that it has found most useful for publishing photogrammetry to the web.
 - [Shepherd](https://github.com/shipshapecode/shepherd) - Guide your users through a tour of your app
 - [Lexical](https://github.com/facebook/lexical) is an extensible text editor framework that provides excellent reliability, accessibility and performance.
+
+# Canvas
+
+- [Atrament](https://github.com/jakubfiala/atrament.js) - A small JS library for beautiful drawing and handwriting on the HTML Canvas.
+- [img-comparison-slider](https://github.com/sneas/img-comparison-slider) - Image comparison slider. Compare images before and after. Supports React, Vue, Angular. - [https://img-comparison-slider.sneas.io/](https://img-comparison-slider.sneas.io/)
+- [Viewer.js](https://github.com/fengyuanchen/viewerjs) - JavaScript image viewer.
+- [html2canvas](https://github.com/niklasvh/html2canvas) - Screenshots with JavaScript
+- [🍃 Leaflet](https://github.com/Leaflet/Leaflet) - JavaScript library for mobile-friendly interactive maps
 
 # Scroll
 

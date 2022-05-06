@@ -2,7 +2,7 @@
 id: EfWFJ0GbhOHhtxxDdrbIl
 title: Tools
 desc: ""
-updated: 1651191545930
+updated: 1651797005177
 created: 1644969082223
 ---
 
@@ -13,6 +13,7 @@ created: 1644969082223
 - [React-Calendar](https://github.com/wojtekmaj/react-calendar) - Ultimate calendar for your React app.
 - [React Scrollama](https://github.com/jsonkao/react-scrollama) - Lightweight scrollytelling with the IntersectionObserver in React.
 - [rc-select](https://github.com/react-component/select) - React Select
+- [click-to-component](https://github.com/ericclemmons/click-to-component) - <kbd>Option+Click</kbd> a Component in the browser to **instantly** goto the source in your editor.
 
 # Animation
 
