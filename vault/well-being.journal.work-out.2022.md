@@ -2,14 +2,22 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1651756914082
+updated: 1652013934349
 created: 1648376118821
 ---
 
-상체 deloading - 5월 23일  
+상체 deloading - 5월 29일  
 하체 deloading - 5월 23일
 
 # 05
+
+## 08
+
+- warm up으로 맨몸 dead 1 x 15, aqua-back 14.5kg 1 x 15
+- load squat. aqua-back 14.5kg 3 x 10 + 11
+  - 하체는 여유가 느껴지는데 버티는 이두, 체력이 먼저 딸린다.
+  - back squat 하려했지만 무게 중심이 등에서 뒤쪽으로 떠서 손목이 꺾이고 팔꿈치에 무리가는게 느껴져서 그만둠. 힘줘서 잡아당기니까 승모근 부위 척추가 막 휘어 같아 별로
+  - aqua-back으로 하니 재밌다. 중심도 잡아야 하고, 균형 잃은 순간 한 쪽에 힘줘서 회복하는게 재ㅁㅆ음.
 
 ## 05
 
