@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1648684306996
+updated: 1652056505056
 created: 1645681934406
 ---
 
@@ -30,6 +30,7 @@ created: 1645681934406
 - [How to build a second brain as a software developer](https://aseemthakar.com/how-to-build-a-second-brain-as-a-software-developer/)
 - https://www.kalzumeus.com/2012/01/23/salary-negotiation/
 - https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/
+- https://mishnit.github.io/System_Design.html
 
 # PL
 

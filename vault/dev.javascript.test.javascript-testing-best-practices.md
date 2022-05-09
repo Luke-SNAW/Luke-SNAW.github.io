@@ -1,12 +1,13 @@
 ---
-id: ccpdu9vbl9cdkurtilela2j
-title: Test
+id: 3ae8ns7om5fb8ux4fdau5o2
+title: 📗🌐 🚢 JavaScript Testing Best Practices
 desc: ""
-updated: 1649476388395
-created: 1649454919529
+updated: 1652055591003
+created: 1652055549385
 ---
 
-# 📗🌐 🚢[javascript-testing-best-practices](https://github.com/goldbergyoni/javascript-testing-best-practices) - Comprehensive and exhaustive JavaScript & Node.js testing best practices (April 2022)
+Comprehensive and exhaustive JavaScript & Node.js testing best practices (April 2022)
+https://github.com/goldbergyoni/javascript-testing-best-practices
 
 - [Structure tests by the AAA pattern](https://github.com/goldbergyoni/javascript-testing-best-practices#-%EF%B8%8F-12-structure-tests-by-the-aaa-pattern)
 - [Stick to black-box testing: Test only public methods](https://github.com/goldbergyoni/javascript-testing-best-practices#-%EF%B8%8F-14-stick-to-black-box-testing-test-only-public-methods)
