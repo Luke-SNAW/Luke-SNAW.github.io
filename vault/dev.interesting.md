@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1651800400182
+updated: 1652399972529
 created: 1646613084338
 ---
 
@@ -16,6 +16,11 @@ created: 1646613084338
   - [Decoding A City In A Bottle](https://observablehq.com/@darabos/decoding-a-city-in-a-bottle)
 - [Mechanical Watch](https://ciechanow.ski/mechanical-watch/) - WebGL code https://ciechanow.ski/js/watch.js
 - [Including "And. And. And. And. And." in a Google doc causes it to crash](https://support.google.com/docs/thread/162510194/including-and-and-and-and-and-in-a-google-doc-causes-it-to-crash?hl=en)
+- [Fastest-ever logic gates could make computers a million times faster](https://newatlas.com/electronics/fastest-ever-logic-gates-computers-million-times-faster-petahertz/)
+  - https://news.ycombinator.com/item?id=31356109
+  - Photonic computing, to accelerate both logic gates and data transfer, is an incredibly broad and exciting field. While a lot of the promise is still in the lab, real advances are currently being commercialized.
+    - [https://spie.org/news/photonics-focus/marapr-2022/harnessing...](https://spie.org/news/photonics-focus/marapr-2022/harnessing-light-for-photonic-computing?SSO=1)
+    - [https://www.nextplatform.com/2022/03/17/luminous-shines-a-li...](https://www.nextplatform.com/2022/03/17/luminous-shines-a-light-on-optical-architecture-for-future-ai-supercomputer/)
 
 # [Web scraping is legal, US appeals court reaffirms](https://techcrunch.com/2022/04/18/web-scraping-legal-court/)
 

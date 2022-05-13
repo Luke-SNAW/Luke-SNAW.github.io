@@ -2,7 +2,7 @@
 id: TN3SWriksRFA35jnzNKzy
 title: Tools
 desc: ""
-updated: 1649976005844
+updated: 1652403882224
 created: 1645523891283
 ---
 
@@ -19,6 +19,7 @@ created: 1645523891283
 - [directus](https://github.com/directus/directus) - Open-Source Data Platform 🐰 — Directus wraps any SQL database with a real-time GraphQL+REST API and an intuitive app for non-technical users.
 - [API Hub - Free Public & Open Rest APIs](https://rapidapi.com/hub) - Discover and connect to thousands of APIs
 - [PostgREST](https://github.com/PostgREST/postgrest) serves a fully RESTful API from any existing PostgreSQL database. It provides a cleaner, more standards-compliant, faster API than you are likely to write from scratch.
+- [mitmproxy2swagger](https://github.com/alufers/mitmproxy2swagger) - A tool for automatically converting [mitmproxy](https://mitmproxy.org/) captures to [OpenAPI 3.0](https://swagger.io/specification/) specifications. This means that you can automatically reverse-engineer REST APIs by just running the apps and capturing the traffic.
 
 # Low code
 

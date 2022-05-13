@@ -2,7 +2,7 @@
 id: EfWFJ0GbhOHhtxxDdrbIl
 title: Tools
 desc: ""
-updated: 1651797005177
+updated: 1652405103271
 created: 1644969082223
 ---
 
@@ -21,3 +21,8 @@ created: 1644969082223
 - ✌️ [react-spring](https://github.com/pmndrs/react-spring) - A spring physics based React animation library
 - [useHooks](https://github.com/uidotdev/usehooks) - Easy to understand React Hook code recipes
 - 🎥 [Remotion](https://github.com/remotion-dev/remotion) - Create videos programmatically in React
+
+# Scroll
+
+- [Scrollex](https://github.com/malerba118/scrollex) - Build beautiful scroll experiences using minimal code
+  - https://scrollex-docs.vercel.app/
