@@ -2,7 +2,7 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1652181765406
+updated: 1652621256278
 created: 1648376118821
 ---
 
@@ -10,6 +10,22 @@ created: 1648376118821
 하체 deloading - 5월 23일
 
 # 05
+
+aqua-back 17.4kg
+
+## 15
+
+- push up. 책 9권. 손 어깨 위치 3 x 10
+  - 논스톱으로는 못함
+  - 아직 자세도 부족하고
+- row. 철봉 101cm 높이 10, 8, 4
+
+## 14
+
+- warm up으로 맨몸 squat 1 x 15
+- load squat. aqua-back 14.5kg 2 x 11 + 15
+- dead. aqua-back 14.5kg 3 x 15
+- 14.5 가볍다. 늘리자
 
 ## 10
 
