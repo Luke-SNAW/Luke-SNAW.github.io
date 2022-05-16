@@ -2,10 +2,12 @@
 id: pc5x8fihvgy53vw9f9ws7vc
 title: Reading List
 desc: ""
-updated: 1650960434818
+updated: 1652689370136
 created: 1645682628574
 ---
 
+- [How to embrace asynchronous communication for remote work](https://about.gitlab.com/company/culture/all-remote/asynchronous/)
+- https://javascript.info
 - https://mostly-adequate.gitbook.io/mostly-adequate-guide/
 - https://github.com/getify/Functional-Light-JS
 - https://ris.utwente.nl/ws/portalfiles/portal/6142049/meijer91functional.pdf
