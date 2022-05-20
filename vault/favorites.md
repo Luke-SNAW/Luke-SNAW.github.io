@@ -2,7 +2,7 @@
 id: 4qo9ma0z0yu1czns6pxl7y5
 title: Favorites
 desc: ""
-updated: 1651709162576
+updated: 1653303979304
 created: 1648204390388
 published: false
 ---
@@ -58,3 +58,30 @@ published: false
 
 - [수월우 네임리스 무명 오픈형 이어폰 초장기 베스트셀링 CCAW](https://smartstore.naver.com/ankihouse/products/4943556472?NaPm=ct%3Dl1h8kloa%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3D%7Chk%3Dedc80cb23a4af1b011cb2a65d93ed857f48c36d3) - 43,800원, 2022/04/02~
 - [PRESONUS Eris E4.5](https://smartstore.naver.com/shure/products/3475931270?NaPm=ct%3Dl1hab7bf%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3D%7Chk%3D5518671b62025add914db44f9893ed5d5fa44ae1) -262,000원, 2021/01/12~
+
+# Food
+
+## 탄수화물
+
+- Weet-bix
+
+## 반찬
+
+- 고추된장박이
+
+## Junk
+
+- 피코크 유기농 버터비스킷
+
+# 술
+
+## 호
+
+- 구덴 카를로스
+- 라이온 스타우트
+- 올드 라스푸틴
+- 바이엔슈테판 - 비투스, 헤페
+
+## 불호
+
+- 에비스 - 나름 괜찮치만 굳이?

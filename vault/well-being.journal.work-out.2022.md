@@ -2,7 +2,7 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1652972388322
+updated: 1653398829046
 created: 1648376118821
 ---
 
@@ -12,6 +12,25 @@ created: 1648376118821
 # 05
 
 aqua-back 17.4kg
+
+## 24
+
+- push up. 책 9권. 손 어깨 위치 12 + 12 + 8, 무릎 대고 10
+  - 논스톱 안 됨, 자세는 조금 나아짐
+- row. 철봉 101cm 높이 10, 9, 4.5, -4
+
+## 22
+
+- 맨몸 dead 1 x 10
+- dead. aqua-back 17.4kg 1 x 10
+- load squat. aqua-back 17.4kg 2 x 11 + 12
+- dead. 12kg 1 x 5
+
+## 20
+
+- push up. 책 9권. 손 어깨 위치 3 x 11
+  - 논스톱 안 됨, 자세 부족
+- row. 철봉 101cm 높이 10, 8, 4, -4
 
 ## 19
 
