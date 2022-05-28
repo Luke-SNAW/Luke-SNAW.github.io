@@ -2,7 +2,7 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1653398829046
+updated: 1653741021869
 created: 1648376118821
 ---
 
@@ -12,6 +12,13 @@ created: 1648376118821
 # 05
 
 aqua-back 17.4kg
+
+## 28
+
+- load squat. aqua-back 17.4kg 2 x 12 + 14
+  - 무게 늘려도 될 듯
+- dead. 12kg 3 x 10
+  - 자세는 좀 모자름
 
 ## 24
 

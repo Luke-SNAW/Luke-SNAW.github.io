@@ -2,7 +2,7 @@
 id: 4qo9ma0z0yu1czns6pxl7y5
 title: Favorites
 desc: ""
-updated: 1653303979304
+updated: 1653742516893
 created: 1648204390388
 published: false
 ---
@@ -68,6 +68,13 @@ published: false
 ## 반찬
 
 - 고추된장박이
+- 나박김치
+
+## 치즈
+
+- 모짜렐라
+- 리코타
+- Aperifrais
 
 ## Junk
 

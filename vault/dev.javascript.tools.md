@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1650845305912
+updated: 1653728707058
 created: 1644882116217
 ---
 
@@ -17,6 +17,9 @@ created: 1644882116217
   - Rome is designed to replace Babel, ESLint, webpack, Prettier, Jest, and others.
 - [Fasy](https://github.com/getify/fasy) - FP iterators that are both eager and asynchronous
 - [spacetime](https://github.com/spencermountain/spacetime) A lightweight javascript timezone library
+- [Comparing Astro and Next for React apps](https://blog.openreplay.com/comparing-astro-and-next-for-react-apps)
+  - Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,
+  - Astro is best used for static websites like a portfolio or a personal blog.
 
 # CSS
 
