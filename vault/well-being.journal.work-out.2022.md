@@ -2,7 +2,7 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1653741021869
+updated: 1653918516060
 created: 1648376118821
 ---
 
@@ -12,6 +12,12 @@ created: 1648376118821
 # 05
 
 aqua-back 17.4kg
+
+## 30
+
+- push up. 책 9권. 손 어깨 위치 3 x 10
+  - 논스톱 안 됨, 자세는 나아짐
+- row. 철봉 101cm 높이. 다리 여유 10, 9, 6
 
 ## 28
 
