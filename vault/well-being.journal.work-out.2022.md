@@ -2,16 +2,19 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1653918516060
+updated: 1654173618857
 created: 1648376118821
 ---
 
-상체 deloading - 5월 29일  
-하체 deloading - 5월 23일
+# 06
+
+## 02
+
+- load squat. aqua-back 20.95kg 2 x 10 + 5 + 5
+  - 상체가 먼저 out
+- 맨몸 한 다리 dead 2 x 10
 
 # 05
-
-aqua-back 17.4kg
 
 ## 30
 
