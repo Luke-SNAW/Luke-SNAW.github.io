@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1653893424726
+updated: 1654388304255
 created: 1644882116217
 ---
 
@@ -20,6 +20,7 @@ created: 1644882116217
 - [Comparing Astro and Next for React apps](https://blog.openreplay.com/comparing-astro-and-next-for-react-apps)
   - Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,
   - Astro is best used for static websites like a portfolio or a personal blog.
+- [crypto-random-string](https://github.com/sindresorhus/crypto-random-string) - Generate a [cryptographically strong](https://en.wikipedia.org/wiki/Strong_cryptography) random string
 
 # CSS
 

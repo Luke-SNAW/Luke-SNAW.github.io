@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1651796858106
+updated: 1654401255397
 created: 1646264359213
 ---
 
@@ -16,6 +16,7 @@ created: 1646264359213
 - [Delivering 3D Scenes to the Web](https://rd.nytimes.com/projects/delivering-3d-scenes-to-the-web) - NY shares four demos that showcase the methods that it has found most useful for publishing photogrammetry to the web.
 - [Shepherd](https://github.com/shipshapecode/shepherd) - Guide your users through a tour of your app
 - [Lexical](https://github.com/facebook/lexical) is an extensible text editor framework that provides excellent reliability, accessibility and performance.
+- [DFlex](https://github.com/dflex-js/dflex) - A Drag-and-Drop library for all JavaScript frameworks implementing an enhanced transformation mechanism to manipulate DOM elements.
 
 # Canvas
 

@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Tools
 desc: ""
-updated: 1652749031552
+updated: 1654382748552
 created: 1647145480774
 ---
 
@@ -17,6 +17,9 @@ created: 1647145480774
   - Data Types and Data Formats
   - Databases
   - Others
+- [Devhints.io](https://devhints.io/) - cheatsheets
+- [crontab guru](https://crontab.guru/) - The quick and simple editor for cron schedule expressions by [Cronitor](https://cronitor.io/cron-job-monitoring?utm_source=crontabguru&utm_campaign=cronitor_top "Cron job monitoring and observability")
+- [CyberChef](https://gchq.github.io/CyberChef/): To decode Base64, URLs, regex … And you can chain them!
 
 # Network
 

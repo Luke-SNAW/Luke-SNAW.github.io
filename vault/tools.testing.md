@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1653893681101
+updated: 1654499802238
 created: 1646613263657
 published: false
 ---
@@ -10,3 +10,10 @@ published: false
 - [Blobbackup](https://blobbackup.com/) - Private, Secure Computer Backups
 - [PreVue](https://github.com/open-source-labs/PreVue) - All in One Prototyping Tool For Vue Developers
 - [OverVue](https://github.com/open-source-labs/OverVue) - Prototyping Tool For Vue Devs
+- [Super Productivity](https://github.com/johannesjo/super-productivity) is an advanced todo list app with integrated [Timeboxing](https://en.wikipedia.org/wiki/Timeboxing) and time tracking capabilities.
+- With [Omni](https://github.com/alyssaxuu/omni) you can use your browser like a pro. Manage tabs, bookmarks, your browser history, perform all sorts of actions and more with a simple command interface.
+- [ShareX](https://github.com/ShareX/ShareX) is a free and open source program that lets you capture or record any area of your screen and share it with a single press of a key. It also allows uploading images, text or other types of files to many supported destinations you can choose from.
+
+# To be tested
+
+- [nb](https://github.com/xwmx/nb) - CLI and local web plain text note‑taking, bookmarking, and archiving with linking, tagging, filtering, search, Git versioning & syncing, Pandoc conversion, + more, in a single portable script.
