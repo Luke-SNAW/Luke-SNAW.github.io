@@ -2,11 +2,18 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1654521530364
+updated: 1654600031304
 created: 1648376118821
 ---
 
 # 06
+
+## 07
+
+- load squat. aqua-back 20.95kg 3 x 10
+  - 숨 차다
+- dead. 12kg 3 x 10
+- 맨몸 한 다리 dead 1 x 10
 
 ## 06
 
