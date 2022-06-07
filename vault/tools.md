@@ -2,10 +2,13 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1652340926800
+updated: 1654590343885
 created: 1644799670081
 ---
 
+- [untools](https://untools.co/) - Collection of thinking tools and frameworks to help you solve problems, make decisions and understand systems.
+  - https://news.ycombinator.com/item?id=31647181
+- https://fs.blog/mental-models/
 - [Google Search is Falling Behind](https://www.surgehq.ai//blog/google-search-is-falling-behind)
   - You.com
   - Neeva

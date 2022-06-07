@@ -2,10 +2,12 @@
 id: TN3SWriksRFA35jnzNKzy
 title: Tools
 desc: ""
-updated: 1652403882224
+updated: 1654129304726
 created: 1645523891283
 ---
 
+- [Dragonfly](https://github.com/dragonflydb/dragonfly) is a modern in-memory datastore, fully compatible with Redis and Memcached APIs. Dragonfly implements novel algorithms and data structures on top of a multi-threaded, shared-nothing architecture. As a result, Dragonfly reaches x25 performance compared to Redis and supports millions of QPS on a single instance.
+  - https://news.ycombinator.com/item?id=31560547
 - [appwrite](https://github.com/appwrite/appwrite) - Secure Backend Server for Web, Mobile & Flutter Developers 🚀 AKA the 100% open-source Firebase alternative.
 - [mkcert](https://github.com/FiloSottile/mkcert) is a simple tool for making locally-trusted development certificates. It requires no configuration.
 
