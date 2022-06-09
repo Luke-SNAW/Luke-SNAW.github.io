@@ -2,7 +2,7 @@
 id: p6jdsvhol2ebyzilnb5u3ot
 title: Vue
 desc: ""
-updated: 1651649106046
+updated: 1654750291030
 created: 1646815969488
 ---
 
@@ -43,3 +43,32 @@ setTimeout 0은 안되고 25가 되는 이유.
 
 - https://github.com/vuejs/vue/issues/9200#issuecomment-468503909
 - https://github.com/vuejs/vue/issues/9200#issuecomment-468512304
+
+# filter
+
+## declare
+
+```javascript
+Vue.filter("USD", (value) => {
+  if (typeof value !== "number") throw "value must be number";
+
+  const formatter = new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  });
+  return formatter.format(value);
+});
+```
+
+## use in template
+
+```html
+{{ price | USD}}
+```
+
+## use in javascript
+
+```javascript
+this.$options.filter.USD(this.price);
+```

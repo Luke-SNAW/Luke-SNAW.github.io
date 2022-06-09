@@ -2,11 +2,18 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1655040306207
+updated: 1655250441212
 created: 1648376118821
 ---
 
 # 06
+
+## 14
+
+- push up. 책 10권. 손 어깨 위치 3 x 13
+  - 힙드라이브 거는 정도로 골반 위치 세팅
+  - 논스톱은 아니지만 쉽긴하다 책 하나 빼자
+- 경추 쪽으로 wide pull up 2 x 3, pull up 3
 
 ## 12
 
