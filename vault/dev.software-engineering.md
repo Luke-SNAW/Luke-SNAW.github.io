@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1650327486290
+updated: 1655427333774
 created: 1645514209965
 ---
 
@@ -16,17 +16,17 @@ created: 1645514209965
 - [The Catalog of Design Patterns](https://refactoring.guru/design-patterns/catalog)
 - [Make It Work Make It Right Make It Fast](https://wiki.c2.com/?MakeItWorkMakeItRightMakeItFast) is an assertion that if you can "make it right", you'll be able to "make it fast" later.
 
-# [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
+## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 
 - [99.5% of programming consists of gluing together calls to library functions.](http://paulgraham.com/weird.html)
 
-# [Don't Call Yourself A Programmer, And Other Career Advice](https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/)
+## [Don't Call Yourself A Programmer, And Other Career Advice](https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/)
 
 - 90% of programming jobs are in creating Line of Business software.
 - Engineers are hired to create business value, not to program things.
 - Add revenue. Reduce costs. Those are your only goals.
 
-# [Eight tips to Write Functions like a Senior Developer](https://medium.com/@dhruba-dahal/eight-tips-to-write-functions-like-a-senior-developer-794140719351)
+## [Eight tips to Write Functions like a Senior Developer](https://medium.com/@dhruba-dahal/eight-tips-to-write-functions-like-a-senior-developer-794140719351)
 
 - Do one thing and do it well
 - Never use flag arguments

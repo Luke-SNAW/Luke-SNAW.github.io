@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Tools
 desc: ""
-updated: 1654382748552
+updated: 1655363432938
 created: 1647145480774
 ---
 
@@ -19,7 +19,8 @@ created: 1647145480774
   - Others
 - [Devhints.io](https://devhints.io/) - cheatsheets
 - [crontab guru](https://crontab.guru/) - The quick and simple editor for cron schedule expressions by [Cronitor](https://cronitor.io/cron-job-monitoring?utm_source=crontabguru&utm_campaign=cronitor_top "Cron job monitoring and observability")
-- [CyberChef](https://gchq.github.io/CyberChef/): To decode Base64, URLs, regex … And you can chain them!
+- [CyberChef](https://gchq.github.io/CyberChef/) - To decode Base64, URLs, regex … And you can chain them!
+- [WakaTime](https://wakatime.com/) - Dashboards for developers
 
 # Network
 
