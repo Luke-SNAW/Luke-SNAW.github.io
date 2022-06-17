@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1654499802238
+updated: 1655627817571
 created: 1646613263657
 published: false
 ---
@@ -17,3 +17,5 @@ published: false
 # To be tested
 
 - [nb](https://github.com/xwmx/nb) - CLI and local web plain text note‑taking, bookmarking, and archiving with linking, tagging, filtering, search, Git versioning & syncing, Pandoc conversion, + more, in a single portable script.
+
+- [Want to Fall Asleep in 2 Minutes (or Less)? Steal This Proven Military Sleep Secret](https://betterhumans.pub/how-to-fall-asleep-in-2-minutes-the-military-sleep-method-aafb39abf641)

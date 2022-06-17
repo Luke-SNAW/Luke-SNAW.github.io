@@ -1,9 +1,9 @@
 ---
 id: b7sdh51rdxwox9axd0829tf
 title: Next
-desc: ''
-updated: 1646819206340
+desc: ""
+updated: 1655627914881
 created: 1646816278505
-stub: true
 ---
 
+- [Layouts RFC](https://nextjs.org/blog/layouts-rfc)

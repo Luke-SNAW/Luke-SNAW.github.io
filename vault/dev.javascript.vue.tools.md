@@ -2,11 +2,13 @@
 id: n5ogpv9x88nbej5in300ri4
 title: Tools
 desc: ""
-updated: 1647149054149
+updated: 1655627664289
 created: 1647147290318
 ---
 
 - [VueUse](https://github.com/vueuse/vueuse) - Collection of essential Vue Composition Utilities
+- 🍍 [Pinia](https://github.com/vuejs/pinia) - Intuitive, type safe, light and flexible Store for Vue using the composition api with DevTools support
+  - https://medium.com/js-dojo/pinia-the-new-and-better-state-management-system-for-vue-8b6f8a64f2e2
 
 # SEO
 

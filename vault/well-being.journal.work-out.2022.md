@@ -2,11 +2,24 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1655250441212
+updated: 1655639944897
 created: 1648376118821
 ---
 
 # 06
+
+## 19
+
+- push up. 책 9권. 손 어깨 위치 3 x 12
+  - 논스톱 아님. 3세트 후반에 후달림
+- row. 철봉 101cm 높이. 무릎 직각? 10 + 9 + 7
+  - 뒷 삼각근에 자극이?
+
+## 17
+
+- load squat. aqua-back 20.95kg 3 x 12
+  - 무게 올려도 될 듯
+- dead. 12kg 1 x 10
 
 ## 14
 
