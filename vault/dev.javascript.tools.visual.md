@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1654401255397
+updated: 1655686389742
 created: 1646264359213
 ---
 
@@ -31,6 +31,7 @@ created: 1646264359213
 - [LetMeScroll](https://github.com/BMSVieira/letmescroll.js)
 - [Smooth Scrollbar](https://github.com/idiotWu/smooth-scrollbar) - Customizable, Pluginable, and High-Performance JavaScript-Based Scrollbar Solution.
 - [ScrollMovie](https://github.com/nagatapote/scroll-movie) is the library that enables you to animate background image as you scroll the window.
+- [pushIn.js](https://github.com/nateplusplus/pushin) is a lightweight parallax effect, built with JavaScript, that simulates an interactive dolly-in or push-in animation on a webpage.
 
 # [Create Page Transitions in Next.js with Framer Motion](https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62)
 

@@ -2,7 +2,7 @@
 id: 6en2z3q3u4pnrn5todipo0s
 title: Mac
 desc: ""
-updated: 1655435064531
+updated: 1655681903787
 created: 1652405135977
 ---
 
@@ -11,6 +11,8 @@ created: 1652405135977
 - [shottr](https://shottr.cc/) - Screenshot tool for those who care about pixels
 - [Maccy](https://github.com/p0deje/Maccy) - Lightweight clipboard manager for macOS
 - [Amethyst](https://github.com/ianyh/Amethyst) - Automatic tiling window manager for macOS à la xmonad.
+- [Itsycal for Mac](https://www.mowglii.com/itsycal/) is a tiny menu bar calendar.
+- [Hidden Bar](https://github.com/dwarvesf/hidden) lets you hide menu bar items to give your Mac a cleaner look.
 
 ## Dev
 

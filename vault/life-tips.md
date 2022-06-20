@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1655280721970
+updated: 1655686536239
 created: 1645514261238
 ---
 
@@ -24,3 +24,15 @@ The 3 breaks are physical, social, and spiritual(ish)
 - 1 Hour Before Bed — Cut Off From Digital Media
 - 0 — Times You Hit The Snooze Button: How It Makes Your Morning 2X Productive
   - “The reason most people hit the snooze button is they didn’t sleep well at night.”
+
+## [Bob Ross and imposter syndrome](https://gomakethings.com/bob-ross-and-imposter-syndrome/)
+
+Bob was the ultimate anti-imposter syndrome advocate. His trademark line was…
+
+> We don’t make mistakes. We make happy little accidents.
+
+**It’s ok to feel like you’re not 100 percent sure what you’re doing. After 10 years of doing this, I still look stuff up every day.**
+
+That doesn’t make you an imposter.
+
+It makes you a beginner. It makes you a learner. It makes you someone who gets to experience that joy of looking at this amazing work we do with fresh eyes and new perspectives.
