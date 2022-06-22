@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Tools
 desc: ""
-updated: 1655363432938
+updated: 1655767194634
 created: 1647145480774
 ---
 
@@ -21,6 +21,8 @@ created: 1647145480774
 - [crontab guru](https://crontab.guru/) - The quick and simple editor for cron schedule expressions by [Cronitor](https://cronitor.io/cron-job-monitoring?utm_source=crontabguru&utm_campaign=cronitor_top "Cron job monitoring and observability")
 - [CyberChef](https://gchq.github.io/CyberChef/) - To decode Base64, URLs, regex … And you can chain them!
 - [WakaTime](https://wakatime.com/) - Dashboards for developers
+- [I fucking hate Jira](https://ifuckinghatejira.com/)
+  - https://news.ycombinator.com/item?id=31813957
 
 # Network
 

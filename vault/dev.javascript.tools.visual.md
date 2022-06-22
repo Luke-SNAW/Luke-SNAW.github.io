@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1655686389742
+updated: 1655855506521
 created: 1646264359213
 ---
 
@@ -33,7 +33,11 @@ created: 1646264359213
 - [ScrollMovie](https://github.com/nagatapote/scroll-movie) is the library that enables you to animate background image as you scroll the window.
 - [pushIn.js](https://github.com/nateplusplus/pushin) is a lightweight parallax effect, built with JavaScript, that simulates an interactive dolly-in or push-in animation on a webpage.
 
-# [Create Page Transitions in Next.js with Framer Motion](https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62)
+# Animation
+
+- [AutoAnimate](https://github.com/formkit/auto-animate) is a zero-config, drop-in animation utility that adds smooth transitions to your web app. You can use it with Vue, React, or any other JavaScript application.
+
+## [Create Page Transitions in Next.js with Framer Motion](https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62)
 
 ```javascript
 import "../styles/globals.css";

@@ -2,10 +2,11 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1655427333774
+updated: 1655856918780
 created: 1645514209965
 ---
 
+- [Bulletproof React](https://github.com/alan2207/bulletproof-react) - A simple, scalable, and powerful architecture for building production ready React applications.
 - [Code Smells](https://refactoring.guru/refactoring/smells)
 - [Notes on Software Development Waste](https://hcarvalhoalves.github.io/software-development-waste/)
 - [Small choices can wreck your codebase](https://swizec.com/blog/even-small-things-can-make-your-code-gnarly/)

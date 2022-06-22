@@ -2,7 +2,7 @@
 id: qJYy3qzZt6rXHWQJPZd9Q
 title: Performance
 desc: ""
-updated: 1645666572751
+updated: 1655858660391
 created: 1644479524849
 ---
 
@@ -22,3 +22,4 @@ created: 1644479524849
   - Lazy Loading
   - Caching
 - [Speeding up VSCode (extensions) in 2022](https://jason-williams.co.uk/speeding-up-vscode-extensions-in-2022)
+- [Patterns.dev](https://www.patterns.dev/) is a free book on design patterns and component patterns for building powerful web apps with vanilla JavaScript and React.
