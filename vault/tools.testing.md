@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1655627817571
+updated: 1656036628006
 created: 1646613263657
 published: false
 ---
@@ -16,6 +16,13 @@ published: false
 
 # To be tested
 
+- [Want to Fall Asleep in 2 Minutes (or Less)? Steal This Proven Military Sleep Secret](https://betterhumans.pub/how-to-fall-asleep-in-2-minutes-the-military-sleep-method-aafb39abf641)
+
+## bookmarks
+
 - [nb](https://github.com/xwmx/nb) - CLI and local web plain text note‑taking, bookmarking, and archiving with linking, tagging, filtering, search, Git versioning & syncing, Pandoc conversion, + more, in a single portable script.
 
-- [Want to Fall Asleep in 2 Minutes (or Less)? Steal This Proven Military Sleep Secret](https://betterhumans.pub/how-to-fall-asleep-in-2-minutes-the-military-sleep-method-aafb39abf641)
+- [bookmark archive](https://github.com/ArchiveBox/ArchiveBox/wiki/Usage#Import-list-of-links-from-browser-history)
+
+- https://www.ecliptik.com/bookmarking-with-raindrop/
+- https://github.com/jarun/buku
