@@ -2,11 +2,16 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1655639944897
+updated: 1655896423153
 created: 1648376118821
 ---
 
 # 06
+
+## 22
+
+- load squat. aqua-back 20.95kg 3 x 10
+  - 체력은 되는데 스트레스? 정신력? 때문에 약해진 느낌
 
 ## 19
 
