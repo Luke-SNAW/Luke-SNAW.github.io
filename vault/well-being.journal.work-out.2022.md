@@ -2,11 +2,25 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1655896423153
+updated: 1656419686531
 created: 1648376118821
 ---
 
 # 06
+
+## 28
+
+- load squat. aqua-back 20.95kg 3 x 12
+  - 무게 올리자
+
+## 24
+
+- push up. 책 9권. 손 어깨 위치 3 x 11
+  - 논스톱 아님. 3세트 후반에 후달림
+  - 자세는 좀 더 잡으면 될 듯
+  - 참고로 코어는 힙드라이브처럼 대둔근 수축에 ASIS 조금 위로 당겨서 low back의 flat 의식
+- 12kg 케틀벨로 inner chest press 10
+- pull up 5 + 2
 
 ## 22
 
