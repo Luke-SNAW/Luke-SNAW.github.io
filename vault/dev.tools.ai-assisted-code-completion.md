@@ -2,7 +2,7 @@
 id: wkkv4ptfhb0d0mxczybkqtp
 title: Ai Assisted Code Completion
 desc: ""
-updated: 1656032060355
+updated: 1656376640718
 created: 1656030439228
 ---
 
@@ -46,7 +46,7 @@ Copilot만 몇 개월 경험.
 
 # 지원 IDE
 
-- C - vs code만
+- C - VS, VS code, Neovim, JetBrains IDEs (https://github.com/features/copilot)
 - T - 많음. vs code, IntelliJ 포함
 
 # code 제안 특징

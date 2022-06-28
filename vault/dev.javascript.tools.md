@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1655686664250
+updated: 1656376181167
 created: 1644882116217
 ---
 
@@ -44,6 +44,7 @@ created: 1644882116217
 - 🔛 🔖 [sharer.js](https://github.com/ellisonleao/sharer.js): Create your own social share buttons. No jquery.
 - [What’s New In DevTools?](https://www.smashingmagazine.com/2022/01/devtools-updates-2022/)
 - The [Plasmo](https://github.com/PlasmoHQ/plasmo) Framework is a battery-packed browser extension SDK made by hackers for hackers.
+- [ow](https://github.com/sindresorhus/ow) - Function argument validation for humans
 
 # CSS
 
