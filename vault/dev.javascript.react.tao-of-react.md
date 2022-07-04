@@ -1,7 +1,7 @@
 ---
 id: 8orzcrnp9ojmuu6p7g22ktx
 title: Tao of React
-desc: ""
+desc: ''
 updated: 1655858795491
 created: 1655858707401
 ---
