@@ -2,7 +2,7 @@
 id: l29gxghljchn5f6o27ma72d
 title: Setting
 desc: ""
-updated: 1655193445612
+updated: 1656892626943
 created: 1655167183618
 ---
 
@@ -18,8 +18,10 @@ git config --list --show-origin
 ```shell
 git config --global alias.cp cherry-pick
 git config --global alias.cm commit
+git config --global alias.cman 'commit --amend --no-edit'
 git config --global alias.co checkout
-git config --global alias.rb rebase -i
+git config --global alias.rb rebase
+git config --global alias.rbi 'rebase -i'
 git config --global alias.rs restore
 git config --global alias.pl pull
 git config --global alias.ps push
@@ -29,6 +31,14 @@ git config --global alias.lg log --graph --abbrev-commit --decorate --format=for
 git config --global alias.ad add
 git config --global alias.tg tag -n
 git config --global alias.br branch
+```
+
+## Unset
+
+```shell
+git config --global --unset alias.trololo
+# warning: alias.trololo has multiple values
+git config --global --unset-all alias.trololo
 ```
 
 # Rebase

@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1656036628006
+updated: 1656570864260
 created: 1646613263657
 published: false
 ---
@@ -17,6 +17,8 @@ published: false
 # To be tested
 
 - [Want to Fall Asleep in 2 Minutes (or Less)? Steal This Proven Military Sleep Secret](https://betterhumans.pub/how-to-fall-asleep-in-2-minutes-the-military-sleep-method-aafb39abf641)
+- https://github.com/GitJournal/GitJournal
+- https://github.com/upptime/upptime
 
 ## bookmarks
 
