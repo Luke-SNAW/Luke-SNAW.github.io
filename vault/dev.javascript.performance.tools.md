@@ -2,7 +2,7 @@
 id: GdoKhw8BgqVT6ETDgQ7zT
 title: Tools
 desc: ""
-updated: 1645514024471
+updated: 1656985858816
 created: 1645513902249
 ---
 
@@ -18,3 +18,4 @@ created: 1645513902249
   - In contrast, Vue actually stands closer to Preact and Stencil at an average of 1.5 times. The main reason for the difference between this result and what we saw reported in the Web Almanac might be due to the performance improvements Vue had when version 3.0 released.
   - And finally, Solid, Lit, and Svelte are all at around 1.2 times. They all perform very close to the Vanilla JS version.
 - [Waterfaller](https://waterfaller.dev/): Unique tool to improve slow web pages
+- [main-thread-scheduling](https://github.com/astoilkov/main-thread-scheduling) - Fast and consistently responsive apps using a single function call
