@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1655685204871
+updated: 1657160892571
 created: 1644799670081
 ---
 
@@ -14,6 +14,7 @@ created: 1644799670081
   - Neeva
   - Bing
   - Kagi
+- [To improve search results on YouTube, use the search prefix "intitle:"](https://ä1.com/youtube/)
 - [n8n](https://github.com/n8n-io/n8n) - Free and open fair-code licensed node based Workflow Automation Tool. Easily automate tasks across different services.
 - [KeePassXC ](https://github.com/keepassxreboot/keepassxc) is a cross-platform community-driven port of the Windows application “Keepass Password Safe”.
 - [Zulip](https://github.com/zulip/zulip/) is an open-source team collaboration tool with unique [topic-based threading](https://zulip.com/why-zulip/) that combines the best of email and chat to make remote work productive and delightful.
