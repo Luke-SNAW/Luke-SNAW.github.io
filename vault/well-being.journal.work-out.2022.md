@@ -2,9 +2,28 @@
 id: w4z0vq1eum2qwctel4x20mi
 title: "2022"
 desc: ""
-updated: 1656599062823
+updated: 1657456858135
 created: 1648376118821
 ---
+
+# 07
+
+## 10
+
+- load squat. aqua-back 26.85kg 10 + 10 + 7 + 3
+  - 체력 먼저 털림. 쉬는 시간 조금만 늘리자
+  - [엉덩이에 체중 실으니](https://www.youtube.com/watch?v=C6_9CIfWB0M) 무릎 소리 거의 안남. 다만 힙드라이브는 못 챙김
+- dead 12kg. 2 x 10
+
+## 08
+
+- push up. 좁은 의자 8 + 5 + 6
+- pull up 5 + 5 + 1
+
+## 04
+
+- load squat. aqua-back 26.85kg 3 x 8
+  - 상체 먼저 털림
 
 # 06
 
