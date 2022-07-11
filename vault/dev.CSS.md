@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1649315342117
+updated: 1657523580939
 created: 1646129148306
 ---
 
@@ -16,6 +16,7 @@ created: 1646129148306
 - [revert](https://developer.mozilla.org/en-US/docs/Web/CSS/revert)
 - [media query: hover](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover)
 - [media query: pointer](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer)
+- [Dynamic CSS Secrets](https://projects.verou.me/talks/dynamic-css-secrets/#intro)
 
 # Cascade Precedence
 

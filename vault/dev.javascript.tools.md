@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1656376181167
+updated: 1657503125643
 created: 1644882116217
 ---
 
@@ -68,6 +68,11 @@ created: 1644882116217
 
 - [XO](https://github.com/xojs/xo): JavaScript/TypeScript linter (ESLint wrapper) with great defaults
 - [eslint-plugin-sonarjs](https://github.com/SonarSource/eslint-plugin-sonarjs)
+
+# Micro front-end
+
+- [single-spa](https://github.com/single-spa/single-spa) - The router for easy microfrontends
+- [Piral](https://github.com/smapiot/piral) - Framework for next generation web apps using micro frontends. 🚀
 
 # [The Vanilla JavaScript Toolkit](https://vanillajstoolkit.com/)
 
