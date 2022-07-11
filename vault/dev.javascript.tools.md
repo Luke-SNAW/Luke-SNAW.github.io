@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1657503125643
+updated: 1657583178658
 created: 1644882116217
 ---
 
@@ -85,3 +85,7 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 - [ReacType 7.0 - A visual prototyping tool for React developers](https://reactype.io/#reactype7)
 
 - [Top 10 Chrome DevTools tips & tricks](https://areknawo.com/top-10-chrome-devtools-tips-tricks/)
+
+# Profile
+
+- [fuite](https://github.com/nolanlawson/fuite) - A tool for finding memory leaks in web apps

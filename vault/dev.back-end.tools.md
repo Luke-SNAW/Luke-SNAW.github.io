@@ -2,7 +2,7 @@
 id: TN3SWriksRFA35jnzNKzy
 title: Tools
 desc: ""
-updated: 1654129304726
+updated: 1657583382666
 created: 1645523891283
 ---
 
@@ -27,3 +27,11 @@ created: 1645523891283
 
 - https://www.appsmith.com/
 - https://tooljet.com/
+
+# Framework
+
+- [PocketBase](https://pocketbase.io/) is an open source Go backend, consisting of:
+  - embedded database (_SQLite_) with **realtime subscriptions**
+  - built-in **files and users management**
+  - convenient **Admin dashboard UI**
+  - and simple **REST-ish API**

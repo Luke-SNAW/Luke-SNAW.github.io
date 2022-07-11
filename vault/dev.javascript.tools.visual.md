@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1655855506521
+updated: 1657583078230
 created: 1646264359213
 ---
 
@@ -65,3 +65,7 @@ function MyApp({ Component, pageProps, router }) {
 
 export default MyApp;
 ```
+
+# Calendar
+
+- [tui-calendar](https://github.com/nhn/tui.calendar) - 🍞📅 A JavaScript calendar that is full featured. Now your service just got the customizable calendar.

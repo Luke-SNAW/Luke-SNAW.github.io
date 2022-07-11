@@ -2,18 +2,15 @@
 id: 1v3zueuge3dc4szjhatotul
 title: Tools
 desc: ""
-updated: 1656918983115
+updated: 1657582939925
 created: 1646130002277
 ---
 
-- [daisyUI - Tailwind CSS Components](https://daisyui.com/)
 - [Modern CSS Solutions for Old CSS Problems](https://moderncss.dev/)
-- [A Typographic Scale Calculator](https://www.layoutgridcalculator.com/typographic-scale/)
 - [Replacing Sass - Shopify/foundational-design-system-proto](https://github.com/Shopify/foundational-design-system-proto/discussions/44)
 - [CSS Solutions - Solution analysis for Polaris Foundations](https://docs.google.com/spreadsheets/d/1rxrRTlbNWiLVu-Q5IK7xh5O1FmWcjyAS2XN7jiPrhYM/edit#gid=0)
 - [unocss](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
 - [open-props](https://github.com/argyleink/open-props) - CSS custom properties to help accelerate adaptive and consistent design.
-- [Tailwind CSS Components](https://postsrc.com/components)
 - [Component Encyclopedia | Storybook](https://storybook.js.org/showcase)
 - [CSS Protips](https://github.com/AllThingsSmitty/css-protips) - Open Source CSS Variables. A collection of tips to help take your CSS skills pro
   ```css
@@ -24,6 +21,11 @@ created: 1646130002277
 - [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23FFFFFF%2C%20White%0D%0A%23F2F2F2%0D%0A%23DDDDDD%0D%0A%23CCCCCC%0D%0A%23888888%0D%0A%23404040%2C%20Charcoal%0D%0A%23000000%2C%20Black%0D%0A%232F78C5%2C%20Effective%20on%20Extremes%0D%0A%230F60B6%2C%20Effective%20on%20Lights%0D%0A%23398EEA%2C%20Ineffective%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) - Test many foreground and background color combos for compliance with [WCAG 2.0 minimum contrast](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html).
 - [linaria](https://github.com/callstack/linaria) - Zero-runtime CSS in JS library.
 
+# Calculator
+
+- [Min-Max-Value Interpolation](https://github.com/9elements/min-max-calculator) calculates the CSS clamp formula to interpolate between two values in a given viewport range.
+- [A Typographic Scale Calculator](https://www.layoutgridcalculator.com/typographic-scale/)
+
 # UI Component tools
 
 - [NProgress](https://github.com/rstacruz/nprogress) - Minimalist progress bar. For slim progress bars like on YouTube, Medium, etc.
@@ -33,6 +35,8 @@ created: 1646130002277
 - [SQIP](https://github.com/axe312ger/sqip) is a SVG-based LQIP technique.
 - [Fluent System Icons](https://github.com/microsoft/fluentui-system-icons) are a collection of familiar, friendly and modern icons from Microsoft.
   - [Fluenticons Viewer](https://fluenticons.co/)
+- [daisyUI - Tailwind CSS Components](https://daisyui.com/)
+- [Tailwind CSS Components](https://postsrc.com/components)
 
 ## Tailwind
 

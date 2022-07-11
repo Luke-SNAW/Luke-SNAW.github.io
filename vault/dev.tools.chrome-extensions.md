@@ -2,7 +2,7 @@
 id: VR93wLLm4G5ngJpglyKwb
 title: Chrome Extensions
 desc: ""
-updated: 1657180058626
+updated: 1657583435000
 created: 1644971383110
 ---
 
@@ -15,6 +15,7 @@ created: 1644971383110
 - [Web Developer](https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm)
 - [Altair GraphQL Client](https://chrome.google.com/webstore/detail/altair-graphql-client/flnheeellpciglgpaodhkhmapeljopja)
 - [30 Seconds of Knowledge](https://chrome.google.com/webstore/detail/30-seconds-of-knowledge/mmgplondnjekobonklacmemikcnhklla)
+- [Debugging JavaScript with Live Expressions in Chrome DevTools](https://blog.bitsrc.io/debugging-javascript-with-live-expressions-in-chrome-devtools-9f0af008af45)
 
 # CSS
 
