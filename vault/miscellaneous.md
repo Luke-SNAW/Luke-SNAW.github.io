@@ -2,13 +2,25 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1657582561333
+updated: 1657842594870
 created: 1657500862975
 ---
 
 - [I should have loved biology](https://jsomers.net/i-should-have-loved-biology/)
 
-# [NASA’s Webb Delivers Deepest Infrared Image of Universe Yet](https://www.nasa.gov/image-feature/goddard/2022/nasa-s-webb-delivers-deepest-infrared-image-of-universe-yet)
+# Image
+
+- [The DALL·E 2 Prompt Book](https://dallery.gallery/the-dalle-2-prompt-book/)
+  - https://news.ycombinator.com/item?id=32088718
+  - https://replicate.com/nicholascelestin/dalle-mega
+  - https://huggingface.co/spaces/dalle-mini/dalle-mini
+
+# Astronomical
+
+- [WebbCompare](https://github.com/JohnEdChristensen/WebbCompare) - Compare James Webb Space Telescope images to older images.
+  - [OpenSeadragon](https://github.com/openseadragon/openseadragon) - web-based viewer for zoomable images, implemented in pure JavaScript.
+
+## [NASA’s Webb Delivers Deepest Infrared Image of Universe Yet](https://www.nasa.gov/image-feature/goddard/2022/nasa-s-webb-delivers-deepest-infrared-image-of-universe-yet)
 
 Higher Resolution Images available here: [https://webbtelescope.org/contents/media/images/2022/038/01G...](https://webbtelescope.org/contents/media/images/2022/038/01G7JGTH21B5GN9VCYAHBXKSD1)
 

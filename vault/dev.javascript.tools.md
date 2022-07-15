@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1657583178658
+updated: 1657843887827
 created: 1644882116217
 ---
 
@@ -45,6 +45,7 @@ created: 1644882116217
 - [What’s New In DevTools?](https://www.smashingmagazine.com/2022/01/devtools-updates-2022/)
 - The [Plasmo](https://github.com/PlasmoHQ/plasmo) Framework is a battery-packed browser extension SDK made by hackers for hackers.
 - [ow](https://github.com/sindresorhus/ow) - Function argument validation for humans
+- [Eruda](https://github.com/liriliri/eruda) - Console for mobile browsers
 
 # CSS
 
@@ -89,3 +90,11 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 # Profile
 
 - [fuite](https://github.com/nolanlawson/fuite) - A tool for finding memory leaks in web apps
+
+# Monitoring
+
+- [10 Best JavaScript Debug and Monitors](https://www.netadmintools.com/best-javascript-debug-and-monitors/)
+
+# Security
+
+- [DOMPurify](https://github.com/cure53/DOMPurify) is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG.
