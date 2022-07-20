@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Tools
 desc: ""
-updated: 1655767194634
+updated: 1658217215669
 created: 1647145480774
 ---
 
@@ -23,6 +23,7 @@ created: 1647145480774
 - [WakaTime](https://wakatime.com/) - Dashboards for developers
 - [I fucking hate Jira](https://ifuckinghatejira.com/)
   - https://news.ycombinator.com/item?id=31813957
+- [Programming Fonts](https://www.programmingfonts.org/)
 
 # Network
 
