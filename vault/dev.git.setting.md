@@ -2,7 +2,7 @@
 id: l29gxghljchn5f6o27ma72d
 title: Setting
 desc: ""
-updated: 1657178594436
+updated: 1658887331523
 created: 1655167183618
 ---
 
@@ -24,6 +24,9 @@ git config --global alias.rb rebase
 git config --global alias.rba 'rebase --abort'
 git config --global alias.rbc 'rebase --continue'
 git config --global alias.rbi 'rebase -i'
+git config --global alias.rbm 'rebase main'
+git config --global alias.rbim 'rebase -i main'
+git config --global alias.plrm 'pull --rebase origin main'
 git config --global alias.rs restore
 git config --global alias.pl pull
 git config --global alias.ps push

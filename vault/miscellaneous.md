@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1657842594870
+updated: 1658368220793
 created: 1657500862975
 ---
 
@@ -14,6 +14,9 @@ created: 1657500862975
   - https://news.ycombinator.com/item?id=32088718
   - https://replicate.com/nicholascelestin/dalle-mega
   - https://huggingface.co/spaces/dalle-mini/dalle-mini
+- https://samsunglabs.github.io/MegaPortraits/
+  - https://news.ycombinator.com/item?id=32168299
+- https://www.topazlabs.com/gigapixel-ai
 
 # Astronomical
 
