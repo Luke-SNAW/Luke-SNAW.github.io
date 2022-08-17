@@ -2,7 +2,7 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1660693079612
+updated: 1660717141446
 created: 1645666821126
 ---
 
@@ -19,3 +19,5 @@ created: 1645666821126
 - [Why React Re-Renders](https://www.joshwcomeau.com/react/why-react-re-renders/)
   - https://news.ycombinator.com/item?id=32485460
 - [Blogged Answers: A (Mostly) Complete Guide to React Rendering Behavior](https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/)
+- [Can We All Just Admit React Hooks Were a Bad Idea?](https://medium.com/codex/can-we-all-just-admit-react-hooks-were-a-bad-idea-c48120c5188d)
+- [Patterns.dev](https://www.patterns.dev/) is a free book on design patterns and component patterns for building powerful web apps with vanilla JavaScript and React.

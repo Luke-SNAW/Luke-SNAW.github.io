@@ -2,12 +2,13 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Tools
 desc: ""
-updated: 1647147623057
+updated: 1660717575904
 created: 1646011961595
 ---
 
 - [What are Bookmarklets? How to Use JavaScript to Make a Bookmarklet in Chromium and Firefox](https://www.freecodecamp.org/news/what-are-bookmarklets/)
 - [A Complete Guide To Accessibility Tooling](https://www.smashingmagazine.com/2021/06/complete-guide-accessibility-tooling/)
+- [Nativefier](https://github.com/nativefier/nativefier) - Make any web page a desktop application
 
 # Images
 

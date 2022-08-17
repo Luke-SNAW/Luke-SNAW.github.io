@@ -2,11 +2,12 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1658368220793
+updated: 1660709504000
 created: 1657500862975
 ---
 
 - [I should have loved biology](https://jsomers.net/i-should-have-loved-biology/)
+- [Annual JavaScript Golfing Competition](https://js1024.fun/results/2022)
 
 # Image
 
