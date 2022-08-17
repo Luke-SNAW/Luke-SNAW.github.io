@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1657583078230
+updated: 1660026783176
 created: 1646264359213
 ---
 
@@ -17,6 +17,8 @@ created: 1646264359213
 - [Shepherd](https://github.com/shipshapecode/shepherd) - Guide your users through a tour of your app
 - [Lexical](https://github.com/facebook/lexical) is an extensible text editor framework that provides excellent reliability, accessibility and performance.
 - [DFlex](https://github.com/dflex-js/dflex) - A Drag-and-Drop library for all JavaScript frameworks implementing an enhanced transformation mechanism to manipulate DOM elements.
+- [impress.js](https://github.com/impress/impress.js) is a presentation framework based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.
+- [css-doodle](https://github.com/css-doodle/css-doodle) - A web component for drawing patterns with CSS.
 
 # Canvas
 

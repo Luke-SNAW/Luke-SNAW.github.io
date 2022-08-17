@@ -2,7 +2,7 @@
 id: 7lfBuLShnSydgCh1ZVEd5
 title: Tools
 desc: ""
-updated: 1646221412382
+updated: 1660002773852
 created: 1645487597560
 ---
 
@@ -23,3 +23,4 @@ created: 1645487597560
     ```shell
       ncu -i
     ```
+- [Upgraderoo](https://upgraderoo.janez.tech/) helps you upgrade NPM packages, discover outdated packages and saves you time to focus on building your product.

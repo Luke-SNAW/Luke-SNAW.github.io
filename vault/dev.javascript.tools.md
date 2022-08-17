@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1657843887827
+updated: 1660026816434
 created: 1644882116217
 ---
 
@@ -46,6 +46,7 @@ created: 1644882116217
 - The [Plasmo](https://github.com/PlasmoHQ/plasmo) Framework is a battery-packed browser extension SDK made by hackers for hackers.
 - [ow](https://github.com/sindresorhus/ow) - Function argument validation for humans
 - [Eruda](https://github.com/liriliri/eruda) - Console for mobile browsers
+- [HLS.js](https://github.com/video-dev/hls.js) is a JavaScript library that plays HLS in browsers with support for MSE.
 
 # CSS
 

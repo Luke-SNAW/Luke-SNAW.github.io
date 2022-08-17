@@ -2,7 +2,7 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1648084374703
+updated: 1660693079612
 created: 1645666821126
 ---
 
@@ -16,3 +16,6 @@ created: 1645666821126
 - [REACT: USESTATE VS USEREDUCER](https://tasoskakour.com/blog/react-use-state-vs-use-reducer): see section of `Comparing the two implementations`
 - [The React Cheatsheet for 2022](https://www.freecodecamp.org/news/the-react-cheatsheet)
 - [Hooks Considered Harmful (factorialhr.com)](https://news.ycombinator.com/item?id=30753127)
+- [Why React Re-Renders](https://www.joshwcomeau.com/react/why-react-re-renders/)
+  - https://news.ycombinator.com/item?id=32485460
+- [Blogged Answers: A (Mostly) Complete Guide to React Rendering Behavior](https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/)

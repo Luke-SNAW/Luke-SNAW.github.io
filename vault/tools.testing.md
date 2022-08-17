@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1658821111784
+updated: 1660027008693
 created: 1646613263657
 published: false
 ---
@@ -24,6 +24,8 @@ published: false
 - https://mpv.io/
   - https://news.ycombinator.com/item?id=32137275
 - https://graphite.dev/
+- https://beta.sayhello.so/ - The search engine for developers.
+- https://chrome.google.com/webstore/detail/fake-filler/bnjjngeaknajbdcgpfkgnonkmififhfo?hl=en
 
 ## bookmarks
 
