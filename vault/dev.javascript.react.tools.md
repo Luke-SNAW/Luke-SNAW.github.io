@@ -2,7 +2,7 @@
 id: EfWFJ0GbhOHhtxxDdrbIl
 title: Tools
 desc: ""
-updated: 1660695241870
+updated: 1660865266087
 created: 1644969082223
 ---
 
@@ -16,6 +16,7 @@ created: 1644969082223
 - [click-to-component](https://github.com/ericclemmons/click-to-component) - <kbd>Option+Click</kbd> a Component in the browser to **instantly** goto the source in your editor.
 - [Start UI [web]](https://github.com/BearStudio/start-ui-web) is an opinionated UI starter with ⚛️ React, ⚡️ Chakra UI, ⚛️ React Query & 🐜 Formiz — From the 🐻 BearStudio Team
 - [react-use](https://github.com/streamich/react-use) - Collection of essential [React Hooks](https://reactjs.org/docs/hooks-intro.html). _Port of_ [`libreact`](https://github.com/streamich/libreact).
+- [Million](https://github.com/aidenybai/million) is a drop-in replacement for [React](https://reactjs.org/) with a lightweight (`<1kb`) Virtual DOM. It's [_**really fast**_](https://millionjs.org/benchmarks) and makes it easy to create user interfaces.
 
 # Animation
 

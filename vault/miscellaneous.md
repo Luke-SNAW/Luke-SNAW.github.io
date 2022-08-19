@@ -2,12 +2,15 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1660709504000
+updated: 1660871915155
 created: 1657500862975
 ---
 
 - [I should have loved biology](https://jsomers.net/i-should-have-loved-biology/)
 - [Annual JavaScript Golfing Competition](https://js1024.fun/results/2022)
+- [Building a Vector Map from Scratch](https://ckochis.com/building-a-vector-map-from-scratch)
+  - https://ckochis.com/webgl-map-demo
+  - https://github.com/kochis/webgl-map
 
 # Image
 
@@ -31,3 +34,7 @@ Higher Resolution Images available here: [https://webbtelescope.org/contents/med
 Full-Res 4537x4630 PNG (28.51 MB): [https://stsci-opo.org/STScI-01G7JJADTH90FR98AKKJFKSS0B.png](https://stsci-opo.org/STScI-01G7JJADTH90FR98AKKJFKSS0B.png)
 
 Hubble's capture of the same area: [https://bigthink.com/wp-content/uploads/2022/07/smacs0723-73...](https://bigthink.com/wp-content/uploads/2022/07/smacs0723-73.jpg) and a gif comparison vs the JWST: [https://i.redd.it/9uyhwijeo0b91.gif](https://i.redd.it/9uyhwijeo0b91.gif) posted by /u/WhatEvery1sThinking on Reddit.
+
+# Hardware
+
+![](/assets/images/appropriate_term.png)

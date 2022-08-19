@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1660026783176
+updated: 1660880217357
 created: 1646264359213
 ---
 
@@ -19,6 +19,7 @@ created: 1646264359213
 - [DFlex](https://github.com/dflex-js/dflex) - A Drag-and-Drop library for all JavaScript frameworks implementing an enhanced transformation mechanism to manipulate DOM elements.
 - [impress.js](https://github.com/impress/impress.js) is a presentation framework based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.
 - [css-doodle](https://github.com/css-doodle/css-doodle) - A web component for drawing patterns with CSS.
+- [WinBox](https://github.com/nextapps-de/winbox) is a modern HTML5 window manager for the web.
 
 # Canvas
 
