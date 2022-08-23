@@ -1,10 +1,11 @@
 ---
 id: 2ijeu1j04o0qzmy7hzk1tlb
 title: TypeScript
-desc: ''
-updated: 1652057957402
+desc: ""
+updated: 1661154180384
 created: 1652057928334
 ---
+
 - [Differences Between TypeScript Type vs Interface](https://www.educba.com/typescript-type-vs-interface/)
 - [Stop SHOUTING = 'shouting'](https://swizec.com/blog/stop-shouting-shouting/)
 - [Typing Component Props | React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/#basic-prop-types-examples)
@@ -15,14 +16,14 @@ created: 1652057928334
 - [The Shocking Secret About Static Types](https://medium.com/javascript-scene/the-shocking-secret-about-static-types-514d39bf30a3)
 - [Index Signatures in TypeScript](https://dmitripavlutin.com/typescript-index-signatures/)
   ```typescript
-  type SpecificSalary = Record<'yearlySalary'|'yearlyBonus', number>
+  type SpecificSalary = Record<"yearlySalary" | "yearlyBonus", number>;
   interface StringByString {
     [key: string]: string | undefined;
   }
   const object: StringByString = {};
   ```
-  
 - [3 Useful TypeScript Patterns to Keep in Your Back Pocket](https://spin.atomicobject.com/2021/05/11/3-useful-typescript-patterns/)
+
   ```typescript
   type Names = "Bob" | "Bill" | "Ben";
   type JobTitles = "Welder" | "Carpenter" | "Plumber";
@@ -30,6 +31,8 @@ created: 1652057928334
   const JobAssignments: { [Key in Names]: JobTitles } = {
     Bob: "Welder",
     Bill: "Carpenter",
-    Ben: "Plumber"
+    Ben: "Plumber",
   };
   ```
+
+- [Why Are Const Assertions a Gem in TypeScript?](https://blog.bitsrc.io/why-are-const-assertions-a-gem-in-typescript-e1d353f5d8ce)

@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1660871915155
+updated: 1661154510748
 created: 1657500862975
 ---
 
@@ -11,6 +11,7 @@ created: 1657500862975
 - [Building a Vector Map from Scratch](https://ckochis.com/building-a-vector-map-from-scratch)
   - https://ckochis.com/webgl-map-demo
   - https://github.com/kochis/webgl-map
+- [FauxPilot](https://github.com/moyix/fauxpilot) is an open-source GitHub Copilot server
 
 # Image
 

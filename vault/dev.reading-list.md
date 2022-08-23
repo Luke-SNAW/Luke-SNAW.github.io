@@ -2,7 +2,7 @@
 id: pc5x8fihvgy53vw9f9ws7vc
 title: Reading List
 desc: ""
-updated: 1660876866768
+updated: 1661154143718
 created: 1645682628574
 ---
 
@@ -28,7 +28,6 @@ created: 1645682628574
   - https://news.ycombinator.com/item?id=30493713
 - https://kentcdodds.com/blog/effective-snapshot-testing
 - https://www.freecodecamp.org/news/execution-context-how-javascript-works-behind-the-scenes/
-- [Why Are Const Assertions a Gem in TypeScript?](https://blog.bitsrc.io/why-are-const-assertions-a-gem-in-typescript-e1d353f5d8ce)
 
 # WIP
 

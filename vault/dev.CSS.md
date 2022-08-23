@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1657523580939
+updated: 1661154450231
 created: 1646129148306
 ---
 
@@ -37,3 +37,13 @@ In this article, we’ll explore how cascade layers work, and how they will help
 > CSS co-designer here.  
 > !important was added for one reason only: laws in the US that require certain text to be in a given font-size. !important stops the cascade from changing it.  
 > Anything else is probably misuse, and a sign you may not understand the cascade properly.
+
+# SVG
+
+## [Where, When, And When NOT To Use SVG!](https://medium.com/codex/where-when-and-when-not-to-use-svg-150d5a5d7592)
+
+- When Shouldn’t We Use SVG?
+  - Presentational monochrome images such as flat icons. Webfonts can be cached, the two modern formats of WOFF and WOFF2 compress much smaller than gzipping minified SVG.
+- Is It Presentational And/Or Decoration? Then Don’t Put It In The Markup!
+- If Not In The Markup, Where?
+  - Your stylesheet. As a background-image.

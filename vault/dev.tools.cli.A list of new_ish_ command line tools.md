@@ -2,7 +2,7 @@
 id: yn68lbuog9rseo4kzfqz6sw
 title: A list of new(ish) command line tools
 desc: ""
-updated: 1651019173026
+updated: 1661126778099
 created: 1649891027466
 ---
 
@@ -62,6 +62,8 @@ Here are some tools that are not exactly replacements for standard tools:
   - https://github.com/stedolan/jq
   - https://earthly.dev/blog/jq-select/
   - https://news.ycombinator.com/item?id=31166956
+  - X https://github.com/itchyny/gojq
+    - ["gojq does not keep the order of object keys" is a bit disappointing.](https://news.ycombinator.com/item?id=32542752)
 - [jc](https://github.com/kellyjonbrazil/jc) (convert various tools’ output into JSON)
 - [jo](https://github.com/jpmens/jo) (create JSON objects)
 - [yq](https://github.com/mikefarah/yq) (like `jq`, but for YAML). there’s also [another yq](https://github.com/kislyuk/yq)
