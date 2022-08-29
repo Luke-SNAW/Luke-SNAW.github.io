@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1655686536239
+updated: 1661753223598
 created: 1645514261238
 ---
 
@@ -36,3 +36,7 @@ Bob was the ultimate anti-imposter syndrome advocate. His trademark line was…
 That doesn’t make you an imposter.
 
 It makes you a beginner. It makes you a learner. It makes you someone who gets to experience that joy of looking at this amazing work we do with fresh eyes and new perspectives.
+
+## [5 Uncommon Habits That Will Make You Happier](https://nickwignall.medium.com/5-uncommon-habits-that-will-make-you-happier-a3499cc31479)
+
+- Happiness is hard because it’s often at odds with what feels good in the moment. And left to our instincts, we tend to choose what feels good now over what will make us genuinely happy in the long-run.
