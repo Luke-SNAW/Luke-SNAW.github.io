@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1661753223598
+updated: 1661845617539
 created: 1645514261238
 ---
 
@@ -40,3 +40,9 @@ It makes you a beginner. It makes you a learner. It makes you someone who gets t
 ## [5 Uncommon Habits That Will Make You Happier](https://nickwignall.medium.com/5-uncommon-habits-that-will-make-you-happier-a3499cc31479)
 
 - Happiness is hard because it’s often at odds with what feels good in the moment. And left to our instincts, we tend to choose what feels good now over what will make us genuinely happy in the long-run.
+
+## [5 Simple Ways to Improve Your Self-Worth](https://nickwignall.medium.com/5-simple-ways-to-improve-your-self-worth-ae2dbb7b2303)
+
+> “Motivation often comes after starting, not before. Action produces momentum.”
+>
+> — James Clear

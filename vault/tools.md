@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1657160892571
+updated: 1661816363173
 created: 1644799670081
 ---
 
@@ -68,3 +68,14 @@ created: 1644799670081
 
 - [Take the pain out of git conflict resolution: use diff3](https://blog.nilbus.com/take-the-pain-out-of-git-conflict-resolution-use-diff3/)
 - [Smort](https://www.smort.io/) lets you easily edit, annotate and share articles.
+
+# Visual
+
+- [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) aims at developing Practical Algorithms for General Image/Video Restoration.
+- 🆙 [Upscayl](https://github.com/upscayl/upscayl) - Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.
+
+# Site
+
+## Hacker news
+
+- about [down vote](https://news.ycombinator.com/item?id=16131314)

@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1661154450231
+updated: 1661901035097
 created: 1646129148306
 ---
 
@@ -47,3 +47,7 @@ In this article, we’ll explore how cascade layers work, and how they will help
 - Is It Presentational And/Or Decoration? Then Don’t Put It In The Markup!
 - If Not In The Markup, Where?
   - Your stylesheet. As a background-image.
+
+# Styles
+
+- [columns](https://developer.mozilla.org/en-US/docs/Web/CSS/columns)

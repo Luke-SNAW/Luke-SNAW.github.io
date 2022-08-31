@@ -1,7 +1,7 @@
 ---
 id: 7xzweai4zr3f6jg1bv3bjmv
-title: :where() :is() :has()? New CSS selectors that make your life easier
-desc: ""
+title: ':where() :is() :has()? New CSS selectors that make your life easier'
+desc: ''
 updated: 1654935715134
 created: 1654935589543
 ---

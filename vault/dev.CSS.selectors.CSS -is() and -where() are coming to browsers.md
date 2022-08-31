@@ -1,7 +1,7 @@
 ---
 id: klj47rj1y5agwo2kfj1lngz
-title: CSS :is() and :where() are coming to browsers
-desc: ""
+title: 'CSS :is() and :where() are coming to browsers'
+desc: ''
 updated: 1646131563404
 created: 1646131275423
 ---

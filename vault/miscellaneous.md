@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1661154510748
+updated: 1661901819204
 created: 1657500862975
 ---
 
@@ -22,11 +22,15 @@ created: 1657500862975
 - https://samsunglabs.github.io/MegaPortraits/
   - https://news.ycombinator.com/item?id=32168299
 - https://www.topazlabs.com/gigapixel-ai
+- [sd-enable-textual-inversion](https://github.com/hlky/sd-enable-textual-inversion) - Copy these files to your stable-diffusion to enable text-inversion
+  - https://news.ycombinator.com/item?id=32643564
+  - ![](https://camo.githubusercontent.com/8fc4621d6a30a8bc94192aff7cfd3f5f5f588401752001c0d0888e898f8a93b1/68747470733a2f2f7465787475616c2d696e76657273696f6e2e6769746875622e696f2f7374617469632f696d616765732f65646974696e672f7465617365722e4a5047)
 
 # Astronomical
 
 - [WebbCompare](https://github.com/JohnEdChristensen/WebbCompare) - Compare James Webb Space Telescope images to older images.
   - [OpenSeadragon](https://github.com/openseadragon/openseadragon) - web-based viewer for zoomable images, implemented in pure JavaScript.
+- [The James Webb Space Telescope runs JavaScript, apparently](https://www.theverge.com/2022/8/18/23206110/james-webb-space-telescope-javascript-jwst-instrument-control)
 
 ## [NASA’s Webb Delivers Deepest Infrared Image of Universe Yet](https://www.nasa.gov/image-feature/goddard/2022/nasa-s-webb-delivers-deepest-infrared-image-of-universe-yet)
 

@@ -1,7 +1,7 @@
 ---
 id: 8w5mxswu48wwne2lisingsc
-title: "Using :has() as a CSS Parent Selector and much more"
-desc: ""
+title: 'Using :has() as a CSS Parent Selector and much more'
+desc: ''
 updated: 1661748214738
 created: 1661745381272
 ---
