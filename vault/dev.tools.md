@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Tools
 desc: ""
-updated: 1658217215669
+updated: 1662013734029
 created: 1647145480774
 ---
 
@@ -32,3 +32,8 @@ created: 1647145480774
 # File
 
 - [Meld for macOS](https://github.com/yousseb/meld) - Meld is a visual diff and merge tool targeted at developers. Meld helps you compare files, directories, and version controlled projects. It provides two- and three-way comparison of both files and directories, and supports many version control systems including Git, Mercurial, Bazaar, CVS and Subversion.
+
+# Auth
+
+- [keycloak](https://github.com/keycloak/keycloak) - Open Source Identity and Access Management For Modern Applications and Services
+- [fast-jwt](https://github.com/nearform/fast-jwt) - Fast JSON Web Token implementation

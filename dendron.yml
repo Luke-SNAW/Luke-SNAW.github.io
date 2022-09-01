@@ -18,7 +18,8 @@ commands:
     enableMultiSelect: false
   insertNoteIndex:
     enableMarker: false
-  copyNoteLink: {}
+  copyNoteLink:
+    aliasMode: title
   templateHierarchy: template
 workspace:
   vaults:
@@ -69,7 +70,6 @@ workspace:
   maxPreviewsCached: 10
   maxNoteLength: 204800
   dendronVersion: 0.83.0
-  enableHandlebarTemplates: true
   enableFullHierarchyNoteTitle: false
   enableSmartRefs: false
 preview:

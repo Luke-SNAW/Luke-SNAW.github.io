@@ -2,7 +2,7 @@
 id: oupetc54rid9460a481qly3
 title: Tools
 desc: ""
-updated: 1647479326045
+updated: 1662013745117
 created: 1646012035359
 ---
 
@@ -30,3 +30,7 @@ created: 1646012035359
 
 - [winston](https://github.com/winstonjs/winston) is designed to be a simple and universal logging library with support for multiple transports. A transport is essentially a storage device for your logs. Each winston logger can have multiple transports (see: [Transports](https://github.com/winstonjs/winston#transports)) configured at different levels (see: [Logging levels](https://github.com/winstonjs/winston#logging-levels)). For example, one may want error logs to be stored in a persistent remote location (like a database), but all logs output to the console or a local file.
 - 🌲 [pino](https://github.com/pinojs/pino) - super fast, all natural json logger
+
+# Auth
+
+- [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - JsonWebToken implementation for node.js http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html
