@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1661901819204
+updated: 1662420625555
 created: 1657500862975
 ---
 
@@ -25,6 +25,7 @@ created: 1657500862975
 - [sd-enable-textual-inversion](https://github.com/hlky/sd-enable-textual-inversion) - Copy these files to your stable-diffusion to enable text-inversion
   - https://news.ycombinator.com/item?id=32643564
   - ![](https://camo.githubusercontent.com/8fc4621d6a30a8bc94192aff7cfd3f5f5f588401752001c0d0888e898f8a93b1/68747470733a2f2f7465787475616c2d696e76657273696f6e2e6769746875622e696f2f7374617469632f696d616765732f65646974696e672f7465617365722e4a5047)
+- [Run Stable Diffusion on Your M1 Mac’s GPU](https://news.ycombinator.com/item?id=32678664)
 
 # Astronomical
 
