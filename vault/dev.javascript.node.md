@@ -2,7 +2,7 @@
 id: dnqq11162p04a178qiuu23x
 title: Node
 desc: ""
-updated: 1662013478013
+updated: 1663216575867
 created: 1646868633251
 ---
 
@@ -17,3 +17,4 @@ created: 1646868633251
   7. Logging from a catch clause
   8. Morgan logger
   9. NODE_ENV
+- [An overview of Node.js: architecture, APIs, event loop, concurrency](https://2ality.com/2022/09/nodejs-overview.html)

@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1652060018668
+updated: 1663216878895
 created: 1646011769978
 ---
 
@@ -20,6 +20,7 @@ created: 1646011769978
 - [GistPad](https://github.com/lostintangent/gistpad) - VS Code extension for managing and sharing code snippets, notes and interactive samples using GitHub Gists
 - [Database Client](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-database-client2)
 - [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) - Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.
+- [JSON Hero](https://marketplace.visualstudio.com/items?itemName=JSONHero.jsonhero-vscode) - a beautiful JSON viewer.
 
 # Testing
 
