@@ -2,7 +2,7 @@
 id: 186lrn3wlhoxnrbvko6ge2p
 title: "Chapter 2: The Important Stuff"
 desc: ""
-updated: 1662533851978
+updated: 1663223794711
 created: 1662531230396
 ---
 
@@ -133,3 +133,43 @@ Accidentally or not, people often remember things differently; writing them down
 Whoever has to draw up the agenda for the next meeting can start with the action items from the previous one.
 
 If you would like to become better at sharing information and making decisions, there is no better place to start than [[Brookfield2016](https://buildtogether.tech/bibliography/#Brookfield2016)], which catalogs fifty different techniques for managing discussions and explains when and how each is useful.
+
+## Air Time
+
+One problem with meetings is that some people may talk far more than others. Other people may be so accustomed to this that they don't speak up even when they have valuable points to make.
+
+...
+
+## Making Decisions
+
+The first release of GitHub's [Minimum Viable Governance](https://github.com/github/MVG) guidelines included this:
+
+> **2.1. Consensus-Based Decision Making** Projects make decisions through consensus of the Maintainers. While explicit agreement of all Maintainers is preferred, it is not required for consensus. Rather, the Maintainers will determine consensus based on their good faith consideration of a number of factors, including the dominant view of the Contributors and nature of support and objections. The Maintainers will document evidence of consensus in accordance with these requirements.
+
+It sounds reasonable, but it is harmfully wrong. Every team has a power structure: the question is whether it's formal or informal—in other words, whether it's accountable or unaccountable [[Freeman1972](https://buildtogether.tech/bibliography/#Freeman1972)]. In the latter case, decisions will effectively be made by the people who are the most self-confident or stubborn rather than by those with the most insight.
+
+To guard against this, groups need to spell out who has the authority to make which decisions and how to achieve consensus. In short, they need explicit [governance](https://buildtogether.tech/glossary/#governance).
+
+[Martha's Rules](https://buildtogether.tech/glossary/#marthas_rules) [[Minahan1986](https://buildtogether.tech/bibliography/#Minahan1986)] are a practical way to do this in groups of up to a few dozen people, and work very well for smaller teams too:
+
+1. Before each meeting, anyone who wishes may sponsor a proposal. Proposals must be filed at least 24 hours before a meeting in order to be considered, and must include:
+
+   - a one-line summary
+   - the full text of the proposal
+   - any required background information
+   - pros and cons
+   - possible alternatives
+
+2. A quorum is established in a meeting if half or more of voting members are present.
+3. Once a person has sponsored a proposal, the group may not discuss or vote on the issue unless the sponsor or their delegate is present.
+4. After the sponsor presents the proposal a [sense vote](https://buildtogether.tech/glossary/#sense_vote) is cast:
+
+   - Thumbs up: who likes the proposal?
+   - Thumbs down: who is uncomfortable with the proposal?
+   - Thumbs sideways: who can live with?
+
+5. If everyone likes or can live with the proposal, it passes with no further discussion.
+6. If the majority is uncomfortable with the proposal, it is sent back to its sponsor for further work. (The sponsor may decide to drop it if it's clear the majority isn't ever going to support it.)
+7. Otherwise, the group has a brief moderated discussion. After 10 minutes, or when no one has anything further to add, the moderator calls for a straight yes-or-no vote on the proposal. If a majority votes "yes" it is adopted; otherwise, it is returned to the sponsor for further work.
+
+...

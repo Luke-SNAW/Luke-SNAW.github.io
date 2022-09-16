@@ -2,7 +2,7 @@
 id: ejkb541ebc0tp70n4hy72zw
 title: Building Software Together
 desc: ""
-updated: 1662531250918
+updated: 1663227369547
 created: 1662531048977
 ---
 
@@ -12,3 +12,5 @@ Our aim is to teach you how to be a _compassionate programmer_: one who cares as
 
 1. [Introduction](dev.building-software-together.introduction.md)
 2. [The Important Stuff](dev.building-software-together.important.md)
+3. [Starting](dev.building-software-together.starting.md)
+4. [Teams](dev.building-software-together.teams.md)
