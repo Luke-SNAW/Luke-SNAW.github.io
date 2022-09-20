@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1660026816434
+updated: 1663543656870
 created: 1644882116217
 ---
 
@@ -88,10 +88,6 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 
 - [Top 10 Chrome DevTools tips & tricks](https://areknawo.com/top-10-chrome-devtools-tips-tricks/)
 
-# Profile
-
-- [fuite](https://github.com/nolanlawson/fuite) - A tool for finding memory leaks in web apps
-
 # Monitoring
 
 - [10 Best JavaScript Debug and Monitors](https://www.netadmintools.com/best-javascript-debug-and-monitors/)
@@ -99,3 +95,9 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 # Security
 
 - [DOMPurify](https://github.com/cure53/DOMPurify) is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG.
+
+# Debugging
+
+- [memlab](https://github.com/facebookincubator/memlab) is an E2E testing and analysis framework for finding JavaScript memory leaks and optimization opportunities.
+- [fuite](https://github.com/nolanlawson/fuite) is a CLI tool for finding memory leaks in web apps.
+  - [Introducing fuite: a tool for finding memory leaks in web apps](https://nolanlawson.com/2021/12/17/introducing-fuite-a-tool-for-finding-memory-leaks-in-web-apps/)
