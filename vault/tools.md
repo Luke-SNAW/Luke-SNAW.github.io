@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1661816363173
+updated: 1663810208962
 created: 1644799670081
 ---
 
@@ -24,6 +24,7 @@ created: 1644799670081
     - I had never used youtube-dl until the story happened. I downloaded for windows and its speeds were throttled to around 50kB/s. Posters on Stack recommended the ytdlp fork which i tried and it was 5-10 MB/s. Just fyi
       - The workaround for vanilla youtube-dl is to use it with aria2 ...
 - [Openverse](https://wordpress.org/openverse/) - Openly Licensed Images, Audio, and more
+- https://www.getclockwise.com/ - Rework the workday
 
 # New letter
 

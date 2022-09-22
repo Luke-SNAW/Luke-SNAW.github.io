@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1663654646097
+updated: 1663806520872
 created: 1657500862975
 ---
 
@@ -45,3 +45,9 @@ Hubble's capture of the same area: [https://bigthink.com/wp-content/uploads/2022
 # Hardware
 
 ![](/assets/images/appropriate_term.png)
+
+# Business
+
+- https://www.starterstory.com/explore
+- https://www.failory.com/graveyard
+- https://ourincrediblejourney.tumblr.com/
