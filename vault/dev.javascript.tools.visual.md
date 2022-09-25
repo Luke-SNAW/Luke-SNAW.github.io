@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1660880217357
+updated: 1664068602562
 created: 1646264359213
 ---
 
@@ -20,6 +20,7 @@ created: 1646264359213
 - [impress.js](https://github.com/impress/impress.js) is a presentation framework based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.
 - [css-doodle](https://github.com/css-doodle/css-doodle) - A web component for drawing patterns with CSS.
 - [WinBox](https://github.com/nextapps-de/winbox) is a modern HTML5 window manager for the web.
+- [Tesseract.js](https://github.com/naptha/tesseract.js) - Pure Javascript OCR for more than 100 Languages 📖🎉🖥
 
 # Canvas
 
