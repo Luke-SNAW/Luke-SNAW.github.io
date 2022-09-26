@@ -2,7 +2,7 @@
 id: qltwl7xp3qselvb8fgmzeze
 title: CDN caching isn't the performance boost it used to be
 desc: ""
-updated: 1646012535690
+updated: 1664154293230
 created: 1646012535690
 ---
 

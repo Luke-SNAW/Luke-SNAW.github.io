@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1661989680854
+updated: 1664152076077
 created: 1646129148306
 ---
 
@@ -52,3 +52,4 @@ In this article, we’ll explore how cascade layers work, and how they will help
 
 - [columns](https://developer.mozilla.org/en-US/docs/Web/CSS/columns)
 - [linear-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient)
+- [Web Design in 4 minutes](https://jgthms.com/web-design-in-4-minutes/)

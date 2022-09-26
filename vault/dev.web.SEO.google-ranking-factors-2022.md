@@ -2,7 +2,7 @@
 id: zq126fcg6x7pfxt8upukbcy
 title: Google’s 200 Ranking Factors-The Complete List (2022)
 desc: ''
-updated: 1655685955184
+updated: 1664154241672
 created: 1655684877111
 ---
 

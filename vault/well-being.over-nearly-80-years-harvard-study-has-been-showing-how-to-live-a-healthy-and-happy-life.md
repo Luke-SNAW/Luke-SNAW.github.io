@@ -1,12 +1,12 @@
 ---
-id: we97703ejy4dqaebxcmu5yo
-title: "Good genes are nice, but joy is better"
+id: knyg6gnd1ar7j9psv59n6qz
+title: Good genes are nice, but joy is better
 desc: ""
-updated: 1650934587912
+updated: 1664154472191
 created: 1650934543422
 ---
 
-https://news.harvard.edu/gazette/story/2017/04/over-nearly-80-years-harvard-study-has-been-showing-how-to-live-a-healthy-and-happy-life/
+> https://news.harvard.edu/gazette/story/2017/04/over-nearly-80-years-harvard-study-has-been-showing-how-to-live-a-healthy-and-happy-life/
 
 Harvard study, almost 80 years old, has proved that embracing community helps us live longer, and be happier
 

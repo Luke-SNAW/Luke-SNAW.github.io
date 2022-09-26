@@ -1,8 +1,8 @@
 ---
 id: bjw7b75n730ho5pofftca7n
 title: Feedback Ladders How We Encode Code Reviews at Netlify
-desc: ""
-updated: 1661389272403
+desc: ''
+updated: 1664153638717
 created: 1661388995808
 ---
 

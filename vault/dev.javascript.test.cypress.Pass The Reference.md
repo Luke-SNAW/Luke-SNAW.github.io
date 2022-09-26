@@ -1,7 +1,7 @@
 ---
 id: 6369gjkobqwh0now11ib7tl
-title: "Pass The Reference "
-desc: ""
+title: Pass The Reference
+desc: ''
 updated: 1654414150515
 created: 1654414106612
 ---

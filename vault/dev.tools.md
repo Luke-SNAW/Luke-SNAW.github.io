@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Tools
 desc: ""
-updated: 1662509758488
+updated: 1663894662237
 created: 1647145480774
 ---
 
@@ -25,6 +25,7 @@ created: 1647145480774
   - https://news.ycombinator.com/item?id=31813957
 - [Programming Fonts](https://www.programmingfonts.org/)
 - [JSON Crack](https://github.com/AykutSarac/jsoncrack.com) -🔮 Seamlessly visualize your JSON data instantly into graphs; paste, import or fetch!
+- [Backstage](https://github.com/backstage/backstage) is an open platform for building developer portals
 
 # Network
 

@@ -1,7 +1,7 @@
 ---
 id: 6w36dgapan7eummy1q6jpx1
 title: Back End
-desc: ""
+desc: ''
 updated: 1650632488179
 created: 1649297934004
 ---
@@ -16,4 +16,4 @@ created: 1649297934004
 
 ## [[dev.back-end.Why I Love Basic Auth]]
 
-## [[dev.back-end.Stop Using JSON Web Tokens For Authentication. Use Stateful Sessions Instead]]
+## [[dev.back-end.Stop Using JSON Web Tokens For Authentication.Use Stateful Sessions Instead]]
