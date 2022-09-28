@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Tools
 desc: ""
-updated: 1663543656870
+updated: 1664243859978
 created: 1644882116217
 ---
 
@@ -39,7 +39,6 @@ created: 1644882116217
 - [Monorepo Dedendency Management Solutions - Solution analysis for Polaris Foundations](https://docs.google.com/spreadsheets/d/1rxrRTlbNWiLVu-Q5IK7xh5O1FmWcjyAS2XN7jiPrhYM/edit#gid=595095741)
 - [Jamstack ecosystem](https://cloudcannon.com/community/jamstack-ecosystem/)
 - [Umbrella JS](https://github.com/franciscop/umbrella): ☔ Lightweight javascript library for DOM manipulation and events. A <3kb performant jQuery-like library born from the question: You might not need jQuery, then what do you need?
-- [Volta vs. nvm for JavaScript tooling](https://sirre.al/2021/02/12/volta-vs-nvm-for-managing-javascript-tooling/)
 - 🚀 [Axios Cache Interceptor](https://axios-cache-interceptor.js.org/#/)
 - 🔛 🔖 [sharer.js](https://github.com/ellisonleao/sharer.js): Create your own social share buttons. No jquery.
 - [What’s New In DevTools?](https://www.smashingmagazine.com/2022/01/devtools-updates-2022/)

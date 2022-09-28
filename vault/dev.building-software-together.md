@@ -2,7 +2,7 @@
 id: ejkb541ebc0tp70n4hy72zw
 title: Building Software Together
 desc: ""
-updated: 1663656541248
+updated: 1664178333172
 created: 1662531048977
 ---
 
@@ -18,7 +18,7 @@ Our aim is to teach you how to be a _compassionate programmer_: one who cares as
 6. [Managing Conflict](https://buildtogether.tech/conflict/)
 7. [Using Git On Your Own](https://buildtogether.tech/git-solo/)
 8. [Using Git Together](https://buildtogether.tech/git-team/)
-9. [Intellectual Property](https://buildtogether.tech/ip/)
+9. [Intellectual Property](dev.building-software-together.ip.md)
 10. [Communicating](https://buildtogether.tech/communicate/)
 11. [Testing](https://buildtogether.tech/testing/)
 12. [Software Design](https://buildtogether.tech/design/)

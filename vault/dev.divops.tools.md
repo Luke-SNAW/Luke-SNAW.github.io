@@ -2,7 +2,7 @@
 id: 7lfBuLShnSydgCh1ZVEd5
 title: Tools
 desc: ""
-updated: 1660002773852
+updated: 1664243927162
 created: 1645487597560
 ---
 
@@ -18,9 +18,12 @@ created: 1645487597560
   - Works as a Node.js version manager. See pnpm env use.
   - Works everywhere. Supports Windows, Linux, and macOS.
   - Battle-tested. Used in production by teams of all sizes since 2016.
+  - https://pnpm.io/cli/import
 - [npm-check-updates](https://github.com/raineorshine/npm-check-updates) - Find newer versions of package dependencies than what your package.json allows
   - Selectively update the dependencies that you choose
     ```shell
       ncu -i
     ```
+- [Volta](https://github.com/volta-cli/volta) - The Hassle-Free JavaScript Tool Manager
+  - [Volta vs. nvm for JavaScript tooling](https://sirre.al/2021/02/12/volta-vs-nvm-for-managing-javascript-tooling/)
 - [Upgraderoo](https://upgraderoo.janez.tech/) helps you upgrade NPM packages, discover outdated packages and saves you time to focus on building your product.
