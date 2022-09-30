@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1647064961473
+updated: 1664437787993
 created: 1645751512675
 ---
 
@@ -25,6 +25,7 @@ created: 1645751512675
 # Stats
 
 - [An annual state of the web report for 2021](https://almanac.httparchive.org/en/2021/table-of-contents)
+- [Web Almanac - HTTP Archive’s annual state of the web report 2022](https://almanac.httparchive.org/en/2022/)
 
 # Webview Case
 

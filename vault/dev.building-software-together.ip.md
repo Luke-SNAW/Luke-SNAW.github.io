@@ -1,7 +1,7 @@
 ---
 id: jxg7oyzuczfqjfkzmvwl67t
-title: "Chapter 9: Intellectual Property"
-desc: ""
+title: 'Chapter 9: Intellectual Property'
+desc: ''
 updated: 1664178383577
 created: 1664178290584
 ---

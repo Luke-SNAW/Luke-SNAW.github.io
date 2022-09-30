@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1663806520872
+updated: 1664499392793
 created: 1657500862975
 ---
 
@@ -13,7 +13,7 @@ created: 1657500862975
   - https://github.com/kochis/webgl-map
 - [FauxPilot](https://github.com/moyix/fauxpilot) is an open-source GitHub Copilot server
 
-# Image
+# Visual
 
 - [The DALL·E 2 Prompt Book](https://dallery.gallery/the-dalle-2-prompt-book/)
   - https://news.ycombinator.com/item?id=32088718
@@ -27,6 +27,9 @@ created: 1657500862975
   - ![](https://camo.githubusercontent.com/8fc4621d6a30a8bc94192aff7cfd3f5f5f588401752001c0d0888e898f8a93b1/68747470733a2f2f7465787475616c2d696e76657273696f6e2e6769746875622e696f2f7374617469632f696d616765732f65646974696e672f7465617365722e4a5047)
 - [Run Stable Diffusion on Your M1 Mac’s GPU](https://news.ycombinator.com/item?id=32678664)
 - [Dream Textures](https://github.com/carson-katri/dream-textures) - Stable Diffusion built-in to the Blender shader editor
+- [NeROIC](https://github.com/snap-research/NeROIC) - Neural Object Capture and Rendering from Online Image Collections
+- [WebVid Dataset](https://github.com/m-bain/webvid) - Large-scale text-video dataset. 10 million captioned short videos.
+  - https://webvid.datasette.io/webvid/videos
 
 # Astronomical
 
