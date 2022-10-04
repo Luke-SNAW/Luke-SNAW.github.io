@@ -2,12 +2,12 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1663216878895
+updated: 1664508020984
 created: 1646011769978
 ---
 
-- [Dendron](https://github.com/dendronhq/dendron) - The personal knowledge management (PKM) tool that grows as you do!
-- [Foam](https://github.com/foambubble/foam) is a personal knowledge management and sharing system inspired by [Roam Research](https://roamresearch.com/), built on [Visual Studio Code](https://code.visualstudio.com/) and [GitHub](https://github.com/).
+# Dev
+
 - [P42 JavaScript Assistant: Refactoring Hints & Automation](https://marketplace.visualstudio.com/items?itemName=p42ai.refactor#p42refactor)
 - Markdown All in One
   - section numbering : Ctrl+Alt+P -> section
@@ -17,6 +17,7 @@ created: 1646011769978
 - Regions With Colors
 - Prettier-Standard
 - Add jsdoc comments
+- [Preview.js](https://github.com/fwouts/previewjs) - Get instant previews of your UI components, directly in your IDE
 - [GistPad](https://github.com/lostintangent/gistpad) - VS Code extension for managing and sharing code snippets, notes and interactive samples using GitHub Gists
 - [Database Client](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-database-client2)
 - [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) - Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.
@@ -82,3 +83,8 @@ git config --global core.editor "code -w"
 - Turbo Console Log
 - Vue Snippets StandardJS
 - Vue VSCode Snippets
+
+# Personal knowledge management
+
+- [Dendron](https://github.com/dendronhq/dendron) - The personal knowledge management (PKM) tool that grows as you do!
+- [Foam](https://github.com/foambubble/foam) is a personal knowledge management and sharing system inspired by [Roam Research](https://roamresearch.com/), built on [Visual Studio Code](https://code.visualstudio.com/) and [GitHub](https://github.com/).

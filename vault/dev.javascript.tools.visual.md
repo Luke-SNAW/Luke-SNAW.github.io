@@ -2,10 +2,11 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1664068602562
+updated: 1664855211686
 created: 1646264359213
 ---
 
+- [Responsive Image Breakpoints Generator](https://www.responsivebreakpoints.com/) - Easily generate the optimal responsive image dimensions
 - [TypeIt](https://github.com/alexmacarthur/typeit) - The Most Versatile JavaScript Animated Typing Utility on the Planet
 - [imaskjs](https://github.com/uNmAnNeR/imaskjs) - vanilla javascript input mask
 - [deck.gl](https://github.com/visgl/deck.gl) - WebGL2 powered geospatial visualization layers

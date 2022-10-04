@@ -1,8 +1,8 @@
 ---
 id: 58ft2xcm0mjwn8eljaxgh82
 title: Stop Using JSON Web Tokens For Authentication. Use Stateful Sessions Instead.
-desc: ''
-updated: 1650633159135
+desc: ""
+updated: 1664849102341
 created: 1650632420814
 ---
 

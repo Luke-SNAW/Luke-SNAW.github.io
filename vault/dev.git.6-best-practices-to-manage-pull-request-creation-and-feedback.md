@@ -1,7 +1,7 @@
 ---
 id: flxrnqq70hujy04l6g64vwh
 title: 6 Best Practices to Manage Pull Request Creation and Feedback
-desc: ""
+desc: ''
 updated: 1664437703920
 created: 1664437491654
 ---

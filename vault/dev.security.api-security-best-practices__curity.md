@@ -2,7 +2,7 @@
 id: 0yxxudkuzdpqhapvplegwxz
 title: API Security Best Practices - curity
 desc: ""
-updated: 1654402046852
+updated: 1664849068850
 created: 1654401998926
 ---
 
