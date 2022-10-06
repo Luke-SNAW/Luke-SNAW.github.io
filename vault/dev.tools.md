@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Tools
 desc: ""
-updated: 1664496116930
+updated: 1665017359226
 created: 1647145480774
 ---
 
@@ -18,7 +18,8 @@ created: 1647145480774
   - Databases
   - Others
 - [Devhints.io](https://devhints.io/) - cheatsheets
-- [crontab guru](https://crontab.guru/) - The quick and simple editor for cron schedule expressions by [Cronitor](https://cronitor.io/cron-job-monitoring?utm_source=crontabguru&utm_campaign=cronitor_top "Cron job monitoring and observability")
+- [crontab guru](https://crontab.guru/) - The quick and simple editor for cron schedule expressions by [Cronitor]
+  - [Cronitor](https://cronitor.io/cron-job-monitoring/) - Cron job monitoring and observability"
 - [CyberChef](https://gchq.github.io/CyberChef/) - To decode Base64, URLs, regex … And you can chain them!
 - [WakaTime](https://wakatime.com/) - Dashboards for developers
 - [I fucking hate Jira](https://ifuckinghatejira.com/)
@@ -40,3 +41,12 @@ created: 1647145480774
 
 - [keycloak](https://github.com/keycloak/keycloak) - Open Source Identity and Access Management For Modern Applications and Services
 - [fast-jwt](https://github.com/nearform/fast-jwt) - Fast JSON Web Token implementation
+
+# News Letter, Feed
+
+- [daily.dev](https://daily.dev/) is the fastest-growing professional platform for developers to grow together.
+- [Hacker news](https://news.ycombinator.com/)
+  - https://hckrnews.com/ - Hacker News sorted by time
+  - [Ask Hacker News Weekly](https://www.daemonology.net/hn-weekly-ask/)
+  - [A List of Hacker News's Undocumented Features and Behaviors](https://github.com/minimaxir/hacker-news-undocumented)
+  - about [down vote](https://news.ycombinator.com/item?id=16131314)

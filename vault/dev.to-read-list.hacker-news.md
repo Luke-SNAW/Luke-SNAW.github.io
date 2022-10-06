@@ -2,12 +2,8 @@
 id: 8tkhyke7v32evmavng64fz0
 title: Hacker News
 desc: ""
-updated: 1648597293081
+updated: 1664927906366
 created: 1645682168084
----
-
-[Ask Hacker News Weekly](https://www.daemonology.net/hn-weekly-ask/)
-
 ---
 
 - [From Node to Ruby on Rails](https://news.ycombinator.com/item?id=29577897)

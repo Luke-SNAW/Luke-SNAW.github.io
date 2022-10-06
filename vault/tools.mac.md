@@ -2,7 +2,7 @@
 id: 6en2z3q3u4pnrn5todipo0s
 title: Mac
 desc: ""
-updated: 1664336851119
+updated: 1665014031218
 created: 1652405135977
 ---
 
@@ -19,3 +19,4 @@ created: 1652405135977
 
 - [GitUp](https://github.com/git-up/GitUp) - The Git interface you've been missing all your life has finally arrived.
 - [Mac Setup for Web Development [2022]](https://www.robinwieruch.de/mac-setup-web-development/)
+- [macOS Setup Guide](https://sourabhbajaj.com/mac-setup) - Installing Development environment on macOS

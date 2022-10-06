@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1664869134095
+updated: 1665017241251
 created: 1644799670081
 ---
 
@@ -55,13 +55,6 @@ created: 1644799670081
 - [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) aims at developing Practical Algorithms for General Image/Video Restoration.
 - 🆙 [Upscayl](https://github.com/upscayl/upscayl) - Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.
 - [Squoosh!](https://github.com/GoogleChromeLabs/squoosh) is an image compression web app that reduces image sizes through numerous formats. Squoosh lets you adjust the quality (compression rate) and **see the results live.**
-
-# Site
-
-## Hacker news
-
-- about [down vote](https://news.ycombinator.com/item?id=16131314)
-- https://hckrnews.com/ - Hacker News sorted by time
 
 # Etc
 
