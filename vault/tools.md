@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1665017241251
+updated: 1665186253598
 created: 1644799670081
 ---
 
@@ -60,6 +60,7 @@ created: 1644799670081
 
 - [Anki](https://github.com/ankitects/anki)
   - [Anki Manual](https://docs.ankiweb.net/background.html)
+  - [AwesomeTTS Anki add-on](https://github.com/AwesomeTTS/awesometts-anki-addon)
 - [untools](https://untools.co/) - Collection of thinking tools and frameworks to help you solve problems, make decisions and understand systems.
   - https://news.ycombinator.com/item?id=31647181
 - https://fs.blog/mental-models/
