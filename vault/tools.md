@@ -2,30 +2,30 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1665186253598
+updated: 1665537208551
 created: 1644799670081
 ---
 
-# New letter
+## New letter
 
-## Dev
+### Dev
 
 - [Code Philosophy](https://www.codephilosophy.co/) - https://alexkondov.com/
 
-# File management
+## File management
 
 - [PhotoPrism - Browse Your Life in Pictures](https://github.com/photoprism/photoprism) - Photos App powered by Go and Google TensorFlow 🌈 ✨
 - [Syncthing](https://github.com/syncthing/syncthing) - Open Source Continuous File Synchronization
 
-# Windows
+## Windows
 
 - [DevToys](https://github.com/veler/DevToys) - Swiss Army knife for developers. An offline Windows app that helps developers in daily tasks.
 
-# CLI
+## CLI
 
 - [Useful sed](https://github.com/adrianscheff/useful-sed)
 
-# Presentation
+## Presentation
 
 - [reveal-md](https://github.com/webpro/reveal-md) - reveal.js on steroids! Get beautiful reveal.js presentations from any Markdown file.
 - [Slidev](https://github.com/slidevjs/slidev) - Presentation Slides for Developers (Beta)
@@ -36,27 +36,27 @@ created: 1644799670081
 - [Markdoc](https://github.com/markdoc/markdoc) is a [Markdown](https://commonmark.org/)\-based syntax and toolchain for creating custom documentation sites and experiences.  
   We designed Markdoc to power [Stripe's public docs](http://stripe.com/docs), our largest and most complex content site.
 
-# Documentation
+## Documentation
 
 - [readme.so](https://github.com/octokatherine/readme.so) - An online drag-and-drop editor to easily build READMEs
 - [resume.io](https://resume.io/) - ONLINE RESUME BUILDER
 
-# Network
+## Network
 
 - [tailscale](https://tailscale.com/) - Zero config VPN. Installs on any device in minutes, manages firewall rules for you, and works from anywhere.
 
-# Testing
+## Testing
 
 - [Take the pain out of git conflict resolution: use diff3](https://blog.nilbus.com/take-the-pain-out-of-git-conflict-resolution-use-diff3/)
 - [Smort](https://www.smort.io/) lets you easily edit, annotate and share articles.
 
-# Visual
+## Visual
 
 - [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) aims at developing Practical Algorithms for General Image/Video Restoration.
 - 🆙 [Upscayl](https://github.com/upscayl/upscayl) - Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.
 - [Squoosh!](https://github.com/GoogleChromeLabs/squoosh) is an image compression web app that reduces image sizes through numerous formats. Squoosh lets you adjust the quality (compression rate) and **see the results live.**
 
-# Etc
+## Etc
 
 - [Anki](https://github.com/ankitects/anki)
   - [Anki Manual](https://docs.ankiweb.net/background.html)
@@ -80,3 +80,4 @@ created: 1644799670081
       - The workaround for vanilla youtube-dl is to use it with aria2 ...
 - [Openverse](https://wordpress.org/openverse/) - Openly Licensed Images, Audio, and more
 - https://www.getclockwise.com/ - Rework the workday
+- Bearblog and prose.sh

@@ -1,8 +1,8 @@
 ---
 id: 5iokala6y4rafqa368l1a4h
-title: Tools
-desc: ""
-updated: 1665017359226
+title: Dev Tools
+desc: ''
+updated: 1665536343636
 created: 1647145480774
 ---
 
@@ -29,24 +29,32 @@ created: 1647145480774
 - [Backstage](https://github.com/backstage/backstage) is an open platform for building developer portals
 - [penpot](https://github.com/penpot/penpot) - The Open-Source design & prototyping platform. made with clojure, clojurescript
 
-# Network
+## Network
 
 - [The ZeroMQ project](https://github.com/zeromq)
 
-# File
+## File
 
 - [Meld for macOS](https://github.com/yousseb/meld) - Meld is a visual diff and merge tool targeted at developers. Meld helps you compare files, directories, and version controlled projects. It provides two- and three-way comparison of both files and directories, and supports many version control systems including Git, Mercurial, Bazaar, CVS and Subversion.
 
-# Auth
+## Auth
 
 - [keycloak](https://github.com/keycloak/keycloak) - Open Source Identity and Access Management For Modern Applications and Services
 - [fast-jwt](https://github.com/nearform/fast-jwt) - Fast JSON Web Token implementation
 
-# News Letter, Feed
+## Docker
+
+### [How I reduced the size of my Docker Image by 95%](https://levelup.gitconnected.com/how-i-reduced-the-size-of-my-docker-image-by-95-520a05439300)
+
+- Reducing the size of Docker Images using Multi-Stage build.
+- Understand the Concept of Multistage build.
+
+## News Letter, Feed
 
 - [daily.dev](https://daily.dev/) is the fastest-growing professional platform for developers to grow together.
 - [Hacker news](https://news.ycombinator.com/)
   - https://hckrnews.com/ - Hacker News sorted by time
-  - [Ask Hacker News Weekly](https://www.daemonology.net/hn-weekly-ask/)
+  - [Hacker News FAQ](https://news.ycombinator.com/newsfaq.html)
   - [A List of Hacker News's Undocumented Features and Behaviors](https://github.com/minimaxir/hacker-news-undocumented)
   - about [down vote](https://news.ycombinator.com/item?id=16131314)
+  - [Ask Hacker News Weekly](https://www.daemonology.net/hn-weekly-ask/)

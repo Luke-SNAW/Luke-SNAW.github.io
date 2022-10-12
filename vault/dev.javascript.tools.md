@@ -1,8 +1,8 @@
 ---
 id: kiZBVVwRNBJUzgKgIBQVN
-title: Tools
-desc: ""
-updated: 1664243859978
+title: Javascript Tools
+desc: ''
+updated: 1665451210374
 created: 1644882116217
 ---
 
@@ -12,7 +12,6 @@ created: 1644882116217
     - promises, symbols, collections, iterators, typed arrays, many other features, ECMAScript proposals, some cross-platform WHATWG / W3C features and proposals like URL.
   - You can load only required features or use it without global namespace pollution.
 - [imaskjs](https://github.com/uNmAnNeR/imaskjs) - vanilla javascript input mask
-- [neo.mjs](https://github.com/neomjs/neo) - Web Worker enhanced frontend framework.
 - [Rome](https://github.com/rome/tools) is a formatter, linter, bundler, and [more](https://rome.tools/#philosophy) for JavaScript, TypeScript, JSON, HTML, Markdown, and CSS.
   - Rome is designed to replace Babel, ESLint, webpack, Prettier, Jest, and others.
 - [Fasy](https://github.com/getify/fasy) - FP iterators that are both eager and asynchronous
@@ -21,7 +20,6 @@ created: 1644882116217
   - Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,
   - Astro is best used for static websites like a portfolio or a personal blog.
 - [crypto-random-string](https://github.com/sindresorhus/crypto-random-string) - Generate a [cryptographically strong](https://en.wikipedia.org/wiki/Strong_cryptography) random string
-- [TAURI](https://github.com/tauri-apps/tauri): Build smaller, faster, and more secure desktop applications with a web frontend using WebView
 - [Publishing a Web Component to npm](https://til.simonwillison.net/npm/publish-web-component)
 - [State Machines for JavaScript Developers - How to Use Them in Your Apps](https://blog.openreplay.com/state-machines-for-javascript-developers-how-to-use-them-in-your-apps)
 - [Nano ID](https://github.com/ai/nanoid): A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
@@ -42,40 +40,51 @@ created: 1644882116217
 - 🚀 [Axios Cache Interceptor](https://axios-cache-interceptor.js.org/#/)
 - 🔛 🔖 [sharer.js](https://github.com/ellisonleao/sharer.js): Create your own social share buttons. No jquery.
 - [What’s New In DevTools?](https://www.smashingmagazine.com/2022/01/devtools-updates-2022/)
-- The [Plasmo](https://github.com/PlasmoHQ/plasmo) Framework is a battery-packed browser extension SDK made by hackers for hackers.
 - [ow](https://github.com/sindresorhus/ow) - Function argument validation for humans
 - [Eruda](https://github.com/liriliri/eruda) - Console for mobile browsers
 - [HLS.js](https://github.com/video-dev/hls.js) is a JavaScript library that plays HLS in browsers with support for MSE.
 
-# CSS
+## Framework
 
-- [linaria](https://github.com/callstack/linaria) - Write CSS in JS, but with **zero runtime**, CSS is extracted to CSS files during build
-- [앤트 디자인 - 어드민 개발을 위한 프레임웍](https://jeonghwan-kim.github.io/2018/10/13/ant-design-101.html)
+- [TAURI](https://github.com/tauri-apps/tauri): Build smaller, faster, and more secure desktop applications with a web frontend using WebView
+- [neo.mjs](https://github.com/neomjs/neo) - Web Worker enhanced frontend framework.
+- The [Plasmo](https://github.com/PlasmoHQ/plasmo) Framework is a battery-packed browser extension SDK made by hackers for hackers.
 
-# A11y
+> [Unpoly](https://demo.unpoly.com/) is the best thing I've discovered in the frontend world in the last 5 years. It's a breath of fresh air when compared to all the crazyness going on.
+> I use it to replace almost all "api" calls to the backend and for the "turbolinks like" navigation, modals, etc. Then I use [Alpinejs](https://alpinejs.dev/) for the really interactive/complex parts.
+>
+> I'm not doing a React/SPA ever again if I have any chance to decide on that.  
+> https://news.ycombinator.com/item?id=33141055
 
-- [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
-- [A11y Dialog](https://github.com/KittyGiraudel/a11y-dialog)
-
-# Prettier
-
-- Proposals for nested ternary formatting [#9561](https://github.com/prettier/prettier/issues/9561)
-
-# Test
-
-- [vConsole](https://github.com/Tencent/vConsole) - A lightweight, extendable front-end developer tool for mobile web page.
-
-# Lint
-
-- [XO](https://github.com/xojs/xo): JavaScript/TypeScript linter (ESLint wrapper) with great defaults
-- [eslint-plugin-sonarjs](https://github.com/SonarSource/eslint-plugin-sonarjs)
-
-# Micro front-end
+### Micro front-end
 
 - [single-spa](https://github.com/single-spa/single-spa) - The router for easy microfrontends
 - [Piral](https://github.com/smapiot/piral) - Framework for next generation web apps using micro frontends. 🚀
 
-# [The Vanilla JavaScript Toolkit](https://vanillajstoolkit.com/)
+## CSS
+
+- [linaria](https://github.com/callstack/linaria) - Write CSS in JS, but with **zero runtime**, CSS is extracted to CSS files during build
+- [앤트 디자인 - 어드민 개발을 위한 프레임웍](https://jeonghwan-kim.github.io/2018/10/13/ant-design-101.html)
+
+## A11y
+
+- [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+- [A11y Dialog](https://github.com/KittyGiraudel/a11y-dialog)
+
+## Prettier
+
+- Proposals for nested ternary formatting [#9561](https://github.com/prettier/prettier/issues/9561)
+
+## Test
+
+- [vConsole](https://github.com/Tencent/vConsole) - A lightweight, extendable front-end developer tool for mobile web page.
+
+## Lint
+
+- [XO](https://github.com/xojs/xo): JavaScript/TypeScript linter (ESLint wrapper) with great defaults
+- [eslint-plugin-sonarjs](https://github.com/SonarSource/eslint-plugin-sonarjs)
+
+## [The Vanilla JavaScript Toolkit](https://vanillajstoolkit.com/)
 
 A collection of native JavaScript [methods](https://vanillajstoolkit.com/reference), [helper functions](https://vanillajstoolkit.com/helpers), [libraries](https://vanillajstoolkit.com/libraries), [boilerplates](boilerplates), and [learning resources](https://vanillajstoolkit.com/resources).
 
@@ -87,15 +96,15 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 
 - [Top 10 Chrome DevTools tips & tricks](https://areknawo.com/top-10-chrome-devtools-tips-tricks/)
 
-# Monitoring
+## Monitoring
 
 - [10 Best JavaScript Debug and Monitors](https://www.netadmintools.com/best-javascript-debug-and-monitors/)
 
-# Security
+## Security
 
 - [DOMPurify](https://github.com/cure53/DOMPurify) is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG.
 
-# Debugging
+## Debugging
 
 - [memlab](https://github.com/facebookincubator/memlab) is an E2E testing and analysis framework for finding JavaScript memory leaks and optimization opportunities.
 - [fuite](https://github.com/nolanlawson/fuite) is a CLI tool for finding memory leaks in web apps.

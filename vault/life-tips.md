@@ -1,8 +1,8 @@
 ---
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
-desc: ""
-updated: 1661845617539
+desc: ''
+updated: 1665469451081
 created: 1645514261238
 ---
 
@@ -46,3 +46,50 @@ It makes you a beginner. It makes you a learner. It makes you someone who gets t
 > “Motivation often comes after starting, not before. Action produces momentum.”
 >
 > — James Clear
+
+## [How To Finally Make Something](https://medium.com/@scott.stevenson/how-to-finally-make-something-a16c8db7ba2a)
+
+Creativity ultimately means stepping forward without knowing where we’re going. Unfortunately, unstructured and ambiguous tasks make us anxious.
+
+To avoid this anxiety we constantly substitute playing the real game of creation with other activities that feel more structured — what I’ll call “fantasy games”.
+
+I’ll nickname four ways this ailment shows up as:
+
+1. Learning Syndrome
+2. Tool Syndrome
+3. Process Syndrome
+4. Maintenance Syndrome
+
+## [3 Habits The Wealthiest People Practice Daily That Most Others Don't](https://medium.com/wealthwise/3-habits-the-wealthiest-people-practice-daily-that-most-others-dont-423b62e60f0a)
+
+They Ask $30,000 Questions Instead of $3 Questions
+
+Examples of $3 questions are:
+
+- Should I make my coffee at home or get it at Starbucks?
+- Should I buy organic tomatoes or non-organic?
+- Should I cancel Netflix now that it’s a few dollars more expensive?
+- I have $10,000 in savings, should I switch banks with a 0.10% higher interest rate? (only makes a $10 difference per year)
+
+Examples of $30,000 questions are:
+
+- Can I earn more by negotiating a raise or switching jobs?
+- Should I start a side-hustle so I can make an extra $1000 per month?
+- Do I invest consistently and automatically?
+- How much am I paying in investment fees?
+- What’s the interest rate on this 30-year mortgage?
+- Can I increase my monthly savings rate to 15%?
+
+## [Learn Exponentially](https://saveall.ai/blog/learn-exponentially)
+
+> **Spaced repetition is a rapid exponential process**
+
+To visualize what this means we can [estimate (as fairly we can)](https://colab.research.google.com/drive/1InSARQ8FGJzmcc-Cn86RmsihQ77EsHi1?usp=sharing) how much you learn from 60 minutes reading per day vs. 30 minutes reading + 30 minutes spaced repetition per day:
+
+![](/assets/images/learn_exponentially_1_small.svg)
+
+The difference is extraordinary even when looking only 5 years ahead. **Use spaced repetition over a lifetime and you’ll be hundreds of times more knowledgeable.**
+
+> https://news.ycombinator.com/item?id=33140527
+
+So sure, learn spaced repetition, but really, find something and practice it for more joy and better results instead.
