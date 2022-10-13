@@ -1,7 +1,7 @@
 ---
 id: qwdwgm4twpsvupcubr2oa6x
 title: Miscellaneous
-desc: ''
+desc: ""
 updated: 1665537116443
 created: 1651801023197
 ---
@@ -21,6 +21,10 @@ created: 1651801023197
   - https://github.com/Rezmason/drivey
 
 ## Program Language
+
+### Practice
+
+- [Project Euler](https://projecteuler.net/)
 
 ### Type
 

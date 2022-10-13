@@ -1,12 +1,12 @@
 ---
-id: 8iw57w5j23kbx3zjne0fr0c
+id: v2zlc9pm8bkf3ycdgn0w0fe
 title: Example of lightweight feature documentation
 desc: ""
-updated: 1646270820159
-created: 1646268733548
+updated: 1665622706096
+created: 1665622673658
 ---
 
-https://alisterbscott.com/2020/05/29/example-of-lightweight-feature-documentation/
+> https://alisterbscott.com/2020/05/29/example-of-lightweight-feature-documentation/
 
 I’m not keen on writing specifications in gherkin (Given/When/Then) as I think it’s too generic and frequently makes the feature specifications too verbose – and takes emphasis away from the critical parts.
 
