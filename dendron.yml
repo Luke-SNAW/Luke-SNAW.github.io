@@ -67,7 +67,7 @@ workspace:
   enableEditorDecorations: true
   maxPreviewsCached: 10
   maxNoteLength: 204800
-  dendronVersion: 0.83.0
+  dendronVersion: 0.115.0
   enableFullHierarchyNoteTitle: false
 preview:
   enableFMTitle: true
@@ -97,7 +97,7 @@ publishing:
       - vault
   writeStubs: false
   seo:
-    title: Dendron
+    title: Luke SNAW
     description: Personal knowledge space
   github:
     enableEditLink: true
