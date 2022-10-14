@@ -1,7 +1,7 @@
 ---
 id: v2zlc9pm8bkf3ycdgn0w0fe
 title: Example of lightweight feature documentation
-desc: ""
+desc: ''
 updated: 1665622706096
 created: 1665622673658
 ---

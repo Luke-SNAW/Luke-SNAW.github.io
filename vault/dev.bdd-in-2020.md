@@ -1,7 +1,7 @@
 ---
 id: 7f3kvsw4fcm0zdpmziip1r1
 title: Bdd in 2020
-desc: ""
+desc: ''
 updated: 1665622780916
 created: 1665620096869
 ---
