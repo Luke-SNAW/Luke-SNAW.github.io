@@ -1,10 +1,19 @@
 ---
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
-desc: ''
-updated: 1665469451081
+desc: ""
+updated: 1666166428704
 created: 1645514261238
 ---
+
+## Focus
+
+### [HN](https://news.ycombinator.com/item?id=33256446)
+
+- In moment to moment work, I am starting to think focus is more about _not_ keeping busy when you need to wait for something.  
+  1 minute compile time? Not an opportunity to check your email or hacker news.
+- Absolutely. Focusing on lots of different tasks is the antithesis of focus. Focus is identifying and executing against one singular goal.
+- Tis true. Eat the boredom for a minute.
 
 ## [Nine Micro Life Hacks I Found on Reddit](https://medium.com/mind-cafe/nine-micro-life-hacks-i-found-on-reddit-that-are-surprisingly-useful-6c74638798e6)
 

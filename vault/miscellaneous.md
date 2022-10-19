@@ -1,10 +1,12 @@
 ---
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
-desc: ''
-updated: 1665472686563
+desc: ""
+updated: 1666162495128
 created: 1657500862975
 ---
+
+## Collections
 
 - [I should have loved biology](https://jsomers.net/i-should-have-loved-biology/)
 - [Annual JavaScript Golfing Competition](https://js1024.fun/results/2022)
@@ -12,6 +14,10 @@ created: 1657500862975
   - https://ckochis.com/webgl-map-demo
   - https://github.com/kochis/webgl-map
 - [FauxPilot](https://github.com/moyix/fauxpilot) is an open-source GitHub Copilot server
+
+### [Bartosz Ciechanowski](https://ciechanow.ski/archives/)
+
+- [Sound](https://ciechanow.ski/sound/)
 
 ## Visual
 
