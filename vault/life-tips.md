@@ -2,18 +2,26 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1666166428704
+updated: 1666225640132
 created: 1645514261238
 ---
 
 ## Focus
 
-### [HN](https://news.ycombinator.com/item?id=33256446)
+### [nsoonhui](https://news.ycombinator.com/item?id=33256446)
 
-- In moment to moment work, I am starting to think focus is more about _not_ keeping busy when you need to wait for something.  
-  1 minute compile time? Not an opportunity to check your email or hacker news.
+In moment to moment work, I am starting to think focus is more about _not_ keeping busy when you need to wait for something.  
+1 minute compile time? Not an opportunity to check your email or hacker news.
+
 - Absolutely. Focusing on lots of different tasks is the antithesis of focus. Focus is identifying and executing against one singular goal.
 - Tis true. Eat the boredom for a minute.
+- Yeah, I have a rack of dumbbells next to my desk (WFH for the win). I'll get up and run through a 1-2 minute complex. Not enough to sweat, but great for a refocus.
+
+### [lo_zamoyski](https://news.ycombinator.com/item?id=33261175)
+
+In this vein, classical ethicists talk about the vice of curiosity as opposed to the virtue of studiousness. Studiousness is the virtue of attention, of self-mastery in relation to intellectual pursuits, of prudent allocation of attention to what you should; curiosity is the vice of inattention, of spreading yourself too thin, to pursue things other than what one should or what is not worth pursuing, pursuing that which is beyond your reach, of flitting about between things, of inordinate desire in the domain of intellectual pursuits. The studious man attains wisdom, the curious man remains, at best, a coasting, superficial dilettante. The difference between the studious man and the curious man is something like the difference between the committed and faithful husband and the waffling philanderer. The former shows restraint in relation to his appetites and is able to build a relationship and raise a family, while the latter is a mess who never achieves anything of value, slavishly indulging his appetites that lead nowhere but his own misery and mediocrity. In all these cases, desirable things may present themselves that would derail you from your aim and sabotage your achievement and your own good. In all these cases, commitment involves refusing to indulge those desires because doing so is counterproductive and harmful in relation to the good pursued.
+
+In life, we must make decisions. The word "decision" comes from the Latin "to cut off", as in to cut off options or paths. The grapevine must be pruned to strengthen it and produce more fruit. Of course, we must decide wisely, there is no question about that, but FOMO is the opposite of that. It is an intemperate and immoderate desire for everything, never committing to anything and therefore never attaining anything and never becoming anything.
 
 ## [Nine Micro Life Hacks I Found on Reddit](https://medium.com/mind-cafe/nine-micro-life-hacks-i-found-on-reddit-that-are-surprisingly-useful-6c74638798e6)
 
