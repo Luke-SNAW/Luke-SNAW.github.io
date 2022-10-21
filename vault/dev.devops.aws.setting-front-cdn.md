@@ -2,7 +2,7 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1666253869359
+updated: 1666317771349
 created: 1646021156163
 ---
 
@@ -69,3 +69,27 @@ created: 1646021156163
 
 - 레코드 이름: site name
 - 값: CloudFront의 URL
+
+## Cache
+
+> https://medium.com/wantedjobs/cloudfront-cloudfront-functions-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-next-js-%EB%B2%88%EB%93%A4%ED%8C%8C%EC%9D%BC-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%84%9C%EB%B9%99%ED%95%98%EA%B8%B0-9ccc0541e406
+
+### CloudFront Functions
+
+```js
+function handler(event) {
+  var response = event.response;
+  var headers = response.headers;
+
+  // CORS header
+  if (!headers["access-control-allow-origin"]) {
+    headers["access-control-allow-origin"] = { value: "*" };
+    console.log("Access-Control-Allow-Origin was missing, adding it now.");
+  }
+  // cache-control
+  headers["cache-control"] = { value: "public,max-age=31536000,immutable;" };
+  return response;
+}
+```
+
+함수연결 - 뷰어 응답
