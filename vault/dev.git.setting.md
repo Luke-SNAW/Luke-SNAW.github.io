@@ -61,3 +61,23 @@ git config --global rerere.enabled true
 ```shell
 git config --global commit.template ~/.gitmessage
 ```
+
+## [Carriage Return](https://lostechies.com/keithdahlby/2011/04/06/windows-git-tip-hide-carriage-return-in-diff/)
+
+1. Checkout Windows-style, commit Unix-style (core.autocrlf = true)
+2. Checkout as-is, commit Unix-style (core.autocrlf = input)
+3. Checkout as-is, commit as-is (core.autocrlf = false)
+
+The first option is the default, which I find rather unfortunate—I don’t consider line ending manipulation to be the responsibility of my VCS. Instead, I prefer to keep `core.autocrlf` set to `false` and let my text editors deal with line endings. (If you like having `core.autocrlf` set to `true` or `input`, I’d love to hear why.)
+
+```shell
+git config --global core.autocrlf false
+```
+
+One downside of turning off `autocrlf` is that the output of `git diff` highlights CR characters (indicated by `^M`) as whitespace errors. To turn off this “error”, you can use the `core.whitespace` setting:
+
+```shell
+git config --global core.whitespace cr-at-eol
+```
+
+If your `core.whitespace` is already set, you should add `cr-at-eol` to the end of the comma-delimited list instead.

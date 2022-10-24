@@ -2,7 +2,7 @@
 id: 6en2z3q3u4pnrn5todipo0s
 title: Mac tools
 desc: ""
-updated: 1665014031218
+updated: 1666583854219
 created: 1652405135977
 ---
 
@@ -12,6 +12,7 @@ created: 1652405135977
 - [shottr](https://shottr.cc/) - Screenshot tool for those who care about pixels
 - [Maccy](https://github.com/p0deje/Maccy) - Lightweight clipboard manager for macOS
 - [Orion](https://browser.kagi.com/) - webkit engine with extensions
+- [Shortcat](https://shortcat.app/): Universal command palette for your Mac
 
 ## Dev
 
