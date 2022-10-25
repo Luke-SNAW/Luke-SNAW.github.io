@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1652056505056
+updated: 1666679890464
 created: 1645681934406
 ---
 
@@ -32,12 +32,12 @@ created: 1645681934406
 - https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/
 - https://mishnit.github.io/System_Design.html
 
-# PL
+## PL
 
 - [Inverting back the inversion of control or, Continuations versus page-centric programming](https://pages.lip6.fr/Christian.Queinnec/PDF/www.pdf)
 - https://cuddly-octo-palm-tree.com/posts/2021-04-11-monads-0/
 
-# Web
+## Web
 
 - [RenderingNG](https://developer.chrome.com/blog/renderingng/)
 - [Overview of the RenderingNG architecture](https://developer.chrome.com/blog/renderingng-architecture/)
@@ -45,26 +45,27 @@ created: 1645681934406
 - [History of the Web: Part 1](https://www.matthewgerstman.com/tech/history-of-the-web/)
 - [Top 10 performance pitfalls - HTTP 203](https://www.youtube.com/watch?app=desktop&v=Lh9q3h2khlc&feature=youtu.be)
 
-# HTML
+## HTML
 
 - [Best practices for cookie notices](https://web.dev/cookie-notice-best-practices/)
 
-# CSS
+## CSS
 
 - [CSS System Colors](https://blog.jim-nielsen.com/2021/css-system-colors/)
 - [Media Queries in Times of @container](https://mxb.dev/blog/media-queries-in-times-of-container-queries/)
 
-# Javascript
+## Javascript
 
 - [Enhance your frontend state management with view models](https://itnext.io/enhance-your-frontend-state-management-with-view-models-7bf49e1a0991)
 - [Client-Side Routing In Next.js](https://www.smashingmagazine.com/2021/06/client-side-routing-next-js/)
 - [Frontend Developer Resources 2022](https://www.iamdeveloper.com/posts/frontend-developer-resources-2022-4cp2/)
 
-## TypeScript
+### TypeScript
 
 - [11 Awesome TypeScript Utility Types You Should Know](https://kais.blog/p/11-awesome-typescript-utility-types-you-should-know)
+- https://exploringjs.com/impatient-js/toc.html
 
-## React
+### React
 
 - [React - The Missing Parts](https://acko.net/blog/react-the-missing-parts/)
 - [Token authentication with React and Apollo Client— a custom hook example](https://medium.com/ovrsea/token-authentication-with-react-and-apollo-client-a-detailed-example-a3cc23760e9)
@@ -72,26 +73,26 @@ created: 1645681934406
 - [React Refs: The Complete Story](https://unicorn-utterances.com/posts/react-refs-complete-story/#class-ref-methods-props)
 - [Fundamentals of React Hooks in 7 minutes](https://javascript.plainenglish.io/fundamentals-of-react-hooks-in-6-minutes-by-bytecode-pandit-656e5a38f57)
 
-# Web security
+## Web security
 
 - [CSRF, CORS, and HTTP Security headers Demystified](https://blog.vnaik.com/posts/web-attacks.html)
 - [Cross-site scripting](https://portswigger.net/web-security/cross-site-scripting)
 
-# Etc
+## Etc
 
 - [Study shows how taking short breaks may help our brains learn new skills](https://www.ninds.nih.gov/News-Events/News-and-Press-Releases/Press-Releases/Study-shows-how-taking-short-breaks-may-help-our-brains)
   - https://news.ycombinator.com/item?id=27441175
 - [Everything I know](https://wiki.nikitavoloboev.xyz/)
 - [Machine Learning Cohorts](https://github.com/dynamicwebpaige/kaggle-survey-spelunking/blob/main/README.md)
 
-# Tools
+## Tools
 
 - [PlantUML](https://plantuml.com/ko/)
 - [Getting Started with Tmux [Beginner's Guide]](https://linuxhandbook.com/tmux/)
 - https://httptoolkit.tech/
 - https://github.com/httpie/httpie
 
-# Long Term
+## Long Term
 
 - https://sre.google/books/
 - https://abseil.io/resources/swe-book
@@ -105,42 +106,42 @@ created: 1645681934406
 - https://github.com/leonardomso/33-js-concepts
 - https://github.com/vasanthk/web-security-basics
 
-## Networking
+### Networking
 
 - [High Performance Browser Networking](https://hpbn.co/)
 - [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)
 
-# Recommends
+## Recommends
 
-## [books developers should read](https://github.com/eatonphil/notes.eatonphil.com/blob/master/posts/books-developers-should-read.html)
+### [books developers should read](https://github.com/eatonphil/notes.eatonphil.com/blob/master/posts/books-developers-should-read.html)
 
 <details>
 
-### Effective Python: 90 Specific Ways to Write Better Python
+#### Effective Python: 90 Specific Ways to Write Better Python
 
 If you're a Python developer wanting to improve your craft you should
 read this. Good Python starts with a deep understanding of the
 standard library and language.
 
-### High Performance Browser Networking
+#### High Performance Browser Networking
 
 If your code is triggered by a desktop or mobile browser you should
 read this. It is a thorough high level introduction to mobile
 networks, browser network protocols, and fundementals of networking.
 
-### Designing Data-Intensive Applications
+#### Designing Data-Intensive Applications
 
 If your databases and APIs are a bottleneck you should read this. A
 solid introduction to distributed computing, data transfer, indexing,
 etc.
 
-### Site Reliability Engineering: How Google Runs Production Services
+#### Site Reliability Engineering: How Google Runs Production Services
 
 If you are responsible for services in production you should read
 this. It's Google specific but is an excellent background on practices
 for monitoring and maintaining production environments.
 
-### That's it!
+#### That's it!
 
 Generic software books conspicuously not on this list for
 me:

@@ -2,7 +2,7 @@
 id: qwdwgm4twpsvupcubr2oa6x
 title: Miscellaneous
 desc: ""
-updated: 1666652783845
+updated: 1666679824031
 created: 1651801023197
 ---
 
@@ -20,6 +20,8 @@ created: 1651801023197
 - https://incoherency.co.uk/nightdrive/
 - https://rezmason.github.io/drivey/
   - https://github.com/Rezmason/drivey
+- https://deck-24abcd.netlify.app/
+  - https://github.com/simeydotme/pokemon-cards-css
 
 ## Program Language
 
@@ -33,3 +35,5 @@ created: 1651801023197
 
 - [Types and Programming Languages](https://www.cis.upenn.edu/~bcpierce/tapl/)
 - [The Little Typer](https://thelittletyper.com/)
+
+dev

@@ -2,16 +2,19 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1646811440406
+updated: 1666679946697
 created: 1644885695251
 ---
 
+## Collections
+
 - [10 Powerful JavaScript Destructuring Techniques Every Developer Should Know](https://javascript.plainenglish.io/10-powerful-javascript-destructuring-techniques-every-developer-should-know-15ae06818bb6)
 - [How to Read the ECMAScript Specification](https://timothygu.me/es-howto/)
+- [New JavaScript features](https://exploringjs.com/impatient-js/ch_new-javascript-features.html)
 
 ---
 
-# [Avoid the “delete” Keyword in JavaScript](https://javascript.plainenglish.io/avoid-the-delete-keyword-in-javascript-87ff2a47f26c)
+## [Avoid the “delete” Keyword in JavaScript](https://javascript.plainenglish.io/avoid-the-delete-keyword-in-javascript-87ff2a47f26c)
 
 ```javascript
 const snowbit = {
@@ -24,7 +27,7 @@ console.log(newSnowbit); //  {age: 15}
 
 Let me explain, You should not use `delete` to remove the property from the object because this mutates the original and that can lead to unpredictable behaviours and becomes difficult to debug.
 
-# [What are wrapper objects for primitive values?](https://2ality.com/2022/02/wrapper-objects.html)
+## [What are wrapper objects for primitive values?](https://2ality.com/2022/02/wrapper-objects.html)
 
 Each of the primitive types `boolean`, `number`, `bigint`, `string` and `symbol` has an associated _wrapper class_ (`Boolean`, `Number`, `BigInt`, `String`, `Symbol`). In this blog post, we examine what these classes are good for.
 

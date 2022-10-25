@@ -42,6 +42,9 @@ created: 1646130002277
 
 ### Tailwind
 
+- [CSS Utility Classes and "Separation of Concerns"](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/)
+  - title과 맞지 않는 결과(tailwind)로 보임
+  - [Why Tailwind Isn't for Me](https://dev.to/jaredcwhite/why-tailwind-isn-t-for-me-5c90)
 - [daisyUI](https://github.com/saadeghi/daisyui) - The most popular, free and open-source Tailwind CSS component library
 - 🦹‍♂️ [Twin](https://github.com/ben-rogerson/twin.macro) blends the magic of Tailwind with the flexibility of css-in-js (emotion, styled-components, stitches and goober) at build time.
 - 🐳 [HyperUI](https://github.com/markmead/hyperui) is a free, open source Tailwind CSS component library.
