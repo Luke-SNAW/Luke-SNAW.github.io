@@ -2,7 +2,7 @@
 id: qwdwgm4twpsvupcubr2oa6x
 title: Miscellaneous
 desc: ""
-updated: 1665537116443
+updated: 1666652783845
 created: 1651801023197
 ---
 
@@ -13,6 +13,7 @@ created: 1651801023197
 - [collisions](https://github.com/corkami/collisions) - Hash collisions and exploitations
   - [Lifetimes of cryptographic hash functions](https://valerieaurora.org/hash.html)
 - [Keep the web free, say no to Web3](https://yesterweb.org/no-to-web3/)
+- [How to Use Google Sheets as a Database with React and Serverless](https://thenewstack.io/how-to-use-google-sheets-as-a-database-with-react-and-ssr/)
 
 ## Web
 

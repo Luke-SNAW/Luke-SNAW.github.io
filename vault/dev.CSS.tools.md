@@ -1,10 +1,12 @@
 ---
 id: 1v3zueuge3dc4szjhatotul
-title: Tools
+title: CSs tools
 desc: ""
-updated: 1664152215240
+updated: 1666654036022
 created: 1646130002277
 ---
+
+## Collections
 
 - [Modern CSS Solutions for Old CSS Problems](https://moderncss.dev/)
 - [Replacing Sass - Shopify/foundational-design-system-proto](https://github.com/Shopify/foundational-design-system-proto/discussions/44)
@@ -21,12 +23,12 @@ created: 1646130002277
 - [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23FFFFFF%2C%20White%0D%0A%23F2F2F2%0D%0A%23DDDDDD%0D%0A%23CCCCCC%0D%0A%23888888%0D%0A%23404040%2C%20Charcoal%0D%0A%23000000%2C%20Black%0D%0A%232F78C5%2C%20Effective%20on%20Extremes%0D%0A%230F60B6%2C%20Effective%20on%20Lights%0D%0A%23398EEA%2C%20Ineffective%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) - Test many foreground and background color combos for compliance with [WCAG 2.0 minimum contrast](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html).
 - [linaria](https://github.com/callstack/linaria) - Zero-runtime CSS in JS library.
 
-# Calculator
+## Calculator
 
 - [Min-Max-Value Interpolation](https://github.com/9elements/min-max-calculator) calculates the CSS clamp formula to interpolate between two values in a given viewport range.
 - [A Typographic Scale Calculator](https://www.layoutgridcalculator.com/typographic-scale/)
 
-# UI Component tools
+## UI Component tools
 
 - [NProgress](https://github.com/rstacruz/nprogress) - Minimalist progress bar. For slim progress bars like on YouTube, Medium, etc.
   - [next.js example](https://github.com/vercel/next.js/blob/canary/examples/with-loading/pages/_app.js)
@@ -38,18 +40,18 @@ created: 1646130002277
 - [daisyUI - Tailwind CSS Components](https://daisyui.com/)
 - [Tailwind CSS Components](https://postsrc.com/components)
 
-## Tailwind
+### Tailwind
 
 - [daisyUI](https://github.com/saadeghi/daisyui) - The most popular, free and open-source Tailwind CSS component library
 - 🦹‍♂️ [Twin](https://github.com/ben-rogerson/twin.macro) blends the magic of Tailwind with the flexibility of css-in-js (emotion, styled-components, stitches and goober) at build time.
 - 🐳 [HyperUI](https://github.com/markmead/hyperui) is a free, open source Tailwind CSS component library.
 
-# Divops
+## Divops
 
 - [CSS Checker](https://github.com/ruilisi/css-checker) - Show Similar & Duplicated CSS Scripts with Diff in Seconds!
 - [PostCSS](https://github.com/postcss/postcss) is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
 
-# Base
+## Base
 
 - 🌸 [sakura](https://github.com/oxalorg/sakura) - a minimal, classless CSS framework / theme.
 - 🌊 [Water.css](https://github.com/kognise/water.css) - A drop-in collection of CSS styles to make simple websites just a little nicer

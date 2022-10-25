@@ -2,9 +2,11 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1655856918780
+updated: 1666653364666
 created: 1645514209965
 ---
+
+## Collections
 
 - [Bulletproof React](https://github.com/alan2207/bulletproof-react) - A simple, scalable, and powerful architecture for building production ready React applications.
 - [Code Smells](https://refactoring.guru/refactoring/smells)
@@ -16,6 +18,7 @@ created: 1645514209965
 - [Programming to Interface Vs to Implementation](https://dmitripavlutin.com/interface-vs-implementation/)
 - [The Catalog of Design Patterns](https://refactoring.guru/design-patterns/catalog)
 - [Make It Work Make It Right Make It Fast](https://wiki.c2.com/?MakeItWorkMakeItRightMakeItFast) is an assertion that if you can "make it right", you'll be able to "make it fast" later.
+- [Colocation](https://kentcdodds.com/blog/colocation)
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 
