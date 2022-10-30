@@ -1,10 +1,12 @@
 ---
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
-desc: ''
-updated: 1665451210374
+desc: ""
+updated: 1667095883005
 created: 1644882116217
 ---
+
+## Collections
 
 - [core-js](https://github.com/zloirock/core-js)
   - Modular standard library for JavaScript.
@@ -16,9 +18,6 @@ created: 1644882116217
   - Rome is designed to replace Babel, ESLint, webpack, Prettier, Jest, and others.
 - [Fasy](https://github.com/getify/fasy) - FP iterators that are both eager and asynchronous
 - [spacetime](https://github.com/spencermountain/spacetime) A lightweight javascript timezone library
-- [Comparing Astro and Next for React apps](https://blog.openreplay.com/comparing-astro-and-next-for-react-apps)
-  - Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,
-  - Astro is best used for static websites like a portfolio or a personal blog.
 - [crypto-random-string](https://github.com/sindresorhus/crypto-random-string) - Generate a [cryptographically strong](https://en.wikipedia.org/wiki/Strong_cryptography) random string
 - [Publishing a Web Component to npm](https://til.simonwillison.net/npm/publish-web-component)
 - [State Machines for JavaScript Developers - How to Use Them in Your Apps](https://blog.openreplay.com/state-machines-for-javascript-developers-how-to-use-them-in-your-apps)
@@ -29,10 +28,8 @@ created: 1644882116217
 - [Bree](https://github.com/breejs/bree): is the best job scheduler for Node.js and JavaScript with cron, dates, ms, later, and human-friendly support.
 - [execa](https://github.com/sindresorhus/execa): Process execution for humans
 - [fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
-- [react-tracking](https://github.com/nytimes/react-tracking): 🎯 Declarative tracking for React apps.
 - [CalDOM](https://github.com/dumijay/CalDom): An agnostic, reactive & minimalist (3kb) JavaScript UI library with direct access to native DOM.
 - [HTM (Hyperscript Tagged Markup)](https://github.com/developit/htm): JSX-like syntax in plain JavaScript - no transpiler necessary.
-- [Dinero.js](https://github.com/dinerojs/dinero.js): Create, calculate, and format money in JavaScript and TypeScript.
 - [Hotkey Behavior](https://github.com/github/hotkey): Trigger an action on an element with a keyboard shortcut.
 - [Monorepo Dedendency Management Solutions - Solution analysis for Polaris Foundations](https://docs.google.com/spreadsheets/d/1rxrRTlbNWiLVu-Q5IK7xh5O1FmWcjyAS2XN7jiPrhYM/edit#gid=595095741)
 - [Jamstack ecosystem](https://cloudcannon.com/community/jamstack-ecosystem/)
@@ -43,12 +40,17 @@ created: 1644882116217
 - [ow](https://github.com/sindresorhus/ow) - Function argument validation for humans
 - [Eruda](https://github.com/liriliri/eruda) - Console for mobile browsers
 - [HLS.js](https://github.com/video-dev/hls.js) is a JavaScript library that plays HLS in browsers with support for MSE.
+- [Nano Stores](https://github.com/nanostores/nanostores) - A tiny (258 bytes) state manager for React/RN/Preact/Vue/Svelte with many atomic tree-shakable stores
+  - https://docs.astro.build/en/core-concepts/sharing-state/#why-nano-stores
 
 ## Framework
 
 - [TAURI](https://github.com/tauri-apps/tauri): Build smaller, faster, and more secure desktop applications with a web frontend using WebView
 - [neo.mjs](https://github.com/neomjs/neo) - Web Worker enhanced frontend framework.
 - The [Plasmo](https://github.com/PlasmoHQ/plasmo) Framework is a battery-packed browser extension SDK made by hackers for hackers.
+- [Comparing Astro and Next for React apps](https://blog.openreplay.com/comparing-astro-and-next-for-react-apps)
+  - Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,
+  - Astro is best used for static websites like a portfolio or a personal blog.
 
 > [Unpoly](https://demo.unpoly.com/) is the best thing I've discovered in the frontend world in the last 5 years. It's a breath of fresh air when compared to all the crazyness going on.
 > I use it to replace almost all "api" calls to the backend and for the "turbolinks like" navigation, modals, etc. Then I use [Alpinejs](https://alpinejs.dev/) for the really interactive/complex parts.
@@ -109,3 +111,7 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 - [memlab](https://github.com/facebookincubator/memlab) is an E2E testing and analysis framework for finding JavaScript memory leaks and optimization opportunities.
 - [fuite](https://github.com/nolanlawson/fuite) is a CLI tool for finding memory leaks in web apps.
   - [Introducing fuite: a tool for finding memory leaks in web apps](https://nolanlawson.com/2021/12/17/introducing-fuite-a-tool-for-finding-memory-leaks-in-web-apps/)
+
+## Formats
+
+- [Dinero.js](https://github.com/dinerojs/dinero.js): Create, calculate, and format money in JavaScript and TypeScript.

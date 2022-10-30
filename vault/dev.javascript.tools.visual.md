@@ -2,9 +2,11 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1664855211686
+updated: 1667095997842
 created: 1646264359213
 ---
+
+## Collections
 
 - [Responsive Image Breakpoints Generator](https://www.responsivebreakpoints.com/) - Easily generate the optimal responsive image dimensions
 - [TypeIt](https://github.com/alexmacarthur/typeit) - The Most Versatile JavaScript Animated Typing Utility on the Planet
@@ -22,8 +24,9 @@ created: 1646264359213
 - [css-doodle](https://github.com/css-doodle/css-doodle) - A web component for drawing patterns with CSS.
 - [WinBox](https://github.com/nextapps-de/winbox) is a modern HTML5 window manager for the web.
 - [Tesseract.js](https://github.com/naptha/tesseract.js) - Pure Javascript OCR for more than 100 Languages 📖🎉🖥
+- [PhotoSwipe](https://github.com/dimsemenov/photoswipe) — JavaScript image gallery and lightbox
 
-# Canvas
+## Canvas
 
 - [Atrament](https://github.com/jakubfiala/atrament.js) - A small JS library for beautiful drawing and handwriting on the HTML Canvas.
 - [img-comparison-slider](https://github.com/sneas/img-comparison-slider) - Image comparison slider. Compare images before and after. Supports React, Vue, Angular. - [https://img-comparison-slider.sneas.io/](https://img-comparison-slider.sneas.io/)
@@ -31,18 +34,18 @@ created: 1646264359213
 - [html2canvas](https://github.com/niklasvh/html2canvas) - Screenshots with JavaScript
 - [🍃 Leaflet](https://github.com/Leaflet/Leaflet) - JavaScript library for mobile-friendly interactive maps
 
-# Scroll
+## Scroll
 
 - [LetMeScroll](https://github.com/BMSVieira/letmescroll.js)
 - [Smooth Scrollbar](https://github.com/idiotWu/smooth-scrollbar) - Customizable, Pluginable, and High-Performance JavaScript-Based Scrollbar Solution.
 - [ScrollMovie](https://github.com/nagatapote/scroll-movie) is the library that enables you to animate background image as you scroll the window.
 - [pushIn.js](https://github.com/nateplusplus/pushin) is a lightweight parallax effect, built with JavaScript, that simulates an interactive dolly-in or push-in animation on a webpage.
 
-# Animation
+## Animation
 
 - [AutoAnimate](https://github.com/formkit/auto-animate) is a zero-config, drop-in animation utility that adds smooth transitions to your web app. You can use it with Vue, React, or any other JavaScript application.
 
-## [Create Page Transitions in Next.js with Framer Motion](https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62)
+### [Create Page Transitions in Next.js with Framer Motion](https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62)
 
 ```javascript
 import "../styles/globals.css";
@@ -71,6 +74,6 @@ function MyApp({ Component, pageProps, router }) {
 export default MyApp;
 ```
 
-# Calendar
+## Calendar
 
 - [tui-calendar](https://github.com/nhn/tui.calendar) - 🍞📅 A JavaScript calendar that is full featured. Now your service just got the customizable calendar.
