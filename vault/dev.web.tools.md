@@ -1,16 +1,19 @@
 ---
 id: 4f5te8ryaobmq9xvkakjqe0
-title: Tools
+title: Web dev tools
 desc: ""
-updated: 1660717575904
+updated: 1667183194427
 created: 1646011961595
 ---
 
+## Collections
+
+- ✨😂 [Spark Joy!](https://github.com/sw-yx/spark-joy) - 2000+ ways to add design flair, user delight, and whimsy to your product.
 - [What are Bookmarklets? How to Use JavaScript to Make a Bookmarklet in Chromium and Firefox](https://www.freecodecamp.org/news/what-are-bookmarklets/)
 - [A Complete Guide To Accessibility Tooling](https://www.smashingmagazine.com/2021/06/complete-guide-accessibility-tooling/)
 - [Nativefier](https://github.com/nativefier/nativefier) - Make any web page a desktop application
 
-# Images
+## Images
 
 - [Lorem.space](https://github.com/manasky/lorem.space) - Placeholder Images but useful!
 - [Squoosh](https://squoosh.app/) is the ultimate image optimizer that allows you to compress and compare images with different codecs in your browser.

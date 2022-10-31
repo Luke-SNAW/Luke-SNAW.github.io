@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1667095883005
+updated: 1667175289018
 created: 1644882116217
 ---
 
@@ -45,18 +45,19 @@ created: 1644882116217
 
 ## Framework
 
+> [Unpoly](https://demo.unpoly.com/) is the best thing I've discovered in the frontend world in the last 5 years. It's a breath of fresh air when compared to all the crazyness going on.
+> I use it to replace almost all "api" calls to the backend and for the "turbolinks like" navigation, modals, etc. Then I use [Alpinejs](https://alpinejs.dev/) for the really interactive/complex parts.
+>
+> I'm not doing a React/SPA ever again if I have any chance to decide on that.  
+> https://news.ycombinator.com/item?id=33141055
+
 - [TAURI](https://github.com/tauri-apps/tauri): Build smaller, faster, and more secure desktop applications with a web frontend using WebView
 - [neo.mjs](https://github.com/neomjs/neo) - Web Worker enhanced frontend framework.
 - The [Plasmo](https://github.com/PlasmoHQ/plasmo) Framework is a battery-packed browser extension SDK made by hackers for hackers.
 - [Comparing Astro and Next for React apps](https://blog.openreplay.com/comparing-astro-and-next-for-react-apps)
   - Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,
   - Astro is best used for static websites like a portfolio or a personal blog.
-
-> [Unpoly](https://demo.unpoly.com/) is the best thing I've discovered in the frontend world in the last 5 years. It's a breath of fresh air when compared to all the crazyness going on.
-> I use it to replace almost all "api" calls to the backend and for the "turbolinks like" navigation, modals, etc. Then I use [Alpinejs](https://alpinejs.dev/) for the really interactive/complex parts.
->
-> I'm not doing a React/SPA ever again if I have any chance to decide on that.  
-> https://news.ycombinator.com/item?id=33141055
+- [Mitosis](https://github.com/BuilderIO/mitosis) - Write components once, run everywhere. Compiles to Vue, React, Solid, Angular, Svelte, and more.
 
 ### Micro front-end
 

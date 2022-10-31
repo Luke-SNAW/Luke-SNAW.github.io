@@ -2,9 +2,13 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1665098176810
+updated: 1666824991400
 created: 1653704390962
 ---
+
+## Collections
+
+- [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line)
 
 ## Shell
 

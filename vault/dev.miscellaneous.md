@@ -2,7 +2,7 @@
 id: qwdwgm4twpsvupcubr2oa6x
 title: Miscellaneous
 desc: ""
-updated: 1666679824031
+updated: 1666824876202
 created: 1651801023197
 ---
 
@@ -14,6 +14,9 @@ created: 1651801023197
   - [Lifetimes of cryptographic hash functions](https://valerieaurora.org/hash.html)
 - [Keep the web free, say no to Web3](https://yesterweb.org/no-to-web3/)
 - [How to Use Google Sheets as a Database with React and Serverless](https://thenewstack.io/how-to-use-google-sheets-as-a-database-with-react-and-ssr/)
+- [Build your own x](https://github.com/codecrafters-io/build-your-own-x) - Master programming by recreating your favorite technologies from scratch.
+- [Coding Interview University](https://github.com/jwasham/coding-interview-university) - A complete computer science study plan to become a software engineer.
+- [The System Design Primer](https://github.com/donnemartin/system-design-primer) - Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.
 
 ## Web
 

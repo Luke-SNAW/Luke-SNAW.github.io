@@ -1,11 +1,14 @@
 ---
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
-desc: ''
-updated: 1665536343636
+desc: ""
+updated: 1667187921563
 created: 1647145480774
 ---
 
+## Collections
+
+- [free-for.dev](https://github.com/ripienaar/free-for-dev) - A list of SaaS, PaaS and IaaS offerings that have free tiers of interest to devops and infradev
 - [Materials for Programming Courses](https://marko-knoebl.github.io/slides/)
   - React
   - Vue
@@ -28,6 +31,7 @@ created: 1647145480774
 - [JSON Crack](https://github.com/AykutSarac/jsoncrack.com) -🔮 Seamlessly visualize your JSON data instantly into graphs; paste, import or fetch!
 - [Backstage](https://github.com/backstage/backstage) is an open platform for building developer portals
 - [penpot](https://github.com/penpot/penpot) - The Open-Source design & prototyping platform. made with clojure, clojurescript
+- [The Book of Secret Knowledge](https://github.com/trimstray/the-book-of-secret-knowledge) - A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.
 
 ## Network
 
