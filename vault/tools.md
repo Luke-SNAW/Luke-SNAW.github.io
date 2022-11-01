@@ -2,15 +2,9 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1665537208551
+updated: 1667263229362
 created: 1644799670081
 ---
-
-## New letter
-
-### Dev
-
-- [Code Philosophy](https://www.codephilosophy.co/) - https://alexkondov.com/
 
 ## File management
 

@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1667183659115
+updated: 1667261753833
 created: 1646613084338
 ---
 
@@ -17,6 +17,7 @@ created: 1646613084338
   - Photonic computing, to accelerate both logic gates and data transfer, is an incredibly broad and exciting field. While a lot of the promise is still in the lab, real advances are currently being commercialized.
     - [https://spie.org/news/photonics-focus/marapr-2022/harnessing...](https://spie.org/news/photonics-focus/marapr-2022/harnessing-light-for-photonic-computing?SSO=1)
     - [https://www.nextplatform.com/2022/03/17/luminous-shines-a-li...](https://www.nextplatform.com/2022/03/17/luminous-shines-a-light-on-optical-architecture-for-future-ai-supercomputer/)
+- [Quine Relay](https://github.com/mame/quine-relay) is a Ruby program that generates Rust program that generates Scala program that generates ...(through 128 languages in total)... REXX program that generates the original Ruby code again.
 
 ## [Web scraping is legal, US appeals court reaffirms](https://techcrunch.com/2022/04/18/web-scraping-legal-court/)
 
@@ -44,3 +45,4 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
   - [Decoding A City In A Bottle](https://observablehq.com/@darabos/decoding-a-city-in-a-bottle)
 - [Mechanical Watch](https://ciechanow.ski/mechanical-watch/) - WebGL code https://ciechanow.ski/js/watch.js
 - [Including "And. And. And. And. And." in a Google doc causes it to crash](https://support.google.com/docs/thread/162510194/including-and-and-and-and-and-in-a-google-doc-causes-it-to-crash?hl=en)
+- [Motion Controls In The Browser](https://www.smashingmagazine.com/2022/10/motion-controls-browser/)

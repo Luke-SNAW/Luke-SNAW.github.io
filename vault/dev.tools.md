@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1667187921563
+updated: 1667263182974
 created: 1647145480774
 ---
 
@@ -32,6 +32,7 @@ created: 1647145480774
 - [Backstage](https://github.com/backstage/backstage) is an open platform for building developer portals
 - [penpot](https://github.com/penpot/penpot) - The Open-Source design & prototyping platform. made with clojure, clojurescript
 - [The Book of Secret Knowledge](https://github.com/trimstray/the-book-of-secret-knowledge) - A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.
+- [mkcert](https://github.com/FiloSottile/mkcert) is a simple tool for making locally-trusted development certificates. It requires no configuration.
 
 ## Network
 
@@ -62,3 +63,4 @@ created: 1647145480774
   - [A List of Hacker News's Undocumented Features and Behaviors](https://github.com/minimaxir/hacker-news-undocumented)
   - about [down vote](https://news.ycombinator.com/item?id=16131314)
   - [Ask Hacker News Weekly](https://www.daemonology.net/hn-weekly-ask/)
+- [Code Philosophy](https://www.codephilosophy.co/) - https://alexkondov.com/
