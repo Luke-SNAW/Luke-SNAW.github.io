@@ -1,16 +1,16 @@
 ---
 id: a4h1127hob3u80faagbqbf9
-title: FP+Monads
+title: FP + Monads
 desc: ""
-updated: 1645682472963
+updated: 1667432669637
 created: 1645682419921
 ---
 
-https://github.com/getify/monio/blob/master/MONADS.md
+> https://github.com/getify/monio/blob/master/MONADS.md
 
 If you're already comfortable with Functional Programming (FP), especially side effects and pure functions and such, you can [skip to "Expansive Intro To Monads"](#expansive-intro-to-monads) below.
 
-# Functional Programming (FP)
+## Functional Programming (FP)
 
 FP is a topic that often carries with it a fair bit of "baggage", and that goes even more for monads. It's quite easy to get lost out in the web-of-google-searches when bombarded by the formalized terminology or math behind these topics, especially since so many FP fans believe that the formalism and math _are basically required_ to get anything out of them.
 
@@ -34,7 +34,7 @@ What if your code could be more "declarative" and state the _what_ and _why_ mor
 
 That's why FP exists.
 
-## From Loop To Map And Filter
+### From Loop To Map And Filter
 
 For example, imagine you have a single string value, and you want to uppercase the value.
 
@@ -117,7 +117,7 @@ Now we have a list of long-enough strings that have all been uppercased!
 
 So that's a bit of the early mindset adoption that getting into FP brings you. It's the tip of a massive iceberg.
 
-## Where To Learn More FP?
+### Where To Learn More FP?
 
 If you're intrigued, but new to such FP concepts, I invite you to check out -- at least the first several chapters of -- my free-to-read-online FP book: [Functional-Light JavaScript](https://github.com/getify/functional-light-js).
 
@@ -138,7 +138,7 @@ I think your first big goal should be to understand and feel comfortable with --
 - Currying
 - Basic List Operations (filter/map/reduce)
 
-## How Do I Know...?
+### How Do I Know...?
 
 How might you know if you're on the right path and comfortable enough with FP to move on to monads? There's no great way for me to answer that for all readers of this guide. But I at least want to offer a bit of a glimpse or hint instead of leaving you only with the unsatisfying, "it depends".
 
@@ -156,7 +156,7 @@ Again, not to say this is the "right" way to do it, but... code like this repres
 
 When code like that _speaks to you_, I think it's time to dip your toes into the ocean of monads.
 
-# Expansive Intro To Monads
+## Expansive Intro To Monads
 
 In addition to the guide I present here, I recommend checking out a [recording of my conference talk, "Mo'problems, Mo'nads"](https://www.youtube.com/watch?v=bg0Wtz3sR9U).
 
@@ -168,7 +168,7 @@ The Monad type is a way to represent a value or operation in your program, which
 
 That definition is the _WHAT_ of monads, conceptually. But you probably also want to see code.
 
-## Simplest JS Illustration
+### Simplest JS Illustration
 
 What's the most stripped-down way we could do something like that in JS? How about this:
 
@@ -206,7 +206,7 @@ I'm sure that code snippet seems pretty underwhelming to most readers. Why not j
 
 But hopefully I've at least shown you that down at the very core, a monad is not a mystical or complex _thing_.
 
-## Building Up Monads
+### Building Up Monads
 
 Monads have somewhat (in)famously been described with a variety of silly-sounding metaphors, like burritos. Others call monads "wrappers" or "boxes", or "data structures" or... the truth is, all these ways of describing a monad are partial descriptions. It's like looking at a Rubik's Cube. You can look at one face of the cube, then turn it around and look at a different face, and get more of the whole thing.
 
@@ -236,7 +236,7 @@ Thinking of our sketch in the previous section, you could sort of think of `myAg
 
 I'm going to use **Monio** throughout the rest of the guide. The convenient affordances are nice to use, and easier to illustrate with. But just keep in mind that under all the trappings, we could be doing something as straight-forward as making an object like `{ val: 41 }`.
 
-### Digging Into Map
+#### Digging Into Map
 
 Consider the notion of an array's `map(..)` method. Its job is to apply a mapping (value translation) operation against all the contents of the associated array.
 
@@ -301,7 +301,7 @@ JustMap(fortyOne, (v) => v + 1); // Just(42)
 
 Having `map(..)` (or whatever it's called) available is a convenience over using just the `chain(..)` by itself; but it's not strictly required.
 
-## Monadic Chain
+### Monadic Chain
 
 `chain(..)` sometimes goes by other names (in other libraries or languages), like `flatMap(..)` or `bind(..)`. In **Monio**'s monads, all three methods names are aliased to each other, so pick whichever one you prefer.
 
@@ -345,7 +345,7 @@ Just(20).chain((v) => inc(v).chain(double)); // Just(42)
 
 Here I used **Monio**'s `chain(..)` method; that's again merely for convenient illustration. The monad laws are stated in terms of a _chain_ operation, regardless of what an implementation chooses to call it.
 
-## Back To The Core Of Monad
+### Back To The Core Of Monad
 
 Boiling this all down: the _Monad_ type only strictly requires two things:
 
@@ -356,7 +356,7 @@ Everything else you see in the code snippets in this guide, such as wrapper mona
 
 But from that narrow perspective, a monad doesn't have to be a "container" (like a wrapping object or class instance) and there doesn't even have to be a concrete "value" (like `42`) involved. While a "container wrapping a value" is one potentially helpful side of the Rubik's Cube to look at, it's not _all_ that a monad is or can be. Don't get too _wrapped up_ in that way of thinking!
 
-## But... How Do I Get Something Out!?
+### But... How Do I Get Something Out!?
 
 You may still be wondering: how do we ever extract the value (like primitive number `42`) -- or indeed, whatever _thing_ the monad is representing -- out/away from a monadic representation? It seems like every monadic operation just produces another monad instance. At some point, we might need the actual number `42` to print to the screen or insert in a database, right!?
 
@@ -382,7 +382,7 @@ But remember: monads play best with other monads ([and their friends!](#-and-fri
 
 Also keep in mind: `fold(..)` as shown here, and provided on many of **Monio**'s monads, is **NOT** a _Monad_ behavior; it comes [from a _friend_ called Foldable](#foldable).
 
-## _Maybe_ Something More?
+### _Maybe_ Something More?
 
 **Monio Reference: [`Maybe`](MONIO.md)**
 
@@ -485,7 +485,7 @@ By the way, `Maybe` is also [Foldable](#foldable), so to "exit" from it (as we s
 
 You're hopefully starting to see a _little bit_ more benefit to representing our values/expressions with monads rather than _just_ using bare values.
 
-## I Know, IO
+### I Know, IO
 
 **Monio Reference: [`IO` (and variants)](MONIO.md#io-monad-one-monad-to-rule-them-all)**
 
@@ -551,7 +551,7 @@ As a convenience, `IO.of(..)` is generally the equivalent of `IO(() => ..)`; in 
 
 As such, `IO.of(..)` should only be used when you already have a fixed, non-side-effecting value expression. Always use the `IO(() => ..)` form when the `..` expression is actually a side-effect.
 
-### But Why IO?
+#### But Why IO?
 
 Why do we go to the trouble of putting all our side-effect operations into `IO` instances?
 
@@ -581,7 +581,7 @@ Do you like to use `if` and `try..catch` and `for..of` loops? You may have notic
 
 Taken together with all its facets, **Monio**'s `IO` (and `IOx` superset) is the "one monad to rule them all".
 
-# ... And Friends
+## ... And Friends
 
 OK, if you've made it this far, take a deep breath. Seriously, maybe go for a walk to let some of this settle in. Maybe re-read it, a few times.
 
@@ -599,7 +599,7 @@ To be clear, these three are _not_ monad behaviors. I call them "friends of mona
 
 I know many in the FP space prefer to think of each type completely independently. That's OK if it works well for them. But I find the combinations much more compelling.
 
-## Foldable
+### Foldable
 
 The `fold(..)` method mixed into (most of) **Monio**'s monads is implementing behavior from the "Foldable" type. Notably, `IO` and its variations are not directly Foldable, but that's because the nature of `IO` is already doing a `fold(..)` of sorts when you call `run(..)`.
 
@@ -686,7 +686,7 @@ A key aspect of the snippet is `Maybe`'s `fold(..)` call in the `renderShippingL
 
 Again, Foldable is distinct from monads. But I think this discussion illustrates how useful it is when paired with a monad. That's why it's an _honored friend_.
 
-## Concatable (Semigroup)
+### Concatable (Semigroup)
 
 Concatable, formally referred to as Semigroup, is another interesting friend of monads. You won't necessarily see it used explicitly all that often, but it can be useful, especially when using `foldMap(..)` (which is an abstraction over `reduce(..)`).
 
@@ -720,7 +720,7 @@ As with `chain(..)`, **Monio**'s `concat(..)` is _supposed_ to be used between t
 
 **NOTE:** Despite the name overlap, the standalone `fold(..)` and `foldMap(..)` utilities provided by the `MonioUtil` module are _not_ the same as the [Foldable type](#foldable)'s `fold(..)` method that appears on **Monio** monad instances.
 
-### Monoid
+#### Monoid
 
 Additionally, the term Monoid means a Concatable/Semigroup plus an "empty" (identity) value for the concatenation. For example, string concatenation is a monoid with the empty `""` string. Array concatenation is a monoid with the empty `[]` array. Even numeric addition is a monoid with the `0` "empty" number.
 
@@ -776,7 +776,7 @@ const someOptionsChecked = iOr(...options).run(); // true / false
 
 Bonus exercise: contemplate how you'd compute `noOptionsChecked` -- `true` when none of the checkboxes are checked.
 
-## Applicative
+### Applicative
 
 Applicative is a bit more unusual (and less common, in my experience) than Semigroup. But occasionally it's helpful. **Monio** chooses to implement this behavior on most of its monads with the `ap(..)` method.
 
@@ -821,7 +821,7 @@ As with `chain(..)` and `concat(..)`, **Monio**'s `ap(..)` _should_ be passed th
 
 All of **Monio**'s non-`IO` monads are Applicatives. Again, you may not use such behavior very frequently, but hopefully you may now be able to recognize the need when it arises.
 
-# *Wrap*ping Up
+## Wrapping Up
 
 We've now scratched the surface of monads (and several _friends_). That's by no means a complete exploration of the topic, but I hope you're starting to feel they're a little less mysterious or intimidating.
 
