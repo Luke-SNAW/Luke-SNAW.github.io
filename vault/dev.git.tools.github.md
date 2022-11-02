@@ -2,7 +2,7 @@
 id: y96Q2Fyzh0EQb9j3xGKjX
 title: GitHub
 desc: ""
-updated: 1667173114186
+updated: 1667373558658
 created: 1644887290931
 ---
 
@@ -15,3 +15,4 @@ created: 1644887290931
 - [Events that trigger workflows](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows)
   - [Running your workflow only when a push of specific tags occurs](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-only-when-a-push-of-specific-tags-occurs)
   - [Running your workflow only when a push affects specific files](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-only-when-a-push-affects-specific-files)
+- [github1s](https://github.com/conwnet/github1s) - One second to read GitHub code with VS Code.
