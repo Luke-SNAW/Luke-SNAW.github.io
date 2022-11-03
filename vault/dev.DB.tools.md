@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1666741014257
+updated: 1667436046400
 created: 1646011997576
 ---
 
@@ -12,6 +12,7 @@ created: 1646011997576
 - [Why I enjoy PostgreSQL - Infrastructure Engineer's Perspective](https://www.shayon.dev/post/2022/17/why-i-enjoy-postgresql-infrastructure-engineers-perspective/)
 - [NocoDB](https://github.com/NocoDB/NocoDB) - Open Source Airtable Alternative - turns any MySQL, Postgres database into a collaborative spreadsheet with REST APIs.
 - [ShareDB](https://github.com/share/sharedb) - Realtime database backend based on Operational Transformation (OT)
+- [rqlite](https://github.com/rqlite/rqlite) - The lightweight, distributed relational database built on SQLite
 
 ## SQL client
 

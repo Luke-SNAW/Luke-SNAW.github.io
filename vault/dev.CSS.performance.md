@@ -1,10 +1,12 @@
 ---
 id: ycbm1pqytzrms1hjatwjh7y
-title: Performance
+title: CSS Performance
 desc: ""
-updated: 1646130207313
+updated: 1667440287855
 created: 1646130152552
 ---
+
+## Collections
 
 - [Does shadow DOM improve style performance?](https://nolanlawson.com/2021/08/15/does-shadow-dom-improve-style-performance/): Kinda. It depends. And it might not be enough to make a big difference in the average web app. But it’s worth understanding why.
 - [How I made Google’s data grid scroll 10x faster with one line of CSS](https://medium.com/@johan.isaksson/how-i-made-googles-data-grid-scroll-10x-faster-with-one-line-of-css-78cb1e8d9cb1)

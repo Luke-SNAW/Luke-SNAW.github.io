@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1667263229362
+updated: 1667440786317
 created: 1644799670081
 ---
 
@@ -19,16 +19,16 @@ created: 1644799670081
 
 - [Useful sed](https://github.com/adrianscheff/useful-sed)
 
-## Presentation
-
 - [reveal-md](https://github.com/webpro/reveal-md) - reveal.js on steroids! Get beautiful reveal.js presentations from any Markdown file.
 - [Slidev](https://github.com/slidevjs/slidev) - Presentation Slides for Developers (Beta)
 - [Pandoc](https://pandoc.org/) - a universal document converter
 - [Every Time Zone](https://everytimezone.com/s/9d95c4da) - Never warp your brain with time zone math again.
 - [Ilograph](https://www.ilograph.com/) - Interactive Diagrams
 - [diagrams.net](https://www.diagrams.net/) - Security-first diagramming for teams.
-- [Markdoc](https://github.com/markdoc/markdoc) is a [Markdown](https://commonmark.org/)\-based syntax and toolchain for creating custom documentation sites and experiences.  
+- [Markdoc](https://github.com/markdoc/markdoc) is a [Markdown](https://commonmark.org/)-based syntax and toolchain for creating custom documentation sites and experiences.  
   We designed Markdoc to power [Stripe's public docs](http://stripe.com/docs), our largest and most complex content site.
+- [Scribe](https://scribehow.com/) - Turn any process into a
+  step-by-step guide, instantly.
 
 ## Documentation
 

@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1667373280644
+updated: 1667459708910
 created: 1644882116217
 ---
 
@@ -46,6 +46,8 @@ created: 1644882116217
   - The goal of [Happy DOM](https://github.com/capricorn86/happy-dom) is to emulate enough of a web browser to be useful for testing, scraping web sites and server-side rendering.
   - [Happy DOM](https://github.com/capricorn86/happy-dom) focuses heavily on performance and can be used as an alternative to [JSDOM](https://github.com/jsdom/jsdom).
   - [Read more about how to use Happy DOM](https://github.com/capricorn86/happy-dom/tree/master/packages/happy-dom)
+- [Slash libraries](https://github.com/toss/slash)
+  - [@toss/hangul](https://slash.page/libraries/common/hangul/readme.i18n/)
 
 ## Framework
 

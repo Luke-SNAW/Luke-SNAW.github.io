@@ -2,11 +2,11 @@
 id: spatdqam58ssnwn2dfx4tox
 title: Google Apps Script
 desc: ""
-updated: 1667432690508
+updated: 1667458104558
 created: 1667286051672
 ---
 
-## Sheet - Apps script
+## Add apps script on sheet
 
 > https://thenewstack.io/how-to-convert-google-spreadsheet-to-json-formatted-text/
 
@@ -26,29 +26,22 @@ If you now go back to the spreadsheet and reload it, you should see a new menu e
 
 **Figure 3:** Our new menu entry for the conversion to JSON.
 
-### Sheet -> i18n JSON
+## Script of Sheet -> i18n JSON
 
 > https://stackoverflow.com/questions/66308153/download-google-sheet-data-as-json-from-browser-through-custom-menu  
 > https://stackoverflow.com/a/66308417/5163033
 
-#### Sheet data
+### Sheet data
 
 | Key                          | ko       | ja     | en      | zh_hant |
 | ---------------------------- | -------- | ------ | ------- | ------- |
 | company.desc.offices-seoul   | 서울     | ソウル | Seoul   | 首爾    |
 | company.desc.offices-fukuoka | 후쿠오카 | 福岡   | Fukuoka | 福岡    |
 
-#### Google Apps Script side:
+### Google Apps Script side:
 
 ```js
 // Code.gs
-const INDEX_LANGUAGE_COLUMNS = {
-  ko: 1,
-  ja: 2,
-  en: 3,
-  zh_hant: 4,
-};
-
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu("JSON")
@@ -65,20 +58,10 @@ function download() {
 }
 
 function downloadFile(language) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const [header, ...values] = sheet.getDataRange().getValues();
+  const jsonString = generateJsonString(language);
+  const filename = `${language}.json`;
 
-  const INDEX_KEY = 0;
-  const INDEX_COLUMN = INDEX_LANGUAGE_COLUMNS[language];
-  const obj = {};
-  values.forEach((raw) => (obj[raw[INDEX_KEY]] = raw[INDEX_COLUMN]));
-
-  const filename = `${sheet.getSheetName()}-${header[INDEX_COLUMN]}.json`;
-  const blob = Utilities.newBlob(
-    JSON.stringify(obj),
-    MimeType.PLAIN_TEXT,
-    filename
-  );
+  const blob = Utilities.newBlob(jsonString, MimeType.PLAIN_TEXT, filename);
   return {
     data: `data:${MimeType.PLAIN_TEXT};base64,${Utilities.base64Encode(
       blob.getBytes()
@@ -86,9 +69,38 @@ function downloadFile(language) {
     filename,
   };
 }
+
+function generateJsonString(language) {
+  const sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets();
+  const sheetsData = {};
+  for (const sheet of sheets) {
+    const rowsData = getRowsData({ sheet, language });
+    Object.assign(sheetsData, rowsData); //! 같은 key가 여러 sheet에 있는 경우, 후자의 내용으로 덮어씀
+  }
+
+  return Utilities.jsonStringify(sheetsData).replace(/\",/gi, '",\n'); //! git diff로 관리하기 위해 줄바꿈 추가
+}
+
+function getRowsData({ sheet, language }) {
+  const [, ...values] = sheet.getDataRange().getValues();
+
+  const INDEX_KEY = 0;
+  const INDEX_COLUMN = INDEX_LANGUAGE_COLUMNS[language];
+  const obj = {};
+  values.forEach((raw) => (obj[raw[INDEX_KEY]] = raw[INDEX_COLUMN]));
+
+  return obj;
+}
+
+const INDEX_LANGUAGE_COLUMNS = {
+  ko: 1,
+  ja: 2,
+  en: 3,
+  zh_hant: 4,
+};
 ```
 
-#### HTML&Javascript side:
+### HTML&Javascript side:
 
 ```html
 <!--index.html-->
@@ -113,3 +125,14 @@ function downloadFile(language) {
   downloadJsons(["ko", "ja", "en", "zh_hant"], 0);
 </script>
 ```
+
+## 주의
+
+- Export 실행 후 다운로드까지 10초 이상 소요.
+  - 언어 하나만 export할 때와 4개 export할 때 시간이 x4가 아닌걸로 봐선, script setup이 대부분의 시간을 차지하는 듯
+  - script fail 시 modal 창이 그대로 유지되므로 30초 지났을 때까지 반응 없다면 Apps Script의 left nav의 실행에서 log를 확인해볼 것 ![](assets/images/google__apps-script__log.webp)
+- 같은 key가 여러 sheet에 있는 경우, 후자의 내용으로 덮어씀
+
+## Etc
+
+- https://github.com/liddiard/google-sheet-s3

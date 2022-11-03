@@ -2,12 +2,13 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1665537315129
+updated: 1667440578513
 created: 1645751512675
 ---
 
 ## Collections
 
+- [Web Almanac - HTTP Archive’s annual state of the web report 2022](https://almanac.httparchive.org/en/2022/table-of-contents) - HTTP Archive’s annual **state of the web** report
 - [Have Single-Page Apps Ruined the Web? | Transitional Apps with Rich Harris, NYTimes](https://youtu.be/860d8usGC0o)
 - [Move over JavaScript: Back-end languages are coming to the front-end](https://github.com/readme/featured/server-side-languages-for-front-end): A NEW CROP OF SERVER-SIDE TOOLS IS MAKING IT POSSIBLE TO BUILD WEB UIS WITHOUT JAVASCRIPT.
 - [Why Efficient Hydration in JavaScript Frameworks is so Challenging](https://dev.to/this-is-learning/why-efficient-hydration-in-javascript-frameworks-is-so-challenging-1ca3)
@@ -19,15 +20,6 @@ created: 1645751512675
 - [Front-End System Design Guide. Web developer interview cheat sheet](https://javascript.plainenglish.io/front-end-system-design-guide-9a11381f5e81)
 - [A Response To "Have Single-Page Apps Ruined the Web?"](https://htmx.org/essays/a-response-to-rich-harris/)
 - [HTTP/3 From A To Z: Core Concepts (Part 1)](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
-
-## Performance
-
-- [Web Performance Metrics Cheatsheet](https://bitsofco.de/web-performance-metrics-cheatsheet/)
-
-## Stats
-
-- [An annual state of the web report for 2021](https://almanac.httparchive.org/en/2021/table-of-contents)
-- [Web Almanac - HTTP Archive’s annual state of the web report 2022](https://almanac.httparchive.org/en/2022/)
 
 ## Webview Case
 

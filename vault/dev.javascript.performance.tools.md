@@ -1,10 +1,12 @@
 ---
 id: GdoKhw8BgqVT6ETDgQ7zT
-title: Tools
+title: Javascript Performance Tools
 desc: ""
-updated: 1656985858816
+updated: 1667440307311
 created: 1645513902249
 ---
+
+## Collections
 
 - [Yellow Lab Tools](https://github.com/YellowLabTools/YellowLabTools): Online test to help speeding up heavy web pages
 - [webhint](https://github.com/webhintio/hint) is a customizable linting tool that helps you improve your site's accessibility, speed, cross-browser compatibility, and more by checking your code for best practices and common errors.
