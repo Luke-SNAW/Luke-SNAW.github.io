@@ -41,6 +41,7 @@ Hi there 👋. I'm a Front-end Engineer.
 - [Markdoc](https://github.com/markdoc/markdoc) is a [Markdown](https://commonmark.org/)-based syntax and toolchain for creating custom documentation sites and experiences.
 - [Scribe](https://scribehow.com/) - Turn any process into a
   step-by-step guide, instantly.
+- [Is Turbopack really 10x Faster than Vite?](https://github.com/yyx990803/vite-vs-next-turbo-hmr/discussions/8)
 - [Happy DOM](https://github.com/capricorn86/happy-dom) is a JavaScript implementation of a web browser without its graphical user interface. It includes many web standards from WHATWG [DOM](https://dom.spec.whatwg.org/) and [HTML](https://html.spec.whatwg.org/multipage/).
   - The goal of [Happy DOM](https://github.com/capricorn86/happy-dom) is to emulate enough of a web browser to be useful for testing, scraping web sites and server-side rendering.
   - [Happy DOM](https://github.com/capricorn86/happy-dom) focuses heavily on performance and can be used as an alternative to [JSDOM](https://github.com/jsdom/jsdom).
