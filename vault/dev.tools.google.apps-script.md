@@ -2,7 +2,7 @@
 id: spatdqam58ssnwn2dfx4tox
 title: Google Apps Script
 desc: ""
-updated: 1667458104558
+updated: 1667525517754
 created: 1667286051672
 ---
 
@@ -38,14 +38,16 @@ If you now go back to the spreadsheet and reload it, you should see a new menu e
 | company.desc.offices-seoul   | 서울     | ソウル | Seoul   | 首爾    |
 | company.desc.offices-fukuoka | 후쿠오카 | 福岡   | Fukuoka | 福岡    |
 
-### Google Apps Script side:
+### Library
+
+#### Google Apps Script side:
 
 ```js
 // Code.gs
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu("JSON")
-    .addItem("Export", "download")
+    .addItem("Export", "ExportJsonForI18n.download") // html에 노출되는 부분은 library의 namespace가 필요
     .addToUi();
 }
 
@@ -100,7 +102,7 @@ const INDEX_LANGUAGE_COLUMNS = {
 };
 ```
 
-### HTML&Javascript side:
+#### HTML&Javascript side:
 
 ```html
 <!--index.html-->
@@ -125,6 +127,29 @@ const INDEX_LANGUAGE_COLUMNS = {
   downloadJsons(["ko", "ja", "en", "zh_hant"], 0);
 </script>
 ```
+
+### Client - use library
+
+#### Google Apps Script side:
+
+```js
+// Code.gs
+function onOpen() {
+  ExportJsonForI18n.onOpen();
+}
+
+function downloadFile(language) {
+  return ExportJsonForI18n.downloadFile(language); // html의 script에서 호출하므로 library의 namespace를 연결시켜줌
+}
+```
+
+## Make as a library
+
+- 프로젝트 하나에만 script를 쓸 거라면 Code-library.gs, index-library.html 내용만 프로젝트에 추가
+- 라이브러리 프로젝트를 만들어 여러 프로젝트에서 쓸거면,
+  1. Code-library.gs, index-library.html 내용을 프로젝트로 생성 (라이브러리로 사용)
+  2. 라이브러리의 Apps Script의 프로젝트 설정 메뉴에서 스크립트 ID를 가져와, client로 쓸 프로젝트에서 편집기 -> 라이브러리에 추가
+  3. Code-client.gs 내용만 client 프로젝트에 추가
 
 ## 주의
 
