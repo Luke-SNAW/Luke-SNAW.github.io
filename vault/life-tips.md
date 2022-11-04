@@ -8,7 +8,7 @@ created: 1645514261238
 
 ## Focus
 
-### [nsoonhui](https://news.ycombinator.com/item?id=33256446)
+### [wodenokoto](https://news.ycombinator.com/item?id=33258142)
 
 In moment to moment work, I am starting to think focus is more about _not_ keeping busy when you need to wait for something.  
 1 minute compile time? Not an opportunity to check your email or hacker news.
