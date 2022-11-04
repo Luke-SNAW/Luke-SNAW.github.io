@@ -26,7 +26,7 @@ Our aim is to teach you how to be a _compassionate programmer_: one who cares as
 14. [Error Handling](https://buildtogether.tech/errors/)
 15. [Debugging](https://buildtogether.tech/debugging/)
 16. [Automation](https://buildtogether.tech/automation/)
-17. [Tooling](https://buildtogether.tech/tooling/)
+17. [Tooling](dev.building-software-together.tooling.md)
 18. [How to Make Yourself Comfortable](https://buildtogether.tech/rules-comfortable/)
 19. [Process](https://buildtogether.tech/process/)
 20. [How to Join an Existing Project](https://buildtogether.tech/rules-joining/)
