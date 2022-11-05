@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1667440786317
+updated: 1667613260101
 created: 1644799670081
 ---
 
@@ -75,3 +75,4 @@ created: 1644799670081
 - [Openverse](https://wordpress.org/openverse/) - Openly Licensed Images, Audio, and more
 - https://www.getclockwise.com/ - Rework the workday
 - Bearblog and prose.sh
+- [How I Use Slack](https://gpeal.medium.com/how-i-use-slack-b0dbf06d9a18)

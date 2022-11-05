@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1667459708910
+updated: 1667633388602
 created: 1644882116217
 ---
 
@@ -122,3 +122,4 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 ## Formats
 
 - [Dinero.js](https://github.com/dinerojs/dinero.js): Create, calculate, and format money in JavaScript and TypeScript.
+- [`<relative-time>` element](https://github.com/github/relative-time-element) - Web component extensions to the standard <time> element.
