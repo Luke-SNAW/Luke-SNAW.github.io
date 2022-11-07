@@ -58,7 +58,7 @@ workspace:
   enableAutoCreateOnDefinition: false
   enableXVaultWikiLink: false
   enableRemoteVaultInit: true
-  enableUserTags: true
+  enableUserTags: false
   enableHashTags: true
   workspaceVaultSyncMode: noCommit
   enableAutoFoldFrontmatter: false
@@ -98,7 +98,7 @@ publishing:
     title: Luke SNAW
     description: Personal knowledge space
   github:
-    enableEditLink: true
+    enableEditLink: false
     editLinkText: Edit this page on GitHub
     editBranch: main
     editViewMode: tree
