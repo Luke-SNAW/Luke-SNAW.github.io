@@ -2,7 +2,7 @@
 id: szckxupm52jq9ugw1oyuany
 title: New CSS Features In 2022
 desc: ""
-updated: 1646871020551
+updated: 1667779398620
 created: 1646870744431
 ---
 

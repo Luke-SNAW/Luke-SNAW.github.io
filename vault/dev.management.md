@@ -2,9 +2,11 @@
 id: DzhURBGkXODQEX6gf3JVg
 title: Management
 desc: ""
-updated: 1655426966804
+updated: 1667780584418
 created: 1645056288493
 ---
+
+## Collections
 
 - [Video Game Project Management Anti-patterns](https://arxiv.org/abs/2202.06183)
 
