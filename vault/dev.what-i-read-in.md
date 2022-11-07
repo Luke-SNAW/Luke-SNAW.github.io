@@ -8,6 +8,9 @@ created: 1667632965028
 
 ## Week 45, 2022
 
+- [Clean Architecture on Frontend](https://bespoyasov.me/blog/clean-architecture-on-frontend/) #architecture
+- [Domain-centric Architectures (Clean and Hexagonal) for Dummies](https://medium.com/codex/clean-architecture-for-dummies-df6561d42c94) #architecture
+- [Feature-Sliced Design](https://feature-sliced.design/) #architecture
 - [Building a self-updating profile README for GitHub](https://simonwillison.net/2020/Jul/10/self-updating-profile-readme/)
   - [Using a self-rewriting README powered by GitHub Actions to track TILs](https://simonwillison.net/2020/Apr/20/self-rewriting-readme/)
 - [What to blog about](https://simonwillison.net/2022/Nov/6/what-to-blog-about/)
