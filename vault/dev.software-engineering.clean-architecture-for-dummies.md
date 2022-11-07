@@ -2,9 +2,10 @@
 id: upls825jrixo3bbcp6xfuuu
 title: Clean Architecture for Dummies
 desc: ""
-updated: 1667806892986
+updated: 1667864711628
 created: 1667806826347
 published: false
+tags: architecture
 ---
 
 > https://medium.com/codex/clean-architecture-for-dummies-df6561d42c94

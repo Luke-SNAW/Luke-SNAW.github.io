@@ -2,8 +2,9 @@
 id: 3qd6qjev0hbwuzw47h96vee
 title: Clean Architecture on Frontend
 desc: ""
-updated: 1667800193238
+updated: 1667864845015
 created: 1667800165132
+tags: architecture
 ---
 
 > https://bespoyasov.me/blog/clean-architecture-on-frontend/

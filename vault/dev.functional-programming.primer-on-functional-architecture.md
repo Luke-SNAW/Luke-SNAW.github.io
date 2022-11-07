@@ -2,8 +2,9 @@
 id: cdgkaoy6064zew14hry05b3
 title: A primer on functional architecture
 desc: ""
-updated: 1647566516602
+updated: 1667865354007
 created: 1647565553197
+tags: architecture
 ---
 
 https://increment.com/software-architecture/primer-on-functional-architecture/
@@ -14,7 +15,7 @@ Many articles on functional programming, or FP, focus on low-level coding practi
 
 When used appropriately, FP principles can reduce complexity while increasing the testability and maintainability of an application. This is functional architecture.
 
-# The principles of FP applied to software architecture
+## The principles of FP applied to software architecture
 
 In a functional architecture, the basic unit is also a function, but a much larger business-oriented one that I like to call a workflow. Each workflow represents a unit of functionality—a feature, use case, scenario, story, or whatever you want to call it.
 
@@ -26,7 +27,7 @@ This compositional approach means we only combine the specific components we nee
 
 Functional programmers try to use pure functions as much as possible. A pure function is deterministic (a given input always results in the same output) and has no side effects (such as mutation or I/O). They are very easy to test (deterministic!) and easy to understand without drilling into their implementation (no side effects!).
 
-# Interacting with the outside world
+## Interacting with the outside world
 
 Of course, at some point we will need to do I/O. Functional programmers try to keep this kind of nondeterminism at the edges of the pipeline as much as possible.
 
@@ -36,7 +37,7 @@ Using only pure code for the business logic means there’s a clear distinction 
 
 One of the advantages of functional programming is that this isolation of business domain from infrastructure occurs naturally.
 
-# Boundaries and contexts
+## Boundaries and contexts
 
 As software designers and architects, our next challenge is to decide how to group these workflows or pipelines into logical units.
 
@@ -52,13 +53,13 @@ If we apply the concept of bounded contexts to a functional architecture, we end
 
 In some cases, a long-running use case or scenario requires multiple workflows. In this case, workflows in different contexts will need to communicate with each other using events and other methods. However, it’s important to keep an individual workflow within a single bounded context and never attempt to implement a scenario “end to end” through multiple contexts. Allowing workflows to reach inside multiple services will eventually cause our nicely decoupled architecture to devolve into a tangle of unmaintainable dependencies—“[a big ball of mud](http://laputan.org/mud/).”
 
-# The entity-service antipattern
+## The entity-service antipattern
 
 There may not be one right way to define boundaries, but there are certainly many wrong ways. A common antipattern for grouping functionality is the [“entity-service” approach](https://www.michaelnygard.com/blog/2017/12/the-entity-service-antipattern/), in which the services are built around entities instead of workflows.
 
 Just because a business workflow involves an entity, such as an “order,” doesn’t mean it has anything in common with other workflows that use that entity. For example, the “pay for an order” workflow and the “delete an order” workflow both involve orders but have completely different business logic.
 
-# Events
+## Events
 
 Now our workflow functions are grouped into bounded contexts and ready to be used. But what triggers these business workflows? What causes an employee, user, or automated process to initiate a workflow?
 
@@ -72,16 +73,16 @@ Note that in all cases the workflows interact asynchronously. This allows them t
 
 If you’re familiar with [event-driven architectures](https://www.enterpriseintegrationpatterns.com/docs/EDA.pdf), this event-based approach will be familiar. And, indeed, the FP approach of having individual pipelines is very amenable to this architectural style.
 
-# Logical versus physical architecture
+## Logical versus physical architecture
 
 It’s important to note that this description of separate workflows triggered by events is a logical view, not a physical one.
 
-# Frontend functional architecture
+## Frontend functional architecture
 
 ...
 
 The most common functional frontend architecture is the Model-View-Update architecture, also known as the Elm architecture.
 
-# The power of functional programming principles
+## The power of functional programming principles
 
 Many good practices of software architecture—cohesion, decoupling, isolation of I/O, etc.—arise naturally from applying functional-programming principles. For example, we’ve seen that in a typical functional design each workflow is constructed independently, comprising only the functionality it needs (which maximizes cohesion), and that autonomy is emphasized at all levels, from individual functions up to bounded contexts (decoupling). Furthermore, a surefire way to enhance testability and maintainability is to keep the business logic in pure, deterministic functions, and to use immutable data models to force data changes to become explicit and unambiguous.
