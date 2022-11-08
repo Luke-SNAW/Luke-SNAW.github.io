@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1666653060261
+updated: 1667880200256
 created: 1646129148306
 ---
 
@@ -23,6 +23,7 @@ created: 1646129148306
 - [media query: pointer](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer)
 - [Dynamic CSS Secrets](https://projects.verou.me/talks/dynamic-css-secrets/#intro)
 - The [env()](https://developer.mozilla.org/en-US/docs/Web/CSS/env) [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) [function](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions) can be used to insert the value of a user-agent defined environment variable into your CSS, in a similar fashion to the [`var()`](https://developer.mozilla.org/en-US/docs/Web/CSS/var) function and [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*).
+- Claymorphism
 
 ## Cascade Precedence
 

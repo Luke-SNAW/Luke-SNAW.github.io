@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1667261753833
+updated: 1667878199543
 created: 1646613084338
 ---
 
@@ -18,6 +18,7 @@ created: 1646613084338
     - [https://spie.org/news/photonics-focus/marapr-2022/harnessing...](https://spie.org/news/photonics-focus/marapr-2022/harnessing-light-for-photonic-computing?SSO=1)
     - [https://www.nextplatform.com/2022/03/17/luminous-shines-a-li...](https://www.nextplatform.com/2022/03/17/luminous-shines-a-light-on-optical-architecture-for-future-ai-supercomputer/)
 - [Quine Relay](https://github.com/mame/quine-relay) is a Ruby program that generates Rust program that generates Scala program that generates ...(through 128 languages in total)... REXX program that generates the original Ruby code again.
+- [CSS Snake & Ladders: a multiplayer game developed in HTML+CSS with no JS](https://codepen.io/alvaromontoro/pen/gjWPNW)
 
 ## [Web scraping is legal, US appeals court reaffirms](https://techcrunch.com/2022/04/18/web-scraping-legal-court/)
 
