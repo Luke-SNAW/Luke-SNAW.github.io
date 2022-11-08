@@ -7,6 +7,6 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@dendronhq/dendron-cli": "^0.85.0"
+    "@dendronhq/dendron-cli": "^0.116.3"
   }
 }
