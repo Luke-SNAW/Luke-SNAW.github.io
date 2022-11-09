@@ -2,17 +2,17 @@
 id: fNDIZetrfDtW7x634bnXD
 title: "Ask HN: Easiest way to build a CRUD app?"
 desc: ""
-updated: 1644799145393
+updated: 1667978906162
 created: 1644797844635
 ---
 
-https://news.ycombinator.com/item?id=30320837
+> https://news.ycombinator.com/item?id=30320837
 
-# Rails
+## Rails
 
 > Rails removes so many questions 'how should i set this up?' 'where should this code go' 'how do i setup a db connection'. It is fast to setup.
 
-# Django
+## Django
 
 > I would consider Django and just using its Admin framework for building your UI, you can achieve so much very quickly with almost no code.
 > I believe it’s a brilliant tool for building internal CRUD type db apps.
@@ -23,7 +23,7 @@ https://news.ycombinator.com/item?id=30320837
 
 > My journey: Django -> Flask -> FastAPI
 
-# Elixir/Phoenix/LiveView
+## Elixir/Phoenix/LiveView
 
 > Lots of variables in your question.
 > For simple stuff I am a big believer in building backends with tools like Strapi, it's hard to beat for MVP
@@ -42,7 +42,7 @@ https://news.ycombinator.com/item?id=30320837
 
 > I would go for Ruby on Rails, or a more modern Phoenix Framework (Elixir). With Phoenix you can also use Phoenix LiveView to avoid writing JavaScript. Very stable, scalable and low-hassle once you deploy.
 
-# Laravel
+## Laravel
 
 > A similar setup, for those more comfortable with PHP, would be Laravel [^0] in conjunction with Livewire [^1].
 >
@@ -57,7 +57,7 @@ https://news.ycombinator.com/item?id=30320837
 
 > I can second this. I am using Elixir/Phoenix/LiveView for a new web app I am launching soon, and I have not written a single line of javascript so far.
 
-# Vaadin
+## Vaadin
 
 > I'll probably be a minority here, but I'd say: java + Vaadin [^1] + raw jdbc (no ORM nonsense). On Vaadin site, you can use starter [^2] to create an app template. There is no need to write javascript; most Vaadin code looks like good old desktop programming. Due Java stability, that thing will run forever and will be performant.
 > If you want to be "cloud native" (or whatever cool name now is) in the future, you can later recompile it with graalvm [3] and produce a single, static binary, like cool kids these days does with golang and rust.
@@ -69,11 +69,11 @@ https://news.ycombinator.com/item?id=30320837
 [^1] https://vaadin.com/
 [^2] https://start.vaadin.com/app/
 
-# MS Access
+## MS Access
 
 > I’m surprised nobody had said MS Access. You don’t need to learn any programming languages, it comes with everything you need, and every Access app has lasted way longer than anyone wanted it to. ;)
 
-# Etc
+## Etc
 
 If this isn't a business application, ignore this entire comment.
 If it is a business application, you probably shouldn't build a CRUD app, at least not the way that's commonly understood. Stick with me for a minute.

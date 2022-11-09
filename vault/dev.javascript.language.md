@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1667779844513
+updated: 1667969844296
 created: 1644885695251
 ---
 
@@ -45,7 +45,7 @@ created: 1644885695251
 - [How JavaScript Maps Can Make Your Code Faster](https://medium.com/@bretcameron/how-javascript-maps-can-make-your-code-faster-90f56bf61d9d)
 - [How to remove items from an object with object destructuring and the spread operator](https://gomakethings.com/how-to-remove-items-from-an-object-with-object-destructuring-and-the-spread-operator/)
   ```javascript
-  let { hobbies, height, eyes, ...merlinAbridged } = merlin;
+  let { hobbies, height, eyes, ...merlinAbridged } = merlin
   ```
 - [JavaScript's Forgotten Keyword (with)](https://dev.to/mistval/javascript-s-forgotten-keyword-with-48id)
 - [How to avoid uncaught async errors in Javascript](https://advancedweb.hu/how-to-avoid-uncaught-async-errors-in-javascript/)
@@ -63,9 +63,9 @@ created: 1644885695251
 const snowbit = {
   age: 15,
   test: "abc",
-};
-const { test, ...newSnowbit } = snowbit;
-console.log(newSnowbit); //  {age: 15}
+}
+const { test, ...newSnowbit } = snowbit
+console.log(newSnowbit) //  {age: 15}
 ```
 
 Let me explain, You should not use `delete` to remove the property from the object because this mutates the original and that can lead to unpredictable behaviours and becomes difficult to debug.
@@ -108,10 +108,8 @@ Table of contents:
 
 - [JavaScript Symbols: the Most Misunderstood Feature of the Language?](https://blog.bitsrc.io/javascript-symbols-the-most-misunderstood-feature-of-the-language-282b6e2a220e)
   ```javascript
-  let a = "foo";
+  let a = "foo"
   ```
   - The primitive is “foo”, not `a`.
   - Another very interesting aspect around this, is that primitives in JavaScript are immutable. That means you can’t change the number 2 ever. Instead, you can reassign a variable to have another (immutable) primitive value.
   - Symbols are primitive values and can be assigned to variables.
-
-## Week 44, 2022
