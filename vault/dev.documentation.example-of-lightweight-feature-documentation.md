@@ -1,8 +1,8 @@
 ---
 id: v2zlc9pm8bkf3ycdgn0w0fe
-title: Example of lightweight feature documentation
-desc: ''
-updated: 1665622706096
+title: Example of lightweight feature documentation 📃
+desc: ""
+updated: 1668055822067
 created: 1665622673658
 ---
 
@@ -16,9 +16,9 @@ The document isn’t a template – the actual documentation varies based on con
 
 ---
 
-# Example: Royalty Payment Splits
+## Example: Royalty Payment Splits
 
-## Background
+### Background
 
 - Royalties need to be paid in full on disbursement to artists.
 - A royalty payment can be made to an individual artist, or a group of artists.
@@ -27,7 +27,7 @@ The document isn’t a template – the actual documentation varies based on con
 - When splitting a payment across a group of artists and it doesn’t split evenly into cents, the system currently randomly splits the cents between artists to balance out the rounding over time
 - This causes issues for both automated tests which need deterministic behaviour, and artists who are confused why they get slightly different amounts if their royalties are the same.
 
-## Scenarios / Examples
+### Scenarios / Examples
 
 | Scenario                                                                               | Royalties Owed | Current Royalties Paid                                                  | New Royalties Paid                                 | Testing |
 | -------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------- | -------------------------------------------------- | ------- |
@@ -39,7 +39,7 @@ The document isn’t a template – the actual documentation varies based on con
 | Three artists with third splits can’t be split                                         | $100.00        | amounts of $33.33, $33.33 and $33.34 randomly assigned to group members | artist 1: $33.34 artist 2: $33.33 artist 3: $33.33 | ❌      |
 | Three artists with third splits can’t be split – more than a single cent difference    | $100.00        | amounts of $33.33, $33.34 and $33.34 randomly assigned to group members | artist 1: $33.34 artist 2: $33.34 artist 3: $33.33 | ❌      |
 
-## Business Rules
+### Business Rules
 
 1. Royalties need to be paid in full on disbursement to artists.
 2. A single artist gets a whole payment.
@@ -48,15 +48,15 @@ The document isn’t a template – the actual documentation varies based on con
 5. The first member in the group – based on earliest date/time added to group – gets the higher amount, followed by the second, third etc. based on earliest date/time added.
 6. Payments aren’t rounded to ten cents or five cent amounts, only whole cents
 
-## Questions/Decisions
+### Questions/Decisions
 
 | Question                                               | Decision                                                     | Made By                      |
 | ------------------------------------------------------ | ------------------------------------------------------------ | ---------------------------- |
-| Do we want to round to five or ten cent distributions? | No, we’ll always round to the cent                           | Product Owner via Slack #    |
+| Do we want to round to five or ten cent distributions? | No, we’ll always round to the cent                           | Product Owner via Slack ##   |
 | How do we distribute based on membership of group?     | We’ll use the date time added to the group (first gets most) | Team during kick off meeting |
 
 ---
 
-# Summary
+## Summary
 
 I think trying to force the above information into gherkin (Given/When/Then) statements would make it less readable and provides no added benefit – whilst Given/When/Then encourages consistency sometimes you just need structured thought that is most relevant to your context. The above document isn’t a template – it varies for the problems we’re trying to solve.

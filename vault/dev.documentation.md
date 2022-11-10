@@ -2,8 +2,6 @@
 id: cce5kvvm5zqfngxyq592z8i
 title: Documentation
 desc: ""
-updated: 1646183428736
+updated: 1668055794612
 created: 1646183402105
 ---
-
-- [Example of lightweight feature documentation 📃](https://alisterbscott.com/2020/05/29/example-of-lightweight-feature-documentation/)

@@ -1,7 +1,7 @@
 ---
 id: 3pho883z7ldl6ewfeey2u4o
 title: Why Would Anyone Need JavaScript Generator Functions
-desc: ""
+desc: ''
 updated: 1667970078793
 created: 1667969854891
 ---

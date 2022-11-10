@@ -2,7 +2,7 @@
 id: 7lfBuLShnSydgCh1ZVEd5
 title: Tools
 desc: ""
-updated: 1667881326738
+updated: 1668043443451
 created: 1645487597560
 ---
 
@@ -21,6 +21,7 @@ created: 1645487597560
   - Works everywhere. Supports Windows, Linux, and macOS.
   - Battle-tested. Used in production by teams of all sizes since 2016.
   - https://pnpm.io/cli/import
+  - `pnpm outdated --json` https://github.com/pnpm/pnpm/releases/tag/v7.15.0
 - [npm-check-updates](https://github.com/raineorshine/npm-check-updates) - Find newer versions of package dependencies than what your package.json allows
   - Selectively update the dependencies that you choose
     ```shell

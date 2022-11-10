@@ -1,7 +1,7 @@
 ---
 id: t302idqloejiq4vv8nu1myj
 title: Comparing TCP and QUIC
-desc: ""
+desc: ''
 updated: 1667956255230
 created: 1667955573804
 ---

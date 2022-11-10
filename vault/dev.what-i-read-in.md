@@ -2,18 +2,28 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1667979190779
+updated: 1668061058007
 created: 1667632965028
 ---
 
 ## Week 45, 2022
 
+- [Reasons to avoid Javascript CDNs](https://blog.wesleyac.com/posts/why-not-javascript-cdn)
+- [Say goodbye to resource-caching across sites and domains](https://www.stefanjudis.com/notes/say-goodbye-to-resource-caching-across-sites-and-domains/)
+- [Get your work recognized: write a brag document](https://jvns.ca/blog/brag-documents/)
+- **Type Coercion** refers to the process of automatic or implicit conversion of values from one data type to another. #terminology
+- https://shrtco.de/ - The privacy-friendly URL Shortener. on free.
+- [HTMX + Alpine.JS](https://django-htmx-alpine.nicholasmoen.com/)
+- [Django, HTMX and Alpine.js: Modern websites, JavaScript optional](https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/)
+  - Alpine focuses on client-side state and operations, HTMX focuses on interaction with your server.
+- [Dynamic Web Apps without JavaScript - HTMX Showcase at DjangoCon and Devoxx](https://www.infoq.com/news/2022/10/htmx-web-app-no-javascript/)
+- [re:Work](https://rework.withgoogle.com/) is a collection of practices, research, and ideas from Google and others to help you put people first.
 - [Apple Is Tracking You Even When Its Own Privacy Settings Say It’s Not, New Research Says](https://gizmodo.com/11-tech-hacks-to-support-your-health-and-wellness-1849739570)
   - https://twitter.com/mysk_co/status/1588308341780262912
 - [The Anatomy of SaaS PRICING STRATEGY](https://www.priceintelligently.com/developing-your-saas-pricing-strategy)
 - [WHY WOULD ANYONE NEED JAVASCRIPT GENERATOR FUNCTIONS?](https://jrsinclair.com/articles/2022/why-would-anyone-need-javascript-generator-functions/)
-- [Module Resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html)
-- [Barrel](https://basarat.gitbook.io/typescript/main-1/barrel)
+- [Module Resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html) #terminology
+- [Barrel](https://basarat.gitbook.io/typescript/main-1/barrel) #terminology
 - [Comparing TCP and QUIC](https://www.potaroo.net/ispcol/2022-11/quicvtcp.html) #network
 - [PDF-To-Markdown Converter](https://github.com/jzillmann/pdf-to-markdown) - Javascript tool to parse PDF files and convert them into Markdown format. Online version at [http://pdf2md.morethan.io](http://pdf2md.morethan.io/)!
 - [Your Next.js Bundle Will Thank You](https://renatopozzi.me/articles/your-nextjs-bundle-will-thank-you) #divops #performance #bundler
