@@ -2,9 +2,11 @@
 id: x6srexqsxlwe4thhsx9rgt9
 title: UX
 desc: ""
-updated: 1649893792476
+updated: 1668469632818
 created: 1649893699761
 ---
+
+## Collections
 
 - [Designing Better Breadcrumbs](https://www.smashingmagazine.com/2022/04/designing-better-breadcrumbs/)
   - Breadcrumbs always need to complement main navigation.
@@ -18,3 +20,4 @@ created: 1649893699761
   - On mobile, use accordions to display a full path if needed.
   - The parent of the current page should be visible at all times.
   - **Sideways breadcrumbs** might be a quite surprising and useful discovery for your users.
+- [Designing The Perfect Mobile Navigation UX](https://www.smashingmagazine.com/2022/11/navigation-design-mobile-ux/)

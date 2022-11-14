@@ -2,7 +2,7 @@
 id: dnqq11162p04a178qiuu23x
 title: Node
 desc: ""
-updated: 1667187815325
+updated: 1668469553454
 created: 1646868633251
 ---
 
@@ -21,3 +21,4 @@ created: 1646868633251
   9. NODE_ENV
 - [An overview of Node.js: architecture, APIs, event loop, concurrency](https://2ality.com/2022/09/nodejs-overview.html)
 - [Tao of Node - Design, Architecture & Best Practices](https://alexkondov.com/tao-of-node/)
+- [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
