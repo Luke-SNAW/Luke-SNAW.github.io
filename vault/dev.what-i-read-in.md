@@ -2,9 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1668061058007
+updated: 1668411332927
 created: 1667632965028
 ---
+
+## Week 46, 2022
+
+- [Joplin](https://github.com/laurent22/joplin) - an open source note taking and to-do application with synchronisation capabilities for Windows, macOS, Linux, Android and iOS.
+- [A Love Letter to React](https://fly.io/blog/love-letter-react/) - Phoenix and LiveView creator was inspired by React
+- [How We Got to LiveView](https://fly.io/blog/how-we-got-to-liveview/)
+- [Dialogs, modality and popovers seem similar. How are they different?](https://hidde.blog/dialog-modal-popover-differences/)
 
 ## Week 45, 2022
 
