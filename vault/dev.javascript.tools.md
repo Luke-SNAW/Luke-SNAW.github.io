@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1667633388602
+updated: 1668491991786
 created: 1644882116217
 ---
 
@@ -35,6 +35,7 @@ created: 1644882116217
 - [Jamstack ecosystem](https://cloudcannon.com/community/jamstack-ecosystem/)
 - [Umbrella JS](https://github.com/franciscop/umbrella): ☔ Lightweight javascript library for DOM manipulation and events. A <3kb performant jQuery-like library born from the question: You might not need jQuery, then what do you need?
 - 🚀 [Axios Cache Interceptor](https://axios-cache-interceptor.js.org/#/)
+- 🤖 [TanStack query](https://github.com/TanStack/query) Powerful asynchronous state management, server-state utilities and data fetching for TS/JS, React, Solid, Svelte and Vue.
 - 🔛 🔖 [sharer.js](https://github.com/ellisonleao/sharer.js): Create your own social share buttons. No jquery.
 - [What’s New In DevTools?](https://www.smashingmagazine.com/2022/01/devtools-updates-2022/)
 - [ow](https://github.com/sindresorhus/ow) - Function argument validation for humans

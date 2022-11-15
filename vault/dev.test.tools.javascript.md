@@ -2,7 +2,7 @@
 id: l0icikuzriyciqacnfsyfnx
 title: JavaScript
 desc: ""
-updated: 1650413492793
+updated: 1668496446580
 created: 1646182938803
 ---
 
@@ -11,16 +11,16 @@ created: 1646182938803
 
 ---
 
-# Playwright
+## Playwright
 
-## [Cypress vs Playwright: Which is best for E2E testing?](https://cathalmacdonnacha.com/cypress-vs-playwright-which-is-best-for-e2e-testing)
+### [Cypress vs Playwright: Which is best for E2E testing?](https://cathalmacdonnacha.com/cypress-vs-playwright-which-is-best-for-e2e-testing)
 
 Dec 16, 2021
 
 > In the end, we decided to go with Playwright, mainly because of its native support for multiple domains, tabs and iFrames.  
 > I will say that I found Cypress' debugging to be more developer-friendly and in general "slicker", but that wasn't enough to make us stay put.
 
-## [Cypress vs Other Test Runners](https://glebbahmutov.com/blog/cypress-vs-other-test-runners/)
+### [Cypress vs Other Test Runners](https://glebbahmutov.com/blog/cypress-vs-other-test-runners/)
 
 Playwright can:
 
@@ -39,7 +39,11 @@ Playwright can:
 - tests Web Sockets
 - tests Service Workers
 
-# Cypress
+### [Web Automation: Don't Use Selenium, Use Playwright](https://new.pythonforengineers.com/blog/web-automation-dont-use-selenium-use-playwright/)
+
+The killer feature of Playwright is: You can [automatically generate tests](https://playwright.dev/python/docs/codegen-intro) by opening a web browser and manually running through the steps you want.
+
+## Cypress
 
 - [testing-workshop-cypress](https://github.com/cypress-io/testing-workshop-cypress) - End-to-end testing workshop with Cypress
 - [Real World Testing with Cypress](https://learn.cypress.io/)

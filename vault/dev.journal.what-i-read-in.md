@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1668470820141
+updated: 1668497942869
 created: 1667632965028
 ---
 
 ## Week 46, 2022
 
+- [Map of the Internet](https://ipv4.dev.sarl/)
+- [Web Automation: Don't Use Selenium, Use Playwright](https://new.pythonforengineers.com/blog/web-automation-dont-use-selenium-use-playwright/)
+  - The killer feature of Playwright is: You can [automatically generate tests](https://playwright.dev/python/docs/codegen-intro) by opening a web browser and manually running through the steps you want.
+- [5 websites to learn Frontend-web development faster](https://dev.to/qbentil/5-websites-to-learn-frontend-web-development-faster-3cid)
+  - [Keyframes.app](https://keyframes.app/) - It does not only help you to learn through experimenting with CSS animations attributes with real-time visualizer, but also helps you generate cool animations and shadows that best fit your design.
+- 🤖 [TanStack query](https://github.com/TanStack/query) Powerful asynchronous state management, server-state utilities and data fetching for TS/JS, React, Solid, Svelte and Vue.
+- [Using Web Components With Next (or Any SSR Framework)](https://css-tricks.com/using-web-components-with-next-or-any-ssr-framework/)
 - [awesome-dendron: A Dendron awesome list of extensions, vaults, and more](https://github.com/dendronhq/dendron/discussions/2118)
 - [Designing The Perfect Mobile Navigation UX](https://www.smashingmagazine.com/2022/11/navigation-design-mobile-ux/)
 - [Jamstack Community Survey 2022](https://jamstack.org/survey/2022/#frameworks-by-usage-and-satisfaction) - outstanding vite's satisfaction score

@@ -2,11 +2,11 @@
 id: eSy4unxJW7sV318dxATMp
 title: "2022"
 desc: ""
-updated: 1645523407406
+updated: 1668493791554
 created: 1645523074213
 ---
 
-# 1월
+## 1월
 
 오랜만에 react + typescript하고 새로운 tool들 사용해보니  
 기본화면+데이터 가져오는데 5시간 넘게 씀. 이 때가 월요일 잠들기 전
