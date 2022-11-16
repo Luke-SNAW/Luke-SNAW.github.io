@@ -2,17 +2,17 @@
 id: rdk5hbpfugooyce7t5zgn7c
 title: 비우기
 desc: ""
-updated: 1649389457882
+updated: 1668555002578
 created: 1649176119077
 ---
 
 Draft
 
-# 상태
+## 상태
 
 보통 점심 시간에 쉬면서 가수면? 취할 때 잘 느껴짐
 
-# 고뇌 회피
+## 고뇌 회피
 
 일 진행과정에서 너무 스트레스를 받은 적이 있다.  
 task 첨부파일과 Log 갱신 문서의 첨부파일 sync도 안맞고  

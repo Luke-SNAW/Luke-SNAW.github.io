@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1668497942869
+updated: 1668554963701
 created: 1667632965028
 ---
 
 ## Week 46, 2022
 
+- [Solving problems, learning and building new things all day can be very mentally exhausting. Cardio, sports, lifting; helps re-balance the physical with the mental.](https://news.ycombinator.com/item?id=33574491)
+- https://www.qualtrics.com/core-xm/survey-software/ - used by Google play store feedback
 - [Map of the Internet](https://ipv4.dev.sarl/)
 - [Web Automation: Don't Use Selenium, Use Playwright](https://new.pythonforengineers.com/blog/web-automation-dont-use-selenium-use-playwright/)
   - The killer feature of Playwright is: You can [automatically generate tests](https://playwright.dev/python/docs/codegen-intro) by opening a web browser and manually running through the steps you want.
