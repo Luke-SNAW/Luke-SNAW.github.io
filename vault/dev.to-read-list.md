@@ -2,9 +2,12 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1666679890464
+updated: 1668644973151
 created: 1645681934406
+tags: long-term
 ---
+
+## Collections
 
 - https://github.com/mtdvio/every-programmer-should-know
 - https://github.com/dexteryy/spellbook-of-modern-webdev
@@ -156,3 +159,70 @@ They're not all bad but give nowhere near as much return for the
 investment of your time.
 
 </details>
+
+## [Awesome CTO](https://github.com/kuchin/awesome-cto/)
+
+- [CTO Position](https://github.com/kuchin/awesome-cto#cto-position)
+- [Hiring](https://github.com/kuchin/awesome-cto#hiring)
+- [People management](https://github.com/kuchin/awesome-cto#people-management)
+- [Career growth](https://github.com/kuchin/awesome-cto#career-growth)
+- [Project management](https://github.com/kuchin/awesome-cto#project-management)
+- [Handbooks](https://github.com/kuchin/awesome-cto#handbooks)
+- [Development process](https://github.com/kuchin/awesome-cto#development-process)
+- [Architecture](https://github.com/kuchin/awesome-cto#architecture)
+- [Technologies](https://github.com/kuchin/awesome-cto#technologies)
+- [Startups](https://github.com/kuchin/awesome-cto#startups)
+- [Due Diligence](https://github.com/kuchin/awesome-cto#due-diligence)
+- [Money / Finance](https://github.com/kuchin/awesome-cto#money--finance)
+- [Related stuff](https://github.com/kuchin/awesome-cto#related-stuff)
+- [Product](https://github.com/kuchin/awesome-cto#product)
+- [Marketing](https://github.com/kuchin/awesome-cto#marketing)
+- [Books](https://github.com/kuchin/awesome-cto#books)
+- [More links](https://github.com/kuchin/awesome-cto#more-links)
+
+## [5 Computer Science Papers That Changed How I Write Code](https://builtin.com/software-engineering-perspectives/5-computer-science-papers-changed-how-write-code)
+
+### [‘No Silver Bullet – Essence and Accident in Software Engineering’ by Fred Brooks](http://worrydream.com/refs/Brooks-NoSilverBullet.pdf)
+
+This is a famous and widely discussed paper by Fred Brooks, who also happens to be the author of _The Mythical Man-Month_.
+
+This paper attempts to explain the limitations of software development, which he splits into two categories: essential complexities, which are inherent to the nature of the problem the software is trying to solve. And accidental complexities, which arise from complex programming languages and infrastructure.
+
+### [‘Out of the Tar Pit’ by Ben Moseley and Peter Marks](https://pdfs.semanticscholar.org/0f27/8cf94ac0d7fe15a7c4e0f283446e9fc07474.pdf)
+
+“Out of the Tar Pit” is an interesting philosophical paper. It’s a long read, but it’s still approachable and covers many exciting topics. Ben Mosely and Peter Marks build upon Brooks’ complexity definitions in “No Silver Bullet,” “but disagree with his premise that most complexity remaining in contemporary systems is essential.”
+
+### [‘A Plea for Lean Software’ by Niklaus Wirth](https://cr.yp.to/bib/1995/wirth.pdf)
+
+This paper was published in 1995, but it’s still as relevant today. It provides another perspective on the subject of software complexity.
+
+According to Niklaus Wirth, software projects are getting out of control. On the one hand, it’s because the hardware is getting faster; in fact, he notes that, “Software is getting slower more rapidly than hardware becomes faster.
+
+### [‘Ironies of Automation’ by Lisanne Bainbridge](https://ckrybus.com/static/papers/Bainbridge_1983_Automatica.pdf)
+
+### [‘How Do Committees Invent?’ by Melvin E. Conway](http://www.melconway.com/Home/Committees_Paper.html)
+
+In this paper written in 1968, Melvin E. Conway observed that the design of a system reflects the structure of the organization doing the design — an idea later popularized by Fred Brooks in _The Mythical Man-Month_ and now called Conway’s Law.
+
+### **Resources**
+
+- [RailsConf 2014 - Keynote: Writing Software by David Heinemeier Hansson](https://www.youtube.com/watch?v=9LfmrkyP81M)
+- [Building for Your Next Billion Users (Google I/O '17)](https://www.youtube.com/watch?v=wD3rpdiLMyY)
+- “[The 737Max and Why Software Engineers Might Want to Pay Attention](https://medium.com/@jpaulreed/the-737max-and-why-software-engineers-should-pay-attention-a041290994bd)”
+- “[The Troubles of Automating ‘All the Things’” by J. Paul Reed](https://www.youtube.com/watch?v=URDBE4q_IgM)
+- “[How Do Committees Invent?](http://www.melconway.com/Home/Committees_Paper.html)”
+- [Don’t Forget Conway’s Law, Sarah Novotny Keynote](https://www.youtube.com/watch?v=zA1EXJV1JWQ)
+
+## [How I became a better CTO using these 8 resources](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/)
+
+- [Google Developers: Machine Learning Crash Course](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#Google_Developers_Machine_Learning_Crash_Course)
+- [The SaaS CTO Security Checklist](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#The_SaaS_CTO_Security_Checklist)
+- [AI-based Database Expert for PostgreSQL/MySQL](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#AI-based_Database_Expert_for_PostgreSQLMySQL)
+- [Amazon Web Services In Plain English](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#Amazon_Web_Services_In_Plain_English)
+- [NoSQL Databases: a Survey and Decision Guidance](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#NoSQL_Databases_a_Survey_and_Decision_Guidance)
+- [JavaScript - The Right Way](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#JavaScript_-_The_Right_Way)
+- [Comparing Git Workflows: What You Should Know](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#Comparing_Git_Workflows_What_You_Should_Know)
+- [A reference guide for fintech & small-data engineering](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#A_reference_guide_for_fintech_small-data_engineering)
+- [What Is DevOps?](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#What_Is_DevOps)
+- [Evolutionary Database Design](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#Evolutionary_Database_Design)
+- [Awesome CTO repository on GitHub](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/#Awesome_CTO_repository_on_GitHub)

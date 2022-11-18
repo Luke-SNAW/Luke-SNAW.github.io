@@ -2,17 +2,24 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1668554963701
+updated: 1668731955420
 created: 1667632965028
 ---
 
 ## Week 46, 2022
 
+- [Git Rebase... with Merges?](https://jnielson.com/git-rebase-with-merges)
+- [How I became a better CTO using these 8 resources](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/) #long-term
+- [5 Computer Science Papers That Changed How I Write Code](https://builtin.com/software-engineering-perspectives/5-computer-science-papers-changed-how-write-code) #long-term
+- [My favorite tricks for navigating the Linux terminal faster](https://opensource.com/article/22/11/navigate-linux-terminal-faster)
+- [Vite 3.0 is out!](https://vitejs.dev/blog/announcing-vite3.html)
+  > [SvelteKit](https://kit.svelte.dev/), [Astro](https://astro.build/), [Hydrogen](https://hydrogen.shopify.dev/), and [SolidStart](https://docs.solidjs.com/start) are all built with Vite. [Laravel has now decided to use Vite by default](https://laravel.com/docs/9.x/vite). [Vite Ruby](https://vite-ruby.netlify.app/) shows how Vite can improve Rails DX. [Vitest](https://vitest.dev/) is making strides as a Vite-native alternative to Jest. Vite is behind [Cypress](https://docs.cypress.io/guides/component-testing/writing-your-first-component-test) and [Playwright](https://playwright.dev/docs/test-components)'s new Component Testing features, Storybook has [Vite as an official builder](https://github.com/storybookjs/builder-vite). And [the list goes on](https://patak.dev/vite/ecosystem.html).
+- [How I became a better CTO using these 8 resources](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/)
 - [Solving problems, learning and building new things all day can be very mentally exhausting. Cardio, sports, lifting; helps re-balance the physical with the mental.](https://news.ycombinator.com/item?id=33574491)
 - https://www.qualtrics.com/core-xm/survey-software/ - used by Google play store feedback
 - [Map of the Internet](https://ipv4.dev.sarl/)
 - [Web Automation: Don't Use Selenium, Use Playwright](https://new.pythonforengineers.com/blog/web-automation-dont-use-selenium-use-playwright/)
-  - The killer feature of Playwright is: You can [automatically generate tests](https://playwright.dev/python/docs/codegen-intro) by opening a web browser and manually running through the steps you want.
+  > The killer feature of Playwright is: You can [automatically generate tests](https://playwright.dev/python/docs/codegen-intro) by opening a web browser and manually running through the steps you want.
 - [5 websites to learn Frontend-web development faster](https://dev.to/qbentil/5-websites-to-learn-frontend-web-development-faster-3cid)
   - [Keyframes.app](https://keyframes.app/) - It does not only help you to learn through experimenting with CSS animations attributes with real-time visualizer, but also helps you generate cool animations and shadows that best fit your design.
 - 🤖 [TanStack query](https://github.com/TanStack/query) Powerful asynchronous state management, server-state utilities and data fetching for TS/JS, React, Solid, Svelte and Vue.
@@ -34,7 +41,7 @@ created: 1667632965028
 - https://shrtco.de/ - The privacy-friendly URL Shortener. on free.
 - [HTMX + Alpine.JS](https://django-htmx-alpine.nicholasmoen.com/)
 - [Django, HTMX and Alpine.js: Modern websites, JavaScript optional](https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/)
-  - Alpine focuses on client-side state and operations, HTMX focuses on interaction with your server.
+  > Alpine focuses on client-side state and operations, HTMX focuses on interaction with your server.
 - [Dynamic Web Apps without JavaScript - HTMX Showcase at DjangoCon and Devoxx](https://www.infoq.com/news/2022/10/htmx-web-app-no-javascript/)
 - [re:Work](https://rework.withgoogle.com/) is a collection of practices, research, and ideas from Google and others to help you put people first.
 - [Apple Is Tracking You Even When Its Own Privacy Settings Say It’s Not, New Research Says](https://gizmodo.com/11-tech-hacks-to-support-your-health-and-wellness-1849739570)
@@ -93,7 +100,7 @@ created: 1667632965028
 - [`<relative-time>` element](https://github.com/github/relative-time-element) - Web component extensions to the standard <time> element. #localization #web-components #timezone #custom-elements
 - [How I Use Slack](https://gpeal.medium.com/how-i-use-slack-b0dbf06d9a18)
 - [Static typing helps, but only a little.](https://buildtogether.tech/tooling/#:~:text=Static%20typing%20helps%2C%20but%20only%20a%20little.)
-  - A [statically-typed](https://buildtogether.tech/glossary/#static_typing) language like Java requires programmers to specify the data type of each variable; a [dynamically-typed](https://buildtogether.tech/glossary/#dynamic_typing) one like Python doesn't require them, though you can add them if you want, while TypeScript adds types as a layer on top of JavaScript. endrikat2014[^endrikat2014] found that declaring types does add complexity to programs, but it pays off fairly quickly by acting as documentation and by making [auto-completion](https://buildtogether.tech/glossary/#auto_completion) more accurate.
+  > A [statically-typed](https://buildtogether.tech/glossary/#static_typing) language like Java requires programmers to specify the data type of each variable; a [dynamically-typed](https://buildtogether.tech/glossary/#dynamic_typing) one like Python doesn't require them, though you can add them if you want, while TypeScript adds types as a layer on top of JavaScript. endrikat2014[^endrikat2014] found that declaring types does add complexity to programs, but it pays off fairly quickly by acting as documentation and by making [auto-completion](https://buildtogether.tech/glossary/#auto_completion) more accurate.
 - [NEW: Build responsive Figma-to-React components with almost no code](https://aws.amazon.com/ko/blogs/mobile/new-build-responsive-figma-to-react-components-with-almost-no-code/)
 - [Docusaurus 2.2](https://docusaurus.io/blog/releases/2.2)
   - I prefer dendron.
@@ -139,8 +146,8 @@ created: 1667632965028
 - [Nano Stores](https://github.com/nanostores/nanostores) - A tiny (258 bytes) state manager for React/RN/Preact/Vue/Svelte with many atomic tree-shakable stores
   - https://docs.astro.build/en/core-concepts/sharing-state/#why-nano-stores
 - [Comparing Astro and Next for React apps](https://blog.openreplay.com/comparing-astro-and-next-for-react-apps)
-  - Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,
-  - Astro is best used for static websites like a portfolio or a personal blog.
+  > Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,  
+  > Astro is best used for static websites like a portfolio or a personal blog.
 - [Dinero.js](https://github.com/dinerojs/dinero.js): Create, calculate, and format money in JavaScript and TypeScript.
 - [PhotoSwipe](https://github.com/dimsemenov/photoswipe) — JavaScript image gallery and lightbox
 - [Create Page Transitions in Next.js with Framer Motion](https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62)

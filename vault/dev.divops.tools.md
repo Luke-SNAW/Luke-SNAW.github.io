@@ -1,8 +1,8 @@
 ---
 id: 7lfBuLShnSydgCh1ZVEd5
-title: Tools
+title: Divops Tools
 desc: ""
-updated: 1668043443451
+updated: 1668643299011
 created: 1645487597560
 ---
 
@@ -23,10 +23,12 @@ created: 1645487597560
   - https://pnpm.io/cli/import
   - `pnpm outdated --json` https://github.com/pnpm/pnpm/releases/tag/v7.15.0
 - [npm-check-updates](https://github.com/raineorshine/npm-check-updates) - Find newer versions of package dependencies than what your package.json allows
-  - Selectively update the dependencies that you choose
-    ```shell
-      ncu -i
-    ```
+  > Selectively update the dependencies that you choose
+  ```shell
+    ncu -i
+  ```
 - [Volta](https://github.com/volta-cli/volta) - The Hassle-Free JavaScript Tool Manager
   - [Volta vs. nvm for JavaScript tooling](https://sirre.al/2021/02/12/volta-vs-nvm-for-managing-javascript-tooling/)
 - [Upgraderoo](https://upgraderoo.janez.tech/) helps you upgrade NPM packages, discover outdated packages and saves you time to focus on building your product.
+- [Vite 3.0 is out!](https://vitejs.dev/blog/announcing-vite3.html)
+  > [SvelteKit](https://kit.svelte.dev/), [Astro](https://astro.build/), [Hydrogen](https://hydrogen.shopify.dev/), and [SolidStart](https://docs.solidjs.com/start) are all built with Vite. [Laravel has now decided to use Vite by default](https://laravel.com/docs/9.x/vite). [Vite Ruby](https://vite-ruby.netlify.app/) shows how Vite can improve Rails DX. [Vitest](https://vitest.dev/) is making strides as a Vite-native alternative to Jest. Vite is behind [Cypress](https://docs.cypress.io/guides/component-testing/writing-your-first-component-test) and [Playwright](https://playwright.dev/docs/test-components)'s new Component Testing features, Storybook has [Vite as an official builder](https://github.com/storybookjs/builder-vite). And [the list goes on](https://patak.dev/vite/ecosystem.html).
