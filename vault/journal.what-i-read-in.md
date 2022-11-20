@@ -2,9 +2,20 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1668908712613
+updated: 1668946258944
 created: 1667632965028
 ---
+
+## Week 47, 2022
+
+- [Tree views in css](https://iamkate.com/code/tree-views/) - `details open`
+- [Ask HN: What is the most impactful thing you've built?](https://news.ycombinator.com/item?id=33659852)
+- [Google Style Guides](https://google.github.io/styleguide/) #long-term
+- [Is 40 hours a week too much? Here’s what history and science say](https://www.okta.com/au/identity-101/40-hour-work-week/)
+  - [Rules of Productivity](http://blog.approache.com/2010/11/rules-of-productivity.html)
+  - [Overtime Kills](https://www.7pace.com/blog/overtime-kills)
+- [Even if you stay on the plank for a long time, your core muscles won't get better](https://www.youtube.com/watch?v=n4eLwAgf_ps)
+  - [Spit out your breath](https://youtu.be/n4eLwAgf_ps?t=397) - While stopping breathing, you can't use your core muscles properly.
 
 ## Week 46, 2022
 

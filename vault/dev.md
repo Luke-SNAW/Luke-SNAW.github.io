@@ -2,11 +2,13 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1668039569549
+updated: 1668945197921
 created: 1644451403760
 ---
 
 ## Collections
+
+- [Google Style Guides](https://google.github.io/styleguide/)
 
 ### re:Work
 

@@ -1,12 +1,12 @@
 ---
 id: jcay7wrqhm145oh3ytoyp5b
-title: Opertime Kills
+title: Overtime Kills
 desc: ""
-updated: 1655426971028
+updated: 1668944735268
 created: 1655426951288
 ---
 
-https://www.7pace.com/blog/overtime-kills
+> https://www.7pace.com/blog/overtime-kills
 
 When deadlines are looming and there’s still a lot of work to be done, the solution is simple.
 
@@ -26,9 +26,7 @@ The 40-hour workweek works for a reason.
 
 Think about how you spend an eight-hour workday. You arrive, settle in, pour a cup of coffee, and prepare for your day. By about two hours in, you’ve hit your stride and reached maximum productivity. You can probably maintain that until about hour six, when you start to get tired and wind down. After eight hours, you’re tired and it’s time to go home, but there’s still time left in the day to relax and unwind before getting a full night’s sleep so you can start the next day feeling fresh. The weekend is plenty of time to run errands, see friends and family, and fully recharge to start a new week.
 
-![Timeline of an 8-hour work day that shows a typical person's work and life cycle.](https://www.7pace.com/wp-content/uploads/2019/09/Timeline-of-8-hour-work-day-2-1024x576.png)
-
-![Timeline of an 8-hour work day that shows a typical person's work and life cycle.](https://www.7pace.com/wp-content/uploads/2019/09/Timeline-of-8-hour-work-day-2-1024x576.png)
+![Timeline of an 8-hour work day that shows a typical person's work and life cycle.](assets/images/management/overtime-kills__8-hour-work-day.webp)
 
 Now compare that to a week of overtime. At eight hours, you’re too tired to continue to do good, productive work, but you still have to work for two or three more hours. You go home, and there’s not enough time to unwind or get a full night’s sleep.
 
@@ -38,9 +36,7 @@ Plus, as you go more days without getting enough rest, you get more and more exh
 
 Eventually, it’s possible to fall into _negative productivity_ because of the compounding exhaustion that comes with every-day overtime.
 
-!["Crunch Mode" chart that shows how productivity declines and goes negative after working a certain number of hours per week for a long period of time.](https://www.7pace.com/wp-content/uploads/2019/09/Productivity-3-1024x768.png)
-
-!["Crunch Mode" chart that shows how productivity declines and goes negative after working a certain number of hours per week for a long period of time.](https://www.7pace.com/wp-content/uploads/2019/09/Productivity-3-1024x768.png)
+!["Crunch Mode" chart that shows how productivity declines and goes negative after working a certain number of hours per week for a long period of time.](assets/images/management/overtime-kills__crunch.webp)
 
 Research shows people tend to only be able to be really productive for around three hours a day. Forcing your engineers to spend hours more than that with their butts in their chairs won’t change the fact that science says they’re not gonna get any more good work done.
 
@@ -73,7 +69,7 @@ There’s been a ton of research done on how overtime affects workers, and the c
 
 A study [published in the Journal of Social Science and Medicine](https://www.sciencedirect.com/science/article/abs/pii/S027795361730031X) found that 39 hours of work per week is a distinct tipping point, and that working longer than that tends to cause mental health to decline. That same study found that working more than 48 hours a week is not only detrimental to mental health but causes a _noticeable decline in physical health_, too.
 
-![](https://lh6.googleusercontent.com/gZtyBJGnuGpxNZXRYP_NPKLylz8L9xIhoXmKLjkBYAHyFDmH7KkAg0M3HknIYQjHosXv78WECF9vSRiR1HUot4j-eQEgnd8mfXGPJQvyyZFZC4Cnt0MyNG82Xq0lzjasRAX216i1)
+![](assets/images/management/overtime-kills__risk.webp)
 
 _Source:_ [_https://www.nature.com/articles/s41598-018-28141-2_](https://www.nature.com/articles/s41598-018-28141-2)
 

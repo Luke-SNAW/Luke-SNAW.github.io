@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1668497961073
+updated: 1668945726645
 created: 1646613084338
 ---
 
@@ -20,6 +20,7 @@ created: 1646613084338
 - [Quine Relay](https://github.com/mame/quine-relay) is a Ruby program that generates Rust program that generates Scala program that generates ...(through 128 languages in total)... REXX program that generates the original Ruby code again.
 - [CSS Snake & Ladders: a multiplayer game developed in HTML+CSS with no JS](https://codepen.io/alvaromontoro/pen/gjWPNW)
 - [Map of the Internet](https://ipv4.dev.sarl/)
+- [Ask HN: What is the most impactful thing you've built?](https://news.ycombinator.com/item?id=33659852)
 
 ## [Web scraping is legal, US appeals court reaffirms](https://techcrunch.com/2022/04/18/web-scraping-legal-court/)
 

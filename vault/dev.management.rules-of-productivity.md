@@ -2,11 +2,11 @@
 id: l2640dhwqll7zntkiakbn6g
 title: Rules of Productivity
 desc: ""
-updated: 1655426032198
+updated: 1668941966742
 created: 1655425997583
 ---
 
-http://blog.approache.com/2010/11/rules-of-productivity.html
+> http://blog.approache.com/2010/11/rules-of-productivity.html
 
 How do we get more work done? It is a question that every manager and every passionate worker faces. Yet, for the most part, teams operate on gut instinct and habit. The results are less than optimal. \[[source](http://www.lostgarden.com/2008/09/rules-of-productivity-presentation.html)\]
 
@@ -18,7 +18,7 @@ How do we get more work done? It is a question that every manager and every pass
 
 Productivity can be **_negative_** when there is more harm than good.
 
-[![image](http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsREicCvI/AAAAAAAAEx8/UGFxiCYKKxc/image_thumb%5B5%5D.png?imgmax=800 "image")](http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsQV26e9I/AAAAAAAAEx4/W_cKdhYLIEc/s1600-h/image%5B9%5D.png)
+![](assets/images/management/rules-of-productivity__overtime.webp)
 
 ## Experiment 1: Overtime
 
@@ -37,7 +37,9 @@ So, work 40 hours a week with time for rest and family. Never work 2 months of 6
 - Crunch for a week and work only 40 hrs on another week.
 - Any more efficient work patterns?
 
-Anything over 40 hrs/week results in a recovery period, no matter how you split it up. 40 hrs/week can be 10 hrs/day for 4 days and one day off. This pattern of work can increase productivity by 10-70%.[![image](http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsS0R9wwI/AAAAAAAAEyE/3C1FYViAnek/image_thumb%5B3%5D.png?imgmax=800 "image")](http://lh4.ggpht.com/_6a0bIbZ1HXw/TPMsSG9AnZI/AAAAAAAAEyA/Wq0Ax8mVAgc/s1600-h/image%5B5%5D.png)
+Anything over 40 hrs/week results in a recovery period, no matter how you split it up. 40 hrs/week can be 10 hrs/day for 4 days and one day off. This pattern of work can increase productivity by 10-70%.
+
+![](assets/images/management/rules-of-productivity__crunch.webp)
 
 So:
 
@@ -63,7 +65,7 @@ So:
 - Team with overtime feels like they are doing much more than the team without overtime.
 - Team without overtime produces the better product and accomplishes more.
 
-[![image](http://lh6.ggpht.com/_6a0bIbZ1HXw/TPMsUp4sGLI/AAAAAAAAEyM/IHbhVUR7D-k/image_thumb%5B7%5D.png?imgmax=800 "image")](http://lh3.ggpht.com/_6a0bIbZ1HXw/TPMsTkqVtLI/AAAAAAAAEyI/HZvCvNe_lNY/s1600-h/image%5B13%5D.png)
+![](assets/images/management/rules-of-productivity__perveived.webp)
 
 Humans ignore the systematic costs and physiological biases:
 
