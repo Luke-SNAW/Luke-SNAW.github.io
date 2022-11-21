@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1668946258944
+updated: 1669032612891
 created: 1667632965028
 ---
 
 ## Week 47, 2022
 
+- [If you exercise without correction due to the fascia relaxation and stretching, it becomes asymmetric.](https://youtu.be/YWEeAqrECqI?t=885)
+- [The ratio of relaxation to contraction is 2:1](https://youtu.be/qYCueSueEmY?t=527)
 - [Tree views in css](https://iamkate.com/code/tree-views/) - `details open`
 - [Ask HN: What is the most impactful thing you've built?](https://news.ycombinator.com/item?id=33659852)
 - [Google Style Guides](https://google.github.io/styleguide/) #long-term

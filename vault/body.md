@@ -2,11 +2,24 @@
 id: zd4mq442jike0pr0wba1u3m
 title: Body
 desc: ""
-updated: 1668928765085
+updated: 1669031032137
 created: 1668909428979
 ---
 
 ## 운동
+
+### 순서
+
+1. 근막이완
+2. 스트레칭
+3. 코어
+4. 팔다리
+
+[If you exercise without correction due to the fascia relaxation and stretching, it becomes asymmetric.](https://youtu.be/YWEeAqrECqI?t=885) - 교정(근막이완, 스트레칭) 없이 운동하면 비대칭으로 굳어짐
+
+### 수축 이완 비율
+
+[The ratio of relaxation to contraction is 2:1](https://youtu.be/qYCueSueEmY?t=527)
 
 ### Core
 
@@ -40,3 +53,5 @@ created: 1668909428979
 ### 앉기
 
 - [Check your hip bones when you sit down](https://youtu.be/7cpqVLoZPks?t=178)
+
+- [If you exercise without correction due to the fascia relaxation and stretching, it becomes asymmetric.](https://youtu.be/YWEeAqrECqI?t=885)
