@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1667263182974
+updated: 1669080822912
 created: 1647145480774
 ---
 
@@ -33,6 +33,7 @@ created: 1647145480774
 - [penpot](https://github.com/penpot/penpot) - The Open-Source design & prototyping platform. made with clojure, clojurescript
 - [The Book of Secret Knowledge](https://github.com/trimstray/the-book-of-secret-knowledge) - A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.
 - [mkcert](https://github.com/FiloSottile/mkcert) is a simple tool for making locally-trusted development certificates. It requires no configuration.
+- [Welcome to Maria](https://www.maria.cloud/) - a clojure coding environment for beginners.
 
 ## Network
 
@@ -57,6 +58,7 @@ created: 1647145480774
 ## News Letter, Feed
 
 - [daily.dev](https://daily.dev/) is the fastest-growing professional platform for developers to grow together.
+  - TLDR, ToC are provided
 - [Hacker news](https://news.ycombinator.com/)
   - https://hckrnews.com/ - Hacker News sorted by time
   - [Hacker News FAQ](https://news.ycombinator.com/newsfaq.html)

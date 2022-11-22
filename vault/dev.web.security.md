@@ -1,10 +1,12 @@
 ---
 id: fm8vm79bnyq6fq1gu2oq2zr
-title: Security
+title: Web Security
 desc: ""
-updated: 1646870714883
+updated: 1668995592063
 created: 1645751778639
 ---
+
+## Collections
 
 - [How to reduce your risk of cross-site scripting attacks with vanilla JavaScript](https://gomakethings.com/how-to-reduce-your-risk-of-cross-site-scripting-attacks-with-vanilla-javascript/)
 - [Injecting text instead of HTML with vanilla JS to reduce your risk of XSS attacks](https://gomakethings.com/injecting-text-instead-of-html-with-vanilla-js-to-reduce-your-risk-of-xss-attacks/)
@@ -24,3 +26,5 @@ created: 1645751778639
   - Using Helmet to remove the X-Powered-By header
   - Improving HTTPS with Strict Transport Security
   - Mitigating XSS attacks with Helmet
+- [What is a realm in JavaScript?](https://weizman.github.io/page-what-is-a-realm-in-js/)
+  - [Introducing Snow](https://github.com/lavamoat/snow/wiki/Introducing-Snow)

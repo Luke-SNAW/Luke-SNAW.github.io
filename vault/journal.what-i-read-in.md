@@ -2,15 +2,34 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669032612891
+updated: 1669100870995
 created: 1667632965028
 ---
 
 ## Week 47, 2022
 
+- [How a Rogue Developer Ruined Millions of Software (happened this weekend)](https://medium.com/@anthonyjdella/how-a-rogue-developer-ruined-millions-of-software-happened-this-weekend-8602af1f8e07)
+- [What’s Up With Serverless?](https://medium.com/javascript-scene/whats-up-with-serverless-1b9bfa80f21f)
+- [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)
+  - **Browser Events** These events occur in the browser [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.
+  - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
+- [5 takeaways from screen reader usability interviews](https://jessbudd.com/blog/screen-reader-usability-testing-observations/)
+  - Usually when we think of alt text, we think "What is this a picture of?" - but in the case of links where the only content is an image, the alt text needs to describe the function of that link. Not the image itself.
+- [Automerge](https://github.com/automerge/automerge) - A JSON-like data structure (a CRDT) that can be modified concurrently by different users, and merged again automatically.
+- [Yjs](https://github.com/yjs/yjs) is a [CRDT implementation](https://github.com/yjs/yjs#Yjs-CRDT-Algorithm) that exposes its internal data structure as _shared types_. Shared types are common data types like `Map` or `Array` with superpowers: changes are automatically distributed to other peers and merged without merge conflicts.
+- [Named Colors Wheel](https://arantius.github.io/web-color-wheel/)
+  - https://yeun.github.io/open-color/
+  - https://open-props.style/
 - [If you exercise without correction due to the fascia relaxation and stretching, it becomes asymmetric.](https://youtu.be/YWEeAqrECqI?t=885)
 - [The ratio of relaxation to contraction is 2:1](https://youtu.be/qYCueSueEmY?t=527)
+- [Inclusively Hidden](https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html)
+- [A Guide To Keyboard Accessibility: HTML And CSS (Part 1)](https://www.smashingmagazine.com/2022/11/guide-keyboard-accessibility-html-css-part1/)
+- [The evolution of scalable CSS](https://frontendmastery.com/posts/the-evolution-of-scalable-css/)
+- [What is a realm in JavaScript?](https://weizman.github.io/page-what-is-a-realm-in-js/)
+  - [Introducing Snow](https://github.com/lavamoat/snow/wiki/Introducing-Snow)
+- [Writing API Design Standards](https://medium.com/@trgoodwill/writing-api-design-standards-84cb7cbb3fd7/) #long-term
 - [Tree views in css](https://iamkate.com/code/tree-views/) - `details open`
+  - [The wasted potential of CSS attribute selectors](https://elisehe.in/2022/10/16/attribute-selectors)
 - [Ask HN: What is the most impactful thing you've built?](https://news.ycombinator.com/item?id=33659852)
 - [Google Style Guides](https://google.github.io/styleguide/) #long-term
 - [Is 40 hours a week too much? Here’s what history and science say](https://www.okta.com/au/identity-101/40-hour-work-week/)

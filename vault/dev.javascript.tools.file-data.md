@@ -1,10 +1,12 @@
 ---
 id: y5ovqnz2ykk04cfy7cng1ig
-title: File Level
+title: File Data
 desc: ""
-updated: 1660779004840
+updated: 1669097524697
 created: 1646265536902
 ---
+
+## Collections
 
 - [JavaScript Cookie](https://github.com/js-cookie/js-cookie): A simple, lightweight JavaScript API for handling browser cookies
 - [absurd-sql](https://github.com/jlongster/absurd-sql): sqlite3 in ur indexeddb (hopefully a better backend soon)
@@ -22,3 +24,5 @@ created: 1646265536902
 - [PouchDB](https://github.com/pouchdb/pouchdb) – The Database that Syncs!
 - [🔄 RxDB](https://github.com/pubkey/rxdb) - A fast, offline-first, reactive database for JavaScript Applications
 - [lowdb](https://github.com/typicode/lowdb) - Simple to use local JSON database. Powered by plain JavaScript (supports Node, Electron and the browser)
+- [Automerge](https://github.com/automerge/automerge) - A JSON-like data structure (a CRDT) that can be modified concurrently by different users, and merged again automatically.
+- [Yjs](https://github.com/yjs/yjs) is a [CRDT implementation](https://github.com/yjs/yjs#Yjs-CRDT-Algorithm) that exposes its internal data structure as _shared types_. Shared types are common data types like `Map` or `Array` with superpowers: changes are automatically distributed to other peers and merged without merge conflicts.

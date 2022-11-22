@@ -2,13 +2,13 @@
 id: 6a4pspgy5vpdeqr0t75ja88
 title: Links vs Buttons in Modern Web Applications
 desc: ""
-updated: 1647936304925
+updated: 1669098305522
 created: 1647936095746
 ---
 
 https://marcysutton.com/links-vs-buttons-in-modern-web-applications
 
-# Buttons
+## Buttons
 
 Somehow people become web developers without learning about the HTML `<button>`element. (I'll admit it took me a few years before I knew what h1-h6 headings were for, so it happens.) The mighty button is actually really cool. It can do all these things:
 
@@ -28,7 +28,7 @@ With a little scripting, a button is the perfect element for:
 - Playing media content
 - Inserting with JS if they only work with JS
 
-# Links
+## Links
 
 Here are a few of the basic features of links, a.k.a. anchors, a.k.a. the foundation of the Web:
 
@@ -47,8 +47,8 @@ Here are a few of the basic features of links, a.k.a. anchors, a.k.a. the founda
 
 The starkest difference between a link and a button to me is that a link navigates the user to a new resource, taking them away from the current context (internal links are the only wrinkle here). A button toggles something in the interface, like a video player; or triggers new content in that same context, like a popup menu using **aria-haspopup**.
 
-## What is navigation? What is routing?
+### What is navigation? What is routing?
 
-## Where does the confusion come from?
+### Where does the confusion come from?
 
-# The Role of UX in Accessible Development
+## The Role of UX in Accessible Development

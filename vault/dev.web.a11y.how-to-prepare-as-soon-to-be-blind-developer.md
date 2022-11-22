@@ -2,11 +2,11 @@
 id: d8dUQN3pq8S0thhP0q0pZ
 title: How to prepare as soon-to-be blind developer?
 desc: ""
-updated: 1644887045998
+updated: 1669098346429
 created: 1644886721030
 ---
 
-https://news.ycombinator.com/item?id=30339187
+> https://news.ycombinator.com/item?id=30339187
 
 Blind person here, happy to answer any questions. I'm speaking from the perspective of someone born blind, so whatever ends up working well for me might not work as well for someone just losing their sight, though I tried to take that fact into account.
 The most immediate suggestions that come to mind are:

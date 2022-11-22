@@ -1,12 +1,12 @@
 ---
 id: 7xzweai4zr3f6jg1bv3bjmv
-title: ':where() :is() :has()? New CSS selectors that make your life easier'
-desc: ''
-updated: 1654935715134
+title: ":where() :is() :has()? New CSS selectors that make your life easier"
+desc: ""
+updated: 1669081800777
 created: 1654935589543
 ---
 
-https://polypane.app/blog/where-is-has-new-css-selectors-that-make-your-life-easier/
+> https://polypane.app/blog/where-is-has-new-css-selectors-that-make-your-life-easier/
 
 > This article is adapted from a talk Kilian gave at [Web Directions Hover 2022](https://conffab.com/video/forced-colors-explained/). You can [contact us](https://polypane.app/support/) if you're interested in Kilian presenting this at your conference, meetup or organisation.
 

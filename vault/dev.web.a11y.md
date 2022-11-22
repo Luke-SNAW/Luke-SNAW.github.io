@@ -1,16 +1,20 @@
 ---
 id: 7tPeWrJHQmeiMg4HWoymw
-title: A11y
-desc: ""
-updated: 1656373236989
+title: Accessibility
+desc: ''
+updated: 1669098098344
 created: 1644817740456
 ---
+
+## Collections
 
 - [레진 웹 접근성 가이드라인](https://github.com/lezhin/accessibility)
 - [A11y Automation Tracker > Potential Violations](https://a11y-automation.dev/violations)
 - [Accessibility, assistive technology, and JavaScript](https://gomakethings.com/accessibility-assistive-technology-and-javascript/)
   - [A quick note about macOS](https://gomakethings.com/accessibility-assistive-technology-and-javascript/#a-quick-note-about-macos) - On macOS, keyboard focus navigation is off by default. Chromium browsers (like Chrome and Edge) automatically support keyboard navigation anyways, but Firefox and Safari honor the system preferences.
 - [Please, stop disabling zoom](https://www.matuzo.at/blog/2022/please-stop-disabling-zoom/)
+- [5 takeaways from screen reader usability interviews](https://jessbudd.com/blog/screen-reader-usability-testing-observations/)
+  - Usually when we think of alt text, we think "What is this a picture of?" - but in the case of links where the only content is an image, the alt text needs to describe the function of that link. Not the image itself.
 
 ## [prefers-reduced-motion](https://news.ycombinator.com/item?id=31765773)
 

@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ''
-updated: 1667969844296
+updated: 1669100648008
 created: 1644885695251
 ---
 
@@ -54,6 +54,9 @@ created: 1644885695251
 - [Why ['1', '7', '11'].map(parseInt) returns [1, NaN, 3] in Javascript](https://medium.com/dailyjs/parseint-mystery-7c4368ef7b21)
 - [🔥 Frontend Interview Cheatsheet That Helped Me Get Offers From Amazon & LinkedIn](https://itnext.io/frontend-interview-cheatsheet-that-helped-me-to-get-offer-on-amazon-and-linkedin-cba9584e33c7)
 - [JavaScript Under The Hood: Advanced Concepts Developers Should Know](https://blog.bitsrc.io/javascript-under-the-hood-advanced-concepts-developers-should-know-a89ddbb11228)
+- [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)
+  - **Browser Events** These events occur in the browser [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.
+  - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
 
 ---
 
@@ -107,9 +110,20 @@ Table of contents:
 ## Symbol
 
 - [JavaScript Symbols: the Most Misunderstood Feature of the Language?](https://blog.bitsrc.io/javascript-symbols-the-most-misunderstood-feature-of-the-language-282b6e2a220e)
+
   ```javascript
   let a = "foo"
   ```
+
   - The primitive is “foo”, not `a`.
   - Another very interesting aspect around this, is that primitives in JavaScript are immutable. That means you can’t change the number 2 ever. Instead, you can reassign a variable to have another (immutable) primitive value.
   - Symbols are primitive values and can be assigned to variables.
+
+- [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)
+  - **Browser Events** These events occur in the browser [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.
+  - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
+
+
+- [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)
+  - **Browser Events** These events occur in the browser [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.
+  - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
