@@ -2,12 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669100870995
+updated: 1669161733836
 created: 1667632965028
 ---
 
 ## Week 47, 2022
 
+- [A Guide To Keyboard Accessibility: JavaScript (Part 2)](https://www.smashingmagazine.com/2022/11/guide-keyboard-accessibility-javascript-part2/)
 - [How a Rogue Developer Ruined Millions of Software (happened this weekend)](https://medium.com/@anthonyjdella/how-a-rogue-developer-ruined-millions-of-software-happened-this-weekend-8602af1f8e07)
 - [What’s Up With Serverless?](https://medium.com/javascript-scene/whats-up-with-serverless-1b9bfa80f21f)
 - [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)

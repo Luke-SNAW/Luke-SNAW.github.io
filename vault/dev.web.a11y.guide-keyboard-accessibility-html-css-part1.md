@@ -1,7 +1,7 @@
 ---
 id: vxkm39axnwtwghh5w2ndbnm
-title: "A Guide To Keyboard Accessibility: HTML And CSS (Part 1)"
-desc: ""
+title: 'A Guide To Keyboard Accessibility: HTML And CSS (Part 1)'
+desc: ''
 updated: 1669016376831
 created: 1669013901238
 ---
