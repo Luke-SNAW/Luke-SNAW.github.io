@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1669265562065
+updated: 1669274584387
 created: 1644449449778
 ---
 
@@ -29,4 +29,4 @@ Hi there 👋. I'm a Front-end developer.
 
 ---
 
-- [[journal.what-i-struggle-in]]
+- [[journal.what-i-struggled-in]]

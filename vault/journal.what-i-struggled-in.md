@@ -1,8 +1,8 @@
 ---
 id: 6645fjtiqxtko03nuccgjj2
-title: 🧗‍♂️ What I Struggle In
+title: "\U0001F9D7‍♂️ What I Struggled In"
 desc: ""
-updated: 1669267234574
+updated: 1669274581320
 created: 1669264809793
 ---
 
