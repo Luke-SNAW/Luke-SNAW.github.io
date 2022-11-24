@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1667095997842
+updated: 1669271412720
 created: 1646264359213
 ---
 
@@ -25,6 +25,7 @@ created: 1646264359213
 - [WinBox](https://github.com/nextapps-de/winbox) is a modern HTML5 window manager for the web.
 - [Tesseract.js](https://github.com/naptha/tesseract.js) - Pure Javascript OCR for more than 100 Languages 📖🎉🖥
 - [PhotoSwipe](https://github.com/dimsemenov/photoswipe) — JavaScript image gallery and lightbox
+- ✨ [Viselect](https://github.com/Simonwep/selection) - A high performance and lightweight library to add a visual way of selecting elements, just like on your Desktop.
 
 ## Canvas
 
@@ -48,8 +49,8 @@ created: 1646264359213
 ### [Create Page Transitions in Next.js with Framer Motion](https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62)
 
 ```javascript
-import "../styles/globals.css";
-import { motion } from "framer-motion";
+import "../styles/globals.css"
+import { motion } from "framer-motion"
 
 function MyApp({ Component, pageProps, router }) {
   return (
@@ -68,10 +69,10 @@ function MyApp({ Component, pageProps, router }) {
     >
       <Component {...pageProps} />
     </motion.div>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
 ```
 
 ## Calendar

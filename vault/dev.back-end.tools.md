@@ -2,7 +2,7 @@
 id: TN3SWriksRFA35jnzNKzy
 title: Tools
 desc: ""
-updated: 1666137821834
+updated: 1669253757254
 created: 1645523891283
 ---
 
@@ -23,6 +23,9 @@ created: 1645523891283
 - [API Hub - Free Public & Open Rest APIs](https://rapidapi.com/hub) - Discover and connect to thousands of APIs
 - [PostgREST](https://github.com/PostgREST/postgrest) serves a fully RESTful API from any existing PostgreSQL database. It provides a cleaner, more standards-compliant, faster API than you are likely to write from scratch.
 - [mitmproxy2swagger](https://github.com/alufers/mitmproxy2swagger) - A tool for automatically converting [mitmproxy](https://mitmproxy.org/) captures to [OpenAPI 3.0](https://swagger.io/specification/) specifications. This means that you can automatically reverse-engineer REST APIs by just running the apps and capturing the traffic.
+- [tRPC](https://github.com/trpc/trpc) allows you to easily build & consume fully typesafe APIs, without schemas or code generation.
+- [A Poor Man’s API](https://dzone.com/articles/a-poor-mans-api)
+  - [PostgREST](https://postgrest.org/en/stable/index.html) is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations.
 
 ## Low code
 

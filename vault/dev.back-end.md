@@ -2,9 +2,14 @@
 id: 6w36dgapan7eummy1q6jpx1
 title: Back End
 desc: ""
-updated: 1667978971480
+updated: 1669253361742
 created: 1649297934004
 ---
+
+## Collections
+
+- [Solving the double (quintuple) declaration Problem in GraphQL Applications: How to not repeat yourself!](https://wundergraph.com/blog/solving_the_double_quintuple_declaration_problem_in_graphql_applications_how_to_not_repeat_yourself)
+- [Why we ditched GraphQL for tRPC](https://echobind.com/post/why-we-ditched-graphql-for-trpc/)
 
 ## Auth
 

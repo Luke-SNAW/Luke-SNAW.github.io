@@ -2,7 +2,7 @@
 id: 9bv9bxtia6w6yhb0rz3bz92
 title: Terminology
 desc: ""
-updated: 1668055510936
+updated: 1669271557545
 created: 1667956494535
 ---
 
@@ -19,3 +19,12 @@ At this point, the compiler will ask “what’s the shape of `moduleA`?” Whil
 ## [Type Coercion](https://www.geeksforgeeks.org/what-is-type-coercion-in-javascript/)
 
 **Type Coercion** refers to the process of automatic or implicit conversion of values from one data type to another.
+
+## [Two types of equalities in JavaScript](https://www.syncfusion.com/blogs/post/5-different-ways-to-deep-compare-javascript-objects.aspx#:~:text=Two%20types%20of%20equalities%20in%20JavaScript)
+
+When discussing object comparisons in JavaScript, there are two types of equalities one must be aware of:
+
+- Referential equality: Determines whether the two provided operands refer to the same reference/object instance.
+- Deep equality: Determines whether objects are equal by comparing each property in the operands.
+
+Referential equality can be determined with equality operators such as strict equality (===) or coercive equality (==)
