@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1668470918914
+updated: 1669167480245
 created: 1646011769978
 ---
 
@@ -59,14 +59,14 @@ git config --global core.editor "code -w"
       ],
       "editor.defaultFormatter" : "esbenp.prettier-vscode",
       ```
-- axe Accessibility Linter
+- [axe Accessibility Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter)
 - Code Spell Checker
 
 ### 선택
 
 - Auto Close Tag
 - Auto Rename Tag
-- Better Comments
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 - Emmet JSS
 - ES7 React/Redux/GraphQL/React-Native snippets
 - Git Graph
@@ -83,6 +83,10 @@ git config --global core.editor "code -w"
 - Turbo Console Log
 - Vue Snippets StandardJS
 - Vue VSCode Snippets
+
+### Misc
+
+- [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
 
 ## Personal knowledge management
 

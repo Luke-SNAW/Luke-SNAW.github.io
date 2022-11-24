@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1668471398914
+updated: 1669247869190
 created: 1644449449778
 ---
 
@@ -23,6 +23,6 @@ Hi there 👋. I'm a Front-end developer.
 
 ## What I read in past
 
-- [[dev.journal.what-i-read-in]]
+- [[journal.what-i-read-in]]
 - 📝 [Gists](https://gist.github.com/Luke-SNAW)
 - 📜 [Journals](https://luke-snaw.github.io/Luke-SNAW__netlify-CMS.github.io/)

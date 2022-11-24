@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1669100879573
+updated: 1669248603892
 created: 1646613084338
 ---
 
@@ -51,3 +51,14 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 - [Including "And. And. And. And. And." in a Google doc causes it to crash](https://support.google.com/docs/thread/162510194/including-and-and-and-and-and-in-a-google-doc-causes-it-to-crash?hl=en)
 - [Motion Controls In The Browser](https://www.smashingmagazine.com/2022/10/motion-controls-browser/)
 - [HTML is based on SGML](https://news.ycombinator.com/item?id=33553269)
+
+### [Asterisk Magazine](https://asteriskmag.com/)
+
+site UI
+
+- <video width="320" height="240" controls>
+  <source src="/assets/movs/asteriskmag.com__mobile.mov" type="video/mp4">
+  </video>
+- <video width="320" height="240" controls>
+  <source src="/assets/movs/asteriskmag.com__desktop.mov" type="video/mp4">
+  </video>

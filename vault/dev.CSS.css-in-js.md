@@ -2,7 +2,7 @@
 id: fk33k4a33a4ttaiu7xj0fzx
 title: CSS in JS
 desc: ""
-updated: 1666656216318
+updated: 1669177052485
 created: 1666654022201
 ---
 

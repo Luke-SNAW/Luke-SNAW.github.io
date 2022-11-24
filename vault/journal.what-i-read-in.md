@@ -2,12 +2,25 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669161733836
+updated: 1669248687869
 created: 1667632965028
 ---
 
 ## Week 47, 2022
 
+- [Asterisk Magazine](https://asteriskmag.com/) - [site UI](dev.interesting#asterisk-magazine)
+- [CSS vs. CSS-in-JS: How and why to use each](https://blog.logrocket.com/css-vs-css-in-js/)
+- [Microsoft API Guidelines](https://github.com/microsoft/api-guidelines) #bookshelf
+  - [Microsoft REST API Guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md)
+  - [Graph REST API Guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/graph/GuidelinesGraph.md)
+- [Understanding Map and Set in JavaScript](https://www.taniarascia.com/understanding-map-and-set-javascript/)
+- https://text-to-diagram.com/
+- [Why numbering should start at zero](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)
+- [Note: The main difference is that the watchEffect starts instantly while the watch() runs lazily](<https://www.syncfusion.com/blogs/post/vue-composition-api-vs-react-hooks.aspx#:~:text=Note%3A%20The%20main%20difference%20is%20that%20the%20watchEffect%20starts%20instantly%20while%20the%20watch()%20runs%20lazily>)
+- 👑 [GOV.UK Design System](https://design-system.service.gov.uk/) #bookshelf
+  - https://design-system.service.gov.uk/accessibility/ explains how the team works to ensure the Design System and Frontend are accessible.
+  - https://github.com/alphagov/govuk-frontend#readme
+- [Accessibility Solutions](https://a11y-solutions.stevenwoodson.com/) #bookshelf
 - [A Guide To Keyboard Accessibility: JavaScript (Part 2)](https://www.smashingmagazine.com/2022/11/guide-keyboard-accessibility-javascript-part2/)
 - [How a Rogue Developer Ruined Millions of Software (happened this weekend)](https://medium.com/@anthonyjdella/how-a-rogue-developer-ruined-millions-of-software-happened-this-weekend-8602af1f8e07)
 - [What’s Up With Serverless?](https://medium.com/javascript-scene/whats-up-with-serverless-1b9bfa80f21f)
@@ -28,11 +41,11 @@ created: 1667632965028
 - [The evolution of scalable CSS](https://frontendmastery.com/posts/the-evolution-of-scalable-css/)
 - [What is a realm in JavaScript?](https://weizman.github.io/page-what-is-a-realm-in-js/)
   - [Introducing Snow](https://github.com/lavamoat/snow/wiki/Introducing-Snow)
-- [Writing API Design Standards](https://medium.com/@trgoodwill/writing-api-design-standards-84cb7cbb3fd7/) #long-term
+- [Writing API Design Standards](https://medium.com/@trgoodwill/writing-api-design-standards-84cb7cbb3fd7/) #bookshelf
 - [Tree views in css](https://iamkate.com/code/tree-views/) - `details open`
   - [The wasted potential of CSS attribute selectors](https://elisehe.in/2022/10/16/attribute-selectors)
 - [Ask HN: What is the most impactful thing you've built?](https://news.ycombinator.com/item?id=33659852)
-- [Google Style Guides](https://google.github.io/styleguide/) #long-term
+- [Google Style Guides](https://google.github.io/styleguide/) #bookshelf
 - [Is 40 hours a week too much? Here’s what history and science say](https://www.okta.com/au/identity-101/40-hour-work-week/)
   - [Rules of Productivity](http://blog.approache.com/2010/11/rules-of-productivity.html)
   - [Overtime Kills](https://www.7pace.com/blog/overtime-kills)
@@ -42,8 +55,8 @@ created: 1667632965028
 ## Week 46, 2022
 
 - [Git Rebase... with Merges?](https://jnielson.com/git-rebase-with-merges)
-- [How I became a better CTO using these 8 resources](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/) #long-term
-- [5 Computer Science Papers That Changed How I Write Code](https://builtin.com/software-engineering-perspectives/5-computer-science-papers-changed-how-write-code) #long-term
+- [How I became a better CTO using these 8 resources](https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/) #bookshelf
+- [5 Computer Science Papers That Changed How I Write Code](https://builtin.com/software-engineering-perspectives/5-computer-science-papers-changed-how-write-code) #bookshelf
 - [My favorite tricks for navigating the Linux terminal faster](https://opensource.com/article/22/11/navigate-linux-terminal-faster)
 - [Vite 3.0 is out!](https://vitejs.dev/blog/announcing-vite3.html)
   > [SvelteKit](https://kit.svelte.dev/), [Astro](https://astro.build/), [Hydrogen](https://hydrogen.shopify.dev/), and [SolidStart](https://docs.solidjs.com/start) are all built with Vite. [Laravel has now decided to use Vite by default](https://laravel.com/docs/9.x/vite). [Vite Ruby](https://vite-ruby.netlify.app/) shows how Vite can improve Rails DX. [Vitest](https://vitest.dev/) is making strides as a Vite-native alternative to Jest. Vite is behind [Cypress](https://docs.cypress.io/guides/component-testing/writing-your-first-component-test) and [Playwright](https://playwright.dev/docs/test-components)'s new Component Testing features, Storybook has [Vite as an official builder](https://github.com/storybookjs/builder-vite). And [the list goes on](https://patak.dev/vite/ecosystem.html).
@@ -103,7 +116,7 @@ created: 1667632965028
 - [CSS Snake & Ladders: a multiplayer game developed in HTML+CSS with no JS](https://codepen.io/alvaromontoro/pen/gjWPNW)
 - [Clean Architecture on Frontend](https://bespoyasov.me/blog/clean-architecture-on-frontend/) #architecture
 - [Domain-centric Architectures (Clean and Hexagonal) for Dummies](https://medium.com/codex/clean-architecture-for-dummies-df6561d42c94) #architecture
-- [Feature-Sliced Design](https://feature-sliced.design/) #architecture
+- [Feature-Sliced Design](https://feature-sliced.design/) #architecture #bookshelf
 - [Building a self-updating profile README for GitHub](https://simonwillison.net/2020/Jul/10/self-updating-profile-readme/)
   - [Using a self-rewriting README powered by GitHub Actions to track TILs](https://simonwillison.net/2020/Apr/20/self-rewriting-readme/)
 - [What to blog about](https://simonwillison.net/2022/Nov/6/what-to-blog-about/)

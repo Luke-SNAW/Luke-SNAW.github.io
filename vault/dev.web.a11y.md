@@ -1,8 +1,8 @@
 ---
 id: 7tPeWrJHQmeiMg4HWoymw
 title: Accessibility
-desc: ''
-updated: 1669098098344
+desc: ""
+updated: 1669164683651
 created: 1644817740456
 ---
 
@@ -15,6 +15,10 @@ created: 1644817740456
 - [Please, stop disabling zoom](https://www.matuzo.at/blog/2022/please-stop-disabling-zoom/)
 - [5 takeaways from screen reader usability interviews](https://jessbudd.com/blog/screen-reader-usability-testing-observations/)
   - Usually when we think of alt text, we think "What is this a picture of?" - but in the case of links where the only content is an image, the alt text needs to describe the function of that link. Not the image itself.
+- https://webhint.io/docs/user-guide/hints/accessibility/
+- [Using ARIA: Roles, states, and properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques)
+- [Accessibility Solutions](https://a11y-solutions.stevenwoodson.com/)
+- 👑 [GOV.UK Design System > Accessibility](https://design-system.service.gov.uk/accessibility/) explains how the team works to ensure the Design System and Frontend are accessible.
 
 ## [prefers-reduced-motion](https://news.ycombinator.com/item?id=31765773)
 
