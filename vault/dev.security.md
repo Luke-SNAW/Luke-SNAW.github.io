@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1666740751280
+updated: 1669386769435
 created: 1644825680750
 ---
 
@@ -15,3 +15,5 @@ created: 1644825680750
   - https://news.ycombinator.com/item?id=33327678
     - This can be disabled in Brave by turning "WebRTC IP handling policy" to "Disable non-Proxied UDP" in "settings - > Privacy and Security".
     - WebRTC was already known to leak local IP. Which can be dangerous if you're behind a VPN.
+- [PDF vulnerability](https://news.ycombinator.com/item?id=33732763)
+  - [Dangerzone](https://github.com/freedomofpress/dangerzone) - Take potentially dangerous PDFs, office documents, or images and convert them to a safe PDF.

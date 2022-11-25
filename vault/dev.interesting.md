@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1669248603892
+updated: 1669387103027
 created: 1646613084338
 ---
 
@@ -21,9 +21,13 @@ created: 1646613084338
 - [CSS Snake & Ladders: a multiplayer game developed in HTML+CSS with no JS](https://codepen.io/alvaromontoro/pen/gjWPNW)
 - [Map of the Internet](https://ipv4.dev.sarl/)
 - [Ask HN: What is the most impactful thing you've built?](https://news.ycombinator.com/item?id=33659852)
-- [How a Rogue Developer Ruined Millions of Software (happened this weekend)](https://medium.com/@anthonyjdella/how-a-rogue-developer-ruined-millions-of-software-happened-this-weekend-8602af1f8e07)
 
-## [Web scraping is legal, US appeals court reaffirms](https://techcrunch.com/2022/04/18/web-scraping-legal-court/)
+## News
+
+- [How a Rogue Developer Ruined Millions of Software (happened this weekend)](https://medium.com/@anthonyjdella/how-a-rogue-developer-ruined-millions-of-software-happened-this-weekend-8602af1f8e07)
+- [Everything on Amazon is becoming an ad](https://www.washingtonpost.com/technology/interactive/2022/amazon-shopping-ads/)
+
+### [Web scraping is legal, US appeals court reaffirms](https://techcrunch.com/2022/04/18/web-scraping-legal-court/)
 
 Good news for archivists, academics, researchers and journalists: Scraping publicly accessible data is legal, according to a U.S. appeals court ruling.
 
