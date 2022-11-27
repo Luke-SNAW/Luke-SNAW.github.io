@@ -2,7 +2,7 @@
 id: xxhnpekxmo47z6xj0yqkd3l
 title: Windows tools
 desc: ""
-updated: 1666066204579
+updated: 1669514398077
 created: 1652060424550
 ---
 
@@ -12,3 +12,4 @@ created: 1652060424550
   - [FancyZones](https://docs.microsoft.com/en-us/windows/powertoys/fancyzones)
   - Run
 - With [Fluent Search](https://fluentsearch.net/), you can search for running apps, browser tabs, in-app content, files and more.
+- [Scoop](https://github.com/ScoopInstaller/Scoop) - A command-line installer for Windows.

@@ -2,9 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669388068407
+updated: 1669515318996
 created: 1667632965028
 ---
+
+## Week 48, 2022
+
+- [Scoop](https://github.com/ScoopInstaller/Scoop) - A command-line installer for Windows.
+- [act](https://github.com/nektos/act) - Run your GitHub Actions locally 🚀
 
 ## Week 47, 2022
 
