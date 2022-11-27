@@ -2,7 +2,7 @@
 id: in5e244culvb3a386ll38li
 title: Interesting CSS
 desc: ""
-updated: 1669081865724
+updated: 1669536065078
 created: 1651796642972
 ---
 
@@ -13,3 +13,4 @@ created: 1651796642972
 - [Named Colors Wheel](https://arantius.github.io/web-color-wheel/)
   - https://yeun.github.io/open-color/
   - https://open-props.style/
+- [Making Static Noise From a Weird CSS Gradient Bug](https://css-tricks.com/making-static-noise-from-a-weird-css-gradient-bug/)

@@ -2,12 +2,25 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669515318996
+updated: 1669554039927
 created: 1667632965028
 ---
 
 ## Week 48, 2022
 
+- [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) - The fastest and simplest library for SQLite3 in Node.js.
+- Dittytoy: JavaScript-Based Generative Music Sandbox
+  - https://dittytoy.net/ditty/6f30b0885d
+  - https://dittytoy.net/ditty/2a0acbb94b
+- [Richardson Maturity Model](https://restfulapi.net/richardson-maturity-model/)
+- [API Bites — Payload Conventions](https://medium.com/@trgoodwill/api-bites-payload-conventions-76ffde7f5eb2)
+- [Making Static Noise From a Weird CSS Gradient Bug](https://css-tricks.com/making-static-noise-from-a-weird-css-gradient-bug/)
+- [Style a parent element based on its number of children using CSS :has()](https://www.bram.us/2022/11/17/style-a-parent-element-based-on-its-number-of-children-using-css-has/)
+- [Scripted `<INPUT>` Matching With Native Error Reporting](https://medium.com/codex/scripted-input-matching-with-native-error-reporting-8287dd7ac40a)
+  - https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
+- [Exploring Declarative Shadow DOM](https://www.wiktorwisniewski.dev/blog/exploring-declarative-shadow-dom)
+- [The Hidden Power of Custom States For Web Components](https://itnext.io/the-hidden-power-of-custom-states-for-web-components-dcae5b048e20)
+- [API Lifecycle Management](https://medium.com/@trgoodwill/api-lifecycle-management-9fb0caaa41de)
 - [Scoop](https://github.com/ScoopInstaller/Scoop) - A command-line installer for Windows.
 - [act](https://github.com/nektos/act) - Run your GitHub Actions locally 🚀
 

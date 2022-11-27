@@ -1,10 +1,12 @@
 ---
 id: oupetc54rid9460a481qly3
 title: Node.js Tools
-desc: ''
-updated: 1665450489987
+desc: ""
+updated: 1669554058203
 created: 1646012035359
 ---
+
+## Collections
 
 - [New in Node.js: `node:` protocol imports](https://2ality.com/2021/12/node-protocol-imports.html)
 - [5 Express Middleware Libraries Every Developer Should Know](https://blog.bitsrc.io/5-express-middleware-libraries-every-developer-should-know-94e2728f7503)
@@ -13,6 +15,7 @@ created: 1646012035359
   3. Passport — Access to Wide Range of Authentication Mechanisms
   4. Morgan— Log HTTP Requests and Errors
   5. CORS — Allow or Restrict Requested Resources on a Web Server
+- [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) - The fastest and simplest library for SQLite3 in Node.js.
 
 ## CLI
 
