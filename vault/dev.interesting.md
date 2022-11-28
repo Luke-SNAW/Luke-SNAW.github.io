@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1669387103027
+updated: 1669596249449
 created: 1646613084338
 ---
 
@@ -21,6 +21,7 @@ created: 1646613084338
 - [CSS Snake & Ladders: a multiplayer game developed in HTML+CSS with no JS](https://codepen.io/alvaromontoro/pen/gjWPNW)
 - [Map of the Internet](https://ipv4.dev.sarl/)
 - [Ask HN: What is the most impactful thing you've built?](https://news.ycombinator.com/item?id=33659852)
+- [GPS vs GLONASS vs Galileo](https://www.gpsrchive.com/Shared/Satellites/GPS%20vs%20GLONASS%20vs%20Galileo.html)
 
 ## News
 

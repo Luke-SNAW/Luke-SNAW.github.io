@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669554039927
+updated: 1669596236891
 created: 1667632965028
 ---
 
 ## Week 48, 2022
 
+- [GPS vs GLONASS vs Galileo](https://www.gpsrchive.com/Shared/Satellites/GPS%20vs%20GLONASS%20vs%20Galileo.html)
+- [Index Merges vs Composite Indexes in Postgres and MySQL](https://sirupsen.com/index-merges)
+  > Composite indexes are about 10x faster than index merges. In Postgres, the gap is larger than in MySQL because Postgres doesn't support index-only scans for queries that involve index merges.
+- https://survey.stackoverflow.co/2022/#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages
+- [WebAssembly: TinyGo vs Rust vs AssemblyScript](https://ecostack.dev/posts/wasm-tinygo-vs-rust-vs-assemblyscript/)
+- [Bocker](https://github.com/p8952/bocker) - Docker implemented in around 100 lines of bash.
 - [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) - The fastest and simplest library for SQLite3 in Node.js.
 - Dittytoy: JavaScript-Based Generative Music Sandbox
   - https://dittytoy.net/ditty/6f30b0885d
