@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669616742854
+updated: 1669633146118
 created: 1667632965028
 ---
 
 ## Week 48, 2022
 
+- [An AI generated, never-ending discussion between Werner Herzog and Slavoj ŽIžek](https://infiniteconversation.com/)
+  - https://news.ycombinator.com/item?id=33437296
 - [Elixir vs Erlang: A comparison](https://devathon.com/blog/elixir-vs-erlang-programming-language/)
 - [make](https://www.make.com/en) for no-code automation.
 - [Nitric](https://github.com/nitrictech/nitric) is a framework for rapid development of cloud-native and serverless applications.

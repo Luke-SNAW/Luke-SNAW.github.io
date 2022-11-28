@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1669596249449
+updated: 1669633152017
 created: 1646613084338
 ---
 
@@ -22,6 +22,8 @@ created: 1646613084338
 - [Map of the Internet](https://ipv4.dev.sarl/)
 - [Ask HN: What is the most impactful thing you've built?](https://news.ycombinator.com/item?id=33659852)
 - [GPS vs GLONASS vs Galileo](https://www.gpsrchive.com/Shared/Satellites/GPS%20vs%20GLONASS%20vs%20Galileo.html)
+- [An AI generated, never-ending discussion between Werner Herzog and Slavoj ŽIžek](https://infiniteconversation.com/)
+  - https://news.ycombinator.com/item?id=33437296
 
 ## News
 
