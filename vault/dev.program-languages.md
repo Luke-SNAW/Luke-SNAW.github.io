@@ -2,7 +2,7 @@
 id: cnzc1i8ojequt9lhg3zpkgo
 title: Program Languages
 desc: ""
-updated: 1669166460921
+updated: 1669616795211
 created: 1646612841225
 ---
 
@@ -13,3 +13,6 @@ created: 1646612841225
   - Scala
   - Standard ML and OCaml
   - Scheme
+- [A Love Letter to React](https://fly.io/blog/love-letter-react/) - Phoenix and LiveView creator was inspired by React
+- [How We Got to LiveView](https://fly.io/blog/how-we-got-to-liveview/)
+- [Elixir vs Erlang: A comparison](https://devathon.com/blog/elixir-vs-erlang-programming-language/)

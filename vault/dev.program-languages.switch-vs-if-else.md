@@ -2,11 +2,11 @@
 id: h1Xiu9HcFfjIwSPhAZy3Z
 title: "Switch vs if…else: A Comparison"
 desc: ""
-updated: 1646364671471
+updated: 1669616858541
 created: 1644825544998
 ---
 
-https://javascript.plainenglish.io/switch-vs-if-else-7f7617bfe8cb
+> https://javascript.plainenglish.io/switch-vs-if-else-7f7617bfe8cb
 
 ```javascript
 function recommendMovie(genre) {
@@ -32,26 +32,26 @@ function recommendMovie(genre) {
 function recommendMovie(genre) {
   switch (genre) {
     case "action":
-      console.log("Die Hard");
-      break;
+      console.log("Die Hard")
+      break
     case "comedy":
-      console.log("The Big Lebowski");
-      break;
+      console.log("The Big Lebowski")
+      break
     case "horror":
-      console.log("Dawn of the Dead");
-      break;
+      console.log("Dawn of the Dead")
+      break
     case "drama":
-      console.log("The Shawshank Redemption");
-      break;
+      console.log("The Shawshank Redemption")
+      break
     case "musical":
-      console.log("The Blues Brothers");
-      break;
+      console.log("The Blues Brothers")
+      break
     case "sci-fi":
-      console.log("Blade Runner");
+      console.log("Blade Runner")
     default:
       console.log(
         "Genre not recognized. Choose between action, comedy, drama, musical, or sci-fi."
-      );
+      )
   }
 }
 ```
@@ -66,16 +66,16 @@ function fruitOrVegetable(item) {
     item === "banana" ||
     item === "cherry"
   ) {
-    console.log("Fruit");
+    console.log("Fruit")
   } else if (
     item === "broccoli" ||
     item === "lettuce" ||
     item === "carrot" ||
     item === "potato"
   ) {
-    console.log("Vegetable");
+    console.log("Vegetable")
   } else {
-    console.log("Neither");
+    console.log("Neither")
   }
 }
 ```
@@ -87,16 +87,16 @@ function fruitOrVegetable(item) {
     case "orange":
     case "banana":
     case "cherry":
-      console.log("Fruit");
-      break;
+      console.log("Fruit")
+      break
     case "broccoli":
     case "lettuce":
     case "carrot":
     case "potato":
-      console.log("Vegetable");
-      break;
+      console.log("Vegetable")
+      break
     default:
-      console.log("Neither");
+      console.log("Neither")
   }
 }
 ```

@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1669080822912
+updated: 1669597984387
 created: 1647145480774
 ---
 
@@ -34,6 +34,8 @@ created: 1647145480774
 - [The Book of Secret Knowledge](https://github.com/trimstray/the-book-of-secret-knowledge) - A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.
 - [mkcert](https://github.com/FiloSottile/mkcert) is a simple tool for making locally-trusted development certificates. It requires no configuration.
 - [Welcome to Maria](https://www.maria.cloud/) - a clojure coding environment for beginners.
+- [Nitric](https://github.com/nitrictech/nitric) is a framework for rapid development of cloud-native and serverless applications.
+- [make](https://www.make.com/en) for no-code automation.
 
 ## Network
 

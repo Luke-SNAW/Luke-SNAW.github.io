@@ -2,12 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669596236891
+updated: 1669616742854
 created: 1667632965028
 ---
 
 ## Week 48, 2022
 
+- [Elixir vs Erlang: A comparison](https://devathon.com/blog/elixir-vs-erlang-programming-language/)
+- [make](https://www.make.com/en) for no-code automation.
+- [Nitric](https://github.com/nitrictech/nitric) is a framework for rapid development of cloud-native and serverless applications.
 - [GPS vs GLONASS vs Galileo](https://www.gpsrchive.com/Shared/Satellites/GPS%20vs%20GLONASS%20vs%20Galileo.html)
 - [Index Merges vs Composite Indexes in Postgres and MySQL](https://sirupsen.com/index-merges)
   > Composite indexes are about 10x faster than index merges. In Postgres, the gap is larger than in MySQL because Postgres doesn't support index-only scans for queries that involve index merges.

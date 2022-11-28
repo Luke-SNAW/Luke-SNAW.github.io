@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1669100787858
+updated: 1669613699820
 created: 1646011961595
 ---
 
@@ -14,6 +14,7 @@ created: 1646011961595
 - [Nativefier](https://github.com/nativefier/nativefier) - Make any web page a desktop application
 - https://shrtco.de/ - The privacy-friendly URL Shortener. on free.
 - [What’s Up With Serverless?](https://medium.com/javascript-scene/whats-up-with-serverless-1b9bfa80f21f)
+- [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/)
 
 ## Images
 
