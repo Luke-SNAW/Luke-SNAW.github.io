@@ -2,12 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669705958345
+updated: 1669708565822
 created: 1667632965028
 ---
 
 ## Week 48, 2022
 
+- [ApyHub](https://apyhub.com/search?query=) - The Developer API Utility Belt
 - [Japanese Artist Creates Amazing Miniature Dioramas Every Day For 10 Years](https://digitalsynopsis.com/design/miniature-dioramas/)
 - [Intentionally Making Close Friends](https://www.neelnanda.io/blog/43-making-friends)
 - [Many Small Queries Are Efficient In SQLite](https://www.sqlite.org/np1queryprob.html)
