@@ -1,10 +1,21 @@
 ---
 id: 6645fjtiqxtko03nuccgjj2
-title: "\U0001F9D7‍♂️ What I Struggled In"
+title: " 🧗‍♂️ What I Struggled In"
 desc: ""
-updated: 1669274581320
+updated: 1669705380468
 created: 1669264809793
 ---
+
+## Week 48, 2022
+
+### Refine package.json product section
+
+```
+pnpm install --prod --frozen-lockfile
+```
+
+product에 쓰지 않는 package 설치를 피하여 새 package 설치 시의 시간을 37 → 19초로 줄임.  
+js resource size도 9mb 정도 줄음 (github cache 확인)
 
 ## Week 47, 2022
 

@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669633146118
+updated: 1669705958345
 created: 1667632965028
 ---
 
 ## Week 48, 2022
 
+- [Japanese Artist Creates Amazing Miniature Dioramas Every Day For 10 Years](https://digitalsynopsis.com/design/miniature-dioramas/)
+- [Intentionally Making Close Friends](https://www.neelnanda.io/blog/43-making-friends)
+- [Many Small Queries Are Efficient In SQLite](https://www.sqlite.org/np1queryprob.html)
+- [Consul](https://github.com/hashicorp/consul) is a distributed, highly available, and data center aware solution to connect and configure applications across dynamic, distributed infrastructure.
+- [Litestream](https://github.com/benbjohnson/litestream) is a standalone disaster recovery tool for SQLite. It runs as a background process and safely replicates changes incrementally to another file or S3.
+- [1Tools](https://1tools.co/) - 100% Free Online tools for Everyday Needs
+- [Copy as Markdown for Chrome & Firefox](https://github.com/yorkxin/copy-as-markdown)
 - [An AI generated, never-ending discussion between Werner Herzog and Slavoj ŽIžek](https://infiniteconversation.com/)
   - https://news.ycombinator.com/item?id=33437296
 - [Elixir vs Erlang: A comparison](https://devathon.com/blog/elixir-vs-erlang-programming-language/)

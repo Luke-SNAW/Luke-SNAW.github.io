@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1667436046400
+updated: 1669681162174
 created: 1646011997576
 ---
 
@@ -13,6 +13,7 @@ created: 1646011997576
 - [NocoDB](https://github.com/NocoDB/NocoDB) - Open Source Airtable Alternative - turns any MySQL, Postgres database into a collaborative spreadsheet with REST APIs.
 - [ShareDB](https://github.com/share/sharedb) - Realtime database backend based on Operational Transformation (OT)
 - [rqlite](https://github.com/rqlite/rqlite) - The lightweight, distributed relational database built on SQLite
+- [Litestream](https://github.com/benbjohnson/litestream) is a standalone disaster recovery tool for SQLite. It runs as a background process and safely replicates changes incrementally to another file or S3.
 
 ## SQL client
 

@@ -2,7 +2,7 @@
 id: y96Q2Fyzh0EQb9j3xGKjX
 title: GitHub tools
 desc: ""
-updated: 1669513471869
+updated: 1669705914665
 created: 1644887290931
 ---
 
@@ -17,3 +17,7 @@ created: 1644887290931
   - [Running your workflow only when a push affects specific files](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-only-when-a-push-affects-specific-files)
 - [github1s](https://github.com/conwnet/github1s) - One second to read GitHub code with VS Code.
 - [act](https://github.com/nektos/act) - Run your GitHub Actions locally 🚀
+
+## Criticism
+
+- [issues](https://news.ycombinator.com/item?id=33772556) - The "issues" on Github could be "bugs", "feature request" or even "improvement" (it could be anything actually).
