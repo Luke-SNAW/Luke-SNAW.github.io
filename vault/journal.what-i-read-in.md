@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669708565822
+updated: 1669768753516
 created: 1667632965028
 ---
 
 ## Week 48, 2022
 
+- [Speeding up the JavaScript ecosystem](https://marvinh.dev/blog/speeding-up-javascript-ecosystem/)
+- [A collection of 88x31 pixel web buttons from the 1990s and 2000s](https://anlucas.neocities.org/88x31Buttons.html)
+- [WasmEdge](https://github.com/WasmEdge/WasmEdge) is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, edge, and decentralized applications. It powers serverless apps, embedded functions, microservices, smart contracts, and IoT devices.
+- [Working with Tailwind CSS every day for 2 years](https://www.themosaad.com/blog/two-years-of-tailwind-css)
+  - https://news.ycombinator.com/item?id=33787719
+- [Refined GitHub](https://github.com/refined-github/refined-github) - Browser extension that simplifies the GitHub interface and adds useful features
+  - [Web store link](https://chrome.google.com/webstore/detail/refined-github/hlepfoohegkhhmjieoechaddaejaokhf/)
 - [ApyHub](https://apyhub.com/search?query=) - The Developer API Utility Belt
 - [Japanese Artist Creates Amazing Miniature Dioramas Every Day For 10 Years](https://digitalsynopsis.com/design/miniature-dioramas/)
 - [Intentionally Making Close Friends](https://www.neelnanda.io/blog/43-making-friends)

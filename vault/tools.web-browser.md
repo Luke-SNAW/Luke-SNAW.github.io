@@ -2,7 +2,7 @@
 id: 8modsw2sp3142owxlp8t1qr
 title: Web browser tools
 desc: ""
-updated: 1669678458325
+updated: 1669765271998
 created: 1646811472608
 ---
 
@@ -16,11 +16,13 @@ created: 1646811472608
 - [How do Chrome extensions impact browser performance?](https://www.debugbear.com/blog/chrome-extension-performance-2021)
 - [JavaScript Restrictor](https://polcak.github.io/jsrestrictor/) - Various websites collect information about users without their awareness.
 - [Copy as Markdown for Chrome & Firefox](https://github.com/yorkxin/copy-as-markdown)
+- [Live Stream Downloader](https://chrome.google.com/webstore/detail/live-stream-downloader/looepbdllpjgdmkpdcdffhdbmpbcfekj)
 
 ### Chrome extensions
 
 - [Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en) - Custom themes for any website
 - [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en)
+- [Ghostery – Privacy Ad Blocker](https://chrome.google.com/webstore/detail/ghostery-%E2%80%93-privacy-ad-blo/mlomiejdfkolichcflejclcbmpeaniij)
 
 ### Firefox add-ons
 

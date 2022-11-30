@@ -1,28 +1,31 @@
 ---
 id: VR93wLLm4G5ngJpglyKwb
-title: Chrome Extensions
+title: Chrome extensions for dev
 desc: ""
-updated: 1657583435000
+updated: 1669765299329
 created: 1644971383110
 ---
 
+## Collections
+
 - [Screenity](https://chrome.google.com/webstore/detail/screenity-screen-recorder/kbbdabhdfibnancpjfhlkhafgdilcnji)
 - [Wordtune](https://chrome.google.com/webstore/detail/wordtune-ai-powered-writi/nllcnknpjnininklegdoijpljgdjkijc) - AI-powered Writing Companion
-- [Ghostery – Privacy Ad Blocker](https://chrome.google.com/webstore/detail/ghostery-%E2%80%93-privacy-ad-blo/mlomiejdfkolichcflejclcbmpeaniij)
-
-# Dev
-
 - [Web Developer](https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm)
 - [Altair GraphQL Client](https://chrome.google.com/webstore/detail/altair-graphql-client/flnheeellpciglgpaodhkhmapeljopja)
-- [30 Seconds of Knowledge](https://chrome.google.com/webstore/detail/30-seconds-of-knowledge/mmgplondnjekobonklacmemikcnhklla)
 - [Debugging JavaScript with Live Expressions in Chrome DevTools](https://blog.bitsrc.io/debugging-javascript-with-live-expressions-in-chrome-devtools-9f0af008af45)
+- [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino)
+- [daily.dev](https://daily.dev/) is the fastest-growing professional platform for developers to grow together.
+  - TLDR, ToC are provided
+  - [Web store link](https://chrome.google.com/webstore/detail/dailydev-the-homepage-dev/jlmpjdjjbgclbocgajdjefcidcncaied)
+- [Refined GitHub](https://github.com/refined-github/refined-github) - Browser extension that simplifies the GitHub interface and adds useful features
+  - [Web store link](https://chrome.google.com/webstore/detail/refined-github/hlepfoohegkhhmjieoechaddaejaokhf/)
 
-# CSS
+## CSS
 
 - [CSS Peeper](https://chrome.google.com/webstore/detail/css-peeper/mbnbehikldjhnfehhnaidhjhoofhpehk)
 - [CSS viewer](https://chrome.google.com/webstore/detail/css-viewer-for-google-chr/eedfldkdghfkhdcanjnfiklpeehbfoag)
 
-# Accessibility
+## Accessibility
 
 - [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en-US)
 - [WAVE Evaluation Tool](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US)
@@ -31,11 +34,11 @@ created: 1644971383110
 - [Google Chrome Lighthouse](https://github.com/GoogleChrome/lighthouse)
   - [Microsoft Accessibility Insights for Web](https://chrome.google.com/webstore/detail/accessibility-insights-fo/pbjjkligggfmakdaogkfomddhfmpjeni/)
 
-# [[Asana|dev.tools.asana--plug-in]]
+## [[Asana|dev.tools.asana--plug-in]]
 
 - [Ticket Number Generator, by OneHat](https://chrome.google.com/webstore/detail/ticket-number-generator-b/mkiflbeenlaomokhbibbgillnkppgane)
 - [StoryPoint for Asana](https://chrome.google.com/webstore/detail/storypoint-for-asana/ipkcinfcdhhcmibffhlklololceffgnc)
 
-# Analysis
+## Analysis
 
 - [Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg) - Identify web technologies. https://www.wappalyzer.com/

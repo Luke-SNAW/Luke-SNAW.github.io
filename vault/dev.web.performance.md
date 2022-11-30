@@ -2,7 +2,7 @@
 id: pa1bstln0xt54o30z6taebc
 title: Web Performance
 desc: ""
-updated: 1667440462574
+updated: 1669768859940
 created: 1646012221215
 ---
 
@@ -11,3 +11,4 @@ created: 1646012221215
 - [Web Almanac Part II Chapter 12 - Performance](https://almanac.httparchive.org/en/2022/performance)
 - [Making a fast website is SUPER EASY 😏](https://www.enterspeed.com/blog/making-a-fast-website-is-super-easy/)
 - [Web Performance Metrics Cheatsheet](https://bitsofco.de/web-performance-metrics-cheatsheet/)
+- [Speeding up the JavaScript ecosystem](https://marvinh.dev/blog/speeding-up-javascript-ecosystem/)

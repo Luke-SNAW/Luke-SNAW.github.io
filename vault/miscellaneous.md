@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1666162495128
+updated: 1669768393876
 created: 1657500862975
 ---
 
@@ -38,6 +38,7 @@ created: 1657500862975
   - https://webvid.datasette.io/webvid/videos
 - [ORBIT](https://withorbit.com/) helps you deeply internalize ideas through periodic review.
   - https://andymatuschak.org/prompts/
+- [A collection of 88x31 pixel web buttons from the 1990s and 2000s](https://anlucas.neocities.org/88x31Buttons.html)
 
 ## Astronomical
 
