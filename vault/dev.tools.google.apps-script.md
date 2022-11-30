@@ -2,7 +2,7 @@
 id: spatdqam58ssnwn2dfx4tox
 title: Google Apps Script
 desc: ""
-updated: 1667525517754
+updated: 1669784877024
 created: 1667286051672
 ---
 
@@ -48,50 +48,50 @@ function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu("JSON")
     .addItem("Export", "ExportJsonForI18n.download") // html에 노출되는 부분은 library의 namespace가 필요
-    .addToUi();
+    .addToUi()
 }
 
 function download() {
-  const html = HtmlService.createHtmlOutputFromFile("index");
+  const html = HtmlService.createHtmlOutputFromFile("index")
   SpreadsheetApp.getUi().showModalDialog(
     html,
     "Wait for a while -> 10 seconds +"
-  );
+  )
 }
 
 function downloadFile(language) {
-  const jsonString = generateJsonString(language);
-  const filename = `${language}.json`;
+  const jsonString = generateJsonString(language)
+  const filename = `${language}.json`
 
-  const blob = Utilities.newBlob(jsonString, MimeType.PLAIN_TEXT, filename);
+  const blob = Utilities.newBlob(jsonString, MimeType.PLAIN_TEXT, filename)
   return {
     data: `data:${MimeType.PLAIN_TEXT};base64,${Utilities.base64Encode(
       blob.getBytes()
     )}`,
     filename,
-  };
+  }
 }
 
 function generateJsonString(language) {
-  const sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets();
-  const sheetsData = {};
+  const sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets()
+  const sheetsData = {}
   for (const sheet of sheets) {
-    const rowsData = getRowsData({ sheet, language });
-    Object.assign(sheetsData, rowsData); //! 같은 key가 여러 sheet에 있는 경우, 후자의 내용으로 덮어씀
+    const rowsData = getRowsData({ sheet, language })
+    Object.assign(sheetsData, rowsData) //! 같은 key가 여러 sheet에 있는 경우, 후자의 내용으로 덮어씀
   }
 
-  return Utilities.jsonStringify(sheetsData).replace(/\",/gi, '",\n'); //! git diff로 관리하기 위해 줄바꿈 추가
+  return Utilities.jsonStringify(sheetsData).replace(/\",/gi, '",\n') //! git diff로 관리하기 위해 줄바꿈 추가
 }
 
 function getRowsData({ sheet, language }) {
-  const [, ...values] = sheet.getDataRange().getValues();
+  const [, ...values] = sheet.getDataRange().getValues()
 
-  const INDEX_KEY = 0;
-  const INDEX_COLUMN = INDEX_LANGUAGE_COLUMNS[language];
-  const obj = {};
-  values.forEach((raw) => (obj[raw[INDEX_KEY]] = raw[INDEX_COLUMN]));
+  const INDEX_KEY = 0
+  const INDEX_COLUMN = INDEX_LANGUAGE_COLUMNS[language]
+  const obj = {}
+  values.forEach((raw) => (obj[raw[INDEX_KEY]] = raw[INDEX_COLUMN]))
 
-  return obj;
+  return obj
 }
 
 const INDEX_LANGUAGE_COLUMNS = {
@@ -99,7 +99,7 @@ const INDEX_LANGUAGE_COLUMNS = {
   ja: 2,
   en: 3,
   zh_hant: 4,
-};
+}
 ```
 
 #### HTML&Javascript side:
@@ -111,20 +111,20 @@ const INDEX_LANGUAGE_COLUMNS = {
     google.script.run
       .withSuccessHandler(({ data, filename }) => {
         if (data && filename) {
-          const a = document.createElement("a");
-          document.body.appendChild(a);
-          a.download = filename;
-          a.href = data;
-          a.click();
+          const a = document.createElement("a")
+          document.body.appendChild(a)
+          a.download = filename
+          a.href = data
+          a.click()
         }
         if (++indexProcessing < languages.length)
-          downloadJsons(languages, indexProcessing);
-        else google.script.host.close();
+          downloadJsons(languages, indexProcessing)
+        else google.script.host.close()
       })
-      .downloadFile(languages[indexProcessing]);
+      .downloadFile(languages[indexProcessing])
   }
 
-  downloadJsons(["ko", "ja", "en", "zh_hant"], 0);
+  downloadJsons(["ko", "ja", "en", "zh_hant"], 0)
 </script>
 ```
 
@@ -135,11 +135,11 @@ const INDEX_LANGUAGE_COLUMNS = {
 ```js
 // Code.gs
 function onOpen() {
-  ExportJsonForI18n.onOpen();
+  ExportJsonForI18n.onOpen()
 }
 
 function downloadFile(language) {
-  return ExportJsonForI18n.downloadFile(language); // html의 script에서 호출하므로 library의 namespace를 연결시켜줌
+  return ExportJsonForI18n.downloadFile(language) // html의 script에서 호출하므로 library의 namespace를 연결시켜줌
 }
 ```
 
