@@ -2,7 +2,7 @@
 id: spatdqam58ssnwn2dfx4tox
 title: Google Apps Script
 desc: ""
-updated: 1669784877024
+updated: 1669785117695
 created: 1667286051672
 ---
 
@@ -80,7 +80,8 @@ function generateJsonString(language) {
     Object.assign(sheetsData, rowsData) //! 같은 key가 여러 sheet에 있는 경우, 후자의 내용으로 덮어씀
   }
 
-  return Utilities.jsonStringify(sheetsData).replace(/\",/gi, '",\n') //! git diff로 관리하기 위해 줄바꿈 추가
+  return JSON.stringify(sheetsData).replace(/\",/gi, '",\n') //! git diff로 관리하기 위해 줄바꿈 추가
+  // Utilities.jsonStringify는 key를 정렬시켜도 json 파일에선 제멋대로 나옴
 }
 
 function getRowsData({ sheet, language }) {
@@ -157,6 +158,7 @@ function downloadFile(language) {
   - 언어 하나만 export할 때와 4개 export할 때 시간이 x4가 아닌걸로 봐선, script setup이 대부분의 시간을 차지하는 듯
   - script fail 시 modal 창이 그대로 유지되므로 30초 지났을 때까지 반응 없다면 Apps Script의 left nav의 실행에서 log를 확인해볼 것 ![](assets/images/google__apps-script__log.webp)
 - 같은 key가 여러 sheet에 있는 경우, 후자의 내용으로 덮어씀
+- 공유 - sheet, script, library가 모두 공유되어야 함
 
 ## Etc
 
