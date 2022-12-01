@@ -2,17 +2,17 @@
 id: hy0p54y75phy5p47r4buhf7
 title: Optimizing third-party script loading in Next.js
 desc: ""
-updated: 1646819469838
+updated: 1669853571346
 created: 1646819166781
 ---
 
-https://web.dev/script-component/
+> https://web.dev/script-component/
 
-# Third-party scripts and their impact on performance
+## Third-party scripts and their impact on performance
 
-# Aurora’s focus on third-party scripts
+## Aurora’s focus on third-party scripts
 
-# Sequencing third-party scripts without a framework component
+## Sequencing third-party scripts without a framework component
 
 The [available guidance](https://web.dev/efficiently-load-third-party-javascript/) to reduce the impact of render-blocking scripts provides the following methods for efficiently loading and sequencing third-party scripts:
 
@@ -34,7 +34,7 @@ The [available guidance](https://web.dev/efficiently-load-third-party-javascript
 
 3. [Lazy-load](https://web.dev/embed-best-practices/#lazy-loading) third-party resources and embeds after the main page content has finished loading or when the user scrolls down to the part of the page where they are included.
 
-# The Next.js Script component
+## The Next.js Script component
 
 The [Next.js Script component](https://nextjs.org/docs/basic-features/script) implements the above methods for sequencing scripts and provides a template for developers to define their loading strategy. Once the suitable strategy is specified, it will load optimally without blocking other critical resources.
 
@@ -60,18 +60,18 @@ The strategy attribute can take three values.
 
 3. `lazyOnload`: This option may be used to lazy-load low-priority scripts when the browser is idle. The functionality provided by such scripts is not required immediately after the page becomes interactive—for example, chat or social media plug-ins.
 
-# [Measuring the impact](https://web.dev/script-component/#measuring-the-impact)
+## [Measuring the impact](https://web.dev/script-component/#measuring-the-impact)
 
-# What’s next for the Script component
+## What’s next for the Script component
 
-## Using web workers
+### Using web workers
 
 [Web workers](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Using_web_workers) can be used to run independent scripts on background threads which can free up the main thread to handle processing user interface tasks and improve performance. Web Workers are best suited for offloading JavaScript processing, rather than UI work, off the main thread. Scripts used for customer support or marketing, which typically do not interact with the UI, may be good candidates for execution on a background thread. A lightweight third-party library—[PartyTown](https://github.com/BuilderIO/partytown)—may be used to isolate such scripts into a web worker.
 
 With the current implementation of the Next.js script component, we recommend deferring these scripts on the main thread by setting the strategy to `afterInteractive` or `lazyOnload`. In the future, we propose introducing a new strategy option, `'worker'`, which will allow Next.js to use PartyTown or a custom solution to run scripts on web workers.
 
-## Minimizing CLS
+### Minimizing CLS
 
 Third-party embeds like advertisements, video, or social media feed embeds can cause layout shifts when lazy-loaded. This affects the user experience and the [Cumulative Layout Shift (CLS)](https://web.dev/cls/) metric for the page. CLS can be minimized by specifying the size of the container where the embed will load.
 
-## Wrapper components
+### Wrapper components

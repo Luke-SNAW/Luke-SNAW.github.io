@@ -1,8 +1,8 @@
 ---
 id: 6645fjtiqxtko03nuccgjj2
-title: " 🧗‍♂️ What I Struggled In"
+title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1669705380468
+updated: 1669853758838
 created: 1669264809793
 ---
 
@@ -29,3 +29,7 @@ generate시에
 > WARN Using experimental payload extraction for full-static output. You can opt-out by setting experimental.payloadExtraction to false.
 
 라고 뜨더니... 관련있나?
+
+## Week 44, 2022
+
+### [[Google app script about i18n|dev.tools.google.apps-script#script-of-sheet---i18n-json]]

@@ -2,9 +2,11 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1662362482263
+updated: 1669852407776
 created: 1645666821126
 ---
+
+## Collections
 
 - 🌠 [Some reasons for disliking react hooks](https://blog.bitsrc.io/some-reasons-for-disliking-react-hooks-80f1e18eb9b3)
 - [React - The Missing Parts](https://acko.net/blog/react-the-missing-parts/)
@@ -21,6 +23,11 @@ created: 1645666821126
 - [Blogged Answers: A (Mostly) Complete Guide to React Rendering Behavior](https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/)
 - [Can We All Just Admit React Hooks Were a Bad Idea?](https://medium.com/codex/can-we-all-just-admit-react-hooks-were-a-bad-idea-c48120c5188d)
 - [Patterns.dev](https://www.patterns.dev/) is a free book on design patterns and component patterns for building powerful web apps with vanilla JavaScript and React.
+- [Is React going anywhere?](https://www.infoxicator.com/is-react-going-anywhere)
+  - [Aghiles Ait lounis](https://app.daily.dev/posts/kk7qnX1Wi)
+    > The real question is not about React going somewhere, some of the alternatives are not “slightly better” rather immensely better, you know that a big company in Brazil is using Svlete for embedded UI for arduino devices not so powerful, performance is a big thing, as devs we want to build the best application possible, we are not business mens looking for turnover, I’m a React developer myself and work as a freelance on a big React project, and let me tell you, if the project was written in Solid it will be 10x easier to maintain, just because of the app re-rendering all the time due to useEffects() thrown everywhere and non memoized functions, objets…it’s a complete mess, anyone that think it’s not big for me it’s because they didn’t work on a big project.
+    >
+    > Thus said i might be completely wrong, but for me i found that Svlete, Solid and Qwik are a superior alternatives, especially Solid, they offer you free optimized code without you thinking about anything, your app will be fully optimized out the box ! it’s huge
 
 # Performance
 

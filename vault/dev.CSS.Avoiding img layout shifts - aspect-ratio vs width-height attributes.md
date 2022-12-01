@@ -2,7 +2,7 @@
 id: 8uryy30wupaed9bya5sj8fq
 title: "Avoiding <img> layout shifts: aspect-ratio vs width & height attributes"
 desc: ""
-updated: 1657582008985
+updated: 1669852876833
 created: 1657581937516
 ---
 
@@ -10,6 +10,7 @@ created: 1657581937516
 
 By default, an `<img>` takes up zero space until the browser loads enough of the image to know its dimensions:
 
+```html
 <div class="demo-1"></div>
 
 <script>
@@ -23,36 +24,37 @@ By default, an `<img>` takes up zero space until the browser loads enough of the
       <figcaption>Senna the cat</figcaption>
     </figure>
     <p><button class="btn">Reset</button></p>
-  `;
+  `
 
   self.buttonSource = `
     <p><button class="btn">Demo</button></p>
-  `;
+  `
 
   // Wake the server up for the demo
-  fetch('https://random-server-stuff.glitch.me/ping');
+  fetch("https://random-server-stuff.glitch.me/ping")
 </script>
 
 <script>
   {
-    const demoEl = document.querySelector('.demo-1');
-    let state = '';
+    const demoEl = document.querySelector(".demo-1")
+    let state = ""
 
     const toggle = () => {
-      if (state === 'button') {
-        demoEl.innerHTML = self.figureSource();
-        state = 'demo';
+      if (state === "button") {
+        demoEl.innerHTML = self.figureSource()
+        state = "demo"
       } else {
-        demoEl.innerHTML = self.buttonSource;
-        state = 'button';
+        demoEl.innerHTML = self.buttonSource
+        state = "button"
       }
 
-      demoEl.querySelector('button').onclick = () => toggle();
-    };
+      demoEl.querySelector("button").onclick = () => toggle()
+    }
 
-    toggle();
+    toggle()
   }
 </script>
+```
 
 When you run the demo, you'll see the `<figcaption>` immediately. Then, after a few seconds, this paragraph and subsequent page content shifts downwards to make room for the image. This makes the user experience massively frustrating, as content moves out from under the user's eyes/finger/pointer.
 
@@ -72,6 +74,7 @@ If you do this:
 
 …you get this:
 
+```html
 <style>
   .aspect-ratio-demo {
     aspect-ratio: 16 / 9;
@@ -80,13 +83,14 @@ If you do this:
     text-align: center;
     font-weight: bold;
     font-size: 69px;
-    color: rgba(0,0,0,0.3);
+    color: rgba(0, 0, 0, 0.3);
   }
 </style>
 
 <figure class="full-figure">
   <div class="aspect-ratio-demo">16 / 9</div>
 </figure>
+```
 
 This feature became cross-browser compatible once it landed in Safari 15, late 2021, having arrived in Chrome & Firefox earlier that year.
 
@@ -99,32 +103,34 @@ img {
 }
 ```
 
+```html
 <div class="demo-2"></div>
 
 <script>
   {
-    const demoEl = document.querySelector('.demo-2');
-    let state = '';
+    const demoEl = document.querySelector(".demo-2")
+    let state = ""
 
     const toggle = () => {
-      if (state === 'button') {
-        demoEl.innerHTML = self.figureSource();
-        Object.assign(demoEl.querySelector('img').style, {
-          aspectRatio: '16 / 9',
-          width: '100%',
-        });
-        state = 'demo';
+      if (state === "button") {
+        demoEl.innerHTML = self.figureSource()
+        Object.assign(demoEl.querySelector("img").style, {
+          aspectRatio: "16 / 9",
+          width: "100%",
+        })
+        state = "demo"
       } else {
-        demoEl.innerHTML = self.buttonSource;
-        state = 'button';
+        demoEl.innerHTML = self.buttonSource
+        state = "button"
       }
 
-      demoEl.querySelector('button').onclick = () => toggle();
-    };
+      demoEl.querySelector("button").onclick = () => toggle()
+    }
 
-    toggle();
+    toggle()
   }
 </script>
+```
 
 This time, the image reserves space for its content as soon as it appears in the document, so stuff doesn't shift around once it loads.
 
@@ -148,35 +154,37 @@ img {
 
 …the image will have an aspect ratio applied, even before it loads.
 
+```html
 <div class="demo-3"></div>
 
 <script>
   {
-    const demoEl = document.querySelector('.demo-3');
-    let state = '';
+    const demoEl = document.querySelector(".demo-3")
+    let state = ""
 
     const toggle = () => {
-      if (state === 'button') {
-        demoEl.innerHTML = self.figureSource();
-        Object.assign(demoEl.querySelector('img'), {
-          width: '1598',
-          height: '899',
-        });
-        Object.assign(demoEl.querySelector('img').style, {
-          height: 'auto',
-        });
-        state = 'demo';
+      if (state === "button") {
+        demoEl.innerHTML = self.figureSource()
+        Object.assign(demoEl.querySelector("img"), {
+          width: "1598",
+          height: "899",
+        })
+        Object.assign(demoEl.querySelector("img").style, {
+          height: "auto",
+        })
+        state = "demo"
       } else {
-        demoEl.innerHTML = self.buttonSource;
-        state = 'button';
+        demoEl.innerHTML = self.buttonSource
+        state = "button"
       }
 
-      demoEl.querySelector('button').onclick = () => toggle();
-    };
+      demoEl.querySelector("button").onclick = () => toggle()
+    }
 
-    toggle();
+    toggle()
   }
 </script>
+```
 
 This landed in Chrome and Firefox back in 2019, and became cross-browser compatible when it landed in Safari 14 a year later. So, this feature has been around a little longer than CSS `aspect-ratio`.
 
@@ -188,6 +196,7 @@ However, there's a bit of misinformation floating around…
 
 A lot of articles say this feature works via a user-agent stylesheet like this:
 
+```html
 <style>
   .code-warning {
     background: #732525;
@@ -213,6 +222,7 @@ A lot of articles say this feature works via a user-agent stylesheet like this:
 </style>
 
 <p class="code-warning">This isn't how it actually works</p>
+```
 
 ```css
 img,
@@ -241,10 +251,19 @@ video {
 
 But this isn't how it works, because:
 
+```html
 <figure class="full-figure max-figure">
-  <img alt="No browser supports attr on all properties" decoding="async" src="asset-url:./attr.png">
-  <figcaption>Support for attr() on <a href="https://caniuse.com/css3-attr">caniuse.com</a></figcaption>
+  <img
+    alt="No browser supports attr on all properties"
+    decoding="async"
+    src="asset-url:./attr.png"
+  />
+  <figcaption>
+    Support for attr() on
+    <a href="https://caniuse.com/css3-attr">caniuse.com</a>
+  </figcaption>
 </figure>
+```
 
 …no browser supports `attr()`, aside from very particular cases like `content` on pseudo-elements. Hopefully that will change one day!
 
@@ -252,11 +271,100 @@ But this isn't how it works, because:
 
 Here's what the spec has to say:
 
-<blockquote class="quote"><p>The <code><a href="https://html.spec.whatwg.org/multipage/embedded-content-other.html#attr-dim-width">width</a></code> and <code id="attributes-for-embedded-content-and-images:attr-dim-height-3"><a href="https://html.spec.whatwg.org/multipage/embedded-content-other.html#attr-dim-height">height</a></code> attributes <a href="https://html.spec.whatwg.org/multipage/rendering.html#map-to-the-aspect-ratio-property-(using-dimension-rules)">map to the aspect-ratio property (using dimension rules)</a> on <code><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element">img</a></code> and <code><a href="https://html.spec.whatwg.org/multipage/media.html#the-video-element">video</a></code> elements, and <code><a href="https://html.spec.whatwg.org/multipage/input.html#the-input-element">input</a></code> elements with a <code><a href="https://html.spec.whatwg.org/multipage/input.html#attr-input-type">type</a></code> attribute in the <a href="https://html.spec.whatwg.org/multipage/input.html#image-button-state-(type=image)">Image Button</a> state.</p>&mdash; <a href="https://html.spec.whatwg.org/multipage/rendering.html#attributes-for-embedded-content-and-images">Attributes for embedded content and images - HTML</a></blockquote>
+```html
+<blockquote class="quote">
+  <p>
+    The
+    <code>
+      <a
+        href="https://html.spec.whatwg.org/multipage/embedded-content-other.html#attr-dim-width"
+      >
+        width
+      </a>
+    </code>
+    and
+    <code id="attributes-for-embedded-content-and-images:attr-dim-height-3">
+      <a
+        href="https://html.spec.whatwg.org/multipage/embedded-content-other.html#attr-dim-height"
+      >
+        height
+      </a>
+    </code>
+    attributes
+    <a
+      href="https://html.spec.whatwg.org/multipage/rendering.html#map-to-the-aspect-ratio-property-(using-dimension-rules)"
+      >map to the aspect-ratio property (using dimension rules)</a
+    >
+    on
+    <code>
+      <a
+        href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element"
+      >
+        img
+      </a>
+    </code>
+    and
+    <code>
+      <a
+        href="https://html.spec.whatwg.org/multipage/media.html#the-video-element"
+        >video</a
+      ></code
+    >
+    elements, and
+    <code
+      ><a
+        href="https://html.spec.whatwg.org/multipage/input.html#the-input-element"
+        >input</a
+      ></code
+    >
+    elements with a
+    <code
+      ><a
+        href="https://html.spec.whatwg.org/multipage/input.html#attr-input-type"
+        >type</a
+      ></code
+    >
+    attribute in the
+    <a
+      href="https://html.spec.whatwg.org/multipage/input.html#image-button-state-(type=image)"
+      >Image Button</a
+    >
+    state.
+  </p>
+  &mdash;
+  <a
+    href="https://html.spec.whatwg.org/multipage/rendering.html#attributes-for-embedded-content-and-images"
+    >Attributes for embedded content and images - HTML</a
+  >
+</blockquote>
+```
 
 So, it does map to the `aspect-ratio` property. Specifically:
 
-<blockquote class="quote"><p>…the user agent is expected to use the parsed dimensions as a <a href="https://html.spec.whatwg.org/multipage/rendering.html#presentational-hints">presentational hint</a> for the <a href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio" data-x-internal="'aspect-ratio'">'aspect-ratio'</a> property of the form <code>auto <var>w</var> / <var>h</var></code>.</p>&mdash; <a href="https://html.spec.whatwg.org/multipage/rendering.html#map-to-the-aspect-ratio-property-(using-dimension-rules)">Mapping to aspect-ratio - HTML</a></blockquote>
+```html
+<blockquote class="quote">
+  <p>
+    …the user agent is expected to use the parsed dimensions as a
+    <a
+      href="https://html.spec.whatwg.org/multipage/rendering.html#presentational-hints"
+      >presentational hint</a
+    >
+    for the
+    <a
+      href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio"
+      data-x-internal="'aspect-ratio'"
+      >'aspect-ratio'</a
+    >
+    property of the form <code>auto <var>w</var> / <var>h</var></code
+    >.
+  </p>
+  &mdash;
+  <a
+    href="https://html.spec.whatwg.org/multipage/rendering.html#map-to-the-aspect-ratio-property-(using-dimension-rules)"
+    >Mapping to aspect-ratio - HTML</a
+  >
+</blockquote>
+```
 
 You can think of a "presentational hint" as something a bit like a zero-specificity inline-style that's applied internally.
 
@@ -282,36 +390,38 @@ An `<img>` is a "replaced element", but it doesn't have a "natural aspect ratio"
 
 The browser will use an presentational hint of `aspect-ratio: auto 4 / 3`, but the image is actually `16 / 9`. Here's what happens:
 
+```html
 <div class="demo-4"></div>
 
 <script>
   {
-    const demoEl = document.querySelector('.demo-4');
-    let state = '';
+    const demoEl = document.querySelector(".demo-4")
+    let state = ""
 
     const toggle = () => {
-      if (state === 'button') {
-        demoEl.innerHTML = self.figureSource();
-        Object.assign(demoEl.querySelector('img'), {
-          width: '4',
-          height: '3',
-        });
-        Object.assign(demoEl.querySelector('img').style, {
-          height: 'auto',
-          width: '100%',
-        });
-        state = 'demo';
+      if (state === "button") {
+        demoEl.innerHTML = self.figureSource()
+        Object.assign(demoEl.querySelector("img"), {
+          width: "4",
+          height: "3",
+        })
+        Object.assign(demoEl.querySelector("img").style, {
+          height: "auto",
+          width: "100%",
+        })
+        state = "demo"
       } else {
-        demoEl.innerHTML = self.buttonSource;
-        state = 'button';
+        demoEl.innerHTML = self.buttonSource
+        state = "button"
       }
 
-      demoEl.querySelector('button').onclick = () => toggle();
-    };
+      demoEl.querySelector("button").onclick = () => toggle()
+    }
 
-    toggle();
+    toggle()
   }
 </script>
+```
 
 When the image is added to the page, it takes up the `4 / 3` area I specified. But once it loads, the `auto` rule kicks in, and the browser corrects the aspect ratio to `16 / 9`.
 
@@ -324,32 +434,34 @@ img {
 }
 ```
 
+```html
 <div class="demo-5"></div>
 
 <script>
   {
-    const demoEl = document.querySelector('.demo-5');
-    let state = '';
+    const demoEl = document.querySelector(".demo-5")
+    let state = ""
 
     const toggle = () => {
-      if (state === 'button') {
-        demoEl.innerHTML = self.figureSource();
-        Object.assign(demoEl.querySelector('img').style, {
-          aspectRatio: '4 / 3',
-          width: '100%',
-        });
-        state = 'demo';
+      if (state === "button") {
+        demoEl.innerHTML = self.figureSource()
+        Object.assign(demoEl.querySelector("img").style, {
+          aspectRatio: "4 / 3",
+          width: "100%",
+        })
+        state = "demo"
       } else {
-        demoEl.innerHTML = self.buttonSource;
-        state = 'button';
+        demoEl.innerHTML = self.buttonSource
+        state = "button"
       }
 
-      demoEl.querySelector('button').onclick = () => toggle();
-    };
+      demoEl.querySelector("button").onclick = () => toggle()
+    }
 
-    toggle();
+    toggle()
   }
 </script>
+```
 
 Without `auto`, the `<img>` remains `4 / 3`, and the image appears stretched. You can avoid the stretching with `object-fit`:
 
@@ -361,33 +473,35 @@ img {
 }
 ```
 
+```html
 <div class="demo-6"></div>
 
 <script>
   {
-    const demoEl = document.querySelector('.demo-6');
-    let state = '';
+    const demoEl = document.querySelector(".demo-6")
+    let state = ""
 
     const toggle = () => {
-      if (state === 'button') {
-        demoEl.innerHTML = self.figureSource();
-        Object.assign(demoEl.querySelector('img').style, {
-          aspectRatio: '4 / 3',
-          width: '100%',
-          objectFit: 'cover',
-        });
-        state = 'demo';
+      if (state === "button") {
+        demoEl.innerHTML = self.figureSource()
+        Object.assign(demoEl.querySelector("img").style, {
+          aspectRatio: "4 / 3",
+          width: "100%",
+          objectFit: "cover",
+        })
+        state = "demo"
       } else {
-        demoEl.innerHTML = self.buttonSource;
-        state = 'button';
+        demoEl.innerHTML = self.buttonSource
+        state = "button"
       }
 
-      demoEl.querySelector('button').onclick = () => toggle();
-    };
+      demoEl.querySelector("button").onclick = () => toggle()
+    }
 
-    toggle();
+    toggle()
   }
 </script>
+```
 
 In this case, parts of the image are cropped. Oh, one more thing:
 
@@ -409,15 +523,16 @@ Responsive images let you provide different images to use at different widths:
 
 In this case, the two images have different aspect ratios. Chrome and Safari use the correct `width` and `height` depending on which source is used, but Firefox will always use the dimensions from the `<img>`, resulting in a content shift when it realises the calculated aspect-ratio is incorrect.
 
+```html
 <div class="demo-7"></div>
 
 <script>
   {
-    const demoEl = document.querySelector('.demo-7');
-    let state = '';
+    const demoEl = document.querySelector(".demo-7")
+    let state = ""
 
     const toggle = () => {
-      if (state === 'button') {
+      if (state === "button") {
         demoEl.innerHTML = `
           <figure class="full-figure">
             <picture>
@@ -437,20 +552,21 @@ In this case, the two images have different aspect ratios. Chrome and Safari use
             <figcaption>Romain Grosjean driving the long way around a corner</figcaption>
           </figure>
           <p><button class="btn">Reset</button></p>
-        `;
-        console.log(getComputedStyle(demoEl.querySelector('img')).aspectRatio);
-        state = 'demo';
+        `
+        console.log(getComputedStyle(demoEl.querySelector("img")).aspectRatio)
+        state = "demo"
       } else {
-        demoEl.innerHTML = self.buttonSource;
-        state = 'button';
+        demoEl.innerHTML = self.buttonSource
+        state = "button"
       }
 
-      demoEl.querySelector('button').onclick = () => toggle();
-    };
+      demoEl.querySelector("button").onclick = () => toggle()
+    }
 
-    toggle();
+    toggle()
   }
 </script>
+```
 
 [Here's the Firefox bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1694741) to track this. Hopefully it'll get fixed soon!
 

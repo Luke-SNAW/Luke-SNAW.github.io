@@ -2,12 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669768753516
+updated: 1669853528512
 created: 1667632965028
 ---
 
 ## Week 48, 2022
 
+- [Is React going anywhere?](https://www.infoxicator.com/is-react-going-anywhere)
+  - [Aghiles Ait lounis](https://app.daily.dev/posts/kk7qnX1Wi)
+- [As a Front-End Engineer: 8 Useful Npm Coding Techniques That You Should Use](https://javascript.plainenglish.io/as-a-front-end-engineer-8-useful-npm-coding-techniques-that-you-should-use-bc30b8503ba4)
 - [Speeding up the JavaScript ecosystem](https://marvinh.dev/blog/speeding-up-javascript-ecosystem/)
 - [A collection of 88x31 pixel web buttons from the 1990s and 2000s](https://anlucas.neocities.org/88x31Buttons.html)
 - [WasmEdge](https://github.com/WasmEdge/WasmEdge) is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, edge, and decentralized applications. It powers serverless apps, embedded functions, microservices, smart contracts, and IoT devices.
