@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1669162685086
+updated: 1669992392173
 created: 1645681934406
 tags: bookshelf
 ---
@@ -39,6 +39,7 @@ tags: bookshelf
 
 - [Inverting back the inversion of control or, Continuations versus page-centric programming](https://pages.lip6.fr/Christian.Queinnec/PDF/www.pdf)
 - https://cuddly-octo-palm-tree.com/posts/2021-04-11-monads-0/
+- [Composing Software: An Introduction](https://medium.com/javascript-scene/composing-software-an-introduction-27b72500d6ea)
 
 ## Web
 
@@ -47,6 +48,7 @@ tags: bookshelf
 - [The web browser I'm dreaming of](https://dustri.org/b/the-web-browser-im-dreaming-of.html)
 - [History of the Web: Part 1](https://www.matthewgerstman.com/tech/history-of-the-web/)
 - [Top 10 performance pitfalls - HTTP 203](https://www.youtube.com/watch?app=desktop&v=Lh9q3h2khlc&feature=youtu.be)
+- [Advanced Web Application Architecture](https://matthiasnoback.nl/book/advanced-web-application-architecture/)
 
 ## HTML
 
@@ -62,6 +64,7 @@ tags: bookshelf
 - [Enhance your frontend state management with view models](https://itnext.io/enhance-your-frontend-state-management-with-view-models-7bf49e1a0991)
 - [Client-Side Routing In Next.js](https://www.smashingmagazine.com/2021/06/client-side-routing-next-js/)
 - [Frontend Developer Resources 2022](https://www.iamdeveloper.com/posts/frontend-developer-resources-2022-4cp2/)
+- [Practical React Query by TkDodo](https://tkdodo.eu/blog/practical-react-query) #bookshelf
 
 ### TypeScript
 

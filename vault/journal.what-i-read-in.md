@@ -2,12 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1669853528512
+updated: 1669992108741
 created: 1667632965028
 ---
 
 ## Week 48, 2022
 
+- [Practical React Query by TkDodo](https://tkdodo.eu/blog/practical-react-query) #bookshelf
+- [Hibernate should be to programmers what cake mixes are to bakers](https://vimeo.com/28885655) - This is a talk about the problems of creating convoluted abstractions and how not understanding what happens underneath makes things more complex instead of simplifying them.
+- [The BEST Stretch You're Not Doing!](https://www.youtube.com/shorts/zQWXe7vqk0A)
+  - duration: [30, 60]
+  - sets: [3, 5]
+  - training days: [3, 5]
+- [Can't Do a Push-Up? Here's Where to Start!](https://www.youtube.com/shorts/EDVV0YMkQKQ)
+  - repeat: [5, 12]
+  - sets for week: [10, 20]
+  - training days: [3, 5]
 - [Is React going anywhere?](https://www.infoxicator.com/is-react-going-anywhere)
   - [Aghiles Ait lounis](https://app.daily.dev/posts/kk7qnX1Wi)
 - [As a Front-End Engineer: 8 Useful Npm Coding Techniques That You Should Use](https://javascript.plainenglish.io/as-a-front-end-engineer-8-useful-npm-coding-techniques-that-you-should-use-bc30b8503ba4)

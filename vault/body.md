@@ -2,7 +2,7 @@
 id: zd4mq442jike0pr0wba1u3m
 title: Body
 desc: ""
-updated: 1669031032137
+updated: 1669941561658
 created: 1668909428979
 ---
 
@@ -47,6 +47,22 @@ created: 1668909428979
 - 데드버그, 버그독
 
 - [Check your hip bones when you sit down](https://youtu.be/7cpqVLoZPks?t=178)
+
+### Mobility
+
+#### [The BEST Stretch You're Not Doing!](https://www.youtube.com/shorts/zQWXe7vqk0A)
+
+- duration: [30, 60]
+- sets: [3, 5]
+- training days: [3, 5]
+
+### 강도
+
+#### [Can't Do a Push-Up? Here's Where to Start!](https://www.youtube.com/shorts/EDVV0YMkQKQ)
+
+- repeat: [5, 12]
+- sets for week: [10, 20]
+- training days: [3, 5]
 
 ## 자세
 

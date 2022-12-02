@@ -2,13 +2,14 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1668945197921
+updated: 1669963052120
 created: 1644451403760
 ---
 
 ## Collections
 
 - [Google Style Guides](https://google.github.io/styleguide/)
+- [Hibernate should be to programmers what cake mixes are to bakers](https://vimeo.com/28885655) - This is a talk about the problems of creating convoluted abstractions and how not understanding what happens underneath makes things more complex instead of simplifying them.
 
 ### re:Work
 
