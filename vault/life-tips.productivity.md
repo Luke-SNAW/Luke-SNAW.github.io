@@ -2,7 +2,7 @@
 id: PddvXCJLzVqmA6DFKD6Uh
 title: Productivity
 desc: ""
-updated: 1667797574483
+updated: 1670051128392
 created: 1645523620804
 ---
 
@@ -44,3 +44,7 @@ In simple terms, it’s merely being in the same room with another person who is
 
 “Many people with ADHD find it easier to **_stay focused_** on housework, homework, bill paying, and other tasks when someone else is around to keep them company. The body double may just sit quietly. He may read, listen to music on headphones, or work on the task that the person with ADHD is working on. Hard work is simply more fun when someone else is nearby.”  
 – Patricia Quinn M.D., [ADDitudeMag.com](https://www.additudemag.com/getting-stuff-done-easier-with-a-friend-body-double/)
+
+## Collections
+
+- [GTD](https://workflowy.com/systems/getting-things-done/)

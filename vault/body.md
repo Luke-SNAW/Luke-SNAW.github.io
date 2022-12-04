@@ -2,13 +2,18 @@
 id: zd4mq442jike0pr0wba1u3m
 title: Body
 desc: ""
-updated: 1669941561658
+updated: 1670125073539
 created: 1668909428979
 ---
 
-## 운동
+## 자세
 
-### 순서
+### 앉기
+
+- [Check your hip bones when you sit down](https://youtu.be/7cpqVLoZPks?t=178)
+- [If you exercise without correction due to the fascia relaxation and stretching, it becomes asymmetric.](https://youtu.be/YWEeAqrECqI?t=885)
+
+## 운동 순서
 
 1. 근막이완
 2. 스트레칭
@@ -16,6 +21,12 @@ created: 1668909428979
 4. 팔다리
 
 [If you exercise without correction due to the fascia relaxation and stretching, it becomes asymmetric.](https://youtu.be/YWEeAqrECqI?t=885) - 교정(근막이완, 스트레칭) 없이 운동하면 비대칭으로 굳어짐
+
+## Streth
+
+- [Stretch between desk works](https://youtu.be/6Xw-OUcLp4s?t=185)
+
+## 운동
 
 ### 수축 이완 비율
 
@@ -63,11 +74,3 @@ created: 1668909428979
 - repeat: [5, 12]
 - sets for week: [10, 20]
 - training days: [3, 5]
-
-## 자세
-
-### 앉기
-
-- [Check your hip bones when you sit down](https://youtu.be/7cpqVLoZPks?t=178)
-
-- [If you exercise without correction due to the fascia relaxation and stretching, it becomes asymmetric.](https://youtu.be/YWEeAqrECqI?t=885)

@@ -1,13 +1,19 @@
 ---
 id: t9eilmx27nd8ytoelbm5v10
-title: 👓 What I read in
+title: "\U0001F453 What I read in"
 desc: ""
-updated: 1669992108741
+updated: 1670124917706
 created: 1667632965028
 ---
 
+## Week 49, 2022
+
+- [Stretch between desk works](https://youtu.be/6Xw-OUcLp4s?t=185)
+
 ## Week 48, 2022
 
+- [Have You Mastered These 9 Vue Techniques?](https://pitayan.com/posts/vue-techniques/)
+- [GTD](https://workflowy.com/systems/getting-things-done/)
 - [Practical React Query by TkDodo](https://tkdodo.eu/blog/practical-react-query) #bookshelf
 - [Hibernate should be to programmers what cake mixes are to bakers](https://vimeo.com/28885655) - This is a talk about the problems of creating convoluted abstractions and how not understanding what happens underneath makes things more complex instead of simplifying them.
 - [The BEST Stretch You're Not Doing!](https://www.youtube.com/shorts/zQWXe7vqk0A)

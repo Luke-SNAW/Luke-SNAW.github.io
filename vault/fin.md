@@ -2,7 +2,7 @@
 id: ok0e729ho7o09xetujkxc0m
 title: Financial
 desc: ""
-updated: 1667695201838
+updated: 1670150161691
 created: 1667694740818
 ---
 
@@ -28,3 +28,12 @@ As of 12/31/2020
 | Real Estate            | 2.4%                  | [VNQ](https://www.etf.com/vnq) | [XLRE](https://www.etf.com/xlre) |
 | Energy                 | 2.3%                  | [VDE](https://www.etf.com/vde) | [XLE](https://www.etf.com/xle)   |
 | TOTAL # OF HOLDINGS    | (as of 12/31/2020)    | 2,561                          | 518                              |
+
+## [경기둔화 순서](https://youtu.be/uMA-FI0SYsQ?t=745)
+
+Fed가 긴축하게되면 HOPE순서로 둔화.
+
+1. House
+2. new Order(PMI)
+3. Profit (기업, EPS)
+4. Employment
