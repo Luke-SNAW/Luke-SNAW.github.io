@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1669167480245
+updated: 1669855078609
 created: 1646011769978
 ---
 
@@ -31,6 +31,8 @@ created: 1646011769978
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
 ## Etc
+
+- [Front Matter](https://github.com/estruyf/vscode-front-matter) a CMS running straight in Visual Studio Code
 
 ### Default VS Code As The Git Editor
 

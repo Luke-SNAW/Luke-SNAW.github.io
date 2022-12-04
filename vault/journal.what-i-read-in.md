@@ -1,8 +1,8 @@
 ---
 id: t9eilmx27nd8ytoelbm5v10
-title: "\U0001F453 What I read in"
+title: 👓 What I read in
 desc: ""
-updated: 1670124917706
+updated: 1670197065337
 created: 1667632965028
 ---
 
@@ -24,6 +24,7 @@ created: 1667632965028
   - repeat: [5, 12]
   - sets for week: [10, 20]
   - training days: [3, 5]
+- [Front Matter](https://github.com/estruyf/vscode-front-matter) a CMS running straight in Visual Studio Code
 - [Is React going anywhere?](https://www.infoxicator.com/is-react-going-anywhere)
   - [Aghiles Ait lounis](https://app.daily.dev/posts/kk7qnX1Wi)
 - [As a Front-End Engineer: 8 Useful Npm Coding Techniques That You Should Use](https://javascript.plainenglish.io/as-a-front-end-engineer-8-useful-npm-coding-techniques-that-you-should-use-bc30b8503ba4)
