@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1669952602273
+updated: 1670223878130
 created: 1646613084338
 ---
 
@@ -25,6 +25,7 @@ created: 1646613084338
 - [An AI generated, never-ending discussion between Werner Herzog and Slavoj ŽIžek](https://infiniteconversation.com/)
   - https://news.ycombinator.com/item?id=33437296
 - [FFmpeg - The Ultimate Guide](https://img.ly/blog/ultimate-guide-to-ffmpeg/)
+- [Pixelblog - 41 - Isometric Pixel art](https://www.slynyrd.com/blog/2022/11/28/pixelblog-41-isometric-pixel-art)
 
 ## News
 

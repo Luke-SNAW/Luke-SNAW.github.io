@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1669992392173
+updated: 1670197709630
 created: 1645681934406
 tags: bookshelf
 ---
@@ -34,6 +34,7 @@ tags: bookshelf
 - https://www.kalzumeus.com/2012/01/23/salary-negotiation/
 - https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/
 - https://mishnit.github.io/System_Design.html
+- [Engineering management](https://github.com/charlax/engineering-management) - A collection of inspiring resources related to engineering management and tech leadership
 
 ## PL
 

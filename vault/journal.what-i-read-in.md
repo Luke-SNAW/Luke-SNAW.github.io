@@ -2,12 +2,23 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1670197065337
+updated: 1670223670489
 created: 1667632965028
 ---
 
 ## Week 49, 2022
 
+- [TWGL: A Tiny WebGL helper Library](https://github.com/greggman/twgl.js)
+- [Document Object Model (DOM) Geometry: A Beginner’s Introduction And Guide](https://www.smashingmagazine.com/2022/11/document-object-model-geometry-guide/) #terminology
+- [An Interactive Guide to Flexbox](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/)
+- [Mobile browsers and cloud gaming: Proposal to make a market reference](https://www.gov.uk/government/consultations/mobile-browsers-and-cloud-gaming-proposal-to-make-a-market-reference)
+- [The BBC's 15 Web Principles - 15 years later](https://shkspr.mobi/blog/2022/11/the-bbcs-15-web-principles-15-years-later/)
+- [Company, team, self.](https://lethain.com/company-team-self/)
+  > - This company/team/self framework proved itself a helpful decision-making tool, and almost always led to the “correct” outcome.
+  > - Burn out by following this advice too loyally.
+  > - People are complex, and they get energy in complex ways. Folks will accomplish more if you let them do some energizing work, even if that work itself isn’t very important.
+- [Why I am learning category theory](https://the.scapegoat.dev/why-i-am-learning-category-theory-1/)
+- [Engineering management](https://github.com/charlax/engineering-management) - A collection of inspiring resources related to engineering management and tech leadership #bookshelf
 - [Stretch between desk works](https://youtu.be/6Xw-OUcLp4s?t=185)
 
 ## Week 48, 2022

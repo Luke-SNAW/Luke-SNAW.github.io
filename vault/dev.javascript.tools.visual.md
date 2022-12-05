@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual
 desc: ""
-updated: 1669271412720
+updated: 1670223787475
 created: 1646264359213
 ---
 
@@ -16,7 +16,6 @@ created: 1646264359213
 - [color](https://github.com/Qix-/color) - Javascript color conversion and manipulation library
 - [timeago.js](https://github.com/hustcc/timeago.js) - 🕗 ⌛ timeago.js is a tiny(2.0 kb) library used to format date with `*** time ago` statement.
 - [Cheetah Grid](https://github.com/future-architect/cheetah-grid) - The fastest open-source data table for web.
-- [Delivering 3D Scenes to the Web](https://rd.nytimes.com/projects/delivering-3d-scenes-to-the-web) - NY shares four demos that showcase the methods that it has found most useful for publishing photogrammetry to the web.
 - [Shepherd](https://github.com/shipshapecode/shepherd) - Guide your users through a tour of your app
 - [Lexical](https://github.com/facebook/lexical) is an extensible text editor framework that provides excellent reliability, accessibility and performance.
 - [DFlex](https://github.com/dflex-js/dflex) - A Drag-and-Drop library for all JavaScript frameworks implementing an enhanced transformation mechanism to manipulate DOM elements.
@@ -78,3 +77,9 @@ export default MyApp
 ## Calendar
 
 - [tui-calendar](https://github.com/nhn/tui.calendar) - 🍞📅 A JavaScript calendar that is full featured. Now your service just got the customizable calendar.
+
+## graphic
+
+- [TWGL: A Tiny WebGL helper Library](https://github.com/greggman/twgl.js)
+- [Delivering 3D Scenes to the Web](https://rd.nytimes.com/projects/delivering-3d-scenes-to-the-web) - NY shares four demos that showcase the methods that it has found most useful for publishing photogrammetry to the web.
+- [three.js postprocessing / pixel](https://threejs.org/examples/?q=pixel#webgl_postprocessing_pixel)
