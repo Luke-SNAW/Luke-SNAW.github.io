@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1670223670489
+updated: 1670307656622
 created: 1667632965028
 ---
 
 ## Week 49, 2022
 
+- [Awesome Dev Tool Tips](https://dev.to/lissy93/awesome-dev-tool-tips-32oo)
+  - Easily identify which bundles are the largest, and how much of their code is actually used, and what the load impact of each file is, using the [Coverage](https://developer.chrome.com/docs/devtools/coverage/) tool.
+- [Super Useful CSS Resources](https://dev.to/lissy93/super-useful-css-resources-1ba3)
+- [A Year-End Letter from our Executive Director](https://letsencrypt.org/2022/12/05/ed-letter-2022.html)
+  > Let’s Encrypt surpassed 300,000,000 websites served.
 - [TWGL: A Tiny WebGL helper Library](https://github.com/greggman/twgl.js)
 - [Document Object Model (DOM) Geometry: A Beginner’s Introduction And Guide](https://www.smashingmagazine.com/2022/11/document-object-model-geometry-guide/) #terminology
 - [An Interactive Guide to Flexbox](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/)

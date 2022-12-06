@@ -2,7 +2,7 @@
 id: zd4mq442jike0pr0wba1u3m
 title: Body
 desc: ""
-updated: 1670125073539
+updated: 1670292901080
 created: 1668909428979
 ---
 
@@ -33,6 +33,8 @@ created: 1668909428979
 [The ratio of relaxation to contraction is 2:1](https://youtu.be/qYCueSueEmY?t=527)
 
 ### Core
+
+[치골을 당기면서 배꼽으로 미소지으세요.](https://www.youtube.com/watch?v=YGtfqHtwgKg)
 
 #### [Even if you stay on the plank for a long time, your core muscles won't get better](https://www.youtube.com/watch?v=n4eLwAgf_ps)
 
