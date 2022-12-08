@@ -2,7 +2,7 @@
 id: ejkb541ebc0tp70n4hy72zw
 title: Building Software Together
 desc: ""
-updated: 1669169097247
+updated: 1670376616768
 created: 1662531048977
 tags: bookshelf
 ---
@@ -27,9 +27,9 @@ Our aim is to teach you how to be a _compassionate programmer_: one who cares as
 14. [Error Handling](https://buildtogether.tech/errors/)
 15. [Debugging](https://buildtogether.tech/debugging/)
 16. [Automation](https://buildtogether.tech/automation/)
-17. [Tooling](dev.building-software-together.tooling.md) #bookmark
+17. [Tooling](dev.building-software-together.tooling.md)
 18. [How to Make Yourself Comfortable](https://buildtogether.tech/rules-comfortable/)
-19. [Process](https://buildtogether.tech/process/)
+19. [Process](https://buildtogether.tech/process/) #bookmark
 20. [How to Join an Existing Project](https://buildtogether.tech/rules-joining/)
 21. [How to Welcome Newcomers](https://buildtogether.tech/rules-newcomers/)
 22. [Research](https://buildtogether.tech/research/)

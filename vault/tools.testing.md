@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1668409428056
+updated: 1670459611475
 created: 1646613263657
 published: false
 ---
@@ -27,6 +27,7 @@ published: false
 - https://beta.sayhello.so/ - The search engine for developers.
 - https://chrome.google.com/webstore/detail/fake-filler/bnjjngeaknajbdcgpfkgnonkmififhfo?hl=en
 - [Joplin](https://github.com/laurent22/joplin) - an open source note taking and to-do application with synchronisation capabilities for Windows, macOS, Linux, Android and iOS.
+- [Project Manager](https://github.com/alefragnani/vscode-project-manager)
 
 ### bookmarks
 

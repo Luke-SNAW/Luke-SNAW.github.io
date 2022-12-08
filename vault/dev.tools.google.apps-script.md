@@ -2,7 +2,7 @@
 id: spatdqam58ssnwn2dfx4tox
 title: Google Apps Script
 desc: ""
-updated: 1669785117695
+updated: 1670480191351
 created: 1667286051672
 ---
 
@@ -85,21 +85,18 @@ function generateJsonString(language) {
 }
 
 function getRowsData({ sheet, language }) {
-  const [, ...values] = sheet.getDataRange().getValues()
+  const [_indexes, ...values] = sheet.getDataRange().getValues()
 
-  const INDEX_KEY = 0
-  const INDEX_COLUMN = INDEX_LANGUAGE_COLUMNS[language]
+  const indexes = _indexes.map((i) => i.toLowerCase())
+  const INDEX_KEY = indexes.findIndex((i) => i == "key")
+  const INDEX_COLUMN = indexes.findIndex((i) => i == language)
+
+  if (INDEX_KEY === -1 || INDEX_COLUMN === -1) return {}
+
   const obj = {}
   values.forEach((raw) => (obj[raw[INDEX_KEY]] = raw[INDEX_COLUMN]))
 
   return obj
-}
-
-const INDEX_LANGUAGE_COLUMNS = {
-  ko: 1,
-  ja: 2,
-  en: 3,
-  zh_hant: 4,
 }
 ```
 
@@ -159,6 +156,7 @@ function downloadFile(language) {
   - script fail 시 modal 창이 그대로 유지되므로 30초 지났을 때까지 반응 없다면 Apps Script의 left nav의 실행에서 log를 확인해볼 것 ![](assets/images/google__apps-script__log.webp)
 - 같은 key가 여러 sheet에 있는 경우, 후자의 내용으로 덮어씀
 - 공유 - sheet, script, library가 모두 공유되어야 함
+- column명 고정. key, ko, ja, en, zh_hant (대소문자 상관 없음)
 
 ## Etc
 

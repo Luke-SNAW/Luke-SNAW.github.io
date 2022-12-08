@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1668491991786
+updated: 1670460356059
 created: 1644882116217
 ---
 
@@ -124,3 +124,7 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 
 - [Dinero.js](https://github.com/dinerojs/dinero.js): Create, calculate, and format money in JavaScript and TypeScript.
 - [`<relative-time>` element](https://github.com/github/relative-time-element) - Web component extensions to the standard <time> element.
+
+## Graphic
+
+- [gpu-io](https://apps.amandaghassaei.com/gpu-io/examples/) - A GPU-accelerated computing library for physics simulations and other mathematical calculations

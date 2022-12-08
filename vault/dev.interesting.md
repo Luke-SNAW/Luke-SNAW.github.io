@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1670291067369
+updated: 1670374327240
 created: 1646613084338
 ---
 
@@ -52,6 +52,7 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 - [DALL-E 2 - Pytorch](https://github.com/lucidrains/DALLE2-pytorch) - Implementation of [DALL-E 2](https://openai.com/dall-e-2/), OpenAI's updated text-to-image synthesis neural network, in Pytorch.
   - https://news.ycombinator.com/item?id=31228710
 - [carefree-creator](https://github.com/carefree0910/carefree-creator) - An AI-powered creator for everyone.
+- [Domain Name Search with AI](https://smartynames.com/) - https://news.ycombinator.com/item?id=33882497
 
 ## Graphic
 
