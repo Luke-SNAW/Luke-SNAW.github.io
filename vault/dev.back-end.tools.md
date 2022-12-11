@@ -2,7 +2,7 @@
 id: TN3SWriksRFA35jnzNKzy
 title: Tools
 desc: ""
-updated: 1669253757254
+updated: 1670717869306
 created: 1645523891283
 ---
 
@@ -26,6 +26,7 @@ created: 1645523891283
 - [tRPC](https://github.com/trpc/trpc) allows you to easily build & consume fully typesafe APIs, without schemas or code generation.
 - [A Poor Man’s API](https://dzone.com/articles/a-poor-mans-api)
   - [PostgREST](https://postgrest.org/en/stable/index.html) is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations.
+- [numverify](https://numverify.com/) - Global Phone Number Validation & Lookup JSON API: Real-time REST API supporting 232 countries
 
 ## Low code
 

@@ -2,7 +2,7 @@
 id: oupetc54rid9460a481qly3
 title: Node.js Tools
 desc: ""
-updated: 1669554058203
+updated: 1670737958377
 created: 1646012035359
 ---
 
@@ -25,6 +25,10 @@ created: 1646012035359
     - Nodemon: Nodemon automatically restarts the application whenever a fresh change is made to the code. You can initialize Nodemon by replacing the node with nodemon on the command line.
     - Forever: Forever provides automatic restarting along with additional configuration options. These options include writing logs and setting a working directory that would normally be printed on stdout to a file.
     - PM2: PM2 is an excellent process management tool you can use to better up your development. It allows more control and features to manage processes running in production compared to the other two. Furthermore, it ensures that the application restarts as quickly as possible in case the server it’s running on goes down.
+
+## NPM
+
+- [Using `npm query` for better dependency management](https://blog.logrocket.com/npm-query-better-dependency-management/)
 
 ## Validation
 

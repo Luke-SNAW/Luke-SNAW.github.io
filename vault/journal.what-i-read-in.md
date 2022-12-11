@@ -2,9 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1670460320061
+updated: 1670738934236
 created: 1667632965028
 ---
+
+## Week 50, 2022
+
+- [When to use gRPC vs GraphQL](https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/)
+  > Use GraphQL for client-server communication and gRPC for server-to-server. See the Verdict section for exceptions to this rule.
+- [Using `npm query` for better dependency management](https://blog.logrocket.com/npm-query-better-dependency-management/)
+- [Make sense of flame charts in Performance Tab by example](https://calendar.perfplanet.com/2022/make-sense-of-flame-charts-in-performance-tab-by-example/)
+  > During sampling profiling, a browser forces an engine to stop every 1 ms, and record the call stack at that moment.
+- [So <HGROUP> Is Back In HTML 5, And Dumb As Ever!](https://medium.com/codex/so-hgroup-is-back-in-html-5-and-dumb-as-ever-c81e00f6320d)
+- [HTML Entities, Diacritical Marks, And Emojis](https://blog.openreplay.com/html-entities-marks-and-emojis/)
+- [numverify](https://numverify.com/) - Global Phone Number Validation & Lookup JSON API: Real-time REST API supporting 232 countries
+- [Cypress: Skip Before Each Hook](https://glebbahmutov.com/blog/skip-before-each-hook/)
+- [Functional Programming: Part 5 - Functors](https://blog.bitsrc.io/functional-programming-oh-functors-5e670d8eeb8d)
 
 ## Week 49, 2022
 
