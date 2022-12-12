@@ -2,9 +2,16 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1670395533047
+updated: 1670829544035
 created: 1669264809793
 ---
+
+## Week 50, 2022
+
+### tailwind css
+
+새 nuxt3 project에 tailwind 도입.
+그 동안 제작자 소개글에서 motivation과 결과가 모순되는 걸 봐서 꺼렸는데, code colocation으로 인한 DX, 속도 향상 때문에 써보기로 함.
 
 ## Week 49, 2022
 

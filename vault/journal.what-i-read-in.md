@@ -2,12 +2,21 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1670738934236
+updated: 1670810916214
 created: 1667632965028
 ---
 
 ## Week 50, 2022
 
+- [How to Write Useful Commit Messages](https://dev.to/jacobherrington/how-to-write-useful-commit-messages-my-commit-message-template-20n9)
+  - This commit will `What`
+  - `Why`
+- [Ask HN: Those with money-making side projects,how did you come up with the idea?](https://news.ycombinator.com/item?id=33942558)
+- [Just Use Postgres for Everything](https://www.amazingcto.com/postgres-for-everything/) - How to reduce complexity and move faster
+  > Postgres can replace - up to millions of users - many backend technologies, Kafka, RabbitMQ, Mongo and Redis among them.
+  >
+  > [Each component has its own debugging requirements and tooling. Each component adds a bunch of complexity. Sometimes it's worth it, sometimes it's not.](https://news.ycombinator.com/item?id=33936703)
+- [Radical Simplicity](http://www.radicalsimpli.city/)
 - [When to use gRPC vs GraphQL](https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/)
   > Use GraphQL for client-server communication and gRPC for server-to-server. See the Verdict section for exceptions to this rule.
 - [Using `npm query` for better dependency management](https://blog.logrocket.com/npm-query-better-dependency-management/)
