@@ -2,12 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1670810916214
+updated: 1670976893428
 created: 1667632965028
 ---
 
 ## Week 50, 2022
 
+- [Mars Now | Explore – NASA Mars Exploration](https://mars.nasa.gov/explore/mars-now/)
+- [A schedule's primary purpose is not to tell you what you're supposed to be doing on any given day, but to tell you when you should start cutting corners.](https://buildtogether.tech/process/#:~:text=A%20schedule%27s%20primary%20purpose%20is%20not%20to%20tell%20you%20what%20you%27re%20supposed%20to%20be%20doing%20on%20any%20given%20day%2C%20but%20to%20tell%20you%20when%20you%20should%20start%20cutting%20corners.)
+- [Highlights from Git 2.39](https://github.blog/2022-12-12-highlights-from-git-2-39/)
+- [How Cypress version 12 retries the chains of multiple query commands.](https://glebbahmutov.com/blog/cypress-v12/)
 - [How to Write Useful Commit Messages](https://dev.to/jacobherrington/how-to-write-useful-commit-messages-my-commit-message-template-20n9)
   - This commit will `What`
   - `Why`
@@ -22,7 +26,7 @@ created: 1667632965028
 - [Using `npm query` for better dependency management](https://blog.logrocket.com/npm-query-better-dependency-management/)
 - [Make sense of flame charts in Performance Tab by example](https://calendar.perfplanet.com/2022/make-sense-of-flame-charts-in-performance-tab-by-example/)
   > During sampling profiling, a browser forces an engine to stop every 1 ms, and record the call stack at that moment.
-- [So <HGROUP> Is Back In HTML 5, And Dumb As Ever!](https://medium.com/codex/so-hgroup-is-back-in-html-5-and-dumb-as-ever-c81e00f6320d)
+- [So `<HGROUP>` Is Back In HTML 5, And Dumb As Ever!](https://medium.com/codex/so-hgroup-is-back-in-html-5-and-dumb-as-ever-c81e00f6320d)
 - [HTML Entities, Diacritical Marks, And Emojis](https://blog.openreplay.com/html-entities-marks-and-emojis/)
 - [numverify](https://numverify.com/) - Global Phone Number Validation & Lookup JSON API: Real-time REST API supporting 232 countries
 - [Cypress: Skip Before Each Hook](https://glebbahmutov.com/blog/skip-before-each-hook/)

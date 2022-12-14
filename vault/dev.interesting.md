@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1670374327240
+updated: 1670976904201
 created: 1646613084338
 ---
 
@@ -26,6 +26,7 @@ created: 1646613084338
   - https://news.ycombinator.com/item?id=33437296
 - [FFmpeg - The Ultimate Guide](https://img.ly/blog/ultimate-guide-to-ffmpeg/)
 - [Pixelblog - 41 - Isometric Pixel art](https://www.slynyrd.com/blog/2022/11/28/pixelblog-41-isometric-pixel-art)
+- [Mars Now | Explore – NASA Mars Exploration](https://mars.nasa.gov/explore/mars-now/)
 
 ## News
 
