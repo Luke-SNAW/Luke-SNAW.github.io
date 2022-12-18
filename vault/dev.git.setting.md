@@ -2,7 +2,7 @@
 id: l29gxghljchn5f6o27ma72d
 title: Git global setting
 desc: ""
-updated: 1658887331523
+updated: 1670979776999
 created: 1655167183618
 ---
 
@@ -54,6 +54,7 @@ git config --global --unset-all alias.trololo
 git config --global rebase.autosquash true
 git config --global merge.conflictstyle diff3
 git config --global rerere.enabled true
+git config --global pull.rebase true
 ```
 
 ## Template
