@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1671071561798
+updated: 1671608882481
 created: 1646011961595
 ---
 
@@ -15,6 +15,7 @@ created: 1646011961595
 - https://shrtco.de/ - The privacy-friendly URL Shortener. on free.
 - [What’s Up With Serverless?](https://medium.com/javascript-scene/whats-up-with-serverless-1b9bfa80f21f)
 - [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/)
+- [The W3C Markup Validation Service](https://validator.w3.org/)
 
 ## Images
 

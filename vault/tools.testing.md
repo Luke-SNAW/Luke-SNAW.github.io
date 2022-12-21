@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1670459611475
+updated: 1671507045037
 created: 1646613263657
 published: false
 ---
@@ -28,6 +28,7 @@ published: false
 - https://chrome.google.com/webstore/detail/fake-filler/bnjjngeaknajbdcgpfkgnonkmififhfo?hl=en
 - [Joplin](https://github.com/laurent22/joplin) - an open source note taking and to-do application with synchronisation capabilities for Windows, macOS, Linux, Android and iOS.
 - [Project Manager](https://github.com/alefragnani/vscode-project-manager)
+- [LosslessCut](https://github.com/mifi/lossless-cut) - The swiss army knife of lossless video/audio editing
 
 ### bookmarks
 

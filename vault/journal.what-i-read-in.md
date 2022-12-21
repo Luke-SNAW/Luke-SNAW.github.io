@@ -2,9 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1671407668407
+updated: 1671608941347
 created: 1667632965028
 ---
+
+## Week 51, 2022
+
+- [Building the main navigation for a website](https://web.dev/website-navigation/)
+- [The W3C Markup Validation Service](https://validator.w3.org/)
+- [How to transfigure wireframes into HTML](https://www.htmhell.dev/adventcalendar/2022/1/)
+- [How do I commit case-sensitive only filename changes in Git?](https://stackoverflow.com/a/20907647/5163033)
+  ```shell
+  git mv -f yOuRfIlEnAmE yourfilename
+  ```
 
 ## Week 50, 2022
 
