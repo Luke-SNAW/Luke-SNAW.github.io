@@ -2,7 +2,7 @@
 id: in5e244culvb3a386ll38li
 title: Interesting CSS
 desc: ""
-updated: 1669536065078
+updated: 1671694305083
 created: 1651796642972
 ---
 
@@ -14,3 +14,4 @@ created: 1651796642972
   - https://yeun.github.io/open-color/
   - https://open-props.style/
 - [Making Static Noise From a Weird CSS Gradient Bug](https://css-tricks.com/making-static-noise-from-a-weird-css-gradient-bug/)
+- https://alex.dytry.ch/toys/infinite-scroll/

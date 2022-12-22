@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1671608680812
+updated: 1671694169088
 created: 1644451403760
 ---
 
@@ -11,6 +11,11 @@ created: 1644451403760
 - [Google Style Guides](https://google.github.io/styleguide/)
 - [Hibernate should be to programmers what cake mixes are to bakers](https://vimeo.com/28885655) - This is a talk about the problems of creating convoluted abstractions and how not understanding what happens underneath makes things more complex instead of simplifying them.
 - [How to transfigure wireframes into HTML](https://www.htmhell.dev/adventcalendar/2022/1/)
+- [Does WWW still belong in URLs?](https://css-tricks.com/does-www-still-belong-in-urls/)
+  - WWW-less domain concern 1: Leaking cookies to subdomains
+  - WWW-less domain concern 2: DNS headaches
+  - [WWW-less benefits](https://css-tricks.com/does-www-still-belong-in-urls/#aa-www-less-benefits)
+  - [WWW benefits](https://css-tricks.com/does-www-still-belong-in-urls/#aa-www-benefits)
 
 ### re:Work
 

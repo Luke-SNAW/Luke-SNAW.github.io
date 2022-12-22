@@ -2,12 +2,49 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1671608941347
+updated: 1671695286377
 created: 1667632965028
 ---
 
 ## Week 51, 2022
 
+- [15 Useful JavaScript Tips](https://javascript.plainenglish.io/15-useful-javascript-tips-814eeba1f4fd)
+
+  - Event listeners run only once
+
+  ```js
+  element.addEventListener("click", () => console.log("I run only once"), {
+    once: true,
+  })
+  ```
+
+  - element’s dataset
+
+  ```html
+  <div id="user" data-name="Maxwell" data-age="32" data-something="Some Data">
+    Hello Maxwell
+  </div>
+  <script>
+    const user = document.getElementById("user")
+
+    console.log(user.dataset)
+    // { name: "Maxwell", age: "32", something: "Some Data" }
+
+    console.log(user.dataset.name) // "Maxwell"
+    console.log(user.dataset.age) // "32"
+    console.log(user.dataset.something) // "Some Data"
+  </script>
+  ```
+
+- [Run Just The Failed Tests In Cypress](https://glebbahmutov.com/blog/run-failed-tests/)
+- [Project Guidelines](https://github.com/elsewhencode/project-guidelines)
+- [Most Usefull Queries for Sql Server](https://towardsdev.com/most-usefull-queries-for-sql-server-596dda5742c1)
+- [Let’s Make A Better “Light / Dark” Toggle](https://medium.com/codex/lets-make-a-better-light-dark-toggle-760499a8bc82)
+- [Does WWW still belong in URLs?](https://css-tricks.com/does-www-still-belong-in-urls/)
+  - WWW-less domain concern 1: Leaking cookies to subdomains
+  - WWW-less domain concern 2: DNS headaches
+  - [WWW-less benefits](https://css-tricks.com/does-www-still-belong-in-urls/#aa-www-less-benefits)
+  - [WWW benefits](https://css-tricks.com/does-www-still-belong-in-urls/#aa-www-benefits)
 - [Building the main navigation for a website](https://web.dev/website-navigation/)
 - [The W3C Markup Validation Service](https://validator.w3.org/)
 - [How to transfigure wireframes into HTML](https://www.htmhell.dev/adventcalendar/2022/1/)
@@ -330,10 +367,14 @@ created: 1667632965028
 - [Nano Stores](https://github.com/nanostores/nanostores) - A tiny (258 bytes) state manager for React/RN/Preact/Vue/Svelte with many atomic tree-shakable stores
   - https://docs.astro.build/en/core-concepts/sharing-state/#why-nano-stores
 - [Comparing Astro and Next for React apps](https://blog.openreplay.com/comparing-astro-and-next-for-react-apps)
-  > Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,  
+  > Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,
   > Astro is best used for static websites like a portfolio or a personal blog.
 - [Dinero.js](https://github.com/dinerojs/dinero.js): Create, calculate, and format money in JavaScript and TypeScript.
 - [PhotoSwipe](https://github.com/dimsemenov/photoswipe) — JavaScript image gallery and lightbox
 - [Create Page Transitions in Next.js with Framer Motion](https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62)
 
 [^endrikat2014]: Stefan Endrikat, Stefan Hanenberg, Romain Robbes, and Andreas Stefik. How do api documentation and static typing affect api usability? In _Proc. ICSE'14_. ACM Press, 2014. URL: [https://doi.org/10.1145/2568225.2568299](https://doi.org/10.1145/2568225.2568299), [doi:10.1145/2568225.2568299](https://doi.org/10.1145/2568225.2568299).
+
+```
+
+```

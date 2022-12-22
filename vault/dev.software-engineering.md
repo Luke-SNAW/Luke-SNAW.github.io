@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1667806921247
+updated: 1671694885421
 created: 1645514209965
 ---
 
@@ -19,6 +19,7 @@ created: 1645514209965
 - [The Catalog of Design Patterns](https://refactoring.guru/design-patterns/catalog)
 - [Make It Work Make It Right Make It Fast](https://wiki.c2.com/?MakeItWorkMakeItRightMakeItFast) is an assertion that if you can "make it right", you'll be able to "make it fast" later.
 - [Colocation](https://kentcdodds.com/blog/colocation)
+- [Project Guidelines](https://github.com/elsewhencode/project-guidelines)
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 
