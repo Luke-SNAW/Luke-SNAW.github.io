@@ -2,12 +2,20 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1671695286377
+updated: 1671858556241
 created: 1667632965028
 ---
 
 ## Week 51, 2022
 
+- [Using inline JavaScript modules to prevent CSS blockage](https://calendar.perfplanet.com/2022/using-inline-javascript-modules-to-prevent-css-blockage/)
+  ```html
+  <script async type="module" />
+  ```
+- [CSS Style Queries](https://ishadeed.com/article/css-container-style-queries/)
+- [A Visual Guide to useEffect](https://alexsidorenko.com/blog/useeffect/)
+  > Side effects shouldn’t happen during component render. Therefore they do not belong to the body of a functional component. React has a special place for them.
+- [4 ways CSS :has() can make your HTML forms even better](https://austingil.com/css-has-with-html-forms/?utm_campaign=Frontend%2BWeekly&utm_medium=email&utm_source=Frontend_Weekly_337)
 - [15 Useful JavaScript Tips](https://javascript.plainenglish.io/15-useful-javascript-tips-814eeba1f4fd)
 
   - Event listeners run only once

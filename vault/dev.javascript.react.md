@@ -2,12 +2,15 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1669852407776
+updated: 1671848174950
 created: 1645666821126
 ---
 
 ## Collections
 
+- [A Visual Guide to useEffect](https://alexsidorenko.com/blog/useeffect/)
+  > Side effects shouldn’t happen during component render. Therefore they do not belong to the body of a functional component. React has a special place for them.
+  > ![side effect](assets/images/language/react-side-effect.webp)
 - 🌠 [Some reasons for disliking react hooks](https://blog.bitsrc.io/some-reasons-for-disliking-react-hooks-80f1e18eb9b3)
 - [React - The Missing Parts](https://acko.net/blog/react-the-missing-parts/)
 - [Microsoft Office rewrite in React.js nears completion](https://react-etc.net/entry/microsoft-office-rewrite-to-react-js-nears-completion)
@@ -29,7 +32,7 @@ created: 1645666821126
     >
     > Thus said i might be completely wrong, but for me i found that Svlete, Solid and Qwik are a superior alternatives, especially Solid, they offer you free optimized code without you thinking about anything, your app will be fully optimized out the box ! it’s huge
 
-# Performance
+## Performance
 
 - [Before You memo()](https://overreacted.io/before-you-memo/)
   - Solution 1: Move State Down
