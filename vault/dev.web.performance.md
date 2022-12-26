@@ -2,7 +2,7 @@
 id: pa1bstln0xt54o30z6taebc
 title: Web Performance
 desc: ""
-updated: 1671858561622
+updated: 1672041297334
 created: 1646012221215
 ---
 
@@ -16,3 +16,4 @@ created: 1646012221215
   ```html
   <script async type="module" />
   ```
+- [2022 In Review: What’s New In Web Performance?](https://www.debugbear.com/blog/2022-in-web-performance)

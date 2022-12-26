@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1669386769435
+updated: 1672039579788
 created: 1644825680750
 ---
 
@@ -17,3 +17,5 @@ created: 1644825680750
     - WebRTC was already known to leak local IP. Which can be dangerous if you're behind a VPN.
 - [PDF vulnerability](https://news.ycombinator.com/item?id=33732763)
   - [Dangerzone](https://github.com/freedomofpress/dangerzone) - Take potentially dangerous PDFs, office documents, or images and convert them to a safe PDF.
+- [Password requirements: myths and madness](https://www.franzoni.eu/password-requirements-myths-madness/)
+  - https://news.ycombinator.com/item?id=34098369

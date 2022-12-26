@@ -2,9 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1671858556241
+updated: 1672041291835
 created: 1667632965028
 ---
+
+## Week 52, 2022
+
+- [2022 In Review: What’s New In Web Performance?](https://www.debugbear.com/blog/2022-in-web-performance)
+- [Designing for Screen Reader Compatibility](https://webaim.org/techniques/screenreader/)
+- [Table Like It's 2023](https://www.htmhell.dev/adventcalendar/2022/14/)
+- [Password requirements: myths and madness](https://www.franzoni.eu/password-requirements-myths-madness/)
+  - https://news.ycombinator.com/item?id=34098369
 
 ## Week 51, 2022
 
@@ -15,7 +23,7 @@ created: 1667632965028
 - [CSS Style Queries](https://ishadeed.com/article/css-container-style-queries/)
 - [A Visual Guide to useEffect](https://alexsidorenko.com/blog/useeffect/)
   > Side effects shouldn’t happen during component render. Therefore they do not belong to the body of a functional component. React has a special place for them.
-- [4 ways CSS :has() can make your HTML forms even better](https://austingil.com/css-has-with-html-forms/?utm_campaign=Frontend%2BWeekly&utm_medium=email&utm_source=Frontend_Weekly_337)
+- [4 ways CSS :has() can make your HTML forms even better](https://austingil.com/css-has-with-html-forms/)
 - [15 Useful JavaScript Tips](https://javascript.plainenglish.io/15-useful-javascript-tips-814eeba1f4fd)
 
   - Event listeners run only once
