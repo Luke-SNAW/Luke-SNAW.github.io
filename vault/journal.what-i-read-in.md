@@ -2,12 +2,21 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: 👓 What I read in
 desc: ""
-updated: 1672041291835
+updated: 1672126459742
 created: 1667632965028
 ---
 
 ## Week 52, 2022
 
+- [Tailwind - Dynamic class names](https://tailwindcss.com/docs/content-configuration#dynamic-class-names)
+  ```js
+  class = `bg-${ zero ? pageColor : baseColor}` // not work
+  class = zero ? `bg-${pageColor}` : `bg-${baseColor}` // not work
+  ```
+- [Control what you share with Google](https://developers.google.com/search/docs/crawling-indexing/control-what-you-share)
+- [qwantify](https://github.com/wanjohiryan/qwantify) - Play games with your friends right from the browser.
+- [Dioxus](https://github.com/DioxusLabs/dioxus) is a portable, performant, and ergonomic framework for building cross-platform user interfaces in Rust.
+- [CDN Up and Running](https://github.com/leandromoreira/cdn-up-and-running) - Building a CDN from Scratch to Learn
 - [2022 In Review: What’s New In Web Performance?](https://www.debugbear.com/blog/2022-in-web-performance)
 - [Designing for Screen Reader Compatibility](https://webaim.org/techniques/screenreader/)
 - [Table Like It's 2023](https://www.htmhell.dev/adventcalendar/2022/14/)

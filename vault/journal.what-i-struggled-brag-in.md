@@ -2,9 +2,18 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1671688362429
+updated: 1672126471971
 created: 1669264809793
 ---
+
+## Week 52, 2022
+
+### [Tailwind - Dynamic class names](https://tailwindcss.com/docs/content-configuration#dynamic-class-names)
+
+```js
+class = `bg-${ zero ? pageColor : baseColor}` // not work
+class = zero ? `bg-${pageColor}` : `bg-${baseColor}` // not work
+```
 
 ## Week 51, 2022
 
