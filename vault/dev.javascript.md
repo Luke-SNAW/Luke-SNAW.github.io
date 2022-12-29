@@ -1,7 +1,7 @@
 ---
 id: IowIScQvzEu3KQ4dvwPTt
 title: JavaScript
-desc: ""
+desc: ''
 updated: 1671695236101
 created: 1645056460403
 ---
@@ -39,3 +39,6 @@ element.addEventListener("click", () => console.log("I run only once"), {
   console.log(user.dataset.something) // "Some Data"
 </script>
 ```
+
+
+t

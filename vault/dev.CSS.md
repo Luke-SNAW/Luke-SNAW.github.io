@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1671858150829
+updated: 1672300166755
 created: 1646129148306
 ---
 
@@ -20,6 +20,7 @@ created: 1646129148306
 - [Document Object Model (DOM) Geometry: A Beginner’s Introduction And Guide](https://www.smashingmagazine.com/2022/11/document-object-model-geometry-guide/)
 - [Let’s Make A Better “Light / Dark” Toggle](https://medium.com/codex/lets-make-a-better-light-dark-toggle-760499a8bc82)
 - [CSS Style Queries](https://ishadeed.com/article/css-container-style-queries/)
+- [Guide to image overlays in CSS](https://blog.logrocket.com/guide-image-overlays-css/)
 
 ## Pseudo-class
 
@@ -64,6 +65,19 @@ In this article, we’ll explore how cascade layers work, and how they will help
 
 ## Styles
 
-- [columns](https://developer.mozilla.org/en-US/docs/Web/CSS/columns)
 - [linear-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient)
 - [Web Design in 4 minutes](https://jgthms.com/web-design-in-4-minutes/)
+
+### [columns](https://developer.mozilla.org/en-US/docs/Web/CSS/columns)
+
+- [The True Power Of CSS Columns](https://medium.com/codex/the-true-power-of-css-columns-2e620ad66282)
+
+## Functions
+
+### [CSS image()](https://12daysofweb.dev/2022/css-image/#image-fragments)
+
+```css
+.hero {
+  background-image: image("images/my-image.jpg#xywh=150,50,500,300");
+}
+```

@@ -1,13 +1,28 @@
 ---
 id: t9eilmx27nd8ytoelbm5v10
-title: 👓 What I read in
+title: "\U0001F453 What I read in"
 desc: ""
-updated: 1672126459742
+updated: 1672300373116
 created: 1667632965028
 ---
 
 ## Week 52, 2022
 
+- [CSS image()](https://12daysofweb.dev/2022/css-image/#image-fragments)
+  ```css
+  .hero {
+    background-image: image("images/my-image.jpg#xywh=150,50,500,300");
+  }
+  ```
+- [Guide to image overlays in CSS](https://blog.logrocket.com/guide-image-overlays-css/)
+- [The True Power Of CSS Columns](https://medium.com/codex/the-true-power-of-css-columns-2e620ad66282)
+- [Unchain My Inaccessibly-Labelled Heart](https://css-tricks.com/unchain-my-inaccessibly-labelled-heart/) #a11y
+- [Web Performance APIs Appreciation Post](https://calendar.perfplanet.com/2022/web-performance-apis-appreciation-post/)
+- [git commit --fixup=[(amend|reword):]<commit>](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt)
+- [git commit with offered message editing](https://stackoverflow.com/questions/41181942/git-commit-with-template-message)
+  ```shell
+  git commit -em "some string"
+  ```
 - [Tailwind - Dynamic class names](https://tailwindcss.com/docs/content-configuration#dynamic-class-names)
   ```js
   class = `bg-${ zero ? pageColor : baseColor}` // not work
@@ -399,6 +414,10 @@ created: 1667632965028
 - [Create Page Transitions in Next.js with Framer Motion](https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62)
 
 [^endrikat2014]: Stefan Endrikat, Stefan Hanenberg, Romain Robbes, and Andreas Stefik. How do api documentation and static typing affect api usability? In _Proc. ICSE'14_. ACM Press, 2014. URL: [https://doi.org/10.1145/2568225.2568299](https://doi.org/10.1145/2568225.2568299), [doi:10.1145/2568225.2568299](https://doi.org/10.1145/2568225.2568299).
+
+```
+
+```
 
 ```
 

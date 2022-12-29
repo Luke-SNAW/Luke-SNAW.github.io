@@ -1,8 +1,8 @@
 ---
 id: mraMGoestTO9V6pkpE8XE
 title: Language
-desc: ''
-updated: 1669100648008
+desc: ""
+updated: 1672300273661
 created: 1644885695251
 ---
 
@@ -57,6 +57,7 @@ created: 1644885695251
 - [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)
   - **Browser Events** These events occur in the browser [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.
   - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
+- [Working with the DOM in JavaScript](https://blog.openreplay.com/working-with-the-dom-in-javascript/)
 
 ---
 
@@ -120,9 +121,9 @@ Table of contents:
   - Symbols are primitive values and can be assigned to variables.
 
 - [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)
+
   - **Browser Events** These events occur in the browser [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.
   - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
-
 
 - [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)
   - **Browser Events** These events occur in the browser [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.

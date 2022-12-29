@@ -2,7 +2,7 @@
 id: 7tPeWrJHQmeiMg4HWoymw
 title: Accessibility
 desc: ""
-updated: 1669164683651
+updated: 1672299835643
 created: 1644817740456
 ---
 
@@ -26,3 +26,24 @@ The `prefers-reduced-motion` feature is explicitly[^1] intended to accommodate p
 
 [^1]: https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion/
 [^2]: https://vestibular.org/article/what-is-vestibular/about-vestibular-disorders/
+
+## [Unchain My Inaccessibly-Labelled Heart](https://css-tricks.com/unchain-my-inaccessibly-labelled-heart/)
+
+```html
+<h2 id="article1-heading">All About Dragons</h2>
+<p>I like dragons. Blah blah blah blah blah.</p>
+<p>
+  <a
+    id="article1-read-more"
+    aria-labelledby="article1-read-more article1-heading"
+  >
+    Read more
+  </a>
+</p>
+```
+
+What happens there is a screenreader will replace the existing semantic label between the link tags and use the content from both elements and announce them together as a single string of text:
+
+```html
+Read more All About Dragons
+```

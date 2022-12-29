@@ -2,7 +2,7 @@
 id: 4a5zty96wbgszd07faxjv78
 title: Git
 desc: ""
-updated: 1671583298596
+updated: 1672270252396
 created: 1652404655162
 ---
 
@@ -16,3 +16,13 @@ created: 1652404655162
 ```shell
 git mv -f yOuRfIlEnAmE yourfilename
 ```
+
+## [Commit with offered message editing](https://stackoverflow.com/questions/41181942/git-commit-with-template-message)
+
+```shell
+git commit -em "some string"
+```
+
+would open the text editor with "some string" that could be edited.
+
+## [git commit --fixup=[(amend|reword):]<commit>](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt)
