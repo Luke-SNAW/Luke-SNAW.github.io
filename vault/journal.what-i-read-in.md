@@ -1,10 +1,22 @@
 ---
 id: t9eilmx27nd8ytoelbm5v10
-title: "\U0001F453 What I read in"
+title: "👓 What I read in"
 desc: ""
-updated: 1672300373116
+updated: 1672647521249
 created: 1667632965028
 ---
+
+## Week 1, 2023
+
+- [4 minutes run hard enough to push heart rate to 90%, 3 minutes recover, repeat 4 times](https://news.ycombinator.com/item?id=34213181)
+  - https://www.ntnu.edu/cerg/advice
+  - [Get running with Couch to 5K](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/)
+- [HTTP/3 Prioritization Demystified](https://calendar.perfplanet.com/2022/http-3-prioritization-demystified/) #bookmark
+- [2022 Roundup of Web Research](https://css-tricks.com/2022-roundup-of-web-research/)
+- [7 Unnecessarvy VSCode Extensions You Should Uninstall Now](https://codingbeautydev.com/blog/unnecessary-vscode-extensions/)
+- [Top 7 tips/features in Vue 3](https://medium.com/@felixdavid12/top-7-tips-features-in-vue-3-7119cee4a918) 3. Reactive CSS
+- The global **`structuredClone()`** method creates a [deep clone](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy) of a given value using the [structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+- [12 CSS Tricks You Might Not Know](https://medium.com/@pythonlearn1024/12-css-tricks-you-might-not-know-3054475e861e)
 
 ## Week 52, 2022
 

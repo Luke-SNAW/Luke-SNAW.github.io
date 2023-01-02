@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1671694885421
+updated: 1672646466543
 created: 1645514209965
 ---
 
@@ -20,6 +20,7 @@ created: 1645514209965
 - [Make It Work Make It Right Make It Fast](https://wiki.c2.com/?MakeItWorkMakeItRightMakeItFast) is an assertion that if you can "make it right", you'll be able to "make it fast" later.
 - [Colocation](https://kentcdodds.com/blog/colocation)
 - [Project Guidelines](https://github.com/elsewhencode/project-guidelines)
+- [Hexagonal-Inspired Architecture in React](https://alexkondov.com/hexagonal-inspired-architecture-in-react/) #bookmark
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 

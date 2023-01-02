@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1672300166755
+updated: 1672645700201
 created: 1646129148306
 ---
 
@@ -21,6 +21,7 @@ created: 1646129148306
 - [Let’s Make A Better “Light / Dark” Toggle](https://medium.com/codex/lets-make-a-better-light-dark-toggle-760499a8bc82)
 - [CSS Style Queries](https://ishadeed.com/article/css-container-style-queries/)
 - [Guide to image overlays in CSS](https://blog.logrocket.com/guide-image-overlays-css/)
+- [12 CSS Tricks You Might Not Know](https://medium.com/@pythonlearn1024/12-css-tricks-you-might-not-know-3054475e861e)
 
 ## Pseudo-class
 
