@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1670197709630
+updated: 1672728081073
 created: 1645681934406
 tags: bookshelf
 ---
@@ -35,6 +35,8 @@ tags: bookshelf
 - https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/
 - https://mishnit.github.io/System_Design.html
 - [Engineering management](https://github.com/charlax/engineering-management) - A collection of inspiring resources related to engineering management and tech leadership
+- [Books for Software Engineers in 2023](https://grantisom.com/2023/01/02/mustread-books-for.html)
+  - https://news.ycombinator.com/item?id=34225417
 
 ## PL
 
@@ -65,7 +67,7 @@ tags: bookshelf
 - [Enhance your frontend state management with view models](https://itnext.io/enhance-your-frontend-state-management-with-view-models-7bf49e1a0991)
 - [Client-Side Routing In Next.js](https://www.smashingmagazine.com/2021/06/client-side-routing-next-js/)
 - [Frontend Developer Resources 2022](https://www.iamdeveloper.com/posts/frontend-developer-resources-2022-4cp2/)
-- [Practical React Query by TkDodo](https://tkdodo.eu/blog/practical-react-query) #bookshelf
+- [Practical React Query by TkDodo](https://tkdodo.eu/blog/practical-react-query)
 
 ### TypeScript
 

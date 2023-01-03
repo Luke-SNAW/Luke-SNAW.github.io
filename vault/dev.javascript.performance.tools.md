@@ -2,7 +2,7 @@
 id: GdoKhw8BgqVT6ETDgQ7zT
 title: Javascript Performance Tools
 desc: ""
-updated: 1667440307311
+updated: 1672708493680
 created: 1645513902249
 ---
 
@@ -21,3 +21,4 @@ created: 1645513902249
   - And finally, Solid, Lit, and Svelte are all at around 1.2 times. They all perform very close to the Vanilla JS version.
 - [Waterfaller](https://waterfaller.dev/): Unique tool to improve slow web pages
 - [main-thread-scheduling](https://github.com/astoilkov/main-thread-scheduling) - Fast and consistently responsive apps using a single function call
+- [Top 5 Web APIs for performance-based analysis (and how to use them)](https://blog.logrocket.com/top-5-web-apis-performance-based-analysis/)

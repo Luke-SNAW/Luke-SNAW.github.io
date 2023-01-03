@@ -1,8 +1,8 @@
 ---
 id: IowIScQvzEu3KQ4dvwPTt
 title: JavaScript
-desc: ''
-updated: 1671695236101
+desc: ""
+updated: 1672727138646
 created: 1645056460403
 ---
 
@@ -11,6 +11,7 @@ created: 1645056460403
 - [Track down the JavaScript code responsible for polluting the global scope](https://mmazzarolo.com/blog/2022-02-16-track-down-the-javascript-code-responsible-for-polluting-the-global-scope/)
 - [Web Developers Don’t Just Know About localStorage](https://medium.com/frontend-canteen/web-developers-dont-just-know-about-localstorage-2f37385bd8ad)
 - 🛁 [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) - Clean Code concepts adapted for JavaScript
+- [Ask HN: Why did Frontend development explode in complexity?](https://news.ycombinator.com/item?id=34218003)
 
 ## [15 Useful JavaScript Tips](https://javascript.plainenglish.io/15-useful-javascript-tips-814eeba1f4fd)
 
@@ -39,6 +40,5 @@ element.addEventListener("click", () => console.log("I run only once"), {
   console.log(user.dataset.something) // "Some Data"
 </script>
 ```
-
 
 t

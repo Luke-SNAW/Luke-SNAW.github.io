@@ -2,7 +2,7 @@
 id: EfWFJ0GbhOHhtxxDdrbIl
 title: React tools
 desc: ""
-updated: 1667095512348
+updated: 1672727695790
 created: 1644969082223
 ---
 
@@ -20,6 +20,7 @@ created: 1644969082223
 - [react-use](https://github.com/streamich/react-use) - Collection of essential [React Hooks](https://reactjs.org/docs/hooks-intro.html). _Port of_ [`libreact`](https://github.com/streamich/libreact).
 - [Million](https://github.com/aidenybai/million) is a drop-in replacement for [React](https://reactjs.org/) with a lightweight (`<1kb`) Virtual DOM. It's [_**really fast**_](https://millionjs.org/benchmarks) and makes it easy to create user interfaces.
 - [react-tracking](https://github.com/nytimes/react-tracking): 🎯 Declarative tracking for React apps.
+- [Mafs](https://github.com/stevenpetryk/mafs) is a set of opinionated React components for creating math visualizations.
 
 ## Animation
 

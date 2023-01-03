@@ -2,12 +2,27 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1672647521249
+updated: 1672728893964
 created: 1667632965028
 ---
 
 ## Week 1, 2023
 
+- [Optimizing images for mobile browsers with a UX mindset](https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/)
+  - Formats for the win
+  - Load responsively - With the HTML [`<picture> element`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture), we can load the image in the right size and format, no matter the device. It ensures the best image-loading experience every time, taking into account a device’s DPR automatically.
+- [Books for Software Engineers in 2023](https://grantisom.com/2023/01/02/mustread-books-for.html)
+  - https://news.ycombinator.com/item?id=34225417
+- [Mafs](https://github.com/stevenpetryk/mafs) is a set of opinionated React components for creating math visualizations.
+- [Ask HN: Why did Frontend development explode in complexity?](https://news.ycombinator.com/item?id=34218003)
+- [Functional Programming - How and Why](https://onsclom.bearblog.dev/functional-programming-how-and-why/)
+- [What is my viewport](https://whatismyviewport.com/) - A simple online tool for quickly finding the dimensions of your current device's viewport!
+- [Top 5 Web APIs for performance-based analysis (and how to use them)](https://blog.logrocket.com/top-5-web-apis-performance-based-analysis/)
+- [Making the Web Faster with Service Workers and Performance Research](https://calendar.perfplanet.com/2022/making-the-web-faster-with-service-workers-and-performance-research/)
+  - Cache dynamic website resources like HTML and APIs which can be plugged into websites via Service Workers
+    - automatically dealing with personalization in HTML
+    - keeping caches up-to-date by crowdsourcing cache checks
+    - caching dynamic resources in the complete web cache hierarchy including browser cache through Bloom filter-based cache coherence algorithms
 - [4 minutes run hard enough to push heart rate to 90%, 3 minutes recover, repeat 4 times](https://news.ycombinator.com/item?id=34213181)
   - https://www.ntnu.edu/cerg/advice
   - [Get running with Couch to 5K](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/)
