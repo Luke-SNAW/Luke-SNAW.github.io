@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1669853601667
+updated: 1672729465664
 created: 1644449449778
 ---
 
@@ -18,6 +18,11 @@ Hi there 👋. I'm a Front-end developer.
 > Eat the boredom for a minute.
 >
 > — [[life-tips#wodenokoto]]
+
+> [4 minutes run hard enough to push heart rate to 90%, 3 minutes recover, repeat 4 times](https://news.ycombinator.com/item?id=34213181)
+>
+> - https://www.ntnu.edu/cerg/advice
+> - [Get running with Couch to 5K](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/)
 
 ---
 
