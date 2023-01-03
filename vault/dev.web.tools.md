@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1671608882481
+updated: 1672732276897
 created: 1646011961595
 ---
 
@@ -16,6 +16,7 @@ created: 1646011961595
 - [What’s Up With Serverless?](https://medium.com/javascript-scene/whats-up-with-serverless-1b9bfa80f21f)
 - [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/)
 - [The W3C Markup Validation Service](https://validator.w3.org/)
+- [HTTP Status Dogs](https://httpstatusdogs.com/) - Hypertext Transfer Protocol Response status codes. And dogs.
 
 ## Images
 
