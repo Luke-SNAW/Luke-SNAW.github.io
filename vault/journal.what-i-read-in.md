@@ -2,12 +2,29 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1672732433332
+updated: 1672818246377
 created: 1667632965028
 ---
 
 ## Week 1, 2023
 
+- [Flying away from AWS](https://terrateam.io/blog/flying-away-from-aws)
+  - https://news.ycombinator.com/item?id=34238150
+- [Deploying CSS Logical Properties On Web Apps](https://www.smashingmagazine.com/2022/12/deploying-css-logical-properties-on-web-apps/)
+  ```css
+  margin-inline: auto;
+  margin-block: 0;
+  inset: 0;
+  inset-inline: 10%;
+  ```
+- [By default, the aws sync command does not delete files.](https://stackoverflow.com/a/30638955/5163033)
+- [Web Hackers vs. The Auto Industry: Critical Vulnerabilities in Ferrari, BMW, Rolls Royce, Porsche, and More](https://samcurry.net/web-hackers-vs-the-auto-industry/)
+- [HN: Modules, not microservices](https://news.ycombinator.com/item?id=34230641)
+  > - I just want to point out that for the second problem (scalability of CPU/memory/io), microservices almost always make things worse.
+  > - I was working at Amazon when they started transitioning from monolith to microservices, and the big win there was locality of data and caching.
+  > - Microservices are less _efficient_, but are still more _scalable_.
+  > - I am working on a project that uses a microservice architecture to make the individual components scalable and separate the concerns. However one of the unexpected consequences is that we are now doing a lot of network calls between these microservices, and this has actually become the main speed bottleneck for our program, especially since some of these services are not even in the same data center. We are now attempting to solve this with caches and doing batch requests, but all of this created additional overhead that could have all been avoided by not using microservices.
+- [HyperUI](https://github.com/markmead/hyperui) is a large collection of free Tailwind CSS components for marketing, ecommerce and application UI 🐳
 - Free UI faces for designers, avatars, dummy faces, AI generated people faces | [Lorem Faces](https://loremfaces.com/)
 - [HTTP Status Dogs](https://httpstatusdogs.com/) - Hypertext Transfer Protocol Response status codes. And dogs.
 - [Optimizing images for mobile browsers with a UX mindset](https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/)

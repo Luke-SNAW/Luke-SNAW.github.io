@@ -2,7 +2,7 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1666317771349
+updated: 1672798716168
 created: 1646021156163
 ---
 
@@ -32,6 +32,7 @@ created: 1646021156163
       "Action": [
         "s3:PutObject",
         "s3:PutObjectAcl",
+        "s3:DeleteObject", // sync --delete에 필요. https://stackoverflow.com/a/30638955/5163033
         "s3:GetObject",
         "s3:GetObjectAcl",
         "s3:AbortMultipartUpload"
@@ -78,17 +79,17 @@ created: 1646021156163
 
 ```js
 function handler(event) {
-  var response = event.response;
-  var headers = response.headers;
+  var response = event.response
+  var headers = response.headers
 
   // CORS header
   if (!headers["access-control-allow-origin"]) {
-    headers["access-control-allow-origin"] = { value: "*" };
-    console.log("Access-Control-Allow-Origin was missing, adding it now.");
+    headers["access-control-allow-origin"] = { value: "*" }
+    console.log("Access-Control-Allow-Origin was missing, adding it now.")
   }
   // cache-control
-  headers["cache-control"] = { value: "public,max-age=31536000,immutable;" };
-  return response;
+  headers["cache-control"] = { value: "public,max-age=31536000,immutable;" }
+  return response
 }
 ```
 

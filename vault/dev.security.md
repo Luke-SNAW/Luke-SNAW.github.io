@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1672039579788
+updated: 1672792978662
 created: 1644825680750
 ---
 
@@ -19,3 +19,4 @@ created: 1644825680750
   - [Dangerzone](https://github.com/freedomofpress/dangerzone) - Take potentially dangerous PDFs, office documents, or images and convert them to a safe PDF.
 - [Password requirements: myths and madness](https://www.franzoni.eu/password-requirements-myths-madness/)
   - https://news.ycombinator.com/item?id=34098369
+- [Web Hackers vs. The Auto Industry: Critical Vulnerabilities in Ferrari, BMW, Rolls Royce, Porsche, and More](https://samcurry.net/web-hackers-vs-the-auto-industry/)

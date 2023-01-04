@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1672645700201
+updated: 1672803490626
 created: 1646129148306
 ---
 
@@ -22,6 +22,13 @@ created: 1646129148306
 - [CSS Style Queries](https://ishadeed.com/article/css-container-style-queries/)
 - [Guide to image overlays in CSS](https://blog.logrocket.com/guide-image-overlays-css/)
 - [12 CSS Tricks You Might Not Know](https://medium.com/@pythonlearn1024/12-css-tricks-you-might-not-know-3054475e861e)
+- [Deploying CSS Logical Properties On Web Apps](https://www.smashingmagazine.com/2022/12/deploying-css-logical-properties-on-web-apps/)
+  ```css
+  margin-inline: auto;
+  margin-block: 0;
+  inset: 0;
+  inset-inline: 10%;
+  ```
 
 ## Pseudo-class
 

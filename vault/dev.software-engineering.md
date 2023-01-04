@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1672646466543
+updated: 1672790204993
 created: 1645514209965
 ---
 
@@ -44,3 +44,9 @@ created: 1645514209965
 - [Domain-centric Architectures (Clean and Hexagonal) for Dummies](https://medium.com/codex/clean-architecture-for-dummies-df6561d42c94)
 - [BBC Online Uses Serverless to Scale Extremely Fast](https://www.infoq.com/news/2021/01/bbc-serverless-scale/)
 - [Islands Architecture](https://www.patterns.dev/posts/islands-architecture/)
+- [HN: Modules, not microservices](https://news.ycombinator.com/item?id=34230641)
+  > - I just want to point out that for the second problem (scalability of CPU/memory/io), microservices almost always make things worse.
+  > - I was working at Amazon when they started transitioning from monolith to microservices, and the big win there was locality of data and caching.
+  > - Microservices are less _efficient_, but are still more _scalable_.
+  > - I am working on a project that uses a microservice architecture to make the individual components scalable and separate the concerns. However one of the unexpected consequences is that we are now doing a lot of network calls between these microservices, and this has actually become the main speed bottleneck for our program, especially since some of these services are not even in the same data center. We are now attempting to solve this with caches and doing batch requests, but all of this created additional overhead that could have all been avoided by not using microservices.  
+  >   This experience has strongly impacted my view of microservices and for all personal projects I will develop in the future I will stick with a monolith until much later instead of starting with microservices.
