@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1671071499915
+updated: 1672876725649
 created: 1646011997576
 ---
 
@@ -15,6 +15,11 @@ created: 1646011997576
 - [rqlite](https://github.com/rqlite/rqlite) - The lightweight, distributed relational database built on SQLite
 - [Litestream](https://github.com/benbjohnson/litestream) is a standalone disaster recovery tool for SQLite. It runs as a background process and safely replicates changes incrementally to another file or S3.
 - [Zapatos](https://github.com/jawj/zapatos) - Zero-abstraction Postgres for TypeScript: a non-ORM database library
+- [DuckDB](https://duckdb.org/why_duckdb) is an in-process SQL OLAP Database Management System [— What’s the Hype About?](https://betterprogramming.pub/duckdb-whats-the-hype-about-5d46aaa73196)
+  - Processing and storing tabular datasets, e.g. from CSV or Parquet files
+  - Interactive data analysis, e.g. Joining & aggregate multiple large tables
+  - Concurrent large changes, to multiple large tables, e.g. appending rows, adding/removing/updating columns
+  - Large result set transfer to client
 
 ## SQL client
 

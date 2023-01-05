@@ -2,12 +2,28 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1672818246377
+updated: 1672897454169
 created: 1667632965028
 ---
 
 ## Week 1, 2023
 
+- [Component Party](https://component-party.dev/) - Web component JS frameworks overview by their syntax and features: Svelte, React, Vue 2, Vue 3, Angular, SolidJS, Lit, Ember, Alpine, Qwik
+  - I like Alpine mostly. But what about component.
+- [React Wrap Balancer](https://react-wrap-balancer.vercel.app/) is a simple React Component that makes your titles more readable in different viewport sizes.
+- [Lesser-Known And Underused CSS Features In 2022](https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/)
+  - [currentColor](https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#currentcolor)
+  - [Counters](https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#counters)
+  - [scroll-padding](https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#scroll-padding)
+  - [Font Rendering Options](https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#font-rendering-options)
+  - [Creating Stacking Context with `isolate`](https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#creating-stacking-context-with-isolate)
+  - [Render Performance Optimization](https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#render-performance-optimization)
+- [Reduce WSL2 Disk Usage](https://blakey.co/blog/reduce-wsl2-disk-usage)
+- [DuckDB](https://duckdb.org/why_duckdb) is an in-process SQL OLAP Database Management System [— What’s the Hype About?](https://betterprogramming.pub/duckdb-whats-the-hype-about-5d46aaa73196)
+  - Processing and storing tabular datasets, e.g. from CSV or Parquet files
+  - Interactive data analysis, e.g. Joining & aggregate multiple large tables
+  - Concurrent large changes, to multiple large tables, e.g. appending rows, adding/removing/updating columns
+  - Large result set transfer to client
 - [Flying away from AWS](https://terrateam.io/blog/flying-away-from-aws)
   - https://news.ycombinator.com/item?id=34238150
 - [Deploying CSS Logical Properties On Web Apps](https://www.smashingmagazine.com/2022/12/deploying-css-logical-properties-on-web-apps/)

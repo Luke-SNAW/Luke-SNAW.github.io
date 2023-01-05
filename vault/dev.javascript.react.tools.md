@@ -2,7 +2,7 @@
 id: EfWFJ0GbhOHhtxxDdrbIl
 title: React tools
 desc: ""
-updated: 1672727695790
+updated: 1672896755330
 created: 1644969082223
 ---
 
@@ -21,6 +21,7 @@ created: 1644969082223
 - [Million](https://github.com/aidenybai/million) is a drop-in replacement for [React](https://reactjs.org/) with a lightweight (`<1kb`) Virtual DOM. It's [_**really fast**_](https://millionjs.org/benchmarks) and makes it easy to create user interfaces.
 - [react-tracking](https://github.com/nytimes/react-tracking): 🎯 Declarative tracking for React apps.
 - [Mafs](https://github.com/stevenpetryk/mafs) is a set of opinionated React components for creating math visualizations.
+- [React Wrap Balancer](https://react-wrap-balancer.vercel.app/) is a simple React Component that makes your titles more readable in different viewport sizes.
 
 ## Animation
 
