@@ -2,7 +2,7 @@
 id: pa1bstln0xt54o30z6taebc
 title: Web Performance
 desc: ""
-updated: 1672646291234
+updated: 1673226436281
 created: 1646012221215
 ---
 
@@ -18,4 +18,5 @@ created: 1646012221215
   ```
 - [2022 In Review: What’s New In Web Performance?](https://www.debugbear.com/blog/2022-in-web-performance)
 - [Web Performance APIs Appreciation Post](https://calendar.perfplanet.com/2022/web-performance-apis-appreciation-post/)
-- [HTTP/3 Prioritization Demystified](https://calendar.perfplanet.com/2022/http-3-prioritization-demystified/) #bookmark
+- [HTTP/3 Prioritization Demystified](https://calendar.perfplanet.com/2022/http-3-prioritization-demystified/)
+  - https://news.ycombinator.com/item?id=34231934

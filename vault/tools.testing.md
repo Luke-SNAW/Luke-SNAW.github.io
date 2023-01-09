@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1671507045037
+updated: 1673228692615
 created: 1646613263657
 published: false
 ---
@@ -11,7 +11,7 @@ published: false
 - [PreVue](https://github.com/open-source-labs/PreVue) - All in One Prototyping Tool For Vue Developers
 - [OverVue](https://github.com/open-source-labs/OverVue) - Prototyping Tool For Vue Devs
 - With [Omni](https://github.com/alyssaxuu/omni) you can use your browser like a pro. Manage tabs, bookmarks, your browser history, perform all sorts of actions and more with a simple command interface.
-- [ShareX](https://github.com/ShareX/ShareX) is a free and open source program that lets you capture or record any area of your screen and share it with a single press of a key. It also allows uploading images, text or other types of files to many supported destinations you can choose from.
+- [fish](https://fishshell.com/) - the friendly interactive shell
 
 ## To be tested
 

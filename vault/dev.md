@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1671694169088
+updated: 1673229080044
 created: 1644451403760
 ---
 
@@ -16,6 +16,8 @@ created: 1644451403760
   - WWW-less domain concern 2: DNS headaches
   - [WWW-less benefits](https://css-tricks.com/does-www-still-belong-in-urls/#aa-www-less-benefits)
   - [WWW benefits](https://css-tricks.com/does-www-still-belong-in-urls/#aa-www-benefits)
+- [roadmap.sh](https://roadmap.sh/) - Community driven roadmaps, articles and resources for developers
+- https://github.com/sindresorhus/awesome - 😎 Awesome lists about all kinds of interesting topics
 
 ### re:Work
 

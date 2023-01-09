@@ -2,9 +2,9 @@
 id: cdgkaoy6064zew14hry05b3
 title: A primer on functional architecture
 desc: ""
-updated: 1667865354007
+updated: 1673226671447
 created: 1647565553197
-tags: architecture
+tags: [architecture, bookmark]
 ---
 
 https://increment.com/software-architecture/primer-on-functional-architecture/
