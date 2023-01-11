@@ -2,11 +2,14 @@
 id: 67t7i0aphsf0dx02hgturxe
 title: Devops
 desc: ""
-updated: 1655424296156
+updated: 1673312174366
 created: 1648183203609
 ---
 
+## Collections
+
 - [Maximizing Developer Effectiveness](https://martinfowler.com/articles/developer-effectiveness.html#DayInTheLifeInAHighlyEffectiveEnvironment)
+- [Do-nothing scripting: the key to gradual automation](https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/)
 
 ## Culture
 

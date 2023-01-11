@@ -2,7 +2,7 @@
 id: y9wg206qulytiq9twv7q6sp
 title: Statistics about javascript
 desc: ""
-updated: 1672646246980
+updated: 1673314977985
 created: 1646179152297
 ---
 
@@ -12,3 +12,4 @@ created: 1646179152297
 - [js-framework-benchmark](https://github.com/krausest/js-framework-benchmark): A comparison of the perfomance of a few popular javascript frameworks
 - [Jamstack Community Survey 2022](https://jamstack.org/survey/2022/#frameworks-by-usage-and-satisfaction) - outstanding vite's satisfaction score
 - [2022 Roundup of Web Research](https://css-tricks.com/2022-roundup-of-web-research/)
+- [2022 JavaScript Rising Stars](https://risingstars.js.org/2022/en)

@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1673250089448
+updated: 1673393925958
 created: 1667632965028
 ---
 
 ## Week 2, 2023
 
+- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/) #bookmark
+  - https://owasp.org/sitemap/ - Key Projects
+- [2022 JavaScript Rising Stars](https://risingstars.js.org/2022/en)
+- 🤖 [just](https://github.com/casey/just) is a handy way to save and run project-specific commands.
+- [Introduction to Statistical Lebarning](https://www.statlearning.com/)
+- [Do-nothing scripting: the key to gradual automation](https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/)
 - [Extreme questions to trigger new, better ideas](https://longform.asmartbear.com/posts/extreme-questions/)
   - 10x prices, No customers, No tech support, ...
 - https://github.com/search?o=desc&q=stars%3A%3E100000&s=stars&type=Repositories

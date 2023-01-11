@@ -2,13 +2,14 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1666824991400
+updated: 1673313109008
 created: 1653704390962
 ---
 
 ## Collections
 
 - [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line)
+- 🤖 [just](https://github.com/casey/just) is a handy way to save and run project-specific commands.
 
 ## Shell
 
@@ -57,7 +58,3 @@ reflex -d fancy -c .reflex.conf
 
 - [fx](https://github.com/antonmedv/fx) - Terminal JSON viewer
 - Write reducers in your favorite language: [JavaScript](https://github.com/antonmedv/fx/blob/master/doc/js.md) (default), [Python](https://github.com/antonmedv/fx/blob/master/doc/python.md), or [Ruby](https://github.com/antonmedv/fx/blob/master/doc/ruby.md).
-
-```
-
-```

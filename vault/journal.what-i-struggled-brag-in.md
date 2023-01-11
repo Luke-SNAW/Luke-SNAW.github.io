@@ -2,9 +2,47 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1672126471971
+updated: 1673393740419
 created: 1669264809793
 ---
+
+## Week 2, 2023
+
+### Playwright CORS setting
+
+#### Allow Extension
+
+결론은 실패. load는 됐지만 기본 off로 되어 있어 browser 처음 실행할 때 손으로 on 시켜야 함.
+
+```shell
+# Run find . -type d -iname "<EXTENSION ID HERE>"
+```
+
+```js
+// playwright.config.js
+use: {
+   launchOptions: {  // https://playwright.dev/docs/api/class-testoptions#test-options-launch-options
+      args: [  // https://playwright.dev/docs/chrome-extensions
+         `--disable-extensions-except=~/Library/Application Support/Google/Chrome/Default/Extensions/lfhmikememgdcahcdlaciloancbhjino/0.3.5_0`,
+      ],
+   },
+}
+```
+
+#### Off web security
+
+이쪽으로 해결[^chromium-only]
+
+```js
+// playwright.config.js
+use: {
+   launchOptions: {  // https://playwright.dev/docs/api/class-testoptions#test-options-launch-options
+      args: ['--disable-web-security'],
+   },
+}
+```
+
+[^chromium-only]: chromium만 해결. 다른 browser도 해당 option을 찾아 넣든가, CORS 세팅을 부탁하든가 해야 함.
 
 ## Week 52, 2022
 

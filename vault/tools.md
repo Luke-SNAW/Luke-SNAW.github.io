@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1670800462321
+updated: 1673314885937
 created: 1644799670081
 ---
 
@@ -18,9 +18,7 @@ created: 1644799670081
 ## CLI
 
 - [Useful sed](https://github.com/adrianscheff/useful-sed)
-
 - [reveal-md](https://github.com/webpro/reveal-md) - reveal.js on steroids! Get beautiful reveal.js presentations from any Markdown file.
-- [Slidev](https://github.com/slidevjs/slidev) - Presentation Slides for Developers (Beta)
 - [Pandoc](https://pandoc.org/) - a universal document converter
 - [Every Time Zone](https://everytimezone.com/s/9d95c4da) - Never warp your brain with time zone math again.
 - [Ilograph](https://www.ilograph.com/) - Interactive Diagrams
@@ -30,10 +28,11 @@ created: 1644799670081
 - [Scribe](https://scribehow.com/) - Turn any process into a
   step-by-step guide, instantly.
 
-## Documentation
+## Documentation / Visualize
 
 - [readme.so](https://github.com/octokatherine/readme.so) - An online drag-and-drop editor to easily build READMEs
 - [resume.io](https://resume.io/) - ONLINE RESUME BUILDER
+- [Slidev](https://github.com/slidevjs/slidev) - Presentation Slides for Developers
 
 ## Network
 

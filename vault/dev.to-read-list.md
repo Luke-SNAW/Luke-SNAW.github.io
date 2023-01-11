@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1672728081073
+updated: 1673312505276
 created: 1645681934406
 tags: bookshelf
 ---
@@ -37,6 +37,7 @@ tags: bookshelf
 - [Engineering management](https://github.com/charlax/engineering-management) - A collection of inspiring resources related to engineering management and tech leadership
 - [Books for Software Engineers in 2023](https://grantisom.com/2023/01/02/mustread-books-for.html)
   - https://news.ycombinator.com/item?id=34225417
+- [Introduction to Statistical Learning](https://www.statlearning.com/)
 
 ## PL
 
