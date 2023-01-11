@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1673393740419
+updated: 1673421041262
 created: 1669264809793
 ---
 
@@ -43,6 +43,25 @@ use: {
 ```
 
 [^chromium-only]: chromium만 해결. 다른 browser도 해당 option을 찾아 넣든가, CORS 세팅을 부탁하든가 해야 함.
+
+### temp branch 운영
+
+#### 문제
+
+배포 환경에서만 테스트 할 수 있는 내용이라면 지속적으로 수정·배포·테스트를 진행  
+이 과정 중에 다른 개발자가 테스트 서버에 배포하면 내용이 서로 상실되거나 브랜치 conflict가 빈번하게 발생할 수 있으므로, 개발자끼리 테스트 브랜치, 서버를 쓰겠다고 알린 뒤에 독점적으로 사용 중
+
+#### 해결
+
+temp branch 운영. husky를 이용하여 temp branch를 push하기 전에 origin/test branch를 merge
+
+> https://stackoverflow.com/questions/6372334/git-commit-hooks-per-branch/6376054#6376054
+
+#### Trouble shooting
+
+push할 때 다음 error가 발생하면 `chmod`로 해당 파일에 실행 권한을 줄 것
+
+> hint: The '.husky/pre-push' hook was ignored because it's not set as executable.
 
 ## Week 52, 2022
 

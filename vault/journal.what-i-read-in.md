@@ -2,12 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1673393925958
+updated: 1673421471993
 created: 1667632965028
 ---
 
 ## Week 2, 2023
 
+- [MuscleWiki](https://musclewiki.com/) - Find exercises that work specific muscles
 - [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/) #bookmark
   - https://owasp.org/sitemap/ - Key Projects
 - [2022 JavaScript Rising Stars](https://risingstars.js.org/2022/en)
