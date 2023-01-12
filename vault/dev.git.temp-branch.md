@@ -2,7 +2,7 @@
 id: npg73o89u51mfv0matorgku
 title: Temp branch 운영
 desc: ""
-updated: 1673418559200
+updated: 1673490097473
 created: 1673417547325
 ---
 
@@ -10,6 +10,7 @@ created: 1673417547325
 
 배포 환경에서만 테스트 할 수 있는 내용이라면 지속적으로 수정·배포·테스트를 진행  
 이 과정 중에 다른 개발자가 테스트 서버에 배포하면 내용이 서로 상실되거나 브랜치 conflict가 빈번하게 발생할 수 있으므로, 개발자끼리 테스트 브랜치, 서버를 쓰겠다고 알린 뒤에 독점적으로 사용 중
+(fixup으로 쌓아가며 테스트할 수 있으나, 결국엔 commit을 정리한 후, 정리한 걸 다시 테스트해야 하는데, 이 때 conflict가 대량 발생할 수 있다.)
 
 ## 해결
 
@@ -30,3 +31,10 @@ fi
 push할 때 다음 error가 발생하면 `chmod`로 해당 파일에 실행 권한을 줄 것
 
 > hint: The '.husky/pre-push' hook was ignored because it's not set as executable.
+
+test branch merge 후 remote에는 push됐는데, local에서는 push 안된 걸로 표시  
+→ post push hook이 없어서 merge가 일어나면 손으로 fetch 입력해야 함. 아니면 fetch 선행 입력
+
+```shell
+git push;git fetch
+```

@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1670460356059
+updated: 1673501318131
 created: 1644882116217
 ---
 
@@ -49,6 +49,7 @@ created: 1644882116217
   - [Read more about how to use Happy DOM](https://github.com/capricorn86/happy-dom/tree/master/packages/happy-dom)
 - [Slash libraries](https://github.com/toss/slash)
   - [@toss/hangul](https://slash.page/libraries/common/hangul/readme.i18n/)
+- [Type-safe React Query](https://tkdodo.eu/blog/type-safe-react-query)
 
 ## Framework
 

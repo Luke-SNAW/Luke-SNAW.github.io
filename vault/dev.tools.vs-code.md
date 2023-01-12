@@ -2,9 +2,13 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1672646178717
+updated: 1673480145751
 created: 1646011769978
 ---
+
+## Collections
+
+- [VS Code Shortcuts To Code Like You’re Playing a Piano](https://betterprogramming.pub/vs-code-shortcuts-to-code-like-youre-playing-a-piano-e5db7b272d1)
 
 ## Dev
 

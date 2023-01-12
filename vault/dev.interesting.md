@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1670976904201
+updated: 1673480860754
 created: 1646613084338
 ---
 
@@ -54,6 +54,8 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
   - https://news.ycombinator.com/item?id=31228710
 - [carefree-creator](https://github.com/carefree0910/carefree-creator) - An AI-powered creator for everyone.
 - [Domain Name Search with AI](https://smartynames.com/) - https://news.ycombinator.com/item?id=33882497
+- [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) #bookmark
+  - https://github.com/karpathy/nanoGPT
 
 ## Graphic
 

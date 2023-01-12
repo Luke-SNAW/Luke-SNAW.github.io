@@ -2,7 +2,7 @@
 id: p6jdsvhol2ebyzilnb5u3ot
 title: Vue
 desc: ""
-updated: 1672645928819
+updated: 1673503822189
 created: 1646815969488
 ---
 
@@ -10,6 +10,7 @@ created: 1646815969488
 
 - [Note: The main difference is that the watchEffect starts instantly while the watch() runs lazily](<https://www.syncfusion.com/blogs/post/vue-composition-api-vs-react-hooks.aspx#:~:text=Note%3A%20The%20main%20difference%20is%20that%20the%20watchEffect%20starts%20instantly%20while%20the%20watch()%20runs%20lazily>)
 - [Top 7 tips/features in Vue 3](https://medium.com/@felixdavid12/top-7-tips-features-in-vue-3-7119cee4a918) 3. Reactive CSS
+- [How to Destructure Props in Vue (Composition API)](https://dmitripavlutin.com/props-destructure-vue-composition/)
 
 ## nextTick
 

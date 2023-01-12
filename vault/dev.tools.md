@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1672732440306
+updated: 1673483767455
 created: 1647145480774
 ---
 
@@ -72,3 +72,18 @@ created: 1647145480774
   - about [down vote](https://news.ycombinator.com/item?id=16131314)
   - [Ask Hacker News Weekly](https://www.daemonology.net/hn-weekly-ask/)
 - [Code Philosophy](https://www.codephilosophy.co/) - https://alexkondov.com/
+
+## Low code
+
+- [ToolJet](https://github.com/ToolJet/ToolJet) is an open-source low-code framework to build and deploy internal tools quickly with minimal engineering effort.
+  - ToolJet's drag and drop frontend builder allows you to build complicated responsive frontends within minutes. You can also connect to your data sources, such as databases ( PostgreSQL, MongoDB, Elasticsearch & more), API endpoints (ToolJet supports importing OpenAPI spec & OAuth2 authorization), SaaS tools (Stripe, Slack, Google Sheets, Airtable, Notion & more) and object storage services ( S3, GCS, Minio, etc ) to fetch and write data.
+
+## Visualization
+
+### C4-PlantUML
+
+[C4-PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML) combines the benefits of [PlantUML](https://plantuml.com/) and the [C4 model](https://c4model.com/) for providing a simple way of describing and communicate software architectures – especially during up-front design sessions – with an intuitive language using open source and platform independent tools.
+
+C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippets) for creating C4 diagrams with PlantUML.
+
+> [I only use system context and containers; components and code are too detailed.](https://brianmckenna.org/blog/architecture_code#:~:text=I%20only%20use%20system%20context%20and%20containers%3B%20components%20and%20code%20are%20too%20detailed.)
