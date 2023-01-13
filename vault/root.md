@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1672729465664
+updated: 1673616368998
 created: 1644449449778
 ---
 
@@ -23,6 +23,10 @@ Hi there 👋. I'm a Front-end developer.
 >
 > - https://www.ntnu.edu/cerg/advice
 > - [Get running with Couch to 5K](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/)
+
+> [recommended routine - bodyweightfitness](https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/) - I Don't Have This Much Time!
+>
+> - Don't workout at all (saves anywhere from 20 to 60 minutes, but really, really, really, really, really, really, really, really, really not recommended)
 
 ---
 
