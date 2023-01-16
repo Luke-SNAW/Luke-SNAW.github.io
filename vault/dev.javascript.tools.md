@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1673501318131
+updated: 1673828598421
 created: 1644882116217
 ---
 
@@ -50,6 +50,7 @@ created: 1644882116217
 - [Slash libraries](https://github.com/toss/slash)
   - [@toss/hangul](https://slash.page/libraries/common/hangul/readme.i18n/)
 - [Type-safe React Query](https://tkdodo.eu/blog/type-safe-react-query)
+- [sysend](https://github.com/jcubic/sysend.js) - Web application synchronization between different tabs
 
 ## Framework
 

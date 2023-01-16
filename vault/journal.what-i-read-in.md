@@ -2,9 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1673508519601
+updated: 1673828570997
 created: 1667632965028
 ---
+
+## Week 3, 2023
+
+- [sysend](https://github.com/jcubic/sysend.js) - Web application synchronization between different tabs
+- [Static HTML comments](https://sive.rs/shc)
 
 ## Week 2, 2023
 
