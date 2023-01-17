@@ -2,7 +2,7 @@
 id: dnqq11162p04a178qiuu23x
 title: Node
 desc: ""
-updated: 1668469553454
+updated: 1673942756876
 created: 1646868633251
 ---
 
@@ -22,3 +22,4 @@ created: 1646868633251
 - [An overview of Node.js: architecture, APIs, event loop, concurrency](https://2ality.com/2022/09/nodejs-overview.html)
 - [Tao of Node - Design, Architecture & Best Practices](https://alexkondov.com/tao-of-node/)
 - [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
+- [A Comprehensive Guide to NodeJS Security Best Practices](https://javascript.plainenglish.io/a-comprehensive-guide-to-nodejs-security-best-practices-c852a100e81)

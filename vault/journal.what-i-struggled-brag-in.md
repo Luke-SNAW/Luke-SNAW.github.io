@@ -2,9 +2,42 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1673490088425
+updated: 1673940466065
 created: 1669264809793
 ---
+
+## Week 3, 2023
+
+### Nuxt generate 시, dynamic route에서 payload error
+
+#### 현상
+
+next generate로 생성된 사이트에서 payload 생성 안하는 dynamic route path에서도 payload를 요구함
+
+#### 해결
+
+crawlLinks: true와 함께 nuxt build로 생성
+
+```js
+//nuxt.config.js
+{
+  nitro: {
+    // 이 config 없이 nuxt generate하면 dynamic route까지 payload를 try. error 발생.
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/ko'],   // /ko는 @nuxtjs/i18n module의 한국어 지원을 위해
+    },
+  }
+}
+```
+
+#### 참조한 문서들
+
+- https://nuxtjs.org/docs/concepts/nuxt-lifecycle/
+- https://stackoverflow.com/questions/61485508/how-nuxt-generate-dynamic-routes
+- https://nuxt.com/docs/api/configuration/nuxt-config/#generate
+- https://github.com/nuxt/rfcs/issues/22
+- https://nuxtjs.org/docs/features/data-fetching/#:~:text=this%20hook%20blocks%20route%20navigation%20until%20it%20is%20resolved%2C%20displaying%20a%20page%20error%20if%20it%20fails.
 
 ## Week 2, 2023
 
