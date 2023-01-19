@@ -2,29 +2,31 @@
 id: 4qo9ma0z0yu1czns6pxl7y5
 title: Favorites
 desc: ""
-updated: 1653742516893
+updated: 1674003634679
 created: 1648204390388
 published: false
 ---
 
-# 캡슐 커피
+## 캡슐 커피
 
 어쩔 땐 정말 좋았는데 어쩔 땐 그저 그렇고... QA보단 내 컨디션?에 변동 때문이겠지?
 
-## Nescafe
+-> Ristretto로 하니 맛이 훨씬 좋다.
 
-### 어쩔 때 호
+### Nescafe
+
+#### 어쩔 때 호
 
 - Colombia - 10%?
 - Sanghai - 5%?
 - Stockholm - 5%?
 - Indonesia - 에스프레소 2배 안되게...
 
-### 불호
+#### 불호
 
-## Jardin Reve - 쟈뎅 레브
+### Jardin Reve - 쟈뎅 레브
 
-### 호
+#### 호
 
 - Morning sunshine
   - 룽고는 그냥 밍밍한데 에스프레소는 산미가 확실히 느껴진다.
@@ -35,7 +37,7 @@ published: false
   - 룽고로 먹으니 밍밍해... 에스프레소 2배가 나을 듯.
   - Intensity 5/8. 콜롬비아 40%, 과테말라 30%, 에티오피아 20%
 
-### 불호
+#### 불호
 
 - Warm Breeze
   - 그냥 그럼.
@@ -44,51 +46,51 @@ published: false
   - 그냥 그럼.
   - Intensity 8/8. 과테말라 40%, 콜롬비아 40%, 인도네시아 20%
 
-## 이마트 캡슐커피
+### 이마트 캡슐커피
 
 싼데 딱히... 그냥 믹스를 사먹자
 
-# body-wash
+## body-wash
 
 - 닥터브로너스 베이비 언센티드 퓨어 캐스틸 솝 950ml
 
-# hardware
+## hardware
 
-## ear gear
+### ear gear
 
 - [수월우 네임리스 무명 오픈형 이어폰 초장기 베스트셀링 CCAW](https://smartstore.naver.com/ankihouse/products/4943556472?NaPm=ct%3Dl1h8kloa%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3D%7Chk%3Dedc80cb23a4af1b011cb2a65d93ed857f48c36d3) - 43,800원, 2022/04/02~
 - [PRESONUS Eris E4.5](https://smartstore.naver.com/shure/products/3475931270?NaPm=ct%3Dl1hab7bf%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3D%7Chk%3D5518671b62025add914db44f9893ed5d5fa44ae1) -262,000원, 2021/01/12~
 
-# Food
+## Food
 
-## 탄수화물
+### 탄수화물
 
 - Weet-bix
 
-## 반찬
+### 반찬
 
 - 고추된장박이
 - 나박김치
 
-## 치즈
+### 치즈
 
 - 모짜렐라
 - 리코타
 - Aperifrais
 
-## Junk
+### Junk
 
 - 피코크 유기농 버터비스킷
 
-# 술
+## 술
 
-## 호
+### 호
 
 - 구덴 카를로스
 - 라이온 스타우트
 - 올드 라스푸틴
 - 바이엔슈테판 - 비투스, 헤페
 
-## 불호
+### 불호
 
 - 에비스 - 나름 괜찮치만 굳이?

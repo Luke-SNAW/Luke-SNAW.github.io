@@ -2,8 +2,9 @@
 id: rdk5hbpfugooyce7t5zgn7c
 title: 비우기
 desc: ""
-updated: 1668555002578
+updated: 1674006593488
 created: 1649176119077
+tags: [draft]
 ---
 
 Draft
@@ -26,3 +27,11 @@ task 첨부파일과 Log 갱신 문서의 첨부파일 sync도 안맞고
 
 [^1]: 내가 좀 더 잘할 수 있었다. word 파일 긁어와서 diff 돌리면 됐다. 그래도 이건 부족한 input을 내가 cover치는 거라 스트레스 받는 건 여전.
 [^2]: 흔히 말하는 발현된 감정이 나 자체라는 착각, 또는 끽해야 자아의 일부분일 거다.
+
+---
+
+## 집중 -> 소실
+
+수면유도, 영어 읽기.
+
+TODO 뇌 가소성 link

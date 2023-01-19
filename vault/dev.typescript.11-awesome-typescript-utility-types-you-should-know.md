@@ -1,12 +1,12 @@
 ---
 id: 3m7eb64v72rnclmgwwuw5rh
 title: 11 Awesome TypeScript Utility Types You Should Know
-desc: ""
-updated: 1652058021668
+desc: ''
+updated: 1674000320862
 created: 1652058004158
 ---
 
-kais.blog/p/11-awesome-typescript-utility-types-you-should-know
+> https://kais.blog/p/11-awesome-typescript-utility-types-you-should-know
 
 - Pick<Type, Keys>
 - Omit<Type, Keys>

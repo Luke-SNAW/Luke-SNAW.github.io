@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1673314885937
+updated: 1674086338908
 created: 1644799670081
 ---
 
@@ -80,3 +80,4 @@ created: 1644799670081
 - https://www.getclockwise.com/ - Rework the workday
 - Bearblog and prose.sh
 - [How I Use Slack](https://gpeal.medium.com/how-i-use-slack-b0dbf06d9a18)
+- [ai-collection](https://github.com/ai-collection/ai-collection) - A List of Awesome Generative AI Applications

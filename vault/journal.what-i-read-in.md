@@ -2,12 +2,20 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1673938837938
+updated: 1674102275455
 created: 1667632965028
 ---
 
 ## Week 3, 2023
 
+- [5 Mistakes to Avoid When Self Hosting a Website from Home](https://noted.lol/5-mistakes-to-avoid-when-self-hosting-from-home/)
+- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) is a project that patches developer targeted fonts with a high number of glyphs (icons). Specifically to add a high number of extra glyphs from popular 'iconic fonts' such as [Font Awesome](https://github.com/FortAwesome/Font-Awesome), [Devicons](https://vorillaz.github.io/devicons/), [Octicons](https://github.com/primer/octicons), and [others](https://github.com/ryanoasis/nerd-fonts#glyph-sets).
+- [ai-collection](https://github.com/ai-collection/ai-collection) - A List of Awesome Generative AI Applications
+- [1000+ Free Developer Certifications](https://www.freecodecamp.org/news/free-certificates/)
+- [Design Doping: My Obsession with AI as the Ultimate Brainstorming Partner](https://medium.com/geekculture/design-doping-my-obsession-with-ai-as-the-ultimate-brainstorming-partner-2ff28de2e34b)
+- [Every Software Developer should write a blog](https://dev.to/nasirovelchin/every-software-developer-should-write-a-blog-4622)
+- [API Management in Nuxt 3 with TypeScript](https://www.vuemastery.com/blog/api-management-in-nuxt-3-with-typescript)
+- [10 Advanced TypeScript Tips for Development](https://levelup.gitconnected.com/10-advanced-typescript-tips-for-development-2666298d50f)
 - [Evergreen notes](https://notes.andymatuschak.org/Evergreen_notes)
 - [How to draw ideas](https://ralphammer.com/how-to-draw-ideas/)
   - [A quick beginner’s guide to drawing](https://ralphammer.com/a-quick-beginners-guide-to-drawing/)

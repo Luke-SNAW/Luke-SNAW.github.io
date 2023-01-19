@@ -1,12 +1,12 @@
 ---
 id: djdvoLLYDZe9TkgbPbnIt
 title: Genoplan
-desc: ""
+desc: ''
 updated: 1668494475804
 created: 1644454051319
 ---
 
-[[dev.documentation.brag-documents]]
+[[writing.dev.brag-documents]]
 
 ## 2022/04
 

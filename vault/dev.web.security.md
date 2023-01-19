@@ -1,7 +1,7 @@
 ---
 id: fm8vm79bnyq6fq1gu2oq2zr
 title: Web Security
-desc: ""
+desc: ''
 updated: 1668995592063
 created: 1645751778639
 ---
@@ -28,3 +28,6 @@ created: 1645751778639
   - Mitigating XSS attacks with Helmet
 - [What is a realm in JavaScript?](https://weizman.github.io/page-what-is-a-realm-in-js/)
   - [Introducing Snow](https://github.com/lavamoat/snow/wiki/Introducing-Snow)
+
+
+p

@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1673483767455
+updated: 1674086108331
 created: 1647145480774
 ---
 
@@ -40,6 +40,7 @@ created: 1647145480774
 - [ApyHub](https://apyhub.com/search?query=) - The Developer API Utility Belt
 - [WasmEdge](https://github.com/WasmEdge/WasmEdge) is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, edge, and decentralized applications. It powers serverless apps, embedded functions, microservices, smart contracts, and IoT devices.
 - Free UI faces for designers, avatars, dummy faces, AI generated people faces | [Lorem Faces](https://loremfaces.com/)
+- [1000+ Free Developer Certifications](https://www.freecodecamp.org/news/free-certificates/)
 
 ## Network
 

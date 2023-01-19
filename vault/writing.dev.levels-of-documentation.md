@@ -1,14 +1,14 @@
 ---
 id: uhh5iydw9l8ws6sewxlu09y
-title: I Spent Two Years Trying to Do What Backstage Does for Free
-desc: ''
-updated: 1664150362396
+title: Levels of documentation
+desc: ""
+updated: 1674004772922
 created: 1664150177559
 ---
 
 > https://news.ycombinator.com/item?id=32909343
 
-# powersurge360
+## powersurge360
 
 I am becoming increasingly skeptical that good internal documentation is even possible. I've been working in software development for around 12 years and have _never_ seen it done well and asking around the best I've heard offered up is the equivalent of an internal stack overflow.
 For a while, I thought that maybe an exception would be having a technical writer on staff but after reading this post I'm significantly disheartened on that front too. I'd be interested to hear if anyone on hacker news has experienced good internal documentation and even more interested if any of you folks have experienced anything truly _great_.
@@ -19,7 +19,7 @@ And the second bit I find to be a big reason why documentation efforts fail is j
 
 I've mostly given up on it at this point. Instead, I take detailed personal notes and make them publicly available. It doesn't have to be correct because being advertised as personal notes means that it's my opinion on the truth rather than objective fact. It isn't far away from my codebase, I can just tap a short keybinding in my editor to type my notes or search them and I can link directly from the notes to lines of code in files to jump back and forth. The particular system I use means that if I write a short snippet of code to solve a one off issue (like calling a path helper to derive a URL that I can't find in the interface) I can even drop it in a code block and execute it right from my note-taking tool. It isn't ideal for sure but I've gotten way farther in having a shareable knowledge base this way than I have in literal years of trying to get a shared, useful documentation store spun up.
 
-## P5fRxh5kUvp2th
+### P5fRxh5kUvp2th
 
 The issue is that people seem to equate "good documentation" with complete.
 It's just not possible to do this. I think it would be better to talk about "effective documentation".
@@ -46,7 +46,7 @@ No amount of documentation is ever going to allow a kid to hop on a bike and rid
 
 Once you accept the above and lower your bar, "effective documentation" becomes much more achievable.
 
-### tremon
+#### tremon
 
 One of the reasons this is hard is because it's not that easy to really separate the three levels of abstraction. It's very difficult to state the business requirements neutrally, without coloring in any technical sort of solution (especially since the technical solution is usually what the customer asks for), and it's equally hard for many people to write a high-level technical design without filling in (or assuming) various implementation details.
 In my team, I have started spelling out more concretely what I expect from the documentation at various levels. Keeping with the three levels specified by the GP, we always document:
@@ -63,7 +63,7 @@ The rest of the low-level documentation is the responsibility of the team itself
 
 By insisting on documenting the second layer mostly graphically, there is less potential for overlap between the different layers. Of course, no documentation system is perfect, but I find the above has suited us quite well for what we do (we write business integration software, no huge client applications or software suites. YMMV, obviously).
 
-### tremon
+#### tremon
 
 > I love this separation of aspects and the graphical representation to nudge out overlap.
 > How do you keep the layers consistent? How do you keep track what update to some layer is not covered in some other layer yet? Is that visible right in your layers? or some outside backlog?
@@ -80,3 +80,7 @@ I find that layer 3 documentation updates tend to be the hardest to capture in a
 The most challenging situation is when we discover during development that an architecture redesign is required, but most of the time an architecture adjustment also means we need to re-evaluate the workload and possibly the delivery date, which basically means our process resets and we re-involve the product or project manager. Funnily, this then usually results in more documentation rather than less...
 
 We sometimes also have a 2-person development team for small changes (never 1 person though), in which case all three layers are handled by the same people. But because they're updated in different stages of the project, and because they're already used to the same workflow in larger teams, the small team size doesn't affect the documentation quality as much as I initially feared.
+
+---
+
+> https://c4model.com/

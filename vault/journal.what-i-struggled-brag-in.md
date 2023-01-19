@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1673940466065
+updated: 1674087269137
 created: 1669264809793
 ---
 
@@ -12,7 +12,9 @@ created: 1669264809793
 
 #### 현상
 
-next generate로 생성된 사이트에서 payload 생성 안하는 dynamic route path에서도 payload를 요구함
+next generate로 생성된 사이트에서 payload 생성 안하는 dynamic route path에서도 payload를 요구[^ssr-prerendering?]
+
+[^ssr-prerendering?]: ssr-prerendering? - SSR을 통해 prerendering 할 수도 있지만, report의 경우는 개체 별 페이지를 모두 생성시키진 않을 예정이므로
 
 #### 해결
 
@@ -31,7 +33,7 @@ crawlLinks: true와 함께 nuxt build로 생성
 }
 ```
 
-#### 참조한 문서들
+#### 참고한 문서들
 
 - https://nuxtjs.org/docs/concepts/nuxt-lifecycle/
 - https://stackoverflow.com/questions/61485508/how-nuxt-generate-dynamic-routes
@@ -66,6 +68,8 @@ use: {
 
 이쪽으로 해결[^chromium-only]
 
+[^chromium-only]: chromium-only - chromium만 해결. 다른 browser도 해당 option을 찾아 넣든가, CORS 세팅을 부탁하든가 해야 함.
+
 ```js
 // playwright.config.js
 use: {
@@ -74,8 +78,6 @@ use: {
    },
 }
 ```
-
-[^chromium-only]: chromium만 해결. 다른 browser도 해당 option을 찾아 넣든가, CORS 세팅을 부탁하든가 해야 함.
 
 ### temp branch 운영
 

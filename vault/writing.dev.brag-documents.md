@@ -1,7 +1,7 @@
 ---
 id: 0yfpmcy044f4ynwmi8eyr9e
-title: "Get your work recognized: write a brag document"
-desc: ""
+title: 'Get your work recognized: write a brag document'
+desc: ''
 updated: 1668056462456
 created: 1668055835997
 ---

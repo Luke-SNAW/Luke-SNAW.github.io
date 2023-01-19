@@ -2,7 +2,7 @@
 id: 4gk9mt2w2x6r3i1fswjb7zj
 title: Rust
 desc: ""
-updated: 1672096882743
+updated: 1674087568991
 created: 1646812868479
 ---
 
@@ -15,6 +15,8 @@ created: 1646812868479
   - [r/rust](https://reddit.com/r/rust) - The well-moderated reddit community (quick to search. If you have a problem that will take longer than a single Discord message, post it here so that others are able to find it as well).
   - [The discord community](https://discord.gg/rust) - A simple way to quickly ask other developers
   - [rust by example](https://doc.rust-lang.org/rust-by-example/index.html) - The sort of thing I’d be going about in here as well, but this is just a quick short intro, that should be your go-to book if you want to learn even more.
+- [Rust concepts I wish I learned earlier](https://rauljordan.com/rust-concepts-i-wish-i-learned-earlier/)
+  - https://news.ycombinator.com/item?id=34427604
 
 ## Tools
 
