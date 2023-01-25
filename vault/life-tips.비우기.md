@@ -2,9 +2,9 @@
 id: rdk5hbpfugooyce7t5zgn7c
 title: 비우기
 desc: ""
-updated: 1674618024706
+updated: 1674630083906
 created: 1649176119077
-tags: [draft]
+tags: ["draft", "소실상태진입"]
 published: false
 ---
 

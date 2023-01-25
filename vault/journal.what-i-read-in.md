@@ -2,9 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1674102275455
+updated: 1674633300640
 created: 1667632965028
 ---
+
+## Week 4, 2023
+
+- [The Page With No Code](https://danq.me/2023/01/11/nocode/)
+  - https://no-ht.ml/
+- [Techniques to improve reliability](https://github.com/openai/openai-cookbook/blob/main/techniques_to_improve_reliability.md)
+  > Applying this simple trick to the MultiArith math dataset, the authors found `Let's think step by step` quadrupled the accuracy, from 18% to 79%!
+- [Interview Questions to ask as a candidate](https://docs.google.com/spreadsheets/d/11DoQ-Bhvs5mfRwB0Bz6OHwoChhFVK7u_KqlbFgR-ezY/)
+- [Topcat's System Design Template](https://leetcode.com/discuss/career/229177/My-System-Design-Template)
+- [Unable to make a single bit of progress, my goto strategy is similar to what writers call a vomit draft.](https://news.ycombinator.com/item?id=34449984)
+- [Git-Sim: Visually Simulate Git Operations In Your Own Repos](https://initialcommit.com/blog/git-sim)
+  - https://github.com/initialcommit-com/git-sim
+- [Function Composition in Large React Applications: Best Practices and Real-World Examples](https://medium.com/@rivoltafilippo/function-composition-in-large-react-applications-best-practices-and-real-world-examples-805aba8d37b1)
 
 ## Week 3, 2023
 

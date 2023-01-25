@@ -2,7 +2,7 @@
 id: HtVLXiN97I2jTm8h2NEVQ
 title: Functional Programming
 desc: ""
-updated: 1669169260745
+updated: 1674624255049
 created: 1644825118480
 ---
 
@@ -10,6 +10,7 @@ created: 1644825118480
 
 - [Pure and Impure Functions in JavaScript: A Complete Guide](https://www.syncfusion.com/blogs/post/pure-and-impure-functions-in-javascript-a-complete-guide.aspx)
 - [Functional programming constructs](https://divyanshu013.dev/blog/functional-programming-constructs/)
+- [Function Composition in Large React Applications: Best Practices and Real-World Examples](https://medium.com/@rivoltafilippo/function-composition-in-large-react-applications-best-practices-and-real-world-examples-805aba8d37b1)
 
 ## Books
 

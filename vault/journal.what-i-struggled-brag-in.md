@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1674621271099
+updated: 1674627124622
 created: 1669264809793
 ---
 
@@ -13,7 +13,7 @@ created: 1669264809793
 아침 출근하니 테스트 서버 CPU 점유 경고가 뜸. 확인해보니 100%에서 계속 유지되어서 EC2 Instance를 reboot.  
 몇 분 뒤에 변화가 없어서 suspend. 몇 분 뒤에 웹 사이트 접속 안되어 확인해보니 종료 됨. ??? log를 확인해보니 AutoScailing이 죽여버림.
 
-![](assets/images/what-i-struggle-in/week4-2023__test-server.webp)
+![](assets/images/what-i-struggled-brag-in/week4-2023__test-server.webp)
 
 더 확인해보니 자동 생성된 instance의 volumn이 계승되지 않고 새로 생성 됨. 이거까진 이해가 가는데 기존 volumn을 자동 삭제? 이런 방식이면 믿고 쓸 수가 있나? 나중에 알아보니 EC2 생성 시 기본으로 [root volumn이 종료 시 삭제 설정](https://aws.amazon.com/ko/premiumsupport/knowledge-center/deleteontermination-ebs/)된다. 🤨
 
@@ -129,10 +129,10 @@ class = zero ? `bg-${pageColor}` : `bg-${baseColor}` // not work
 ## Week 51, 2022 - SPA framework - S3 - CloudFront 배포 시 404 error 처리
 
 없는 URI로 접근 시 403 error가 뜬다. [아마도 해당 url path를 cloudFront에서 인식하지 못해서 S3로 요청이 가고 public이 아니니 permission denied 에러](https://dexlee.tistory.com/189#:~:text=%ED%95%B4%EB%8B%B9%20url%20path%EB%A5%BC%20cloudFront%EC%97%90%EC%84%9C%20%EC%9D%B8%EC%8B%9D%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%B4%EC%84%9C%20S3%EB%A1%9C%20%EC%9A%94%EC%B2%AD%EC%9D%B4%20%EA%B0%84%EB%8B%A4.%20public%EC%9D%B4%20%EC%95%84%EB%8B%88%EB%8B%88%20%EB%8B%B9%EC%97%B0%ED%9E%88%20permission%20denied%20%EC%97%90%EB%9F%AC%20%EB%B0%9C%EC%83%9D.)
-![](assets/images/what-i-struggle-in/s3-cloudfront-404-error.webp)
+![](assets/images/what-i-struggled-brag-in/s3-cloudfront-404-error.webp)
 
 cloudfront에서 403 error를 SPA framework index.html로 처리하도록 해주면 framework에서 404 처리해 줌
-![](assets/images/what-i-struggle-in/s3-cloudfront-404-custom-setting.webp)
+![](assets/images/what-i-struggled-brag-in/s3-cloudfront-404-custom-setting.webp)
 
 ## Week 50, 2022 - tailwind css
 
@@ -175,7 +175,7 @@ js resource size도 9mb 정도 줄음 (github cache 확인)
 
 sentry setting test 때문에 일부러 error를 내고 배포했는데 계속 정상 동작함.  
 github actions log 확인하니...
-![](assets/images/what-i-struggle-in/nuxt3-generate__github-actions.webp)  
+![](assets/images/what-i-struggled-brag-in/nuxt3-generate__github-actions.webp)  
 generate시에
 
 > WARN Using experimental payload extraction for full-static output. You can opt-out by setting experimental.payloadExtraction to false.
