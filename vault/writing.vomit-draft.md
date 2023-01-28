@@ -2,9 +2,9 @@
 id: xuv0h9lxmedepsz2z6vtchq
 title: Vomit Draft
 desc: ""
-updated: 1674630617741
+updated: 1674898064911
 created: 1674628806492
-tags: ["소실상태진입"]
+tags: [shut-off]
 ---
 
 Unable to make a single bit of progress, my goto strategy is similar to what writers call a vomit draft. [#](https://news.ycombinator.com/item?id=34449984)
