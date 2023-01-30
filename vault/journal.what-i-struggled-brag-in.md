@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1674627124622
+updated: 1675057952388
 created: 1669264809793
 ---
 
@@ -91,6 +91,15 @@ use: {
    },
 }
 ```
+
+## Week 2, 2023 - Playwright 도입
+
+cypress에 비해 다음 이점이 확연하다.
+
+1. 속도가 빠르고 (browser를 직접 띄우지 않고 테스트만 실행시킬 수 있음)
+2. VS code와의 연결이 더욱 긴밀하다.
+   1. browser에서의 입력을 test code로 생성해줌.
+   2. vs code에서 selector에 cursor를 두면, browser에서 해당 element가 표시됨
 
 ## Week 2, 2023 - temp branch 운영
 

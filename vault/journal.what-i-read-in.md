@@ -2,12 +2,20 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1674633300640
+updated: 1675064395081
 created: 1667632965028
 ---
 
+## Week 5, 2023
+
+- [Bitwarden design flaw: Server side iterations](https://palant.info/2023/01/23/bitwarden-design-flaw-server-side-iterations/)
+- [The Ultimate Guide To Software Architecture Documentation](https://www.workingsoftware.dev/software-architecture-documentation-the-ultimate-guide/)
+  - https://arc42.org/download
+- [Why React isn't dying](https://tkdodo.eu/blog/why-react-isnt-dying)
+
 ## Week 4, 2023
 
+- [Transducers: Efficient Data Processing Pipelines in JavaScript](https://medium.com/javascript-scene/transducers-efficient-data-processing-pipelines-in-javascript-7985330fe73d)
 - [The Page With No Code](https://danq.me/2023/01/11/nocode/)
   - https://no-ht.ml/
 - [Techniques to improve reliability](https://github.com/openai/openai-cookbook/blob/main/techniques_to_improve_reliability.md)
