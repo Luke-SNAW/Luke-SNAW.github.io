@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1673480145751
+updated: 1675144956083
 created: 1646011769978
 ---
 
@@ -89,6 +89,7 @@ git config --global core.editor "code -w"
 - Turbo Console Log
 - Vue Snippets StandardJS
 - Vue VSCode Snippets
+- [Blockman - Highlight Nested Code Blocks](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman)
 
 ### Misc
 

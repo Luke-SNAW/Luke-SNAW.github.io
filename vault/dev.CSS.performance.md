@@ -2,7 +2,7 @@
 id: ycbm1pqytzrms1hjatwjh7y
 title: CSS Performance
 desc: ""
-updated: 1667440287855
+updated: 1675144985969
 created: 1646130152552
 ---
 
@@ -19,3 +19,4 @@ created: 1646130152552
 - [Frontend Web Performance: The Essentials [0]](https://medium.com/@matthew.costello/frontend-web-performance-the-essentials-0-61fea500b180): Layout Bad, Composite Good
   - https://csstriggers.com/
   - https://gist.github.com/paulirish/5d52fb081b3570c81e3a
+- [The truth about CSS selector performance](https://blogs.windows.com/msedgedev/2023/01/17/the-truth-about-css-selector-performance/)

@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1669681999166
+updated: 1675141643499
 created: 1656645858715
 ---
 
@@ -16,3 +16,14 @@ created: 1656645858715
 ## SQLite
 
 - [Many Small Queries Are Efficient In SQLite](https://www.sqlite.org/np1queryprob.html)
+
+## PostgreSQL
+
+### [Features I'd like in PostgreSQL](https://gilslotd.com/blog/features_id_postgresql)
+
+- –i-am-a-dummy mode
+- Unit test mode (random result sorting)
+- Query progress in psql
+- Pandas-like join validation
+- JIT support for CREATE INDEX
+- Reduce the memory usage of prepared queries

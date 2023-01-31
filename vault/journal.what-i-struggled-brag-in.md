@@ -2,9 +2,13 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1675057952388
+updated: 1675150452359
 created: 1669264809793
 ---
+
+## Week 5, 2023 - Playwright test code structuring #draft
+
+- https://github.com/microsoft/playwright/issues/19889
 
 ## Week 4, 2023 - AWS EC2 테스트 서버 볼륨 삭제됨
 

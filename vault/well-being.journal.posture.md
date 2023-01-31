@@ -2,7 +2,7 @@
 id: vd87oonlcrya7pyvpsn4ort
 title: Posture
 desc: ""
-updated: 1674956475024
+updated: 1675131143146
 created: 1649455134642
 ---
 
@@ -22,6 +22,7 @@ created: 1649455134642
 초6에 엉덩이 크다고 담임이 놀렸는데 그 이전부터 틀린자세로 살아온 듯. 40년 동안...  
 완전 차렷자세에서나 둔근으로 골반 중립을 잡을 수 있어서 다른 방법을 궁리
 
+- 요사이 견갑골이랑 하복부 세팅 바꿔봤더니 또 조금씩 신호가 오는데 등심, 안심 (TODO youtube link)에 신경쓰니 다시 정상화. Week5 2023
 - [치골을 당기면서 배꼽으로 미소지으세요.](https://www.youtube.com/watch?v=YGtfqHtwgKg)
 
 ### 과거 시행했던 방법들
