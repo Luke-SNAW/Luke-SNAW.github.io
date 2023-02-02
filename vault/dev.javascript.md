@@ -2,7 +2,7 @@
 id: IowIScQvzEu3KQ4dvwPTt
 title: JavaScript
 desc: ""
-updated: 1672727138646
+updated: 1675314536939
 created: 1645056460403
 ---
 
@@ -12,6 +12,7 @@ created: 1645056460403
 - [Web Developers Don’t Just Know About localStorage](https://medium.com/frontend-canteen/web-developers-dont-just-know-about-localstorage-2f37385bd8ad)
 - 🛁 [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) - Clean Code concepts adapted for JavaScript
 - [Ask HN: Why did Frontend development explode in complexity?](https://news.ycombinator.com/item?id=34218003)
+- [10 Web Development Trends in 2023](https://www.robinwieruch.de/web-development-trends/)
 
 ## [15 Useful JavaScript Tips](https://javascript.plainenglish.io/15-useful-javascript-tips-814eeba1f4fd)
 

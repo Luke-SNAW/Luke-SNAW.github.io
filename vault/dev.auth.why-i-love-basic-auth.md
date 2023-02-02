@@ -1,12 +1,12 @@
 ---
 id: dzzxjapob5csyew16txhbhn
 title: Why I Love Basic Auth
-desc: ""
-updated: 1649893408228
+desc: ''
+updated: 1675211476982
 created: 1649893130783
 ---
 
-https://www.rdegges.com/2015/why-i-love-basic-auth/
+> https://www.rdegges.com/2015/why-i-love-basic-auth/
 
 It’s a _bad thing_ because OAuth (_as popular as it is_) is a huge pain in the ass – for both the people building the API services as well as the developers consuming them.
 
@@ -14,7 +14,7 @@ OAuth is complex, misunderstood, widely misused, and lacking universal implement
 
 Basic Auth, on the other hand, is simple, very well understood, and has been well supported in every language and framework since the 1990’s.
 
-# How Basic Auth Works
+## How Basic Auth Works
 
 Let’s talk about Basic Auth:
 
@@ -28,7 +28,7 @@ Here’s the short version of how it works.
 - You have an API key pair: an _API Key ID_ and an _API Key Secret_. Each of these is a randomly generated string (_usually a [uuid](http://en.wikipedia.org/wiki/Universally_unique_identifier "UUID on Wikipedia")_).
 - To authenticate against an API service, all you need to do is put your credentials into the [HTTP Authorization header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html "HTTP Headers Spec").
 
-# It’s Simple
+## It’s Simple
 
 My favorite thing about Basic Auth is that it’s _simple_.
 
@@ -54,7 +54,7 @@ Every time I use a service like [Twilio](https://www.twilio.com/ "Twilio"), I’
 
 I just love it.
 
-# It’s Secure
+## It’s Secure
 
 Basic Auth gets a bad reputation for being _“insecure”_, but this isn’t necessarily true.
 
@@ -73,7 +73,7 @@ Furthermore, for developers _using Basic Auth_, there are a few things you shoul
 
 If you’re looking for a good example of an API company that handles API keys the right way, check out [AWS](http://aws.amazon.com/ "Amazon Web Services").
 
-# Universally Supported
+## Universally Supported
 
 Another great thing about Basic Auth is that there’s only one implementation everyone uses – this means that there’s never any ambiguity about how to craft requests or server-side components: it’s always the same.
 

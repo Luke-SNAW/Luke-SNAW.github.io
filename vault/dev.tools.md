@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1674086108331
+updated: 1675301659713
 created: 1647145480774
 ---
 
@@ -41,6 +41,10 @@ created: 1647145480774
 - [WasmEdge](https://github.com/WasmEdge/WasmEdge) is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, edge, and decentralized applications. It powers serverless apps, embedded functions, microservices, smart contracts, and IoT devices.
 - Free UI faces for designers, avatars, dummy faces, AI generated people faces | [Lorem Faces](https://loremfaces.com/)
 - [1000+ Free Developer Certifications](https://www.freecodecamp.org/news/free-certificates/)
+- [Trigger.dev](https://github.com/triggerdotdev/trigger.dev) is an open-source platform that makes it easy for developers to create event-driven background tasks directly in their code.
+  - https://pipedream.com/
+  - https://temporal.io/
+  - https://github.com/windmill-labs/windmill
 
 ## Network
 

@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1672041246430
+updated: 1675310006685
 created: 1644885695231
 ---
 
@@ -17,6 +17,9 @@ created: 1644885695231
   - width of the image sources
 - [Building the main navigation for a website](https://web.dev/website-navigation/)
 - [Table Like It's 2023](https://www.htmhell.dev/adventcalendar/2022/14/)
+- [Two ways to safely break a long word in HTML](https://www.amitmerchant.com/two-ways-to-safely-break-a-long-word-in-html/)
+  - `<wbr>`
+  - `&shy;`
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 

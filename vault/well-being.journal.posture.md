@@ -2,7 +2,7 @@
 id: vd87oonlcrya7pyvpsn4ort
 title: Posture
 desc: ""
-updated: 1675131143146
+updated: 1675312337445
 created: 1649455134642
 ---
 
@@ -22,6 +22,8 @@ created: 1649455134642
 초6에 엉덩이 크다고 담임이 놀렸는데 그 이전부터 틀린자세로 살아온 듯. 40년 동안...  
 완전 차렷자세에서나 둔근으로 골반 중립을 잡을 수 있어서 다른 방법을 궁리
 
+- 그냥 벽에 기댄 날개 스트레칭을 좀 의식하니 이게 더 맞지 않나 싶음 (TODO youtube link) -> 전면에 판이 있다고 의식하고 코, 갈비뼈, 골반뼈 맞추는게 더 맞는거 같기도? Week5 2023
+  - 닭 날개 스트래칭? (TODO youtube link)
 - 요사이 견갑골이랑 하복부 세팅 바꿔봤더니 또 조금씩 신호가 오는데 등심, 안심 (TODO youtube link)에 신경쓰니 다시 정상화. Week5 2023
 - [치골을 당기면서 배꼽으로 미소지으세요.](https://www.youtube.com/watch?v=YGtfqHtwgKg)
 

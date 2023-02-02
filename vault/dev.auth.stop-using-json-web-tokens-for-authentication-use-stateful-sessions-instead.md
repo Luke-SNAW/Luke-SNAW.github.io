@@ -2,7 +2,7 @@
 id: 58ft2xcm0mjwn8eljaxgh82
 title: Stop Using JSON Web Tokens For Authentication. Use Stateful Sessions Instead.
 desc: ""
-updated: 1664849102341
+updated: 1675211453008
 created: 1650632420814
 ---
 
@@ -18,7 +18,7 @@ I am sure their intentions are good, but they share an un-secure way of authenti
 
 However, please don't feel bad; I used JWT (incorrectly) when starting I was starting out because I didn't know any better.
 
-# The Way JWT is usually implemented (in tutorials)
+## The Way JWT is usually implemented (in tutorials)
 
 With that out of the way, let's go through the flow to authenticate users with JWT.
 
@@ -35,11 +35,11 @@ The server can now check the user's identity by decrypting the signed Token on e
 
 The Token will be valid until it expires.
 
-# Everything that's Wrong With Using JWT this way.
+## Everything that's Wrong With Using JWT this way.
 
 ...
 
-# Providing Scalability
+## Providing Scalability
 
 I can't close this article without mentioning that scalability can become an issue with server-side sessions.
 

@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1675141643499
+updated: 1675294246336
 created: 1656645858715
 ---
 
@@ -18,6 +18,8 @@ created: 1656645858715
 - [Many Small Queries Are Efficient In SQLite](https://www.sqlite.org/np1queryprob.html)
 
 ## PostgreSQL
+
+- [MySQL vs PostgreSQL in 2023.](https://dbconvert.com/blog/mysql-vs-postgresql/)
 
 ### [Features I'd like in PostgreSQL](https://gilslotd.com/blog/features_id_postgresql)
 

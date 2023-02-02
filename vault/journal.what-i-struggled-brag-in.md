@@ -2,13 +2,29 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1675150452359
+updated: 1675315847979
 created: 1669264809793
 ---
 
 ## Week 5, 2023 - Playwright test code structuring #draft
 
+playwright는 test 마다 독립적인걸 가정하여 parallel하게 실행하도록 [권장](https://playwright.dev/docs/test-parallel#serial-mode).
+
 - https://github.com/microsoft/playwright/issues/19889
+
+문제는 하나의 story를 테스트 하는데 **step별로 나눌 수 없음**.
+[어떤 글](https://timdeschryver.dev/blog/keep-your-playwright-tests-structured-with-steps)에는 test.step을 쓰라고 했는데, 써보니 step3에서 error가 나도 전체 story에서 error났다는 보고만 나온다. debug mode로 돌려도 같음. (interface가 달라보이긴 한데...)
+
+test.describe.config serial로 test 나눠서 쓰면 가능하긴 한데, test하나 끝날 때마다 browser context가 reset 됨. (=page reset)
+
+완전 deal breaker인데, playwright를 써야 하나?
+global config로 serial하게 하면 될까? test.describe.config랑 차이 없을 거 같은데
+test마다 my-test setting을 하도록 함? step의 시작단계 마다 context를 setting하라고?
+
+문서도 너무 빈약 https://playwright.dev/docs/api/class-test#test-step
+
+> test.step  
+> Declares a test step.
 
 ## Week 4, 2023 - AWS EC2 테스트 서버 볼륨 삭제됨
 
@@ -98,7 +114,7 @@ use: {
 
 ## Week 2, 2023 - Playwright 도입
 
-cypress에 비해 다음 이점이 확연하다.
+cypress에 비해 다음 이점이 확연하다. (그리고 [[단점 | journal.what-i-struggled-brag-in#week-5-2023---playwright-test-code-structuring-draft]]이 드러나는데...)
 
 1. 속도가 빠르고 (browser를 직접 띄우지 않고 테스트만 실행시킬 수 있음)
 2. VS code와의 연결이 더욱 긴밀하다.

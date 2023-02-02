@@ -1,7 +1,7 @@
 ---
 id: 6w36dgapan7eummy1q6jpx1
 title: Back End
-desc: ""
+desc: ''
 updated: 1669536559169
 created: 1649297934004
 ---
@@ -21,9 +21,9 @@ created: 1649297934004
 - <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-05>
 - <https://fusionauth.io/blog/2020/04/15/whats-new-in-oauth-2-1>
 
-### [[dev.back-end.Why I Love Basic Auth]]
+### [[dev.auth.why-i-love-basic-auth]]
 
-### [[dev.back-end.stop-using-json-web-tokens-for-authentication-use-stateful-sessions-instead]]
+### [[dev.auth.stop-using-json-web-tokens-for-authentication-use-stateful-sessions-instead]]
 
 ## Tutorial
 
