@@ -2,7 +2,7 @@
 id: 530nq8t28bki28yiaikjxrp
 title: Accessibility tools
 desc: ""
-updated: 1675145026153
+updated: 1675662420895
 created: 1672010801202
 ---
 
@@ -14,3 +14,8 @@ created: 1672010801202
   - [Safari](https://apple.com/safari/) with [VoiceOver](https://apple.com/accessibility/)
   - [Edge](https://microsoft.com/windows/microsoft-edge) with [Narrator](https://microsoft.com/accessibility/windows)
 - [Accessible color palette generator](https://venngage.com/tools/accessible-color-palette-generator)
+- [Comparing Manual and Free Automated WCAG Reviews](https://adrianroselli.com/2023/01/comparing-manual-and-free-automated-wcag-reviews.html)
+  - [axe DevTools](https://www.deque.com/axe/devtools/) v4.47.0 browser extension (using axe-core v4.6.2) for Chrome and Firefox.
+  - [ARC Toolkit](https://www.tpgi.com/arc-platform/arc-toolkit/) v5.4.2 browser extension for Chrome.
+  - [WAVE Evaluation Tool](https://wave.webaim.org/) v3.2.2.0 browser extension for Chrome and Firefox.
+  - [Equal Access Accessibility Checker](https://www.ibm.com/able/toolkit/tools) (EAAC) v3.1.42.9999 browser extension for Chrome and Firefox.

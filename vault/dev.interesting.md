@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1674633305372
+updated: 1675650329512
 created: 1646613084338
 ---
 
@@ -29,6 +29,7 @@ created: 1646613084338
 - [Mars Now | Explore – NASA Mars Exploration](https://mars.nasa.gov/explore/mars-now/)
 - [The Page With No Code](https://danq.me/2023/01/11/nocode/)
   - https://no-ht.ml/
+- ⚙️ [Math Breakdown: Anime Homing Missiles](https://blog.littlepolygon.com/posts/missile/)
 
 ## News
 

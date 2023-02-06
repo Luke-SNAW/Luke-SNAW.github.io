@@ -2,9 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1675318314137
+updated: 1675662533446
 created: 1667632965028
 ---
+
+## Week 6, 2023
+
+- [`<vue-clamp>`](https://github.com/Justineo/vue-clamp) - Clamping multiline text with ease.
+- [Comparing Manual and Free Automated WCAG Reviews](https://adrianroselli.com/2023/01/comparing-manual-and-free-automated-wcag-reviews.html)
+- [Introduction to Linux Server Administration!](https://github.com/livialima/linuxupskillchallenge)
+  - https://theleo.zone/posts/linux-upskill/
+- [deadfile](https://github.com/M-Izadmehr/deadfile) - Simple util to find deadcode and unused files in any JavaScript project (ES5, ES6, React, Vue, ...).
 
 ## Week 5, 2023
 

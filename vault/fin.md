@@ -2,7 +2,7 @@
 id: ok0e729ho7o09xetujkxc0m
 title: Financial
 desc: ""
-updated: 1670150161691
+updated: 1675642729242
 created: 1667694740818
 ---
 
@@ -37,3 +37,7 @@ Fed가 긴축하게되면 HOPE순서로 둔화.
 2. new Order(PMI)
 3. Profit (기업, EPS)
 4. Employment
+
+## Site
+
+- https://seekingalpha.com/article/4574652-sl-green-grab-a-near-8-percent-monthly-yield

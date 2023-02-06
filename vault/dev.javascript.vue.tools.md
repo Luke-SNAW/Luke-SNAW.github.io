@@ -2,7 +2,7 @@
 id: n5ogpv9x88nbej5in300ri4
 title: Vue tools
 desc: ""
-updated: 1674002107157
+updated: 1675662540671
 created: 1647147290318
 ---
 
@@ -11,6 +11,7 @@ created: 1647147290318
 - [VueUse](https://github.com/vueuse/vueuse) - Collection of essential Vue Composition Utilities
 - 🍍 [Pinia](https://github.com/vuejs/pinia) - Intuitive, type safe, light and flexible Store for Vue using the composition api with DevTools support
   - https://medium.com/js-dojo/pinia-the-new-and-better-state-management-system-for-vue-8b6f8a64f2e2
+- [`<vue-clamp>`](https://github.com/Justineo/vue-clamp) - Clamping multiline text with ease.
 
 ## SEO
 
