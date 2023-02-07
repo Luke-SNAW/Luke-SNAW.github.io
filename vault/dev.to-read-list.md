@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1673312505276
+updated: 1675726122099
 created: 1645681934406
 tags: bookshelf
 ---
@@ -106,15 +106,17 @@ tags: bookshelf
 
 - https://sre.google/books/
 - https://abseil.io/resources/swe-book
-- https://people.scs.carleton.ca/~paulv/toolsjewels.html
 - https://github.com/mhadidg/software-architecture-books
-- https://github.com/ossu/computer-science
+- https://teachyourselfcs.com/
+  - https://missing.csail.mit.edu/
+  - https://github.com/ossu/computer-science
 - https://www.manning.com/books/the-programmers-brain
 - [Awesome Interviews](https://github.com/DopplerHQ/awesome-interview-questions)
 - [Front End Interview Handbook](https://github.com/yangshun/front-end-interview-handbook)
 - [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions)
 - https://github.com/leonardomso/33-js-concepts
 - https://github.com/vasanthk/web-security-basics
+- https://people.scs.carleton.ca/~paulv/toolsjewels.html
 
 ### Networking
 

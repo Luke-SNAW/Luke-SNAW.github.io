@@ -2,11 +2,13 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1675650288738
+updated: 1675728632056
 created: 1669264809793
 ---
 
-## Week 5, 2023 - Playwright test code structuring
+## Week 5, 2023 - Cypress → Playwright → Cypress
+
+Playwright의 Test code structuring 문제
 
 ### Playwright
 
@@ -14,7 +16,7 @@ playwright는 test 마다 독립적인걸 가정하여 parallel하게 실행하�
 
 - **[[Question] Running projects in sequential order, files in parallel #19889](https://github.com/microsoft/playwright/issues/19889)**
 
-문제는 하나의 story를 테스트 하는데 **step별로 나눌 수 없음**. (feature request는 있는데 낮은 우선순위)
+문제는 하나의 story를 테스트 하는데 **step별로 나눌 수 없음**. (feature request는 있는데 낮은 우선순위로 1년 반 동안 진전없음)
 
 - **[[Feature] It would be nice if test.step showed up in trace view actions #8682](https://github.com/microsoft/playwright/issues/8682)**
 - **[[Feature] Show test steps `test.step` in the `list` report (and on assertion fails) #20532](https://github.com/microsoft/playwright/issues/20532)**

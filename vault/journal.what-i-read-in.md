@@ -2,12 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1675662533446
+updated: 1675756094291
 created: 1667632965028
 ---
 
 ## Week 6, 2023
 
+- [Visual design rules you can safely follow every time](https://anthonyhobday.com/sideprojects/saferules/)
+  - https://news.ycombinator.com/item?id=34684761
+- [Optimal program design 2.0](https://mennohenselmans.com/optimal-program-design/)
 - [`<vue-clamp>`](https://github.com/Justineo/vue-clamp) - Clamping multiline text with ease.
 - [Comparing Manual and Free Automated WCAG Reviews](https://adrianroselli.com/2023/01/comparing-manual-and-free-automated-wcag-reviews.html)
 - [Introduction to Linux Server Administration!](https://github.com/livialima/linuxupskillchallenge)
