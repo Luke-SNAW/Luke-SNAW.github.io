@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1675655861600
+updated: 1675812688719
 created: 1646613263657
 published: false
 ---
@@ -13,7 +13,6 @@ published: false
 - With [Omni](https://github.com/alyssaxuu/omni) you can use your browser like a pro. Manage tabs, bookmarks, your browser history, perform all sorts of actions and more with a simple command interface.
 - [fish](https://fishshell.com/) - the friendly interactive shell
 - [PHIND](https://phind.com/) - The AI search engine for instant answers.
-- [Universal Summarizer](https://labs.kagi.com/ai/sum)
 
 ## To be tested
 

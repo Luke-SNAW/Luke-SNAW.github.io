@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1674086338908
+updated: 1675812723246
 created: 1644799670081
 ---
 
@@ -56,6 +56,7 @@ created: 1644799670081
 
 ## Etc
 
+- [Universal Summarizer](https://labs.kagi.com/ai/sum)
 - [Anki](https://github.com/ankitects/anki)
   - [Anki Manual](https://docs.ankiweb.net/background.html)
   - [AwesomeTTS Anki add-on](https://github.com/AwesomeTTS/awesometts-anki-addon)
