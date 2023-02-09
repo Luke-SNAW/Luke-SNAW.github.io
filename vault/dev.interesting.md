@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1675650329512
+updated: 1675927367702
 created: 1646613084338
 ---
 
@@ -59,11 +59,15 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 - [Domain Name Search with AI](https://smartynames.com/) - https://news.ycombinator.com/item?id=33882497
 - [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) #bookmark
   - https://github.com/karpathy/nanoGPT
+- [Use GPT-3 incorrectly: reduce costs 40x and increase speed by 5x](https://www.buildt.ai/blog/incorrectusage)
+  - To reduce costs and increase speed, they developed a technique to generate a moderately sized corpus of completions made by a larger model, and fine-tune a smaller model to do the same task. This can reduce costs by 40x and increase speed by 5x. This is an interesting approach to using GPT-3 to reduce costs and increase speed, and could be useful for other applications.
+  - [Knowledge distillation](https://en.m.wikipedia.org/wiki/Knowledge_distillation)
 
 ## Graphic
 
 - [Analytical Motionblur 3D](https://www.shadertoy.com/view/MdB3Dw)
   - https://www.youtube.com/@InigoQuilez
+- [Refraction, dispersion, and other shader light effects](https://blog.maximeheckel.com/posts/refraction-dispersion-and-other-shader-light-effects/)
 
 ## Web
 

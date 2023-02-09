@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1675301659713
+updated: 1675913766738
 created: 1647145480774
 ---
 
@@ -45,6 +45,7 @@ created: 1647145480774
   - https://pipedream.com/
   - https://temporal.io/
   - https://github.com/windmill-labs/windmill
+- [codeium](https://www.codeium.com/) - Free AI-powered code completion for everyone, everywhere
 
 ## Network
 

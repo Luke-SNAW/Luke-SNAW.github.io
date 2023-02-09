@@ -2,9 +2,11 @@
 id: xxhnpekxmo47z6xj0yqkd3l
 title: Windows tools
 desc: ""
-updated: 1673228696750
+updated: 1675906608520
 created: 1652060424550
 ---
+
+- [Windows 11: a spyware machine out of users' control?](https://www.techspot.com/news/97535-windows-11-spyware-machine-out-users-control.html)
 
 ## Collections
 

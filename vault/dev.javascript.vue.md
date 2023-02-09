@@ -2,7 +2,7 @@
 id: p6jdsvhol2ebyzilnb5u3ot
 title: Vue
 desc: ""
-updated: 1673503822189
+updated: 1675915462605
 created: 1646815969488
 ---
 
@@ -11,6 +11,9 @@ created: 1646815969488
 - [Note: The main difference is that the watchEffect starts instantly while the watch() runs lazily](<https://www.syncfusion.com/blogs/post/vue-composition-api-vs-react-hooks.aspx#:~:text=Note%3A%20The%20main%20difference%20is%20that%20the%20watchEffect%20starts%20instantly%20while%20the%20watch()%20runs%20lazily>)
 - [Top 7 tips/features in Vue 3](https://medium.com/@felixdavid12/top-7-tips-features-in-vue-3-7119cee4a918) 3. Reactive CSS
 - [How to Destructure Props in Vue (Composition API)](https://dmitripavlutin.com/props-destructure-vue-composition/)
+- [The new Wikipedia appearance that took the whole village](https://medium.com/@dlyall/the-new-wikipedia-appearance-that-took-a-whole-village-52637b34a00f)
+  - [Vue.js has been selected as Wikimedia Foundation's future JavaScript framework](https://lists.wikimedia.org/hyperkitty/list/wikitech-l@lists.wikimedia.org/thread/SOZREBYR36PUNFZXMIUBVAIOQI4N7PDU/)
+  - [RFC: Adopt a modern JavaScript framework for use with MediaWiki](https://phabricator.wikimedia.org/T241180) and [EvanYou comment](https://phabricator.wikimedia.org/T241180#:~:text=Project%20lead%20of%20Vue.js%20here.)
 
 ## nextTick
 

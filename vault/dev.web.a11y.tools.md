@@ -2,7 +2,7 @@
 id: 530nq8t28bki28yiaikjxrp
 title: Accessibility tools
 desc: ""
-updated: 1675662420895
+updated: 1675927288088
 created: 1672010801202
 ---
 
@@ -19,3 +19,4 @@ created: 1672010801202
   - [ARC Toolkit](https://www.tpgi.com/arc-platform/arc-toolkit/) v5.4.2 browser extension for Chrome.
   - [WAVE Evaluation Tool](https://wave.webaim.org/) v3.2.2.0 browser extension for Chrome and Firefox.
   - [Equal Access Accessibility Checker](https://www.ibm.com/able/toolkit/tools) (EAAC) v3.1.42.9999 browser extension for Chrome and Firefox.
+- [Screen Readers support for text level HTML semantics](https://www.tpgi.com/screen-readers-support-for-text-level-html-semantics/)

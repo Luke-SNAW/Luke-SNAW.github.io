@@ -2,12 +2,29 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1675818854766
+updated: 1675927537955
 created: 1667632965028
 ---
 
 ## Week 6, 2023
 
+- [A Better Way to Work With Number and Date Inputs in JavaScript](https://www.builder.io/blog/numbers-and-dates)
+  - valueAsNumber, valueAsDate
+- [Three attributes for better web forms](https://adactio.com/journal/19842)
+  - inputmode, enterkeyhint, and autocomplete.
+- [Understand the Lexical Scoping in JavaScript](https://javascript.plainenglish.io/understand-the-lexical-scoping-in-javascript-6b85ca94b565)
+- [JavaScript Require – How to Use the require() Function in JS](https://www.freecodecamp.org/news/how-to-use-the-javascript-require-function/)
+- [When You Should Prefer Map Over Object In JavaScript](https://www.zhenghao.io/posts/object-vs-map)
+- [The new Wikipedia appearance that took the whole village](https://medium.com/@dlyall/the-new-wikipedia-appearance-that-took-a-whole-village-52637b34a00f)
+  - [Vue.js has been selected as Wikimedia Foundation's future JavaScript framework](https://lists.wikimedia.org/hyperkitty/list/wikitech-l@lists.wikimedia.org/thread/SOZREBYR36PUNFZXMIUBVAIOQI4N7PDU/)
+  - [RFC: Adopt a modern JavaScript framework for use with MediaWiki](https://phabricator.wikimedia.org/T241180) and [EvanYou comment](https://phabricator.wikimedia.org/T241180#:~:text=Project%20lead%20of%20Vue.js%20here.)
+- [The Intermediate Plateau: What Causes It? How Can We Move Beyond It?](https://www.scotthyoung.com/blog/2023/01/03/intermediate-plateau/)
+- [codeium](https://www.codeium.com/) - Free AI-powered code completion for everyone, everywhere
+- [Windows 11: a spyware machine out of users' control?](https://www.techspot.com/news/97535-windows-11-spyware-machine-out-users-control.html)
+- [sqlc](https://github.com/kyleconroy/sqlc) - A SQL Compiler
+- [Use GPT-3 incorrectly: reduce costs 40x and increase speed by 5x](https://www.buildt.ai/blog/incorrectusage)
+  - To reduce costs and increase speed, they developed a technique to generate a moderately sized corpus of completions made by a larger model, and fine-tune a smaller model to do the same task. This can reduce costs by 40x and increase speed by 5x. This is an interesting approach to using GPT-3 to reduce costs and increase speed, and could be useful for other applications.
+  - [Knowledge distillation](https://en.m.wikipedia.org/wiki/Knowledge_distillation)
 - [Increment Selection - vs code extension](https://marketplace.visualstudio.com/items?itemName=albymor.increment-selection)
 - [Screw motivation, what you need is discipline.](https://www.wisdomination.com/screw-motivation-what-you-need-is-discipline/)
 - [Visual design rules you can safely follow every time](https://anthonyhobday.com/sideprojects/saferules/)

@@ -2,7 +2,7 @@
 id: nibpxpf7rzk5z4xjtx7kfzv
 title: When You Should Prefer Map Over Object In JavaScript
 desc: ""
-updated: 1656984975513
+updated: 1675926935497
 created: 1656984898136
 ---
 
@@ -29,11 +29,11 @@ In this post, I will break down all the reasons when you should consider using `
 Probably the most obvious downside of using objects for hash maps is that objects only allow keys that are strings and symbols. Any other types will be implicitly cast to string via the `toString` methods.
 
 ```jsx
-const foo = [];
-const bar = {};
-const obj = { [foo]: "foo", [bar]: "bar" };
+const foo = []
+const bar = {}
+const obj = { [foo]: "foo", [bar]: "bar" }
 
-console.log(obj); // {"": 'foo', [object Object]: 'bar'}
+console.log(obj) // {"": 'foo', [object Object]: 'bar'}
 ```
 
 More importantly, using objects for hash maps can cause confusion and _security hazards_.
@@ -43,7 +43,7 @@ More importantly, using objects for hash maps can cause confusion and _security 
 Before ES6, the only way to get a hash map is by creating an empty object.
 
 ```jsx
-const hashMap = {};
+const hashMap = {}
 ```
 
 However, upon creation, this object is no longer empty. Although `hashMap` is made with an empty object literal, it automatically inherits from `Object.prototype` . That's why we can invoke methods like `hasOwnProperty` , `toString` , `constructor` on `hashMap` even when we never explicitly define those methods on the object.
@@ -108,12 +108,12 @@ Looping through objects suffers from similar complexity.
 We can use the good old `for...in` loop. But it reveals inherited enumerable properties:
 
 ```jsx
-Object.prototype.foo = "bar";
+Object.prototype.foo = "bar"
 
-const obj = { id: 1 };
+const obj = { id: 1 }
 
 for (const key in obj) {
-  console.log(key); // 'id', 'foo'
+  console.log(key) // 'id', 'foo'
 }
 ```
 
@@ -124,13 +124,13 @@ We can use `Object.keys` , `Object.values` and `Object.entries` to get a list of
 Finally, the insertion order is infamously not _fully_ respected. In most browsers, integer keys are sorted in ascending order and take precedence over string keys even if the string keys are inserted before the integer keys.
 
 ```jsx
-const obj = {};
+const obj = {}
 
-obj.foo = "first";
-obj[2] = "second";
-obj[1] = "last";
+obj.foo = "first"
+obj[2] = "second"
+obj[1] = "last"
 
-console.log(obj); // {1: 'last', 2: 'second', foo: 'first'}
+console.log(obj) // {1: 'last', 2: 'second', foo: 'first'}
 ```
 
 #### clear
@@ -142,9 +142,9 @@ There is no easy way to remove all properties from an object, you have to delete
 Finally, we can't rely on the dot/bracket notation to check for existence of an property because the value itself could be set as `undefined`. Instead we have to use `Object.prototype.hasOwnProperty` or `Object.hasOwn`.
 
 ```jsx
-const obj = { a: undefined };
+const obj = { a: undefined }
 
-Object.hasOwn(obj, "a"); // true
+Object.hasOwn(obj, "a") // true
 ```
 
 ## Map for Hash Map
@@ -160,7 +160,7 @@ But more importantly, `Map` provides a _clean separation_ between user-defined a
 `Map` also provides better ergonomics: A `Map` is an iterable by default. That means you can iterate a map easily with `for...of`, and do things like using nested destructuring to pull out the first entry from a map.
 
 ```jsx
-const [[firstKey, firstValue]] = map;
+const [[firstKey, firstValue]] = map
 ```
 
 In contrast to `Object`, `Map` provides dedicated APIs for various common tasks:
@@ -190,16 +190,16 @@ The performances of insertion and iteration are measured in operations per secon
 
 ```jsx
 function measureFor(f, duration) {
-  let iterations = 0;
-  const now = performance.now();
-  let elapsed = 0;
+  let iterations = 0
+  const now = performance.now()
+  let elapsed = 0
   while (elapsed < duration) {
-    f();
-    elapsed = performance.now() - now;
-    iterations++;
+    f()
+    elapsed = performance.now() - now
+    iterations++
   }
 
-  return ((iterations / elapsed) * 1000).toFixed(4);
+  return ((iterations / elapsed) * 1000).toFixed(4)
 }
 ```
 

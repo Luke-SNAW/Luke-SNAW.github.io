@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1672876725649
+updated: 1675900969152
 created: 1646011997576
 ---
 
@@ -20,6 +20,7 @@ created: 1646011997576
   - Interactive data analysis, e.g. Joining & aggregate multiple large tables
   - Concurrent large changes, to multiple large tables, e.g. appending rows, adding/removing/updating columns
   - Large result set transfer to client
+- [sqlc](https://github.com/kyleconroy/sqlc) - A SQL Compiler
 
 ## SQL client
 

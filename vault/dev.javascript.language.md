@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1672645824156
+updated: 1675927260184
 created: 1644885695251
 ---
 
@@ -59,6 +59,36 @@ created: 1644885695251
   - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
 - [Working with the DOM in JavaScript](https://blog.openreplay.com/working-with-the-dom-in-javascript/)
 - The global **`structuredClone()`** method creates a [deep clone](https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy) of a given value using the [structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+- [JavaScript Require – How to Use the require() Function in JS](https://www.freecodecamp.org/news/how-to-use-the-javascript-require-function/)
+  - The require() function can be called from anywhere within the program, whereas import() cannot be called conditionally. It always runs at the beginning of the file.
+  - To include a module with the require() function, that module must be saved with a .js extension instead of .mjs when the import() statement is used.
+- [Understand the Lexical Scoping in JavaScript](https://javascript.plainenglish.io/understand-the-lexical-scoping-in-javascript-6b85ca94b565)
+
+  ```js
+  // Function scope vs Block scope example
+
+  function myFunc() {
+    if (true) {
+      var varVar = "function scoped variable"
+      let letVar = "block scoped variable"
+      const constVar = "also block scoped variable"
+    }
+    console.log(varVar)
+    console.log(letVar)
+    console.log(constVar)
+  }
+
+  myFunc()
+
+  // result:
+
+  // -> function scoped variable
+  // -> ReferenceError: letVar is not defined
+  // -> ReferenceError: constVar is not defined
+  ```
+
+- [A Better Way to Work With Number and Date Inputs in JavaScript](https://www.builder.io/blog/numbers-and-dates)
+  - valueAsNumber, valueAsDate
 
 ---
 

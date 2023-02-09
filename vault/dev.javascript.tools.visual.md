@@ -1,8 +1,8 @@
 ---
 id: gl5r2b3p7y7s8z82c0g9fni
-title: Visual
+title: Visual tools
 desc: ""
-updated: 1670223787475
+updated: 1675927344054
 created: 1646264359213
 ---
 
