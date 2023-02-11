@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1675927367702
+updated: 1676103800555
 created: 1646613084338
 ---
 
@@ -30,6 +30,7 @@ created: 1646613084338
 - [The Page With No Code](https://danq.me/2023/01/11/nocode/)
   - https://no-ht.ml/
 - ⚙️ [Math Breakdown: Anime Homing Missiles](https://blog.littlepolygon.com/posts/missile/)
+- [Image Compression with Singular Value Decomposition](https://timbaumann.info/svd-image-compression-demo/)
 
 ## News
 

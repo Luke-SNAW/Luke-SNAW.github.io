@@ -2,12 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1675927537955
+updated: 1676103790558
 created: 1667632965028
 ---
 
 ## Week 6, 2023
 
+- [Image Compression with Singular Value Decomposition](https://timbaumann.info/svd-image-compression-demo/)
 - [A Better Way to Work With Number and Date Inputs in JavaScript](https://www.builder.io/blog/numbers-and-dates)
   - valueAsNumber, valueAsDate
 - [Three attributes for better web forms](https://adactio.com/journal/19842)
