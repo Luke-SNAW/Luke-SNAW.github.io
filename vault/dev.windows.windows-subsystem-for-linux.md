@@ -1,7 +1,7 @@
 ---
 id: sljkvoig4nmdb1gpa89znah
 title: Windows Subsystem for Linux
-desc: ""
+desc: ''
 updated: 1666074671516
 created: 1666074627296
 ---

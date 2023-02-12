@@ -2,9 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1676103790558
+updated: 1676157291603
 created: 1667632965028
 ---
+
+## Week 7, 2023
+
+- Ask HN: What Happened to Elm?
+  - [In version 0.19, the core team hardcoded a whitelist into the compiler of which projects are allowed to use native code (which happened to basically be the core team's pet projects). This basically crippled the language beyond usability for everyone else.](https://news.ycombinator.com/item?id=34746350)
 
 ## Week 6, 2023
 
