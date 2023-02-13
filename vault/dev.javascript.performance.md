@@ -1,10 +1,12 @@
 ---
 id: qJYy3qzZt6rXHWQJPZd9Q
-title: Performance
+title: Javascript Performance
 desc: ""
-updated: 1656985554750
+updated: 1676265289338
 created: 1644479524849
 ---
+
+## Collections
 
 - [RAIL 모델을 사용한 성능 측정](https://web.dev/rail/)
   - 응답: 50ms 미만으로 이벤트 처리
@@ -24,3 +26,4 @@ created: 1644479524849
 - [Speeding up VSCode (extensions) in 2022](https://jason-williams.co.uk/speeding-up-vscode-extensions-in-2022)
 - [Patterns.dev](https://www.patterns.dev/) is a free book on design patterns and component patterns for building powerful web apps with vanilla JavaScript and React.
 - [Precise Timing With Web Animations API](https://www.smashingmagazine.com/2022/06/precise-timing-web-animations-api/)
+- [Speeding up the JavaScript ecosystem - eslint](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-3/)

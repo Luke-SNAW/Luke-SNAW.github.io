@@ -2,7 +2,7 @@
 id: dnqq11162p04a178qiuu23x
 title: Node
 desc: ""
-updated: 1673942756876
+updated: 1676262490826
 created: 1646868633251
 ---
 
@@ -23,3 +23,4 @@ created: 1646868633251
 - [Tao of Node - Design, Architecture & Best Practices](https://alexkondov.com/tao-of-node/)
 - [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
 - [A Comprehensive Guide to NodeJS Security Best Practices](https://javascript.plainenglish.io/a-comprehensive-guide-to-nodejs-security-best-practices-c852a100e81)
+- [Environment Variables in JavaScript: process.env](https://dmitripavlutin.com/environment-variables-javascript/)

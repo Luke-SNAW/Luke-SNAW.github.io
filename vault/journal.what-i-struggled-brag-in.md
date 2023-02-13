@@ -2,23 +2,21 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1676159299167
+updated: 1676248652512
 created: 1669264809793
 ---
 
-## Week 7, 2023
+## Week 7, 2023 - Windows Subsystem for Linux
 
-### 국생원 등록
+밑의 국성원 유전자 검사 신고 작업. 데이터 만드시는 분들이 야근하고 토요일에도 작업하셔서 일요일에 유효성 검사랑 실제 데이터 등록 테스트를 함.
 
-### Windows Subsystem for Linux
+WSL 설치 후 pnpm i error. 하단 답글보니 이게 뭔가 싶다. 결국 windows 영향을 받는다는 거잖아. 날리고 windows용으로 세팅
 
-설치 후 pnpm i error. 하단 답글보니 이게 뭔가 싶다. 결국 windows 영향을 받는다는 거잖아. 날리고 windows용으로 세팅
-
-#### [Solution for WSL](https://stackoverflow.com/a/58414196)
+### [Solution for WSL](https://stackoverflow.com/a/58414196)
 
 I solved this by mounting C:/ with default permissions bound to my user instead of root. I followed the guide here: [https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/](https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/)
 
-```javascript
+```shell
 sudo umount /mnt/c
 sudo mount -t drvfs C: /mnt/c -o metadata,uid=1000,gid=1000,umask=22,fmask=111
 ```
@@ -33,7 +31,9 @@ windows 설치 후 실행이 안됨
 
 좀 찾아보니 환경변수 확인하라고 함. 됨. [공식 문서](https://docs.volta.sh/guide/getting-started) linux 설치에는 환경변수 등록하라고 해놓고 windows에는 그런거 안써있는데?
 
-## Week 6, 2023
+## Week 6, 2023 - 국생원 유전자 검사 신고 - Playwright script
+
+실행이 빠르고 test code recording이 편한 playwright로…
 
 ## Week 5, 2023 - Cypress → Playwright → Cypress
 

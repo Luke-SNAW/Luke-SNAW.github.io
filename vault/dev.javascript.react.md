@@ -2,7 +2,7 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1671848174950
+updated: 1676264524067
 created: 1645666821126
 ---
 
@@ -31,6 +31,8 @@ created: 1645666821126
     > The real question is not about React going somewhere, some of the alternatives are not “slightly better” rather immensely better, you know that a big company in Brazil is using Svlete for embedded UI for arduino devices not so powerful, performance is a big thing, as devs we want to build the best application possible, we are not business mens looking for turnover, I’m a React developer myself and work as a freelance on a big React project, and let me tell you, if the project was written in Solid it will be 10x easier to maintain, just because of the app re-rendering all the time due to useEffects() thrown everywhere and non memoized functions, objets…it’s a complete mess, anyone that think it’s not big for me it’s because they didn’t work on a big project.
     >
     > Thus said i might be completely wrong, but for me i found that Svlete, Solid and Qwik are a superior alternatives, especially Solid, they offer you free optimized code without you thinking about anything, your app will be fully optimized out the box ! it’s huge
+- [A HISTORICAL REFERENCE OF REACT CRITICISM](https://www.zachleat.com/web/react-criticism/)
+- [Why Create React App exists](https://github.com/reactjs/reactjs.org/pull/5487#issuecomment-1409720741)
 
 ## Performance
 

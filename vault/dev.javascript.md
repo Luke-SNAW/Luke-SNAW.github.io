@@ -2,7 +2,7 @@
 id: IowIScQvzEu3KQ4dvwPTt
 title: JavaScript
 desc: ""
-updated: 1675314536939
+updated: 1676266968616
 created: 1645056460403
 ---
 
@@ -13,6 +13,17 @@ created: 1645056460403
 - 🛁 [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) - Clean Code concepts adapted for JavaScript
 - [Ask HN: Why did Frontend development explode in complexity?](https://news.ycombinator.com/item?id=34218003)
 - [10 Web Development Trends in 2023](https://www.robinwieruch.de/web-development-trends/)
+- [useSignal() is the future of web frameworks and is a better abstraction than useState(), which is showing its age.](https://javascriptweekly.com/link/135369/web)
+
+## [Discover the Magic of Portals: A Beginner’s Guide to React’s Most Powerful Tool](https://blog.bitsrc.io/discover-the-magic-of-portals-a-beginners-guide-to-react-s-most-powerful-tool-f6f1965ea305)
+
+Portals allow you to render components outside of their parent component’s tree.
+
+### When should you use portals?
+
+- Modals and dialogs
+- Tooltips and popovers
+- Overlaying content
 
 ## [15 Useful JavaScript Tips](https://javascript.plainenglish.io/15-useful-javascript-tips-814eeba1f4fd)
 

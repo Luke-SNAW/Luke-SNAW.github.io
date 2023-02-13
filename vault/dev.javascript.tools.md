@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1675646038731
+updated: 1676266464088
 created: 1644882116217
 ---
 
@@ -52,6 +52,7 @@ created: 1644882116217
 - [Type-safe React Query](https://tkdodo.eu/blog/type-safe-react-query)
 - [sysend](https://github.com/jcubic/sysend.js) - Web application synchronization between different tabs
 - [deadfile](https://github.com/M-Izadmehr/deadfile) - Simple util to find deadcode and unused files in any JavaScript project (ES5, ES6, React, Vue, ...).
+- [Using Notion as a Headless CMS with Nuxt](https://dev.to/trentbrew/using-notion-as-a-headless-cms-with-nuxt-3mk)
 
 ## Framework
 

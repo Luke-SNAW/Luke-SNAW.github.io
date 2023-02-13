@@ -2,12 +2,13 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1672803490626
+updated: 1676260216288
 created: 1646129148306
 ---
 
 ## Collections
 
+- [The Guide To Responsive Design In 2023 and Beyond](https://ishadeed.com/article/responsive-design/)
 - [When to Avoid the text-decoration Shorthand Property](https://css-tricks.com/when-to-avoid-css-text-decoration-shorthand/)
 - [CSS underline bugs in Chrome](https://css-tricks.com/css-underlines-are-too-thin-and-too-low-in-chrome/)
 - [revert](https://developer.mozilla.org/en-US/docs/Web/CSS/revert)
@@ -29,6 +30,7 @@ created: 1646129148306
   inset: 0;
   inset-inline: 10%;
   ```
+- [How To Build A Magazine Layout With CSS Grid Areas](https://www.smashingmagazine.com/2023/02/build-magazine-layout-css-grid-areas/)
 
 ## Pseudo-class
 
