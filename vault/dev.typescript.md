@@ -2,7 +2,7 @@
 id: 2ijeu1j04o0qzmy7hzk1tlb
 title: TypeScript
 desc: ""
-updated: 1668733261372
+updated: 1676427789663
 created: 1652057928334
 ---
 
@@ -38,6 +38,16 @@ created: 1652057928334
   ```
 
 - [Why Are Const Assertions a Gem in TypeScript?](https://blog.bitsrc.io/why-are-const-assertions-a-gem-in-typescript-e1d353f5d8ce)
+- [Type vs Interface in TypeScript](https://blog.bitsrc.io/type-vs-interface-in-typescript-cf3c00bc04ae)
+  - Use interfaces when:
+    - A new object or an object method needs to be defined.
+    - You wish to benefit from declaration merging.
+  - Use types when:
+    - You need to define a primitive-type alias
+    - Defining tuple types
+    - Defining a union
+    - You must create functions and attempt to overload them in object types through composition.
+    - Requiring the use of mapped types
 
 ## Overrated?
 

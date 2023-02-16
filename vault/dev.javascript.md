@@ -2,7 +2,7 @@
 id: IowIScQvzEu3KQ4dvwPTt
 title: JavaScript
 desc: ""
-updated: 1676266968616
+updated: 1676446074690
 created: 1645056460403
 ---
 
@@ -14,6 +14,8 @@ created: 1645056460403
 - [Ask HN: Why did Frontend development explode in complexity?](https://news.ycombinator.com/item?id=34218003)
 - [10 Web Development Trends in 2023](https://www.robinwieruch.de/web-development-trends/)
 - [useSignal() is the future of web frameworks and is a better abstraction than useState(), which is showing its age.](https://javascriptweekly.com/link/135369/web)
+- [React Server Components vs. Server-Side Rendering](https://www.thearmchaircritic.org/mansplainings/react-server-components-vs-server-side-rendering)
+  - https://beta.nextjs.org/docs/rendering/fundamentals
 
 ## [Discover the Magic of Portals: A Beginner’s Guide to React’s Most Powerful Tool](https://blog.bitsrc.io/discover-the-magic-of-portals-a-beginners-guide-to-react-s-most-powerful-tool-f6f1965ea305)
 

@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1676266962523
+updated: 1676533395899
 created: 1667632965028
 ---
 
 ## Week 7, 2023
 
+- [What's up with monomorphism?](https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html)
+- [Rethinking the Modern Web](https://dev.to/oxharris/rethinking-the-modern-web-5cn1)
+- [Use Maps More and Objects Less](https://www.builder.io/blog/maps)
+- [React Server Components vs. Server-Side Rendering](https://www.thearmchaircritic.org/mansplainings/react-server-components-vs-server-side-rendering)
+  - https://beta.nextjs.org/docs/rendering/fundamentals
+- [Type vs Interface in TypeScript](https://blog.bitsrc.io/type-vs-interface-in-typescript-cf3c00bc04ae)
+- [Unpacking API Management policies [Part 2]: 5 ways to handle REST API authentication](https://cloud.google.com/blog/products/api-management/5-ways-to-implement-rest-api-authentication/?hl=en)
 - [useSignal() is the future of web frameworks and is a better abstraction than useState(), which is showing its age.](https://javascriptweekly.com/link/135369/web)
 - [Using Notion as a Headless CMS with Nuxt](https://dev.to/trentbrew/using-notion-as-a-headless-cms-with-nuxt-3mk)
 - [Speeding up the JavaScript ecosystem - eslint](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-3/)

@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1676248652512
+updated: 1676333796399
 created: 1669264809793
 ---
 
@@ -34,6 +34,10 @@ windows 설치 후 실행이 안됨
 ## Week 6, 2023 - 국생원 유전자 검사 신고 - Playwright script
 
 실행이 빠르고 test code recording이 편한 playwright로…
+
+### 국생원 항목 입력 Error
+
+국생원 사이트에서 item 입력할 때 필수 항목이 빠지면 alert을 주지만, max length가 over되면 경고 없이 저장됐다가 나중에 확인되면 저장 안된걸 볼 수 있다. 해서 `항목저장확인` function으로 저장됐는지 확인 절차를 넣음
 
 ## Week 5, 2023 - Cypress → Playwright → Cypress
 
