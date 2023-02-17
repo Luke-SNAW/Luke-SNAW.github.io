@@ -2,7 +2,7 @@
 id: 67t7i0aphsf0dx02hgturxe
 title: Devops
 desc: ""
-updated: 1673312174366
+updated: 1676605709011
 created: 1648183203609
 ---
 
@@ -10,6 +10,10 @@ created: 1648183203609
 
 - [Maximizing Developer Effectiveness](https://martinfowler.com/articles/developer-effectiveness.html#DayInTheLifeInAHighlyEffectiveEnvironment)
 - [Do-nothing scripting: the key to gradual automation](https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/)
+- [Comparing the Top Eight Managed Kubernetes Providers](https://medium.com/@elliotgraebert/comparing-the-top-eight-managed-kubernetes-providers-2ae39662391b)
+  - Best overall: Azure
+  - Best for startups: Linode
+  - Best for cost: OVHCloud
 
 ## Culture
 

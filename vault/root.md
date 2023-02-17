@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1673616368998
+updated: 1676605833515
 created: 1644449449778
 ---
 
@@ -27,6 +27,8 @@ Hi there 👋. I'm a Front-end developer.
 > [recommended routine - bodyweightfitness](https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/) - I Don't Have This Much Time!
 >
 > - Don't workout at all (saves anywhere from 20 to 60 minutes, but really, really, really, really, really, really, really, really, really not recommended)
+
+> [Just 4 pages a day. It really adds up.](https://news.ycombinator.com/item?id=34779980)
 
 ---
 

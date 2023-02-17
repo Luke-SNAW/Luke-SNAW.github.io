@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1676252532338
+updated: 1676606055007
 created: 1646613084338
 ---
 
@@ -80,6 +80,8 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 - [Including "And. And. And. And. And." in a Google doc causes it to crash](https://support.google.com/docs/thread/162510194/including-and-and-and-and-and-in-a-google-doc-causes-it-to-crash?hl=en)
 - [Motion Controls In The Browser](https://www.smashingmagazine.com/2022/10/motion-controls-browser/)
 - [HTML is based on SGML](https://news.ycombinator.com/item?id=33553269)
+- [Electric Clojure](https://github.com/hyperfiddle/electric) – a signals DSL for fullstack web UI, with compiler-managed network sync
+  - https://news.ycombinator.com/item?id=34771771
 
 ### [Asterisk Magazine](https://asteriskmag.com/)
 

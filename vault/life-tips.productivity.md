@@ -2,7 +2,7 @@
 id: PddvXCJLzVqmA6DFKD6Uh
 title: Productivity
 desc: ""
-updated: 1670051128392
+updated: 1676605864722
 created: 1645523620804
 ---
 
@@ -44,6 +44,16 @@ In simple terms, it’s merely being in the same room with another person who is
 
 “Many people with ADHD find it easier to **_stay focused_** on housework, homework, bill paying, and other tasks when someone else is around to keep them company. The body double may just sit quietly. He may read, listen to music on headphones, or work on the task that the person with ADHD is working on. Hard work is simply more fun when someone else is nearby.”  
 – Patricia Quinn M.D., [ADDitudeMag.com](https://www.additudemag.com/getting-stuff-done-easier-with-a-friend-body-double/)
+
+## Just 4 pages a day
+
+> [kmt-lnh](https://news.ycombinator.com/item?id=34779980)
+
+In April 2021 I started to read 4 pages a day from big books I always wanted to read, but never had time for it. 4 pages and stop even if I get into the flow, 4 pages even if I'm falling asleep because it's so boring.
+
+Not even 2 years in, I've already read the Bible, the Elements of Euclid, Zeldovich's Intro to Higher Math, and am in the middle of Das Kapital. The Great Books canon never looked more approachable.
+
+Just 4 pages a day. It really adds up.
 
 ## Collections
 
