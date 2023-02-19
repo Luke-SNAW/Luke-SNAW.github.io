@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1676260216288
+updated: 1676768781008
 created: 1646129148306
 ---
 
@@ -31,6 +31,7 @@ created: 1646129148306
   inset-inline: 10%;
   ```
 - [How To Build A Magazine Layout With CSS Grid Areas](https://www.smashingmagazine.com/2023/02/build-magazine-layout-css-grid-areas/)
+- [CSS Named Colors: Groups, Palettes, Facts, & Fun](https://austingil.com/css-named-colors/)
 
 ## Pseudo-class
 

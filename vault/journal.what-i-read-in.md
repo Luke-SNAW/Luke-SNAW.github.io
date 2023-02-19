@@ -2,12 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1676606158502
+updated: 1676768751117
 created: 1667632965028
 ---
 
 ## Week 7, 2023
 
+- [CSS Named Colors: Groups, Palettes, Facts, & Fun](https://austingil.com/css-named-colors/)
 - [Electric Clojure](https://github.com/hyperfiddle/electric) – a signals DSL for fullstack web UI, with compiler-managed network sync
   - https://news.ycombinator.com/item?id=34771771
 - [Just 4 pages a day. It really adds up.](https://news.ycombinator.com/item?id=34779980)

@@ -2,7 +2,7 @@
 id: vti7us7fksaxnm7x9wjwl6v
 title: Sleep
 desc: ""
-updated: 1676107926928
+updated: 1676768507900
 created: 1674863142489
 tags: [shut-off, draft]
 published: false
@@ -27,6 +27,8 @@ published: false
 [15~19도. 12도 미만, 23도 이상은 너무 덥거나 추워 좋은 잠을 자기 어렵다.](https://postshare.co.kr/archives/117088)
 
 겨울동안 26도 정도 맞추고 잤는데 너무 벗어났잖아.
+
+- 1주일 해봤는데 기대 이상으로 잘 되는데?
 
 ## 2023/01
 
