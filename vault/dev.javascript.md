@@ -2,7 +2,7 @@
 id: IowIScQvzEu3KQ4dvwPTt
 title: JavaScript
 desc: ""
-updated: 1676446074690
+updated: 1676866804948
 created: 1645056460403
 ---
 
@@ -55,4 +55,6 @@ element.addEventListener("click", () => console.log("I run only once"), {
 </script>
 ```
 
-t
+## API
+
+- [The User Activation API](https://webkit.org/blog/13862/the-user-activation-api/)

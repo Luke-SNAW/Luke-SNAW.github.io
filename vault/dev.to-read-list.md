@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1675726122099
+updated: 1676866271107
 created: 1645681934406
 tags: bookshelf
 ---
@@ -38,6 +38,7 @@ tags: bookshelf
 - [Books for Software Engineers in 2023](https://grantisom.com/2023/01/02/mustread-books-for.html)
   - https://news.ycombinator.com/item?id=34225417
 - [Introduction to Statistical Learning](https://www.statlearning.com/)
+- [What Is ChatGPT Doing … and Why Does It Work?](https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/)
 
 ## PL
 

@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1668555135860
+updated: 1676866461208
 created: 1645514261238
 ---
 
@@ -22,6 +22,40 @@ In moment to moment work, I am starting to think focus is more about _not_ keepi
 In this vein, classical ethicists talk about the vice of curiosity as opposed to the virtue of studiousness. Studiousness is the virtue of attention, of self-mastery in relation to intellectual pursuits, of prudent allocation of attention to what you should; curiosity is the vice of inattention, of spreading yourself too thin, to pursue things other than what one should or what is not worth pursuing, pursuing that which is beyond your reach, of flitting about between things, of inordinate desire in the domain of intellectual pursuits. The studious man attains wisdom, the curious man remains, at best, a coasting, superficial dilettante. The difference between the studious man and the curious man is something like the difference between the committed and faithful husband and the waffling philanderer. The former shows restraint in relation to his appetites and is able to build a relationship and raise a family, while the latter is a mess who never achieves anything of value, slavishly indulging his appetites that lead nowhere but his own misery and mediocrity. In all these cases, desirable things may present themselves that would derail you from your aim and sabotage your achievement and your own good. In all these cases, commitment involves refusing to indulge those desires because doing so is counterproductive and harmful in relation to the good pursued.
 
 In life, we must make decisions. The word "decision" comes from the Latin "to cut off", as in to cut off options or paths. The grapevine must be pruned to strengthen it and produce more fruit. Of course, we must decide wisely, there is no question about that, but FOMO is the opposite of that. It is an intemperate and immoderate desire for everything, never committing to anything and therefore never attaining anything and never becoming anything.
+
+### [How do you deal with information and internet addiction?](https://news.ycombinator.com/item?id=34711741)
+
+> The purpose of knowledge is action, not knowledge.
+> ― Aristotle
+
+> Knowledge isn't free. You have to pay attention
+> ― Richard Feynman
+
+> "Information is not truth"
+> ― Yuval Noah Harari
+
+> If I were the plaything of every thought, I would be a fool, not a wise man.
+> ― Rumi
+
+> Dhamma is in your mind, not in the forest. You don't have to go and look anywhere else.
+> ― Ajahn Chah
+
+> Man has set for himself the goal of conquering the world,
+> but in the process he loses his soul.
+> ― Alexander Solzhenitsyn
+
+> The wise man knows the Self,
+> And he plays the game of life.
+> But the fool lives in the world
+> Like a beast of burden.
+> ― Ashtavakra Gita (4―1)
+
+> We must be true inside, true to ourselves,
+> before we can know a truth that is outside us.
+> ― Thomas Merton
+
+> Saying yes frequently is an additive strategy. Saying no is a subtractive strategy. Keep saying no to a lot of things - the negative and unimportant ones - and once in awhile, you will be left with an idea which is so compelling that it would be a screaming no-brainer 'yes'.
+> ― unknown
 
 ## [Nine Micro Life Hacks I Found on Reddit](https://medium.com/mind-cafe/nine-micro-life-hacks-i-found-on-reddit-that-are-surprisingly-useful-6c74638798e6)
 

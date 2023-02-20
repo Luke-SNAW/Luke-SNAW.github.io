@@ -1,7 +1,7 @@
 ---
 id: acvfwko2zkttghtfvatxr5b
 title: Use Maps More and Objects Less
-desc: ""
+desc: ''
 updated: 1676505575435
 created: 1676504920562
 ---

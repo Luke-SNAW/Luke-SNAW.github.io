@@ -2,7 +2,7 @@
 id: HtVLXiN97I2jTm8h2NEVQ
 title: Functional Programming
 desc: ""
-updated: 1675036761617
+updated: 1676866195141
 created: 1644825118480
 ---
 
@@ -17,3 +17,8 @@ created: 1644825118480
 - [Functional-Light JavaScript](https://github.com/getify/Functional-Light-JS) is a book balanced, pragmatic look at FP in JavaScript. #bookshelf
 - [Professor Frisby's Mostly Adequate Guide to Functional Programming](https://github.com/MostlyAdequate/mostly-adequate-guide): Mostly adequate guide to FP (in javascript) #bookshelf
   - https://mostly-adequate.gitbook.io/mostly-adequate-guide/
+
+---
+
+> Functional programming deals with values; imperative programming deals with objects.  
+> -Alexander Stepanov, “Elements of Programming”, p. 5

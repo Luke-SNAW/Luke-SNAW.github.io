@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1676852698494
+updated: 1676872909132
 created: 1667632965028
 ---
 
 ## Week 8, 2023
 
+- [`a = 0-x` is about 3-10x faster than `a = -x`](https://twitter.com/mhevery/status/1626259524930932745)
+- [How to Favicon in 2023: Six files that fit most needs](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs/)
+- [Important SEO-Related HTML Tags, And How To Optimize Them](https://blog.openreplay.com/important-seo-related-tags-in-html-and-how-to-optimize-them/)
+- https://pointerpointer.com/
+- [How to Inspect Interactions in the Browser](https://www.builder.io/blog/inspect-interactions-in-the-browser)
 - [I love building a startup in Rust. I wouldn't pick it again.](https://www.propelauth.com/post/i-love-building-a-startup-in-rust-i-wouldnt-pick-it-again)
   > If you're thinking about building something in Rust, a good question to ask is, "what would I use if Rust didn't exist?" If your answer is something like Go or Node.js, then Rust is probably not the right choice. If your answer is C or C++ or something similar, then Rust is very likely the right choice.
   > [zeroxfe](https://news.ycombinator.com/item?id=34836164)

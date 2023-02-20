@@ -2,7 +2,7 @@
 id: 80dlg24o2sdu3ti1ipwlgcb
 title: Feature Sliced Design
 desc: ""
-updated: 1667807401612
+updated: 1676867256326
 created: 1667807300848
 ---
 
@@ -86,3 +86,51 @@ Here's a proposed strategy to migrate an existing codebase to FSD, based on expe
 3. Start gradually increasing the precision of decomposition by separating `features` and `entities`, turning pages and widgets from logic-bearing layers into purely compositional layers.
 
 It's advised to refrain from adding new large entities while refactoring or refactoring only certain parts of the project.
+
+## [Structure](https://github.com/feature-sliced/documentation/blob/master/README.md#structure)
+
+```
+└── src/
+    ├── app/                    # Layer: Application
+    |                           #
+    ├── processes/              # Layer: Processes (optional)
+    |   ├── {some-process}/     #     Slice: (e.g. CartPayment process)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   └── model/          #         Segment: Business Logic
+    |   ...                     #
+    |                           #
+    ├── pages/                  # Layer: Pages
+    |   ├── {some-page}/        #     Slice: (e.g. ProfilePage page)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   ├── model/          #         Segment: Business Logic
+    |   |   └── ui/             #         Segment: UI logic
+    |   ...                     #
+    |                           #
+    ├── widgets/                # Layer: Widgets
+    |   ├── {some-widget}/      #     Slice: (e.g. Header widget)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   ├── model/          #         Segment: Business Logic
+    |   |   └── ui/             #         Segment: UI logic
+    ├── features/               # Layer: Features
+    |   ├── {some-feature}/     #     Slice: (e.g. AuthByPhone feature)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   ├── model/          #         Segment: Business Logic
+    |   |   └── ui/             #         Segment: UI logic
+    |   ...                     #
+    |                           #
+    ├── entities/               # Layer: Business entities
+    |   ├── {some-entity}/      #     Slice: (e.g. entity User)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   ├── model/          #         Segment: Business Logic
+    |   |   └── ui/             #         Segment: UI logic
+    |   ...                     #
+    |                           #
+    ├── shared/                 # Layer: Reused resources
+    |   ├── api/                #         Segment: Logic of API requests
+    |   ├── config/             #         Segment: Application configuration
+    |   ├── lib/                #         Segment: Infrastructure-application logic
+    |   └── ui/                 #         Segment: UIKit of the application
+    |   ...                     #
+    |                           #
+    └── index.tsx/              #
+```

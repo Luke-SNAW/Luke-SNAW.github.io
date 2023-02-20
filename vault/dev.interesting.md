@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1676606055007
+updated: 1676872919175
 created: 1646613084338
 ---
 
@@ -31,6 +31,9 @@ created: 1646613084338
   - https://no-ht.ml/
 - ⚙️ [Math Breakdown: Anime Homing Missiles](https://blog.littlepolygon.com/posts/missile/)
 - [Image Compression with Singular Value Decomposition](https://timbaumann.info/svd-image-compression-demo/)
+- [Email explained from first principles](https://explained-from-first-principles.com/email/)
+- https://pointerpointer.com/
+- [`a = 0-x` is about 3-10x faster than `a = -x`](https://twitter.com/mhevery/status/1626259524930932745)
 
 ## News
 
