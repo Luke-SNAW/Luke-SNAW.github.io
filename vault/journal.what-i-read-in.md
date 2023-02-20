@@ -2,13 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1676768751117
+updated: 1676852698494
 created: 1667632965028
 ---
 
+## Week 8, 2023
+
+- [I love building a startup in Rust. I wouldn't pick it again.](https://www.propelauth.com/post/i-love-building-a-startup-in-rust-i-wouldnt-pick-it-again)
+  > If you're thinking about building something in Rust, a good question to ask is, "what would I use if Rust didn't exist?" If your answer is something like Go or Node.js, then Rust is probably not the right choice. If your answer is C or C++ or something similar, then Rust is very likely the right choice.
+  > [zeroxfe](https://news.ycombinator.com/item?id=34836164)
+- [Writing Javascript without a build system](https://jvns.ca/blog/2023/02/16/writing-javascript-without-a-build-system/)
+  - For me, a complicated Javascript build system just doesn’t seem worth it for small 500-line projects
+  - [if I want a build system, use esbuild](https://jvns.ca/blog/2021/11/15/esbuild-vue/)
+- [CSS Named Colors: Groups, Palettes, Facts, & Fun](https://austingil.com/css-named-colors/)
+
 ## Week 7, 2023
 
-- [CSS Named Colors: Groups, Palettes, Facts, & Fun](https://austingil.com/css-named-colors/)
 - [Electric Clojure](https://github.com/hyperfiddle/electric) – a signals DSL for fullstack web UI, with compiler-managed network sync
   - https://news.ycombinator.com/item?id=34771771
 - [Just 4 pages a day. It really adds up.](https://news.ycombinator.com/item?id=34779980)

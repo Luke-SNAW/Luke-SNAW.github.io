@@ -1,7 +1,7 @@
 ---
 id: JjnZGSlKYcKidhIXatYpe
 title: Qwik
-desc: ""
+desc: ''
 updated: 1645488420176
 created: 1645488090448
 ---

@@ -1,10 +1,13 @@
 ---
 id: 9ju4drok0fv1fml7977iyba
 title: Your Nextjs Bundle Will Thank You
-desc: ""
+desc: ''
 updated: 1667882410996
 created: 1667881389948
-tags: [performance, divops, bundler]
+tags:
+  - performance
+  - divops
+  - bundler
 ---
 
 > https://renatopozzi.me/articles/your-nextjs-bundle-will-thank-you

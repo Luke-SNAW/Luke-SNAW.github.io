@@ -1,8 +1,8 @@
 ---
 id: yWa1wrYH9UNop3dtcuTNq
-title: Divops
+title: Divops - javascript build system, CI, ...
 desc: ""
-updated: 1676506187191
+updated: 1676849623010
 created: 1645487597592
 ---
 
@@ -11,3 +11,6 @@ created: 1645487597592
   - desktop / mobile
   - client / crawler
 - [Rethinking the Modern Web](https://dev.to/oxharris/rethinking-the-modern-web-5cn1)
+- [Writing Javascript without a build system](https://jvns.ca/blog/2023/02/16/writing-javascript-without-a-build-system/)
+  - For me, a complicated Javascript build system just doesn’t seem worth it for small 500-line projects
+  - [if I want a build system, use esbuild](https://jvns.ca/blog/2021/11/15/esbuild-vue/)
