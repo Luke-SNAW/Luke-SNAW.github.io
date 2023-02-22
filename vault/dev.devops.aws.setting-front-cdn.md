@@ -2,7 +2,7 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1674627124664
+updated: 1677036985411
 created: 1646021156163
 ---
 
@@ -78,6 +78,7 @@ created: 1646021156163
 ### CloudFront Functions
 
 ```js
+// cache
 function handler(event) {
   var response = event.response
   var headers = response.headers
@@ -89,6 +90,22 @@ function handler(event) {
   }
   // cache-control
   headers["cache-control"] = { value: "public,max-age=31536000,immutable;" }
+  return response
+}
+```
+
+```js
+// non-cache index.html cache가 남아 있으면 front 배포 때마다 새로 build 된 assets의 uri을 못 가져온다.
+function handler(event) {
+  var response = event.response
+  var headers = response.headers
+
+  // CORS header
+  if (!headers["access-control-allow-origin"]) {
+    headers["access-control-allow-origin"] = { value: "*" }
+  }
+  // cache-control
+  headers["cache-control"] = { value: "no-store, must-revalidate" }
   return response
 }
 ```

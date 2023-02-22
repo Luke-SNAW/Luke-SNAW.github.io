@@ -2,12 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1676872909132
+updated: 1677042826895
 created: 1667632965028
 ---
 
 ## Week 8, 2023
 
+- [test && commit || revert](https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864)
+- [Limbo: Scaling Software Collaboration](https://medium.com/@kentbeck_7670/limbo-scaling-software-collaboration-afd4f00db4b)
+  > Sort commits into “couldn’t possibly cause problems” (you’ll be mostly right) and “might cause problems”. Treat them differently. Rearrange your workflow so you have mostly “couldn’t possibly cause problems” commits.
+- [My class required AI. Here's what I've learned so far.](https://oneusefulthing.substack.com/p/my-class-required-ai-heres-what-ive)
 - [`a = 0-x` is about 3-10x faster than `a = -x`](https://twitter.com/mhevery/status/1626259524930932745)
 - [How to Favicon in 2023: Six files that fit most needs](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs/)
 - [Important SEO-Related HTML Tags, And How To Optimize Them](https://blog.openreplay.com/important-seo-related-tags-in-html-and-how-to-optimize-them/)

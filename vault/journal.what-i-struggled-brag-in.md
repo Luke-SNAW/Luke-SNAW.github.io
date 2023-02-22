@@ -2,9 +2,52 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1676333796399
+updated: 1677037393573
 created: 1669264809793
 ---
+
+## Week 8, 2023 - Cloudfront: nuxt missing resource by html cache after new deployment
+
+### 문제
+
+nuxt generate하여 s3를 통해 cloudfront로 서비스하면,
+[[cache 정책|dev.devops.aws.setting-front-cdn#cache]]
+에 따라 browser에서 새로 배포 되기 전의 index.html cache를 읽어 배포로 삭제된 .js, .css를 못 찾아 404 error가 뜬다.
+![index.html cache가 남아 있으면 front 배포 때마다 새로 build 된 assets의 uri을 못 가져온다.](assets/images/what-i-struggled-brag-in/cloudfront__invalidate-html-cache-0.webp)
+
+### 해결: Cache control - [[CloudFront functions|dev.devops.aws.setting-front-cdn#cloudfront-functions]]
+
+index.html pattern에
+
+```
+cache-control: no-store,must-revalidate;
+```
+
+> https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+
+---
+
+### 참고
+
+이것도 같지만... cache control로 변경한 이전 작업
+
+> [How to make CloudFront never cache index.html on S3 bucket](https://stackoverflow.com/a/54462509/5163033)
+
+A solution based on CloudFront configuration:
+
+Go to your CloudFront distribution, under the "Behavior" tab and create a new behavior. Specify the following values:
+
+- Path Pattern: index.html
+- Object Caching: customize
+- Maximum TTL: 0 (or another very small value)
+- Default TTL: 0 (or another very small value)
+- Save this configuration.
+
+CloudFront will not cache index.html anymore.
+
+---
+
+I think this answer applies to the `Use legacy cache settings` option in `Cache and origin request settings`. If you want to use an existing managed policy by selecting the `Use a cache policy and origin request policy` option, I think the correct value is `Managed-CachingDisabled`
 
 ## Week 7, 2023 - Windows Subsystem for Linux
 

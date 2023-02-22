@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1673229080044
+updated: 1677042836256
 created: 1644451403760
 ---
 
@@ -18,6 +18,9 @@ created: 1644451403760
   - [WWW benefits](https://css-tricks.com/does-www-still-belong-in-urls/#aa-www-benefits)
 - [roadmap.sh](https://roadmap.sh/) - Community driven roadmaps, articles and resources for developers
 - https://github.com/sindresorhus/awesome - 😎 Awesome lists about all kinds of interesting topics
+- [test && commit || revert](https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864)
+- [Limbo: Scaling Software Collaboration](https://medium.com/@kentbeck_7670/limbo-scaling-software-collaboration-afd4f00db4b)
+  > Sort commits into “couldn’t possibly cause problems” (you’ll be mostly right) and “might cause problems”. Treat them differently. Rearrange your workflow so you have mostly “couldn’t possibly cause problems” commits.
 
 ### re:Work
 
