@@ -2,7 +2,7 @@
 id: dnqq11162p04a178qiuu23x
 title: Node
 desc: ""
-updated: 1676262490826
+updated: 1677472431666
 created: 1646868633251
 ---
 
@@ -24,3 +24,8 @@ created: 1646868633251
 - [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
 - [A Comprehensive Guide to NodeJS Security Best Practices](https://javascript.plainenglish.io/a-comprehensive-guide-to-nodejs-security-best-practices-c852a100e81)
 - [Environment Variables in JavaScript: process.env](https://dmitripavlutin.com/environment-variables-javascript/)
+- [Debugging Node.js, The Right Way](https://www.builder.io/blog/debug-nodejs)
+  ```shell
+  node server.js --inspect-brk
+  ```
+  - [chrome dev tools](https://cdn.builder.io/api/v1/image/assets%252FYJIGb4i01jvw0SRdL5Bt%252Ff5dd633650214ff28d620d233299329b?format=webp&width=2000)

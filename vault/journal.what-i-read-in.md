@@ -2,9 +2,21 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1677042826895
+updated: 1677483420818
 created: 1667632965028
 ---
+
+## Week 9, 2023
+
+- [Easy implemented dark mode](https://twitter.com/flaviocopes/status/1627609246014619649)
+- [What to Expect from Vue in 2023 and How it Differs from React](https://thenewstack.io/vue-2023/)
+- [The Unreasonable Effectiveness of Conditional Probabilities](https://two-wrongs.com/unreasonable-effectiveness-of-conditional-probabilities.html)
+  - https://news.ycombinator.com/item?id=34900823
+- [Debugging Node.js, The Right Way](https://www.builder.io/blog/debug-nodejs)
+  ```shell
+  node server.js --inspect-brk
+  ```
+  - [chrome dev tools](https://cdn.builder.io/api/v1/image/assets%252FYJIGb4i01jvw0SRdL5Bt%252Ff5dd633650214ff28d620d233299329b?format=webp&width=2000)
 
 ## Week 8, 2023
 

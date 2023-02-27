@@ -2,9 +2,20 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1677037393573
+updated: 1677482755205
 created: 1669264809793
 ---
+
+## Week 9, 2023 - Layout about scroll bar
+
+현재 데스크탑 스크롤 바가 body에만 적용되어 있고 header에는 없습니다.
+![](assets/images/what-i-struggled-brag-in/scrollbar-width.webp)
+
+chome 계열에선 스크롤 바가 width 차지 않게 하는 [overlay 속성](https://caniuse.com/?search=overflow-y%3A%20overlay) 넣겠습니다.
+
+- header가 스크롤 무관하게 고정 위치라 그런지 스크롤 바 width 무시합니다.
+
+apple site도 layout 위치 벗어나게 두네요.
 
 ## Week 8, 2023 - Cloudfront: nuxt missing resource by html cache after new deployment
 

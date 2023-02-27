@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1676768781008
+updated: 1677483265688
 created: 1646129148306
 ---
 
@@ -32,6 +32,20 @@ created: 1646129148306
   ```
 - [How To Build A Magazine Layout With CSS Grid Areas](https://www.smashingmagazine.com/2023/02/build-magazine-layout-css-grid-areas/)
 - [CSS Named Colors: Groups, Palettes, Facts, & Fun](https://austingil.com/css-named-colors/)
+- [Easy implemented dark mode](https://twitter.com/flaviocopes/status/1627609246014619649)
+  - Invert all colors, set a nice background, and invert again images and emojis so they look correctly.
+  ```css
+  @media (prefers-color-scheme: dark) {
+    body {
+      filter: invert(100%);
+      background-color: rgb(29, 32, 31) !important;
+    }
+    img,
+    .emoji {
+      filter: invert(100%);
+    }
+  }
+  ```
 
 ## Pseudo-class
 
