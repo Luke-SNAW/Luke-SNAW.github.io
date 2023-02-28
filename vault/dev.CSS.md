@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1677483265688
+updated: 1677570263036
 created: 1646129148306
 ---
 
@@ -46,6 +46,7 @@ created: 1646129148306
     }
   }
   ```
+- [Resizing with CSS](https://css-irl.info/resizing-with-css/)
 
 ## Pseudo-class
 

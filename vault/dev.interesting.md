@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1676872919175
+updated: 1677569999179
 created: 1646613084338
 ---
 
@@ -34,6 +34,8 @@ created: 1646613084338
 - [Email explained from first principles](https://explained-from-first-principles.com/email/)
 - https://pointerpointer.com/
 - [`a = 0-x` is about 3-10x faster than `a = -x`](https://twitter.com/mhevery/status/1626259524930932745)
+- [Firecracker internals: a deep dive inside the technology powering AWS Lambda](https://www.talhoffman.com/2021/07/18/firecracker-internals/)
+  - https://github1s.com/firecracker-microvm/firecracker
 
 ## News
 

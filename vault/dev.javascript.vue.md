@@ -2,7 +2,7 @@
 id: p6jdsvhol2ebyzilnb5u3ot
 title: Vue
 desc: ""
-updated: 1677483033518
+updated: 1677570313607
 created: 1646815969488
 ---
 
@@ -15,6 +15,10 @@ created: 1646815969488
   - [Vue.js has been selected as Wikimedia Foundation's future JavaScript framework](https://lists.wikimedia.org/hyperkitty/list/wikitech-l@lists.wikimedia.org/thread/SOZREBYR36PUNFZXMIUBVAIOQI4N7PDU/)
   - [RFC: Adopt a modern JavaScript framework for use with MediaWiki](https://phabricator.wikimedia.org/T241180) and [EvanYou comment](https://phabricator.wikimedia.org/T241180#:~:text=Project%20lead%20of%20Vue.js%20here.)
 - [What to Expect from Vue in 2023 and How it Differs from React](https://thenewstack.io/vue-2023/)
+- [Why I’m sticking with Vue in 2023](https://medium.com/@lindblomdev/why-im-sticking-with-vue-in-2023-d67bce7bc2f4)
+  - Script setup + composition API produce clean code
+  - Performance is good
+  - Best tooling I have used
 
 ## nextTick
 

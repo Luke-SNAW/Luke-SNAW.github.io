@@ -2,7 +2,7 @@
 id: 530nq8t28bki28yiaikjxrp
 title: Accessibility tools
 desc: ""
-updated: 1675927288088
+updated: 1677570187495
 created: 1672010801202
 ---
 
@@ -20,3 +20,4 @@ created: 1672010801202
   - [WAVE Evaluation Tool](https://wave.webaim.org/) v3.2.2.0 browser extension for Chrome and Firefox.
   - [Equal Access Accessibility Checker](https://www.ibm.com/able/toolkit/tools) (EAAC) v3.1.42.9999 browser extension for Chrome and Firefox.
 - [Screen Readers support for text level HTML semantics](https://www.tpgi.com/screen-readers-support-for-text-level-html-semantics/)
+- [48 Accessibility Bookmarklets You Can Use For A11Y Testing](https://www.digitala11y.com/accessibility-bookmarklets-testing/)
