@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1677544261434
+updated: 1677802294458
 created: 1644882116217
 ---
 
@@ -54,6 +54,9 @@ created: 1644882116217
 - [deadfile](https://github.com/M-Izadmehr/deadfile) - Simple util to find deadcode and unused files in any JavaScript project (ES5, ES6, React, Vue, ...).
 - [Using Notion as a Headless CMS with Nuxt](https://dev.to/trentbrew/using-notion-as-a-headless-cms-with-nuxt-3mk)
 - [jose](https://github.com/panva/jose) - "JSON Web Almost Everything" - JWA, JWS, JWE, JWT, JWK, JWKS for Node.js, Browser, Cloudflare Workers, Deno, Bun, and other Web-interoperable runtimes.
+- [js-beautify](https://github.com/beautify-web/js-beautify) - partly deobfuscate scripts
+- [devalue](https://github.com/Rich-Harris/devalue) - Gets the job done when JSON.stringify can't
+- [vite-plugin-federation](https://github.com/originjs/vite-plugin-federation) - Module Federation for vite & rollup
 
 ## Framework
 
