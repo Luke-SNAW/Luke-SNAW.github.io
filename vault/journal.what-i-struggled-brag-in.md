@@ -2,9 +2,31 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1677482755205
+updated: 1677826929084
 created: 1669264809793
 ---
+
+## Week 9, 2023 - XState
+
+새로운 프로젝트에 인증관련 상태를 XState로 적용해보고 있는데 Nuxt, global state, XState 콜라보로 난항.  
+article보면 다들 잘 쓰고 있던데, 그 동안 본 문서 중에서 제일 읽기 힘듬.  
+error라도 뱉어야 하는데 왜 죄다 침묵하지?
+
+1. 내가 예상하기론 어떤 기능이 있어야 하는데, 문서에는 없고
+2. 함수 내의 navigateTo 처리가 안되서 XState 쪽을 계속 봤는데 Nuxt에서 error도 안내고 처리 안하고 있었고 (lifecycle 단계 문제로 보임)
+3. global instance인지 새로 instance 생성되는지 명확히 안나와서 죄다 뒤져보고
+4. instance 생성이라는 글을 github issue에서 찾고 state management를 해보니 또 invoke 처리가 안되는거 같아서 계속 파보니 state에서부터 compute하지 말고 machine부터 compute범위에 넣어야 하고...
+
+   ```js
+   const authMachine = useAuthMachine()
+   const { state, send } = authMachine.value
+   const loginStatus = computed(() => state.value) // ! state.value 번화가 없음
+
+   const loginStatus = computed(() => authMachine.value.state.value) // 이렇게 해야 state.value 변화가 감지된다.
+   ```
+
+5. store쪽에 useMachine을 넣으면 hook이라서 그런가 invoke가 또 안되고... (app.vue에서 useMachine을 넣으면 해결됨). error라도 뱉든지
+6. 문서는 왜 또 v4랑 v5 alpha 내용이 섞여있냐.
 
 ## Week 9, 2023 - Layout about scroll bar
 
