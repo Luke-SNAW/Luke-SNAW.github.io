@@ -2,9 +2,13 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1677826929084
+updated: 1678161158706
 created: 1669264809793
 ---
+
+## Week 10, 2023 - CloudFront에서 /subdir/index.html 서비스 세팅
+
+[[dev.devops.aws.setting-front-cdn#how-do-i-serve-indexhtml-in-subfolders-with-s3cloudfront]]
 
 ## Week 9, 2023 - XState
 
@@ -50,7 +54,7 @@ nuxt generate하여 s3를 통해 cloudfront로 서비스하면,
 
 ### 해결: Cache control - [[CloudFront functions|dev.devops.aws.setting-front-cdn#cloudfront-functions]]
 
-index.html pattern에
+\*.html pattern에
 
 ```
 cache-control: no-store,must-revalidate;

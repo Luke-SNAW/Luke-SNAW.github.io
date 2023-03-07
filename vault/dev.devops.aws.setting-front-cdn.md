@@ -2,7 +2,7 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1677036985411
+updated: 1678161199322
 created: 1646021156163
 ---
 
@@ -79,6 +79,7 @@ created: 1646021156163
 
 ```js
 // cache
+// path pattern - Default (*)
 function handler(event) {
   var response = event.response
   var headers = response.headers
@@ -96,6 +97,7 @@ function handler(event) {
 
 ```js
 // non-cache index.html cache가 남아 있으면 front 배포 때마다 새로 build 된 assets의 uri을 못 가져온다.
+// path pattern - *.html
 function handler(event) {
   var response = event.response
   var headers = response.headers
@@ -119,3 +121,9 @@ function handler(event) {
 
 cloudfront에서 403 error를 SPA framework index.html로 처리하도록 해주면 framework에서 404 처리해 줌
 ![](assets/images/what-i-struggled-brag-in/s3-cloudfront-404-custom-setting.webp)
+
+## [How do I serve index.html in subfolders with S3/Cloudfront?](https://stackoverflow.com/a/59649703/5163033)
+
+In brief: when setting up your CloudFront distribution, don’t set the origin to the name of the S3 bucket; instead, set the origin to the static website endpoint that corresponds to that S3 bucket. Amazon [are clear](https://aws.amazon.com/premiumsupport/knowledge-center/s3-rest-api-cloudfront-error-403/) there is a difference here, between REST API endpoints and static website endpoints, but they’re only looking at 403 errors coming from the root in that document. [#](https://www.mark-gilbert.co.uk/serving-index-pages-from-non-root-locations-with-aws-cloudfront/#:~:text=to%20the%20solution.-,In%20brief%3A,-when%20setting%20up)
+
+![](assets/images/devops/s3-cloudfront__subdir.webp)

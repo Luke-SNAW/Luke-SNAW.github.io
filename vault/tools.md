@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1675812723246
+updated: 1678075749280
 created: 1644799670081
 ---
 
@@ -82,3 +82,4 @@ created: 1644799670081
 - Bearblog and prose.sh
 - [How I Use Slack](https://gpeal.medium.com/how-i-use-slack-b0dbf06d9a18)
 - [ai-collection](https://github.com/ai-collection/ai-collection) - A List of Awesome Generative AI Applications
+- [rallly](https://github.com/lukevella/rallly) - Self-hostable doodle poll alternative. Find the best date for a meeting with your colleagues or friends without the back and forth emails.
