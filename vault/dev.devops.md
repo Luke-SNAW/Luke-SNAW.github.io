@@ -2,7 +2,7 @@
 id: 67t7i0aphsf0dx02hgturxe
 title: Devops
 desc: ""
-updated: 1676605709011
+updated: 1678748596274
 created: 1648183203609
 ---
 
@@ -14,6 +14,14 @@ created: 1648183203609
   - Best overall: Azure
   - Best for startups: Linode
   - Best for cost: OVHCloud
+- [Basics of CI/CD Pipeline](https://medium.com/jaanvi/basics-of-ci-cd-pipeline-5762e0eca44e)
+  1. Version control
+  2. Build
+  3. Unit test
+  4. Deploy
+  5. Auto test
+  6. Deploy to production
+  7. Measure & validate
 
 ## Culture
 

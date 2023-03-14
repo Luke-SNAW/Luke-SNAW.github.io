@@ -1,8 +1,8 @@
 ---
 id: 2qiksgdv8iqkfg3wk64yqoy
-title: The Role of DevOps
+title: The Role of Devops
 desc: ""
-updated: 1648193873205
+updated: 1678748692175
 created: 1648193871776
 ---
 
@@ -17,7 +17,7 @@ Three practices cover the role of DevOps in deploying your app:
 They form a kind of ladder of DevOps maturity or advancement. Each rung of that ladder has a set of goals as well as a set of costs or challenges.
 ![ladder of devops](/assets/images/the-role-of-devops.webp)
 
-# Continuous Integration
+## Continuous Integration
 
 The first step on the ladder to more successful and reliable deployments is continuous integration. At this stage, everyone on the team adopts the practice of checking the code into the repository often. This means merging any changes into the master branch (or main trunk) of the repo. This is the practice I covered in Chapter 1, [Getting Started with API First](https://medium.com/@pragprog/chapter-1-getting-started-with-api-first-c48ac3a7186). Those check-ins should kick off automated tests too. We saw how to do that using Postman and Newman in Chapter 9, [Testing APIs](https://medium.com/@pragprog/chapter-9-testing-apis-d8684ba54e56).
 
@@ -25,13 +25,13 @@ By checking in your changes often and running automated tests for every check-in
 
 Continuous integration handles the coding, check-in, and testing steps.
 
-# Continuous Delivery
+## Continuous Delivery
 
 At this point, the process of releasing into final staging is automated through scripting. That means deployment is reduced to making some selections (or configurations) and pressing a button. Now, along with scripted testing from continuous integration you also have scripted deployment to the staging level.
 
 Continuous delivery handles the coding, check-in, testing, and staging steps.
 
-# Continuous Deployment
+## Continuous Deployment
 
 At this stage, we’re not just scripting testing and staging deployment. We’re also making deployment into production automatic. That means making the entire process of testing and deploying your app completely driven by scripts and other tooling without the need for a human to “press a button.” Typically this is done by setting up your source code check-in process to handle the entire test-and-deploy process.
 

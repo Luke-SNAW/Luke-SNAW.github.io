@@ -2,9 +2,40 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1678161158706
+updated: 1678684348218
 created: 1669264809793
 ---
+
+## Week 10, 2023 - Vue3 flatMap reactive
+
+이전 vue2 code를 vue3 기반의 nuxt로 옮기다가 발생한 버그
+
+```js
+// data 생성 code
+report?.disease.categories.flatMap((d) => d.items).map(
+   (d) => {d.invalid = !d.code || d.codeSkip == 'Y' return d})
+```
+
+저기에 마지막 map 안쪽 code가 데이터에 반영되지 않고, sorting도 되지 않음.
+
+나중에 알아낸건 flatMap 단계까지만 reactive되고 그 이후는 안됨. map을 두 번 써서 그런지, flatMap까지만 되는 건지, vue3(hook), vue2 code(option) 섞어서 써서 그런지 이유는 모름.
+
+map 대신에 forEach로 먼저 데이터 처리하고 component에 넘길 때 flatMap으로 넘겨주니 정상 동작.
+
+## Week 10, 2023 - Vue3 defineProps reactive
+
+skeleton 때문에 undefined 데이터도 props로 전달하는데
+vue3에서 defineProps가 reactive 되지 않아
+실제 데이터가 들어왔을 때 갱신을 안 함.
+
+props 변수에 toRef로 한 번 더 wrapping 하여 해결.
+
+> [[dev.javascript.vue.what-is-the-difference-between-ref-toref-and-torefs]]
+
+```js
+const props = defineProps({ data: Object })
+const data = toRef(props, "data")
+```
 
 ## Week 10, 2023 - CloudFront에서 /subdir/index.html 서비스 세팅
 

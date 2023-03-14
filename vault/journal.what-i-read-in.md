@@ -2,12 +2,28 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1678238249090
+updated: 1678836545651
 created: 1667632965028
 ---
 
+## Week 11, 2023
+
+- [Master the Art of Caching for System Design Interviews: A Complete Guide](https://levelup.gitconnected.com/master-the-art-of-caching-for-system-design-interviews-a-complete-guide-676bb49d194)
+- [Highlights from Git 2.40](https://github.blog/2023-03-13-highlights-from-git-2-40/)
+- [Basics of CI/CD Pipeline](https://medium.com/jaanvi/basics-of-ci-cd-pipeline-5762e0eca44e)
+  1. Version control
+  2. Build
+  3. Unit test
+  4. Deploy
+  5. Auto test
+  6. Deploy to production
+  7. Measure & validate
+- [Managing State In Vue With Pinia ORM](https://blog.openreplay.com/managing-state-in-vue-with-pinia-orm/)
+
 ## Week 10, 2023
 
+- [The Best Engineering Blogs](https://draft.dev/learn/engineering-blogs)
+- [Everything You Need to Know About the Gap After the List Marker](https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/)
 - [Study finds mushrooms magnify memory by boosting nerve growth](https://medicalxpress.com/news/2023-02-mushrooms-magnify-memory-boosting-nerve.html)
   > I think it should be everyone's primary focus to sleep well, drink water, get outside, get active, and eat generally decently. I hate to say it, but if you're not eating a good amount of vegetables and fruit, decent protein, sleep, etc, no amount of XYZ will catch up to that detriment.
   >

@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1677570263036
+updated: 1678334898670
 created: 1646129148306
 ---
 
@@ -47,6 +47,7 @@ created: 1646129148306
   }
   ```
 - [Resizing with CSS](https://css-irl.info/resizing-with-css/)
+- [Everything You Need to Know About the Gap After the List Marker](https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/)
 
 ## Pseudo-class
 
