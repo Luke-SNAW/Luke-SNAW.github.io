@@ -2,9 +2,19 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗‍♂️/📣 brag In"
 desc: ""
-updated: 1678684348218
+updated: 1678842355536
 created: 1669264809793
 ---
+
+## Week 11, 2023 - Vue3 dev/prod env 차이
+
+개발은 server 띄워서 하고, prod은 jam stack으로 올리니 차이점이 발생.
+
+```js
+if (process.server) return
+```
+
+plugin에서 써야 할 곳이 많다.
 
 ## Week 10, 2023 - Vue3 flatMap reactive
 

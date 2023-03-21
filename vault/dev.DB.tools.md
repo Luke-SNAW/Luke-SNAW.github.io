@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1675900969152
+updated: 1679357042172
 created: 1646011997576
 ---
 
@@ -21,6 +21,9 @@ created: 1646011997576
   - Concurrent large changes, to multiple large tables, e.g. appending rows, adding/removing/updating columns
   - Large result set transfer to client
 - [sqlc](https://github.com/kyleconroy/sqlc) - A SQL Compiler
+- [Steampipe](https://github.com/turbot/steampipe) is the universal interface to APIs. Use SQL to query cloud infrastructure, SaaS, code, logs, and more.
+  - https://github.com/turbot/steampipe-plugin-googlesheets
+- [libgsqlite](https://github.com/0x6b/libgsqlite) - A SQLite extension which loads a Google Sheet as a virtual table.
 
 ## SQL client
 

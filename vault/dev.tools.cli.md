@@ -2,7 +2,7 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1673313109008
+updated: 1679298106507
 created: 1653704390962
 ---
 
@@ -10,6 +10,7 @@ created: 1653704390962
 
 - [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line)
 - 🤖 [just](https://github.com/casey/just) is a handy way to save and run project-specific commands.
+- [Structured text tools](https://github.com/dbohdan/structured-text-tools) - The following is a list of text-based file formats and command line tools for manipulating each.
 
 ## Shell
 

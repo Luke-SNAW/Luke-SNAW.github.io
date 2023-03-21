@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1677803729403
+updated: 1679357782554
 created: 1645681934406
 tags: bookshelf
 ---
@@ -40,6 +40,7 @@ tags: bookshelf
 - [Introduction to Statistical Learning](https://www.statlearning.com/)
 - [What Is ChatGPT Doing … and Why Does It Work?](https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/)
 - https://interviewing.io/guides/system-design-interview
+- https://slatestarcodex.com/2014/07/30/meditations-on-moloch/
 
 ## PL
 
