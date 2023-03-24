@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1678334898670
+updated: 1679441051999
 created: 1646129148306
 ---
 
@@ -48,6 +48,10 @@ created: 1646129148306
   ```
 - [Resizing with CSS](https://css-irl.info/resizing-with-css/)
 - [Everything You Need to Know About the Gap After the List Marker](https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/)
+- [Laying Out a Print Book With CSS](https://iangmcdowell.com/blog/posts/laying-out-a-book-with-css/)
+  - https://pagedjs.org/documentation/
+  - https://www.print-css.rocks/
+  - https://doc.courtbouillon.org/weasyprint/stable/
 
 ## Pseudo-class
 

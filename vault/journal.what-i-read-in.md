@@ -2,12 +2,35 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1679357388550
+updated: 1679644012072
 created: 1667632965028
 ---
 
 ## Week 12, 2023
 
+- https://blog.kagi.com/universal-summarizer
+- [Cheating is All You Need](https://about.sourcegraph.com/blog/cheating-is-all-you-need)
+
+  > Software engineering exists as a discipline because you cannot EVER under any circumstances TRUST CODE.
+  >
+  > - You get the LLM to draft some code for you that’s 80% complete/correct.
+  > - You tweak the last 20% by hand.
+
+  > > Someone is hesitant about 5 times as productive because we only need to "check the code is good" for [two main reasons](https://news.ycombinator.com/item?id=35275438).
+
+- [GitHub Copilot X: The AI-powered developer experience](https://github.blog/2023-03-22-github-copilot-x-the-ai-powered-developer-experience/)
+  - [Copilot X](https://github.com/github-copilot/chat_waitlist_signup/)
+  - [Copilot Docs](https://githubnext.com/projects/copilot-for-docs/)
+  - [Copilot for PRs](https://githubnext.com/projects/copilot-for-pull-requests/)
+  - [Copilot CLI](https://githubnext.com/projects/copilot-cli/)
+- [Why Tacit Knowledge is More Important Than Deliberate Practice](https://commoncog.com/tacit-knowledge-is-a-real-thing/)
+- [MySQL for Developers](https://planetscale.com/courses/mysql-for-developers/introduction/course-introduction) #bookshelf
+- [Web fingerprinting is worse than I thought](https://www.bitestring.com/posts/2023-03-19-web-fingerprinting-is-worse-than-I-thought.html)
+- [Laying Out a Print Book With CSS](https://iangmcdowell.com/blog/posts/laying-out-a-book-with-css/)
+  - https://pagedjs.org/documentation/
+  - https://www.print-css.rocks/
+  - https://doc.courtbouillon.org/weasyprint/stable/
+- [How to Use v-model with Form Inputs in Vue](https://dmitripavlutin.com/vue-v-model-form-inputs/)
 - [Category Theory Illustrated](https://abuseofnotation.github.io/category-theory-illustrated/) #bookshelf
 - [Steampipe](https://github.com/turbot/steampipe) is the universal interface to APIs. Use SQL to query cloud infrastructure, SaaS, code, logs, and more.
   - https://github.com/turbot/steampipe-plugin-googlesheets

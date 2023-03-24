@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1672790204993
+updated: 1679614323925
 created: 1645514209965
 ---
 
@@ -21,6 +21,17 @@ created: 1645514209965
 - [Colocation](https://kentcdodds.com/blog/colocation)
 - [Project Guidelines](https://github.com/elsewhencode/project-guidelines)
 - [Hexagonal-Inspired Architecture in React](https://alexkondov.com/hexagonal-inspired-architecture-in-react/) #bookmark
+- [Cheating is All You Need](https://about.sourcegraph.com/blog/cheating-is-all-you-need)
+
+  > Software engineering exists as a discipline because you cannot EVER under any circumstances TRUST CODE.
+  >
+  > - You get the LLM to draft some code for you that’s 80% complete/correct.
+  > - You tweak the last 20% by hand.
+
+  > > [Vanclief](https://news.ycombinator.com/item?id=35275438) is hesitant about 5 times as productive because we only need to "check the code is good" for two main reasons:
+  > >
+  > > 1. It is my belief that if you are proficient enough in the task at hand, it is actually a distraction to be checking "someone else code" over just writing it yourself. When I wrote the code, I know it by heart and I know what it does (or is supposed to do). At least for me, having to be creating prompts and then reviewing the code that generates is slower and takes me out of the flow. It is also more exhausting than just writing the thing myself.
+  > > 2. I am only able to check the correctness of the code, if am am proficient enough as a programmer (and possibly in the language as well). To become proficient I need to write a lot of code, but the more I use LLMs, the less repetitions I get in. So in a way it feels like LLMs are going to make you a "worse" programmer by doing the work for you.
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 

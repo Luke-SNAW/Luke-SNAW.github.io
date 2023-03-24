@@ -1,8 +1,8 @@
 ---
 id: fm8vm79bnyq6fq1gu2oq2zr
 title: Web Security
-desc: ''
-updated: 1668995592063
+desc: ""
+updated: 1679441209234
 created: 1645751778639
 ---
 
@@ -28,6 +28,4 @@ created: 1645751778639
   - Mitigating XSS attacks with Helmet
 - [What is a realm in JavaScript?](https://weizman.github.io/page-what-is-a-realm-in-js/)
   - [Introducing Snow](https://github.com/lavamoat/snow/wiki/Introducing-Snow)
-
-
-p
+- [Web fingerprinting is worse than I thought](https://www.bitestring.com/posts/2023-03-19-web-fingerprinting-is-worse-than-I-thought.html)
