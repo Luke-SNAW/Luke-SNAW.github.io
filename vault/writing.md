@@ -2,7 +2,7 @@
 id: qf0l4wbrc9jgooyzexmbq5v
 title: Writing
 desc: ""
-updated: 1674004414509
+updated: 1679892029884
 created: 1674003802450
 ---
 
@@ -15,3 +15,6 @@ created: 1674003802450
   - one headline
   - one image
   - one written sentence
+- [Why Engineers Need To Write](https://www.developing.dev/p/why-engineers-need-to-write)
+  > Writing for a child forces me to keep the words and concepts very, very simple, and to write in a style that builds up usage of the program from first principles. Writing for the grumpy old-timer is a practice in minimizing questions from them, forcing me to do a sort of final pass on the overall design of what I'm writing about, to defend design choices, and to add future improvements to the backlog. Drafting the documentation for semi-finished features that are still in progress has sometimes led me to change the design in order to make writing the docs targeting these two people simpler.  
+  > — [albrewer](https://news.ycombinator.com/item?id=35307562)
