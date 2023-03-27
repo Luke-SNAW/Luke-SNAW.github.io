@@ -2,12 +2,12 @@
 id: w77gehwkjrgvg8j2rf049te
 title: Journal
 desc: ""
-updated: 1657432238745
+updated: 1679879037480
 created: 1655603296818
 published: false
 ---
 
-# 인플레이션
+## 인플레이션
 
 1. Covid19로 경기 침체
 2. 정부가 돈 찍어냄
@@ -16,7 +16,7 @@ published: false
 5. 금리 인상
 6. 주식 하락
 
-# log
+## log
 
 20일선 내려가는 와중에 5일선 오르면서 만났을 때 매수?
 

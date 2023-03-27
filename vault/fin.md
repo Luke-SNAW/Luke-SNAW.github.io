@@ -2,7 +2,7 @@
 id: ok0e729ho7o09xetujkxc0m
 title: Financial
 desc: ""
-updated: 1675642729242
+updated: 1679879512574
 created: 1667694740818
 ---
 
@@ -41,3 +41,9 @@ Fed가 긴축하게되면 HOPE순서로 둔화.
 ## Site
 
 - https://seekingalpha.com/article/4574652-sl-green-grab-a-near-8-percent-monthly-yield
+
+## 금리 급상승
+
+은행은 금리가 높을 수록 이득을 얻을 수 있으나 급상승의 경우에는 보유한 채권이 급락. 유동성이 늘어나지만 대출은 줄어듬
+
+> https://youtu.be/AH6q2PR--Gk?t=203
