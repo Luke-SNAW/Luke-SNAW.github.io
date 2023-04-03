@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1675927173004
+updated: 1680506585523
 created: 1644885695231
 ---
 
@@ -20,6 +20,7 @@ created: 1644885695231
 - [Two ways to safely break a long word in HTML](https://www.amitmerchant.com/two-ways-to-safely-break-a-long-word-in-html/)
   - `<wbr>`
   - `&shy;`
+  - [CSS hyphens](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens)
 - [Three attributes for better web forms](https://adactio.com/journal/19842)
   - inputmode, enterkeyhint, and autocomplete.
 
