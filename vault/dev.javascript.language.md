@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1675927260184
+updated: 1680587309278
 created: 1644885695251
 ---
 
@@ -89,6 +89,8 @@ created: 1644885695251
 
 - [A Better Way to Work With Number and Date Inputs in JavaScript](https://www.builder.io/blog/numbers-and-dates)
   - valueAsNumber, valueAsDate
+- [Two-way data binding and reactivity with 15 lines of vanilla JavaScript](https://gomakethings.com/two-way-data-binding-and-reactivity-with-15-lines-of-vanilla-javascript/)
+  - Proxy, Event delegate
 
 ---
 
