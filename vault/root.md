@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1678238190649
+updated: 1680738655602
 created: 1644449449778
 ---
 
@@ -23,6 +23,11 @@ Hi there 👋. I'm a Front-end developer.
 >
 > - https://www.ntnu.edu/cerg/advice
 > - [Get running with Couch to 5K](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/)
+
+> [Leave Your Work Broken](https://census.dev/blog/an-on-ramp-to-flow)
+>
+> - Before stepping away, leave the code in a state where it is Obviously Broken, but Easy to Fix.
+> - Applying this technique means thinking about how to exit flow in a way that makes it easy to re-enter.
 
 > [recommended routine - bodyweightfitness](https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/) - I Don't Have This Much Time!
 >

@@ -2,12 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1680587289398
+updated: 1680763836802
 created: 1667632965028
 ---
 
 ## Week 14, 2023
 
+- [CSS Masking - Ahmad Shadeed](https://ishadeed.com/article/css-masking/)
+- [An On-Ramp to Flow](https://census.dev/blog/an-on-ramp-to-flow)
+  > Before stepping away, leave the code in a state where it is Obviously Broken, but Easy to Fix.  
+  > Applying this technique means thinking about how to exit flow in a way that makes it easy to re-enter.
 - [Two-way data binding and reactivity with 15 lines of vanilla JavaScript](https://gomakethings.com/two-way-data-binding-and-reactivity-with-15-lines-of-vanilla-javascript/)
   - Proxy, Event delegate
 - [New React docs pretend SPAs don't exist anymore](https://wasp-lang.dev/blog/2023/03/17/new-react-docs-pretend-spas-dont-exist)
