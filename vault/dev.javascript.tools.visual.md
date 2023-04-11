@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual tools
 desc: ""
-updated: 1676255150496
+updated: 1681174305465
 created: 1646264359213
 ---
 
@@ -26,6 +26,7 @@ created: 1646264359213
 - [PhotoSwipe](https://github.com/dimsemenov/photoswipe) — JavaScript image gallery and lightbox
 - ✨ [Viselect](https://github.com/Simonwep/selection) - A high performance and lightweight library to add a visual way of selecting elements, just like on your Desktop.
 - [OrgChart](https://github.com/dabeng/OrgChart) - It's a simple and direct organization chart plugin. Anytime you want a tree-like chart, you can turn to OrgChart.
+- [Gource](https://github.com/acaudwell/Gource) is a visualization tool for source control repositories.
 
 ## Canvas
 

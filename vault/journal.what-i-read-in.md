@@ -2,12 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1680763836802
+updated: 1681175690841
 created: 1667632965028
 ---
 
+## Week 15, 2023
+
+- [How does database sharding work?](https://planetscale.com/blog/how-does-database-sharding-work)
+
+  > why are you not using a database that does sharding for you?
+
+- [Gource](https://github.com/acaudwell/Gource) is a visualization tool for source control repositories.
+- [What happens when you leak AWS credentials and how AWS minimizes the damage](https://xebia.com/blog/what-happens-when-you-leak-aws-credentials-and-how-aws-minimizes-the-damage/)
+
 ## Week 14, 2023
 
+- [Improving Web Accessibility with Semantic HTML and Testing Techniques and Tools](https://www.infoq.com/news/2023/04/web-accessibility/)
 - [CSS Masking - Ahmad Shadeed](https://ishadeed.com/article/css-masking/)
 - [An On-Ramp to Flow](https://census.dev/blog/an-on-ramp-to-flow)
   > Before stepping away, leave the code in a state where it is Obviously Broken, but Easy to Fix.  

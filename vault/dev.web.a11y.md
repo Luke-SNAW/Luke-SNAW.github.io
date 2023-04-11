@@ -2,7 +2,7 @@
 id: 7tPeWrJHQmeiMg4HWoymw
 title: Accessibility
 desc: ""
-updated: 1672299835643
+updated: 1681175705577
 created: 1644817740456
 ---
 
@@ -19,6 +19,7 @@ created: 1644817740456
 - [Using ARIA: Roles, states, and properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques)
 - [Accessibility Solutions](https://a11y-solutions.stevenwoodson.com/)
 - 👑 [GOV.UK Design System > Accessibility](https://design-system.service.gov.uk/accessibility/) explains how the team works to ensure the Design System and Frontend are accessible.
+- [Improving Web Accessibility with Semantic HTML and Testing Techniques and Tools](https://www.infoq.com/news/2023/04/web-accessibility/)
 
 ## [prefers-reduced-motion](https://news.ycombinator.com/item?id=31765773)
 
