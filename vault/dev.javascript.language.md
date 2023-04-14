@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1680587309278
+updated: 1681432046541
 created: 1644885695251
 ---
 
@@ -153,11 +153,11 @@ Table of contents:
   - Another very interesting aspect around this, is that primitives in JavaScript are immutable. That means you can’t change the number 2 ever. Instead, you can reassign a variable to have another (immutable) primitive value.
   - Symbols are primitive values and can be assigned to variables.
 
+## Events
+
 - [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)
 
   - **Browser Events** These events occur in the browser [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.
   - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
 
-- [All About JavaScript Events](https://blog.openreplay.com/all-about-javascript-events/)
-  - **Browser Events** These events occur in the browser [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.
-  - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
+- [EventTarget.dispatchEvent()](https://developer.mozilla.org/ko/docs/Web/API/EventTarget/dispatchEvent)

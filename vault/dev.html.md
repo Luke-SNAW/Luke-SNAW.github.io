@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1680506585523
+updated: 1681431849006
 created: 1644885695231
 ---
 
@@ -23,6 +23,8 @@ created: 1644885695231
   - [CSS hyphens](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens)
 - [Three attributes for better web forms](https://adactio.com/journal/19842)
   - inputmode, enterkeyhint, and autocomplete.
+- [Jumping HTML tags. Another reason to validate your markup](https://pepelsbey.dev/articles/jumping-html-tags/)
+- [HTMHell](https://www.htmhell.dev/) - A collection of bad practices in HTML, copied from real websites.
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 

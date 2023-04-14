@@ -2,9 +2,13 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1676866461208
+updated: 1681351377025
 created: 1645514261238
 ---
+
+## Collections
+
+- [50 Ideas That Changed My Life](https://perell.com/essay/50-ideas-that-changed-my-life/)
 
 ## Focus
 

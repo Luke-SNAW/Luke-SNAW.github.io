@@ -2,12 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1681175690841
+updated: 1681458296634
 created: 1667632965028
 ---
 
 ## Week 15, 2023
 
+- [You Don't Need Another Library to Compose Micro Frontends at Run Time](https://blog.bitsrc.io/you-dont-need-another-library-to-compose-micro-frontends-at-run-time-e803077ade67)
+- [EventTarget.dispatchEvent()](https://developer.mozilla.org/ko/docs/Web/API/EventTarget/dispatchEvent)
+- [Improving CSS Shapes with Trigonometric Functions](https://danielcwilson.com/posts/css-shapes-with-trig-functions/)
+- [Jumping HTML tags. Another reason to validate your markup](https://pepelsbey.dev/articles/jumping-html-tags/)
+- [HTMHell](https://www.htmhell.dev/) - A collection of bad practices in HTML, copied from real websites.
+- [The 42 Best Pens for 2023: Gel, Ballpoint, Rollerball, and Fountain Pens](https://www.jetpens.com/blog/The-42-Best-Pens-for-2023-Gel-Ballpoint-Rollerball-and-Fountain-Pens/pt/974)
+  - [The Difference Between Ballpoint, Gel, and Rollerball Pens](https://www.jetpens.com/blog/The-Difference-Between-Ballpoint-Gel-and-Rollerball-Pens/pt/167)
+- [Croner](https://github.com/Hexagon/croner) - Cron for JavaScript and TypeScript
+- [Edit Anything by Segment-Anything](https://github.com/sail-sg/EditAnything)
+- [50 Ideas That Changed My Life](https://perell.com/essay/50-ideas-that-changed-my-life/)
 - [How does database sharding work?](https://planetscale.com/blog/how-does-database-sharding-work)
 
   > why are you not using a database that does sharding for you?

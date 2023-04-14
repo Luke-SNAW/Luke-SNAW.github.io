@@ -2,7 +2,7 @@
 id: yWa1wrYH9UNop3dtcuTNq
 title: Divops - javascript build system, CI, ...
 desc: ""
-updated: 1676849623010
+updated: 1681458305428
 created: 1645487597592
 ---
 
@@ -14,3 +14,4 @@ created: 1645487597592
 - [Writing Javascript without a build system](https://jvns.ca/blog/2023/02/16/writing-javascript-without-a-build-system/)
   - For me, a complicated Javascript build system just doesn’t seem worth it for small 500-line projects
   - [if I want a build system, use esbuild](https://jvns.ca/blog/2021/11/15/esbuild-vue/)
+- [You Don't Need Another Library to Compose Micro Frontends at Run Time](https://blog.bitsrc.io/you-dont-need-another-library-to-compose-micro-frontends-at-run-time-e803077ade67)

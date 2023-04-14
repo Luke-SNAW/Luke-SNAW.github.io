@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1677802294458
+updated: 1681351721651
 created: 1644882116217
 ---
 
@@ -57,6 +57,7 @@ created: 1644882116217
 - [js-beautify](https://github.com/beautify-web/js-beautify) - partly deobfuscate scripts
 - [devalue](https://github.com/Rich-Harris/devalue) - Gets the job done when JSON.stringify can't
 - [vite-plugin-federation](https://github.com/originjs/vite-plugin-federation) - Module Federation for vite & rollup
+- [Croner](https://github.com/Hexagon/croner) - Cron for JavaScript and TypeScript
 
 ## Framework
 

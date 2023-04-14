@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1680763845995
+updated: 1681431882967
 created: 1646129148306
 ---
 
@@ -53,6 +53,7 @@ created: 1646129148306
   - https://www.print-css.rocks/
   - https://doc.courtbouillon.org/weasyprint/stable/
 - [CSS Masking - Ahmad Shadeed](https://ishadeed.com/article/css-masking/)
+- [Improving CSS Shapes with Trigonometric Functions](https://danielcwilson.com/posts/css-shapes-with-trig-functions/)
 
 ## Pseudo-class
 
