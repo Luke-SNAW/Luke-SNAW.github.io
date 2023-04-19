@@ -2,9 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1681458296634
+updated: 1681888305242
 created: 1667632965028
 ---
+
+## Week 16, 2023
+
+- [The relative font weight axis — how variable fonts ease font weight transitions](https://www.stefanjudis.com/today-i-learned/the-relative-font-weight-axis-how-variable-fonts-ease-font-weight/)
+- [Modern HTML email (tables no longer required)](https://fullystacked.net/posts/modern-html-email/)
+- [Can I Email](https://www.caniemail.com/clients/)
+- [Introducing the Space Git Flow](https://blog.jetbrains.com/space/2023/04/18/space-git-flow/)
+- [Korean as a Concatenative, Stack-Oriented Language](https://m.post.naver.com/viewer/postView.nhn?volumeNo=8912179&memberNo=33582594)
+- [Midjourney AI Guide](https://enchanting-trader-463.notion.site/Midjourney-AI-Guide-41eca43809dd4d8fa676e648436fc29c)
+- https://docs.midjourney.com/docs/permutations
 
 ## Week 15, 2023
 

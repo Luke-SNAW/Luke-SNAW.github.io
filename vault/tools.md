@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1679354577790
+updated: 1681708432844
 created: 1644799670081
 ---
 
@@ -49,6 +49,8 @@ created: 1644799670081
 - 🆙 [Upscayl](https://github.com/upscayl/upscayl) - Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.
 - [Squoosh!](https://github.com/GoogleChromeLabs/squoosh) is an image compression web app that reduces image sizes through numerous formats. Squoosh lets you adjust the quality (compression rate) and **see the results live.**
 - [PhotoScape X](http://x.photoscape.org/) - Fun and Easy Photo Editor for Mac and Windows 10
+- [Midjourney AI Guide](https://enchanting-trader-463.notion.site/Midjourney-AI-Guide-41eca43809dd4d8fa676e648436fc29c)
+- https://docs.midjourney.com/docs/permutations
 
 ## Converter
 
