@@ -2,16 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1681888305242
+updated: 1682057202244
 created: 1667632965028
 ---
 
 ## Week 16, 2023
 
+- [Tachyon](https://github.com/weebney/tachyon) is a byte sized script that makes your website feel blazingly fast. It does this by prerendering pages before a user navigates to them, making page transitions virtually instant.
+- [90% of My Skills Are Now Worth $0 ...but the other 10% are worth 1000x](https://tidyfirst.substack.com/p/90-of-my-skills-are-now-worth-0)
 - [The relative font weight axis — how variable fonts ease font weight transitions](https://www.stefanjudis.com/today-i-learned/the-relative-font-weight-axis-how-variable-fonts-ease-font-weight/)
 - [Modern HTML email (tables no longer required)](https://fullystacked.net/posts/modern-html-email/)
 - [Can I Email](https://www.caniemail.com/clients/)
-- [Introducing the Space Git Flow](https://blog.jetbrains.com/space/2023/04/18/space-git-flow/)
+- [Introducing the Space Git Flow](https://blog.jetbrains.com/space/2023/04/18/space-git-flow/) - Branching Strategies about Git flow, GitHub flow, Trunk-based development, Space Git Flow
 - [Korean as a Concatenative, Stack-Oriented Language](https://m.post.naver.com/viewer/postView.nhn?volumeNo=8912179&memberNo=33582594)
 - [Midjourney AI Guide](https://enchanting-trader-463.notion.site/Midjourney-AI-Guide-41eca43809dd4d8fa676e648436fc29c)
 - https://docs.midjourney.com/docs/permutations
