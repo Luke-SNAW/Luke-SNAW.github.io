@@ -1,10 +1,32 @@
 ---
 id: 6645fjtiqxtko03nuccgjj2
-title: "What I struggled 🧗‍♂️/📣 brag In"
+title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1678842355536
+updated: 1682321563921
 created: 1669264809793
 ---
+
+## Week 16, 2023 - Cloudfront uri query
+
+[[SPA framework - S3 - CloudFront 배포 시 404 error 처리 | What I struggled 🧗‍♂️/📣 brag In|journal.what-i-struggled-brag-in#week-51-2022---spa-framework---s3---cloudfront-배포-시-404-error-처리]]로 세팅된 배포 환경에서 첫 진입 url에 query를 넣을 경우 제대로 전달이 안된다.
+
+redirect되면서 query 값이 날아가나?
+
+## Week 16, 2023 - Xstate init children machine
+
+```js
+auth.factor === "requiredAccount" &&
+  auth.accountStatus === "retainingAccountInfo"
+```
+
+위 code에서
+
+- factor는 유입되는 url로 계정 로그인이 필요한지, 필요없는지에 대한 값을 할당하고 각각의 child machine을 invoke.
+- accountStatus는 계정 로그인을 다루는 account machine에 쓰이며 retainingAccountInfo가 초기 값.
+
+local에선 계정 로그인이 필요 없는 경우 accountStatus 값이 할당 안되는데, 배포하면 초기 값인 retainingAccountInfo로 할당됨
+
+의심가는 건 server 활성화되는 local과 비활성화 (SSG, CSR)되는 배포 환경
 
 ## Week 11, 2023 - Vue3 dev/prod env 차이
 
