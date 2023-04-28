@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1682642295717
+updated: 1682645577301
 created: 1669264809793
 ---
 
@@ -20,11 +20,13 @@ Q1부터 새로 생성되는 프로젝트들이 기존 report 재사용이 많�
 
 > [Quickstart for GitHub Packages](https://docs.github.com/en/packages/quickstart)
 
-### Use test pacakge on local
+### Use test package on local
 
 > [Authenticating with a personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token)
 
 [.npmrc에 token 저장하지 않기](https://stackoverflow.com/questions/55514076/npmrc-config-file-not-reading-environment-variable-to-download-private-node-mod/55578270#55578270)
+
+- [What is Source Command in Linux and How Does it Work?](https://linuxhandbook.com/source-command/)
 
 ### Make package of vue 3 component
 
@@ -35,13 +37,22 @@ Q1부터 새로 생성되는 프로젝트들이 기존 report 재사용이 많�
 
 component에 쓰인 tailwind class가 export 되지 않는다면, export target js 파일에 tailwind css를 import [출처](https://www.freecodecamp.org/news/build-a-css-library-with-vitejs/)
 
-추가로 [Preflight](https://tailwindcss.com/docs/preflight#overview)를 포함한 기본 정의되는 style이 전부 export된다. 중복 내용이므로 제거. component에 정의된 class style만 export 되도록 import 되는 css내용은
+### Caveats
+
+#### tailwind
+
+[Preflight](https://tailwindcss.com/docs/preflight#overview)를 포함한 기본 정의되는 style이 전부 export된다. 중복 내용이므로 제거. component에 정의된 class style만 export 되도록 import 되는 css내용은
 
 ```css
 @tailwind utilities;
 ```
 
 만 넣도록
+
+#### package.json > dependencies
+
+dependencies에 넣어 배포하니까 node_modules도 같이 배포된다. (package.json에 files로 dist directory만 제한 넣어도 같이 배포됨)  
+devDependencies로 옮기니 포함 안됨.
 
 ## Week 16, 2023 - Cloudfront uri query
 
