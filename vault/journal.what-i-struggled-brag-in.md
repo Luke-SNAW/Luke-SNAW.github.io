@@ -2,9 +2,46 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1682321563921
+updated: 1682642295717
 created: 1669264809793
 ---
+
+## Week 17, 2023 - github private package
+
+Q1부터 새로 생성되는 프로젝트들이 기존 report 재사용이 많아서 새로운 report 사이트를 만들어 연동시킨다든지 하는 것 보다는 그냥 private package 만드는게 좋아보여서 시도. 결국 안쓸 지도 모르겠지만...
+
+기대효과는
+
+- commit log 응집화
+- build time 줄임 - package cache 사용
+- project별 파편화 줄임
+
+### Release test package
+
+> [Quickstart for GitHub Packages](https://docs.github.com/en/packages/quickstart)
+
+### Use test pacakge on local
+
+> [Authenticating with a personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token)
+
+[.npmrc에 token 저장하지 않기](https://stackoverflow.com/questions/55514076/npmrc-config-file-not-reading-environment-variable-to-download-private-node-mod/55578270#55578270)
+
+### Make package of vue 3 component
+
+> [Building a Vue 3 component library](https://blog.logrocket.com/building-vue-3-component-library/)  
+> https://vitejs.dev/guide/build.html#library-mode
+
+### Setup tailwind
+
+component에 쓰인 tailwind class가 export 되지 않는다면, export target js 파일에 tailwind css를 import [출처](https://www.freecodecamp.org/news/build-a-css-library-with-vitejs/)
+
+추가로 [Preflight](https://tailwindcss.com/docs/preflight#overview)를 포함한 기본 정의되는 style이 전부 export된다. 중복 내용이므로 제거. component에 정의된 class style만 export 되도록 import 되는 css내용은
+
+```css
+@tailwind utilities;
+```
+
+만 넣도록
 
 ## Week 16, 2023 - Cloudfront uri query
 

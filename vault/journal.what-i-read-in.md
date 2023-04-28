@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1682321929446
+updated: 1682640579218
 created: 1667632965028
 ---
 
 ## Week 17, 2023
-
+- [What is Source Command in Linux and How Does it Work?](https://linuxhandbook.com/source-command/)
+- [Arrow Functions vs Regular Functions in JavaScript – What's the Difference?](https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/)
+- [Pico CSS](https://github.com/picocss/pico) - Minimal CSS Framework for semantic HTML
+- [Quickstart for GitHub Packages](https://docs.github.com/en/packages/quickstart)
+- [A Completely Non-Technical Explanation of AI and Deep Learning](https://www.parand.com/a-completely-non-technical-explanation-of-ai.html)
+- [THE NATURE OF CODE](https://natureofcode.com/book/) #bookshelf
 - [How does JWT work? is HS256 the best option?](https://iorilan.medium.com/how-does-jwt-work-is-hs256-the-best-option-6cd9463da7b3) - look EDDSA
 - [A 5 years+ tech lead said they shard a database to scale but then he failed to answer this question](https://iorilan.medium.com/a-5-years-tech-lead-said-they-shard-a-database-to-scale-but-then-he-failed-to-answer-this-question-8be39115dcb0)
 - [Next.js 13 is not ready for production](https://itsteknas.medium.com/next-js-13-is-not-ready-for-production-a8a8e50fbebf)

@@ -2,7 +2,7 @@
 id: 1v3zueuge3dc4szjhatotul
 title: CSs tools
 desc: ""
-updated: 1674086569352
+updated: 1682552354034
 created: 1646130002277
 ---
 
@@ -60,6 +60,7 @@ created: 1646130002277
 
 ## Base - classless CSS
 
+- [Pico CSS](https://github.com/picocss/pico) - Minimal CSS Framework for semantic HTML
 - 🌸 [sakura](https://github.com/oxalorg/sakura) - a minimal, classless CSS framework / theme.
 - 🌊 [Water.css](https://github.com/kognise/water.css) - A drop-in collection of CSS styles to make simple websites just a little nicer
 - [new.css](https://newcss.net/)
