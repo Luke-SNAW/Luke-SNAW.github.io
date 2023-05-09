@@ -2,19 +2,71 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1682645577301
+updated: 1683593321935
 created: 1669264809793
 ---
 
+## Week 19, 2023 - 국생원 DTC 항목 변경 신고 Retrospective
+
+예상치 못한 1950개의 항목, 첨부파일 12GB over.
+
+google drive에서 local disk로 다운 받는게 bottleneck이었다.
+
+download 시도하면 먼저 google drive에서 긴 압축시간을 보내고 다운받는데, 시간이 길어서 network error로 취소되고... 2GB로 잘린 파일도 압축 풀기 위해 local disk 용량 확보했어야 했고...
+
+결국은 외장하드로 직접 업로드. mac 이라 windows machine에서 파일 기록을 했음.
+
+처음부터 외장하드 이용했으면 시간 엄청 절약 가능했음. 애당초 항목 수와 첨부파일 용량 확인부터 했었어야...
+
+## Week 19, 2023 - github actions yarn cache
+
+예전에 했던 pnpm의 node cache 쓰는 방식으로는 cache 생성은 되는데 yarn에서 그걸 쓰지 못함
+
+```yml
+- name: Use Node.js ${{ matrix.node-version }}
+   uses: actions/setup-node@v3
+   with:
+      node-version: ${{ matrix.node-version  }}
+      cache: "yarn"
+```
+
+검색 반복해가며 try & error로 결국 찾긴 했지만 이건 뭐... [^19-yarn]
+
+```yml
+# https://dev.to/mattpocockuk/how-to-cache-nodemodules-in-github-actions-with-yarn-24eh
+- uses: actions/cache@v3
+   with:
+      path: '**/node_modules'
+      key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+- name: Install packages
+   run: yarn install
+```
+
+[^19-yarn]: `19-yarn`: `--prefer-offline` 이나 `--cache-dir` 설정이나, `if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}`나 다 작동 안됐음.
+
+## Week 18, 2023 - github private package - nuxt module
+
+vue3 기반 package는 지난 주에 성공했는데 본 목적인 report 관련 module을 만드려니 nuxt 기반으로는 같은 방법으로는 안 됨. (cache bust를 위한 file name에 hash 붙는 것부터...)
+
+report 관련 code들을 vue3로 변환하느냐, 좀 더 공부해서 nuxt module로 만드느냐... 고민했지만 나중에 회원가입도 동일하게 만들어야 하므로 nuxt module로 결정
+
+찾아보니 nuxt에 [module 만드는 방식](https://nuxt.com/docs/guide/going-further/modules)이 따로 있어서 진행.
+
+### [Explicit Imports](https://nuxt.com/docs/guide/concepts/auto-imports#explicit-imports)
+
+Published modules cannot leverage auto-imports for assets within their runtime directory. Instead, they have to import them explicitly from `#imports` or alike.
+
 ## Week 17, 2023 - github private package
 
-Q1부터 새로 생성되는 프로젝트들이 기존 report 재사용이 많아서 새로운 report 사이트를 만들어 연동시킨다든지 하는 것 보다는 그냥 private package 만드는게 좋아보여서 시도. 결국 안쓸 지도 모르겠지만...
+Q1부터 새로 생성되는 프로젝트들이 기존 report 재사용이 많아서 새로운 report 사이트를 만들어 연동시킨다든지 하는 것 보다는 그냥 private package 만드는게 좋아보여서[^private-package] 시도. 결국 안쓸 지도 모르겠지만...
 
 기대효과는
 
 - commit log 응집화
 - build time 줄임 - package cache 사용
 - project별 파편화 줄임
+
+[^private-package]: `private-package`: project마다 다른 곳이 있다면 composition이나 injection으로 처리할 수 있다. + 관련 code를 해당 project에서 관리할 수 있다. report 전용 사이트로 만들면 다른 project 관련 code를 사이트에서 관리해야 함.
 
 ### Release test package
 
@@ -41,18 +93,20 @@ component에 쓰인 tailwind class가 export 되지 않는다면, export target 
 
 #### tailwind
 
-[Preflight](https://tailwindcss.com/docs/preflight#overview)를 포함한 기본 정의되는 style이 전부 export된다. 중복 내용이므로 제거. component에 정의된 class style만 export 되도록 import 되는 css내용은
+[Preflight](https://tailwindcss.com/docs/preflight#overview)를 포함한 기본 정의되는 style이 전부 export된다. 중복 내용이므로 제거. component에 정의된 class style만 export 되도록 import 되는 css는 다음 내용만 넣도록
 
 ```css
 @tailwind utilities;
 ```
 
-만 넣도록
-
 #### package.json > dependencies
 
 dependencies에 넣어 배포하니까 node_modules도 같이 배포된다. (package.json에 files로 dist directory만 제한 넣어도 같이 배포됨)  
 devDependencies로 옮기니 포함 안됨.
+
+#### dependencies resources 제외
+
+0.3.0 은 primeicons.css나 font도 다 포함하도록 만들었는데 github package 용량 제한도 있고, prime의 경우는 peerDependencies로 설치되니 결국 중복이라 제거해서 0.4.0로...
 
 ## Week 16, 2023 - Cloudfront uri query
 

@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1679357782554
+updated: 1683519761268
 created: 1645681934406
 tags: bookshelf
 ---
@@ -41,6 +41,7 @@ tags: bookshelf
 - [What Is ChatGPT Doing … and Why Does It Work?](https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/)
 - https://interviewing.io/guides/system-design-interview
 - https://slatestarcodex.com/2014/07/30/meditations-on-moloch/
+- [The Little Book of Deep Learning](https://fleuret.org/public/lbdl.pdf)
 
 ## PL
 

@@ -2,7 +2,7 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1681432188893
+updated: 1683519390496
 created: 1645666821126
 ---
 
@@ -34,6 +34,7 @@ created: 1645666821126
 - [Why Create React App exists](https://github.com/reactjs/reactjs.org/pull/5487#issuecomment-1409720741)
 - [New React docs pretend SPAs don't exist anymore](https://wasp-lang.dev/blog/2023/03/17/new-react-docs-pretend-spas-dont-exist)
   > The strongly recommended way to start a new React project is to use a framework such as Next.js, while the traditional route of using bundlers like Vite or CRA is fairly strongly discouraged.
+- [The Interactive Guide to Rendering in React](https://ui.dev/why-react-renders)
 
 ## Performance
 

@@ -2,11 +2,26 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1682640579218
+updated: 1683593703620
 created: 1667632965028
 ---
 
+## Week 19, 2023
+
+- [How to cache node_modules in GitHub Actions with Yarn](https://dev.to/mattpocockuk/how-to-cache-nodemodules-in-github-actions-with-yarn-24eh)
+- [24 Powerful HTML Attributes Every Senior Web Engineer Should Master!](https://javascript.plainenglish.io/24-powerful-html-attributes-every-senior-web-engineer-should-master-ad8a4df0776e)
+- [The Interactive Guide to Rendering in React](https://ui.dev/why-react-renders)
+- [Favour TypeScript Types Over Interfaces](https://www.lloydatkinson.net/posts/2023/favour-typescript-types-over-interfaces/)
+
+## Week 18, 2023
+
+- [changelogen](https://github.com/unjs/changelogen) - 💅 Beautiful Changelogs using Conventional Commits
+- [TypeScript Advanced Types for Next.js: Examples and Best Practices In 2023](https://blog.bitsrc.io/typescript-advanced-types-for-next-js-examples-and-best-practices-in-2023-a3a3946a353e)
+- [Record Type in TypeScript](https://dmitripavlutin.com/typescript-record/)
+- [There’s more than one way to write an IP address](https://ma.ttias.be/theres-more-than-one-way-to-write-an-ip-address/)
+
 ## Week 17, 2023
+
 - [What is Source Command in Linux and How Does it Work?](https://linuxhandbook.com/source-command/)
 - [Arrow Functions vs Regular Functions in JavaScript – What's the Difference?](https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/)
 - [Pico CSS](https://github.com/picocss/pico) - Minimal CSS Framework for semantic HTML

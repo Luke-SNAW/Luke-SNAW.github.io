@@ -2,7 +2,7 @@
 id: y62z9jcqo7xsqxspmots8j8
 title: Git Tools
 desc: ""
-updated: 1674627080701
+updated: 1683171581123
 created: 1646005847782
 ---
 
@@ -13,3 +13,4 @@ created: 1646005847782
 - [Commitizen for contributors](https://github.com/commitizen/cz-cli): When you commit with Commitizen, you'll be prompted to fill out any required commit fields at commit time.
 - [Git-Sim: Visually Simulate Git Operations In Your Own Repos](https://initialcommit.com/blog/git-sim)
   - https://github.com/initialcommit-com/git-sim
+- [changelogen](https://github.com/unjs/changelogen) - 💅 Beautiful Changelogs using Conventional Commits
