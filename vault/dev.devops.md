@@ -2,7 +2,7 @@
 id: 67t7i0aphsf0dx02hgturxe
 title: Devops
 desc: ""
-updated: 1678748596274
+updated: 1683704936533
 created: 1648183203609
 ---
 
@@ -22,6 +22,7 @@ created: 1648183203609
   5. Auto test
   6. Deploy to production
   7. Measure & validate
+- [Prime Video Switched from Serverless to EC2 and ECS to Save Costs](https://www.infoq.com/news/2023/05/prime-ec2-ecs-saves-costs/)
 
 ## Culture
 

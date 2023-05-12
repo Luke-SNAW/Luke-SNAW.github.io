@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1667440578513
+updated: 1683853525474
 created: 1645751512675
 ---
 
@@ -19,6 +19,7 @@ created: 1645751512675
 - [Safari isn't protecting the web, it's killing it](https://httptoolkit.tech/blog/safari-is-killing-the-web/)
 - [Front-End System Design Guide. Web developer interview cheat sheet](https://javascript.plainenglish.io/front-end-system-design-guide-9a11381f5e81)
 - [A Response To "Have Single-Page Apps Ruined the Web?"](https://htmx.org/essays/a-response-to-rich-harris/)
+- [When Should You Use Hypermedia?](https://htmx.org/essays/when-to-use-hypermedia/)
 - [HTTP/3 From A To Z: Core Concepts (Part 1)](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
 
 ## Webview Case

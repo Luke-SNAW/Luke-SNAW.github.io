@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1683593703620
+updated: 1683854050181
 created: 1667632965028
 ---
 
 ## Week 19, 2023
 
+- [I'm never investing in Google's smart home ecosystem again](https://www.androidauthority.com/google-smart-home-3319869/)
+- [file-type](https://github.com/sindresorhus/file-type) is detected by checking the [magic number](<https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files>) of the buffer.
+- [HTMX is the Future](https://quii.dev/HTMX_is_the_Future)
+  - [When Should You Use Hypermedia?](https://htmx.org/essays/when-to-use-hypermedia/)
+- [Prime Video Switched from Serverless to EC2 and ECS to Save Costs](https://www.infoq.com/news/2023/05/prime-ec2-ecs-saves-costs/)
+- [On Starting A Side-Project: Hotwire vs. Angular](https://www.bennadel.com/blog/4458-on-starting-a-side-project-hotwire-vs-angular.htm)
 - [How to cache node_modules in GitHub Actions with Yarn](https://dev.to/mattpocockuk/how-to-cache-nodemodules-in-github-actions-with-yarn-24eh)
 - [24 Powerful HTML Attributes Every Senior Web Engineer Should Master!](https://javascript.plainenglish.io/24-powerful-html-attributes-every-senior-web-engineer-should-master-ad8a4df0776e)
 - [The Interactive Guide to Rendering in React](https://ui.dev/why-react-renders)

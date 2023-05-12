@@ -2,9 +2,70 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1683593321935
+updated: 1683847260002
 created: 1669264809793
 ---
+
+## Week 19, 2023 - module error: lodash import
+
+nuxt module의 component에서
+
+```js
+import _ from "lodash"
+```
+
+code가 module을 쓰는 project의 local dev 환경에서
+
+> The requested module
+> '/\_nuxt/node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js?v=4a75b04f'
+> does not provide an export named 'default'
+
+error를 뱉으면서 멈춤  
+build 시에도 error 메시지 발생하지만 마무리는 됨.
+
+```js
+import { ceil } from "lodash"
+```
+
+도 같은 메시지 나오길래 이것저것 시도하다가 사용하는 project에서 똑같은 문구 써서 출력되는 걸 한 번 보니 정상동작. 추가한 code지우고 시험하니까 다음부턴 잘 됨. ??? 뭐지?
+
+바로 destructure code로 사용하는 project를 build하니
+
+> 🚀 ~ file: error.vue:10 ~ error undefined Named export 'max' not found. The requested module 'file:///home/runner/work/patients.genoplan.co.kr-2023/patients.genoplan.co.kr-2023/node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js' is a CommonJS module, which may not support all module.exports as named exports.  
+> CommonJS modules can always be imported via the default export, for example using:
+>
+> import pkg from 'file:///home/runner/work/patients.genoplan.co.kr-2023/patients.genoplan.co.kr-2023/node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js';  
+> const { round, max } = pkg;
+
+error 메시지가 나와서 이전으로 돌리고...
+
+결국엔
+
+```js
+import * as _ from "lodash" // https://askjavascript.com/how-to-solve-does-not-provide-an-export-named-default/
+```
+
+로 해결
+
+## Week 19, 2023 - nuxt module: include tailwind utility classes
+
+tailwind의 처리가 nuxt 실행되는 playground 쪽에만 되어서 prepack(module export처리) 이전의 build 시에는 utility classes가 결과로 나오는데, prepack 할 때는 포함 안됨.  
+[unjs/unbuild](https://github.com/unjs/unbuild) source code도 뒤져보고 했지만 결국 미봉책으로 module 가져다 쓰는 project의 tailwind.config에서 처리하도록 함.
+
+```js
+// tailwind.config.js
+module.exports = {
+  content: ["./node_modules/module/dist/runtime/components/**/*.{js,vue,ts}"],
+}
+```
+
+## Week 19, 2023 - Nuxt error: Hydration completed but contains mismatches.
+
+> Hydration completed but contains mismatches. chunk-TBEUP4O5.js:5346
+
+tbody를 넣어주니 해결
+
+- https://www.reddit.com/r/Nuxt/comments/wh4zul/comment/ij4cl3i/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
 ## Week 19, 2023 - 국생원 DTC 항목 변경 신고 Retrospective
 

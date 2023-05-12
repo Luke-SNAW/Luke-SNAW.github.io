@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1681351721651
+updated: 1683853874980
 created: 1644882116217
 ---
 
@@ -58,6 +58,7 @@ created: 1644882116217
 - [devalue](https://github.com/Rich-Harris/devalue) - Gets the job done when JSON.stringify can't
 - [vite-plugin-federation](https://github.com/originjs/vite-plugin-federation) - Module Federation for vite & rollup
 - [Croner](https://github.com/Hexagon/croner) - Cron for JavaScript and TypeScript
+- [file-type](https://github.com/sindresorhus/file-type) is detected by checking the [magic number](<https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files>) of the buffer.
 
 ## Framework
 
