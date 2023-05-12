@@ -1,7 +1,7 @@
 ---
 id: q8rxb4e1rjfzkmqpe8t03c7
-title: "On Starting A Side-Project: Hotwire vs. Angular"
-desc: ""
+title: 'On Starting A Side-Project: Hotwire vs. Angular'
+desc: ''
 updated: 1683704885185
 created: 1683704804487
 ---
