@@ -2,9 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1683932773516
+updated: 1684368627254
 created: 1667632965028
 ---
+
+## Week 20, 2023
+
+- [DevTools Tips](https://devtoolstips.org/) - A collection of useful cross-browser DevTools tips
+- [Closing Modals By Pressing the Back Button in Vue.js](https://javascript.plainenglish.io/closing-modals-by-pressing-the-back-button-in-vue-js-568589b4503f)
+- [Announcing Vue 3.3](https://blog.vuejs.org/posts/vue-3-3)
+  - [defineModel](https://blog.vuejs.org/posts/vue-3-3#definemodel)
+  - [Better Getter Support with `toRef` and `toValue`](https://blog.vuejs.org/posts/vue-3-3#better-getter-support-with-toref-and-tovalue)
 
 ## Week 19, 2023
 

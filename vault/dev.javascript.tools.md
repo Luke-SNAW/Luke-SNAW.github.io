@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1683853874980
+updated: 1684367578315
 created: 1644882116217
 ---
 
@@ -59,6 +59,7 @@ created: 1644882116217
 - [vite-plugin-federation](https://github.com/originjs/vite-plugin-federation) - Module Federation for vite & rollup
 - [Croner](https://github.com/Hexagon/croner) - Cron for JavaScript and TypeScript
 - [file-type](https://github.com/sindresorhus/file-type) is detected by checking the [magic number](<https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files>) of the buffer.
+- [DevTools Tips](https://devtoolstips.org/) - A collection of useful cross-browser DevTools tips
 
 ## Framework
 

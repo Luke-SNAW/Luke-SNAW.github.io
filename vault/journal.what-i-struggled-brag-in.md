@@ -2,11 +2,11 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1683847260002
+updated: 1684367013695
 created: 1669264809793
 ---
 
-## Week 19, 2023 - module error: lodash import
+## Week 19, 2023 - nuxt module error: lodash import
 
 nuxt module의 component에서
 
@@ -45,7 +45,32 @@ error 메시지가 나와서 이전으로 돌리고...
 import * as _ from "lodash" // https://askjavascript.com/how-to-solve-does-not-provide-an-export-named-default/
 ```
 
-로 해결
+로 해결...
+
+되지 않음. build는 정상인데 local dev에서 다음과 같은 error가 뜸
+
+> [Vue warn]: Error in render function: "TypeError: \_.max is not a function"
+
+[**vite build 관련된 error**](https://github.com/nuxt/nuxt/issues/13247#issuecomment-1397291481)였다.
+
+import를 다음과 같이 하고,
+
+```js
+import _round from "lodash/round"
+```
+
+다음 설정 추가하여 해결
+
+```js
+// nuxt.config.js
+export default defineNuxtConfig({
+  vite: {
+    optimizeDeps: {
+      include: ["lodash/ceil", "lodash/round", "lodash/max"], // https://github.com/genoplan/report-module-2023/issues/1#issuecomment-1550532676
+    },
+  },
+})
+```
 
 ## Week 19, 2023 - nuxt module: include tailwind utility classes
 
