@@ -2,9 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1684368627254
+updated: 1684735768482
 created: 1667632965028
 ---
+
+## Week 21, 2023
+
+- [Affinity Photo as a Photoshop replacement for many people.](https://news.ycombinator.com/item?id=35988307)
+- https://twitter.com/hobdaydesign/status/1655680006901624839
 
 ## Week 20, 2023
 
