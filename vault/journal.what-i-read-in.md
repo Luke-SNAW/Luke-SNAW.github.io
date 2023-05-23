@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1684735768482
+updated: 1684738440253
 created: 1667632965028
 ---
 
 ## Week 21, 2023
 
+- [Creating Seamless User Experiences: A Comprehensive Guide to Micro Frontend Architectural Patterns](https://blog.bitsrc.io/creating-seamless-user-experiences-a-comprehensive-guide-to-micro-frontend-architectural-patterns-9118a70386b7)
+- [The Guardian Optimizes Mobile Push-Notification Delivery Architecture](https://www.infoq.com/news/2023/05/guardian-push-architecture/)
 - [Affinity Photo as a Photoshop replacement for many people.](https://news.ycombinator.com/item?id=35988307)
 - https://twitter.com/hobdaydesign/status/1655680006901624839
 

@@ -2,7 +2,7 @@
 id: 7mujc4bw6yz1nfbf03gmqc8
 title: Aws
 desc: ""
-updated: 1667979875478
+updated: 1684737861642
 created: 1646005847772
 ---
 
@@ -78,3 +78,8 @@ It looks like AWS definitely wants App Runner to be the answer to Cloud Run, but
 It's also weird, that ECS Fargate lets you run a container without thinking about the server that it runs on, and App Runner does too, just with a few extra things. Why is it a whole separate service? Why didn't they just add it onto Fargate?
 
 Re: Other services. I've only heard of API Gateway, DynamoDB and Lambda@Edge; I'll have to spend time investigating the other ones. Thank you for mentioning them!
+
+## Collections
+
+- [The Guardian Optimizes Mobile Push-Notification Delivery Architecture](https://www.infoq.com/news/2023/05/guardian-push-architecture/)
+  - [Guardian Mobile Notifications](https://github.com/guardian/mobile-n10n)

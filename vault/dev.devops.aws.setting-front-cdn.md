@@ -2,7 +2,7 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1678161199322
+updated: 1684818761744
 created: 1646021156163
 ---
 
@@ -120,7 +120,7 @@ function handler(event) {
 ![](assets/images/what-i-struggled-brag-in/s3-cloudfront-404-error.webp)
 
 cloudfront에서 403 error를 SPA framework index.html로 처리하도록 해주면 framework에서 404 처리해 줌
-![](assets/images/what-i-struggled-brag-in/s3-cloudfront-404-custom-setting.webp)
+![CloudFront> 배포> id> 오류 페이지 응답 편집> 사용자 정의 ...> 403, 예, 응답 페이지 경로/index.html](assets/images/what-i-struggled-brag-in/s3-cloudfront-404-custom-setting.webp)
 
 ## [How do I serve index.html in subfolders with S3/Cloudfront?](https://stackoverflow.com/a/59649703/5163033)
 
