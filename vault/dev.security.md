@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1672792978662
+updated: 1684994369313
 created: 1644825680750
 ---
 
@@ -20,3 +20,4 @@ created: 1644825680750
 - [Password requirements: myths and madness](https://www.franzoni.eu/password-requirements-myths-madness/)
   - https://news.ycombinator.com/item?id=34098369
 - [Web Hackers vs. The Auto Industry: Critical Vulnerabilities in Ferrari, BMW, Rolls Royce, Porsche, and More](https://samcurry.net/web-hackers-vs-the-auto-industry/)
+- [RIP, Passwords. Here’s What’s Coming Next.](https://www.nytimes.com/wirecutter/blog/what-are-passkeys-and-how-they-can-replace-passwords/)

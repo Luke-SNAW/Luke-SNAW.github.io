@@ -2,12 +2,23 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1684989571931
+updated: 1685000721925
 created: 1667632965028
 ---
 
 ## Week 21, 2023
 
+- [Be Careful Using ‘Menu’](https://adrianroselli.com/2023/05/be-careful-using-menu.html)
+  - [Stop Using ‘Pop-up’](https://adrianroselli.com/2021/07/stop-using-pop-up.html)
+- [11 HTML best practices for login & sign-up forms](https://evilmartians.com/chronicles/html-best-practices-for-login-and-signup-forms)
+  - [Don’t Use The Placeholder Attribute](https://www.smashingmagazine.com/2018/06/placeholder-attribute/)
+    - Can’t be automatically translated;
+    - Is oftentimes used in place of a label, locking out assistive technology;
+    - Can hide important information when content is entered;
+    - Can be too light-colored to be legible;
+    - Has limited styling options;
+    - May look like pre-filled information and be skipped over.
+- [RIP, Passwords. Here’s What’s Coming Next.](https://www.nytimes.com/wirecutter/blog/what-are-passkeys-and-how-they-can-replace-passwords/)
 - [You don't need a modal window](https://youdontneedamodalwindow.dev/)
   - https://marmelab.com/react-admin-demo/#/reviews
 - [A primer on functional architecture](https://increment.com/software-architecture/primer-on-functional-architecture/)

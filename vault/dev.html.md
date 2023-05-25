@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1681888213521
+updated: 1685000712975
 created: 1644885695231
 ---
 
@@ -27,6 +27,8 @@ created: 1644885695231
 - [HTMHell](https://www.htmhell.dev/) - A collection of bad practices in HTML, copied from real websites.
 - [Modern HTML email (tables no longer required)](https://fullystacked.net/posts/modern-html-email/)
 - [Can I Email](https://www.caniemail.com/clients/)
+- [Be Careful Using ‘Menu’](https://adrianroselli.com/2023/05/be-careful-using-menu.html)
+- [Stop Using ‘Pop-up’](https://adrianroselli.com/2021/07/stop-using-pop-up.html)
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 
