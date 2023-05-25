@@ -2,12 +2,12 @@
 id: cdgkaoy6064zew14hry05b3
 title: A primer on functional architecture
 desc: ""
-updated: 1673226671447
+updated: 1684900699719
 created: 1647565553197
 tags: [architecture, bookmark]
 ---
 
-https://increment.com/software-architecture/primer-on-functional-architecture/
+> https://increment.com/software-architecture/primer-on-functional-architecture/
 
 _This article is based on chapter 3 of_ [Domain Modeling Made Functional](https://pragprog.com/book/swdddf/domain-modeling-made-functional) _by Scott Wlaschin._
 
@@ -57,7 +57,7 @@ In some cases, a long-running use case or scenario requires multiple workflows. 
 
 There may not be one right way to define boundaries, but there are certainly many wrong ways. A common antipattern for grouping functionality is the [“entity-service” approach](https://www.michaelnygard.com/blog/2017/12/the-entity-service-antipattern/), in which the services are built around entities instead of workflows.
 
-Just because a business workflow involves an entity, such as an “order,” doesn’t mean it has anything in common with other workflows that use that entity. For example, the “pay for an order” workflow and the “delete an order” workflow both involve orders but have completely different business logic.
+**Just because a business workflow involves an entity, such as an “order,” doesn’t mean it has anything in common with other workflows that use that entity. For example, the “pay for an order” workflow and the “delete an order” workflow both involve orders but have completely different business logic. There’s no need for them both to depend on an arbitrary “order” service that lumps a disparate set of functions together.**
 
 ## Events
 
@@ -76,6 +76,12 @@ If you’re familiar with [event-driven architectures](https://www.enterpriseint
 ## Logical versus physical architecture
 
 It’s important to note that this description of separate workflows triggered by events is a logical view, not a physical one.
+
+...
+
+In some cases, a logical workflow may also be physically split into separate parts. For instance, a workflow may start on the frontend and continue on the backend via a synchronous API call.
+
+...
 
 ## Frontend functional architecture
 

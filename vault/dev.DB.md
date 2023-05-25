@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1682321649037
+updated: 1684900535585
 created: 1656645858715
 ---
 
@@ -21,6 +21,10 @@ created: 1656645858715
   > My current employer uses sharded and replicated Postgres via RDS. Even basic things like deploying schema changes to every shard are an unbelievable pain in the ass, and changing the number of shards on a major database is a high-touch, multi-day operation. After having worked with Spanner in the past, it's like going back to the stone age, like we're only a step above babysitting individual machines in a closet. Nobody should do this. — [GeneralMayhem](https://news.ycombinator.com/item?id=35478332)
 
 - [A 5 years+ tech lead said they shard a database to scale but then he failed to answer this question](https://iorilan.medium.com/a-5-years-tech-lead-said-they-shard-a-database-to-scale-but-then-he-failed-to-answer-this-question-8be39115dcb0)
+- [OrmHate](https://martinfowler.com/bliki/OrmHate.html)
+  > Essentially the ORM can handle about 80-90% of the mapping problems, but that last chunk always needs careful work by somebody who really understands how a relational database works.  
+  > ... A framework that allows me to avoid 80% of that is worthwhile even if it is only 80%.  
+  > To avoid the mapping problem you have two alternatives. Either you use the relational model in memory, or you don't use it in the database.
 
 ## SQLite
 

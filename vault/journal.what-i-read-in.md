@@ -2,12 +2,24 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1684738440253
+updated: 1684989571931
 created: 1667632965028
 ---
 
 ## Week 21, 2023
 
+- [You don't need a modal window](https://youdontneedamodalwindow.dev/)
+  - https://marmelab.com/react-admin-demo/#/reviews
+- [A primer on functional architecture](https://increment.com/software-architecture/primer-on-functional-architecture/)
+
+  > Just because a business workflow involves an entity, such as an “order,” doesn’t mean it has anything in common with other workflows that use that entity. For example, the “pay for an order” workflow and the “delete an order” workflow both involve orders but have completely different business logic. There’s no need for them both to depend on an arbitrary “order” service that lumps a disparate set of functions together.
+
+  - [The Entity Service Antipattern](https://www.michaelnygard.com/blog/2017/12/the-entity-service-antipattern/)
+
+- [Services By Lifecycle](https://www.michaelnygard.com/blog/2018/01/services-by-lifecycle/)
+- [OrmHate](https://martinfowler.com/bliki/OrmHate.html)
+  > Essentially the ORM can handle about 80-90% of the mapping problems, but that last chunk always needs careful work by somebody who really understands how a relational database works.  
+  > ... A framework that allows me to avoid 80% of that is worthwhile even if it is only 80%.
 - [Creating Seamless User Experiences: A Comprehensive Guide to Micro Frontend Architectural Patterns](https://blog.bitsrc.io/creating-seamless-user-experiences-a-comprehensive-guide-to-micro-frontend-architectural-patterns-9118a70386b7)
 - [The Guardian Optimizes Mobile Push-Notification Delivery Architecture](https://www.infoq.com/news/2023/05/guardian-push-architecture/)
 - [Affinity Photo as a Photoshop replacement for many people.](https://news.ycombinator.com/item?id=35988307)
