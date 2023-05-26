@@ -2,7 +2,7 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1683519390496
+updated: 1685061536987
 created: 1645666821126
 ---
 
@@ -35,9 +35,13 @@ created: 1645666821126
 - [New React docs pretend SPAs don't exist anymore](https://wasp-lang.dev/blog/2023/03/17/new-react-docs-pretend-spas-dont-exist)
   > The strongly recommended way to start a new React project is to use a framework such as Next.js, while the traditional route of using bundlers like Vite or CRA is fairly strongly discouraged.
 - [The Interactive Guide to Rendering in React](https://ui.dev/why-react-renders)
+- [An Ode to React Effects](https://alexkondov.com/an-ode-to-effects/)
+  > Most of the problems with `useEffect` are rooted in bad software design, not the hook’s API.
 
 ## Performance
 
 - [Before You memo()](https://overreacted.io/before-you-memo/)
   - Solution 1: Move State Down
   - Solution 2: Lift Content Up
+- [Understanding React Concurrency](https://www.bbss.dev/posts/react-concurrency/)
+  - The basic premise of React concurrency is to rework the rendering process such that while rendering the next view, the current view is kept responsive.

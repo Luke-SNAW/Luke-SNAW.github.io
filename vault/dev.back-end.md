@@ -1,8 +1,8 @@
 ---
 id: 6w36dgapan7eummy1q6jpx1
 title: Back End
-desc: ''
-updated: 1669536559169
+desc: ""
+updated: 1685061363850
 created: 1649297934004
 ---
 
@@ -12,6 +12,7 @@ created: 1649297934004
 - [Why we ditched GraphQL for tRPC](https://echobind.com/post/why-we-ditched-graphql-for-trpc/)
 - [API Lifecycle Management](https://medium.com/@trgoodwill/api-lifecycle-management-9fb0caaa41de)
 - [Conditional API Responses For JavaScript vs. HTML Forms](https://austingil.com/http-javascript-vs-html/)
+- [Dealing with cold starts](https://twitter.com/thdxr/status/1661433744970973190)
 
 ## Auth
 

@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1685000721925
+updated: 1685085948694
 created: 1667632965028
 ---
 
 ## Week 21, 2023
 
+- [SST](https://github.com/serverless-stack/sst) makes it easy to build modern full-stack applications on AWS.
+  - [Deploying Next.js on the edge with SST — Is SST the game-changer it’s claimed to be?](https://engineering.udacity.com/deploying-next-js-on-the-edge-with-sst-is-sst-the-game-changer-its-claimed-to-be-1f05a0abc27c)
+- [Understanding React Concurrency](https://www.bbss.dev/posts/react-concurrency/)
+  > The basic premise of React concurrency is to rework the rendering process such that while rendering the next view, the current view is kept responsive.
+- [Dealing with cold starts](https://twitter.com/thdxr/status/1661433744970973190)
+- [An Ode to React Effects](https://alexkondov.com/an-ode-to-effects/)
+  > Most of the problems with `useEffect` are rooted in bad software design, not the hook’s API.
 - [Be Careful Using ‘Menu’](https://adrianroselli.com/2023/05/be-careful-using-menu.html)
   - [Stop Using ‘Pop-up’](https://adrianroselli.com/2021/07/stop-using-pop-up.html)
 - [11 HTML best practices for login & sign-up forms](https://evilmartians.com/chronicles/html-best-practices-for-login-and-signup-forms)

@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1684800580502
+updated: 1685067743521
 created: 1669264809793
 ---
 
@@ -216,7 +216,7 @@ local에선 계정 로그인이 필요 없는 경우 accountStatus 값이 할당
 
 의심가는 건 server 활성화되는 local과 비활성화 (SSG, CSR)되는 배포 환경
 
-## Week 11, 2023 - Vue3 dev/prod env 차이
+## Week 11, 2023 - Nuxt dev/prod env 차이
 
 개발은 server 띄워서 하고, prod은 jam stack으로 올리니 차이점이 발생.
 
@@ -256,6 +256,8 @@ props 변수에 toRef로 한 번 더 wrapping 하여 해결.
 const props = defineProps({ data: Object })
 const data = toRef(props, "data")
 ```
+
+> Updated: Vue(Nuxt?)의 version이 update 됨에 따라 toRef 없이 잘 되는 듯 (vue v3.3.4)
 
 ## Week 10, 2023 - CloudFront에서 /subdir/index.html 서비스 세팅
 

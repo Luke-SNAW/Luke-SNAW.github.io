@@ -2,13 +2,15 @@
 id: QLwJ96mvQQgw8U1verS7k
 title: AWS tools
 desc: ""
-updated: 1667979802872
+updated: 1685061668486
 created: 1645523767783
 ---
 
 ## Collections
 
 - [Cloudcraft](https://www.cloudcraft.co): Visualize your cloud architecture like a pro Create smart AWS diagrams
+- [SST](https://github.com/serverless-stack/sst) makes it easy to build modern full-stack applications on AWS.
+  - [Deploying Next.js on the edge with SST — Is SST the game-changer it’s claimed to be?](https://engineering.udacity.com/deploying-next-js-on-the-edge-with-sst-is-sst-the-game-changer-its-claimed-to-be-1f05a0abc27c)
 
 ## [jeffybefffy519](https://news.ycombinator.com/item?id=33525003)
 
