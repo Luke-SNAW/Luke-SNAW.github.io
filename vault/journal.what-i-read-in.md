@@ -2,9 +2,21 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1685085948694
+updated: 1685496082589
 created: 1667632965028
 ---
+
+## Week 22, 2023
+
+- [Webp2jpg-online](https://github.com/renzhezhilu/webp2jpg-online) - image conversion and image stitching, pure front-end implementation, fast speed, privacy protection, and offline use,20 languages supported. [link](https://imagestool.com/webp2jpg-online/)
+- [Tidy First? Kent Beck on Refactoring](https://www.infoq.com/presentations/refactoring-cleaning-code/)
+  - Software design is an exercise in human relationships between waiters who want new features and changers who want to improve the code structure.
+  - Change the structure first. Then change the behavior and it'll be so much easier.
+- [Reading Code - Chakra UI](https://alexkondov.com/reading-code-chakra-ui/)
+- [Mastering the Art of Efficient JavaScript DOM Manipulation](https://itnext.io/mastering-the-art-of-efficient-javascript-dom-manipulation-899b5cbf5a3f)
+  - Use document fragments
+  - Use event delegation - `event.target.matches`
+- [ls-lint](https://github.com/loeffel-io/ls-lint) - An extremely fast directory and filename linter - Bring some structure to your project filesystem
 
 ## Week 21, 2023
 

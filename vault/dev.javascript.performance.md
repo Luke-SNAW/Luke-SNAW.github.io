@@ -2,7 +2,7 @@
 id: qJYy3qzZt6rXHWQJPZd9Q
 title: Javascript Performance
 desc: ""
-updated: 1676265289338
+updated: 1685417870148
 created: 1644479524849
 ---
 
@@ -27,3 +27,6 @@ created: 1644479524849
 - [Patterns.dev](https://www.patterns.dev/) is a free book on design patterns and component patterns for building powerful web apps with vanilla JavaScript and React.
 - [Precise Timing With Web Animations API](https://www.smashingmagazine.com/2022/06/precise-timing-web-animations-api/)
 - [Speeding up the JavaScript ecosystem - eslint](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-3/)
+- [Mastering the Art of Efficient JavaScript DOM Manipulation](https://itnext.io/mastering-the-art-of-efficient-javascript-dom-manipulation-899b5cbf5a3f)
+  - Use document fragments
+  - Use event delegation - `event.target.matches`
