@@ -2,9 +2,27 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1685067743521
+updated: 1685950164999
 created: 1669264809793
 ---
+
+## Week 22, 2023 - Slack notification from Github actions
+
+### Print context of github action
+
+github 문서를 계속 찾아봐도 action이 실행되는 동안 제공되는 context에 대한 정보가 불명확해서 직접 출력하는 script를 찾아서 결과를 확인해봄
+
+> [[dev.devops.github-actions.print-context]]
+
+### Slack에서 직접 만든 [app](https://github.com/slackapi/slack-github-action)으로 교체
+
+multiline commit message 출력되도록
+
+> [[dev.devops.github-actions.slack-notification-about-build]]
+
+### Release info
+
+> [[dev.devops.github-actions.release-info]]
 
 ## Week 19, 2023 - nuxt module error: lodash import
 

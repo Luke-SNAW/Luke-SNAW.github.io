@@ -2,9 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1685496082589
+updated: 1685951758208
 created: 1667632965028
 ---
+
+## Week 23, 2023
+
+- [`display: contents` considered harmful](https://ericwbailey.website/published/display-contents-considered-harmful/)
 
 ## Week 22, 2023
 
