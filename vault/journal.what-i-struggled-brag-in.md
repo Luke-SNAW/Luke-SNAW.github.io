@@ -2,11 +2,16 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1685950164999
+updated: 1686101725034
 created: 1669264809793
 ---
 
 ## Week 22, 2023 - Slack notification from Github actions
+
+|      |                                                                                                                                        |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| from | ![voxmedia__github-action-slack-notify-build](/assets/images/what-i-struggled-brag-in/voxmedia__github-action-slack-notify-build.webp) |
+| to   | ![slackapi__slack-github-action](/assets/images/what-i-struggled-brag-in/slackapi__slack-github-action.webp)                           |
 
 ### Print context of github action
 

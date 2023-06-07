@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1679357042172
+updated: 1686094801796
 created: 1646011997576
 ---
 
@@ -24,6 +24,7 @@ created: 1646011997576
 - [Steampipe](https://github.com/turbot/steampipe) is the universal interface to APIs. Use SQL to query cloud infrastructure, SaaS, code, logs, and more.
   - https://github.com/turbot/steampipe-plugin-googlesheets
 - [libgsqlite](https://github.com/0x6b/libgsqlite) - A SQLite extension which loads a Google Sheet as a virtual table.
+- [libSQL](https://github.com/libsql/libsql) is a fork of SQLite that is both Open Source, and Open Contributions.
 
 ## SQL client
 

@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1680587090786
+updated: 1686124767036
 created: 1646613084338
 ---
 
@@ -37,6 +37,7 @@ created: 1646613084338
 - [Firecracker internals: a deep dive inside the technology powering AWS Lambda](https://www.talhoffman.com/2021/07/18/firecracker-internals/)
   - https://github1s.com/firecracker-microvm/firecracker
 - https://github.com/nemutas/helix
+- [Redditor creates working anime QR codes using Stable Diffusion](https://arstechnica.com/information-technology/2023/06/redditor-creates-working-anime-qr-codes-using-stable-diffusion/)
 
 ## News
 

@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1683519761268
+updated: 1686103136875
 created: 1645681934406
 tags: bookshelf
 ---
@@ -121,6 +121,7 @@ tags: bookshelf
 - https://github.com/leonardomso/33-js-concepts
 - https://github.com/vasanthk/web-security-basics
 - https://people.scs.carleton.ca/~paulv/toolsjewels.html
+- [Software Engineering at Google](https://abseil.io/resources/swe-book) #bookshelf
 
 ### Networking
 

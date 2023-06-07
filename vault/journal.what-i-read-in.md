@@ -2,12 +2,26 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1685951758208
+updated: 1686103251062
 created: 1667632965028
 ---
 
 ## Week 23, 2023
 
+- [Redditor creates working anime QR codes using Stable Diffusion](https://arstechnica.com/information-technology/2023/06/redditor-creates-working-anime-qr-codes-using-stable-diffusion/)
+- [Software Engineering at Google](https://abseil.io/resources/swe-book) #bookshelf
+- [How to avoid layout shifts caused by web fonts](https://simonhearne.com/2021/layout-shifts-webfonts/)
+  - use `font-display: optional` to prevent layout shifts
+    - hide text for up to 100ms, then only use the web font if it is available - never swapping
+    - If font-display: optional is not possible for your design, use f-mods to reduce the impact of font swaps
+  - subset fonts and serve as `woff2`
+  - use variable fonts or a limited set of weight variations
+  - preload critical fonts
+  - host your own fonts on your main domain
+- [Aimless.js](https://github.com/ChrisCavs/aimless.js) - The missing JavaScript randomness library.
+- [The Rise of the Serverless Monoliths](https://medium.com/@dbottiau/the-rise-of-the-serverless-monoliths-63d3d2d98164)
+- [What the heck is the edge anyway?](https://blog.turso.tech/what-the-heck-is-the-edge-anyway-a159a12f2412)
+- [libSQL](https://github.com/libsql/libsql) is a fork of SQLite that is both Open Source, and Open Contributions.
 - [`display: contents` considered harmful](https://ericwbailey.website/published/display-contents-considered-harmful/)
 
 ## Week 22, 2023
