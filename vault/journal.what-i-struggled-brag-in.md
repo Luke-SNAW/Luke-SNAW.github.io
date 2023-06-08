@@ -2,9 +2,25 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1686101725034
+updated: 1686203634070
 created: 1669264809793
 ---
+
+## Week 23, 2023 - Package → Submodule
+
+### Motivation
+
+vue component + nuxt base module package를 peer dependency로 가지고 있으며 이 project 자체도 package라서 수정사항이 있을 때 마다
+
+1. playground에서 테스트
+2. package publish
+3. project에서 install
+4. project에서 테스트
+5. project build
+
+과정이 너무 번거롭다. sub module로 전환하여 1~3 과정을 없애고자 작업
+
+vue component는 package로 둬도 될거 같고, nuxt base module은 추후 sub module로 바꾸자
 
 ## Week 22, 2023 - Slack notification from Github actions
 
