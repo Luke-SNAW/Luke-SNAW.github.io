@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1686203634070
+updated: 1686282559189
 created: 1669264809793
 ---
 
@@ -21,6 +21,8 @@ vue component + nuxt base module package를 peer dependency로 가지고 있으�
 과정이 너무 번거롭다. sub module로 전환하여 1~3 과정을 없애고자 작업
 
 vue component는 package로 둬도 될거 같고, nuxt base module은 추후 sub module로 바꾸자
+
+### [[Setup|dev.git.submodule-nuxt]]
 
 ## Week 22, 2023 - Slack notification from Github actions
 
