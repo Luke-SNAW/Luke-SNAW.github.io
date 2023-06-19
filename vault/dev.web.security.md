@@ -2,7 +2,7 @@
 id: fm8vm79bnyq6fq1gu2oq2zr
 title: Web Security
 desc: ""
-updated: 1679441209234
+updated: 1686699821650
 created: 1645751778639
 ---
 
@@ -29,3 +29,4 @@ created: 1645751778639
 - [What is a realm in JavaScript?](https://weizman.github.io/page-what-is-a-realm-in-js/)
   - [Introducing Snow](https://github.com/lavamoat/snow/wiki/Introducing-Snow)
 - [Web fingerprinting is worse than I thought](https://www.bitestring.com/posts/2023-03-19-web-fingerprinting-is-worse-than-I-thought.html)
+- [Edge sends images you view online to Microsoft, here is how to disable that](https://www.neowin.net/news/edge-sends-images-you-view-online-to-microsoft-here-is-how-to-disable-that/)

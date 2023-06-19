@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1685000712975
+updated: 1686612580747
 created: 1644885695231
 ---
 
@@ -12,7 +12,7 @@ created: 1644885695231
 - [Tip - Use fetchpriority=high to load your LCP hero image sooner](https://addyosmani.com/blog/fetch-priority/)
 - [Scripted `<INPUT>` Matching With Native Error Reporting](https://medium.com/codex/scripted-input-matching-with-native-error-reporting-8287dd7ac40a)
   - https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
-- [So <HGROUP> Is Back In HTML 5, And Dumb As Ever!](https://medium.com/codex/so-hgroup-is-back-in-html-5-and-dumb-as-ever-c81e00f6320d)
+- [So `<HGROUP>` Is Back In HTML 5, And Dumb As Ever!](https://medium.com/codex/so-hgroup-is-back-in-html-5-and-dumb-as-ever-c81e00f6320d)
 - [Responsive Images 101, Part 4: Srcset Width Descriptors](https://cloudfour.com/thinks/responsive-images-101-part-4-srcset-width-descriptors/)
   - width of the image sources
 - [Building the main navigation for a website](https://web.dev/website-navigation/)
@@ -29,6 +29,8 @@ created: 1644885695231
 - [Can I Email](https://www.caniemail.com/clients/)
 - [Be Careful Using ‘Menu’](https://adrianroselli.com/2023/05/be-careful-using-menu.html)
 - [Stop Using ‘Pop-up’](https://adrianroselli.com/2021/07/stop-using-pop-up.html)
+- [Effortlessly Support Next Gen Image Formats](https://dennisforbes.ca/articles/jpegxl_just_won_the_image_wars.html)
+  - use the `picture` element
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 

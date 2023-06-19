@@ -2,9 +2,43 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1686282559189
+updated: 1686889824507
 created: 1669264809793
 ---
+
+## Week 24, 2023 - Media Query overwritten with non Media Query
+
+### Bug
+
+![tailwind - xl:px-8 overwritten with px-6](assets/images/what-i-struggled-brag-in/media-query-overwritten-with-non-media-query.webp)
+
+tailwind 기반의 component package에서 쓰는 media query style(style.css)이 project에서 쓰는 utility class(restyle.scss)에 덮어써짐. [stack overflow reply](https://stackoverflow.com/a/16806052/5163033)
+
+media query가 style에만 있을 수도 있고 restyle에만 있을 수 있어서 어느 순서로 해도 문제
+
+### Fix
+
+결국 package 풀고 sub module로
+
+## Week 24, 2023 - iOS Safari scroll momentum
+
+Tony에게 문의 받은 bug
+
+### Feature
+
+dialog 유지한채 안에서 동의서를 보여주고 한 항목을 동의 받으면 Scroll Top을 0으로 이동시킨 후 다음 동의서를 보여줘야 함.
+
+### Bug
+
+때때로 iOS safari에서 다음 동의서가 보이지 않음. 스크롤하면 rendering 됨.
+
+### Cause
+
+iOS safari의 scroll momentum이 걸린 상태로 다음 동의서로 전환되면 scrollTop이 이상한 곳을 가르킴.
+
+### Fix
+
+`scroll-behavior`을 건드렸지만 해결 안됨. 웹에서 scroll momentum 기능 끄는 방법을 찾아봤지만 딱히 유효한 방법은 못 찾고, 결국 `overflow` hidden → auto로 해결
 
 ## Week 23, 2023 - Package → Submodule
 

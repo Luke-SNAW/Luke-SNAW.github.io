@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1677042836256
+updated: 1687160728494
 created: 1644451403760
 ---
 
@@ -21,6 +21,12 @@ created: 1644451403760
 - [test && commit || revert](https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864)
 - [Limbo: Scaling Software Collaboration](https://medium.com/@kentbeck_7670/limbo-scaling-software-collaboration-afd4f00db4b)
   > Sort commits into “couldn’t possibly cause problems” (you’ll be mostly right) and “might cause problems”. Treat them differently. Rearrange your workflow so you have mostly “couldn’t possibly cause problems” commits.
+- [Software effort estimation is mostly fake research](https://shape-of-code.com/2021/01/17/software-effort-estimation-is-mostly-fake-research/)
+  > from [HK news](https://news.ycombinator.com/item?id=36350632)
+  >
+  > - It's not fake research. It's actually quite an established science in the 24 years I've been doing it.
+  > - Take your first guess, double it, double it again if the stakeholder is a poser, add 20% per developer less experience than you, subtract 10% for the features you're going to essentially copy paste, add 15% for sick leave (browsing HN) and then double it for every question you have that are unresolved and divide it by the room temperature multiplied by the amount of people with mechanical keyboards.
+  > - That gives you roughly the right estimate for any job, until the next sprint.
 
 ### re:Work
 
