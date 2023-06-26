@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1681431882967
+updated: 1687413569968
 created: 1646129148306
 ---
 
@@ -54,6 +54,8 @@ created: 1646129148306
   - https://doc.courtbouillon.org/weasyprint/stable/
 - [CSS Masking - Ahmad Shadeed](https://ishadeed.com/article/css-masking/)
 - [Improving CSS Shapes with Trigonometric Functions](https://danielcwilson.com/posts/css-shapes-with-trig-functions/)
+- [Inverted Triangle Architecture For CSS (ITCSS)](https://apiumhub.com/tech-blog-barcelona/inverted-triangle-architecture-for-css-itcss/)
+- [Understanding ITCSS: Real case using ITCSS](https://www.carloscaballero.io/understanding-itcss-real-case-using-itcss-https-carloscaballero-io/)
 
 ## Pseudo-class
 

@@ -2,9 +2,53 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1686889824507
+updated: 1687394398229
 created: 1669264809793
 ---
+
+## Week 25, 2023 - @babel/preset-env core-js Polyfill
+
+고객이 리포트 확인이 안된다고 함. logrocket과 sentry에서 확인한 error message는 `Unexpected token '='. Expected an opening '(' before a method's parameter list.`
+관련 검색 해보니 polyfill 문제 같음[^instance-fields]. 고객의 browser를 확인해보니 iOS 14이고[^safari-14_1-release-notes] log와 관련 issue[^chart.js-issue-11151]를 확인하고 나중에 chrome에서 정상 확인한 걸 보니 이게 맞는 걸로 보여 원인과 polyfill 작업 이전의 가이드를 안내 후 작업 시작
+
+> 버그가 수정되기 전에는 safari의 경우 version 14.1 이상으로 upgrade를 하거나
+> chrome 72, firefox 69, edge 79 이상의 browser에서 확인하셔야 합니다.
+
+[^instance-fields]: `instance fields`: https://stackoverflow.com/a/60026710/5163033
+[^safari-14_1-release-notes]: `safari-14_1-release-notes`: https://developer.apple.com/documentation/safari-release-notes/safari-14_1-release-notes#JavaScript-and-WebAssembly
+[^chart.js-issue-11151]: `chart.js-issue-11151`: https://github.com/chartjs/Chart.js/issues/11151
+
+### Babel config
+
+- useBuiltIns: 'usage', 'entry'
+
+entry 쓰는 target browser에 필요한 polyfill을 entry point에 전부 때려박아서 문제가 해결될 줄 알았으니 안 됨. 알고보니 추가되는 polyfill은 function 같은거고 error는 package code 내에 syntax 문제라 code transform이 필요해서 다음 babel-loader config로 해결
+
+### Webpack babel-loader config
+
+- `include: [/.+chart\.js.+/]`: error 발생하는 package의 path를 regex로 include (pnpm을 쓰기 때문에 버전마다 path가 달라짐)
+- `sourceType: "unambiguous"`
+
+### Polyfill target browser
+
+```
+# .browserslistrc
+> 0.25%
+not dead
+last 4 years
+ie 11
+```
+
+### Refactoring
+
+예전에 쓰던 하기의 plugin들 core-js@3에서 기본 지원에 포함되어서 삭제
+
+- transform-vue-jsx
+- @babel/plugin-transform-runtime
+- @babel/plugin-syntax-dynamic-import
+- @babel/plugin-transform-destructuring
+
+손으로 추가시켰던 polyfill function들도 삭제
 
 ## Week 24, 2023 - Media Query overwritten with non Media Query
 

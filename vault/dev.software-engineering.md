@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1679614323925
+updated: 1687502765011
 created: 1645514209965
 ---
 
@@ -32,6 +32,8 @@ created: 1645514209965
   > >
   > > 1. It is my belief that if you are proficient enough in the task at hand, it is actually a distraction to be checking "someone else code" over just writing it yourself. When I wrote the code, I know it by heart and I know what it does (or is supposed to do). At least for me, having to be creating prompts and then reviewing the code that generates is slower and takes me out of the flow. It is also more exhausting than just writing the thing myself.
   > > 2. I am only able to check the correctness of the code, if am am proficient enough as a programmer (and possibly in the language as well). To become proficient I need to write a lot of code, but the more I use LLMs, the less repetitions I get in. So in a way it feels like LLMs are going to make you a "worse" programmer by doing the work for you.
+
+- [Handles are the better pointers](https://floooh.github.io/2018/06/17/handles-vs-pointers.html)
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 

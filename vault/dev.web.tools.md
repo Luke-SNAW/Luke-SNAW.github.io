@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1675638956845
+updated: 1687418941040
 created: 1646011961595
 ---
 
@@ -19,6 +19,7 @@ created: 1646011961595
 - [HTTP Status Dogs](https://httpstatusdogs.com/) - Hypertext Transfer Protocol Response status codes. And dogs.
 - [Component Party](https://component-party.dev/) - Web component JS frameworks overview by their syntax and features: Svelte, React, Vue 2, Vue 3, Angular, SolidJS, Lit, Ember, Alpine, Qwik
 - [포트원](https://portone.io/korea/ko) - 한국 결제 대행
+- [Microsoft Clarity - Free Heatmaps & Session Recordings](https://clarity.microsoft.com/)
 
 ## Images
 

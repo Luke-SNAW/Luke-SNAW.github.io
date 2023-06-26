@@ -2,12 +2,20 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1687160706434
+updated: 1687502732239
 created: 1667632965028
 ---
 
 ## Week 25, 2023
 
+- [Handles are the better pointers](https://floooh.github.io/2018/06/17/handles-vs-pointers.html)
+- [Microsoft Clarity - Free Heatmaps & Session Recordings](https://clarity.microsoft.com/)
+- [Modern CSS in Real Life](https://chriscoyier.net/2023/06/06/modern-css-in-real-life/)
+  > - `margin-right`: Translated to RTL, spacing problem. use `margin-inline-end` (or `gap`).
+  > - `img` alt: With that brief information, perhaps someone might be able to, say, recognize the exact pier in the photo if they had been there before or the like.
+  > - higher layer will win, regardless of specificity.
+  > - `@import url(~) layer;` - my @import of Bootstrap is plunked onto a layer. Note: we don’t even have to name it, and we can use this keyword instead of @layer while importing. - my super weak CSS selector in which I’m trying to override header margin does win
+  > - `@layer reset, default, themes, patterns, layouts, components, utilities;`
 - [Software effort estimation is mostly fake research](https://shape-of-code.com/2021/01/17/software-effort-estimation-is-mostly-fake-research/)
   > from [HK news](https://news.ycombinator.com/item?id=36350632)
   >
