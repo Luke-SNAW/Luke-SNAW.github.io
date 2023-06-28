@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1687502732239
+updated: 1687833057402
 created: 1667632965028
 ---
+
+## Week 26, 2023
+
+- [Inverted Triangle Architecture For CSS (ITCSS)](https://apiumhub.com/tech-blog-barcelona/inverted-triangle-architecture-for-css-itcss/)
+- [A Complete Guide to CSS Cascade Layers](https://css-tricks.com/css-cascade-layers/)
+- [try](https://github.com/binpash/try) lets you run a command and inspect its effects before changing your live system. `try` uses Linux's [namespaces (via `unshare`)](https://docs.kernel.org/userspace-api/unshare.html) and the [overlayfs](https://docs.kernel.org/filesystems/overlayfs.html) union filesystem.
 
 ## Week 25, 2023
 
