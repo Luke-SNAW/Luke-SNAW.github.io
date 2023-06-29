@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1687418941040
+updated: 1688012568752
 created: 1646011961595
 ---
 
@@ -20,6 +20,7 @@ created: 1646011961595
 - [Component Party](https://component-party.dev/) - Web component JS frameworks overview by their syntax and features: Svelte, React, Vue 2, Vue 3, Angular, SolidJS, Lit, Ember, Alpine, Qwik
 - [포트원](https://portone.io/korea/ko) - 한국 결제 대행
 - [Microsoft Clarity - Free Heatmaps & Session Recordings](https://clarity.microsoft.com/)
+- [MJML](https://github.com/mjmlio/mjml) - the only framework that makes responsive-email easy
 
 ## Images
 
