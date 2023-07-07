@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1688012562564
+updated: 1688711864100
 created: 1667632965028
 ---
+
+## Week 27, 2023
+
+- [In Defence of DOMContentLoaded](https://csswizardry.com/2023/07/in-defence-of-domcontentloaded/)
+  > The DOMContentLoaded event fires once all of your deferred JavaScript has finished running.
+- [The hardest part of building software is not coding, it’s requirements](https://stackoverflow.blog/2023/06/26/the-hardest-part-of-building-software-is-not-coding-its-requirements/) - Why replacing programmers with AI won’t be so easy.
 
 ## Week 26, 2023
 

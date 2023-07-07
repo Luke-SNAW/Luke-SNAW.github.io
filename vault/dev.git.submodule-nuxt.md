@@ -2,7 +2,7 @@
 id: 139jmtdtr0cvcvb4b4gkk0o
 title: Submodule Nuxt
 desc: ""
-updated: 1686211413850
+updated: 1688631603689
 created: 1686211366348
 ---
 
@@ -14,6 +14,14 @@ report sub directory로 추가
 
 ```sh
 git submodule add https://github.com/genoplan/report-module-2023.git report
+```
+
+#### Submodule remove
+
+```sh
+git submodule deinit -f $module_dir
+rm -rf .git/modules/$module_dir
+git rm -f $module_dir
 ```
 
 ### Package install

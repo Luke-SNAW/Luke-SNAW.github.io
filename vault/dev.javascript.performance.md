@@ -2,7 +2,7 @@
 id: qJYy3qzZt6rXHWQJPZd9Q
 title: Javascript Performance
 desc: ""
-updated: 1685417870148
+updated: 1688711877173
 created: 1644479524849
 ---
 
@@ -30,3 +30,5 @@ created: 1644479524849
 - [Mastering the Art of Efficient JavaScript DOM Manipulation](https://itnext.io/mastering-the-art-of-efficient-javascript-dom-manipulation-899b5cbf5a3f)
   - Use document fragments
   - Use event delegation - `event.target.matches`
+- [In Defence of DOMContentLoaded](https://csswizardry.com/2023/07/in-defence-of-domcontentloaded/)
+  > The DOMContentLoaded event fires once all of your deferred JavaScript has finished running.
