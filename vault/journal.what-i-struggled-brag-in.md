@@ -2,9 +2,55 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1687394398229
+updated: 1689058619766
 created: 1669264809793
 ---
+
+## Week 28, 2023 - nuxt config for primevue v3.30.0
+
+nuxt, primevue, tailwind가 공존하는 환경에서 primevue의 변경사항으로 인해 tailwind 설정이 먹히는 상황
+
+**Bug1**
+
+기존 [primevue.min.css가 v3.30.0부터 deprecated](https://github.com/primefaces/primevue/issues/4110)
+
+nuxt config css에 등록한 css들을 import 후에 primevue가 css 내용을 import하기 때문에
+custom components나 utilities 내용을 덮어 쓴다.
+
+**Fix1**
+
+덮어써지는 css들은 따로 위치시켜야 함. layouts/default.vue에 이동  
+layouts/default.vue 그냥 import하면 local dev시에는 의도한 순서로 import하는데 build 결과물은 또 primevue 생성 style이 가장 나중에 import 됨.  
+layouts/default.vue에 [dynamic import](https://nuxt.com/docs/getting-started/styling#importing-within-components)로 처리
+
+> ! plugins/primevue.js에 dynamic import 해봤는데 local에선 되지만 build 환경에선 안됨
+
+```js
+// layouts/default.vue
+if (process.client) {
+  import("~/vue-components/styles/components.scss")
+  import("~/vue-components/styles/utilities.scss")
+}
+```
+
+**Bug2 from Fix1**
+
+dynamic으로 import하다보니 mount 이후에 import 되어 FOUC(flash of unstyled content)가 발생
+
+**Fix2**
+
+primevue가 생성하는 style들을 앞으로 보내 우선순위 낮추는 방식으로 해결
+
+```js
+onMounted(() => {
+  if (process.server) return
+
+  const target = document.querySelector('link[rel="icon"]')
+  document.querySelectorAll("[data-primevue-style-id]").forEach((el) => {
+    target.after(el)
+  })
+})
+```
 
 ## Week 25, 2023 - @babel/preset-env core-js Polyfill
 
@@ -282,6 +328,18 @@ Q1부터 새로 생성되는 프로젝트들이 기존 report 재사용이 많�
 > [Authenticating with a personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token)
 
 [.npmrc에 token 저장하지 않기](https://stackoverflow.com/questions/55514076/npmrc-config-file-not-reading-environment-variable-to-download-private-node-mod/55578270#55578270)
+
+```shell
+<org-name>:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGE_READ_TOKEN}
+```
+
+````shell
+shell rc에 token export.
+  ex) z shell의 경우 ~/.zshrc에 다음을 추가
+  ```shell
+  export GITHUB_PACKAGE_READ_TOKEN=~~
+````
 
 - [What is Source Command in Linux and How Does it Work?](https://linuxhandbook.com/source-command/)
 

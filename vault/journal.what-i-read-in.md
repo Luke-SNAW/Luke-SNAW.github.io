@@ -2,12 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1688711864100
+updated: 1688973114616
 created: 1667632965028
 ---
 
+## Week 28, 2023
+
+- [JavaScript closest](https://davidwalsh.name/element-closest)
+  ```js
+  const link = document.querySelector("li a")
+  const list = a.closest("ul")
+  ```
+
 ## Week 27, 2023
 
+- [What does the image decoding attribute actually do?](https://www.tunetheweb.com/blog/what-does-the-image-decoding-attribute-actually-do/)
+  > So does this make a difference as an HTML attribute? probably not that much.
 - [In Defence of DOMContentLoaded](https://csswizardry.com/2023/07/in-defence-of-domcontentloaded/)
   > The DOMContentLoaded event fires once all of your deferred JavaScript has finished running.
 - [The hardest part of building software is not coding, it’s requirements](https://stackoverflow.blog/2023/06/26/the-hardest-part-of-building-software-is-not-coding-its-requirements/) - Why replacing programmers with AI won’t be so easy.

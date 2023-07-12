@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1681432046541
+updated: 1688973140480
 created: 1644885695251
 ---
 
@@ -91,6 +91,11 @@ created: 1644885695251
   - valueAsNumber, valueAsDate
 - [Two-way data binding and reactivity with 15 lines of vanilla JavaScript](https://gomakethings.com/two-way-data-binding-and-reactivity-with-15-lines-of-vanilla-javascript/)
   - Proxy, Event delegate
+- [JavaScript closest](https://davidwalsh.name/element-closest)
+  ```js
+  const link = document.querySelector("li a")
+  const list = a.closest("ul")
+  ```
 
 ---
 
