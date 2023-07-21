@@ -1,0 +1,100 @@
+---
+id: mdm9l0q7bcpw3otz04otp8s
+title: Software Engineering at Google
+desc: ""
+updated: 1689922288721
+created: 1689901150134
+published: false
+---
+
+> https://abseil.io/resources/swe-book
+
+## Thesis- [What Is Software Engineering?](https://abseil.io/resources/swe-book/html/ch01.html)
+
+> Software engineering differs from programming in that it focuses on maintaining code over longer time periods and at larger scales. This requires planning for change, managing dependencies, and making trade-offs. Sustainability means being able to adapt to changes over the software's lifetime. Hyrums Law states that observable behaviors will be depended upon, regardless of promises. Scaling policies like expertise, automation, and consistency help. Decisions should be based on data, but data is often incomplete so assumptions are needed. While software engineering focuses on longevity, programming focuses on immediate goals; different best practices apply to each.
+
+### [Time and Change](https://abseil.io/resources/swe-book/html/ch01.html#time_and_change)
+
+We also find developers of short-lived code in common industry settings. Mobile apps often have a fairly short life span,6 and for better or worse, full rewrites are relatively common. Engineers at an early-stage startup might rightly choose to focus on immediate goals over long-term investments: the company might not live long enough to reap the benefits of an infrastructure investment that pays off slowly. **A serial startup developer could very reasonably have 10 years of development experience and little or no experience maintaining any piece of software expected to exist for longer than a year or two.**
+
+### [TL;DRs](https://abseil.io/resources/swe-book/html/ch01.html#tlsemicolondr)
+
+- “Software engineering” differs from “programming” in dimensionality: programming is about producing code. Software engineering extends that to include the maintenance of that code for its useful life span.
+- There is a factor of at least 100,000 times between the life spans of short-lived code and long-lived code. It is silly to assume that the same best practices apply universally on both ends of that spectrum.
+- Software is sustainable when, for the expected life span of the code, we are capable of responding to changes in dependencies, technology, or product requirements. We may choose to not change things, but we need to be capable.
+- Hyrum’s Law: with a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody.
+- Every task your organization has to do repeatedly should be scalable (linear or better) in terms of human input. Policies are a wonderful tool for making process scalable.
+- Process inefficiencies and other software-development tasks tend to scale up slowly. Be careful about boiled-frog problems.
+- Expertise pays off particularly well when combined with economies of scale.
+- “Because I said so” is a terrible reason to do things.
+- Being data driven is a good start, but in reality, most decisions are based on a mix of data, assumption, precedent, and argument. It’s best when objective data makes up the majority of those inputs, but it can rarely be _all_ of them.
+- Being data driven over time implies the need to change directions when the data changes (or when assumptions are dispelled). Mistakes or revised plans are inevitable.
+
+## Culture - [How to Work Well on Teams](https://abseil.io/resources/swe-book/html/ch02.html)
+
+> Software engineering requires collaboration and teamwork. However, many engineers dream of being lone geniuses who create world-changing software in isolation. This "genius myth" leads engineers to hide their work from others, which increases the risk of failure and slows progress. Instead, engineers should embrace humility, share their work early, and accept criticism constructively. Working with a team provides rapid feedback, spreads knowledge, and increases the pace of progress. The key to success is creating a high-functioning team where members have behaviors like openness to influence, patience, and a willingness to admit mistakes and learn from failures. Ultimately, a well-functioning team is the foundation for any successful software endeavor.
+
+### TL;DRs
+
+- Be aware of the trade-offs of working in isolation.
+- Acknowledge the amount of time that you and your team spend communicating and in interpersonal conflict. A small investment in understanding personalities and working styles of yourself and others can go a long way toward improving productivity.
+- If you want to work effectively with a team or a large organization, be aware of your preferred working style and that of others.
+
+## Culture - [Knowledge Sharing](https://abseil.io/resources/swe-book/html/ch03.html)
+
+> Knowledge sharing is crucial for organizations to scale and grow. Creating a culture of psychological safety where people feel comfortable asking questions and admitting what they don't know is the foundation. Organizations should make it easy for people to access both human experts and documented references. They should incentivize and reward those who take time to teach and share their expertise. There are no silver bullets, a combination of strategies is needed. Readability, Google's code review program, exemplifies how a human-driven process can scale knowledge across an organization by enforcing best practices and code consistency. Studies show that readability has had a net positive impact on Google's engineering velocity.
+
+## Culture - [Engineering for Equity](https://abseil.io/resources/swe-book/html/ch04.html)
+
+> The passage discusses the importance of diversity and inclusivity in software engineering to design products that work for all users. Bias is common by default, so diverse teams are needed to consider underrepresented groups. Google has failed in the past by not properly designing for all racial groups, showing the need for more diversity in their workforce. Engineers must build multicultural capacity by understanding how their products impact different groups and considering the most difficult use cases first. They should challenge established processes that produce inequitable results and measure equity throughout their systems. While Google values diversity, they have struggled to achieve equitable outcomes, showing that values alone are not enough without proper implementation.
+
+### Conclusion
+
+Developing software, and developing a software organization, is a team effort. As a software organization scales, it must respond and adequately design for its user base, which in the interconnected world of computing today involves everyone, locally and around the world. More effort must be made to make both the development teams that design software and the products that they produce reflect the values of such a diverse and encompassing set of users. And, if an engineering organization wants to scale, it cannot ignore underrepresented groups; not only do such engineers from these groups augment the organization itself, they provide unique and necessary perspectives for the design and implementation of software that is truly useful to the world at large.
+
+### TL;DRs
+
+- Bias is the default.
+- Diversity is necessary to design properly for a comprehensive user base.
+- Inclusivity is critical not just to improving the hiring pipeline for underrepresented groups, but to providing a truly supportive work environment for all people.
+- Product velocity must be evaluated against providing a product that is truly useful to all users. It’s better to slow down than to release a product that might cause harm to some users.
+
+## Culture - [How to Lead a Team](https://abseil.io/resources/swe-book/html/ch05.html)
+
+> The passages discuss effective leadership and management techniques for software engineering teams. Good managers serve their teams through humility, respect and trust. They act as servant leaders, focusing on the social and technical health of the team. They hire people smarter than themselves and give team members autonomy, opportunities for mastery and a sense of purpose to motivate them intrinsically. Tracking employee happiness and career goals helps keep teams productive. Effective managers shield their teams from outside chaos, give positive feedback and say "yes" to new ideas when possible.
+
+### TL;DRs
+
+- Don’t "manage" in the traditional sense; focus on leadership, influence, and serving your team.
+- Delegate where possible; don’t DIY (Do It Yourself).
+- Pay particular attention to the focus, direction, and velocity of your team.
+
+## Culture - [Leading at Scale](https://abseil.io/resources/swe-book/html/ch06.html)
+
+> Successful leaders must learn to make decisions quickly, delegate tasks, and scale their time and energy effectively as their responsibilities grow. They must identify key trade-offs, decide on a course of action, and iterate as needed. Most importantly, they must build self-sufficient teams that can solve problems without the leader's constant involvement. To scale themselves, leaders must protect their time by focusing on important tasks, delegate work to subordinates, and learn to drop lower priority tasks. They must also manage their energy through vacations, breaks, and mental health days.
+
+95% observation and listening, and 5% making critical adjustments in just the right place.
+
+### Important Versus Urgent
+
+Think back to a time when you weren’t yet a leader, but still a carefree individual contributor. If you used to be a programmer, your life was likely calmer and more panic-free. You had a list of work to do, and each day you’d methodically work down your list, writing code and debugging problems. Prioritizing, planning, and executing your work was straightforward.
+
+As you moved into leadership, though, you might have noticed that your main mode of work became less predictable and more about firefighting. That is, your job became less _proactive_ and more _reactive._ The higher up in leadership you go, the more escalations you receive. You are the "finally" clause in a long list of code blocks! All of your means of communication—email, chat rooms, meetings—begin to feel like a Denial-of-Service attack against your time and attention. In fact, if you’re not mindful, you end up spending 100% of your time in reactive mode. People are throwing balls at you, and you’re frantically jumping from one ball to the next, trying not to let any of them hit the ground.
+
+A lot of books have discussed this problem. The management author Stephen Covey is famous for talking about the idea of distinguishing between things that are _important_ versus things that are _urgent._ In fact, it was US President Dwight D. Eisenhower who popularized this idea in a famous 1954 quote:
+
+> I have two kinds of problems, the urgent and the important. The urgent are not important, and the important are never urgent.
+
+This tension is one of the biggest dangers to your effectiveness as a leader. If you let yourself slip into pure reactive mode (which happens almost automatically), you spend every moment of your life on _urgent_ things, but almost none of those things are _important_ in the big picture. Remember that your job as a leader is to do things that _only you can do_, like mapping a path through the forest. Building that meta-strategy is incredibly important, but almost never urgent. It’s always easier to respond to that next urgent email.
+
+So how can you force yourself to work mostly on important things, rather than urgent things? Here are a few key techniques:
+
+- Delegate
+- Schedule dedicated time
+- Find a tracking system that works
+
+### TL;DRs
+
+- Always Be Deciding: Ambiguous problems have no magic answer; they’re all about finding the right _trade-offs_ of the moment, and iterating.
+- Always Be Leaving: Your job, as a leader, is to build an organization that automatically solves a class of ambiguous problems—over _time_—without you needing to be present.
+- Always Be Scaling: Success generates more responsibility over time, and you must proactively manage the _scaling_ of this work in order to protect your scarce resources of personal time, attention, and energy.

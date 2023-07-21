@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1689748196758
+updated: 1689922785514
 created: 1667632965028
 ---
 
 ## Week 29, 2023
 
+- Software Engineering at Google - ch.1~6
+- [How React 18 Improves Application Performance](https://vercel.com/blog/how-react-18-improves-application-performance)
 - [[Browser] 리소스 우선순위 - preload, preconnect, prefetch](https://beomy.github.io/tech/browser/preload-preconnect-prefetch/)
   > `prefetch`를 사용하면 리소스를 미리 캐시 해 두기 때문에 성능이 향상될 것이라고 예상. 하지만 vue-cli3에서 제공하는 prefetch 기능을 사용하면 오히려 첫 렌더링 성능이 저하되는 것으로 확인
 

@@ -2,7 +2,7 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1685061536987
+updated: 1689835392776
 created: 1645666821126
 ---
 
@@ -45,3 +45,4 @@ created: 1645666821126
   - Solution 2: Lift Content Up
 - [Understanding React Concurrency](https://www.bbss.dev/posts/react-concurrency/)
   - The basic premise of React concurrency is to rework the rendering process such that while rendering the next view, the current view is kept responsive.
+- [How React 18 Improves Application Performance](https://vercel.com/blog/how-react-18-improves-application-performance)
