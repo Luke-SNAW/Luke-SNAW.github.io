@@ -2,7 +2,7 @@
 id: ok0e729ho7o09xetujkxc0m
 title: Financial
 desc: ""
-updated: 1679879512574
+updated: 1689990357082
 created: 1667694740818
 ---
 
@@ -29,18 +29,10 @@ As of 12/31/2020
 | Energy                 | 2.3%                  | [VDE](https://www.etf.com/vde) | [XLE](https://www.etf.com/xle)   |
 | TOTAL # OF HOLDINGS    | (as of 12/31/2020)    | 2,561                          | 518                              |
 
-## [경기둔화 순서](https://youtu.be/uMA-FI0SYsQ?t=745)
-
-Fed가 긴축하게되면 HOPE순서로 둔화.
-
-1. House
-2. new Order(PMI)
-3. Profit (기업, EPS)
-4. Employment
-
 ## Site
 
 - https://seekingalpha.com/article/4574652-sl-green-grab-a-near-8-percent-monthly-yield
+- [통합연금포털](https://www.fss.or.kr/fss/lifeplan/lifeplanIndex/index.do?menuNo=201101)
 
 ## 금리 급상승
 
