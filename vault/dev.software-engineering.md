@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1687502765011
+updated: 1690171981526
 created: 1645514209965
 ---
 
@@ -34,6 +34,8 @@ created: 1645514209965
   > > 2. I am only able to check the correctness of the code, if am am proficient enough as a programmer (and possibly in the language as well). To become proficient I need to write a lot of code, but the more I use LLMs, the less repetitions I get in. So in a way it feels like LLMs are going to make you a "worse" programmer by doing the work for you.
 
 - [Handles are the better pointers](https://floooh.github.io/2018/06/17/handles-vs-pointers.html)
+- [Nanosecond timestamp collisions are common](https://www.evanjones.ca/nanosecond-collisions.html)
+  - https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 

@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1689922785514
+updated: 1690178051859
 created: 1667632965028
 ---
+
+## Week 30, 2023
+
+- Software Engineering at Google - ch.7~9
+- [Nanosecond timestamp collisions are common](https://www.evanjones.ca/nanosecond-collisions.html)
+  - https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format
 
 ## Week 29, 2023
 

@@ -2,7 +2,7 @@
 id: mdm9l0q7bcpw3otz04otp8s
 title: Software Engineering at Google
 desc: ""
-updated: 1689922288721
+updated: 1690178024034
 created: 1689901150134
 published: false
 ---
@@ -98,3 +98,47 @@ So how can you force yourself to work mostly on important things, rather than ur
 - Always Be Deciding: Ambiguous problems have no magic answer; they’re all about finding the right _trade-offs_ of the moment, and iterating.
 - Always Be Leaving: Your job, as a leader, is to build an organization that automatically solves a class of ambiguous problems—over _time_—without you needing to be present.
 - Always Be Scaling: Success generates more responsibility over time, and you must proactively manage the _scaling_ of this work in order to protect your scarce resources of personal time, attention, and energy.
+
+## Culture - [Measuring Engineering Productivity](https://abseil.io/resources/swe-book/html/ch07.html)
+
+> Google relies heavily on data and metrics to improve engineering productivity. They created a team focused on measuring and improving productivity in an efficient manner. Before measuring productivity, they determine if the results will lead to action. They use the GSM framework to select meaningful metrics that map to their goals. They measure multiple aspects of productivity like quality, velocity, and satisfaction using both quantitative and qualitative data. The readability process study showed that while worthwhile, there were opportunities for improvement. The language teams then improved the tools and process based on the recommendations.
+
+### Selecting Meaningful Metrics with Goals and Signals
+
+At Google, we use the Goals/Signals/Metrics (GSM) framework to guide metrics creation.
+
+- A _goal_ is a desired end result. It’s phrased in terms of what you want to understand at a high level and should not contain references to specific ways to measure it.
+
+- A _signal_ is how you might know that you’ve achieved the end result. Signals are things we would _like_ to measure, but they might not be measurable themselves.
+- A _metric_ is proxy for a signal. It is the thing we actually can measure. It might not be the ideal measurement, but it is something that we believe is close enough.
+
+...
+
+GSM encourages us to select metrics based on their ability to measure the original goals.
+
+GSM can show us where we have measurement coverage and where we do not.
+
+## Processes - [Style Guides and Rules](https://abseil.io/resources/swe-book/html/ch08.html)
+
+> Google maintains strict style guides for each programming language used to manage their large codebase. The rules aim to optimize for readability, consistency and maintainability over time. Automated tools are used to enforce most rules to minimize human effort and variability. Exceptions to rules are allowed in valid cases to accommodate practical needs. The reasoning behind each rule is documented to help determine when rules need to change. New rules are proposed based on demonstrated problems in code and approved through a review process.
+
+### TL;DRs
+
+- Rules and guidance should aim to support resilience to time and scaling.
+- Know the data so that rules can be adjusted.
+- Not everything should be a rule.
+- Consistency is key.
+- Automate enforcement when possible.
+
+## Processes - [Code Review](https://abseil.io/resources/swe-book/html/ch09.html)
+
+> Code review is an essential process at Google where almost every change is reviewed before being committed. It helps ensure code correctness, catch bugs early, promote consistency, and enables knowledge sharing. Keeping reviews small and focused helps the process scale. While checking code is important, ensuring the code is understandable and maintainable over time is even more critical. The process also has psychological benefits by promoting team ownership and validating engineers' work. Automation and proper tooling help make code review scalable across a large organization.
+
+### TL;DRs
+
+- Code review has many benefits, including ensuring code correctness, comprehension, and consistency across a codebase.
+- Always check your assumptions through someone else; optimize for the reader.
+- Provide the opportunity for critical feedback while remaining professional.
+- Code review is important for knowledge sharing throughout an organization.
+- Automation is critical for scaling the process.
+- The code review itself provides a historical record.
