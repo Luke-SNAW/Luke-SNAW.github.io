@@ -2,9 +2,16 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1689658423090
+updated: 1690524518604
 created: 1669264809793
 ---
+
+## Week 30, 2023 - Webpack & Tailwind CSS Setup
+
+Nuxt project에 사용하는 tailwind가 너무 편해서 webpack project에도 적용
+
+> [Webpack & Tailwind CSS Setup](https://gist.github.com/bradtraversy/1c93938c1fe4f10d1e5b0532ae22e16a)  
+> [Webpack CSS Extraction](https://vue-loader.vuejs.org/guide/extract-css.html#webpack-4)
 
 ## Week 29, 2023 - Nuxt v3.6.0 generate dynamic route path
 

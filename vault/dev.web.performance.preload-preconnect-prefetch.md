@@ -1,7 +1,7 @@
 ---
 id: 6ap7amibzjhel2cuq17yxwx
-title: 리소스 우선순위 - preload, preconnect, prefetch
-desc: ""
+title: '리소스 우선순위 - preload, preconnect, prefetch'
+desc: ''
 updated: 1689748559408
 created: 1689748255799
 ---

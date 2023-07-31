@@ -2,7 +2,7 @@
 id: 1mi9m99hBJq32lfoqGdNB
 title: Test
 desc: ""
-updated: 1670379439599
+updated: 1690354346667
 created: 1645055059758
 ---
 
@@ -11,6 +11,8 @@ created: 1645055059758
 - QE - QA/QC를 수행하기 위한 모든 엔지니어링 활동 (자동화 T/C설계, 테스트용 데이터 생성)
 
 ---
+
+## Collections
 
 - [TDD Changed My Life](https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80)
 - [The Cycles of TDD](https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html)
@@ -28,6 +30,9 @@ created: 1645055059758
   > With shallow rendering, I can refactor my component's implementation and my tests break. With shallow rendering, I can break my application and my tests say everything's still working.
 
   - [For actual unit testing](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering#for-actual-unittesting)
+
+- [Testing on the Toilet: Don't Put Logic in Tests](https://testing.googleblog.com/2014/07/testing-on-toilet-dont-put-logic-in.html)
+  > Production code computes outputs from inputs while tests specify concrete input/output pairs. Complex test logic should be moved to helper functions with their own tests, leaving test bodies simple.
 
 ## [An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach](https://dl.acm.org/doi/10.1145/2961111.2962592)
 

@@ -2,13 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1690178051859
+updated: 1690515701880
 created: 1667632965028
 ---
 
 ## Week 30, 2023
 
-- Software Engineering at Google - ch.7~9
+- Software Engineering at Google - ch.7~15
+  > Code is a liability, not an asset. Code itself doesn’t bring value: it is the functionality that it provides that brings value. That functionality is an asset if it meets a user need: the code that implements this functionality is simply a means to that end.
+- [Hono + htmx + Cloudflare is a new stack](https://blog.yusu.ke/hono-htmx-cloudflare/)
+- [Testing on the Toilet: Don't Put Logic in Tests](https://testing.googleblog.com/2014/07/testing-on-toilet-dont-put-logic-in.html)
+  > Production code computes outputs from inputs while tests specify concrete input/output pairs. Complex test logic should be moved to helper functions with their own tests, leaving test bodies simple.
+- [[Browser] Critical Rendering Path 최적화](https://beomy.github.io/tech/browser/critical-rendering-path/#%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EC%A7%80%EC%A0%95)
+- [[Core Team RFC] New SFC macro: defineModel](https://github.com/vuejs/rfcs/discussions/503)
 - [Nanosecond timestamp collisions are common](https://www.evanjones.ca/nanosecond-collisions.html)
   - https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format
 

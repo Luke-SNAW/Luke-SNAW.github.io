@@ -2,12 +2,14 @@
 id: mdm9l0q7bcpw3otz04otp8s
 title: Software Engineering at Google
 desc: ""
-updated: 1690178024034
+updated: 1690515661314
 created: 1689901150134
 published: false
 ---
 
 > https://abseil.io/resources/swe-book
+>
+> Code is a liability, not an asset. Code itself doesn’t bring value: it is the functionality that it provides that brings value. That functionality is an asset if it meets a user need: the code that implements this functionality is simply a means to that end.
 
 ## Thesis- [What Is Software Engineering?](https://abseil.io/resources/swe-book/html/ch01.html)
 
@@ -142,3 +144,98 @@ GSM can show us where we have measurement coverage and where we do not.
 - Code review is important for knowledge sharing throughout an organization.
 - Automation is critical for scaling the process.
 - The code review itself provides a historical record.
+
+## Process - [Documentation](https://abseil.io/resources/swe-book/html/ch10.html)
+
+> Documentation is important for software engineers but often neglected. Making documentation easier to write and maintain can help improve its quality. Engineers should treat documentation like code, placing it under source control and reviewing changes. While engineers do not need to be expert writers, they should identify their audience and write clearly for them. Different types of documentation serve different purposes and should be kept separate. Regularly reviewing and updating documentation can help keep it relevant and useful over time. With the right tools and processes, engineers can produce high-quality documentation that improves code comprehension and maintainability.
+
+### Documentation Reviews
+
+At Google, all code needs to be reviewed, and our code review process is well understood and accepted. In general, documentation also needs review (though this is less universally accepted). If you want to “test” whether your documentation works, you should generally have someone else review it.
+
+A technical document benefits from three different types of reviews, each emphasizing different aspects:
+
+- A technical review, for accuracy. This review is usually done by a subject matter expert, often another member of your team. Often, this is part of a code review itself.
+- An audience review, for clarity. This is usually someone unfamiliar with the domain. This might be someone new to your team or a customer of your API.
+- A writing review, for consistency. This is often a technical writer or volunteer.
+
+### TL;DRs
+
+- Documentation is hugely important over time and scale.
+- Documentation changes should leverage the existing developer workflow.
+- Keep documents focused on one purpose.
+- Write for your audience, not yourself.
+
+## Process - [Testing Overview](https://abseil.io/resources/swe-book/html/ch11.html)
+
+> Testing is seen as critical to ensuring the quality and reliability of Google's products and services. Initially, Google did not emphasize testing but after some high-profile issues, testing became a priority. Google now encourages all engineers to write automated tests and has developed strategies to make tests fast, reliable and maintainable at scale. These include classifying tests by size, scope and coverage. Over time, through training, initiatives like "Testing on the Toilet" and cultural changes, Google has transformed testing into an engineering norm. Google's focus is on writing the right mix of tests to balance productivity, confidence and quality.
+
+### TL;DRs
+
+- Automated testing is foundational to enabling software to change.
+- For tests to scale, they must be automated.
+- A balanced test suite is necessary for maintaining healthy test coverage.
+- “If you liked it, you should have put a test on it.”
+- Changing the testing culture in organizations takes time.
+
+## Process - [Unit Testing](https://abseil.io/resources/swe-book/html/ch12.html)
+
+> Unit tests are an important tool for ensuring software quality, but they must be written carefully to be effective. Tests should avoid being brittle by testing public APIs instead of implementation details. They should strive for clarity by being concise, using behavior-driven names, avoiding logic, and writing clear failure messages. While some code sharing is useful, tests should favor being descriptive and meaningful over being DRY. Following these practices can help make tests more maintainable and valuable over time.
+
+### Don’t Put Logic in Tests
+
+Clear tests are trivially correct upon inspection; that is, it is obvious that a test is doing the correct thing just from glancing at it. This is possible in test code because each test needs to handle only a particular set of inputs, whereas production code must be generalized to handle any input.
+
+Complexity is most often introduced in the form of logic. Logic is defined via the imperative parts of programming languages such as operators, loops, and conditionals. When a piece of code contains logic, you need to do a bit of mental computation to determine its result instead of just reading it off of the screen.
+
+### TL;DRs
+
+- Strive for unchanging tests.
+- Test via public APIs.
+- Test state, not interactions.
+- Make your tests complete and concise.
+- Test behaviors, not methods.
+- Structure tests to emphasize behaviors.
+- Name tests after the behavior being tested.
+- Don’t put logic in tests.
+- Write clear failure messages.
+- Follow DAMP over DRY when sharing code for tests.
+
+## Process - [Test Doubles](https://abseil.io/resources/swe-book/html/ch13.html)
+
+> Test doubles like fakes, stubs, and mocks can help make tests run faster and more isolated. However, overusing them can lead to brittle tests that are unclear and ineffective. Real implementations are generally preferred as they provide more realistic tests with higher fidelity. Fakes are the best option when real implementations cannot be used, but they require effort to create and maintain. Stubbing and interaction testing should only be used when necessary due to their limitations. Overall, test doubles are useful tools when applied properly according to best practices.
+
+### TL;DRs
+
+- A real implementation should be preferred over a test double.
+- A fake is often the ideal solution if a real implementation can’t be used in a test.
+- Overuse of stubbing leads to tests that are unclear and brittle.
+- Interaction testing should be avoided when possible: it leads to tests that are brittle because it exposes implementation details of the system under test.
+
+## Process - [Larger Testing](https://abseil.io/resources/swe-book/html/ch14.html)
+
+> Larger tests, like integration and end-to-end tests, are necessary to ensure the overall system works as intended. They provide higher fidelity than unit tests but are more complex and slower to run. Google uses various types of larger tests, from functional testing to A/B diff testing to chaos engineering. While unit tests are owned by individual engineers, larger tests require dedicated owners to ensure they are properly maintained and run. Careful consideration of the system under test, test data, and verification methods can improve the effectiveness of larger tests. Overall, a comprehensive test suite requires both unit tests and larger tests to achieve high test coverage.
+
+### TL;DRs
+
+- Larger tests cover things unit tests cannot.
+- Large tests are composed of a System Under Test, Data, Action, and Verification.
+- A good design includes a test strategy that identifies risks and larger tests that mitigate them.
+- Extra effort must be made with larger tests to keep them from creating friction in the developer workflow.
+
+## Process - [Deprecation](https://abseil.io/resources/swe-book/html/ch15.html)
+
+> 1. Software systems age and become obsolete over time, requiring continued maintenance and expertise.
+> 2. Deprecation is the process of removing obsolete systems in an orderly manner to reduce costs and improve efficiency.
+> 3. Removing systems is difficult due to unexpected dependencies and emotional attachment to old code.
+> 4. Systems can be designed for easier deprecation by making dependencies replaceable and incremental.
+> 5. Deprecations range from advisory, with no deadline, to compulsory, with a removal deadline.
+> 6. Compulsory deprecations require a specialized team to help users migrate away from the old system.
+> 7. Deprecation warnings should be actionable and relevant to encourage users to migrate.
+> 8. Deprecation projects require explicit owners, milestones, and tooling for discovery, migration, and backsliding prevention.
+> 9. Removing obsolete systems improves the software ecosystem by reducing maintenance overhead and cognitive burden.
+> 10. A complete deprecation process manages both social and technical challenges through policy and tooling.
+
+> Earlier we made the assertion that “code is a liability, not an asset.” If that is true, why have we spent most of this book discussing the most efficient way to build software systems that can live for decades? Why put all that effort into creating more code when it’s simply going to end up on the liability side of the balance sheet?  
+> Code itself doesn’t bring value: it is the functionality that it provides that brings value. That functionality is an asset if it meets a user need: the code that implements this functionality is simply a means to that end. If we could get the same functionality from a single line of maintainable, understandable code as 10,000 lines of convoluted spaghetti code, we would prefer the former. Code itself carries a cost—the simpler the code is, while maintaining the same amount of functionality, the better.  
+> Instead of focusing on how much code we can produce, or how large is our codebase, we should instead focus on how much functionality it can deliver per unit of code and try to maximize that metric. One of the easiest ways to do so isn’t writing more code and hoping to get more functionality; it’s removing excess code and systems that are no longer needed. Deprecation policies and procedures make this possible.

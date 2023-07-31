@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1688012568752
+updated: 1690504784176
 created: 1646011961595
 ---
 
@@ -21,6 +21,7 @@ created: 1646011961595
 - [포트원](https://portone.io/korea/ko) - 한국 결제 대행
 - [Microsoft Clarity - Free Heatmaps & Session Recordings](https://clarity.microsoft.com/)
 - [MJML](https://github.com/mjmlio/mjml) - the only framework that makes responsive-email easy
+- [Hono + htmx + Cloudflare is a new stack](https://blog.yusu.ke/hono-htmx-cloudflare/)
 
 ## Images
 

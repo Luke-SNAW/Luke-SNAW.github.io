@@ -2,7 +2,7 @@
 id: pa1bstln0xt54o30z6taebc
 title: Web Performance
 desc: ""
-updated: 1688963354117
+updated: 1690351684304
 created: 1646012221215
 ---
 
@@ -22,3 +22,4 @@ created: 1646012221215
   - https://news.ycombinator.com/item?id=34231934
 - [What does the image decoding attribute actually do?](https://www.tunetheweb.com/blog/what-does-the-image-decoding-attribute-actually-do/)
   > So does this make a difference as an HTML attribute? probably not that much.
+- [[Browser] Critical Rendering Path 최적화](https://beomy.github.io/tech/browser/critical-rendering-path/#%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EC%A7%80%EC%A0%95)

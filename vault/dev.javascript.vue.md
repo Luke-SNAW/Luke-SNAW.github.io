@@ -2,7 +2,7 @@
 id: p6jdsvhol2ebyzilnb5u3ot
 title: Vue
 desc: ""
-updated: 1677570313607
+updated: 1690332337169
 created: 1646815969488
 ---
 
@@ -19,6 +19,7 @@ created: 1646815969488
   - Script setup + composition API produce clean code
   - Performance is good
   - Best tooling I have used
+- [[Core Team RFC] New SFC macro: defineModel](https://github.com/vuejs/rfcs/discussions/503)
 
 ## nextTick
 
