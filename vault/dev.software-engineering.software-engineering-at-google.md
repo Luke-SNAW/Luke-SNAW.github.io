@@ -2,7 +2,7 @@
 id: mdm9l0q7bcpw3otz04otp8s
 title: Software Engineering at Google
 desc: ""
-updated: 1690515661314
+updated: 1690848600951
 created: 1689901150134
 published: false
 ---
@@ -239,3 +239,70 @@ Complexity is most often introduced in the form of logic. Logic is defined via t
 > Earlier we made the assertion that “code is a liability, not an asset.” If that is true, why have we spent most of this book discussing the most efficient way to build software systems that can live for decades? Why put all that effort into creating more code when it’s simply going to end up on the liability side of the balance sheet?  
 > Code itself doesn’t bring value: it is the functionality that it provides that brings value. That functionality is an asset if it meets a user need: the code that implements this functionality is simply a means to that end. If we could get the same functionality from a single line of maintainable, understandable code as 10,000 lines of convoluted spaghetti code, we would prefer the former. Code itself carries a cost—the simpler the code is, while maintaining the same amount of functionality, the better.  
 > Instead of focusing on how much code we can produce, or how large is our codebase, we should instead focus on how much functionality it can deliver per unit of code and try to maximize that metric. One of the easiest ways to do so isn’t writing more code and hoping to get more functionality; it’s removing excess code and systems that are no longer needed. Deprecation policies and procedures make this possible.
+
+## Tools - [Version Control and Branch Management](https://abseil.io/resources/swe-book/html/ch16.html)
+
+> Version control systems have become essential tools for software engineering, allowing teams to collaborate effectively on code. While centralized version control systems were initially popular, distributed version control systems like Git have gained prominence. However, a key principle is to have a single source of truth for the codebase, even with distributed version control. Google follows a trunk-based development model with a single monorepo for all of their code, enabling a strict "one version" policy where developers cannot choose between different versions of dependencies. This approach helps scale to their massive size and number of engineers, though a virtual monorepo with separate repositories can also work if dependencies are pinned to the latest version.
+
+## Tools - [Code Search](https://abseil.io/resources/swe-book/html/ch17.html)
+
+> Code Search is a tool developed by Google to enable engineers to efficiently browse and search Google's massive codebase. It uses a centralized search index to provide fast search times and instant indexing of new code. This separate web tool is optimized for code understanding rather than editing, and integrates with other developer tools. Scaling to Google's large code repository required a customized search index, ranking algorithms, and trade-offs between expressiveness, completeness, and latency. Code Search provides value by helping engineers understand code, serving as a basis for other tools, and being a central place for documentation and tool links.
+
+### TL;DRs
+
+- Helping your developers understand code can be a big boost to engineering productivity. At Google, the key tool for this is Code Search.
+- Code Search has additional value as a basis for other tools and as a central, standard place that all documentation and developer tools link to.
+- The huge size of the Google codebase made a custom tool—as opposed to, for example, `grep` or an IDE’s indexing—necessary.
+- As an interactive tool, Code Search must be fast, allowing a "question and answer" workflow. It is expected to have low latency in every respect: search, browsing, and indexing.
+- It will be widely used only if it is trusted, and will be trusted only if it indexes all code, gives all results, and gives the desired results first. However, earlier, less powerful, versions were both useful and used, as long as their limits were understood.
+
+## Tools - [Build Systems and Build Philosophy](https://abseil.io/resources/swe-book/html/ch18.html)
+
+> Artifact-based build systems like Bazel are more reliable and scalable than traditional task-based systems. They limit flexibility to gain control over the build process, enabling features like parallelization, caching, and distributed builds. Fine-grained modules scale better, allowing faster and more targeted rebuilds. Managing dependencies manually and enforcing a single version rule avoids issues like diamond dependencies and improves reproducibility. Google's build system demonstrates that limiting engineers' choices while providing structure and automation can improve productivity and trust in the build process.
+
+### TL;DRs
+
+- A fully featured build system is necessary to keep developers productive as an organization scales.
+- Power and flexibility come at a cost. Restricting the build system appropriately makes it easier on developers.
+- Build systems organized around artifacts tend to scale better and be more reliable than build systems organized around tasks.
+- When defining artifacts and dependencies, it’s better to aim for fine-grained modules. Fine-grained modules are better able to take advantage of parallelism and incremental builds.
+- External dependencies should be versioned explicitly under source control. Relying on "latest" versions is a recipe for disaster and unreproducible builds.
+
+## Tools - [Critique: Google’s Code Review Tool](https://abseil.io/resources/swe-book/html/ch19.html)
+
+> Critique is Google's popular in-house code review tool that aims to make the review process as seamless and efficient as possible. It focuses on simplicity and trust between reviewers and authors, and integrates tightly with other Google software development tools. Small features like the "attention set" that clarifies whose turn it is to act have substantially reduced friction. While Critique provides some customization, it favors an opinionated process and simple interface to improve the general workflow. However, trust and communication between reviewers and authors remain core to a successful code review process, and no tool can fully replace them.
+
+### Code Review Tooling Principles
+
+- Simplicity
+- Foundation of trust
+- Generic communication
+- Workflow integration
+
+### TL;DRs
+
+- Trust and communication are core to the code review process. A tool can enhance the experience, but it can’t replace them.
+- Tight integration with other tools is key to great code review experience.
+- Small workflow optimizations, like the addition of an explicit “attention set,” can increase clarity and reduce friction substantially.
+
+## Tools - [Static Analysis](https://abseil.io/resources/swe-book/html/ch20.html)
+
+> Google focuses on making static analysis useful and usable for developers. They emphasize reducing false positives and saving developer time by integrating static analysis into the core workflow through code review. Developers across Google contribute new analyses by writing checks that improve code quality. Google's static analysis platform Tricorder scales to analyze millions of lines of code daily while ensuring analysis results are actionable and have a low effective false positive rate. By empowering developers to contribute checks and focusing on developer happiness, Google has made static analysis an effective part of their software development process.
+
+### Conclusion
+
+Static analysis can be a great tool to improve a codebase, find bugs early, and allow more expensive processes (such as human review and testing) to focus on issues that are not mechanically verifiable. By improving the scalability and usability of our static analysis infrastructure, we have made static analysis an effective component of software development at Google.
+
+### TL;DRs
+
+- _Focus on developer happiness_. We have invested considerable effort in building feedback channels between analysis users and analysis writers in our tools, and aggressively tune analyses to reduce the number of false positives.
+- _Make static analysis part of the core developer workflow_. The main integration point for static analysis at Google is through code review, where analysis tools provide fixes and involve reviewers. However, we also integrate analyses at additional points (via compiler checks, gating code commits, in IDEs, and when browsing code).
+- _Empower users to contribute_. We can scale the work we do building and maintaining analysis tools and platforms by leveraging the expertise of domain experts. Developers are continuously adding new analyses and checks that make their lives easier and our codebase better.
+
+## Tools - [Dependency Management](https://abseil.io/resources/swe-book/html/ch21.html)
+
+> Dependency management is a challenging problem due to conflicting requirements and changing dependencies over time. Semantic versioning helps but has limitations as dependency networks grow larger. Google uses a monorepo approach to improve source control but dependency management remains difficult. Even with infinite resources, dependency management would require providers to rigorously test changes against users. Providers should be transparent about changes and take responsibility for testing to build more reliable dependency networks, though this requires a shift in industry practices. In summary, managing external dependencies is a complex problem that requires communication, responsibility and ongoing maintenance.
+
+## Tools - [Large-Scale Changes](https://abseil.io/resources/swe-book/html/ch22.html)
+
+> Google makes large-scale changes across its massive codebase by breaking changes into smaller shards that can be tested, reviewed, and committed independently. They have developed tools like Rosie to manage this process by splitting changes, running tests, mailing reviewers, and submitting changes. Making large-scale changes allows Google to migrate code to new systems and libraries, upgrade compilers, and fix issues, keeping the codebase up-to-date and flexible over time. However, they have had to develop social and technical processes to enable these changes at scale, including gaining trust from local code owners and using automated formatting and analysis tools. Overall, the ability to make large-scale changes has opened up more possibilities for Google's software design and infrastructure maintenance.

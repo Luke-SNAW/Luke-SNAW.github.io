@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1690515701880
+updated: 1690849641149
 created: 1667632965028
 ---
+
+## Week 31, 2023
+
+- Software Engineering at Google - ch.16~22
+- [So, you want to deploy on the edge?](https://zknill.io/posts/edge-database/)
+  - [What is Edge?](https://news.ycombinator.com/item?id=36941299)
 
 ## Week 30, 2023
 
