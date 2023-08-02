@@ -2,7 +2,7 @@
 id: mdm9l0q7bcpw3otz04otp8s
 title: Software Engineering at Google
 desc: ""
-updated: 1690848600951
+updated: 1690940625282
 created: 1689901150134
 published: false
 ---
@@ -306,3 +306,19 @@ Static analysis can be a great tool to improve a codebase, find bugs early, and 
 ## Tools - [Large-Scale Changes](https://abseil.io/resources/swe-book/html/ch22.html)
 
 > Google makes large-scale changes across its massive codebase by breaking changes into smaller shards that can be tested, reviewed, and committed independently. They have developed tools like Rosie to manage this process by splitting changes, running tests, mailing reviewers, and submitting changes. Making large-scale changes allows Google to migrate code to new systems and libraries, upgrade compilers, and fix issues, keeping the codebase up-to-date and flexible over time. However, they have had to develop social and technical processes to enable these changes at scale, including gaining trust from local code owners and using automated formatting and analysis tools. Overall, the ability to make large-scale changes has opened up more possibilities for Google's software design and infrastructure maintenance.
+
+## Tools- [Continuous Integration](https://abseil.io/resources/swe-book/html/ch24.html)
+
+> Continuous delivery and releasing software frequently and in small batches enables teams to adapt faster, reduce costs, and improve quality. Google strives to release early and often to get feedback quickly and iterate. Flag guarding features allows isolating changes and troubleshooting issues early. Releasing to a small percentage of users first helps identify issues before a wide rollout. Shipping only code that provides value helps keep apps small and efficient. Making data-driven decisions earlier through continuous integration and deployment enables faster innovation. Faster releases in small batches actually make software safer by reducing the risk and impact of each release.
+
+## Tools - [Compute as a Service](https://abseil.io/resources/swe-book/html/ch25.html)
+
+> The document discusses Google's approach to managing compute resources at scale, moving from manually managing individual machines to an automated system that treats servers as "cattle, not pets". This allows Google to efficiently share resources between batch and serving jobs, improve utilization, and scale easily. The system provides isolation and resilience by automatically replacing failed jobs. However, applications need to be designed to be stateless and idempotent to work well in this model. While Google's approach works well for them, other organizations may choose different compute solutions based on their needs and trade-offs. An effective compute solution provides a stable environment for software while scaling with an organization's growth.
+
+### Conclusion
+
+Over the course of building, refining, and running its compute infrastructure, Google learned the value of a well-designed, common compute infrastructure. Having a single infrastructure for the entire organization (e.g., one or a small number of shared Kubernetes clusters per region) provides significant efficiency gains in management and resource costs and allows the development of shared tooling on top of that infrastructure. In the building of such an architecture, containers are a key tool to allow sharing a physical (or virtual) machine between different tasks (leading to resource efficiency) as well as to provide an abstraction layer between the application and the operating system that provides resilience over time.
+
+Utilizing a container-based architecture well requires designing applications to use the “cattle” model: engineering your application to consist of nodes that can be easily and automatically replaced allows scaling to thousands of instances. Writing software to be compatible with that model requires different thought patterns; for example, treating all local storage (including disk) as ephemeral and avoiding hardcoding hostnames.
+
+That said, although Google has, overall, been both satisfied and successful with its choice of architecture, other organizations will choose from a wide range of compute services—from the “pets” model of hand-managed VMs or machines, through “cattle” replicated containers, to the abstract “serverless” model, all available in managed and open source flavors; your choice is a complex trade-off of many factors.
