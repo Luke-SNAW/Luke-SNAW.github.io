@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1687833074633
+updated: 1691017850294
 created: 1646129148306
 ---
 
@@ -56,6 +56,8 @@ created: 1646129148306
 - [Improving CSS Shapes with Trigonometric Functions](https://danielcwilson.com/posts/css-shapes-with-trig-functions/)
 - [Understanding ITCSS: Real case using ITCSS](https://www.carloscaballero.io/understanding-itcss-real-case-using-itcss-https-carloscaballero-io/)
   - font가 settings에 들어가는게 맞아? 다른 articles에선 CSS generate 하는 곳이 아니라는데...
+- [Resume and pause animations in CSS](https://www.amitmerchant.com/run-and-pause-animations-in-css/)
+  - `animation-play-state` property. - `running` and `paused`
 
 ## Pseudo-class
 

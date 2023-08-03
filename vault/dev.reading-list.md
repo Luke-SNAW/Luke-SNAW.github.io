@@ -2,11 +2,10 @@
 id: pc5x8fihvgy53vw9f9ws7vc
 title: Reading List
 desc: ""
-updated: 1662529612359
+updated: 1691040582972
 created: 1645682628574
 ---
 
-- [Building Software Together](https://buildtogether.tech/)
 - [We are trying to get tail calls into the WebAssembly standard](https://news.ycombinator.com/item?id=32069418)
 - https://javascript.info
 - https://mostly-adequate.gitbook.io/mostly-adequate-guide/

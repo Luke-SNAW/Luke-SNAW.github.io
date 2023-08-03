@@ -2,9 +2,8 @@
 id: ejkb541ebc0tp70n4hy72zw
 title: Building Software Together
 desc: ""
-updated: 1671085902475
+updated: 1691040524650
 created: 1662531048977
-tags: bookshelf
 ---
 
 > https://buildtogether.tech/
@@ -31,7 +30,7 @@ Our aim is to teach you how to be a _compassionate programmer_: one who cares as
 18. [How to Make Yourself Comfortable](https://buildtogether.tech/rules-comfortable/)
 19. [Process](dev.building-software-together.process.md)
 20. [How to Join an Existing Project](https://buildtogether.tech/rules-joining/)
-21. [How to Welcome Newcomers](https://buildtogether.tech/rules-newcomers/) #bookmark
+21. [How to Welcome Newcomers](https://buildtogether.tech/rules-newcomers/)
 22. [Research](https://buildtogether.tech/research/)
 23. [How to be a Good Research Partner](https://buildtogether.tech/rules-research/)
 24. [Fair Play](https://buildtogether.tech/fairness/)
