@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1691040561815
+updated: 1691105597682
 created: 1667632965028
 ---
 
 ## Week 31, 2023
 
+- [Google AMP – The Newest of Evasive Phishing Tactic](https://cofense.com/blog/google-amp-the-newest-of-evasive-phishing-tactic/)
+  > `https://www.google.com/amp/s/${phishing URL}`
 - [[Building Software Together|dev.building-software-together]] ch.21~28
 - [A non-mathematical introduction to Kalman filters for programmers](https://praveshkoirala.com/2023/06/13/a-non-mathematical-introduction-to-kalman-filters-for-programmers/)
 - [Excuse me, is there a problem?](https://longform.asmartbear.com/problem/)
