@@ -2,7 +2,7 @@
 id: ok0e729ho7o09xetujkxc0m
 title: Financial
 desc: ""
-updated: 1689990357082
+updated: 1691977392840
 created: 1667694740818
 ---
 
@@ -33,6 +33,7 @@ As of 12/31/2020
 
 - https://seekingalpha.com/article/4574652-sl-green-grab-a-near-8-percent-monthly-yield
 - [통합연금포털](https://www.fss.or.kr/fss/lifeplan/lifeplanIndex/index.do?menuNo=201101)
+- [금융투자협회 전자공시서비스 퇴직연금 수수료율](https://dis.kofia.or.kr/websquare/index.jsp?w2xPath=/wq/rtrpsn/DISRtrPsnCmsnRate.xml&divisionId=MDIS02009003000000&serviceId=SDIS02009003000)
 
 ## 금리 급상승
 
