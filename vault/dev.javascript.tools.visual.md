@@ -2,7 +2,7 @@
 id: gl5r2b3p7y7s8z82c0g9fni
 title: Visual tools
 desc: ""
-updated: 1681174305465
+updated: 1691988813258
 created: 1646264359213
 ---
 
@@ -27,6 +27,7 @@ created: 1646264359213
 - ✨ [Viselect](https://github.com/Simonwep/selection) - A high performance and lightweight library to add a visual way of selecting elements, just like on your Desktop.
 - [OrgChart](https://github.com/dabeng/OrgChart) - It's a simple and direct organization chart plugin. Anytime you want a tree-like chart, you can turn to OrgChart.
 - [Gource](https://github.com/acaudwell/Gource) is a visualization tool for source control repositories.
+- [svg-drawing](https://github.com/CatsJuice/svg-drawing) - A canvas for easy sketching and replay, exportable in SVG format.
 
 ## Canvas
 

@@ -2,9 +2,117 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1690524518604
+updated: 1691998551841
 created: 1669264809793
 ---
+
+## Week 32, 2023 - Report PDF generator
+
+[CSS to set A4 paper size](https://stackoverflow.com/questions/16649943/css-to-set-a4-paper-size)
+
+### Deploy to AWS Lambda
+
+- https://towardsserverless.com/articles/nuxt3-ssr-on-aws-lambda
+  - https://nitro.unjs.io/deploy/providers/aws
+  - https://nuxt.com/docs/getting-started/deployment#presets
+- https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip-cli
+
+#### Github action
+
+```yml
+- name: Make server zip file
+   run: cd .output/server;zip -qq -r ./server.zip ./*;mv ./server.zip ../../server.zip;cd ../..
+   shell: bash
+- name: Deploy to Lambda
+   run: aws lambda update-function-code --function-name $functionName --zip-file fileb://./server.zip
+```
+
+### Public image base URL
+
+/public에 있는 image 들은 그대로 쓰면 lambda base URL을 기준으로 잡기 때문에 제대로 쓸 수 없다. cloudfront의 base URL을 기준으로 잡아야 함
+
+[<base>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)로 해결
+
+```js
+const cdnURL = "https://example.cloudfront.net"
+export default defineNuxtConfig({
+  app: {
+    cdnURL,
+    head: {
+      base: { href: process.env.CI ? cdnURL : "/" },
+    },
+  },
+})
+```
+
+[<nuxt-img>](https://image.nuxtjs.org/components/nuxt-img#provider)로도 가능하긴 할 듯
+
+### Client generator
+
+- https://github.com/parallax/jsPDF
+- https://github.com/eKoopmans/html2pdf.js
+
+### AWS lambda에서 PDF 생성 & 다운로드 시
+
+`<base>`로 public image base url 잡으면 jsPDF로 다운 받을 시 이미지가 안나오네... `html2canvas`의 log를 보면 Document를 clone한다는데 `<base>`는 안하나봄
+
+### playwright로 PDF 저장
+
+```shell
+npx playwright test
+```
+
+### Service Design
+
+- rendering하는 lambda project
+- playwright로 pdf 생성하고 client로 던져주는 lambda project
+
+로 구성하면 잘 될 거 같긴한데...
+
+1. API - response time
+2. PDF render - 1. + rendering time
+3. PDF generate - 2. + generate pdf time
+
+중복 computing 시간이 꽤 되어 보인다. lambda computing 가격이 싸긴한데... (1건에 30초 걸린다고 쳤을 때 0.009087018원 128MB)
+
+PDF render를 SSG로 할까? rendering 완료 시점만 잘 잡으면 되는데...
+
+### Generation pdf with headless chrome
+
+- https://blog.grio.com/2020/08/understanding-pdf-generation-with-headless-chrome.html
+- https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-printToPDF
+- https://developer.chrome.com/blog/headless-chrome/
+- https://github.com/GoogleChrome/chrome-launcher
+- https://medium.com/compass-true-north/go-service-to-convert-web-pages-to-pdf-using-headless-chrome-5fd9ffbae1af
+- https://dev.to/aromanarguello/using-aws-lambdas-headless-chrome-to-generate-pdf-files-from-html-b4l
+- https://github.com/alixaxel/chrome-aws-lambda
+- https://github.com/adieuadieu/serverless-chrome
+- [Amazon Linux 2](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
+  - https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_ARM_Cross-Compile/
+  - [Also make sure that you use --no-sandbox, --disable-dev-shm-usage, --disable-gpu, and --single-process.](https://blog.carlosnunez.me/post/scraping-chromium-lambda-nodeless-zerostress/)
+- https://stackoverflow.com/questions/74414535/failed-puppeteer-chromium-installation-with-node-js-arm64-aws-ec2-linux-2
+- https://dev.to/aws-builders/building-a-pdf-generator-using-aws-lambda-4220
+- https://dev.to/akirautio/generate-a-pdf-in-aws-lambda-with-nodejs-and-puppeteer-2b93
+  - https://github.com/ARautio/aws-lambda-pdf-generator-puppeteer
+  - https://github.com/RelaxedJS/ReLaXed
+- https://github.com/barchart/aws-lambda-pdf-generator
+- https://github.com/yukinying/chrome-headless-browser-docker
+- https://www.freecodecamp.org/news/will-it-blend-or-how-to-run-google-chrome-in-aws-lambda-2c960fee8b74
+  - https://github.com/cyrus-and/chrome-remote-interface
+- https://github.com/adieuadieu/serverless-chrome
+  - https://fd0.hatenablog.jp/entry/2017/09/10/223042
+- https://wkhtmltopdf.org/downloads.html
+- https://medium.com/@keshavkumaresan/generating-pdf-documents-within-aws-lambda-with-nodejs-and-puppeteer-46ac7ca299bf
+  - https://github.com/keshav1002/pdf-lambda-puppeteer
+- https://medium.com/@crespo.wang/create-pdf-using-chromium-puppeteer-in-serverless-aws-lambda-685906df62d5
+
+  - https://github.com/crespowang/serverless-lambda-chrome
+  - https://stackoverflow.com/questions/58629198/base64-to-pdf-export-issue-aws-lambda
+
+- https://awstip.com/pdf-generator-by-puppeteer-on-aws-lambda-with-nestjs-and-serverless-framework-669ba22d9fa
+  > Chromium only supports x86_64 architecture inside lambda docker container, not arm64
+  - https://github.com/k-hui/puppeteer-aws-lambda-serverless
+  - https://aws.amazon.com/ko/blogs/architecture/field-notes-scaling-browser-automation-with-puppeteer-on-aws-lambda-with-container-image-support/
 
 ## Week 30, 2023 - Webpack & Tailwind CSS Setup
 

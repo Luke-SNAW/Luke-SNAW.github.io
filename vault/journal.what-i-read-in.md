@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1691105597682
+updated: 1691629728688
 created: 1667632965028
 ---
+
+## Week 32, 2023
+
+- [A Blog Post With Every HTML Element](https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/)
+  - `<base>`
+- [meta seo inspector](https://www.omiod.com/meta-seo-inspector/) is a Chrome extension useful to inspect in 1 click the meta data usually not visible while browsing
 
 ## Week 31, 2023
 

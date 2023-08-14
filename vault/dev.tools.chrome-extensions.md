@@ -2,7 +2,7 @@
 id: VR93wLLm4G5ngJpglyKwb
 title: Chrome extensions for dev
 desc: ""
-updated: 1669765299329
+updated: 1691988691676
 created: 1644971383110
 ---
 
@@ -19,6 +19,7 @@ created: 1644971383110
   - [Web store link](https://chrome.google.com/webstore/detail/dailydev-the-homepage-dev/jlmpjdjjbgclbocgajdjefcidcncaied)
 - [Refined GitHub](https://github.com/refined-github/refined-github) - Browser extension that simplifies the GitHub interface and adds useful features
   - [Web store link](https://chrome.google.com/webstore/detail/refined-github/hlepfoohegkhhmjieoechaddaejaokhf/)
+- [Hover Zoom+](https://github.com/extesy/hoverzoom) - Google Chrome extension for zooming images on mouse hover
 
 ## CSS
 
