@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1691998551841
+updated: 1692319136760
 created: 1669264809793
 ---
 
@@ -20,6 +20,7 @@ created: 1669264809793
 #### Github action
 
 ```yml
+# nuxt build
 - name: Make server zip file
    run: cd .output/server;zip -qq -r ./server.zip ./*;mv ./server.zip ../../server.zip;cd ../..
    shell: bash
@@ -52,22 +53,13 @@ export default defineNuxtConfig({
 - https://github.com/parallax/jsPDF
 - https://github.com/eKoopmans/html2pdf.js
 
-### AWS lambda에서 PDF 생성 & 다운로드 시
+가능은 한데, server에서 직접 내려주는게 사용자별 browser 호환성 문제 없다.
+
+#### AWS lambda에서 PDF 생성 & 다운로드 시
 
 `<base>`로 public image base url 잡으면 jsPDF로 다운 받을 시 이미지가 안나오네... `html2canvas`의 log를 보면 Document를 clone한다는데 `<base>`는 안하나봄
 
-### playwright로 PDF 저장
-
-```shell
-npx playwright test
-```
-
-### Service Design
-
-- rendering하는 lambda project
-- playwright로 pdf 생성하고 client로 던져주는 lambda project
-
-로 구성하면 잘 될 거 같긴한데...
+### Computing time
 
 1. API - response time
 2. PDF render - 1. + rendering time
@@ -75,12 +67,29 @@ npx playwright test
 
 중복 computing 시간이 꽤 되어 보인다. lambda computing 가격이 싸긴한데... (1건에 30초 걸린다고 쳤을 때 0.009087018원 128MB)
 
-PDF render를 SSG로 할까? rendering 완료 시점만 잘 잡으면 되는데...
-
 ### Generation pdf with headless chrome
 
-- https://blog.grio.com/2020/08/understanding-pdf-generation-with-headless-chrome.html
+찾는 문서마다 chromium binary가 몇 년 지난 구 버전뿐이라 다른 문서에서 설명하는 docker image로 올려야 하나 고민했는데 계속 찾아보니 최신 binary를 발견
+
+- [Running Puppeteer on AWS Lambda](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-on-aws-lambda)
+  - https://github.com/Sparticuz/chromium
+  - https://github.com/Sparticuz/chromium#-min-package
+    - https://github.com/Sparticuz/chromium/blob/master/examples/remote-min-binary/index.js
+  - https://github.com/Sparticuz/chromium#running-locally--headlessheadful-mode
+- https://dev.to/aws-builders/building-a-pdf-generator-using-aws-lambda-4220#the-best-way-out-serverside-generation
+- [Also make sure that you use --no-sandbox, --disable-dev-shm-usage, --disable-gpu, and --single-process.](https://blog.carlosnunez.me/post/scraping-chromium-lambda-nodeless-zerostress/#lessons-learned)
+- https://wkhtmltopdf.org/downloads.html#stable - lambda용 binary가 있어 이것도 괜찮을거 같은데 `Qt WebKit rendering engine`을 써서 개발 시 귀찮을 듯
+- [Chromium only supports x86_64 architecture inside lambda docker container, not arm64](https://awstip.com/pdf-generator-by-puppeteer-on-aws-lambda-with-nestjs-and-serverless-framework-669ba22d9fa)
+- [Local Development](https://github.com/alixaxel/chrome-aws-lambda/wiki/HOWTO:-Local-Development)
+- [header/footer template](https://github.com/Wavelop/download-pdf-aws/blob/main/lambdas/download-pdf.ts)
+- [puppeteer launch option](https://apitemplate.io/blog/tips-for-generating-pdfs-with-puppeteer/)
+- [`browser.newPage()` returns null](https://github.com/puppeteer/puppeteer/issues/1523)
+- [save base64 string as pdf at client](https://stackoverflow.com/questions/11415665/save-base64-string-as-pdf-at-client-side-with-javascript)
+
+#### 그 외 참고했던 URLs
+
 - https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-printToPDF
+- https://blog.grio.com/2020/08/understanding-pdf-generation-with-headless-chrome.html
 - https://developer.chrome.com/blog/headless-chrome/
 - https://github.com/GoogleChrome/chrome-launcher
 - https://medium.com/compass-true-north/go-service-to-convert-web-pages-to-pdf-using-headless-chrome-5fd9ffbae1af
@@ -89,30 +98,38 @@ PDF render를 SSG로 할까? rendering 완료 시점만 잘 잡으면 되는데.
 - https://github.com/adieuadieu/serverless-chrome
 - [Amazon Linux 2](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
   - https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_ARM_Cross-Compile/
-  - [Also make sure that you use --no-sandbox, --disable-dev-shm-usage, --disable-gpu, and --single-process.](https://blog.carlosnunez.me/post/scraping-chromium-lambda-nodeless-zerostress/)
-- https://stackoverflow.com/questions/74414535/failed-puppeteer-chromium-installation-with-node-js-arm64-aws-ec2-linux-2
-- https://dev.to/aws-builders/building-a-pdf-generator-using-aws-lambda-4220
 - https://dev.to/akirautio/generate-a-pdf-in-aws-lambda-with-nodejs-and-puppeteer-2b93
+  > And here we have everything to generate PDF in AWS lambda. To my opinion generating the pdf with 1024 MB took something like 4000ms which would mean that total price would be close to 1 euro per 20000 PDF generations after free tier.
   - https://github.com/ARautio/aws-lambda-pdf-generator-puppeteer
   - https://github.com/RelaxedJS/ReLaXed
-- https://github.com/barchart/aws-lambda-pdf-generator
-- https://github.com/yukinying/chrome-headless-browser-docker
-- https://www.freecodecamp.org/news/will-it-blend-or-how-to-run-google-chrome-in-aws-lambda-2c960fee8b74
-  - https://github.com/cyrus-and/chrome-remote-interface
-- https://github.com/adieuadieu/serverless-chrome
-  - https://fd0.hatenablog.jp/entry/2017/09/10/223042
-- https://wkhtmltopdf.org/downloads.html
-- https://medium.com/@keshavkumaresan/generating-pdf-documents-within-aws-lambda-with-nodejs-and-puppeteer-46ac7ca299bf
-  - https://github.com/keshav1002/pdf-lambda-puppeteer
-- https://medium.com/@crespo.wang/create-pdf-using-chromium-puppeteer-in-serverless-aws-lambda-685906df62d5
+- https://stackoverflow.com/questions/58629198/base64-to-pdf-export-issue-aws-lambda - API gateway permission
+- https://aws.amazon.com/ko/blogs/architecture/field-notes-scaling-browser-automation-with-puppeteer-on-aws-lambda-with-container-image-support/
+- https://github.com/serverless/examples/tree/v3/aws-node-puppeteer
+- https://stackoverflow.com/a/74549527/5163033 - generate pdf using Blob
 
-  - https://github.com/crespowang/serverless-lambda-chrome
-  - https://stackoverflow.com/questions/58629198/base64-to-pdf-export-issue-aws-lambda
+### Download
 
-- https://awstip.com/pdf-generator-by-puppeteer-on-aws-lambda-with-nestjs-and-serverless-framework-669ba22d9fa
-  > Chromium only supports x86_64 architecture inside lambda docker container, not arm64
-  - https://github.com/k-hui/puppeteer-aws-lambda-serverless
-  - https://aws.amazon.com/ko/blogs/architecture/field-notes-scaling-browser-automation-with-puppeteer-on-aws-lambda-with-container-image-support/
+lambda에서 직접 다운로드 불가 - [용량 초과(Invocation payload)](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#function-configuration-deployment-and-execution)
+
+S3에 저장하고, [github cron](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)으로 과거 PDF 삭제하도록 처리
+
+### Rendering
+
+#### Forcing Page Breaks
+
+```css
+.page-break {
+  page-break-before: always;
+}
+```
+
+#### Color
+
+```css
+* {
+  print-color-adjust: exact;
+}
+```
 
 ## Week 30, 2023 - Webpack & Tailwind CSS Setup
 

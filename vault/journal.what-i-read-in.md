@@ -2,9 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1691629728688
+updated: 1692321436652
 created: 1667632965028
 ---
+
+## Week 33, 2023
+
+- [When to use "chore" as type of commit message?](https://stackoverflow.com/a/26944812/5163033)
+  > "`grunt task`" means nothing that an external user would see:
+  >
+  > - implementation (of an _existing feature_, which doesn't involve a fix),
+  > - configuration (like the `.gitignore` or `.gitattributes`),
+  > - private internal methods...
 
 ## Week 32, 2023
 
