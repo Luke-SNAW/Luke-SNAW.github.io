@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1691017850294
+updated: 1692591080528
 created: 1646129148306
 ---
 
@@ -58,6 +58,8 @@ created: 1646129148306
   - font가 settings에 들어가는게 맞아? 다른 articles에선 CSS generate 하는 곳이 아니라는데...
 - [Resume and pause animations in CSS](https://www.amitmerchant.com/run-and-pause-animations-in-css/)
   - `animation-play-state` property. - `running` and `paused`
+- [Tailwind, and the death of web craftsmanship](https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/)
+  > While Tailwind may help with initial development speed, it can reduce craftsmanship and make code harder to work with over time.
 
 ## Pseudo-class
 

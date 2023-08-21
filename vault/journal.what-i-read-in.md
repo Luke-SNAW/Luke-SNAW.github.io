@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1692321436652
+updated: 1692591064496
 created: 1667632965028
 ---
 
+## Week 34, 2023
+
+- [Tailwind, and the death of web craftsmanship](https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/)
+  > While Tailwind may help with initial development speed, it can reduce craftsmanship and make code harder to work with over time.
+- [testing your animation refresh rate with css crimes??](https://cohost.org/lunasorcery/post/2465593-testing-your-animati)
+
 ## Week 33, 2023
 
+- [Nobody ever paid me for code](https://www.bitecode.dev/p/nobody-ever-paid-me-for-code)
 - [When to use "chore" as type of commit message?](https://stackoverflow.com/a/26944812/5163033)
   > "`grunt task`" means nothing that an external user would see:
   >

@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1692319136760
+updated: 1692594413797
 created: 1669264809793
 ---
 
@@ -59,14 +59,6 @@ export default defineNuxtConfig({
 
 `<base>`로 public image base url 잡으면 jsPDF로 다운 받을 시 이미지가 안나오네... `html2canvas`의 log를 보면 Document를 clone한다는데 `<base>`는 안하나봄
 
-### Computing time
-
-1. API - response time
-2. PDF render - 1. + rendering time
-3. PDF generate - 2. + generate pdf time
-
-중복 computing 시간이 꽤 되어 보인다. lambda computing 가격이 싸긴한데... (1건에 30초 걸린다고 쳤을 때 0.009087018원 128MB)
-
 ### Generation pdf with headless chrome
 
 찾는 문서마다 chromium binary가 몇 년 지난 구 버전뿐이라 다른 문서에서 설명하는 docker image로 올려야 하나 고민했는데 계속 찾아보니 최신 binary를 발견
@@ -112,6 +104,28 @@ export default defineNuxtConfig({
 lambda에서 직접 다운로드 불가 - [용량 초과(Invocation payload)](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#function-configuration-deployment-and-execution)
 
 S3에 저장하고, [github cron](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)으로 과거 PDF 삭제하도록 처리
+
+### Computing time
+
+1. API - response time
+2. PDF render - 1. + rendering time
+3. PDF generate - 2. + generate pdf time
+
+project들의 중복 computing 시간이 꽤 되어 보인다. lambda computing 가격이 싸긴한데...
+
+#### run Puppeteer + Load HTML + save PDF to S3
+
+메모리에 따라 CPU 할당도 변경. Sample PDF(6.5초 rendering) 기준:
+
+- 4096MB 18초
+- 2048MB 21초
+- 1024MB 48초
+
+2기가 기준으로 sample pdf 하나당 $0.0006993가 소모된다. (memory cpu 가격만 따졌을 때) 1만 건당 7달러.
+
+기존에 쓴 PDFCrowd 20~30초 $276/month plan. 1년에 약 2만 건
+
+CPU를 더 할당해도, lambda cold start와 API response time은 못 줄임.
 
 ### Rendering
 

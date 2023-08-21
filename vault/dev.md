@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1687160728494
+updated: 1692345528971
 created: 1644451403760
 ---
 
@@ -27,6 +27,11 @@ created: 1644451403760
   > - It's not fake research. It's actually quite an established science in the 24 years I've been doing it.
   > - Take your first guess, double it, double it again if the stakeholder is a poser, add 20% per developer less experience than you, subtract 10% for the features you're going to essentially copy paste, add 15% for sick leave (browsing HN) and then double it for every question you have that are unresolved and divide it by the room temperature multiplied by the amount of people with mechanical keyboards.
   > - That gives you roughly the right estimate for any job, until the next sprint.
+- [Nobody ever paid me for code](https://www.bitecode.dev/p/nobody-ever-paid-me-for-code)
+  - Don't:
+    > We should migrate from SQLite to Postgress. We are getting concurrency errors because too many processes are trying to write orders at the same time and it's not something we can queue because it needs real-time feedback.
+  - Do:
+    > Some users are getting errors when too many of them order at the same time. We tried workarounds but they make for a bad shopping experience. This is not a trivial change to do. We are currently working on X, but I think this is more urgent. I advise we suspend work on X so that I can evaluate how much we need to do, and then plan for this change.
 
 ### re:Work
 
