@@ -1,109 +1,111 @@
 version: 5
 commands:
-  lookup:
-    note:
-      selectionMode: extract
-      confirmVaultOnCreate: true
-      vaultSelectionModeOnCreate: smart
-      leaveTrace: false
-      bubbleUpCreateNew: true
-      fuzzThreshold: 0.2
-  randomNote: {}
-  insertNoteLink:
-    aliasMode: none
-    enableMultiSelect: false
-  insertNoteIndex:
-    enableMarker: false
-  copyNoteLink:
-    aliasMode: title
-  templateHierarchy: template
+    lookup:
+        note:
+            selectionMode: extract
+            confirmVaultOnCreate: true
+            vaultSelectionModeOnCreate: smart
+            leaveTrace: false
+            bubbleUpCreateNew: true
+            fuzzThreshold: 0.2
+    randomNote: {}
+    insertNoteLink:
+        aliasMode: none
+        enableMultiSelect: false
+    insertNoteIndex:
+        enableMarker: false
+    copyNoteLink:
+        aliasMode: title
+    templateHierarchy: template
 workspace:
-  vaults:
-    - fsPath: vault
-  journal:
-    dailyDomain: daily
-    name: journal
-    dateFormat: y.MM.dd
-    addBehavior: childOfDomain
-  scratch:
-    name: scratch
-    dateFormat: y.MM.dd.HHmmss
-    addBehavior: asOwnDomain
-  task:
-    name: ""
-    dateFormat: ""
-    addBehavior: childOfCurrent
-    statusSymbols:
-      "": " "
-      wip: w
-      done: x
-      assigned: a
-      moved: m
-      blocked: b
-      delegated: l
-      dropped: d
-      pending: "y"
-    prioritySymbols:
-      H: high
-      M: medium
-      L: low
-    todoIntegration: false
-    createTaskSelectionType: selection2link
-    taskCompleteStatus:
-      - done
-      - x
-  graph:
-    zoomSpeed: 1
-    createStub: false
-  enableAutoCreateOnDefinition: false
-  enableXVaultWikiLink: false
-  enableRemoteVaultInit: true
-  enableUserTags: false
-  enableHashTags: true
-  workspaceVaultSyncMode: noCommit
-  enableAutoFoldFrontmatter: false
-  enableEditorDecorations: true
-  maxPreviewsCached: 10
-  maxNoteLength: 204800
-  dendronVersion: 0.115.0
-  enableFullHierarchyNoteTitle: false
+    vaults:
+        -
+            fsPath: vault
+    journal:
+        dailyDomain: daily
+        name: journal
+        dateFormat: y.MM.dd
+        addBehavior: childOfDomain
+    scratch:
+        name: scratch
+        dateFormat: y.MM.dd.HHmmss
+        addBehavior: asOwnDomain
+    task:
+        name: ''
+        dateFormat: ''
+        addBehavior: childOfCurrent
+        statusSymbols:
+            '': ' '
+            wip: w
+            done: x
+            assigned: a
+            moved: m
+            blocked: b
+            delegated: l
+            dropped: d
+            pending: 'y'
+        prioritySymbols:
+            H: high
+            M: medium
+            L: low
+        todoIntegration: false
+        createTaskSelectionType: selection2link
+        taskCompleteStatus:
+            - done
+            - x
+    graph:
+        zoomSpeed: 1
+        createStub: false
+    enableAutoCreateOnDefinition: false
+    enableXVaultWikiLink: false
+    enableRemoteVaultInit: true
+    enableUserTags: false
+    enableHashTags: true
+    workspaceVaultSyncMode: noCommit
+    enableAutoFoldFrontmatter: false
+    enableEditorDecorations: true
+    maxPreviewsCached: 10
+    maxNoteLength: 204800
+    dendronVersion: 0.115.0
+    enableFullHierarchyNoteTitle: false
+    enablePersistentHistory: false
 preview:
-  enableFMTitle: true
-  enableNoteTitleForLink: true
-  enablePrettyRefs: true
-  enableKatex: true
-  automaticallyShowPreview: false
-  enableFrontmatterTags: true
-  enableHashesForFMTags: false
+    enableFMTitle: true
+    enableNoteTitleForLink: true
+    enablePrettyRefs: true
+    enableKatex: true
+    automaticallyShowPreview: false
+    enableFrontmatterTags: true
+    enableHashesForFMTags: false
 publishing:
-  enableFMTitle: true
-  enableNoteTitleForLink: true
-  enablePrettyRefs: true
-  enableKatex: true
-  copyAssets: true
-  siteHierarchies:
-    - root
-  enableSiteLastModified: true
-  siteRootDir: docs
-  siteUrl: https://luke-snaw.github.io/
-  enableFrontmatterTags: true
-  enableHashesForFMTags: false
-  enableRandomlyColoredTags: true
-  duplicateNoteBehavior:
-    action: useVault
-    payload:
-      - vault
-  writeStubs: false
-  seo:
-    title: Luke SNAW
-    description: Personal knowledge space
-  github:
-    enableEditLink: false
-    editLinkText: Edit this page on GitHub
-    editBranch: main
-    editViewMode: tree
-  enablePrettyLinks: true
-  enableTaskNotes: true
-  searchMode: lookup
+    enableFMTitle: true
+    enableNoteTitleForLink: true
+    enablePrettyRefs: true
+    enableKatex: true
+    copyAssets: true
+    siteHierarchies:
+        - root
+    enableSiteLastModified: true
+    siteRootDir: docs
+    siteUrl: https://luke-snaw.github.io/
+    enableFrontmatterTags: true
+    enableHashesForFMTags: false
+    enableRandomlyColoredTags: true
+    duplicateNoteBehavior:
+        action: useVault
+        payload:
+            - vault
+    writeStubs: false
+    seo:
+        title: Luke SNAW
+        description: Personal knowledge space
+    github:
+        enableEditLink: false
+        editLinkText: Edit this page on GitHub
+        editBranch: main
+        editViewMode: tree
+    enablePrettyLinks: true
+    enableTaskNotes: true
+    searchMode: lookup
 dev:
-  enablePreviewV2: true
+    enablePreviewV2: true
