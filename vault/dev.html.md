@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1691629870990
+updated: 1692834844738
 created: 1644885695231
 ---
 
@@ -34,6 +34,7 @@ created: 1644885695231
 - [SSMPL : A Wishful Thinking HTML Replacement Proposal](https://medium.com/codex/ssmpl-a-wishful-thinking-html-replacement-proposal-1e11e8d86bf6)
 - [A Blog Post With Every HTML Element](https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/)
   - `<base>`
+- [PSA: Add dir="auto" to your inputs and textareas.](https://mough.xyz/312/psa-add-dir-auto-to-your-inputs-and-textareas)
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 

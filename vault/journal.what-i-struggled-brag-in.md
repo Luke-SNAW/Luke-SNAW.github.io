@@ -2,9 +2,19 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1692594413797
+updated: 1692948189541
 created: 1669264809793
 ---
+
+## Week 34, 2023 - Arc42 template에 따라 문서화
+
+[Arc42](https://arc42.org/overview/)를 참고하여 Report PDF generator 프로젝트 [문서](https://github.com/genoplan/report-pdf-generator/blob/main/README.md)를 작성
+
+개념이 설명되어 있는데 잘 이해가 안가서 예제를 찾아보니 예제마다 다른 부분도 많고, 문서를 위한 문서화처럼 늘여쓰기 설명이 느껴져서 template의 일부분만 차용해서 씀.
+
+양식이 제공되다보니 Quality Goals 같은 생각지 못한 관점의 기술을 하게 되어 좋음.
+
+작성 내용은 [[Pdf Generator|dev.journal.genoplan.pdf-generator]] 참고
 
 ## Week 32, 2023 - Report PDF generator
 
@@ -48,84 +58,7 @@ export default defineNuxtConfig({
 
 [<nuxt-img>](https://image.nuxtjs.org/components/nuxt-img#provider)로도 가능하긴 할 듯
 
-### Client generator
-
-- https://github.com/parallax/jsPDF
-- https://github.com/eKoopmans/html2pdf.js
-
-가능은 한데, server에서 직접 내려주는게 사용자별 browser 호환성 문제 없다.
-
-#### AWS lambda에서 PDF 생성 & 다운로드 시
-
-`<base>`로 public image base url 잡으면 jsPDF로 다운 받을 시 이미지가 안나오네... `html2canvas`의 log를 보면 Document를 clone한다는데 `<base>`는 안하나봄
-
-### Generation pdf with headless chrome
-
-찾는 문서마다 chromium binary가 몇 년 지난 구 버전뿐이라 다른 문서에서 설명하는 docker image로 올려야 하나 고민했는데 계속 찾아보니 최신 binary를 발견
-
-- [Running Puppeteer on AWS Lambda](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-on-aws-lambda)
-  - https://github.com/Sparticuz/chromium
-  - https://github.com/Sparticuz/chromium#-min-package
-    - https://github.com/Sparticuz/chromium/blob/master/examples/remote-min-binary/index.js
-  - https://github.com/Sparticuz/chromium#running-locally--headlessheadful-mode
-- https://dev.to/aws-builders/building-a-pdf-generator-using-aws-lambda-4220#the-best-way-out-serverside-generation
-- [Also make sure that you use --no-sandbox, --disable-dev-shm-usage, --disable-gpu, and --single-process.](https://blog.carlosnunez.me/post/scraping-chromium-lambda-nodeless-zerostress/#lessons-learned)
-- https://wkhtmltopdf.org/downloads.html#stable - lambda용 binary가 있어 이것도 괜찮을거 같은데 `Qt WebKit rendering engine`을 써서 개발 시 귀찮을 듯
-- [Chromium only supports x86_64 architecture inside lambda docker container, not arm64](https://awstip.com/pdf-generator-by-puppeteer-on-aws-lambda-with-nestjs-and-serverless-framework-669ba22d9fa)
-- [Local Development](https://github.com/alixaxel/chrome-aws-lambda/wiki/HOWTO:-Local-Development)
-- [header/footer template](https://github.com/Wavelop/download-pdf-aws/blob/main/lambdas/download-pdf.ts)
-- [puppeteer launch option](https://apitemplate.io/blog/tips-for-generating-pdfs-with-puppeteer/)
-- [`browser.newPage()` returns null](https://github.com/puppeteer/puppeteer/issues/1523)
-- [save base64 string as pdf at client](https://stackoverflow.com/questions/11415665/save-base64-string-as-pdf-at-client-side-with-javascript)
-
-#### 그 외 참고했던 URLs
-
-- https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-printToPDF
-- https://blog.grio.com/2020/08/understanding-pdf-generation-with-headless-chrome.html
-- https://developer.chrome.com/blog/headless-chrome/
-- https://github.com/GoogleChrome/chrome-launcher
-- https://medium.com/compass-true-north/go-service-to-convert-web-pages-to-pdf-using-headless-chrome-5fd9ffbae1af
-- https://dev.to/aromanarguello/using-aws-lambdas-headless-chrome-to-generate-pdf-files-from-html-b4l
-- https://github.com/alixaxel/chrome-aws-lambda
-- https://github.com/adieuadieu/serverless-chrome
-- [Amazon Linux 2](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
-  - https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_ARM_Cross-Compile/
-- https://dev.to/akirautio/generate-a-pdf-in-aws-lambda-with-nodejs-and-puppeteer-2b93
-  > And here we have everything to generate PDF in AWS lambda. To my opinion generating the pdf with 1024 MB took something like 4000ms which would mean that total price would be close to 1 euro per 20000 PDF generations after free tier.
-  - https://github.com/ARautio/aws-lambda-pdf-generator-puppeteer
-  - https://github.com/RelaxedJS/ReLaXed
-- https://stackoverflow.com/questions/58629198/base64-to-pdf-export-issue-aws-lambda - API gateway permission
-- https://aws.amazon.com/ko/blogs/architecture/field-notes-scaling-browser-automation-with-puppeteer-on-aws-lambda-with-container-image-support/
-- https://github.com/serverless/examples/tree/v3/aws-node-puppeteer
-- https://stackoverflow.com/a/74549527/5163033 - generate pdf using Blob
-
-### Download
-
-lambda에서 직접 다운로드 불가 - [용량 초과(Invocation payload)](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#function-configuration-deployment-and-execution)
-
-S3에 저장하고, [github cron](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)으로 과거 PDF 삭제하도록 처리
-
-### Computing time
-
-1. API - response time
-2. PDF render - 1. + rendering time
-3. PDF generate - 2. + generate pdf time
-
-project들의 중복 computing 시간이 꽤 되어 보인다. lambda computing 가격이 싸긴한데...
-
-#### run Puppeteer + Load HTML + save PDF to S3
-
-메모리에 따라 CPU 할당도 변경. Sample PDF(6.5초 rendering) 기준:
-
-- 4096MB 18초
-- 2048MB 21초
-- 1024MB 48초
-
-2기가 기준으로 sample pdf 하나당 $0.0006993가 소모된다. (memory cpu 가격만 따졌을 때) 1만 건당 7달러.
-
-기존에 쓴 PDFCrowd 20~30초 $276/month plan. 1년에 약 2만 건
-
-CPU를 더 할당해도, lambda cold start와 API response time은 못 줄임.
+### [[Pdf Generator|dev.journal.genoplan.pdf-generator]]
 
 ### Rendering
 

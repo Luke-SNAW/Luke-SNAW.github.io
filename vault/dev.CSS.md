@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1692591080528
+updated: 1692763946625
 created: 1646129148306
 ---
 
@@ -60,6 +60,8 @@ created: 1646129148306
   - `animation-play-state` property. - `running` and `paused`
 - [Tailwind, and the death of web craftsmanship](https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/)
   > While Tailwind may help with initial development speed, it can reduce craftsmanship and make code harder to work with over time.
+- [Understanding the Difference Between : and :: in CSS](https://medium.com/@islizeqiang/understanding-the-difference-between-and-in-css-64c9d36c21af)
+  > :: are used to create additional elements within an element
 
 ## Pseudo-class
 
