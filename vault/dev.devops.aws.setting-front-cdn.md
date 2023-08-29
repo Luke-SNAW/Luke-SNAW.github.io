@@ -2,7 +2,7 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1684818761744
+updated: 1693271056457
 created: 1646021156163
 ---
 
@@ -42,6 +42,14 @@ created: 1646021156163
         "AWS": "arn:aws:iam::YOUR_ACCOUNT_NUMBER:user/YOUR_USERNAME"
       },
       "Effect": "Allow"
+    },
+    {
+      //Public read가 필요하다면
+      "Sid": "public-read",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::YOUR_BUCKET/*"
     }
   ]
 }

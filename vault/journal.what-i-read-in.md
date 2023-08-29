@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1692837000077
+updated: 1693208408698
 created: 1667632965028
 ---
+
+## Week 35, 2023
+
+- [Programming as Theory Building](https://algoritmos-iii.github.io/assets/bibliografia/programming-as-theory-building.pdf)
+  - [Theory building and why employee churn is lethal to software companies](https://www.baldurbjarnason.com/2022/theory-building/)
+- [As I get older, I just don't care about new technology](https://old.reddit.com/r/webdev/comments/1613yqj/as_i_get_older_i_just_dont_care_about_new/)
 
 ## Week 34, 2023
 
