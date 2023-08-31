@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1693208408698
+updated: 1693466134441
 created: 1667632965028
 ---
 
 ## Week 35, 2023
 
+- [Absurd Success](https://www.marginalia.nu/log/87_absurd_success/)
+  > The author describes making several improvements to their search engine that significantly increased its performance and scalability. They reworked the URL database to use a single SQLite table instead of large MySQL tables, generating unique IDs during indexing rather than relying on database auto-increment. This reduced RAM usage and allowed indexing to continue while the database was updated. They also changed how the reverse index was constructed, building multiple smaller pre-indexes in memory and then merging them, instead of using a large in-memory lexicon. This avoided writing terabytes of random data to disk and allowed indexing disparate datasets together. Overall these changes halved RAM usage and addressed all known scaling issues, improving the system considerably more than expected.
+- [🧠 The Psychology of Design](https://growth.design/psychology) - 106 Cognitive Biases & Principles That Affect Your UX #bookshelf
+- [VPN Relationship Map](https://windscribe.com/vpnmap) - Find out who owns your data and see all the shady relationships in the VPN industry.
+- [git bisect](https://git-scm.com/docs/git-bisect) - during fix vite plugin error
 - [Programming as Theory Building](https://algoritmos-iii.github.io/assets/bibliografia/programming-as-theory-building.pdf)
   - [Theory building and why employee churn is lethal to software companies](https://www.baldurbjarnason.com/2022/theory-building/)
 - [As I get older, I just don't care about new technology](https://old.reddit.com/r/webdev/comments/1613yqj/as_i_get_older_i_just_dont_care_about_new/)

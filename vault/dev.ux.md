@@ -2,7 +2,7 @@
 id: x6srexqsxlwe4thhsx9rgt9
 title: UX
 desc: ""
-updated: 1673916607437
+updated: 1693463167546
 created: 1649893699761
 ---
 
@@ -21,6 +21,7 @@ created: 1649893699761
   - The parent of the current page should be visible at all times.
   - **Sideways breadcrumbs** might be a quite surprising and useful discovery for your users.
 - [Designing The Perfect Mobile Navigation UX](https://www.smashingmagazine.com/2022/11/navigation-design-mobile-ux/)
+- [🧠 The Psychology of Design](https://growth.design/psychology) - 106 Cognitive Biases & Principles That Affect Your UX #bookshelf
 
 ## [Make me think!](https://ralphammer.com/make-me-think/)
 

@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1684900535585
+updated: 1693466275442
 created: 1656645858715
 ---
 
@@ -29,6 +29,8 @@ created: 1656645858715
 ## SQLite
 
 - [Many Small Queries Are Efficient In SQLite](https://www.sqlite.org/np1queryprob.html)
+- [Absurd Success](https://www.marginalia.nu/log/87_absurd_success/)
+  > The author describes making several improvements to their search engine that significantly increased its performance and scalability. They reworked the URL database to use a single SQLite table instead of large MySQL tables, generating unique IDs during indexing rather than relying on database auto-increment. This reduced RAM usage and allowed indexing to continue while the database was updated. They also changed how the reverse index was constructed, building multiple smaller pre-indexes in memory and then merging them, instead of using a large in-memory lexicon. This avoided writing terabytes of random data to disk and allowed indexing disparate datasets together. Overall these changes halved RAM usage and addressed all known scaling issues, improving the system considerably more than expected.
 
 ## PostgreSQL
 
