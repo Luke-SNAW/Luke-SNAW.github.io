@@ -2,12 +2,23 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1693466134441
+updated: 1693812236331
 created: 1667632965028
 ---
 
+## Week 36, 2023
+
+- [The Worst Programmer I Know](https://dannorth.net/2023/09/02/the-worst-programmer/)
+  > Tim wasn’t delivering software; Tim was delivering a team that was delivering software.
+- [How To Edit Your Own Lousy Writing](https://stingingfly.org/2017/10/24/edit-lousy-writing/) ([[Vomit Draft|writing.vomit-draft]])
+  > The article provides advice on how to improve one's writing through effective editing and revising. It states that first drafts are usually poor but that is normal, as editing is the hidden yet vital second half of writing. By learning to read one's own work as a reader would, an author can better see where the writing fails to effectively convey the intended story. It takes many drafts to transform the ideas in one's head into clear writing that evokes the same experience for others. While the process can feel despairing, persisting through multiple revisions is necessary to craft a story that readers can fully understand and engage with. Effective editing focuses first on major structural issues before minor details.
+- [Explaining The Postgres Meme](https://avestura.dev/blog/explaining-the-postgres-meme)
+  - [SQL iceberg explained](https://www.youtube.com/watch?v=JZRWkfXNQOk)
+
 ## Week 35, 2023
 
+- [Getting all links from any web site into a spreadsheet using browser developer tools](https://christianheilmann.com/2023/08/24/quick-tip-getting-all-links-from-any-web-site-into-a-spreadsheet-using-browser-developer-tools/) - `console.table($$('a'),['innerHTML','href'])`
+- [Animated Koots](https://www.animatedknots.com/)
 - [Absurd Success](https://www.marginalia.nu/log/87_absurd_success/)
   > The author describes making several improvements to their search engine that significantly increased its performance and scalability. They reworked the URL database to use a single SQLite table instead of large MySQL tables, generating unique IDs during indexing rather than relying on database auto-increment. This reduced RAM usage and allowed indexing to continue while the database was updated. They also changed how the reverse index was constructed, building multiple smaller pre-indexes in memory and then merging them, instead of using a large in-memory lexicon. This avoided writing terabytes of random data to disk and allowed indexing disparate datasets together. Overall these changes halved RAM usage and addressed all known scaling issues, improving the system considerably more than expected.
 - [🧠 The Psychology of Design](https://growth.design/psychology) - 106 Cognitive Biases & Principles That Affect Your UX #bookshelf
