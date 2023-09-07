@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1688973140480
+updated: 1694046897079
 created: 1644885695251
 ---
 
@@ -96,6 +96,7 @@ created: 1644885695251
   const link = document.querySelector("li a")
   const list = a.closest("ul")
   ```
+- [Javascript labeled statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label)
 
 ---
 

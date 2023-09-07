@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1693812236331
+updated: 1694062805497
 created: 1667632965028
 ---
 
 ## Week 36, 2023
 
+- [Measuring developer productivity? A response to McKinsey](https://tidyfirst.substack.com/p/measuring-developer-productivity)
+- [Javascript labeled statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label)
 - [The Worst Programmer I Know](https://dannorth.net/2023/09/02/the-worst-programmer/)
   > Tim wasn’t delivering software; Tim was delivering a team that was delivering software.
 - [How To Edit Your Own Lousy Writing](https://stingingfly.org/2017/10/24/edit-lousy-writing/) ([[Vomit Draft|writing.vomit-draft]])

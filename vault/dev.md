@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1693812244892
+updated: 1694062838967
 created: 1644451403760
 ---
 
@@ -34,6 +34,7 @@ created: 1644451403760
     > Some users are getting errors when too many of them order at the same time. We tried workarounds but they make for a bad shopping experience. This is not a trivial change to do. We are currently working on X, but I think this is more urgent. I advise we suspend work on X so that I can evaluate how much we need to do, and then plan for this change.
 - [The Worst Programmer I Know](https://dannorth.net/2023/09/02/the-worst-programmer/)
   > Tim wasn’t delivering software; Tim was delivering a team that was delivering software.
+- [Measuring developer productivity? A response to McKinsey](https://tidyfirst.substack.com/p/measuring-developer-productivity)
 
 ### re:Work
 
