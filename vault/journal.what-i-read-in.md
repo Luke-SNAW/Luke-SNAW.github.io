@@ -2,12 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1694062805497
+updated: 1694159054784
 created: 1667632965028
 ---
 
 ## Week 36, 2023
 
+- [Building a Native Superapp with Micro Frontends and Federated Capacitor](https://ionic.io/blog/building-a-native-superapp-with-micro-frontends-and-federated-capacitor)
+- [Making Sense of React Server Components](https://www.joshwcomeau.com/react/server-components/)
+- [The small web is beautiful](https://benhoyt.com/writings/the-small-web-is-beautiful/)
+- [Turbo 8 is dropping TypeScript](https://world.hey.com/dhh/turbo-8-is-dropping-typescript-70165c01) - https://github.com/hotwired/turbo/pull/971
 - [Measuring developer productivity? A response to McKinsey](https://tidyfirst.substack.com/p/measuring-developer-productivity)
 - [Javascript labeled statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label)
 - [The Worst Programmer I Know](https://dannorth.net/2023/09/02/the-worst-programmer/)

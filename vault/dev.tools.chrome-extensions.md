@@ -2,7 +2,7 @@
 id: VR93wLLm4G5ngJpglyKwb
 title: Chrome extensions for dev
 desc: ""
-updated: 1691988691676
+updated: 1694137631080
 created: 1644971383110
 ---
 
@@ -20,6 +20,8 @@ created: 1644971383110
 - [Refined GitHub](https://github.com/refined-github/refined-github) - Browser extension that simplifies the GitHub interface and adds useful features
   - [Web store link](https://chrome.google.com/webstore/detail/refined-github/hlepfoohegkhhmjieoechaddaejaokhf/)
 - [Hover Zoom+](https://github.com/extesy/hoverzoom) - Google Chrome extension for zooming images on mouse hover
+- [Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en) - Custom themes for any website
+- [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en)
 
 ## CSS
 

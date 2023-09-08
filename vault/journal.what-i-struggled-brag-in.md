@@ -2,9 +2,26 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1692948189541
+updated: 1694151200766
 created: 1669264809793
 ---
+
+## Week 36, 2023 - Google Forms 응답 결과 API로 입력
+
+응답 제출 시 trigger를 설정하여 Google Apps script function을 호출
+
+### Prefilled link
+
+- https://stackoverflow.com/a/27904632/5163033
+
+### Submit Event trigger
+
+- https://developers.google.com/apps-script/guides/triggers/installable?hl=ko
+- https://developers.google.com/apps-script/guides/triggers/events?hl=ko#Google%20Forms-events
+
+### Post API
+
+- https://developers.google.com/apps-script/guides/services/external?hl=ko
 
 ## Week 34, 2023 - Arc42 template에 따라 문서화
 
