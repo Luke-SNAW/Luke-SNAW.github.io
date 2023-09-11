@@ -2,9 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1694159054784
+updated: 1694416269153
 created: 1667632965028
 ---
+
+## Week 37, 2023
+
+- [preload vs prefetch](https://phuoc.ng/collection/this-vs-that/preload-vs-prefetch/)
+- [An Internet of PHP](https://timotijhof.net/posts/2023/an-internet-of-php/)
 
 ## Week 36, 2023
 

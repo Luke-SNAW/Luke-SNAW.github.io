@@ -2,7 +2,7 @@
 id: pa1bstln0xt54o30z6taebc
 title: Web Performance
 desc: ""
-updated: 1690351684304
+updated: 1694416287698
 created: 1646012221215
 ---
 
@@ -23,3 +23,4 @@ created: 1646012221215
 - [What does the image decoding attribute actually do?](https://www.tunetheweb.com/blog/what-does-the-image-decoding-attribute-actually-do/)
   > So does this make a difference as an HTML attribute? probably not that much.
 - [[Browser] Critical Rendering Path 최적화](https://beomy.github.io/tech/browser/critical-rendering-path/#%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EC%A7%80%EC%A0%95)
+- [preload vs prefetch](https://phuoc.ng/collection/this-vs-that/preload-vs-prefetch/)

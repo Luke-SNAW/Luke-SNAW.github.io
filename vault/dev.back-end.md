@@ -2,7 +2,7 @@
 id: 6w36dgapan7eummy1q6jpx1
 title: Back End
 desc: ""
-updated: 1685061363850
+updated: 1694416277562
 created: 1649297934004
 ---
 
@@ -13,6 +13,7 @@ created: 1649297934004
 - [API Lifecycle Management](https://medium.com/@trgoodwill/api-lifecycle-management-9fb0caaa41de)
 - [Conditional API Responses For JavaScript vs. HTML Forms](https://austingil.com/http-javascript-vs-html/)
 - [Dealing with cold starts](https://twitter.com/thdxr/status/1661433744970973190)
+- [An Internet of PHP](https://timotijhof.net/posts/2023/an-internet-of-php/)
 
 ## Auth
 
