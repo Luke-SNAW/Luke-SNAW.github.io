@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1694062838967
+updated: 1694583932724
 created: 1644451403760
 ---
 
@@ -35,6 +35,8 @@ created: 1644451403760
 - [The Worst Programmer I Know](https://dannorth.net/2023/09/02/the-worst-programmer/)
   > Tim wasn’t delivering software; Tim was delivering a team that was delivering software.
 - [Measuring developer productivity? A response to McKinsey](https://tidyfirst.substack.com/p/measuring-developer-productivity)
+- [Some notes on Local-First Development](https://bricolage.io/some-notes-on-local-first-development/)
+  - [cr-sqlite](https://github.com/vlcn-io/cr-sqlite) - Convergent, Replicated, SQLite - "It's like Git, for your data."
 
 ### re:Work
 
