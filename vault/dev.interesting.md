@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1686617565355
+updated: 1694753990947
 created: 1646613084338
 ---
 
@@ -39,6 +39,7 @@ created: 1646613084338
 - https://github.com/nemutas/helix
 - [Redditor creates working anime QR codes using Stable Diffusion](https://arstechnica.com/information-technology/2023/06/redditor-creates-working-anime-qr-codes-using-stable-diffusion/)
 - [CIA 2010 covert communication websites](https://cirosantilli.com/cia-2010-covert-communication-websites)
+- [Hacker News Daily Top 10 posts](https://github.com/headllines/hackernews-daily) - You can subscribe by [watching this repo](https://github.com/headllines/hackernews-daily#how-does-it-work) or via [RSS](https://feeds.pub/feed/http%3A%2F%2Frsshub.app%2Fgithub%2Fissue%2Fheadllines%2Fhackernews-daily).
 
 ## News
 

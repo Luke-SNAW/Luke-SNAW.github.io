@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1686097039256
+updated: 1694656134158
 created: 1644882116217
 ---
 
@@ -61,6 +61,8 @@ created: 1644882116217
 - [file-type](https://github.com/sindresorhus/file-type) is detected by checking the [magic number](<https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files>) of the buffer.
 - [DevTools Tips](https://devtoolstips.org/) - A collection of useful cross-browser DevTools tips
 - [Aimless.js](https://github.com/ChrisCavs/aimless.js) - The missing JavaScript randomness library.
+- [ThumbHash](https://github.com/evanw/thumbhash) - A very compact representation of an image placeholder
+  - [unpic/placeholder🖼️](https://github.com/ascorbic/unpic-placeholder) is a library for generating low quality image placeholders (LQIP) by extracting the dominant color from image, or by server-side rendering a [BlurHash](https://blurha.sh/) value.
 
 ## Framework
 
