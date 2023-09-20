@@ -2,9 +2,21 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1694753981255
+updated: 1695168850133
 created: 1667632965028
 ---
+
+## Week 38, 2023
+
+- https://v0.dev/
+- [OSS Game Engines are increasing their stars on GitHub due to Unity's missteps](https://nitter.net/OSSInsight/status/1703087927763542305)
+  - [OSS Game Engine - Ranking](https://ossinsight.io/collections/game-engine/)
+- [How Instagram scaled to 14 million users with only 3 engineers](https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad)
+  - Keep things very simple.
+  - Don’t re-invent the wheel.
+  - Use proven, solid technologies when possible.
+- [My favourite API is a zipfile on the European Central Bank's website](https://csvbase.com/blog/5) - curl, zip, sqlite
+- [Akiyoshi's illusion pages](https://www.ritsumei.ac.jp/~akitaoka/index-e.html)
 
 ## Week 37, 2023
 

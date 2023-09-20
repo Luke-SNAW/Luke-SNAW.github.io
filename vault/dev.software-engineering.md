@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1690171981526
+updated: 1695099926829
 created: 1645514209965
 ---
 
@@ -36,6 +36,10 @@ created: 1645514209965
 - [Handles are the better pointers](https://floooh.github.io/2018/06/17/handles-vs-pointers.html)
 - [Nanosecond timestamp collisions are common](https://www.evanjones.ca/nanosecond-collisions.html)
   - https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format
+- [How Instagram scaled to 14 million users with only 3 engineers](https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad)
+  - Keep things very simple.
+  - Don’t re-invent the wheel.
+  - Use proven, solid technologies when possible.
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 
