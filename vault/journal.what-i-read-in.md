@@ -2,11 +2,27 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1695168850133
+updated: 1695271545399
 created: 1667632965028
 ---
 
 ## Week 38, 2023
+
+- [Responsive Viewer Chrome extension](https://github.com/skmail/responsive-viewer)
+- [Reliably Send an HTTP Request as a User Leaves a Page](https://css-tricks.com/send-an-http-request-on-page-exit/)
+- [Get All That Network Activity Under Control with Priority Hints](https://www.macarthur.me/posts/priority-hints)
+- [Web Incubator Community Group](https://wicg.io/) (WICG) is a community group of the [World Wide Web Consortium (W3C)](https://www.w3.org/) that incubates new web platform features.
+- [A (more) Modern CSS Reset](https://andy-bell.co.uk/a-more-modern-css-reset/)
+- [Car allergic to vanilla ice cream](http://www.cs.cmu.edu/~wkw/humour/carproblems.txt)
+- [We can't send email more than 500 miles](http://web.mit.edu/jemorris/humor/500-miles)
+  - https://news.ycombinator.com/item?id=23777700
+- [Svelte 5: Runes](https://svelte.dev/blog/runes)
+
+  > [reactivity and two way data binding creating a spaghetti mess of changes affecting other changes all over the place unless you're really careful is why React was made in the first place](https://news.ycombinator.com/item?id=37584877)
+
+  > [Svelte uses signals as an implementation detail, but in a way that prevents the sorts of headaches you're describing.](https://news.ycombinator.com/item?id=37585078)
+
+  - [MrJohz's opinion among front-end frameworks](https://news.ycombinator.com/item?id=37589355)
 
 - https://v0.dev/
 - [OSS Game Engines are increasing their stars on GitHub due to Unity's missteps](https://nitter.net/OSSInsight/status/1703087927763542305)

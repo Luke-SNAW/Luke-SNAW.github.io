@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1683853525474
+updated: 1695263433914
 created: 1645751512675
 ---
 
@@ -21,6 +21,7 @@ created: 1645751512675
 - [A Response To "Have Single-Page Apps Ruined the Web?"](https://htmx.org/essays/a-response-to-rich-harris/)
 - [When Should You Use Hypermedia?](https://htmx.org/essays/when-to-use-hypermedia/)
 - [HTTP/3 From A To Z: Core Concepts (Part 1)](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
+- [Web Incubator Community Group](https://wicg.io/) (WICG) is a community group of the [World Wide Web Consortium (W3C)](https://www.w3.org/) that incubates new web platform features.
 
 ## Webview Case
 

@@ -2,7 +2,7 @@
 id: IowIScQvzEu3KQ4dvwPTt
 title: JavaScript
 desc: ""
-updated: 1676866804948
+updated: 1695267651729
 created: 1645056460403
 ---
 
@@ -58,3 +58,7 @@ element.addEventListener("click", () => console.log("I run only once"), {
 ## API
 
 - [The User Activation API](https://webkit.org/blog/13862/the-user-activation-api/)
+
+### [Reliably Send an HTTP Request as a User Leaves a Page](https://css-tricks.com/send-an-http-request-on-page-exit/)
+
+Browsers do not guarantee that HTTP requests will complete if a page is unloaded, such as when a user navigates to a new page. This can cause issues for requests meant to log analytics data. Two reliable methods are available: using the "keepalive" flag with fetch requests, or the sendBeacon() API, which sends low priority requests. Both ensure requests are not cancelled even after page navigation. The article also discusses delaying navigation until requests finish, but this hurts the user experience. It provides examples demonstrating unreliable requests and how the different methods work. In summary, sendBeacon() is best for simple logs as it has cleaner code, while fetch with keepalive allows for custom headers and GET requests. The author hopes sharing these lessons learned will help others avoid similar analytics logging issues.

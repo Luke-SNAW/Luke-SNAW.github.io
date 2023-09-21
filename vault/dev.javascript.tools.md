@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1694656134158
+updated: 1695258903250
 created: 1644882116217
 ---
 
@@ -65,6 +65,22 @@ created: 1644882116217
   - [unpic/placeholder🖼️](https://github.com/ascorbic/unpic-placeholder) is a library for generating low quality image placeholders (LQIP) by extracting the dominant color from image, or by server-side rendering a [BlurHash](https://blurha.sh/) value.
 
 ## Framework
+
+- [Svelte 5: Runes](https://svelte.dev/blog/runes)
+
+  > [reactivity and two way data binding creating a spaghetti mess of changes affecting other changes all over the place unless you're really careful is why React was made in the first place](https://news.ycombinator.com/item?id=37584877)
+
+  > [Svelte uses signals as an implementation detail, but in a way that prevents the sorts of headaches you're describing.](https://news.ycombinator.com/item?id=37585078)
+
+  - [MrJohz's opinion among front-end frameworks](https://news.ycombinator.com/item?id=37589355)
+
+    > Svelte is cool, but it has the key flaw that the more Svelte you write, the more compiled code appears - generally, Svelte compiles to a size somewhat larger than the original source file.
+
+    > For Svelte as an "island" tool (i.e. for building islands of interactivity in otherwise static pages, like, say, graphs for the New York Times), that's not a problem, because the extra generated code is made up for by the lack of a bulky runtime dependency. But if you scale that up to complicated SPAs - which has been Vue's main stomping ground - you can end up shipping larger files with Svelte than with other small frameworks.
+
+    > That said, SFCs in Vue are an ideal source for compile-time compilation, and my understanding is that they're heading more down the route of SolidJS. SolidJS has a similar goal of using a compile step for optimisation, but it leans on its signals library implementation much more heavily, which means the compiled code tends to be much smaller, but you also need to include a runtime. (In practice, there's not much size difference between Svelte and SolidJS at all, but it shows itself at the more extreme ends of very small components and very large apps.)
+
+    > Vue already has a runtime that's very similar in some ways to Solid's (read: it's all signals, baby), so adopting the rendering ideas from there is an obvious next step. That should drastically speed up rendering, as well as reducing bundle sizes significantly. They've already demoed this a bit, but I think it's not fully released yet - they gave a name for the new system, but I've forgotten what it's called.
 
 > [Unpoly](https://demo.unpoly.com/) is the best thing I've discovered in the frontend world in the last 5 years. It's a breath of fresh air when compared to all the crazyness going on.
 > I use it to replace almost all "api" calls to the backend and for the "turbolinks like" navigation, modals, etc. Then I use [Alpinejs](https://alpinejs.dev/) for the really interactive/complex parts.

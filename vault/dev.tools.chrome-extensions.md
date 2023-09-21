@@ -2,7 +2,7 @@
 id: VR93wLLm4G5ngJpglyKwb
 title: Chrome extensions for dev
 desc: ""
-updated: 1694137631080
+updated: 1695269672872
 created: 1644971383110
 ---
 
@@ -25,6 +25,7 @@ created: 1644971383110
 
 ## CSS
 
+- [Responsive Viewer Chrome extension](https://github.com/skmail/responsive-viewer)
 - [CSS Peeper](https://chrome.google.com/webstore/detail/css-peeper/mbnbehikldjhnfehhnaidhjhoofhpehk)
 - [CSS viewer](https://chrome.google.com/webstore/detail/css-viewer-for-google-chr/eedfldkdghfkhdcanjnfiklpeehbfoag)
 

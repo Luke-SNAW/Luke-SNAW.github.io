@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1694583932724
+updated: 1695259843454
 created: 1644451403760
 ---
 
@@ -58,3 +58,9 @@ created: 1644451403760
   Examine team effectiveness and how to foster psychological safety.
 - [Unbiasing](https://rework.withgoogle.com/subjects/unbiasing/)
   Reduce the influence of unconscious bias by educating, measuring, and holding everyone accountable.
+
+## Debug
+
+- [Car allergic to vanilla ice cream](http://www.cs.cmu.edu/~wkw/humour/carproblems.txt)
+- [We can't send email more than 500 miles](http://web.mit.edu/jemorris/humor/500-miles)
+  - https://news.ycombinator.com/item?id=23777700

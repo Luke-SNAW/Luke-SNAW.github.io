@@ -2,7 +2,7 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1694146388336
+updated: 1695271535226
 created: 1645666821126
 ---
 
@@ -37,7 +37,6 @@ created: 1645666821126
 - [The Interactive Guide to Rendering in React](https://ui.dev/why-react-renders)
 - [An Ode to React Effects](https://alexkondov.com/an-ode-to-effects/)
   > Most of the problems with `useEffect` are rooted in bad software design, not the hook’s API.
-- [Making Sense of React Server Components](https://www.joshwcomeau.com/react/server-components/)
 
 ## Performance
 
