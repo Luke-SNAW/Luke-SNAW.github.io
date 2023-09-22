@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1695258903250
+updated: 1695360411574
 created: 1644882116217
 ---
 
@@ -63,6 +63,7 @@ created: 1644882116217
 - [Aimless.js](https://github.com/ChrisCavs/aimless.js) - The missing JavaScript randomness library.
 - [ThumbHash](https://github.com/evanw/thumbhash) - A very compact representation of an image placeholder
   - [unpic/placeholder🖼️](https://github.com/ascorbic/unpic-placeholder) is a library for generating low quality image placeholders (LQIP) by extracting the dominant color from image, or by server-side rendering a [BlurHash](https://blurha.sh/) value.
+- [🏃‍♂️🏃‍♀️🏃 JS minification benchmarks](https://github.com/privatenumber/minification-benchmarks)
 
 ## Framework
 

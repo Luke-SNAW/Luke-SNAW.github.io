@@ -2,12 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1695271545399
+updated: 1695364741629
 created: 1667632965028
 ---
 
 ## Week 38, 2023
 
+- [Understanding NestJS Architecture](https://medium.com/aws-tip/understanding-nestjs-architecture-f257d054211d)
+- [View Transitions Break Incremental Rendering](https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/)
+- [🏃‍♂️🏃‍♀️🏃 JS minification benchmarks](https://github.com/privatenumber/minification-benchmarks)
+- [Patterns for Reactivity with Modern Vanilla JavaScript](https://frontendmasters.com/blog/vanilla-javascript-reactivity/)
 - [Responsive Viewer Chrome extension](https://github.com/skmail/responsive-viewer)
 - [Reliably Send an HTTP Request as a User Leaves a Page](https://css-tricks.com/send-an-http-request-on-page-exit/)
 - [Get All That Network Activity Under Control with Priority Hints](https://www.macarthur.me/posts/priority-hints)

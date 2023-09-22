@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1695263433914
+updated: 1695361489453
 created: 1645751512675
 ---
 
@@ -22,6 +22,7 @@ created: 1645751512675
 - [When Should You Use Hypermedia?](https://htmx.org/essays/when-to-use-hypermedia/)
 - [HTTP/3 From A To Z: Core Concepts (Part 1)](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
 - [Web Incubator Community Group](https://wicg.io/) (WICG) is a community group of the [World Wide Web Consortium (W3C)](https://www.w3.org/) that incubates new web platform features.
+- [View Transitions Break Incremental Rendering](https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/)
 
 ## Webview Case
 

@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1694046897079
+updated: 1695360229409
 created: 1644885695251
 ---
 
@@ -97,6 +97,7 @@ created: 1644885695251
   const list = a.closest("ul")
   ```
 - [Javascript labeled statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label)
+- [Patterns for Reactivity with Modern Vanilla JavaScript](https://frontendmasters.com/blog/vanilla-javascript-reactivity/)
 
 ---
 
