@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1695364741629
+updated: 1695691842864
 created: 1667632965028
 ---
 
 ## Week 38, 2023
 
+- [Unity's oldest community announces dissolution](https://bostonunitygroup.s3.us-east-1.amazonaws.com/index.html)
+- [Ian's Shoelace Site](https://www.fieggen.com/shoelace/)
 - [Understanding NestJS Architecture](https://medium.com/aws-tip/understanding-nestjs-architecture-f257d054211d)
 - [View Transitions Break Incremental Rendering](https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/)
 - [🏃‍♂️🏃‍♀️🏃 JS minification benchmarks](https://github.com/privatenumber/minification-benchmarks)
