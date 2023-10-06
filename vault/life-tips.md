@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1695691694317
+updated: 1696386630648
 created: 1645514261238
 ---
 
@@ -10,6 +10,8 @@ created: 1645514261238
 
 - [50 Ideas That Changed My Life](https://perell.com/essay/50-ideas-that-changed-my-life/)
 - [Ian's Shoelace Site](https://www.fieggen.com/shoelace/)
+- [Live Near Your Friends](https://headlineshq.substack.com/p/issue-no-029-live-near-your-friends) - in distance of 5-minute walk
+  - [The Tail End](https://waitbutwhy.com/2015/12/the-tail-end.html)
 
 ## Focus
 

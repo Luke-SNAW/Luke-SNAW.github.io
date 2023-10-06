@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1675818816455
+updated: 1696569186007
 created: 1646011769978
 ---
 
@@ -34,6 +34,7 @@ created: 1646011769978
 - [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman) - Mark/Highlight code blocks
 - [XState VSCode](https://marketplace.visualstudio.com/items?itemName=statelyai.stately-vscode) - Visual editing, autocomplete and typegen for XState
 - [7 Unnecessary VSCode Extensions You Should Uninstall Now](https://codingbeautydev.com/blog/unnecessary-vscode-extensions/)
+- [Better Align](https://marketplace.visualstudio.com/items?itemName=Chouzz.vscode-better-align)
 
 ## Etc
 

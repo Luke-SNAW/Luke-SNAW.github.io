@@ -2,14 +2,34 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1695691842864
+updated: 1696557612815
 created: 1667632965028
 ---
 
-## Week 38, 2023
+## Week 40, 2023
 
+- [Speeding up the JavaScript ecosystem - Polyfills gone rogue](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-6/)
+  > Many popular npm packages depend on 6-8x more packages than they need to. Most of these are unnecessary polyfills.
+- [Why HTTP/3 is eating the world](https://blog.apnic.net/2023/09/25/why-http-3-is-eating-the-world/)
+  > It uses the QUIC protocol, which improves on TCP by more extensively encrypting metadata and enabling faster connection setup. QUIC also enhances performance by eliminating issues like head-of-line blocking and improving network handling. While HTTP/3 was created to work over QUIC, the true innovation was QUIC itself, which updates TCP with security and efficiency improvements. QUIC encryption makes it easier to update features, since middleboxes cannot access metadata. Overall, QUIC and HTTP/3 enhance web performance and security by modernizing core Internet protocols.
+- [Meta in Myanmar](https://erinkissane.com/meta-in-myanmar-part-i-the-setup) discusses how hate speech and misinformation spread on Facebook contributed to real-world violence against Rohingya Muslims in Myanmar starting in 2012. Activists had warned Facebook for years about this issue but the company was slow to act.
+- [Encrypted Client Hello](https://blog.cloudflare.com/announcing-encrypted-client-hello/)
+- [Draggable objects](https://www.redblobgames.com/making-of/draggable/)
+- [MMO Architecture: Source of truth, Dataflows, I/O bottlenecks and how to solve them](https://prdeving.wordpress.com/2023/09/29/mmo-architecture-source-of-truth-dataflows-i-o-bottlenecks-and-how-to-solve-them/) discusses architecture challenges for massively multiplayer online (MMO) games. Unlike enterprise systems, the source of truth for an MMO's game world is the in-memory state, not the database, as persisting frequent updates would cause bottlenecks. To address this, the article recommends using a data service with the full state cached in memory.
+- [Everything authenticated by Microsoft is tainted.](https://graz.social/@publicvoit/111147782761723981)
+- [🚨🚨 That's a lot of YAML 🚨🚨](https://noyaml.com/)
+  > [There are a lot of problems in YAML, but I think the main real problem is trying to put logic inside configuration.](https://news.ycombinator.com/item?id=37687365)
+- [Live Near Your Friends](https://headlineshq.substack.com/p/issue-no-029-live-near-your-friends) - in distance of 5-minute walk
+  - [The Tail End](https://waitbutwhy.com/2015/12/the-tail-end.html)
+
+## Week 39, 2023
+
+- [Google is picking ChatGPT responses from Quora as correct answer](https://twitter.com/8teapi/status/1706520893621784780)
 - [Unity's oldest community announces dissolution](https://bostonunitygroup.s3.us-east-1.amazonaws.com/index.html)
 - [Ian's Shoelace Site](https://www.fieggen.com/shoelace/)
+
+## Week 38, 2023
+
 - [Understanding NestJS Architecture](https://medium.com/aws-tip/understanding-nestjs-architecture-f257d054211d)
 - [View Transitions Break Incremental Rendering](https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/)
 - [🏃‍♂️🏃‍♀️🏃 JS minification benchmarks](https://github.com/privatenumber/minification-benchmarks)

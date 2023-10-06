@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1695361489453
+updated: 1696557158505
 created: 1645751512675
 ---
 
@@ -23,6 +23,8 @@ created: 1645751512675
 - [HTTP/3 From A To Z: Core Concepts (Part 1)](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
 - [Web Incubator Community Group](https://wicg.io/) (WICG) is a community group of the [World Wide Web Consortium (W3C)](https://www.w3.org/) that incubates new web platform features.
 - [View Transitions Break Incremental Rendering](https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/)
+- [Why HTTP/3 is eating the world](https://blog.apnic.net/2023/09/25/why-http-3-is-eating-the-world/)
+  > HTTP/3 has seen rapid adoption due to being used by major companies like Google and Meta. It uses the QUIC protocol, which improves on TCP by more extensively encrypting metadata and enabling faster connection setup. QUIC also enhances performance by eliminating issues like head-of-line blocking and improving network handling. While HTTP/3 was created to work over QUIC, the true innovation was QUIC itself, which updates TCP with security and efficiency improvements. QUIC encryption makes it easier to update features, since middleboxes cannot access metadata. Overall, QUIC and HTTP/3 enhance web performance and security by modernizing core Internet protocols.
 
 ## Webview Case
 

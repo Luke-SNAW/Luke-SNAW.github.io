@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1672729100873
+updated: 1695718940857
 created: 1646129148295
 ---
 
@@ -10,3 +10,18 @@ created: 1646129148295
 
 - [SmolCSS](https://smolcss.dev): Minimal snippets for modern CSS layouts and components
 - [Tree views in css](https://iamkate.com/code/tree-views/) - `details open`
+
+## [Outlining The Page](https://ishadeed.com/article/threads-app-css-part-2/#outlining-the-page)
+
+It’s important to remember that anything you see on the screen is a box, even if it’s a circle or a `1px` separator. Everything is a box.
+
+```css
+*,
+*:before,
+*:after {
+  outline: solid 0.5px #db6a7d;
+  border: 0;
+}
+```
+
+An outline with `0.5px` width. I picked half a pixel so that it’s easier to look at the boxes. I also removed all borders as they cause confusion.
