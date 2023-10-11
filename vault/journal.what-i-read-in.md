@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1696557612815
+updated: 1696901971847
 created: 1667632965028
 ---
+
+## Week 41, 2023
+
+- [Thread-per-core](https://without.boats/blog/thread-per-core/)
+  > The thread-per-core architecture for Rust async programs has been controversial. While it promises better performance and ease of implementation, it may only achieve one, not both. A share-nothing approach keeps data in separate core caches but is complex to implement transactionally.
+  > [The debate isn't about thread-per-core work stealing executors, it's whether async/await is a good abstraction for it in Rust. And the more async code I write the more I feel that it's leaky and hard to program against.](https://news.ycombinator.com/item?id=37791635)
 
 ## Week 40, 2023
 

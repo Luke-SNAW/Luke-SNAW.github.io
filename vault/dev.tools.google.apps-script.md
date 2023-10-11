@@ -2,7 +2,7 @@
 id: spatdqam58ssnwn2dfx4tox
 title: Google Apps Script
 desc: ""
-updated: 1670480191351
+updated: 1697006841675
 created: 1667286051672
 ---
 
@@ -141,15 +141,7 @@ function downloadFile(language) {
 }
 ```
 
-## Make as a library
-
-- 프로젝트 하나에만 script를 쓸 거라면 Code-library.gs, index-library.html 내용만 프로젝트에 추가
-- 라이브러리 프로젝트를 만들어 여러 프로젝트에서 쓸거면,
-  1. Code-library.gs, index-library.html 내용을 프로젝트로 생성 (라이브러리로 사용)
-  2. 라이브러리의 Apps Script의 프로젝트 설정 메뉴에서 스크립트 ID를 가져와, client로 쓸 프로젝트에서 편집기 -> 라이브러리에 추가
-  3. Code-client.gs 내용만 client 프로젝트에 추가
-
-## 주의
+### 주의
 
 - Export 실행 후 다운로드까지 10초 이상 소요.
   - 언어 하나만 export할 때와 4개 export할 때 시간이 x4가 아닌걸로 봐선, script setup이 대부분의 시간을 차지하는 듯
@@ -158,6 +150,20 @@ function downloadFile(language) {
 - 공유 - sheet, script, library가 모두 공유되어야 함
 - column명 고정. key, ko, ja, en, zh_hant (대소문자 상관 없음)
 
+## Make as a library
+
+- 프로젝트 하나에만 script를 쓸 거라면 Code-library.gs, index-library.html 내용만 프로젝트에 추가
+- 라이브러리 프로젝트를 만들어 여러 프로젝트에서 쓸거면,
+  1. Code-library.gs, index-library.html 내용을 프로젝트로 생성 (라이브러리로 사용)
+  2. 라이브러리의 Apps Script의 프로젝트 설정 메뉴에서 스크립트 ID를 가져와, client로 쓸 프로젝트에서 편집기 -> 라이브러리에 추가
+  3. Code-client.gs 내용만 client 프로젝트에 추가
+
 ## Etc
 
 - https://github.com/liddiard/google-sheet-s3
+
+## Form
+
+- https://developers.google.com/apps-script/reference/forms/form-response?hl=ko#submit
+- https://stackoverflow.com/a/25295822/5163033
+- https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app?hl=ko#fetchurl,-params

@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1695099926829
+updated: 1696901977461
 created: 1645514209965
 ---
 
@@ -69,3 +69,9 @@ created: 1645514209965
   > - Microservices are less _efficient_, but are still more _scalable_.
   > - I am working on a project that uses a microservice architecture to make the individual components scalable and separate the concerns. However one of the unexpected consequences is that we are now doing a lot of network calls between these microservices, and this has actually become the main speed bottleneck for our program, especially since some of these services are not even in the same data center. We are now attempting to solve this with caches and doing batch requests, but all of this created additional overhead that could have all been avoided by not using microservices.  
   >   This experience has strongly impacted my view of microservices and for all personal projects I will develop in the future I will stick with a monolith until much later instead of starting with microservices.
+
+### [Thread-per-core](https://without.boats/blog/thread-per-core/)
+
+The thread-per-core architecture for Rust async programs has been controversial. While it promises better performance and ease of implementation, it may only achieve one, not both. A share-nothing approach keeps data in separate core caches but is complex to implement transactionally. Research showed this approach reduced tail latencies over a shared approach. However, the experiments did not test dynamic work imbalances that could appear in practice. Work-stealing may help address imbalances while still keeping some data pinned to cores, achieving both performance and utilization benefits. The debate focuses on balancing work-stealing with shared state rather than ease of implementation claims.
+
+> [The debate isn't about thread-per-core work stealing executors, it's whether async/await is a good abstraction for it in Rust. And the more async code I write the more I feel that it's leaky and hard to program against.](https://news.ycombinator.com/item?id=37791635)
