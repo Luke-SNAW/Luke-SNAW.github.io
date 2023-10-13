@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1684994369313
+updated: 1697170668145
 created: 1644825680750
 ---
 
@@ -21,3 +21,12 @@ created: 1644825680750
   - https://news.ycombinator.com/item?id=34098369
 - [Web Hackers vs. The Auto Industry: Critical Vulnerabilities in Ferrari, BMW, Rolls Royce, Porsche, and More](https://samcurry.net/web-hackers-vs-the-auto-industry/)
 - [RIP, Passwords. Here’s What’s Coming Next.](https://www.nytimes.com/wirecutter/blog/what-are-passkeys-and-how-they-can-replace-passwords/)
+
+## [A comprehensive guide to the dangers of Regular Expressions in JavaScript](https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/)
+
+This article explains how certain regex patterns can cause exponential backtracking on long strings, leading to regular expression denial of service (ReDoS) vulnerabilities.  
+Two real world examples caused major outages at Stack Overflow and CloudFlare due to unintentionally vulnerable regex use.
+
+The article details how issues like excessive use of wildcards, quantifiers and overlapping patterns can cause catastrophic backtracking.  
+It also offers techniques for testing regex safety and fixing vulnerable patterns, such as limiting matches, using string methods instead of regex, and refactoring nested groups.  
+Overall, the article effectively raises awareness of the ReDoS threat within seemingly benign regex code.

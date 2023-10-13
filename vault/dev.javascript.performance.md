@@ -2,7 +2,7 @@
 id: qJYy3qzZt6rXHWQJPZd9Q
 title: Javascript Performance
 desc: ""
-updated: 1688711877173
+updated: 1697170320565
 created: 1644479524849
 ---
 
@@ -32,3 +32,21 @@ created: 1644479524849
   - Use event delegation - `event.target.matches`
 - [In Defence of DOMContentLoaded](https://csswizardry.com/2023/07/in-defence-of-domcontentloaded/)
   > The DOMContentLoaded event fires once all of your deferred JavaScript has finished running.
+
+## [Speeding up the JavaScript ecosystem - The barrel file debacle](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7/)
+
+The use of barrel files, which only re-export other files, is very common in large JavaScript projects.
+
+However, they can significantly slow down development tasks by forcing the rebuilding of the entire module graph for every file. This is because JavaScript engines must fully parse and evaluate all import statements.
+
+The article provides data showing that constructing the module graph for 10 files is much faster than for 30,000 files. Barrel files can cause test runners to waste minutes rebuilding the graph for each test. Linters are also severely impacted, sometimes taking hours to run.
+
+Removing unnecessary barrel files can dramatically improve performance, speeding up builds by 60-80% according to the author.
+
+## [JavaScript Hydration Is a Workaround, Not a Solution](https://thenewstack.io/javascript-hydration-is-a-workaround-not-a-solution/)
+
+JavaScript hydration is a technique used to add interactivity to server-rendered HTML pages by attaching event handlers to DOM elements on the client-side.
+
+However, this process requires recovering the necessary information to rebuild the application state and framework state. The document argues that hydration is an overhead because it duplicates the work already done by the server.
+
+A better approach called resumability avoids this overhead by serializing and transferring the necessary information from server to client. This allows lazy execution of event handlers on the client-side instead of eagerly executing all components.

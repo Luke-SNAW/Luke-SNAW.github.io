@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1686103136875
+updated: 1697160380694
 created: 1645681934406
 tags: bookshelf
 ---
@@ -42,6 +42,7 @@ tags: bookshelf
 - https://interviewing.io/guides/system-design-interview
 - https://slatestarcodex.com/2014/07/30/meditations-on-moloch/
 - [The Little Book of Deep Learning](https://fleuret.org/public/lbdl.pdf)
+- [Introduction to Modern Statistics](https://openintro-ims2.netlify.app/)
 
 ## PL
 
