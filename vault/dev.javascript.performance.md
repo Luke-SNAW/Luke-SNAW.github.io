@@ -2,7 +2,7 @@
 id: qJYy3qzZt6rXHWQJPZd9Q
 title: Javascript Performance
 desc: ""
-updated: 1697170320565
+updated: 1697172322484
 created: 1644479524849
 ---
 
@@ -32,6 +32,8 @@ created: 1644479524849
   - Use event delegation - `event.target.matches`
 - [In Defence of DOMContentLoaded](https://csswizardry.com/2023/07/in-defence-of-domcontentloaded/)
   > The DOMContentLoaded event fires once all of your deferred JavaScript has finished running.
+- [Speeding up the JavaScript ecosystem - Polyfills gone rogue](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-6/)
+  > Many popular npm packages depend on 6-8x more packages than they need to. Most of these are unnecessary polyfills.
 
 ## [Speeding up the JavaScript ecosystem - The barrel file debacle](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7/)
 

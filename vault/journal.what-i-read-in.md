@@ -2,9 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1697172245402
+updated: 1697514522221
 created: 1667632965028
 ---
+
+## Week 42, 2023
+
+- [Organizing multiple Git identities](https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities)
+  - [You can also filter based on the remote URL!](https://news.ycombinator.com/item?id=37904125)
+- [Populating the page: how browsers work](https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work)
+- [One Game, By One Man, On Six Platforms: The Good, The Bad and The Ugly](https://ruoyusun.com/2023/10/12/one-game-six-platforms.html)
 
 ## Week 41, 2023
 
@@ -28,7 +35,7 @@ created: 1667632965028
 - [AI is an Ideology, Not a Technology](https://www.wired.com/story/opinion-ai-is-an-ideology-not-a-technology/) argues that artificial intelligence is better understood as an ideology rather than just a technology. It promotes a view of autonomous machine intelligence that could replace humans, but this is a mirage since AI relies heavily on human data and contributions. An alternative view is to focus on how people are central to developing AI systems through providing examples, problem-solving and understanding the technology.
 - [Thread-per-core](https://without.boats/blog/thread-per-core/)
   > The thread-per-core architecture for Rust async programs has been controversial. While it promises better performance and ease of implementation, it may only achieve one, not both. A share-nothing approach keeps data in separate core caches but is complex to implement transactionally.
-  > 
+  >
   > [The debate isn't about thread-per-core work stealing executors, it's whether async/await is a good abstraction for it in Rust. And the more async code I write the more I feel that it's leaky and hard to program against.](https://news.ycombinator.com/item?id=37791635)
 
 ## Week 40, 2023

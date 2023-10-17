@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1697160380694
+updated: 1697507044720
 created: 1645681934406
 tags: bookshelf
 ---
@@ -58,6 +58,11 @@ tags: bookshelf
 - [History of the Web: Part 1](https://www.matthewgerstman.com/tech/history-of-the-web/)
 - [Top 10 performance pitfalls - HTTP 203](https://www.youtube.com/watch?app=desktop&v=Lh9q3h2khlc&feature=youtu.be)
 - [Advanced Web Application Architecture](https://matthiasnoback.nl/book/advanced-web-application-architecture/)
+- [Inside look at modern web browser (part 1)](https://developer.chrome.com/blog/inside-browser-part1/)
+- [The Anatomy of a Frame](https://aerotwist.com/blog/the-anatomy-of-a-frame/)
+- [How browsers work](https://web.dev/articles/howbrowserswork)
+- [How browsers work - Behind the scenes of modern web browsers](https://taligarsiel.com/Projects/howbrowserswork1.htm)
+- [Web Browser Engineering](https://browser.engineering/)
 
 ## HTML
 

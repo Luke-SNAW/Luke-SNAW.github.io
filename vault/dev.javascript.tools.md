@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1696557637280
+updated: 1697172302667
 created: 1644882116217
 ---
 
@@ -64,8 +64,6 @@ created: 1644882116217
 - [ThumbHash](https://github.com/evanw/thumbhash) - A very compact representation of an image placeholder
   - [unpic/placeholder🖼️](https://github.com/ascorbic/unpic-placeholder) is a library for generating low quality image placeholders (LQIP) by extracting the dominant color from image, or by server-side rendering a [BlurHash](https://blurha.sh/) value.
 - [🏃‍♂️🏃‍♀️🏃 JS minification benchmarks](https://github.com/privatenumber/minification-benchmarks)
-- [Speeding up the JavaScript ecosystem - Polyfills gone rogue](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-6/)
-  > Many popular npm packages depend on 6-8x more packages than they need to. Most of these are unnecessary polyfills.
 
 ## Framework
 
