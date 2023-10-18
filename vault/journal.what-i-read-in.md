@@ -2,12 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1697514522221
+updated: 1697601376794
 created: 1667632965028
 ---
 
 ## Week 42, 2023
 
+- [alternative-front-ends](https://github.com/mendel5/alternative-front-ends/) - Overview of alternative open source front-ends for popular internet platforms (e.g. YouTube, Twitter, etc.)
 - [Organizing multiple Git identities](https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities)
   - [You can also filter based on the remote URL!](https://news.ycombinator.com/item?id=37904125)
 - [Populating the page: how browsers work](https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work)
