@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1697507044720
+updated: 1697687792187
 created: 1645681934406
 tags: bookshelf
 ---
@@ -63,6 +63,7 @@ tags: bookshelf
 - [How browsers work](https://web.dev/articles/howbrowserswork)
 - [How browsers work - Behind the scenes of modern web browsers](https://taligarsiel.com/Projects/howbrowserswork1.htm)
 - [Web Browser Engineering](https://browser.engineering/)
+- https://www.stefanjudis.com/today-i-learned/
 
 ## HTML
 

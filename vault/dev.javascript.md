@@ -2,7 +2,7 @@
 id: IowIScQvzEu3KQ4dvwPTt
 title: JavaScript
 desc: ""
-updated: 1695267651729
+updated: 1697687931192
 created: 1645056460403
 ---
 
@@ -16,6 +16,7 @@ created: 1645056460403
 - [useSignal() is the future of web frameworks and is a better abstraction than useState(), which is showing its age.](https://javascriptweekly.com/link/135369/web)
 - [React Server Components vs. Server-Side Rendering](https://www.thearmchaircritic.org/mansplainings/react-server-components-vs-server-side-rendering)
   - https://beta.nextjs.org/docs/rendering/fundamentals
+- [How to escape CSS selectors in JavaScript](https://www.stefanjudis.com/today-i-learned/how-to-escape-css-selectors-in-javascript/) - a handy static method in the `CSS` JavaScript namespace to help with this exact problem — [`CSS.escape()`](https://developer.mozilla.org/en-US/docs/Web/API/CSS/escape_static)
 
 ## [Discover the Magic of Portals: A Beginner’s Guide to React’s Most Powerful Tool](https://blog.bitsrc.io/discover-the-magic-of-portals-a-beginners-guide-to-react-s-most-powerful-tool-f6f1965ea305)
 

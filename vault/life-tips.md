@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1696386630648
+updated: 1697680716034
 created: 1645514261238
 ---
 
@@ -12,6 +12,7 @@ created: 1645514261238
 - [Ian's Shoelace Site](https://www.fieggen.com/shoelace/)
 - [Live Near Your Friends](https://headlineshq.substack.com/p/issue-no-029-live-near-your-friends) - in distance of 5-minute walk
   - [The Tail End](https://waitbutwhy.com/2015/12/the-tail-end.html)
+- [Write more "useless" software](https://ntietz.com/blog/write-more-useless-software/) for the joy of computing.
 
 ## Focus
 

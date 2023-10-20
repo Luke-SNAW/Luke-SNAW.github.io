@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1692834844738
+updated: 1697782671066
 created: 1644885695231
 ---
 
@@ -35,6 +35,10 @@ created: 1644885695231
 - [A Blog Post With Every HTML Element](https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/)
   - `<base>`
 - [PSA: Add dir="auto" to your inputs and textareas.](https://mough.xyz/312/psa-add-dir-auto-to-your-inputs-and-textareas)
+- [Build a Better Mobile Input](https://better-mobile-inputs.netlify.app/)
+  - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types
+  - https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
+  - https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 

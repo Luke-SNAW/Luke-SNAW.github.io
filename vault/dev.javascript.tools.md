@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1697172302667
+updated: 1697682648178
 created: 1644882116217
 ---
 
@@ -64,6 +64,9 @@ created: 1644882116217
 - [ThumbHash](https://github.com/evanw/thumbhash) - A very compact representation of an image placeholder
   - [unpic/placeholder🖼️](https://github.com/ascorbic/unpic-placeholder) is a library for generating low quality image placeholders (LQIP) by extracting the dominant color from image, or by server-side rendering a [BlurHash](https://blurha.sh/) value.
 - [🏃‍♂️🏃‍♀️🏃 JS minification benchmarks](https://github.com/privatenumber/minification-benchmarks)
+- [Reflect](https://reflect.net/) - High-performance sync for multiplayer web apps
+  - [Ready Player Two](https://rocicorp.dev/blog/ready-player-two) - Transactional Conflict Resolution instead of CRDTs
+- [PartyKit](https://github.com/partykit/partykit/) simplifies developing multiplayer applications
 
 ## Framework
 

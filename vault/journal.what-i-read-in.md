@@ -2,12 +2,28 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1697601376794
+updated: 1697782658865
 created: 1667632965028
 ---
 
 ## Week 42, 2023
 
+- [Build a Better Mobile Input](https://better-mobile-inputs.netlify.app/)
+  - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types
+  - https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
+  - https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
+- [Styling External Links with Attribute Selectors](https://css-irl.info/styling-external-links-with-attribute-selectors/)
+  - `a[class~='link']`, `a[href*='css-irl' s]`
+- [The Ultimate Low-Quality Image Placeholder Technique](https://csswizardry.com/2023/09/the-ultimate-lqip-lcp-technique/)
+- [Fast-Paced Multiplayer (Part IV): Lag Compensation](https://www.gabrielgambetta.com/lag-compensation.html)
+- [Fast-Paced Multiplayer (Part III): Entity Interpolation](https://www.gabrielgambetta.com/entity-interpolation.html)
+- [How to escape CSS selectors in JavaScript](https://www.stefanjudis.com/today-i-learned/how-to-escape-css-selectors-in-javascript/) - a handy static method in the `CSS` JavaScript namespace to help with this exact problem — [`CSS.escape()`](https://developer.mozilla.org/en-US/docs/Web/API/CSS/escape_static)
+- [Fast-Paced Multiplayer (Part II): Client-Side Prediction and Server Reconciliation](https://www.gabrielgambetta.com/client-side-prediction-server-reconciliation.html)
+- [Write more "useless" software](https://ntietz.com/blog/write-more-useless-software/) for the joy of computing.
+- [Reflect](https://reflect.net/) - High-performance sync for multiplayer web apps
+  - [Ready Player Two](https://rocicorp.dev/blog/ready-player-two) - Transactional Conflict Resolution instead of CRDTs
+- [PartyKit](https://github.com/partykit/partykit/) simplifies developing multiplayer applications
+- [Microfrontends should be your last resort](https://www.breck-mckye.com/blog/2023/05/Microfrontends-should-be-your-last-resort/) argues teams should first refactor their code into isolated domains and minimize dependencies before considering microfrontends.
 - [alternative-front-ends](https://github.com/mendel5/alternative-front-ends/) - Overview of alternative open source front-ends for popular internet platforms (e.g. YouTube, Twitter, etc.)
 - [Organizing multiple Git identities](https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities)
   - [You can also filter based on the remote URL!](https://news.ycombinator.com/item?id=37904125)

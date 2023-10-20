@@ -2,7 +2,7 @@
 id: ycbm1pqytzrms1hjatwjh7y
 title: CSS Performance
 desc: ""
-updated: 1675144985969
+updated: 1697782306788
 created: 1646130152552
 ---
 
@@ -20,3 +20,4 @@ created: 1646130152552
   - https://csstriggers.com/
   - https://gist.github.com/paulirish/5d52fb081b3570c81e3a
 - [The truth about CSS selector performance](https://blogs.windows.com/msedgedev/2023/01/17/the-truth-about-css-selector-performance/)
+- [The Ultimate Low-Quality Image Placeholder Technique](https://csswizardry.com/2023/09/the-ultimate-lqip-lcp-technique/)
