@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1696901977461
+updated: 1698034772809
 created: 1645514209965
 ---
 
@@ -75,3 +75,13 @@ created: 1645514209965
 The thread-per-core architecture for Rust async programs has been controversial. While it promises better performance and ease of implementation, it may only achieve one, not both. A share-nothing approach keeps data in separate core caches but is complex to implement transactionally. Research showed this approach reduced tail latencies over a shared approach. However, the experiments did not test dynamic work imbalances that could appear in practice. Work-stealing may help address imbalances while still keeping some data pinned to cores, achieving both performance and utilization benefits. The debate focuses on balancing work-stealing with shared state rather than ease of implementation claims.
 
 > [The debate isn't about thread-per-core work stealing executors, it's whether async/await is a good abstraction for it in Rust. And the more async code I write the more I feel that it's leaky and hard to program against.](https://news.ycombinator.com/item?id=37791635)
+
+## Algorithms
+
+### [Hexagonal Grids](https://www.redblobgames.com/grids/hexagons/)
+
+This guide discusses different approaches to representing hexagonal grids in code, including cube, axial, offset, and doubled coordinates.
+
+- Each system has tradeoffs in terms of simplicity for algorithms and storage.
+- Axial coordinates are recommended for algorithms as they allow basic math operations.
+- Offset coordinates may be better for storage.

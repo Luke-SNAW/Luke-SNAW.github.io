@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1695259843454
+updated: 1698036939551
 created: 1644451403760
 ---
 
@@ -64,3 +64,17 @@ created: 1644451403760
 - [Car allergic to vanilla ice cream](http://www.cs.cmu.edu/~wkw/humour/carproblems.txt)
 - [We can't send email more than 500 miles](http://web.mit.edu/jemorris/humor/500-miles)
   - https://news.ycombinator.com/item?id=23777700
+
+## Estimation
+
+### [Pushing for a lower dev estimate is like negotiating better weather with a meteorologist](https://smartguess.is/blog/your-estimate-is-less-than-that/)
+
+The article discusses how stakeholders often push development teams to provide lower estimates than initially given, without valid reasons for why the effort would decrease.
+
+- Estimates are based on teams' experience and data, not external opinions.
+- Estimates cannot be pushed lower without new information.
+
+The better approach is to have a discussion around budget, uncertainties, and prioritization in order to deliver parts of the feature in a timely manner.
+
+- Teams are encouraged to ask stakeholders if they would tell a meteorologist their forecast is wrong, highlighting that estimates rely on expertise, not opinions.
+- With open communication around constraints and tradeoffs, teams can set appropriate expectations and deliver value along the way.

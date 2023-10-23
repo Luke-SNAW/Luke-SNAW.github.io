@@ -2,12 +2,24 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1697782658865
+updated: 1698036877568
 created: 1667632965028
 ---
 
+## Week 43, 2023
+
+- [Pushing for a lower dev estimate is like negotiating better weather with a meteorologist](https://smartguess.is/blog/your-estimate-is-less-than-that/) discusses how stakeholders often push development teams to provide lower estimates than initially given, without valid reasons for why the effort would decrease.
+  - Estimates cannot be pushed lower without new information.
+  - With open communication around constraints and tradeoffs, teams can set appropriate expectations and deliver value along the way.
+- [Flappy Bird Implemented in Typescript types](https://zackoverflow.dev/writing/flappy-bird-in-type-level-typescript/)
+- [Hexagonal Grids](https://www.redblobgames.com/grids/hexagons/) discusses different approaches to representing hexagonal grids in code, including cube, axial, offset, and doubled coordinates.
+  - Each system has tradeoffs in terms of simplicity for algorithms and storage.
+  - Axial coordinates are recommended for algorithms as they allow basic math operations.
+  - Offset coordinates may be better for storage.
+
 ## Week 42, 2023
 
+- [useFetch triggers a request on the client side in nested components (using resolveComponent) #20476](https://github.com/nuxt/nuxt/issues/20476)
 - [Build a Better Mobile Input](https://better-mobile-inputs.netlify.app/)
   - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types
   - https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
