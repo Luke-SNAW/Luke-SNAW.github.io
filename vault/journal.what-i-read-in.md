@@ -2,12 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1698036877568
+updated: 1698136757115
 created: 1667632965028
 ---
 
 ## Week 43, 2023
 
+- [Software disenchantment](https://tonsky.me/blog/disenchantment/)
+  - https://news.ycombinator.com/item?id=37987255
+- [Base64 Encoding, Explained](https://www.akshaykhot.com/base64-encoding-explained/)
 - [Pushing for a lower dev estimate is like negotiating better weather with a meteorologist](https://smartguess.is/blog/your-estimate-is-less-than-that/) discusses how stakeholders often push development teams to provide lower estimates than initially given, without valid reasons for why the effort would decrease.
   - Estimates cannot be pushed lower without new information.
   - With open communication around constraints and tradeoffs, teams can set appropriate expectations and deliver value along the way.
