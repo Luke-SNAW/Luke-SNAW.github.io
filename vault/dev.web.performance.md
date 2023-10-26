@@ -2,7 +2,7 @@
 id: pa1bstln0xt54o30z6taebc
 title: Web Performance
 desc: ""
-updated: 1694416287698
+updated: 1698309756642
 created: 1646012221215
 ---
 
@@ -24,3 +24,4 @@ created: 1646012221215
   > So does this make a difference as an HTML attribute? probably not that much.
 - [[Browser] Critical Rendering Path 최적화](https://beomy.github.io/tech/browser/critical-rendering-path/#%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EC%A7%80%EC%A0%95)
 - [preload vs prefetch](https://phuoc.ng/collection/this-vs-that/preload-vs-prefetch/)
+- [The Three Cs: 🤝 Concatenate, 🗜️ Compress, 🗳️ Cache](https://csswizardry.com/2023/10/the-three-c-concatenate-compress-cache/)

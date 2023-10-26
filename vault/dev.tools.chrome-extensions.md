@@ -2,7 +2,7 @@
 id: VR93wLLm4G5ngJpglyKwb
 title: Chrome extensions for dev
 desc: ""
-updated: 1695269672872
+updated: 1698304156002
 created: 1644971383110
 ---
 
@@ -22,6 +22,7 @@ created: 1644971383110
 - [Hover Zoom+](https://github.com/extesy/hoverzoom) - Google Chrome extension for zooming images on mouse hover
 - [Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en) - Custom themes for any website
 - [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en)
+- [Openapi Devtools](https://github.com/AndrewWalsh/openapi-devtools) - Effortlessly discover API behaviour with a Chrome extension that automatically generates OpenAPI specifications in real time for any app or website.
 
 ## CSS
 

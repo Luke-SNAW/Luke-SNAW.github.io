@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1696467809571
+updated: 1698308644678
 created: 1646613084338
 ---
 
@@ -41,6 +41,7 @@ created: 1646613084338
 - [CIA 2010 covert communication websites](https://cirosantilli.com/cia-2010-covert-communication-websites)
 - [Hacker News Daily Top 10 posts](https://github.com/headllines/hackernews-daily) - You can subscribe by [watching this repo](https://github.com/headllines/hackernews-daily#how-does-it-work) or via [RSS](https://feeds.pub/feed/http%3A%2F%2Frsshub.app%2Fgithub%2Fissue%2Fheadllines%2Fhackernews-daily).
 - [MMO Architecture: Source of truth, Dataflows, I/O bottlenecks and how to solve them](https://prdeving.wordpress.com/2023/09/29/mmo-architecture-source-of-truth-dataflows-i-o-bottlenecks-and-how-to-solve-them/) discusses architecture challenges for massively multiplayer online (MMO) games. Unlike enterprise systems, the source of truth for an MMO's game world is the in-memory state, not the database, as persisting frequent updates would cause bottlenecks. To address this, the article recommends using a data service with the full state cached in memory. It should handle data access through RPCs while persisting only critical updates. This allows for direct, low-latency access while still enabling recovery from failures. Additionally, using techniques like compare-and-swap for writes can help avoid race conditions in the distributed system. Managing what data needs persistence and when is presented as more of an art than science to optimize for recovery needs over business requirements.
+- [The Pudding](https://pudding.cool/) is a digital publication that is the best internet rabbit hole.
 
 ## News
 

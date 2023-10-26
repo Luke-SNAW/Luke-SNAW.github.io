@@ -2,12 +2,21 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1698136757115
+updated: 1698309739132
 created: 1667632965028
 ---
 
 ## Week 43, 2023
 
+- [The Three Cs: 🤝 Concatenate, 🗜️ Compress, 🗳️ Cache](https://csswizardry.com/2023/10/the-three-c-concatenate-compress-cache/)
+- [The Pudding](https://pudding.cool/) is a digital publication that is the best internet rabbit hole.
+- [Select element: now with horizontal rules](https://developer.chrome.com/en/blog/hr-in-select/)
+- [Was Rust Worth It?](https://jsoverson.medium.com/was-rust-worth-it-f43d171fb1b3)
+  > While Rust allows creating reliable software, its steep learning curve, rigid structure, and issues with async code can present roadblocks.
+- [Openapi Devtools](https://github.com/AndrewWalsh/openapi-devtools) - Effortlessly discover API behaviour with a Chrome extension that automatically generates OpenAPI specifications in real time for any app or website.
+- [The OSI Deprogrammer](https://docs.google.com/document/d/1iL0fYmMmariFoSvLd9U5nPVH1uFKC7bvVasUcYq78So/)
+- [the actual osi model](https://computer.rip/2021-03-27-the-actual-osi-model.html)
+- [Time to move from Node.js Buffer to Uint8Array](https://sindresorhus.com/blog/goodbye-nodejs-buffer)
 - [Software disenchantment](https://tonsky.me/blog/disenchantment/)
   - https://news.ycombinator.com/item?id=37987255
 - [Base64 Encoding, Explained](https://www.akshaykhot.com/base64-encoding-explained/)

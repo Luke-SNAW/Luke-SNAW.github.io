@@ -2,7 +2,7 @@
 id: dnqq11162p04a178qiuu23x
 title: Node
 desc: ""
-updated: 1677472431666
+updated: 1698197836902
 created: 1646868633251
 ---
 
@@ -29,3 +29,4 @@ created: 1646868633251
   node server.js --inspect-brk
   ```
   - [chrome dev tools](https://cdn.builder.io/api/v1/image/assets%252FYJIGb4i01jvw0SRdL5Bt%252Ff5dd633650214ff28d620d233299329b?format=webp&width=2000)
+- [Time to move from Node.js Buffer to Uint8Array](https://sindresorhus.com/blog/goodbye-nodejs-buffer)
