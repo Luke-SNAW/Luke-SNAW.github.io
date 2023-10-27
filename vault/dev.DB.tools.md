@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1688011105004
+updated: 1698396655482
 created: 1646011997576
 ---
 
@@ -43,3 +43,7 @@ created: 1646011997576
 
 - [DBeaver](https://github.com/dbeaver/dbeaver) - Free universal database tool and SQL client
 - [DataGrip](https://www.jetbrains.com/datagrip/)
+
+## Query builder
+
+- [Kysely](https://github.com/kysely-org/kysely) is a type-safe and autocompletion-friendly typescript SQL query builder.

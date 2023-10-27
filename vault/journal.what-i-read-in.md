@@ -2,12 +2,20 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1698309739132
+updated: 1698396602351
 created: 1667632965028
 ---
 
 ## Week 43, 2023
 
+- [Kysely](https://github.com/kysely-org/kysely) is a type-safe and autocompletion-friendly typescript SQL query builder.
+- [Object-Oriented Programming is Bad](https://www.youtube.com/watch?v=QM1iUe6IofM)
+- [I Hate NestJS](https://ethang.dev/blog/i-hate-nest-js/)
+  - [starbugs's opinion](https://news.ycombinator.com/item?id=38003433)
+- [Radix Vue](https://github.com/radix-vue/radix-vue) - Vue port of Radix UI Primitives. An open-source UI component library for building high-quality, accessible design systems and web apps.
+- [I Won't Use Next.js](https://www.epicweb.dev/why-i-wont-use-nextjs) - https://news.ycombinator.com/item?id=38018217
+- [Oh-Auth - Abusing OAuth to take over millions of accounts](https://salt.security/blog/oh-auth-abusing-oauth-to-take-over-millions-of-accounts)
+  > Not verifying access tokens as required by OAuth specifications allows an attacker to harvest credentials from a malicious site and hijack accounts on other trusted platforms.
 - [The Three Cs: 🤝 Concatenate, 🗜️ Compress, 🗳️ Cache](https://csswizardry.com/2023/10/the-three-c-concatenate-compress-cache/)
 - [The Pudding](https://pudding.cool/) is a digital publication that is the best internet rabbit hole.
 - [Select element: now with horizontal rules](https://developer.chrome.com/en/blog/hr-in-select/)

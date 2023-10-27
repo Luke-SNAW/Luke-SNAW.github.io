@@ -2,9 +2,17 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1694151200766
+updated: 1698382713410
 created: 1669264809793
 ---
+
+## Week 43, 2023 - NuxtLink tailingSlash
+
+Bug - **[🔗 NuxtLink defaults](https://github.com/nuxt/nuxt/releases/tag/v3.8.0)의** `trailingSlash`를 넣도록 설정하니 pdf download link에 /가 붙어 dashboard로 redirection 됨.
+
+- trailingSlash가 필요한 이유는 lightsail로 성능 측정했을 때 끝 / 가 없는 url에 접근하면 끝 / 가 있는 url로 redirection이 일어난다고 점수 까여서...
+
+Fix - resource link는 a tag로 처리
 
 ## Week 36, 2023 - Google Forms 응답 결과 API로 입력
 
