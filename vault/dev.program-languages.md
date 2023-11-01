@@ -2,7 +2,7 @@
 id: cnzc1i8ojequt9lhg3zpkgo
 title: Program Languages
 desc: ""
-updated: 1670829974171
+updated: 1698739879421
 created: 1646612841225
 ---
 
@@ -19,6 +19,7 @@ created: 1646612841225
 - [A Love Letter to React](https://fly.io/blog/love-letter-react/) - Phoenix and LiveView creator was inspired by React
 - [How We Got to LiveView](https://fly.io/blog/how-we-got-to-liveview/)
 - [Elixir vs Erlang: A comparison](https://devathon.com/blog/elixir-vs-erlang-programming-language/)
+- [Elixir and Phoenix can do it all!](https://fly.io/phoenix-files/elixir-and-phoenix-can-do-it-all/)
 
 ### [Announcing Bumblebee: GPT2, Stable Diffusion, and more in Elixir](https://news.livebook.dev/announcing-bumblebee-gpt2-stable-diffusion-and-more-in-elixir-3Op73O)
 

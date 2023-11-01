@@ -2,9 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1698396602351
+updated: 1698826229470
 created: 1667632965028
 ---
+
+## Week 44, 2023
+
+- [Immanuel Kant—What can we know?](https://ralphammer.com/immanuel-kant-what-can-we-know/)
+- [Toxins in chocolate](https://www.asyousow.org/environmental-health/toxic-enforcement/toxic-chocolate#chocolate-tables)
+- [SQLite is not without its shortcomings.](https://www.epicweb.dev/why-you-should-probably-be-using-sqlite#weaknesses)
+  > https://news.ycombinator.com/item?id=38036921
+- [LiteFS - Distributed SQLite](https://fly.io/docs/litefs/)
+- [Turso](https://turso.tech/) which uses SQLite under the hood and even has a concept called "embedded replicas" for zero latency reads.
+- [How to draw beautiful software architecture diagrams (part 1)](https://terrastruct.com/blog/post/draw-software-architecture-diagrams/)
 
 ## Week 43, 2023
 

@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1698396655482
+updated: 1698737614775
 created: 1646011997576
 ---
 
@@ -47,3 +47,19 @@ created: 1646011997576
 ## Query builder
 
 - [Kysely](https://github.com/kysely-org/kysely) is a type-safe and autocompletion-friendly typescript SQL query builder.
+
+## SQLite
+
+### Tools
+
+- [LiteFS - Distributed SQLite](https://fly.io/docs/litefs/)
+- [Turso](https://turso.tech/) which uses SQLite under the hood and even has a concept called "embedded replicas" for zero latency reads.
+
+## [SQLite is not without its shortcomings.](https://www.epicweb.dev/why-you-should-probably-be-using-sqlite#weaknesses)
+
+- SQLite does not support subscriptions which can be a limitation on certain real-time use cases. However, there are plenty of reasons to recommend against using database subscriptions for real-time use cases anyway. Scaling real-time use cases is quite challenging, and personally have really enjoyed letting [Partykit](https://www.partykit.io/) do that part for me in my apps.
+- SQLite being a file on disk does make connecting from external clients effectively impossible. But with [Fly.io](http://fly.io/) at least, it’s easy to run prisma studio on the production server and proxy that for local access. If you need to connect to it from another app, then you’re out of luck and have to set up HTTP endpoints on the host app for any data you need ([for now](https://github.com/superfly/litefs/issues/326)).
+- SQLite does not support plugins like [TimescaleDB](https://github.com/timescale/timescaledb) for Postgres. While time-series data is possible with SQLite, I do not have experience with this use case and can't speak to the challenges there. My intuition says it's not advisable to use SQLite for that use case, but maybe someone else can offer me more insight.
+- SQLite does not support enums which means you're forced to use strings. I have mixed feelings about this, but I mostly don't like enums anyway. The main drawback to this is when it comes to the typings for the client which doesn't allow you to ensure all values of a column are only within a set of specific possible values for the string. However, with Prisma client extensions, handling this kind of enforcement at the client (and typing) level [is possible](https://github.com/L-Steinmacher/epic-stack-with-prisma-client-extensions).
+
+> https://news.ycombinator.com/item?id=38036921
