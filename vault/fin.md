@@ -2,13 +2,14 @@
 id: ok0e729ho7o09xetujkxc0m
 title: Financial
 desc: ""
-updated: 1693900004975
+updated: 1698913844029
 created: 1667694740818
 ---
 
 ## Collections
 
 - [Harry Browne’s 17 Golden Rules of Financial Safety](https://thetaoofwealth.wordpress.com/2013/02/17/harry-brownes-17-golden-rules-of-financial-safety/)
+- [변동성 높은 시장을 헤쳐나가기 위한 필수 투자 원칙 10가지](https://kr.investing.com/analysis/article-200445547)
 
 ## Stock
 

@@ -2,12 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1698826229470
+updated: 1698912162665
 created: 1667632965028
 ---
 
 ## Week 44, 2023
 
+- [Window-swap](https://www.window-swap.com/) – open a new window somewhere in the world
+  - https://www.earthcam.com/
+- [Critical rendering path](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
 - [Immanuel Kant—What can we know?](https://ralphammer.com/immanuel-kant-what-can-we-know/)
 - [Toxins in chocolate](https://www.asyousow.org/environmental-health/toxic-enforcement/toxic-chocolate#chocolate-tables)
 - [SQLite is not without its shortcomings.](https://www.epicweb.dev/why-you-should-probably-be-using-sqlite#weaknesses)
