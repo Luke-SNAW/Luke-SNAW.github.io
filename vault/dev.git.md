@@ -2,7 +2,7 @@
 id: 4a5zty96wbgszd07faxjv78
 title: Git
 desc: ""
-updated: 1692321452438
+updated: 1698993244960
 created: 1652404655162
 ---
 
@@ -15,6 +15,7 @@ created: 1652404655162
   > - implementation (of an _existing feature_, which doesn't involve a fix),
   > - configuration (like the `.gitignore` or `.gitattributes`),
   > - private internal methods...
+- [Confusing git terminology](https://jvns.ca/blog/2023/11/01/confusing-git-terminology/)
 
 ## [How to Write Useful Commit Messages](https://dev.to/jacobherrington/how-to-write-useful-commit-messages-my-commit-message-template-20n9)
 
@@ -36,3 +37,28 @@ git commit -em "some string"
 would open the text editor with "some string" that could be edited.
 
 ## [git commit --fixup=[(amend|reword):]<commit>](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt)
+
+## [Tracking SQLite Database Changes in Git](https://garrit.xyz/posts/2023-11-01-tracking-sqlite-database-changes-in-git)
+
+First, add a diff type called "sqlite3" to your config. The simplest way is to just run these commands:
+
+```shell
+git config diff.sqlite3.binary true
+git config diff.sqlite3.textconv "echo .dump | sqlite3"
+```
+
+Alternatively, you can add this snippet to your `~/.gitconfig` or `.git/config` in your repository:
+
+```gitconfig
+[diff "sqlite3"]
+        binary = true
+        textconv = "echo .dump | sqlite3"
+```
+
+Next, create a file called `.gitattributes` if it's not already present and add this line:
+
+```gitattributes
+*.sqlite diff=sqlite3
+```
+
+> [So it does look like git's delta encoding works with sqlite's blocks.](https://news.ycombinator.com/item?id=38117779)

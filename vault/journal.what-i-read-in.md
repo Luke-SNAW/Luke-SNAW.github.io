@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1698912162665
+updated: 1698999271603
 created: 1667632965028
 ---
 
 ## Week 44, 2023
 
+- [Speeding up the JavaScript ecosystem - Tailwind CSS](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-8/)
+- [Tracking SQLite Database Changes in Git](https://garrit.xyz/posts/2023-11-01-tracking-sqlite-database-changes-in-git)
+  > [So it does look like git's delta encoding works with sqlite's blocks.](https://news.ycombinator.com/item?id=38117779)
+- [Full-Stack Tao: Start With the Domain](https://alexkondov.com/full-stack-tao-start-with-the-domain/)
+- [grist-core](https://github.com/gristlabs/grist-core) is the evolution of spreadsheets.
 - [Window-swap](https://www.window-swap.com/) – open a new window somewhere in the world
   - https://www.earthcam.com/
 - [Critical rendering path](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
