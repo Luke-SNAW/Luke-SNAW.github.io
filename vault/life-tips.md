@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1697680716034
+updated: 1699406388164
 created: 1645514261238
 ---
 
@@ -64,6 +64,11 @@ In life, we must make decisions. The word "decision" comes from the Latin "to cu
 
 > Saying yes frequently is an additive strategy. Saying no is a subtractive strategy. Keep saying no to a lot of things - the negative and unimportant ones - and once in awhile, you will be left with an idea which is so compelling that it would be a screaming no-brainer 'yes'.
 > ― unknown
+
+### [You don’t need to work on hard problems](https://www.benkuhn.net/hard/)
+
+In the real world the most important problems are vague and have many evaluation dimensions.  
+Author found it rewarding to optimize for speed, cost and other pragmatic factors rather than just difficulty.
 
 ## [Nine Micro Life Hacks I Found on Reddit](https://medium.com/mind-cafe/nine-micro-life-hacks-i-found-on-reddit-that-are-surprisingly-useful-6c74638798e6)
 

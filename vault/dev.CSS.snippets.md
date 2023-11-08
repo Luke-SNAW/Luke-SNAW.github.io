@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1695718940857
+updated: 1699424094410
 created: 1646129148295
 ---
 
@@ -25,3 +25,11 @@ It’s important to remember that anything you see on the screen is a box, even 
 ```
 
 An outline with `0.5px` width. I picked half a pixel so that it’s easier to look at the boxes. I also removed all borders as they cause confusion.
+
+## [Image inside div has extra space below the image](https://stackoverflow.com/questions/5804256/image-inside-div-has-extra-space-below-the-image)
+
+```css
+img {
+  display: block;
+}
+```

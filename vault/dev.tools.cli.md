@@ -2,7 +2,7 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1687822700041
+updated: 1699321649791
 created: 1653704390962
 ---
 

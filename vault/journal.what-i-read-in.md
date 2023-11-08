@@ -2,9 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1698999271603
+updated: 1699431333955
 created: 1667632965028
 ---
+
+## Week 45, 2023
+
+- [You don’t need to work on hard problems](https://www.benkuhn.net/hard/)
+  > In the real world the most important problems are vague and have many evaluation dimensions. Author found it rewarding to optimize for speed, cost and other pragmatic factors rather than just difficulty.
+- [Litestream](https://docs.servicestack.net/ormlite/litestream#litestream)
+- [Microservices Lessons From Netflix](https://newsletter.systemdesign.one/p/netflix-microservices)
 
 ## Week 44, 2023
 

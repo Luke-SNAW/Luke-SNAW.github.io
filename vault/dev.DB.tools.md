@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1698737614775
+updated: 1699336170326
 created: 1646011997576
 ---
 
@@ -54,8 +54,9 @@ created: 1646011997576
 
 - [LiteFS - Distributed SQLite](https://fly.io/docs/litefs/)
 - [Turso](https://turso.tech/) which uses SQLite under the hood and even has a concept called "embedded replicas" for zero latency reads.
+- [Litestream](https://docs.servicestack.net/ormlite/litestream#litestream)
 
-## [SQLite is not without its shortcomings.](https://www.epicweb.dev/why-you-should-probably-be-using-sqlite#weaknesses)
+### [SQLite is not without its shortcomings.](https://www.epicweb.dev/why-you-should-probably-be-using-sqlite#weaknesses)
 
 - SQLite does not support subscriptions which can be a limitation on certain real-time use cases. However, there are plenty of reasons to recommend against using database subscriptions for real-time use cases anyway. Scaling real-time use cases is quite challenging, and personally have really enjoyed letting [Partykit](https://www.partykit.io/) do that part for me in my apps.
 - SQLite being a file on disk does make connecting from external clients effectively impossible. But with [Fly.io](http://fly.io/) at least, it’s easy to run prisma studio on the production server and proxy that for local access. If you need to connect to it from another app, then you’re out of luck and have to set up HTTP endpoints on the host app for any data you need ([for now](https://github.com/superfly/litefs/issues/326)).
