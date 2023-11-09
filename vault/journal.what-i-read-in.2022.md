@@ -2,13 +2,13 @@
 id: l4c5ilaotvka1yh10wv88cy
 title: "What I read in 2022"
 desc: ""
-updated: 1697160482007
+updated: 1699431768751
 created: 1697160410482
 ---
 
 ## Week 52, 2022
 
-- [CSS image()](https://12daysofweb.dev/2022/css-image/#image-fragments)
+- [CSS Image fragments - image()](https://12daysofweb.dev/2022/css-image/#image-fragments)
   ```css
   .hero {
     background-image: image("images/my-image.jpg#xywh=150,50,500,300");

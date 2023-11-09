@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1697782476531
+updated: 1699431786339
 created: 1646129148306
 ---
 
@@ -119,7 +119,7 @@ In this article, we’ll explore how cascade layers work, and how they will help
 
 ## Functions
 
-### [CSS image()](https://12daysofweb.dev/2022/css-image/#image-fragments)
+### [CSS Image fragments - image()](https://12daysofweb.dev/2022/css-image/#image-fragments)
 
 ```css
 .hero {
