@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1696569186007
+updated: 1699588680196
 created: 1646011769978
 ---
 
@@ -106,3 +106,13 @@ git config --global core.editor "code -w"
 The personal knowledge management (PKM) tool that grows as you do!
 
 - [awesome-dendron: A Dendron awesome list of extensions, vaults, and more](https://github.com/dendronhq/dendron/discussions/2118)
+
+## Apply Font
+
+```shell
+system_profiler -json SPFontsDataType | grep \"family | sort | uniq # https://stackoverflow.com/a/67132993/5163033
+```
+
+Or
+
+In Desktop view, Press “⌘ + Space” to start Spotlight, then type in “font book”

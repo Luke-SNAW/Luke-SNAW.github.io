@@ -1,10 +1,10 @@
 ---
 id: hvcwysicrmsq7evtybwjpuv
 title: Object-Oriented Programming is Bad
-
 desc: ""
-updated: 1698396444761
+updated: 1699596166480
 created: 1698396054146
+tags: OOP
 ---
 
 > https://www.youtube.com/watch?v=QM1iUe6IofM

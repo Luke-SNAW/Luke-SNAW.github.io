@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1698912165975
+updated: 1699859793172
 created: 1669705986186
 ---
 
@@ -14,3 +14,5 @@ created: 1669705986186
 - [Immanuel Kant—What can we know?](https://ralphammer.com/immanuel-kant-what-can-we-know/)
 - [Window-swap](https://www.window-swap.com/) – open a new window somewhere in the world
   - https://www.earthcam.com/
+- [Internet Artifacts](https://neal.fun/internet-artifacts/)
+- [Find bilingual baby names](https://mixedname.com/)

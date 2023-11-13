@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1699493866637
+updated: 1699582126078
 created: 1646613084338
 ---
 
@@ -105,3 +105,5 @@ site UI
 - <video width="320" height="240" controls>
   <source src="/assets/movs/asteriskmag.com__desktop.mov" type="video/mp4">
   </video>
+
+### [Monaspace](https://monaspace.githubnext.com/)

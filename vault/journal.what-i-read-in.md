@@ -2,12 +2,29 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1699493855210
+updated: 1699859787924
 created: 1667632965028
 ---
 
+## Week 46, 2023
+
+- [Find bilingual baby names](https://mixedname.com/)
+- [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/)
+- [Debugging dynamic content in browser dev tools](https://darekkay.com/blog/debugging-dynamic-content/)
+
 ## Week 45, 2023
 
+- [Don't Use Fixed CSS height or width on Buttons, Links, or Any Other Text Containers](https://ashleemboyer.com/blog/don-t-use-fixed-css-height-or-width-on-text-containers)
+  > Despite some web design tools specifying CSS `height` values for elements like buttons, setting `height` or `max-height` can actually put you at risk for failing [WCAG 2.2 Success Criterion 1.4.4 Resize Text](https://www.w3.org/TR/WCAG22/#resize-text).
+- [Strikethrough Accessibility](https://www.webaxe.org/strikethrough-html-accessibility/)
+- [Internet Artifacts](https://neal.fun/internet-artifacts/)
+- [The Expressivity Limitations of Object-Oriented Programming](https://two-wrongs.com/expressive-limitations-of-oop.html)
+- [Monaspace](https://monaspace.githubnext.com/)
+  ```shell
+  system_profiler -json SPFontsDataType | grep \"family | sort | uniq # https://stackoverflow.com/a/67132993/5163033
+  ```
+  Or  
+  In Desktop view, Press “⌘ + Space” to start Spotlight, then type in “font book”
 - [Webgl Fluid Simulation](https://paveldogreat.github.io/WebGL-Fluid-Simulation/)
 - [Don't disable buttons](https://gomakethings.com/dont-disable-buttons/) - it breaks accessibility
   > [`disabled` shouldn't block focus](https://news.ycombinator.com/item?id=38196458)

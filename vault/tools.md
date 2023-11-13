@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1698974175827
+updated: 1699853270132
 created: 1644799670081
 ---
 
@@ -90,3 +90,4 @@ created: 1644799670081
 - [Adobe 배경 제거](https://express.adobe.com/ko-KR/tools/remove-background)
 - [alternative-front-ends](https://github.com/mendel5/alternative-front-ends/) - Overview of alternative open source front-ends for popular internet platforms (e.g. YouTube, Twitter, etc.)
 - [grist-core](https://github.com/gristlabs/grist-core) is the evolution of spreadsheets.
+- [YouTube Video Finder](https://findyoutubevideo.thetechrobo.ca/)

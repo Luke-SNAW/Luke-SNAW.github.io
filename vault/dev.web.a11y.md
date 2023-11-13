@@ -2,7 +2,7 @@
 id: 7tPeWrJHQmeiMg4HWoymw
 title: Accessibility
 desc: ""
-updated: 1685951770164
+updated: 1699599990703
 created: 1644817740456
 ---
 
@@ -21,6 +21,8 @@ created: 1644817740456
 - 👑 [GOV.UK Design System > Accessibility](https://design-system.service.gov.uk/accessibility/) explains how the team works to ensure the Design System and Frontend are accessible.
 - [Improving Web Accessibility with Semantic HTML and Testing Techniques and Tools](https://www.infoq.com/news/2023/04/web-accessibility/)
 - [`display: contents` considered harmful](https://ericwbailey.website/published/display-contents-considered-harmful/)
+- [Don't Use Fixed CSS height or width on Buttons, Links, or Any Other Text Containers](https://ashleemboyer.com/blog/don-t-use-fixed-css-height-or-width-on-text-containers)
+  > Despite some web design tools specifying CSS `height` values for elements like buttons, setting `height` or `max-height` can actually put you at risk for failing [WCAG 2.2 Success Criterion 1.4.4 Resize Text](https://www.w3.org/TR/WCAG22/#resize-text).
 
 ## [prefers-reduced-motion](https://news.ycombinator.com/item?id=31765773)
 

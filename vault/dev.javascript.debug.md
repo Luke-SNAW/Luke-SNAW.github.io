@@ -2,7 +2,7 @@
 id: gnh7pclc140wsbtf84b5yf8
 title: Javascript debug
 desc: ""
-updated: 1676866607180
+updated: 1699852617467
 created: 1646265630764
 ---
 
@@ -38,10 +38,10 @@ Pass an element and a series of events to `monitorEvents` to get a console log w
 
 ```js
 // Monitor any clicks within the window
-monitorEvents(window, 'click')
+monitorEvents(window, "click")
 
 // Monitor for keyup and keydown events on the body
-monitorEvents(document.body, \['keyup', 'keydown'\])
+monitorEvents(document.body, ["keyup", "keydown"])
 ```
 
 You can pass an array of events to listen for multiple events. The logged `event` represents the same event you'd see if you manually called `addEventListener`.
