@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1699859787924
+updated: 1700030280088
 created: 1667632965028
 ---
 
 ## Week 46, 2023
 
+- [REST, GraphQL or RPC — A Decision Paralysis](https://itnext.io/rest-graphql-or-rpc-a-decision-paralysis-0acaa84b5a27)
+- [Clicking `<a>` element using Enter/Space key is not working even though it is focused (accessibility)](https://stackoverflow.com/a/66311677/5163033)
+- [Reasons to prefer blake3 over sha256](https://peergos.org/posts/blake3)
+  - https://github.com/BLAKE3-team/BLAKE3
+- [Locality of Behaviour (LoB)](https://htmx.org/essays/locality-of-behaviour/)
+- [HTML First](https://html-first.com/)
+  > https://news.ycombinator.com/item?id=38241304
 - [Find bilingual baby names](https://mixedname.com/)
 - [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/)
 - [Debugging dynamic content in browser dev tools](https://darekkay.com/blog/debugging-dynamic-content/)

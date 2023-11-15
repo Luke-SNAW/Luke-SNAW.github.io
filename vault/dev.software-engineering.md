@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1698034772809
+updated: 1699926696459
 created: 1645514209965
 ---
 
@@ -40,6 +40,7 @@ created: 1645514209965
   - Keep things very simple.
   - Don’t re-invent the wheel.
   - Use proven, solid technologies when possible.
+- [Locality of Behaviour (LoB)](https://htmx.org/essays/locality-of-behaviour/)
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 
