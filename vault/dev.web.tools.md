@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1690504784176
+updated: 1700466442427
 created: 1646011961595
 ---
 
@@ -22,6 +22,7 @@ created: 1646011961595
 - [Microsoft Clarity - Free Heatmaps & Session Recordings](https://clarity.microsoft.com/)
 - [MJML](https://github.com/mjmlio/mjml) - the only framework that makes responsive-email easy
 - [Hono + htmx + Cloudflare is a new stack](https://blog.yusu.ke/hono-htmx-cloudflare/)
+- [screenshot-to-code](https://github.com/abi/screenshot-to-code) converts a screenshot to HTML/Tailwind CSS. It uses GPT-4 Vision to generate the code and DALL-E 3 to generate similar-looking images.
 
 ## Images
 
