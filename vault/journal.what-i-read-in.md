@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1700466424721
+updated: 1700611947091
 created: 1667632965028
 ---
 
 ## Week 47, 2023
 
+- [Realtime planet shader in WebGL](https://github.com/jsulpis/realtime-planet-shader)
+- [Charging a lithium battery to 80% only?](https://electronics.stackexchange.com/a/623375)
+  > stay within 30%-80%
+  - [How to Prolong Lithium-based Batteries](https://batteryuniversity.com/article/bu-808-how-to-prolong-lithium-based-batteries)
+- [Former Mozilla exec: Google has sabotaged Firefox for years](https://www.zdnet.com/article/former-mozilla-exec-google-has-sabotaged-firefox-for-years/)
+- [YouTube slows down video load times when using Firefox](https://old.reddit.com/r/youtube/comments/17z8hsz/youtube_has_started_to_artificially_slow_down/)
+  - [YouTube blames ad blockers for slow load times, and it has nothing to do with your browser](https://www.androidauthority.com/youtube-blames-ad-blockers-slow-load-times-3387523/)
 - [screenshot-to-code](https://github.com/abi/screenshot-to-code) converts a screenshot to HTML/Tailwind CSS. It uses GPT-4 Vision to generate the code and DALL-E 3 to generate similar-looking images.
 - [URL explained - The Fundamentals](https://ittavern.com/url-explained-the-fundamentals/)
 

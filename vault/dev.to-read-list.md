@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1697687792187
+updated: 1700641107446
 created: 1645681934406
 tags: bookshelf
 ---
@@ -49,6 +49,8 @@ tags: bookshelf
 - [Inverting back the inversion of control or, Continuations versus page-centric programming](https://pages.lip6.fr/Christian.Queinnec/PDF/www.pdf)
 - https://cuddly-octo-palm-tree.com/posts/2021-04-11-monads-0/
 - [Composing Software: An Introduction](https://medium.com/javascript-scene/composing-software-an-introduction-27b72500d6ea)
+- [15-150: Principles of Functional Programming](https://brandonspark.github.io/150/)
+  - https://functionalcs.github.io/curriculum/#orge441e24
 
 ## Web
 

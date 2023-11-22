@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1699582126078
+updated: 1700611758232
 created: 1646613084338
 ---
 
@@ -82,6 +82,7 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 - [Analytical Motionblur 3D](https://www.shadertoy.com/view/MdB3Dw)
   - https://www.youtube.com/@InigoQuilez
 - [Refraction, dispersion, and other shader light effects](https://blog.maximeheckel.com/posts/refraction-dispersion-and-other-shader-light-effects/)
+- [Realtime planet shader in WebGL](https://github.com/jsulpis/realtime-planet-shader)
 
 ## Web
 
