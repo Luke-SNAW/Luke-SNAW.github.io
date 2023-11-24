@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1700611947091
+updated: 1700817459947
 created: 1667632965028
 ---
 
 ## Week 47, 2023
 
+- [An Interactive Guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
+- [Your Website’s URLs Can and Should Be Beautiful](https://opuszine.us/posts/your-websites-urls-can-should-be-beautiful)
 - [Realtime planet shader in WebGL](https://github.com/jsulpis/realtime-planet-shader)
 - [Charging a lithium battery to 80% only?](https://electronics.stackexchange.com/a/623375)
   > stay within 30%-80%
