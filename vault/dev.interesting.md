@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1700611758232
+updated: 1701071540340
 created: 1646613084338
 ---
 
@@ -95,6 +95,8 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 - [HTML is based on SGML](https://news.ycombinator.com/item?id=33553269)
 - [Electric Clojure](https://github.com/hyperfiddle/electric) – a signals DSL for fullstack web UI, with compiler-managed network sync
   - https://news.ycombinator.com/item?id=34771771
+- [Shopify live dashboard](https://bfcm.shopify.com)
+- [Stripe live dashboard](https://bfcm.stripe.dev)
 
 ### [Asterisk Magazine](https://asteriskmag.com/)
 

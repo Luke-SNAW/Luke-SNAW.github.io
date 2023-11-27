@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1697782671066
+updated: 1701070485917
 created: 1644885695231
 ---
 
@@ -10,8 +10,6 @@ created: 1644885695231
 
 - [Explain the First 10 Lines of Twitter’s Source Code to Me](https://css-tricks.com/explain-the-first-10-lines-of-twitter-source-code/)
 - [Tip - Use fetchpriority=high to load your LCP hero image sooner](https://addyosmani.com/blog/fetch-priority/)
-- [Scripted `<INPUT>` Matching With Native Error Reporting](https://medium.com/codex/scripted-input-matching-with-native-error-reporting-8287dd7ac40a)
-  - https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
 - [So `<HGROUP>` Is Back In HTML 5, And Dumb As Ever!](https://medium.com/codex/so-hgroup-is-back-in-html-5-and-dumb-as-ever-c81e00f6320d)
 - [Responsive Images 101, Part 4: Srcset Width Descriptors](https://cloudfour.com/thinks/responsive-images-101-part-4-srcset-width-descriptors/)
   - width of the image sources
@@ -94,3 +92,9 @@ This makes parsing faster and guaranteed to have no side effects, and conveys th
 ### Semantics
 
 In addition - “template” also conveys correct semantics to the other developers working on the codebase. If I see an html at the bottom with “display: none” it’s very possible that the intended usage is to leave it there and set “display: block”, ie a modal. “display: none” doesn’t convey “clone me”, but “template” does.
+
+## Inputs
+
+- [Scripted `<INPUT>` Matching With Native Error Reporting](https://medium.com/codex/scripted-input-matching-with-native-error-reporting-8287dd7ac40a)
+  - https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
+- [Build an OTP input field](https://phuoc.ng/collection/html-dom/build-an-otp-input-field/)

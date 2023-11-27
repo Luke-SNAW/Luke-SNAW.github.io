@@ -2,9 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1700817459947
+updated: 1701071515938
 created: 1667632965028
 ---
+
+## Week 48, 2023
+
+- [Shopify live dashboard](https://bfcm.shopify.com)
+- [Stripe live dashboard](https://bfcm.stripe.dev)
+- [Vue - scoped style leak](https://github.com/vuejs/vue-loader/issues/957#issuecomment-329947476)
+- [Build an OTP input field](https://phuoc.ng/collection/html-dom/build-an-otp-input-field/)
 
 ## Week 47, 2023
 
