@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1701071515938
+updated: 1701238612642
 created: 1667632965028
 ---
 
 ## Week 48, 2023
 
+- [How to read a paper](https://dl.acm.org/doi/10.1145/1273445.1273458)
+- [Ten simple rules for structuring papers](https://www.biorxiv.org/content/10.1101/088278v5.full.pdf)
+- [The `hanging-punctuation` property in CSS](https://chriscoyier.net/2023/11/27/the-hanging-punctuation-property-in-css/)
+- [DALL·E Party](https://dalle.party/) - DALL·E ↔ GPT-4 Vision
+  - https://dalle.party/?party=vCwYT8Em
+- [Sqids formerly Hashids](https://sqids.org/) is an open-source library that lets you generate YouTube-looking IDs from numbers.
 - [Shopify live dashboard](https://bfcm.shopify.com)
 - [Stripe live dashboard](https://bfcm.stripe.dev)
 - [Vue - scoped style leak](https://github.com/vuejs/vue-loader/issues/957#issuecomment-329947476)

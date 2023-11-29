@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1697682648178
+updated: 1701146422294
 created: 1644882116217
 ---
 
@@ -22,7 +22,7 @@ created: 1644882116217
 - [Publishing a Web Component to npm](https://til.simonwillison.net/npm/publish-web-component)
 - [State Machines for JavaScript Developers - How to Use Them in Your Apps](https://blog.openreplay.com/state-machines-for-javascript-developers-how-to-use-them-in-your-apps)
 - [Nano ID](https://github.com/ai/nanoid): A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
-- [Hashids](https://github.com/niieani/hashids.js): is small JavaScript library to generate YouTube-like ids from numbers. Use it when you don't want to expose your database ids to the user.
+- [Sqids formerly Hashids](https://sqids.org/) is an open-source library that lets you generate YouTube-looking IDs from numbers.
 - [Ninja Keys](https://github.com/ssleptsov/ninja-keys): Keyboard shortcuts interface for your website. Working with static HTML, Vanilla JS, Vue, React, Svelte.
 - [ES module for detecting undefined CSS classes](https://gist.github.com/broofa/7e95aad7ea0f34655428cda9868e7fa3)
 - [Bree](https://github.com/breejs/bree): is the best job scheduler for Node.js and JavaScript with cron, dates, ms, later, and human-friendly support.

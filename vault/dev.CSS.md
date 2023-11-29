@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1700817479407
+updated: 1701230810922
 created: 1646129148306
 ---
 
@@ -112,6 +112,7 @@ In this article, we’ll explore how cascade layers work, and how they will help
 
 - [linear-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient)
 - [Web Design in 4 minutes](https://jgthms.com/web-design-in-4-minutes/)
+- [The `hanging-punctuation` property in CSS](https://chriscoyier.net/2023/11/27/the-hanging-punctuation-property-in-css/)
 
 ### [columns](https://developer.mozilla.org/en-US/docs/Web/CSS/columns)
 
@@ -129,4 +130,4 @@ In this article, we’ll explore how cascade layers work, and how they will help
 
 ## Grid
 
-- [An Interactive Guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
+- [A Complete Guide to CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
