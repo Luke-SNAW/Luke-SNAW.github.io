@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1699424094410
+updated: 1701308062246
 created: 1646129148295
 ---
 
@@ -31,5 +31,13 @@ An outline with `0.5px` width. I picked half a pixel so that it’s easier to lo
 ```css
 img {
   display: block;
+}
+```
+
+## [Preventing Scroll “Bounce” with CSS](https://css-irl.info/preventing-overscroll-bounce-with-css/)
+
+```css
+:root {
+  overscroll-behavior: none;
 }
 ```

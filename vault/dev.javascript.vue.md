@@ -2,7 +2,7 @@
 id: p6jdsvhol2ebyzilnb5u3ot
 title: Vue
 desc: ""
-updated: 1701070568025
+updated: 1701317725955
 created: 1646815969488
 ---
 
@@ -22,6 +22,10 @@ created: 1646815969488
 - [[Core Team RFC] New SFC macro: defineModel](https://github.com/vuejs/rfcs/discussions/503)
 - [useFetch triggers a request on the client side in nested components (using resolveComponent) #20476](https://github.com/nuxt/nuxt/issues/20476)
 - [Vue - scoped style leak](https://github.com/vuejs/vue-loader/issues/957#issuecomment-329947476)
+- [Hydration Mismatch](https://vuejs.org/guide/scaling-up/ssr.html#hydration-mismatch)
+  - invalid HTML nesting structure
+  - randomly generated values
+  - The server and the client are in different time zones
 
 ## nextTick
 

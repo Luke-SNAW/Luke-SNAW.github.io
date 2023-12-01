@@ -2,12 +2,25 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1701238612642
+updated: 1701421536262
 created: 1667632965028
 ---
 
 ## Week 48, 2023
 
+- https://tests.caniuse.com/avif
+- [Visual Anagrams: Generating Multi-View Optical Illusions with Diffusion Models](https://dangeng.github.io/visual_anagrams/)
+- [Hydration Mismatch](https://vuejs.org/guide/scaling-up/ssr.html#hydration-mismatch)
+  - invalid HTML nesting structure
+  - randomly generated values
+  - The server and the client are in different time zones
+- [Travel by Oisin Carroll](https://imois.in/games/travle/) - A daily game – get between countries in as few guesses as possible
+- [Preventing Scroll “Bounce” with CSS](https://css-irl.info/preventing-overscroll-bounce-with-css/)
+  ```css
+  :root {
+    overscroll-behavior: none;
+  }
+  ```
 - [How to read a paper](https://dl.acm.org/doi/10.1145/1273445.1273458)
 - [Ten simple rules for structuring papers](https://www.biorxiv.org/content/10.1101/088278v5.full.pdf)
 - [The `hanging-punctuation` property in CSS](https://chriscoyier.net/2023/11/27/the-hanging-punctuation-property-in-css/)
