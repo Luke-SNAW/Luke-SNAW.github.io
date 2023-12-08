@@ -2,9 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1701421536262
+updated: 1702018904274
 created: 1667632965028
 ---
+
+## Week 49, 2023
+
+- [Data Engineering Design Patterns](https://www.dedp.online/)
+- [Kernighan and Pike were right: Do one thing, and do it well](https://medium.com/source-and-buggy/do-one-thing-and-do-it-well-886b11a5d21)
+  - Connection analogy - Applets, Unix Programs, Plugins, Microservices
+- [The Creative Playground](https://ralphammer.com/dhow-to-get-started/)
 
 ## Week 48, 2023
 

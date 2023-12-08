@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1699926696459
+updated: 1701926625105
 created: 1645514209965
 ---
 
@@ -70,6 +70,7 @@ created: 1645514209965
   > - Microservices are less _efficient_, but are still more _scalable_.
   > - I am working on a project that uses a microservice architecture to make the individual components scalable and separate the concerns. However one of the unexpected consequences is that we are now doing a lot of network calls between these microservices, and this has actually become the main speed bottleneck for our program, especially since some of these services are not even in the same data center. We are now attempting to solve this with caches and doing batch requests, but all of this created additional overhead that could have all been avoided by not using microservices.  
   >   This experience has strongly impacted my view of microservices and for all personal projects I will develop in the future I will stick with a monolith until much later instead of starting with microservices.
+- [Kernighan and Pike were right: Do one thing, and do it well](https://medium.com/source-and-buggy/do-one-thing-and-do-it-well-886b11a5d21)
 
 ### [Thread-per-core](https://without.boats/blog/thread-per-core/)
 

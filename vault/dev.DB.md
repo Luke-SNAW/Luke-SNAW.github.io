@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1693466275442
+updated: 1702018972286
 created: 1656645858715
 ---
 
@@ -25,6 +25,7 @@ created: 1656645858715
   > Essentially the ORM can handle about 80-90% of the mapping problems, but that last chunk always needs careful work by somebody who really understands how a relational database works.  
   > ... A framework that allows me to avoid 80% of that is worthwhile even if it is only 80%.  
   > To avoid the mapping problem you have two alternatives. Either you use the relational model in memory, or you don't use it in the database.
+- [Data Engineering Design Patterns](https://www.dedp.online/) #bookshelf
 
 ## SQLite
 
