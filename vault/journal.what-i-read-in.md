@@ -2,12 +2,41 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1702018904274
+updated: 1702545451147
 created: 1667632965028
 ---
 
+## Week 50, 2023
+
+- [How to Use Responsive HTML Video (...and Audio!)](https://scottjehl.com//posts/using-responsive-video/)
+  ```html
+  <video>
+    <source media="(min-width: 2000px)" src="large.webm" type="video/webm" />
+    <source media="(min-width: 2000px)" src="large.mp4" type="video/mp4" />
+    <source media="(min-width: 1000px)" src="medium.webm" type="video/webm" />
+    <source media="(min-width: 1000px)" src="medium.mp4" type="video/mp4" />
+    <source src="small.webm" type="video/webm" />
+    <source src="small.mp4" type="video/mp4" />
+  </video>
+  ```
+- [CSS Wrapped: 2023!](https://developer.chrome.com/blog/css-wrapped-2023?hl=en)
+- [Why it's essential to excel at the things AI excels at](https://youtube.com/watch?v=mdoMPWSSsqs)
+  - Learning areas that AI excels in, like coding, English, design and data, will provide more opportunities as these re fields where AI is commonly utilized.
+  - Relying entirely on external support and outsourcing prevents one from developing self-awareness, confidence and resilience to overcome challenges.
+  - Gaining expertise in an AI-strong domain allows one to effectively lead AI-assisted innovations and make the most of AI capabilities.
+  - Information alone is insufficient - one must make connections between concepts internally through understanding.
+  - Insights emerge from linking disparate ideas, which only occurs through internal reflection not external instruction.
+  - Wisdom develops from accumulating insights over time through dedicated study.
+  - Specializing in an AI field builds an expertise level others rely on, while AI supports less skilled roles.
+  - Psychologically, self-learning builds identity, willpower and problem-solving skills.
+  - Opportunities arise from innovating where AI supports human strengths, not replacing them.
+  - Mastery requires climbing from foundations, so comprehensively studying AI domains leads to leadership.
+- [Open Source Software](https://osssoftware.org/) alternatives to popular projects.
+
 ## Week 49, 2023
 
+- [Code is run more than read](https://olano.dev/2023-11-30-code-is-run-more-than-read/)
+- [Fairphone](https://www.fairphone.com/en/)
 - [Data Engineering Design Patterns](https://www.dedp.online/)
 - [Kernighan and Pike were right: Do one thing, and do it well](https://medium.com/source-and-buggy/do-one-thing-and-do-it-well-886b11a5d21)
   - Connection analogy - Applets, Unix Programs, Plugins, Microservices

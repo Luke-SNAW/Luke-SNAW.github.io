@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1701230810922
+updated: 1702545245703
 created: 1646129148306
 ---
 
@@ -66,6 +66,7 @@ created: 1646129148306
   - Class contains the word 'link' - `a[class~='link']`
   - Case sensitive - `a[href*='css-irl' s]`
   - Case insensitive - `a[href*='css-irl' i]`
+- [CSS Wrapped: 2023!](https://developer.chrome.com/blog/css-wrapped-2023?hl=en)
 
 ## Pseudo-class
 

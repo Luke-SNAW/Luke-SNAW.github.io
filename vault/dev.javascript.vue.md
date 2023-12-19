@@ -2,7 +2,7 @@
 id: p6jdsvhol2ebyzilnb5u3ot
 title: Vue
 desc: ""
-updated: 1701317725955
+updated: 1702600498744
 created: 1646815969488
 ---
 
@@ -92,4 +92,14 @@ Vue.filter("USD", (value) => {
 
 ```javascript
 this.$options.filter.USD(this.price)
+```
+
+## About event
+
+### [Vue Prevent form submit when pressing enter inside form](https://stackoverflow.com/a/70152112/5163033)
+
+You can prevent submission on enter key down just annotating the top-level form.
+
+```js
+<form @submit.prevent="handleLogin" @keydown.enter="$event.preventDefault()" />
 ```

@@ -2,9 +2,68 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1698382713410
+updated: 1702957401172
 created: 1669264809793
 ---
+
+## Week 51, 2023 - Webpack, tailwindcss 조합에서 app.css cache bust가 안됨
+
+tailwind의 utility class들이 app.css로 출력되는데, 이 파일만 file name에 hash가 붙지 않아 cache bust가 안됨.
+
+```diff
+new MiniCssExtractPlugin({
++  filename: '[name].[contenthash].css',
+  chunkFilename: '[id].[contenthash].css',
+  ignoreOrder: true,
+}),
+```
+
+다음은 app 초기 loading에 쓰이는 manifest 설정
+
+```diff
+new WebpackAssetsManifest({
+  output: 'manifest.json',
+  customize(entry) {
++    if (['app.js', 'app.css'].includes(entry.key)) return entry
+    return false
+  },
+}),
+```
+
+## Week 50, 2023 - Ver.17 Safari에서 Avif가 안보임
+
+avif, webp, tiny-jpg로 이미지 용량 줄여서 picture 태그로 쓰고 있는데, Safari ver.17에서 이미지가 안 보임. (Version 16.6 (17615.3.12.11.3, 17615) - Monterey Ver.12.6.8에서 정상동작)
+
+> [developers cannot rely on the browser to do format selection by using `<picture>` + `<source>`](https://github.com/Fyrd/caniuse/pull/6448#issuecomment-1245020390).
+
+> safari Version 16.6 (17615.3.12.11.3, 17615) 에선 정상 동작합니다.  
+> 제 사파리 버전 17.0(19616.1.27.211.1) 에서는 안보여요  
+> 제가 쓰는 인코딩 툴로 생성한 avif 파일이 문제 있는건지 vanessa safari에서 이미지 내용이 안나오네요.
+
+- 다운로드 용량 확인 함.
+- safari inspector에서 미리보기에서도 투명한 사각형만 보임.
+- 다른 사이트의 avif 파일은 보이는 걸 확인 (개인정보보호 탭에서, https://libre-software.net/image/avif-test/)
+
+다른 feature 배포 시에도 동일 증상
+
+- 17.1.2에서 안보임
+- iPhone XR 17.2에서 안보임
+  - https://tests.caniuse.com/avif - animated avif 동작 안함 (동작하는 Ver.16.6에선 animated 동작함)
+
+> [developers cannot rely on the browser to do format selection by using `<picture>` + `<source>`](https://github.com/Fyrd/caniuse/pull/6448#issuecomment-1245020390).
+
+단순 img 태그만 썼을 땐 avif 잘 보임
+→ browser가 safari인지 check하여 picture+srcset의 avif는 off 시킴
+
+## Week 50, 2023 - Fix Github -> EC2 Deploy
+
+기존에 구축해둔 biz admin project의 CI에서 error 발생.
+
+테섭에선 git pull시에 file conflict가 발생, 운영서버에선 github로의 ssh fingerprint, 인증 정보가 invalid.
+
+- [Always use the "git" user](https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey#always-use-the-git-user)
+- [GitHub's SSH key fingerprints](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)
+- [Github permission denied: ssh add agent has no identities](https://stackoverflow.com/a/28444641/5163033)
 
 ## Week 43, 2023 - NuxtLink tailingSlash
 
@@ -26,6 +85,15 @@ Fix - resource link는 a tag로 처리
 
 - https://developers.google.com/apps-script/guides/triggers/installable?hl=ko
 - https://developers.google.com/apps-script/guides/triggers/events?hl=ko#Google%20Forms-events
+
+### [Pass URL parameters into survey](https://stackoverflow.com/a/27904632/5163033)
+
+1. Open a form in Google Forms
+2. In the top right, click More [...]
+3. Choose Get pre-filled link
+4. Fill in any answer fields you want to pre-populate
+5. Click Submit
+6. To send the pre-populated form to respondents, copy and send the link at the top
 
 ### Post API
 

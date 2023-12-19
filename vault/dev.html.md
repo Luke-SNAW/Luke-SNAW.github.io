@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1701070485917
+updated: 1702545476323
 created: 1644885695231
 ---
 
@@ -98,3 +98,16 @@ In addition - “template” also conveys correct semantics to the other develop
 - [Scripted `<INPUT>` Matching With Native Error Reporting](https://medium.com/codex/scripted-input-matching-with-native-error-reporting-8287dd7ac40a)
   - https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
 - [Build an OTP input field](https://phuoc.ng/collection/html-dom/build-an-otp-input-field/)
+
+## [How to Use Responsive HTML Video (...and Audio!)](https://scottjehl.com//posts/using-responsive-video/)
+
+```html
+<video>
+  <source media="(min-width: 2000px)" src="large.webm" type="video/webm" />
+  <source media="(min-width: 2000px)" src="large.mp4" type="video/mp4" />
+  <source media="(min-width: 1000px)" src="medium.webm" type="video/webm" />
+  <source media="(min-width: 1000px)" src="medium.mp4" type="video/mp4" />
+  <source src="small.webm" type="video/webm" />
+  <source src="small.mp4" type="video/mp4" />
+</video>
+```

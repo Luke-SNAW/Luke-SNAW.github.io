@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1675913766738
+updated: 1702274459044
 created: 1647145480774
 ---
 
@@ -46,6 +46,7 @@ created: 1647145480774
   - https://temporal.io/
   - https://github.com/windmill-labs/windmill
 - [codeium](https://www.codeium.com/) - Free AI-powered code completion for everyone, everywhere
+- [Open Source Software](https://osssoftware.org/) alternatives to popular projects.
 
 ## Network
 
