@@ -2,9 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1702545451147
+updated: 1702976984535
 created: 1667632965028
 ---
+
+## Week 51, 2023
+
+- [How to use Chrome's accessibility tree](https://blog.pope.tech/2023/11/27/how-to-use-chromes-accessibility-tree/)
+- [Lost in Translation: Tips for Multilingual Web Accessibility](https://benmyers.dev/blog/multilingual-web-accessibility/)
+- [WebP is so great… except it’s not](https://eng.aurelienpierre.com/2021/10/webp-is-so-great-except-its-not/)
+  > WebP was more prone to bad posterization and artifacts, especially on photos with smooth gradients.  
+  > For similar visual quality on a portrait photo, WebP was actually 30-39% heavier than JPEG.  
+  > WebP is not necessarily better than JPEG for all photographic use cases.
 
 ## Week 50, 2023
 

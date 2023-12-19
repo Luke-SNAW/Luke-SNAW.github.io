@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1696557158505
+updated: 1702969063001
 created: 1645751512675
 ---
 
@@ -29,3 +29,10 @@ created: 1645751512675
 ## Webview Case
 
 - [Inspecting Web Views in macOS](https://blog.jim-nielsen.com/2022/inspecting-web-views-in-macos/)
+
+## Images
+
+- [WebP is so great… except it’s not](https://eng.aurelienpierre.com/2021/10/webp-is-so-great-except-its-not/)
+  > WebP was more prone to posterization and artifacts, especially on photos with smooth gradients.  
+  > For similar visual quality on a portrait photo, WebP was actually 30-39% heavier than JPEG.  
+  > WebP is not necessarily better than JPEG for all photographic use cases.

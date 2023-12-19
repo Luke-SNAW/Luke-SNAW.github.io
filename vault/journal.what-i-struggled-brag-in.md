@@ -2,9 +2,28 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1702957401172
+updated: 1702974004793
 created: 1669264809793
 ---
+
+## Week 51, 2023 - Tanstack query, Sentry replay error
+
+오늘 다른 배포 2번 후에 갑자기 sentry에서 error notification이 마구 들어옴.
+
+> - TypeError: this[\#y].values is not a function or its return value is not iterable
+> - r.values is not a function or its return value is not iterable
+> - Spread syntax requires ...iterable\[Symbol.iterator\] to be a function
+
+상기 3개의 error message가 몇 십 개씩.
+
+첫 번째 배포 후 테스트에는 정상 동작, 두 번째 배포 후 테스트에도 정상이었음. 첫 번째 내용은 텍스트와 단순 UI style 수정이었고, [두 번째가 cache bust 관련 bug fix](journal.what-i-struggled-brag-in.md#week-51-2023---webpack-tailwindcss-조합에서-appcss-cache-bust가-안됨)였는데...
+
+서비스 페이지에서 hard refresh 몇 번 해보니 그제야 나도 error가 뜨기 시작.
+
+과정 모두 적기엔 너무 지치고, 결국 첫 번째 error message의 원인은 40일 전에 v4 -> v5로 upgrade한 tanstack query와 sentry replay의 polyfill문제였음. 일단 babel-loader에 package 경로 포함시켜 해결.
+그 동안 배포를 몇 번 했고, 서비스 페이지 테스트를 다른 사람도 다했는데 오늘 갑자기 이 error가 뜬 이유는 도대체 뭐냐.
+
+몇 시간 뒤에 갑자기 다른 project에 sentry replay 원인으로 동일 error notification 들어옴. 이쪽도 배포한지 40일 넘었는데...
 
 ## Week 51, 2023 - Webpack, tailwindcss 조합에서 app.css cache bust가 안됨
 
@@ -21,7 +40,7 @@ new MiniCssExtractPlugin({
 다음은 app 초기 loading에 쓰이는 manifest 설정
 
 ```diff
-new WebpackAssetsManifest({
+new WebpackAssetsManifest({ // https://webpack.js.org/plugins/mini-css-extract-plugin/#filename
   output: 'manifest.json',
   customize(entry) {
 +    if (['app.js', 'app.css'].includes(entry.key)) return entry

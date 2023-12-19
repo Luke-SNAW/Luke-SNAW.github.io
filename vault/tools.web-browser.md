@@ -2,7 +2,7 @@
 id: 8modsw2sp3142owxlp8t1qr
 title: Web browser tools
 desc: ""
-updated: 1701247755159
+updated: 1702977014542
 created: 1646811472608
 ---
 
@@ -44,3 +44,4 @@ javascript:(function()%7Bdocument.querySelectorAll(%22body%20*%22).forEach(funct
 ## Dev
 
 - [67 Weird Debugging Tricks Your Browser Doesn't Want You to Know](https://alan.norbauer.com/articles/browser-debugging-tricks/)
+- [How to use Chrome's accessibility tree](https://blog.pope.tech/2023/11/27/how-to-use-chromes-accessibility-tree/)
