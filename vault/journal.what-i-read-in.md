@@ -2,12 +2,23 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1702976984535
+updated: 1703581058171
 created: 1667632965028
 ---
 
+## Week 52, 2023
+
+- [Google OAuth is broken (sort of)](https://trufflesecurity.com/blog/google-oauth-is-broken-sort-of/)
+  > It is possible for former employees to retain access to workplace apps like Slack and Zoom after leaving a company by creating a Google account using a plus sign email address derived from their work email. (janedoe+oldjob@company.com)
+- [Advice for new software devs who've read all those other advice essays](https://buttondown.email/hillelwayne/archive/advice-for-new-software-devs-whove-read-all-those/)
+
 ## Week 51, 2023
 
+- [A Quick Guide on How to Create Accessible Buttons in HTML](https://hackernoon.com/a-quick-guide-on-how-to-create-accessible-buttons-in-html)
+  - Icon with Text Buttons - `aria-hidden=true` attribute for the svg icon
+  - Icon Buttons - `aria-label` on the button tag
+  - ... the alternatives.
+  - The size of the target for pointer inputs is at least 44 by 44 CSS pixels.
 - [How to use Chrome's accessibility tree](https://blog.pope.tech/2023/11/27/how-to-use-chromes-accessibility-tree/)
 - [Lost in Translation: Tips for Multilingual Web Accessibility](https://benmyers.dev/blog/multilingual-web-accessibility/)
 - [WebP is so great… except it’s not](https://eng.aurelienpierre.com/2021/10/webp-is-so-great-except-its-not/)

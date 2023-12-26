@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1701421554905
+updated: 1703582871517
 created: 1646011961595
 ---
 
@@ -43,3 +43,14 @@ created: 1646011961595
 
 > https://news.ycombinator.com/item?id=33990399
 > Might I recommend https://jawj.github.io/zapatos/ to remove the last 3 lines of our stack.
+
+## Why does everyone hate Safari?
+
+- [Apple's Safari browser runs the risk of becoming the new Internet Explorer – holding the web back for everyone](https://www.theregister.com/2021/10/22/safari_risks_becoming_the_new_ie/)
+- [When will Safari finally get it together?](https://blog.logrocket.com/when-will-safari-finally-get-it-together/)
+- [Safari is the new IE](https://nolanlawson.com/2015/06/30/safari-is-the-new-ie/)
+- Even here on hacker news, [https://news.ycombinator.com/item?id=34377890](https://news.ycombinator.com/item?id=34377890)
+- Dev advocate for Safari Team addressing the statement headon: [https://twitter.com/jensimmons/status/1491064075987873792](https://twitter.com/jensimmons/status/1491064075987873792)
+- Op-ed by Nolan Lawson on Ars Technica: [Op-ed: Safari is the new Internet Explorer](https://arstechnica.com/information-technology/2015/06/op-ed-safari-is-the-new-internet-explorer/)
+- [Safari Team Asks for Feedback Amid Accusations That 'Safari Is the Worst, It's the New IE'](https://www.macrumors.com/2022/02/09/safari-team-asks-for-feedback-amid-accusations/)
+- [File System Access API](https://caniuse.com/native-filesystem-api)
