@@ -2,12 +2,28 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "👓 What I read in"
 desc: ""
-updated: 1703581058171
+updated: 1703668721302
 created: 1667632965028
 ---
 
 ## Week 52, 2023
 
+- [Introducing four new international features in CSS](https://developer.chrome.com/blog/css-i18n-features?hl=en)
+  - From Chrome 119: Japanese phrase line breaking with `word-break: auto-phrase`.
+  - Behind a flag from Chrome 120: Inter-script spacing with the `text-autospace` property.
+  - Under development: Chinese, Japanese, and Korean (CJK) punctuation kerning with the `text-spacing-trim` property.
+  - Consistent minimum font size across languages.
+- [Micro Frontend Synergy: Techniques for Effective Communication](https://medium.com/@rk-tech/micro-frontend-synergy-techniques-for-effective-communication-97df104931ed)
+- [How Pinterest scaled to 11 million users with only 6 engineers](https://read.engineerscodex.com/p/how-pinterest-scaled-to-11-million)
+  - Use known, proven technologies. Pinterest’s dive into newer technologies at the time led to issues like data corruption.
+  - Keep it simple. (A recurring theme!)
+  - Don’t get too creative. The team settled on an architecture where they could add more of the same nodes to scale.
+  - Limit your options.
+  - Sharding databases > clustering. It reduced data transfer across nodes, which was a good thing.
+  - Have fun! New engineers would contribute code in their first week.
+- [How Big is YouTube?](https://ethanzuckerman.com/2023/12/22/how-big-is-youtube/)
+  > He details an experiment where he and others were able to collect over 10,000 truly random YouTube videos using an inefficient "drunk dialing" method to guess video URLs.
+  > This allowed them to estimate that YouTube contains over 13 billion videos and that 4 billion were added just in 2023.
 - [Google OAuth is broken (sort of)](https://trufflesecurity.com/blog/google-oauth-is-broken-sort-of/)
   > It is possible for former employees to retain access to workplace apps like Slack and Zoom after leaving a company by creating a Google account using a plus sign email address derived from their work email. (janedoe+oldjob@company.com)
 - [Advice for new software devs who've read all those other advice essays](https://buttondown.email/hillelwayne/archive/advice-for-new-software-devs-whove-read-all-those/)

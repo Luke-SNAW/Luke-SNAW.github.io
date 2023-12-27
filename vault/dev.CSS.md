@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1702545245703
+updated: 1703668734697
 created: 1646129148306
 ---
 
@@ -67,6 +67,10 @@ created: 1646129148306
   - Case sensitive - `a[href*='css-irl' s]`
   - Case insensitive - `a[href*='css-irl' i]`
 - [CSS Wrapped: 2023!](https://developer.chrome.com/blog/css-wrapped-2023?hl=en)
+- [Introducing four new international features in CSS](https://developer.chrome.com/blog/css-i18n-features?hl=en)
+  - From Chrome 119: Japanese phrase line breaking with `word-break: auto-phrase`.
+  - Behind a flag from Chrome 120: Inter-script spacing with the `text-autospace` property.
+  - Under development: Chinese, Japanese, and Korean (CJK) punctuation kerning with the `text-spacing-trim` property.
 
 ## Pseudo-class
 
