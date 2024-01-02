@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1702556674365
+updated: 1704155983726
 created: 1644799670081
 ---
 
@@ -92,3 +92,4 @@ created: 1644799670081
 - [grist-core](https://github.com/gristlabs/grist-core) is the evolution of spreadsheets.
 - [YouTube Video Finder](https://findyoutubevideo.thetechrobo.ca/)
 - [배민 주아 폰트](http://font.woowahan.com/jua/)
+- [Heynote](https://github.com/heyman/heynote/) is a dedicated scratchpad for developers
