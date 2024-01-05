@@ -2,9 +2,25 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1702974004793
+updated: 1704352117882
 created: 1669264809793
 ---
+
+## Week 01, 2024 - imprv delay of switching checkbox in PrimeVue DataTable
+
+- Motivation: checkbox 가진 100개 row의 table에서 일괄 다운로드를 위해 checkbox를 조작하면 반응이 느림
+- Cause: DataTable의 header영역에서 단순히 count만 증가시켜도 전체 Table re-rendering 발생
+  ![before performance](./assets/images/what-i-struggled-brag-in/20240104-table-rendering-before.png)
+- Solution: header 분리
+  ![after performance](./assets/images/what-i-struggled-brag-in/20240104-table-rendering-after.webp)
+
+## Week 01, 2024 - Nuxt3 nextTick, setTimeout 0
+
+상세 페이지에서 table list 페이지로 돌아올 때, 초단위로 멈췄다가 페이지가 이동 됨.  
+fetch cache가 안되어 fetch delay가 있긴 한데, 그것보다는 table rendering에 엄청 시간 잡아먹음.  
+문제는 nextTick을 써도 rendering 마치고 리스트 페이지가 보임.  
+setTimeout 0로 하니 리스트 페이지 먼저 보이고, skeleton 띄우고 rendering 시작.  
+vue2에선 nextTick과 setTimeout 0가 동일하게 작동했는데 Nuxt3에선 왜 동작차이가 날까?
 
 ## Week 51, 2023 - Tanstack query, Sentry replay error
 

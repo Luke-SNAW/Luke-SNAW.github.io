@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1701926625105
+updated: 1704348045603
 created: 1645514209965
 ---
 
@@ -71,6 +71,11 @@ created: 1645514209965
   > - I am working on a project that uses a microservice architecture to make the individual components scalable and separate the concerns. However one of the unexpected consequences is that we are now doing a lot of network calls between these microservices, and this has actually become the main speed bottleneck for our program, especially since some of these services are not even in the same data center. We are now attempting to solve this with caches and doing batch requests, but all of this created additional overhead that could have all been avoided by not using microservices.  
   >   This experience has strongly impacted my view of microservices and for all personal projects I will develop in the future I will stick with a monolith until much later instead of starting with microservices.
 - [Kernighan and Pike were right: Do one thing, and do it well](https://medium.com/source-and-buggy/do-one-thing-and-do-it-well-886b11a5d21)
+- [It's not microservice or monolith; it's cognitive load you need to understand first](https://fernandovillalba.substack.com/p/its-not-microservice-or-monolith)
+  > - “Instead of choosing between a monolithic architecture or a microservices architecture, design the software to fit the maximum team cognitive load”
+  > - If you have only one team, consider adjusting your architecture to match the team’s capacity. Favour monolithic, cohesive and modular architectures.
+  > - If you have multiple teams, consider doing microservices or similar type of architectures so they can work independently.
+  > - The types of communication boundaries change significantly between single and multiple team architectures. Single teams are optimized to communicate via the codebase, documentation, discussions and design meetings. Multiple teams are better optimized to communicate via well-designed APIs (or libraries) that abstract the complexities of their domains.
 
 ### [Thread-per-core](https://without.boats/blog/thread-per-core/)
 

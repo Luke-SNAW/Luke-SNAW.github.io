@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1698036939551
+updated: 1704418150736
 created: 1644451403760
 ---
 
@@ -78,3 +78,30 @@ The better approach is to have a discussion around budget, uncertainties, and pr
 
 - Teams are encouraged to ask stakeholders if they would tell a meteorologist their forecast is wrong, highlighting that estimates rely on expertise, not opinions.
 - With open communication around constraints and tradeoffs, teams can set appropriate expectations and deliver value along the way.
+
+## Code Assistance
+
+### [LLMs and Programming in the first days of 2024](http://antirez.com/news/140)
+
+The author discusses their extensive use of large language models for programming tasks over the past year. They find LLMs most helpful for writing disposable code, learning new frameworks quickly, and accelerating documentation searches. While useful, LLMs still struggle with system programming problems requiring complex reasoning. The author believes LLMs have begun to show rudimentary reasoning abilities through their interpolation of concepts, but their capabilities are still limited. Overall, they argue LLMs are a valuable tool for programmers that can help focus time on more important problems and skills.
+
+#### [kevindamm](https://news.ycombinator.com/item?id=38841039)
+
+Salient point:
+
+> Would I have been able to do it without ChatGPT? Certainly yes, but the most interesting thing is not the fact that it would have taken me longer: the truth is that I wouldn't even have tried, because it wouldn't have been worth it.
+
+This is the true enabling power of LLMs for code assistance -- reducing the activation energy of new tasks enough that they are tackled (and finished) when they otherwise would have been left on the pile of future projects indefinitely.
+
+I think the internet and the open source movement had a similar effect, in that if you did not attempt a project that you had some small interest in, it would only be a matter of time before someone else did enough of a similar problem for you to reuse or repurpose their work, and this led to an explosion of (often useful, or at least usable) applications and libraries.
+
+I agree with the author that LLMs are not by themselves very capable but provide a force multiplier for those with the basic skills and motivation.
+
+#### [nickpsecurity](https://news.ycombinator.com/item?id=38844916)
+
+I had good results by writing my requirements like they were very, high-level code. I told it specifically what to do. Like formal specifications but with no math or logic. I usually defined the classes or data structures, too. I’d also tell it what libraries to use after getting their names from a previous, exploratory question.
+From there, I’d ask it to do one modification at a time to the code. I’d be very precise. I’d give it only my definitions and just the function I wanted it to modify. It would screw things up whereby I’d tell it that. It would fix its errors, break working code with hallucinations, and so on. You need to be able to spot these problems to know when to stop asking it about a given function.
+
+I was able to use ChatGPT 3.5 for most development. GPT 4 was better for work needed high creativity or lower hallucinations. I wrote whole programs with it that were immensely useful, including a HN proxy for mobile. Eventually, ChatGPT got really dumb while outputting less and less code. It even told me to hire someone several times (?!). That GPT-3-Davinci helped a lot suggests it’s their fine-tuning and system prompt causing problems (eg for safety).
+
+The original methods I suggested should work, though. You want to use a huge, code-optimized model for creativity or hard stuff, though. Those for iteration, review, etc can be cheaper.

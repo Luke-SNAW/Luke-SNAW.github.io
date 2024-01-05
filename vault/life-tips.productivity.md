@@ -2,7 +2,7 @@
 id: PddvXCJLzVqmA6DFKD6Uh
 title: Productivity
 desc: ""
-updated: 1676605864722
+updated: 1704416721142
 created: 1645523620804
 ---
 
@@ -54,6 +54,30 @@ In April 2021 I started to read 4 pages a day from big books I always wanted to 
 Not even 2 years in, I've already read the Bible, the Elements of Euclid, Zeldovich's Intro to Higher Math, and am in the middle of Das Kapital. The Great Books canon never looked more approachable.
 
 Just 4 pages a day. It really adds up.
+
+## [An On-Ramp to Flow](https://census.dev/blog/an-on-ramp-to-flow)
+
+Before stepping away, leave the code in a state where it is Obviously Broken, but Easy to Fix.
+
+Applying this technique means thinking about how to exit flow in a way that makes it easy to re-enter.
+
+> ["Always know what the next thing to do is" is really powerful. I never end a work day without leaving a note for the next micro task I would have done if I could (or wanted to) keep going.](https://news.ycombinator.com/item?id=38835600)
+
+## [Getting things done in small increments](https://news.ycombinator.com/item?id=38836569)
+
+My trick for this, which has been working extremely well for me over the past few years, is to make very heavy use of GitHub Issues.
+
+Everything I'm working on, no matter how small, starts as an issue.
+
+I post a continuous stream of comments on that issue as I make progress - documenting what I tried, what failed, what I've figured out, what micro-decisions I've made.
+
+Many of my GitHub repos, both public and private, have issues with dozens of comments, all of which are me just talking to myself.
+
+This is the single best solution I've ever found to the "interruption" problem. If I get interrupted, or distracted, I can read through my issue thread later and pick up where I left off.
+
+I wrote a bit more about this approach here: https://simonwillison.net/2022/Nov/26/productivity/
+
+A recent example issue: https://github.com/datasette/datasette-enrichments-gpt/issues/2
 
 ## Collections
 

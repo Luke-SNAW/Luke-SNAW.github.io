@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1700641107446
+updated: 1704354859325
 created: 1645681934406
 tags: bookshelf
 ---
@@ -43,6 +43,7 @@ tags: bookshelf
 - https://slatestarcodex.com/2014/07/30/meditations-on-moloch/
 - [The Little Book of Deep Learning](https://fleuret.org/public/lbdl.pdf)
 - [Introduction to Modern Statistics](https://openintro-ims2.netlify.app/)
+- [The Art of HPC](https://theartofhpc.com/) - Textbooks by Victor Eijkhout of TACC
 
 ## PL
 
