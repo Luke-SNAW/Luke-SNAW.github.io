@@ -2,7 +2,7 @@
 id: xqvfomqa8mjvxxa5aqtmvuq
 title: Wsaj
 desc: ""
-updated: 1704282690271
+updated: 1704611348550
 created: 1702556747051
 published: false
 ---
@@ -135,3 +135,38 @@ It is difficult to collect quality data. - edge case, data source trust, ...
 3. 상승하는 주가 추세는 주주 및 이사 멤버들의 지지를 얻는데도 도움이 됩니다.
 4. 주가가 상승하는 회사는, 애널리스트나 미디어도 호의적인 기사를 쓰는 경향이 있습니다.
 5. 적대적 인수합병 등 행동주의 투자자들의 공격을 효과적으로 방어할 수 있습니다.
+
+## [월가아재x홍진채 - 하워드 막스의 5번의 마켓 콜, 그리고 투자 의사결정의 방법. 3부](https://www.youtube.com/watch?v=ZIyqDC7DIZ8)
+
+The passage discusses investment strategies and decision making based on the market environment. It emphasizes evaluating investments based on the actual risks taken, rather than just the returns. It also stresses not making decisions solely based on whether the market is perceived as good or bad, but to consider various factors and the views of other investors. Importantly, the passage recommends not claiming to always invest fully or avoid investing at all times, as flexibility is needed based on the market situation. Overall, it provides advice about properly assessing investments and making thoughtful decisions rather than reactive choices.
+
+장기보유 가치가 있는 자산의 고점매수와 저점매도, 둘 중 어느 쪽이 더 안 좋은가 하면 저점매도 쪽이 훨씬 안 좋다.
+고점매수의 패널티는 시간이 지남에 따라 희석되지만, 저점매도 후에 다시 매수하기 쉽지 않기 때문에 가치를 누릴 수 없을 확률이 크다
+
+- When evaluating investment performance, it's important to consider the level of risk taken, not just raw returns. Good performance in bull markets may just reflect taking on more risk.
+
+- To truly assess someone's skills as an investor, you need to look at how they performed in both bull and bear markets. Anyone can do well in a rising market.
+
+- Warren Buffett warned about unusually high market risks in 1999 and 2004-2007, right before major downturns. His warnings were prescient but not perfectly timed.
+
+- Being skeptical is different from being pessimistic. Skepticism means questioning assumptions, while pessimism is an outlook.
+
+- Timing the market based only on whether it seems good or bad is not a good investment strategy. Fundamentals should drive decisions.
+
+- Consider how others are evaluating a situation when making your own decisions. Following the crowd is risky.
+
+- Look at scenarios where sentiment could change from optimism to pessimism, not just the current mood.
+
+- Diversify positions to hedge against downturns rather than going all in when the market seems high.
+
+- Secondary thinking about what others think is important, not just one's own primary analysis.
+
+## [돈을 버는 주식투자 매수, 매도 타이밍 (홍진채 대표)](https://www.youtube.com/watch?v=3A-_dVJkkio)
+
+> 계속 지금이 원금 이다 라고 생각을 해야 되거든요.
+> 내가 뭐 1000만 원 어치 배팅을 해서 뭐 800만 원이 됐다 이게 중요한 게 아니에요. 현재 800만원 현금 있을 때 베팅 할래 안 할래? 이렇게 생각을 해야 되는 거야
+> 그래서 주가 빠졌는데 상관없고 800만원 있는데 800만원 여기에 베팅 할래?
+> 예, 그러면은 계속 들고 가는거죠. 근데 800만원 베팅할래? 할 필요없어. 그러면은 손 절친 거구요.
+> 현 시점에서 앞으로를 봤을 때 어떻게 될 거냐 계속 이거를 리프레쉬를 해야 되는 거에요.
+> 내가 만약에 1억을 가지고 하고 있는데 한 10% 정도 이 주식을 사도 될 것 같애 그러니까 예전에 10% 샀다가 지금 주가가 좀 빠졌는데? 그러면 8% 대 있을 거잖아요. 근데 지금 봤을 때 뭐 그래도 10% 사도 될것 같은데 라는 생각이 들면 2% 를 추가로 채우는 거죠 그 이거를 누군가는 물타기 라고 할 수도 있는 거죠. 근데 나는 비중 조절을 한 거죠.
+> 여기에서 매주 단가가 얼마야 내가 지금 이득 보고있냐 손해보고 있냐는 전혀 중요하지 않아요.
