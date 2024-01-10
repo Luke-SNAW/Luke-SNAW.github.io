@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1703668734697
+updated: 1704786162750
 created: 1646129148306
 ---
 
@@ -71,6 +71,7 @@ created: 1646129148306
   - From Chrome 119: Japanese phrase line breaking with `word-break: auto-phrase`.
   - Behind a flag from Chrome 120: Inter-script spacing with the `text-autospace` property.
   - Under development: Chinese, Japanese, and Korean (CJK) punctuation kerning with the `text-spacing-trim` property.
+- [Essential Tips and Tricks for Coding HTML Emails](https://www.sitepoint.com/html-email-tips-tricks/)
 
 ## Pseudo-class
 
@@ -112,6 +113,8 @@ In this article, we’ll explore how cascade layers work, and how they will help
 - Is It Presentational And/Or Decoration? Then Don’t Put It In The Markup!
 - If Not In The Markup, Where?
   - Your stylesheet. As a background-image.
+
+### [Understanding SVG Paths](https://www.nan.fyi/svg-paths)
 
 ## Styles
 

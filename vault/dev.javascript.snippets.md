@@ -2,11 +2,11 @@
 id: vjlre6d942v52sjkc0u3a95
 title: Snippets
 desc: ""
-updated: 1684367463076
+updated: 1704779904286
 created: 1649396518867
 ---
 
-Conditionally add properties💡 in the object from [11 Useful Modern JavaScript Tips](https://medium.com/dhiwise/11-useful-modern-javascript-tips-9736962ed2cd)
+## Conditionally add properties💡 in the object from [11 Useful Modern JavaScript Tips](https://medium.com/dhiwise/11-useful-modern-javascript-tips-9736962ed2cd)
 
 ```javascript
 const isValid = false

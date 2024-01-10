@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1701308062246
+updated: 1704786053882
 created: 1646129148295
 ---
 
@@ -41,3 +41,44 @@ img {
   overscroll-behavior: none;
 }
 ```
+
+## [CSS Scroll Snapping Aligned With Global Page Layout: A Full-Width Slider Case Study](https://www.smashingmagazine.com/2023/12/css-scroll-snapping-aligned-global-page-layout-case-study/)
+
+```scss
+.slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  > * {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+  }
+
+  padding-inline: var(--offset-width);
+  scroll-padding-inline-start: var(--offset-width);
+}
+```
+
+## [6 CSS snippets every front-end developer should know in 2023](https://web.dev/articles/6-css-snippets-every-front-end-developer-should-know-in-2023?hl=en)
+
+````css
+.snaps {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+
+.snap-target {
+  scroll-snap-align: center;
+}
+
+.snap-force-stop {
+  scroll-snap-stop: always;
+}
+```
+### [Why Techniques Like This Are Important](https://www.smashingmagazine.com/2023/12/css-scroll-snapping-aligned-global-page-layout-case-study/#why-techniques-like-this-are-important)
+
+The best thing about using custom properties to handle calculations is that they are **lighter** and **more performant** than attempting to handle them in JavaScript.
+````
