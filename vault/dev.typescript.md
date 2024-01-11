@@ -2,7 +2,7 @@
 id: 2ijeu1j04o0qzmy7hzk1tlb
 title: TypeScript
 desc: ""
-updated: 1676427789663
+updated: 1704951883767
 created: 1652057928334
 ---
 
@@ -48,6 +48,7 @@ created: 1652057928334
     - Defining a union
     - You must create functions and attempt to overload them in object types through composition.
     - Requiring the use of mapped types
+- [All JavaScript and TypeScript Features of the last 3 years](https://betterprogramming.pub/all-javascript-and-typescript-features-of-the-last-3-years-629c57e73e42)
 
 ## Overrated?
 

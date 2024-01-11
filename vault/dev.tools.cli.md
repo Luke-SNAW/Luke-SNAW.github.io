@@ -2,7 +2,7 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1699321649791
+updated: 1704865399427
 created: 1653704390962
 ---
 
@@ -18,6 +18,7 @@ created: 1653704390962
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) - A delightful community-driven (with 2,000+ contributors) framework for managing your zsh configuration.
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k) - A Zsh theme
 - [try](https://github.com/binpash/try) lets you run a command and inspect its effects before changing your live system. `try` uses Linux's [namespaces (via `unshare`)](https://docs.kernel.org/userspace-api/unshare.html) and the [overlayfs](https://docs.kernel.org/filesystems/overlayfs.html) union filesystem.
+- [atuin](https://github.com/atuinsh/atuin) - ✨ Magical shell history
 
 ## Script
 

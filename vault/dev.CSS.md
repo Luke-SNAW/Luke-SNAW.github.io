@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1704786162750
+updated: 1704946973012
 created: 1646129148306
 ---
 
@@ -72,6 +72,8 @@ created: 1646129148306
   - Behind a flag from Chrome 120: Inter-script spacing with the `text-autospace` property.
   - Under development: Chinese, Japanese, and Korean (CJK) punctuation kerning with the `text-spacing-trim` property.
 - [Essential Tips and Tricks for Coding HTML Emails](https://www.sitepoint.com/html-email-tips-tricks/)
+- [Using the CSS contain property: A deep dive](https://blog.logrocket.com/using-css-contain-property-deep-dive/)
+  > to decrease the burden on browsers for layout calculations, paints, repaints, and reflows.
 
 ## Pseudo-class
 

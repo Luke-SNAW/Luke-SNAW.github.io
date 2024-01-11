@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1704155983726
+updated: 1704935181155
 created: 1644799670081
 ---
 
@@ -93,3 +93,4 @@ created: 1644799670081
 - [YouTube Video Finder](https://findyoutubevideo.thetechrobo.ca/)
 - [배민 주아 폰트](http://font.woowahan.com/jua/)
 - [Heynote](https://github.com/heyman/heynote/) is a dedicated scratchpad for developers
+- [Privacy Tools List](https://privacytoolslist.com/)

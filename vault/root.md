@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1704170720781
+updated: 1704853672602
 created: 1644449449778
 ---
 
@@ -38,7 +38,7 @@ Hi there 👋. I'm a Front-end developer.
 
 ## What I read in past
 
-- [[journal.what-i-read-in]]
+- [[What I read in 2024|journal.what-i-read-in]]
   - [[2023|journal.what-i-read-in.2023]]
   - [[2022|journal.what-i-read-in.2022]]
 - 📝 [Gists](https://gist.github.com/Luke-SNAW)
