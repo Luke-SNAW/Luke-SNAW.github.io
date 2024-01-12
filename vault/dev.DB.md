@@ -2,14 +2,21 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1702018972286
+updated: 1704960477120
 created: 1656645858715
 ---
 
 ## Collections
 
+- [Use cases of soft delete](https://rahulraj.io/a-better-deletion-approach-than-soft-delete/)
+  > - You want to delete records, but also want to retain them for n number of days, just for a safer side against accidental deletion.
+  > - You want to exclude some records (permanent retain) under explicit requirements, even if they match the criteria of an eligible record to be deleted.
+  > - You don't want to delete the actual resource before returning the resource back. Basically, deletion before returning the value is not desired.
+  > - You don't want to modify existing table schema(s) to accommodate soft delete key.
+  > - You want the tables as loosely coupled as possible without having to worry about deletion logic.
 - [Soft Deletion Probably Isn't Worth It](https://brandur.org/soft-deletion)
   - https://news.ycombinator.com/item?id=32156009
+  - [Easy, alternative soft deletion: `deleted_record_insert`](https://brandur.org/fragments/deleted-record-insert)
 - [Index Merges vs Composite Indexes in Postgres and MySQL](https://sirupsen.com/index-merges)
   > Composite indexes are about 10x faster than index merges. In Postgres, the gap is larger than in MySQL because Postgres doesn't support index-only scans for queries that involve index merges.
 - [MySQL for Developers](https://planetscale.com/courses/mysql-for-developers/introduction/course-introduction) #bookshelf

@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1704951874567
+updated: 1704960470771
 created: 1667632965028
 ---
 
 ## Week 02, 2024
 
+- [Use cases of soft delete](https://rahulraj.io/a-better-deletion-approach-than-soft-delete/)
+  > - You want to delete records, but also want to retain them for n number of days, just for a safer side against accidental deletion.
+  > - You want to exclude some records (permanent retain) under explicit requirements, even if they match the criteria of an eligible record to be deleted.
+  > - You don't want to delete the actual resource before returning the resource back. Basically, deletion before returning the value is not desired.
+  > - You don't want to modify existing table schema(s) to accommodate soft delete key.
+  > - You want the tables as loosely coupled as possible without having to worry about deletion logic.
 - [All JavaScript and TypeScript Features of the last 3 years](https://betterprogramming.pub/all-javascript-and-typescript-features-of-the-last-3-years-629c57e73e42)
 - [Using the CSS contain property: A deep dive](https://blog.logrocket.com/using-css-contain-property-deep-dive/)
   > to decrease the burden on browsers for layout calculations, paints, repaints, and reflows.
