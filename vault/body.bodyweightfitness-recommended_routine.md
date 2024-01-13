@@ -1,7 +1,7 @@
 ---
 id: smvvuk92pf7i5f6hmviazba
 title: Recommended Routine - Reddit's Bodyweight Fitness Community
-desc: ""
+desc: ''
 updated: 1673480340861
 created: 1673480229950
 ---

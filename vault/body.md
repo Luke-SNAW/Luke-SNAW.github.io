@@ -2,7 +2,7 @@
 id: zd4mq442jike0pr0wba1u3m
 title: Body
 desc: ""
-updated: 1670292901080
+updated: 1705152762570
 created: 1668909428979
 ---
 
@@ -76,3 +76,20 @@ created: 1668909428979
 - repeat: [5, 12]
 - sets for week: [10, 20]
 - training days: [3, 5]
+
+### Glutes
+
+> https://www.youtube.com/watch?v=tOn2D9dsxfg
+
+> [TOP Bulgarian Split Squat Tips!](https://www.youtube.com/watch?v=5C7Ns59C17Q)
+
+### Pistol squat
+
+> https://www.youtube.com/watch?v=Gp2hbhvwXfk
+
+1. Split
+2. Staggered
+3. Behind the heel
+4. Hawaiian
+5. Shrimp
+6. Pistol
