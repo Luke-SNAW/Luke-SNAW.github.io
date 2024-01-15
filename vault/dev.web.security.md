@@ -2,7 +2,7 @@
 id: fm8vm79bnyq6fq1gu2oq2zr
 title: Web Security
 desc: ""
-updated: 1691105605939
+updated: 1705303459797
 created: 1645751778639
 ---
 
@@ -33,3 +33,6 @@ created: 1645751778639
 - [CSP Testing Using Cypress](https://glebbahmutov.com/blog/csp-testing-using-cypress/)
 - [Google AMP – The Newest of Evasive Phishing Tactic](https://cofense.com/blog/google-amp-the-newest-of-evasive-phishing-tactic/)
   > `https://www.google.com/amp/s/${phishing URL}`
+- [Preventing HTTPS Downgrade Attacks](https://auth0.com/blog/preventing-https-downgrade-attacks/)
+  > - configuring servers to redirect all HTTP traffic to HTTPS and setting the HTTP Content-Security-Policy and Strict-Transport-Security headers to enforce HTTPS-only browsing
+  > - The HSTS preload directive further strengthens security by ensuring browsers always use HTTPS for a domain

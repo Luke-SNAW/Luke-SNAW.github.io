@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1704960470771
+updated: 1705303434736
 created: 1667632965028
 ---
+
+## Week 03, 2024
+
+- [Preventing HTTPS Downgrade Attacks](https://auth0.com/blog/preventing-https-downgrade-attacks/)
+  > - configuring servers to redirect all HTTP traffic to HTTPS and setting the HTTP Content-Security-Policy and Strict-Transport-Security headers to enforce HTTPS-only browsing
+  > - The HSTS preload directive further strengthens security by ensuring browsers always use HTTPS for a domain
 
 ## Week 02, 2024
 
