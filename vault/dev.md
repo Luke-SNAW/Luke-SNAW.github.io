@@ -2,12 +2,13 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1704418150736
+updated: 1705371679670
 created: 1644451403760
 ---
 
 ## Collections
 
+- [Teach Yourself Programming in Ten Years](https://norvig.com/21-days.html) - Why is everyone in such a rush?
 - [Google Style Guides](https://google.github.io/styleguide/)
 - [Hibernate should be to programmers what cake mixes are to bakers](https://vimeo.com/28885655) - This is a talk about the problems of creating convoluted abstractions and how not understanding what happens underneath makes things more complex instead of simplifying them.
 - [How to transfigure wireframes into HTML](https://www.htmhell.dev/adventcalendar/2022/1/)

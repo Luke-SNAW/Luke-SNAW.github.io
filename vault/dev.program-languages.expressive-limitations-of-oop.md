@@ -2,7 +2,7 @@
 id: 3lvscq8lxm09t82g0owulpe
 title: The Expressivity Limitations of Object-Oriented Programming
 desc: ""
-updated: 1699596181081
+updated: 1705389210235
 created: 1699595829952
 tags: OOP
 ---
@@ -17,9 +17,9 @@ That was dense. Let’s back up a little bit.
 
 ---
 
-I’m learning a little bit of _cognitive task analysis [^1] at the moment, and one of the first tools the authors present are concept maps[^2]. Concept maps are based on the core idea that \_propositions are the fundamental unit of knowledge_.
+I’m learning a little bit of _cognitive task analysis_ [^1] at the moment, and one of the first tools the authors present are concept maps[^2]. Concept maps are based on the core idea that _propositions are the fundamental unit of knowledge_.
 
-[^1]: Working Minds: A Practitioner’s Guide To Cognitive Task Analysis\_; Hoffman, Klein, & Crandall; Bradford Books; 2006.
+[^1]: Working Minds: A Practitioner’s Guide To Cognitive Task Analysis; Hoffman, Klein, & Crandall; Bradford Books; 2006.
 [^2]: If you do an image search on the web for concept maps, you will see a lot of mind maps – it is a common misconception that concept maps and mind maps are the same thing. They are not. Concept maps have proven themselves useful in studying expertise, whereas mind maps … I don’t actually know if mind maps are useful for anything.
 
 I’m not the right person to strictly define propositions, but you probably get the right idea if you think of a proposition as a statement that, if you would make it more concrete, could become a single testable hypothesis. Here are a few examples of propositions[^3]:
@@ -47,7 +47,7 @@ Now, what does object-oriented programming look like? We tell students that it a
 - a car _is-a_ vehicle, and
 - a car _has-a_ shift lever.
 
-That’s it. This is not enough to encode the richness of our knowledge about a domain.[^4] Expertise researchers have also discovered this; classification trees are simply insufficient to express knowledge, and if we try, we end up with complicated ontologies that have long since lost any disceranble connection to the original problem.
+That’s it. This is not enough to encode the richness of our knowledge about a domain.[^4] Expertise researchers have also discovered this; classification trees are simply insufficient to express knowledge, and if we try, we end up with complicated ontologies that have long since lost any discernable connection to the original problem.
 
 [^4]: Imagine trying to express “the service plug is used only when the vehicle is subject to high voltage” using those two relationships. You’re likely to end up with confusing artifacts like a `ServicePluggable` which is-a vehicle!
 

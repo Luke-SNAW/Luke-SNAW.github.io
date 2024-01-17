@@ -2,9 +2,16 @@
 id: 7mujc4bw6yz1nfbf03gmqc8
 title: Aws
 desc: ""
-updated: 1684737861642
+updated: 1705370079208
 created: 1646005847772
 ---
+
+## Collections
+
+- [Slashing Data Transfer Costs in AWS by 99%](https://www.bitsand.cloud/posts/slashing-data-transfer-costs/)
+  > AWS replicates S3 data between availability zones
+  >
+  > - https://news.ycombinator.com/item?id=38999902 - https://news.ycombinator.com/item?id=38999947
 
 ## IAM
 

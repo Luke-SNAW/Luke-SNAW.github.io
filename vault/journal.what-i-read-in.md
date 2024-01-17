@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1705303434736
+updated: 1705475454625
 created: 1667632965028
 ---
 
 ## Week 03, 2024
 
+- [PIDs: Creating Stable Control in Games](https://azeemba.com/posts/pids-creating-stable-control-in-games.html)
+- [U.S. Developers Can Now Offer Non-App Store Purchasing Option, But Apple Will Still Collect Commissions](https://forums.macrumors.com/threads/u-s-developers-can-now-offer-non-app-store-purchasing-option-but-apple-will-still-collect-commissions.2416540/)
+- [Teach Yourself Programming in Ten Years](https://norvig.com/21-days.html) - Why is everyone in such a rush?
+- [Slashing Data Transfer Costs in AWS by 99%](https://www.bitsand.cloud/posts/slashing-data-transfer-costs/)
+  > AWS replicates S3 data between availability zones
+  >
+  > - https://news.ycombinator.com/item?id=38999902 - https://news.ycombinator.com/item?id=38999947
 - [Preventing HTTPS Downgrade Attacks](https://auth0.com/blog/preventing-https-downgrade-attacks/)
   > - configuring servers to redirect all HTTP traffic to HTTPS and setting the HTTP Content-Security-Policy and Strict-Transport-Security headers to enforce HTTPS-only browsing
   > - The HSTS preload directive further strengthens security by ensuring browsers always use HTTPS for a domain
