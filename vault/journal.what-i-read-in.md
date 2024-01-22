@@ -2,9 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1705475454625
+updated: 1705905455664
 created: 1667632965028
 ---
+
+## Week 04, 2024
+
+- [What Is Nightshade?](https://nightshade.cs.uchicago.edu/whatis.html) - An offensive tool for artists against AI art generators
 
 ## Week 03, 2024
 

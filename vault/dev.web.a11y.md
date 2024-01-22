@@ -2,7 +2,7 @@
 id: 7tPeWrJHQmeiMg4HWoymw
 title: Accessibility
 desc: ""
-updated: 1702976751217
+updated: 1705650513655
 created: 1644817740456
 ---
 
@@ -24,6 +24,8 @@ created: 1644817740456
 - [Don't Use Fixed CSS height or width on Buttons, Links, or Any Other Text Containers](https://ashleemboyer.com/blog/don-t-use-fixed-css-height-or-width-on-text-containers)
   > Despite some web design tools specifying CSS `height` values for elements like buttons, setting `height` or `max-height` can actually put you at risk for failing [WCAG 2.2 Success Criterion 1.4.4 Resize Text](https://www.w3.org/TR/WCAG22/#resize-text).
 - [Lost in Translation: Tips for Multilingual Web Accessibility](https://benmyers.dev/blog/multilingual-web-accessibility/)
+- [Accessible notifications with ARIA Live Regions (Part 1)](https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-1/)
+- [Accessible notifications with ARIA Live Regions (Part 2)](https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-2/)
 
 ## [prefers-reduced-motion](https://news.ycombinator.com/item?id=31765773)
 

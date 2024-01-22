@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1705371736388
+updated: 1705907934378
 created: 1645514209965
 ---
 
@@ -96,3 +96,7 @@ This guide discusses different approaches to representing hexagonal grids in cod
 ## [Approximate timing for various operations on a typical PC](https://norvig.com/21-days.html)
 
 <table border="1" cellpadding="2" cellspacing="2"><tbody><tr><td>execute typical instruction</td><td align="right">1/1,000,000,000 sec = 1 nanosec</td></tr><tr><td>fetch from L1 cache memory</td><td align="right">0.5 nanosec</td></tr><tr><td>branch misprediction</td><td align="right">5 nanosec</td></tr><tr><td>fetch from L2 cache memory</td><td align="right">7 nanosec</td></tr><tr><td>Mutex lock/unlock</td><td align="right">25 nanosec</td></tr><tr><td>fetch from main memory</td><td align="right">100 nanosec</td></tr><tr><td>send 2K bytes over 1Gbps network</td><td align="right">20,000 nanosec</td></tr><tr><td>read 1MB sequentially from memory</td><td align="right">250,000 nanosec</td></tr><tr><td>fetch from new disk location (seek)</td><td align="right">8,000,000 nanosec</td></tr><tr><td>read 1MB sequentially from disk</td><td align="right">20,000,000 nanosec</td></tr><tr><td>send packet US to Europe and back</td><td align="right">150 milliseconds = 150,000,000 nanosec</td></tr></tbody></table>
+
+## Crypto
+
+- [the cryptopals crypto challenges](https://cryptopals.com/)
