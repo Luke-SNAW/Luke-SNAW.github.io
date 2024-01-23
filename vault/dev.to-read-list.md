@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1704354859325
+updated: 1705992285670
 created: 1645681934406
 tags: bookshelf
 ---
@@ -44,6 +44,7 @@ tags: bookshelf
 - [The Little Book of Deep Learning](https://fleuret.org/public/lbdl.pdf)
 - [Introduction to Modern Statistics](https://openintro-ims2.netlify.app/)
 - [The Art of HPC](https://theartofhpc.com/) - Textbooks by Victor Eijkhout of TACC
+- https://thevalleyofcode.com/
 
 ## PL
 
