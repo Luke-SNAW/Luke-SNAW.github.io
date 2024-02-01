@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1699406388164
+updated: 1706232326298
 created: 1645514261238
 ---
 
@@ -13,6 +13,7 @@ created: 1645514261238
 - [Live Near Your Friends](https://headlineshq.substack.com/p/issue-no-029-live-near-your-friends) - in distance of 5-minute walk
   - [The Tail End](https://waitbutwhy.com/2015/12/the-tail-end.html)
 - [Write more "useless" software](https://ntietz.com/blog/write-more-useless-software/) for the joy of computing.
+- [A Single Small Map Is Enough For A Lifetime](https://www.noemamag.com/a-single-small-map-is-enough-for-a-lifetime/)
 
 ## Focus
 

@@ -2,13 +2,14 @@
 id: ujxz1y7bdvpazo3rn5yyr1c
 title: CSS about font
 desc: ""
-updated: 1681888346197
+updated: 1706775945164
 created: 1647930628665
 ---
 
 ## Collections
 
 - [The relative font weight axis — how variable fonts ease font weight transitions](https://www.stefanjudis.com/today-i-learned/the-relative-font-weight-axis-how-variable-fonts-ease-font-weight/)
+- [Variable Fonts](https://v-fonts.com/)
 
 ## [Preventing layout shift with numbers using CSS](https://gomakethings.com/preventing-layout-shift-with-numbers-using-css/)
 

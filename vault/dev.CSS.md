@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1704946973012
+updated: 1706662587486
 created: 1646129148306
 ---
 
@@ -74,6 +74,24 @@ created: 1646129148306
 - [Essential Tips and Tricks for Coding HTML Emails](https://www.sitepoint.com/html-email-tips-tricks/)
 - [Using the CSS contain property: A deep dive](https://blog.logrocket.com/using-css-contain-property-deep-dive/)
   > to decrease the burden on browsers for layout calculations, paints, repaints, and reflows.
+- [When to use CSS text-wrap: balance; vs text-wrap: pretty;](https://blog.stephaniestimac.com/posts/2023/10/css-text-wrap/)
+  > Use text-wrap: balance; on headings and subheadings. And use text-wrap: pretty; on paragraphs of text to get rid of orphans on the last line. Despite the Chromium-only support, these would be a good candidate for progressive enhancement.
+
+### [12 Modern CSS One-Line Upgrades](https://moderncss.dev/12-modern-css-one-line-upgrades/)
+
+- Stable Enhancements: `accent-color`, `scroll-margin-top/bottom`
+- progressive enhancement: `overscroll-behavior: contain`, `scrollbar-gutter`
+- https://news.ycombinator.com/item?id=39176717
+
+#### scroll-margin-top/bottom
+
+I like to include a generic starting rule in my reset for any element with an `[id]` attribute given it has the potential to become an anchor link.
+
+```css
+[id] {
+  scroll-margin-top: 2rem;
+}
+```
 
 ## Pseudo-class
 
