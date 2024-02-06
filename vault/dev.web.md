@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1702969063001
+updated: 1707178423177
 created: 1645751512675
 ---
 
@@ -25,6 +25,10 @@ created: 1645751512675
 - [View Transitions Break Incremental Rendering](https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/)
 - [Why HTTP/3 is eating the world](https://blog.apnic.net/2023/09/25/why-http-3-is-eating-the-world/)
   > HTTP/3 has seen rapid adoption due to being used by major companies like Google and Meta. It uses the QUIC protocol, which improves on TCP by more extensively encrypting metadata and enabling faster connection setup. QUIC also enhances performance by eliminating issues like head-of-line blocking and improving network handling. While HTTP/3 was created to work over QUIC, the true innovation was QUIC itself, which updates TCP with security and efficiency improvements. QUIC encryption makes it easier to update features, since middleboxes cannot access metadata. Overall, QUIC and HTTP/3 enhance web performance and security by modernizing core Internet protocols.
+- [Write code for the web](https://mrmr.io/apple)
+  > - Apple doesn’t care for me as a developer
+  > - The best approach is to write code for the web, where no single company has control.
+  > - https://news.ycombinator.com/item?id=39250406
 
 ## Webview Case
 

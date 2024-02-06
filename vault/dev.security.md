@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1698387078153
+updated: 1707192576696
 created: 1644825680750
 ---
 
@@ -23,6 +23,7 @@ created: 1644825680750
 - [RIP, Passwords. Here’s What’s Coming Next.](https://www.nytimes.com/wirecutter/blog/what-are-passkeys-and-how-they-can-replace-passwords/)
 - [Oh-Auth - Abusing OAuth to take over millions of accounts](https://salt.security/blog/oh-auth-abusing-oauth-to-take-over-millions-of-accounts)
   > Not verifying access tokens as required by OAuth specifications allows an attacker to harvest credentials from a malicious site and hijack accounts on other trusted platforms.
+- [Companies embracing SMS for account logins should be blamed for SIM-swap attacks](https://keydiscussions.com/2024/02/05/sim-swap-attacks-can-be-blamed-on-companies-embracing-sms-based-password-resets/)
 
 ## [A comprehensive guide to the dangers of Regular Expressions in JavaScript](https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/)
 

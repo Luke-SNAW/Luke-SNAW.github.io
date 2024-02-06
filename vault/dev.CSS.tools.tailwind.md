@@ -2,7 +2,7 @@
 id: t551a82h3taujz7zlf5c8pm
 title: Tailwind
 desc: ""
-updated: 1698985346392
+updated: 1707116193503
 created: 1672120075569
 ---
 
@@ -26,3 +26,5 @@ exports.cssLoaders = function (options) {
   }
 }
 ```
+
+## [tints.dev](https://www.tints.dev/) - Palette Generator + API for Tailwind CSS

@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1704786053882
+updated: 1707114855835
 created: 1646129148295
 ---
 
@@ -82,3 +82,7 @@ img {
 
 The best thing about using custom properties to handle calculations is that they are **lighter** and **more performant** than attempting to handle them in JavaScript.
 ````
+
+## [How to align the text of the last paragraph line](https://www.stefanjudis.com/today-i-learned/how-to-align-the-text-of-the-last-paragraph-line/)
+
+> `text-align-last`

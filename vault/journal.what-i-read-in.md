@@ -2,12 +2,31 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1706662577577
+updated: 1707192566303
 created: 1667632965028
 ---
 
+## Week 06, 2024
+
+- [Companies embracing SMS for account logins should be blamed for SIM-swap attacks](https://keydiscussions.com/2024/02/05/sim-swap-attacks-can-be-blamed-on-companies-embracing-sms-based-password-resets/)
+- [Write code for the web](https://mrmr.io/apple)
+  > - Apple doesn’t care for me as a developer
+  > - The best approach is to write code for the web, where no single company has control.
+  > - https://news.ycombinator.com/item?id=39250406
+- [tints.dev](https://www.tints.dev/) - Palette Generator + API for Tailwind CSS
+- [The undercover generalist](https://ochagavia.nl/blog/the-undercover-generalist/)
+  > - Needing to look like a specialist
+  > - Telling people what they want to hear
+- [Lazy Hydration and Server Components in Nuxt – Vue.js 3 Performance](https://vueschool.io/articles/vuejs-tutorials/lazy-hydration-and-server-components-in-nuxt-vue-js-3-performance/)
+  > Most of the components don’t need to be eagerly hydrated
+- [How to align the text of the last paragraph line](https://www.stefanjudis.com/today-i-learned/how-to-align-the-text-of-the-last-paragraph-line/)
+  > `text-align-last`
+- [Benchmarks of JavaScript Package Managers(daily updated)](https://pnpm.io/benchmarks)
+
 ## Week 05, 2024
 
+- [Generally speaking, you’ll want to use `text-wrap: balance` for headings and `text-wrap: pretty` for body text.](https://codersblock.com/blog/nicer-text-wrapping-with-css-text-wrap/)
+- [Portable Network Graphics (PNG, pronounced "ping")](https://www.w3.org/TR/2003/REC-PNG-20031110/#1Scope)
 - [Variable Fonts](https://v-fonts.com/)
 
 ## Week 04, 2024
