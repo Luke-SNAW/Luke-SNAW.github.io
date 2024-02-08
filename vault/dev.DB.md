@@ -2,12 +2,13 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1704960477120
+updated: 1707289697903
 created: 1656645858715
 ---
 
 ## Collections
 
+- [SQL for the Weary](https://gvwilson.github.io/sql-tutorial/)
 - [Use cases of soft delete](https://rahulraj.io/a-better-deletion-approach-than-soft-delete/)
   > - You want to delete records, but also want to retain them for n number of days, just for a safer side against accidental deletion.
   > - You want to exclude some records (permanent retain) under explicit requirements, even if they match the criteria of an eligible record to be deleted.
@@ -33,6 +34,7 @@ created: 1656645858715
   > ... A framework that allows me to avoid 80% of that is worthwhile even if it is only 80%.  
   > To avoid the mapping problem you have two alternatives. Either you use the relational model in memory, or you don't use it in the database.
 - [Data Engineering Design Patterns](https://www.dedp.online/) #bookshelf
+- [It's Time To Get Over That Stored Procedure Aversion You Have](https://bigmachine.io/databases/its-time-to-get-over-that-stored-procedure-aversion-you-have/)
 
 ## SQLite
 
@@ -43,6 +45,17 @@ created: 1656645858715
 ## PostgreSQL
 
 - [MySQL vs PostgreSQL in 2023.](https://dbconvert.com/blog/mysql-vs-postgresql/)
+- [Postgresql is enough](https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb)
+  > - [As an application grows in complexity, you start to realize _why_ there's a stack, rather than just a single technology to rule them all. Trying to cram everything into Postgres (or lambdas, or S3, or firebase, or whatever other tech you're trying to consolidate on) starts to get really uncomfortable.](https://news.ycombinator.com/item?id=39274174)
+  > - [... both worked: the PG queue was never grown out of, and generally SQS was easy to work with & reliable. But what I've also seen is "Let's introduce bespoke tech that nobody on the team, including the person introducing it, has experience in, for a queue that isn't even the main focus of what we're building" — this I'm less fine with.](https://news.ycombinator.com/item?id=39274805)
+- [Simplify: move code into database functions](https://sive.rs/pg)
+  - Databases outlive the applications that access them.
+  - the database is actually [quite smart](https://www.postgresql.org/docs/current/server-programming.html).
+  - examples: [constraints](https://www.postgresql.org/docs/current/ddl-constraints.html), [triggers](https://www.postgresql.org/docs/current/trigger-definition.html), functions, [create JSON directly](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSON-CREATION-TABLE).
+  - If you like JavaScript, check out the promising [plv8](https://plv8.github.io/).
+  - **branching? source code history(Migrations)?**
+    - [How to work with stored procedures and not die trying](https://github.com/kblok/tech-posts/blob/master/working-with-stored-procedures.md)?
+    - [You can use a DDL trigger to keep all revisions in a table in a separate database (and of course back up that database frequently).](https://dba.stackexchange.com/a/33544) - [SQL Server DDL Triggers to Track All Database Changes](http://www.mssqltips.com/sqlservertip/2085/sql-server-ddl-triggers-to-track-all-database-changes/)
 
 ### [Features I'd like in PostgreSQL](https://gilslotd.com/blog/features_id_postgresql)
 

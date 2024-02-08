@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1705371679670
+updated: 1707262453686
 created: 1644451403760
 ---
 
@@ -38,6 +38,8 @@ created: 1644451403760
 - [Measuring developer productivity? A response to McKinsey](https://tidyfirst.substack.com/p/measuring-developer-productivity)
 - [Some notes on Local-First Development](https://bricolage.io/some-notes-on-local-first-development/)
   - [cr-sqlite](https://github.com/vlcn-io/cr-sqlite) - Convergent, Replicated, SQLite - "It's like Git, for your data."
+- [People will never be motivated to go the extra mile by a standardized, bureaucratized process.](https://news.ycombinator.com/item?id=39271692)
+  - https://news.ycombinator.com/item?id=39272190
 
 ### re:Work
 
