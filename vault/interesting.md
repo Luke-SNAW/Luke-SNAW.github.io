@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1701402568527
+updated: 1707868112737
 created: 1669705986186
 ---
 
@@ -20,3 +20,4 @@ created: 1669705986186
   - https://dalle.party/?party=vCwYT8Em
 - [Travel by Oisin Carroll](https://imois.in/games/travle/) - A daily game – get between countries in as few guesses as possible
 - [Visual Anagrams: Generating Multi-View Optical Illusions with Diffusion Models](https://dangeng.github.io/visual_anagrams/)
+- [I designed a cube that balances itself on a corner](https://willempennings.nl/balancing-cube/)

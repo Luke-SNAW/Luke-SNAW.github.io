@@ -2,7 +2,7 @@
 id: l4c5ilaotvka1yh10wv88cy
 title: "What I read in 2022"
 desc: ""
-updated: 1699431768751
+updated: 1707956208421
 created: 1697160410482
 ---
 
@@ -289,6 +289,7 @@ created: 1697160410482
 - [Designing The Perfect Mobile Navigation UX](https://www.smashingmagazine.com/2022/11/navigation-design-mobile-ux/)
 - [Jamstack Community Survey 2022](https://jamstack.org/survey/2022/#frameworks-by-usage-and-satisfaction) - outstanding vite's satisfaction score
 - [Joplin](https://github.com/laurent22/joplin) - an open source note taking and to-do application with synchronisation capabilities for Windows, macOS, Linux, Android and iOS.
+  - [That was the reason why I gave up Joplin very quickly. The last Joplin thread, here on Hacker News, has also shown once again that some still do not understand why "But Joplin can export Markdown from the database!" is not the same as simple, flat Markdown files.](https://news.ycombinator.com/item?id=39375119)
 - [A Love Letter to React](https://fly.io/blog/love-letter-react/) - Phoenix and LiveView creator was inspired by React
 - [How We Got to LiveView](https://fly.io/blog/how-we-got-to-liveview/)
 - [Dialogs, modality and popovers seem similar. How are they different?](https://hidde.blog/dialog-modal-popover-differences/)

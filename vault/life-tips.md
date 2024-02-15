@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1706232326298
+updated: 1707810971472
 created: 1645514261238
 ---
 
@@ -14,6 +14,7 @@ created: 1645514261238
   - [The Tail End](https://waitbutwhy.com/2015/12/the-tail-end.html)
 - [Write more "useless" software](https://ntietz.com/blog/write-more-useless-software/) for the joy of computing.
 - [A Single Small Map Is Enough For A Lifetime](https://www.noemamag.com/a-single-small-map-is-enough-for-a-lifetime/)
+- [How to Study](https://cse.buffalo.edu/~rapaport/howtostudy.html)
 
 ## Focus
 

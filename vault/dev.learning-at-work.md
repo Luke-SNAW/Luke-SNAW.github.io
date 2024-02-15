@@ -2,11 +2,11 @@
 id: nfsu3bq5hj0d8weqqke6fpw
 title: Learning at Work
 desc: ""
-updated: 1668493914868
+updated: 1707810955819
 created: 1648512738469
 ---
 
-https://jvns.ca/blog/2017/08/06/learning-at-work/
+> https://jvns.ca/blog/2017/08/06/learning-at-work/
 
 I know some great programmers who don’t program outside of work at all! So I got to thinking – what if you want to become awesome, but don’t want to spend a lot of time basically doing extra work after hours?
 

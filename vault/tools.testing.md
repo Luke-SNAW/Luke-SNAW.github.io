@@ -2,7 +2,7 @@
 id: pkg1r12ssexvug6usprtjwt
 title: Testing
 desc: ""
-updated: 1675812688719
+updated: 1707956155186
 created: 1646613263657
 published: false
 ---
@@ -27,7 +27,6 @@ published: false
 - https://graphite.dev/
 - https://beta.sayhello.so/ - The search engine for developers.
 - https://chrome.google.com/webstore/detail/fake-filler/bnjjngeaknajbdcgpfkgnonkmififhfo?hl=en
-- [Joplin](https://github.com/laurent22/joplin) - an open source note taking and to-do application with synchronisation capabilities for Windows, macOS, Linux, Android and iOS.
 - [Project Manager](https://github.com/alefragnani/vscode-project-manager)
 - [LosslessCut](https://github.com/mifi/lossless-cut) - The swiss army knife of lossless video/audio editing
 

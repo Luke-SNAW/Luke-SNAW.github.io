@@ -2,9 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1707289688389
+updated: 1707954198796
 created: 1667632965028
 ---
+
+## Week 07, 2024
+
+- [Apple has not fixed the macOS audio left/right balance bug for nearly 10 years](https://twitter.com/ffaebi/status/1757669861377949930)
+  - https://news.ycombinator.com/item?id=39367460
+- [I designed a cube that balances itself on a corner](https://willempennings.nl/balancing-cube/)
+- [How to Study](https://cse.buffalo.edu/~rapaport/howtostudy.html)
+- [(Almost) Every infrastructure decision I endorse or regret after 4 years running infrastructure at a startup](https://cep.dev/posts/every-infrastructure-decision-i-endorse-or-regret-after-4-years-running-infrastructure-at-a-startup/)
+- [Classless CSS](https://github.com/dbohdan/classless-css)
+- [Drop-in switcher for previewing minimal CSS frameworks](https://dohliam.github.io/dropin-minimal-css/)
 
 ## Week 06, 2024
 
