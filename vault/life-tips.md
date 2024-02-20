@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1707810971472
+updated: 1708405329790
 created: 1645514261238
 ---
 
@@ -15,6 +15,8 @@ created: 1645514261238
 - [Write more "useless" software](https://ntietz.com/blog/write-more-useless-software/) for the joy of computing.
 - [A Single Small Map Is Enough For A Lifetime](https://www.noemamag.com/a-single-small-map-is-enough-for-a-lifetime/)
 - [How to Study](https://cse.buffalo.edu/~rapaport/howtostudy.html)
+- [The Case Against Caffeine](https://zantafakari.substack.com/p/the-case-against-caffeine)
+  - But it gets worse, especially if you drink lots of caffeine throughout the day. In that case, you never give your body the chance to clear it out. So the base concentration in your blood slowly creeps up. - https://zantafakari.substack.com/i/141012714/the-science-of-sleep
 
 ## Focus
 

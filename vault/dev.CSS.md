@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1706662587486
+updated: 1708058575701
 created: 1646129148306
 ---
 
@@ -76,6 +76,17 @@ created: 1646129148306
   > to decrease the burden on browsers for layout calculations, paints, repaints, and reflows.
 - [When to use CSS text-wrap: balance; vs text-wrap: pretty;](https://blog.stephaniestimac.com/posts/2023/10/css-text-wrap/)
   > Use text-wrap: balance; on headings and subheadings. And use text-wrap: pretty; on paragraphs of text to get rid of orphans on the last line. Despite the Chromium-only support, these would be a good candidate for progressive enhancement.
+- [A Guide To Designing For Older Adults](https://www.smashingmagazine.com/2024/02/guide-designing-older-adults/)
+  > Today, one billion people are 60 years or older. That’s 12% of the entire world population, and the age group is growing faster than any other group. Yet, online, the needs of older adults are often overlooked or omitted.
+  - Avoid **disappearing messages**: let users close them.
+  - Avoid long, fine drag gestures and **precision**.
+  - Avoid **floating labels** and use static field labels instead.
+  - Don’t rely on **icons** alone: add descriptive labels.
+  - Ask for **explicit confirmation** for destructive actions.
+  - Add a **“Back” link** in addition to the browser’s “Back” button.
+  - In forms, present one question or **one topic per screen**.
+  - Use sufficient **contrast** (particularly shades of blue/purple and yellow/green can be hard to distinguish).
+  - Make **error messages** helpful and forgiving.
 
 ### [12 Modern CSS One-Line Upgrades](https://moderncss.dev/12-modern-css-one-line-upgrades/)
 

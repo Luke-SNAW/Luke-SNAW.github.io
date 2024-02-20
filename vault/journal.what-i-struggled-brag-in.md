@@ -2,9 +2,32 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1704352117882
+updated: 1708389183612
 created: 1669264809793
 ---
+
+## Week 08, 2024 - Nuxt definePageMeta code runs unconditionally
+
+page meta 지정이 안먹히는 버그
+
+- 현상: 초기 mount 시점에서 실행되지 않는 switch 문의 case 안에 있는 meta reset용 definePageMeta code를 comment out시키니 제대로 돌아감. 혹시 실행되나 바로 위에 log찍어보니 실행 안됨. 뭐지?
+- 원인: [문서](https://nuxt.com/docs/api/utils/define-page-meta) 찾아보니 **compiler macro**라는데 conditional branch에 있건 없건 무조건 실행되나봄. 이름부터 define으로 시작되긴 하네.
+  > definePageMeta is a compiler macro
+
+```js
+const nextStep = () => {
+  switch (step.value) {
+    case "VERIFY_SN":
+      step.value = "FORM"
+      break
+    case "FORM":
+      step.value = "COMPLETE"
+      console.log("🚀 ~ step.value:", step.value, "reset") // not run
+      definePageMeta({}) // run
+      break
+  }
+}
+```
 
 ## Week 01, 2024 - imprv delay of switching checkbox in PrimeVue DataTable
 

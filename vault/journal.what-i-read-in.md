@@ -2,12 +2,42 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1707954198796
+updated: 1708405319365
 created: 1667632965028
 ---
 
+## Week 08, 2024
+
+- [The Case Against Caffeine](https://zantafakari.substack.com/p/the-case-against-caffeine)
+  - But it gets worse, especially if you drink lots of caffeine throughout the day. In that case, you never give your body the chance to clear it out. So the base concentration in your blood slowly creeps up. - https://zantafakari.substack.com/i/141012714/the-science-of-sleep
+- [htmz](https://github.com/Kalabasa/htmz) is a minimalist HTML microframework that gives you the power to create dynamic web user interfaces with the familiar simplicity of plain HTML.
+  ```html
+  <iframe
+    hidden
+    name="htmz"
+    onload="setTimeout(()=>document.querySelector(this.contentWindow.location.hash||null)?.replaceWith(...this.contentDocument.body.childNodes))"
+  ></iframe>
+  ```
+
 ## Week 07, 2024
 
+- [LLRT (**L**ow **L**atency **R**un**t**ime)](https://github.com/awslabs/llrt) is a lightweight JavaScript runtime designed to address the growing demand for fast and efficient Serverless applications. LLRT offers up to over **10x** faster startup and up to **2x** overall lower cost compared to other JavaScript runtimes running on **AWS Lambda**
+- [A Guide To Designing For Older Adults](https://www.smashingmagazine.com/2024/02/guide-designing-older-adults/)
+  > Today, one billion people are 60 years or older. That’s 12% of the entire world population, and the age group is growing faster than any other group. Yet, online, the needs of older adults are often overlooked or omitted.
+- [How to make external links accessible](https://blog.pope.tech/2024/01/02/how-to-make-external-links-accessible/)
+  - [Why external links should open in the same tab](https://blog.pope.tech/2024/01/02/how-to-make-external-links-accessible/#why)
+    - giving users the choice
+  - [When external links should open in a new tab](https://blog.pope.tech/2024/01/02/how-to-make-external-links-accessible/#when)
+    - Lose form progress
+    - An alternative solution
+    - Terminate login
+    - User needs information on both pages
+  - [Accessible design and code for external links opening in a new tab](https://blog.pope.tech/2024/01/02/how-to-make-external-links-accessible/#design)
+    - give users a warning that it opens in a new tab.
+- [:focus vs :focus-visible](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible#focus_vs_focus-visible)
+  > The `:focus-visible` pseudo-class also matches the focused element, but only if the user needs to be informed where the focus currently is.
+  - https://daverupert.com/2024/01/focus-visible-love/
+- [The psychology of site speed and human happiness](https://www.speedcurve.com/blog/psychology-site-speed/)
 - [Apple has not fixed the macOS audio left/right balance bug for nearly 10 years](https://twitter.com/ffaebi/status/1757669861377949930)
   - https://news.ycombinator.com/item?id=39367460
 - [I designed a cube that balances itself on a corner](https://willempennings.nl/balancing-cube/)

@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1703582871517
+updated: 1708403446163
 created: 1646011961595
 ---
 
@@ -24,6 +24,14 @@ created: 1646011961595
 - [Hono + htmx + Cloudflare is a new stack](https://blog.yusu.ke/hono-htmx-cloudflare/)
 - [screenshot-to-code](https://github.com/abi/screenshot-to-code) converts a screenshot to HTML/Tailwind CSS. It uses GPT-4 Vision to generate the code and DALL-E 3 to generate similar-looking images.
 - https://tests.caniuse.com/avif
+- [htmz](https://github.com/Kalabasa/htmz) is a minimalist HTML microframework that gives you the power to create dynamic web user interfaces with the familiar simplicity of plain HTML.
+  ```html
+  <iframe
+    hidden
+    name="htmz"
+    onload="setTimeout(()=>document.querySelector(this.contentWindow.location.hash||null)?.replaceWith(...this.contentDocument.body.childNodes))"
+  ></iframe>
+  ```
 
 ## Images
 
