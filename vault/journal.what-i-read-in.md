@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1708405319365
+updated: 1708500700665
 created: 1667632965028
 ---
 
 ## Week 08, 2024
 
+- [If Architects had to work like Programmers](http://www.gksoft.com/a/fun/architects.html)
+- [Bloom Filters](https://samwho.dev/bloom-filters/)
+  - Bloom filters return true it doesn't mean "yes", it means "maybe", false-positive.
+  - If you're happy to accept being wrong 0.0001% of the time (1 in a million), you could use a bloom filter which can store the same data in 82% reduction in size.
+- [In Defense of Simple Architectures](https://danluu.com/simple-architectures/)
+  - [Microservices aren't a performance strategy. They are a POTENTIAL cost saving strategy against performance. And an engineering coordination strategy.](https://news.ycombinator.com/item?id=39441508)
+  - [Towards Modern Development of Cloud Applications](https://dl.acm.org/doi/pdf/10.1145/3593856.3595909)
 - [The Case Against Caffeine](https://zantafakari.substack.com/p/the-case-against-caffeine)
   - But it gets worse, especially if you drink lots of caffeine throughout the day. In that case, you never give your body the chance to clear it out. So the base concentration in your blood slowly creeps up. - https://zantafakari.substack.com/i/141012714/the-science-of-sleep
 - [htmz](https://github.com/Kalabasa/htmz) is a minimalist HTML microframework that gives you the power to create dynamic web user interfaces with the familiar simplicity of plain HTML.
