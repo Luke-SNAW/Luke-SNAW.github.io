@@ -2,12 +2,20 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1708500700665
+updated: 1708671765688
 created: 1667632965028
 ---
 
 ## Week 08, 2024
 
+- [JavaScript Bloat in 2024](https://tonsky.me/blog/js-bloat/)
+- [Scroll-Driven Animations: You want overflow: clip, not overflow: hidden](https://www.bram.us/2024/02/14/scroll-driven-animations-you-want-overflow-clip-not-overflow-hidden/)
+- [Introducing SafeTest by Netflix: A Novel Approach to Front End Testing](https://netflixtechblog.com/introducing-safetest-a-novel-approach-to-front-end-testing-37f9f88c152d)
+- [🔒Securing Web: A Deep Dive into Content Security Policy (CSP)](https://dev.to/vashnavichauhan18/securing-web-a-deep-dive-into-content-security-policy-csp-2nna)
+- [Using localStorage in Modern Applications: A Comprehensive Guide](https://rxdb.info/articles/localstorage.html)
+- [Using abbreviations for long CSS properties in VS Code](https://www.amitmerchant.com/using-abbreviations-for-long-css-properties-in-vs-code/)
+- https://www.perfectmemory.ai/
+  - https://www.rewind.ai/
 - [If Architects had to work like Programmers](http://www.gksoft.com/a/fun/architects.html)
 - [Bloom Filters](https://samwho.dev/bloom-filters/)
   - Bloom filters return true it doesn't mean "yes", it means "maybe", false-positive.

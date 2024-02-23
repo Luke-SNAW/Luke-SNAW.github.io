@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1701071540340
+updated: 1708654883808
 created: 1646613084338
 ---
 
@@ -50,6 +50,7 @@ created: 1646613084338
 - [Everything on Amazon is becoming an ad](https://www.washingtonpost.com/technology/interactive/2022/amazon-shopping-ads/)
 - [A Year-End Letter from our Executive Director](https://letsencrypt.org/2022/12/05/ed-letter-2022.html)
   > Let’s Encrypt surpassed 300,000,000 websites served.
+- [random distribution visual](https://alterebro.com/random-distribution/)
 
 ### [Web scraping is legal, US appeals court reaffirms](https://techcrunch.com/2022/04/18/web-scraping-legal-court/)
 

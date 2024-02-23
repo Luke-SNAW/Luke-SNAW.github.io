@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1704935181155
+updated: 1708560750918
 created: 1644799670081
 ---
 
@@ -94,3 +94,5 @@ created: 1644799670081
 - [배민 주아 폰트](http://font.woowahan.com/jua/)
 - [Heynote](https://github.com/heyman/heynote/) is a dedicated scratchpad for developers
 - [Privacy Tools List](https://privacytoolslist.com/)
+- https://www.perfectmemory.ai/
+  - https://www.rewind.ai/
