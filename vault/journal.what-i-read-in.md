@@ -2,9 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1708671765688
+updated: 1708934416228
 created: 1667632965028
 ---
+
+## Week 09, 2024
+
+- [console.delight](https://frontendmasters.com/blog/console-delight/)
+- [Quality is a hard sell in big tech](https://www.pcloadletter.dev/blog/big-tech-quality/)
 
 ## Week 08, 2024
 
