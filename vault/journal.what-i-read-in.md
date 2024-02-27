@@ -2,12 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1708934416228
+updated: 1709017273935
 created: 1667632965028
 ---
 
 ## Week 09, 2024
 
+- [🦑 The 14 pains of building your own billing system](https://arnon.dk/the-14-pains-of-billing/)
+- [Decoding Apple's Ploy To Scuttle Progressive Web Apps](https://infrequently.org/2024/02/home-screen-advantage/)
+- [What is a non-capturing group in regular expressions?](https://stackoverflow.com/a/3513858/5163033)
 - [console.delight](https://frontendmasters.com/blog/console-delight/)
 - [Quality is a hard sell in big tech](https://www.pcloadletter.dev/blog/big-tech-quality/)
 

@@ -2,9 +2,60 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1708389183612
+updated: 1709021975551
 created: 1669264809793
 ---
+
+## Week 09, 2024 - Nuxt3 template single wrapper
+
+Nuxt3 project에서 페이지 새로 고침 후에 API data 받아서 v-if로 DOM 변경하는 경우 다음 error가 발생
+
+> Uncaught (in promise) TypeError: Cannot read properties of null (reading 'insertBefore') at insert (chunk-5V36DLOA.js?v=0e87bacb:9614:12)
+
+새로 고침 시 console에서 다음과 같은 warning이 나옴
+
+> [Vue warn]: Hydration node mismatch
+
+code는 다음과 같다
+
+```html
+<template>
+  <RegistrationVerifySN v-if="step === 'VERIFY_SN'" @nextStep="nextStep" />
+  <RegistrationGuide v-else-if="step === 'GUIDE'" @nextStep="nextStep" />
+</template>
+```
+
+갖은 검색하다가 지나친 [comment](https://github.com/nuxt/nuxt/issues/12266#issuecomment-1397213624)를 적용하여 다음과 같이 고치니 warning은 그대로지만 error는 해결 됨. vue2처럼 하나의 wrapper로 해야겠네
+
+```html
+<template>
+  <div>
+    <RegistrationVerifySN v-if="step === 'VERIFY_SN'" @nextStep="nextStep" />
+    <RegistrationGuide v-else-if="step === 'GUIDE'" @nextStep="nextStep" />
+  </div>
+</template>
+```
+
+## Week 09, 2024 - Google maps API syntax error
+
+최신 버전 쓰는데 왜 문법 error가 발생했나 보니 옛날에 넣어뒀던 polyfill과 충돌나는 듯.
+
+실행에는 문제없지만 sentry에서 계속 error 보고 됐던 google translator나 tag manager error 원인도 이거?
+
+### debug 과정
+
+> host-report-errors.js:5 Unhandled promise rejection TypeError: r is not iterable at Loader.eval (index.mjs:324:44)
+
+error 메시지가 떠서 [[Week 25, 2023 - @babel/preset-env core-js Polyfill|journal.what-i-struggled-brag-in#week-25-2023---babelpreset-env-core-js-polyfill]]와 같이 babel build script 수정하여 core-js polyfill 적용하니
+
+> Uncaught TypeError: this.Tm is not iterable
+
+```
+p @ https://cdn.polyfill.io/v3/polyfill.min.js:6
+_callee$ @ webpack-internal:///./node_modules/.pnpm/@googlemaps+js-api-loader@1.16.6/node_modules/@googlemaps/js-api-loader/dist/index.mjs:547
+```
+
+옛날에 넣어뒀던 polyfill이 initiator로 잡힘. 설마 싶어서 제거해보니 문제 해결
 
 ## Week 08, 2024 - Nuxt definePageMeta code runs unconditionally
 
