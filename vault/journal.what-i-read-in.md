@@ -2,12 +2,25 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1709017273935
+updated: 1709103397656
 created: 1667632965028
 ---
 
 ## Week 09, 2024
 
+- [New York medical school eliminates tuition after $1bn gift](https://old.reddit.com/r/webdev/comments/1b14bty/netlify_just_sent_me_a_104k_bill_for_a_simple/)
+- [Four Steps to Achieving Operational Flow and Improving Quality in Tech Teams](https://www.infoq.com/articles/achieve-flow-improve-quality/)
+  - Take on fewer things; focus on doing a complete job.
+  - Dependencies destroy flow. Break down and remove dependencies in order to improve your team(s)'s ability to get things done.
+  - Shift your focus toward keeping work moving and away from keeping people busy.
+  - Work creates ROI only when a customer can use it. That means that completing work is more important than being busy.
+  - It's more important for a team to be able to keep work moving than it is to keep the team small. Get work moving first, then think about how to reduce team size without compromising flow.
+- [Dear Developer, the Web Isn’t About You](https://www.youtube.com/watch?v=WYXSck7TyVM)
+  - The web was originally simple, robust and accessible to all due to technologies like HTML working together in a layered manner.
+  - Performance and accessibility are major issues for many users but not priorities for most developers.
+  - Simple, progressive techniques like serving HTML first make sites robust and usable for all.
+  - The goal is caring for all people who use the web, not prioritizing new technologies.
+- [SaaS Payment vs. SaaS Billing - What Those Terms Mean and What the Differences Are](https://www.wingback.com/blog/saas-payment-vs-saas-billing)
 - [🦑 The 14 pains of building your own billing system](https://arnon.dk/the-14-pains-of-billing/)
 - [Decoding Apple's Ploy To Scuttle Progressive Web Apps](https://infrequently.org/2024/02/home-screen-advantage/)
 - [What is a non-capturing group in regular expressions?](https://stackoverflow.com/a/3513858/5163033)

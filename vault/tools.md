@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1708560750918
+updated: 1709079494986
 created: 1644799670081
 ---
 
@@ -96,3 +96,4 @@ created: 1644799670081
 - [Privacy Tools List](https://privacytoolslist.com/)
 - https://www.perfectmemory.ai/
   - https://www.rewind.ai/
+- [Fraidycat](https://fraidyc.at/) - Follow blogs, wikis, YouTube channels, as well as accounts on Twitter, Instagram, etc. from a single page.

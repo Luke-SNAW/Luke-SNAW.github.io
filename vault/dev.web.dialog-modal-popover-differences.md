@@ -2,7 +2,7 @@
 id: e0t0c0dwkch04d08acj67py
 title: Dialogs, modality and popovers seem similar. How are they different?
 desc: ""
-updated: 1668412151773
+updated: 1709107651087
 created: 1668411407835
 ---
 
@@ -148,11 +148,8 @@ Popovers also can be opened, closed and toggled without JavaScript: with a `<but
 
 An example:
 
-```markup
-<button
-  type="button"
-  popovertoggletarget="datepicker"
->Pick date</button>
+```html
+<button type="button" popovertoggletarget="datepicker">Pick date</button>
 <dialog popover id="datepicker"></dialog>
 ```
 

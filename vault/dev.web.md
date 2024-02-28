@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1707178423177
+updated: 1709023376155
 created: 1645751512675
 ---
 
@@ -29,6 +29,15 @@ created: 1645751512675
   > - Apple doesn’t care for me as a developer
   > - The best approach is to write code for the web, where no single company has control.
   > - https://news.ycombinator.com/item?id=39250406
+- [Dear Developer, the Web Isn’t About You](https://www.youtube.com/watch?v=WYXSck7TyVM)
+  - The web was originally simple, robust and accessible to all due to technologies like HTML working together in a layered manner.
+  - Over-engineering websites with complex JavaScript frameworks makes the web fragile and excludes many users.
+  - Performance and accessibility are major issues for many users but not priorities for most developers.
+  - "Moving fast and breaking things" prioritizes developers over users and can exclude people from the web.
+  - Researching user needs upfront through UX instead of just coding could lead to more useful websites.
+  - The web is heterogeneous, not a controlled platform, so it requires an approach that acknowledges its diversity.
+  - Simple, progressive techniques like serving HTML first make sites robust and usable for all.
+  - The goal is caring for all people who use the web, not prioritizing new technologies.
 
 ## Webview Case
 
