@@ -2,12 +2,34 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1709103397656
+updated: 1709193542704
 created: 1667632965028
 ---
 
 ## Week 09, 2024
 
+- [Blur radius comparison](https://bjango.com/articles/blurradiuscomparison/)
+  > the three Sketch blur types, scaled to the equivelent CSS box-shadow value. They now all match!
+- [WebPerf Snippets](https://webperf-snippets.nucliweb.net/)
+- [So, what exactly did Apple break in the EU?](https://blog.tomayac.com/2024/02/28/so-what-exactly-did-apple-break-in-the-eu/)
+- [Youtube video embedding harm reduction](https://dustri.org/b/youtube-video-embedding-harm-reduction.html)
+  ```html
+  <iframe
+    credentialless
+    allowfullscreen
+    referrerpolicy="no-referrer"
+    sandbox="allow-scripts allow-same-origin"
+    allow="accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; battery 'none'; browsing-topics 'none'; camera 'none'; display-capture 'none'; domain-agent 'none'; document-domain 'none'; encrypted-media 'none'; execution-while-not-rendered 'none'; execution-while-out-of-viewport ''; gamepad 'none'; geolocation 'none'; gyroscope 'none'; hid 'none'; identity-credentials-get 'none'; idle-detection 'none'; local-fonts 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; otp-credentials 'none'; payment 'none'; picture-in-picture 'none'; publickey-credentials-create 'none'; publickey-credentials-get 'none'; screen-wake-lock 'none'; serial 'none'; speaker-selection 'none'; usb 'none'; window-management 'none'; xr-spatial-tracking 'none'"
+    ,
+    csp="sandbox allow-scripts allow-same-origin;"
+    width="560"
+    height="315"
+    src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk"
+    title="lofi hip hop radio 📚 - beats to relax/study to"
+    frameborder="0"
+    loading="lazy"
+  ></iframe>
+  ```
 - [New York medical school eliminates tuition after $1bn gift](https://old.reddit.com/r/webdev/comments/1b14bty/netlify_just_sent_me_a_104k_bill_for_a_simple/)
 - [Four Steps to Achieving Operational Flow and Improving Quality in Tech Teams](https://www.infoq.com/articles/achieve-flow-improve-quality/)
   - Take on fewer things; focus on doing a complete job.

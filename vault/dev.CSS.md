@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1708058575701
+updated: 1709193548873
 created: 1646129148306
 ---
 
@@ -87,6 +87,8 @@ created: 1646129148306
   - In forms, present one question or **one topic per screen**.
   - Use sufficient **contrast** (particularly shades of blue/purple and yellow/green can be hard to distinguish).
   - Make **error messages** helpful and forgiving.
+- [Blur radius comparison](https://bjango.com/articles/blurradiuscomparison/)
+  > the three Sketch blur types, scaled to the equivelent CSS box-shadow value. They now all match!
 
 ### [12 Modern CSS One-Line Upgrades](https://moderncss.dev/12-modern-css-one-line-upgrades/)
 
