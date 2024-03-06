@@ -2,9 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1709193542704
+updated: 1709710594134
 created: 1667632965028
 ---
+
+## Week 10, 2024
+
+- [CSS :has() Interactive Guide](https://ishadeed.com/article/css-has-guide)
+- [A practical guide to using shadow DOM](https://www.mayank.co/blog/declarative-shadow-dom-guide/)
+- [Aristotle — How to live a good life](https://ralphammer.com/aristotle-how-to-live-a-good-life/) - Ralph Ammer
+  > Happiness is not a feeling of pleasure. **Happiness is the pursuit of excellence**.
+- [CSS for printing to paper](https://voussoir.net/writing/css_for_printing)
 
 ## Week 09, 2024
 
@@ -30,7 +38,7 @@ created: 1667632965028
     loading="lazy"
   ></iframe>
   ```
-- [New York medical school eliminates tuition after $1bn gift](https://old.reddit.com/r/webdev/comments/1b14bty/netlify_just_sent_me_a_104k_bill_for_a_simple/)
+- [Netlify just sent me a $104K bill for a simple static site](https://old.reddit.com/r/webdev/comments/1b14bty/netlify_just_sent_me_a_104k_bill_for_a_simple/)
 - [Four Steps to Achieving Operational Flow and Improving Quality in Tech Teams](https://www.infoq.com/articles/achieve-flow-improve-quality/)
   - Take on fewer things; focus on doing a complete job.
   - Dependencies destroy flow. Break down and remove dependencies in order to improve your team(s)'s ability to get things done.

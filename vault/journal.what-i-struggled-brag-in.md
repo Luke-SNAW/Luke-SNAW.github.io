@@ -2,9 +2,16 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1709021975551
+updated: 1709691889274
 created: 1669264809793
 ---
+
+## Week 10, 2024 - get Shopify order data on wix
+
+**requirements**
+
+- token of shopify Custom app with read order auth
+- [Wix backend code](https://dev.wix.com/docs/develop-websites/articles/coding-with-wix-studio/wix-studio-about-web-methods) calling Shopify API to bypass CORS
 
 ## Week 09, 2024 - Nuxt3 template single wrapper
 

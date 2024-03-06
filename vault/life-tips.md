@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1708405329790
+updated: 1709705056756
 created: 1645514261238
 ---
 
@@ -17,6 +17,8 @@ created: 1645514261238
 - [How to Study](https://cse.buffalo.edu/~rapaport/howtostudy.html)
 - [The Case Against Caffeine](https://zantafakari.substack.com/p/the-case-against-caffeine)
   - But it gets worse, especially if you drink lots of caffeine throughout the day. In that case, you never give your body the chance to clear it out. So the base concentration in your blood slowly creeps up. - https://zantafakari.substack.com/i/141012714/the-science-of-sleep
+- [Aristotle — How to live a good life](https://ralphammer.com/aristotle-how-to-live-a-good-life/) - Ralph Ammer
+  > Happiness is not a feeling of pleasure. **Happiness is the pursuit of excellence**.
 
 ## Focus
 
