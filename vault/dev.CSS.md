@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1709710615820
+updated: 1710226403827
 created: 1646129148306
 ---
 
@@ -90,6 +90,8 @@ created: 1646129148306
 - [Blur radius comparison](https://bjango.com/articles/blurradiuscomparison/)
   > the three Sketch blur types, scaled to the equivelent CSS box-shadow value. They now all match!
 - [CSS :has() Interactive Guide](https://ishadeed.com/article/css-has-guide)
+- [Getting Started with Style Queries](https://developer.chrome.com/docs/css-ui/style-queries?hl=en)
+  - Can't you do it with attributes?
 
 ### [12 Modern CSS One-Line Upgrades](https://moderncss.dev/12-modern-css-one-line-upgrades/)
 

@@ -2,9 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1709710594134
+updated: 1710227955653
 created: 1667632965028
 ---
+
+## Week 11, 2024
+
+- [Designing better target sizes](https://ishadeed.com/article/target-size/)
+- [Techniques to Break Words](https://adrianroselli.com/2024/02/techniques-to-break-words.html)
+  - Probably don’t add `&shy;` without guidance from a copywriter.
+  - Probably don’t add `&shy;` to foreign words without a localization expert or at least a native speaker.
+  - Probably don’t add `&shy;` to URLs, email addresses, code blocks, and so on.
+  - Probably restrict `<wbr>` to URLs, email addresses, code blocks, and similar words where technical accuracy is paramount.
+  - Probably restrict `<wbr>` to _before_ periods and dashes and maybe slashes in URLs and emails so it doesn’t look like the sentence or address has ended.
+- [Getting Started with Style Queries](https://developer.chrome.com/docs/css-ui/style-queries?hl=en)
+  - Can't you do it with attributes?
+- [Bruno](https://github.com/usebruno/bruno) - Fast and Git-friendly open-source API client (Postman alternative)
 
 ## Week 10, 2024
 
