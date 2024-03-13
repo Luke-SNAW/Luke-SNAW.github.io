@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1707262453686
+updated: 1710290676362
 created: 1644451403760
 ---
 
@@ -40,6 +40,8 @@ created: 1644451403760
   - [cr-sqlite](https://github.com/vlcn-io/cr-sqlite) - Convergent, Replicated, SQLite - "It's like Git, for your data."
 - [People will never be motivated to go the extra mile by a standardized, bureaucratized process.](https://news.ycombinator.com/item?id=39271692)
   - https://news.ycombinator.com/item?id=39272190
+- [Devin: AI Software Engineer - comments](https://news.ycombinator.com/item?id=39679787)
+- [5 things I learned while developing a billing system](https://arnon.dk/5-things-i-learned-developing-billing-system/)
 
 ### re:Work
 

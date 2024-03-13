@@ -2,12 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1710227955653
+updated: 1710307102819
 created: 1667632965028
 ---
 
 ## Week 11, 2024
 
+- [You should separate your billing from entitlements](https://arnon.dk/why-you-should-separate-your-billing-from-entitlement/)
+- [5 things I learned while developing a billing system](https://arnon.dk/5-things-i-learned-developing-billing-system/)
+- [Devin: AI Software Engineer - comments](https://news.ycombinator.com/item?id=39679787)
 - [Designing better target sizes](https://ishadeed.com/article/target-size/)
 - [Techniques to Break Words](https://adrianroselli.com/2024/02/techniques-to-break-words.html)
   - Probably don’t add `&shy;` without guidance from a copywriter.
