@@ -2,12 +2,21 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1710307102819
+updated: 1711611368002
 created: 1667632965028
 ---
 
+## Week 13, 2024
+
+- [Why choose async/await over threads in Rust?](https://notgull.net/why-not-threads/) explains how async/await allows for more composable and flexible concurrency compared to threads, which can be difficult to synchronize. The author argues that the benefits of async/await, such as its ability to easily add timeouts and other functionality, are not always well-communicated.
+  - [Futex congestion collapse. Starvation of unfair mutexes.](https://news.ycombinator.com/item?id=39813525)
+- [Game of Life, simulating itself, infinitely zoomable](https://oimo.io/works/life/)
+- https://www.libhunt.com/css
+
 ## Week 11, 2024
 
+- [mise-en-place](https://github.com/jdx/mise) - dev tools, env vars, task runner
+- [Flox](https://github.com/flox/flox/) is a virtual environment and package manager all in one.
 - [You should separate your billing from entitlements](https://arnon.dk/why-you-should-separate-your-billing-from-entitlement/)
 - [5 things I learned while developing a billing system](https://arnon.dk/5-things-i-learned-developing-billing-system/)
 - [Devin: AI Software Engineer - comments](https://news.ycombinator.com/item?id=39679787)

@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1708654883808
+updated: 1711610712625
 created: 1646613084338
 ---
 
@@ -111,3 +111,5 @@ site UI
   </video>
 
 ### [Monaspace](https://monaspace.githubnext.com/)
+
+### [Game of Life, simulating itself, infinitely zoomable](https://oimo.io/works/life/)

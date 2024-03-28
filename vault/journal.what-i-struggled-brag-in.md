@@ -2,9 +2,73 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1709691889274
+updated: 1711585671791
 created: 1669264809793
 ---
+
+## Week 12, 2024 - primevue new theme layer
+
+## Week 12, 2024 - Wix shopify referral
+
+### Terminology
+
+1. 회원 발송 메일에서 접근 ref code 이하 rc -> sendgrid 대상자의 구매는 고려치 않음으로 인해 rc link가 필요 없게 됨
+2. 회원이 공유한 URL로 접근 forward code 이하 fc ->
+3. 회원이 아닌 사람이 공유하거나 직접 접근 no code 이하 nc
+
+### Access URL
+
+1. ~~rc - https://promo.genoplan.com/cancer-prevention-support-campaign/?rc={{ref-code}}~~
+2. fc - https://promo.genoplan.com/cancer-prevention-support-campaign/?fc={{ref-code}}
+3. nc - https://promo.genoplan.com/cancer-prevention-support-campaign/
+
+### 공유 URL
+
+공유하기 버튼에서 clipboard로 copy, SNS 공유
+
+1. ~~rc - https://promo.genoplan.com/cancer-prevention-support-campaign/?fc={{ref-code}}~~
+2. fc - https://promo.genoplan.com/cancer-prevention-support-campaign/ (의 단축 버전) - ref code 가지고 1단계 이상 추적 가능하긴 한데... 일단 추적은 안하는 걸로 기획
+3. nc - https://promo.genoplan.com/cancer-prevention-support-campaign/ (의 단축 버전)
+
+ref-code가 잘못뫴을 때 어찌 처리되는가? → shopify에서 code 없는 걸로 처리됨
+
+### shopify URL
+
+#### 11,000엔 구입
+
+1. ~~rc - ref-code 써서 추적 용도로 - https://jp.store.genoplan.com/discount/{{ref-code}}?redirect=%2Fproducts%2F%E3%82%AA%E3%83%A0%E3%82%AD%E3%83%AA%E6%A7%98%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88~~
+2. fc - ref-code 써서 추적 용도로 - https://jp.store.genoplan.com/discount/{{ref-code}}?redirect=%2Fproducts%2F%E3%82%AA%E3%83%A0%E3%82%AD%E3%83%AA%E6%A7%98%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88
+3. nc - https://jp.store.genoplan.com/products/%E3%82%AA%E3%83%A0%E3%82%AD%E3%83%AA%E6%A7%98%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88
+
+wix에서 code 포함된 shopify url 버튼으로 연결 - https://www.wix.com/wix-lp/new-wixcode/forum/coding-with-velo/solved-how-to-open-in-new-tab-with-wix-location
+
+- https://forum.wixstudio.com/t/dynamic-links-in-a-triggerd-email/3270
+
+#### 9,900엔 구입
+
+1. ~~rc - ref-code를 가지고 미리 생성한 discount code를 가져옴 - https://jp.store.genoplan.com/discount/{{discount-code}}?redirect=%2Fproducts%2F%E3%82%AA%E3%83%A0%E3%82%AD%E3%83%AA%E6%A7%98%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88~~
+2. fc - ref-code를 가지고 미리 생성한 discount code를 가져옴 - https://jp.store.genoplan.com/discount/{{discount-code}}?redirect=%2Fproducts%2F%E3%82%AA%E3%83%A0%E3%82%AD%E3%83%AA%E6%A7%98%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88
+3. nc - https://jp.store.genoplan.com/discount/OMUKIRI?redirect=%2Fproducts%2F%E3%82%AA%E3%83%A0%E3%82%AD%E3%83%AA%E6%A7%98%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88
+
+- 할인코드 포함된 링크를 wix email에 넣을 수 있는가? form text input으로 처리함 + hidden
+
+### etc
+
+- discount용, no-discount용 둘 다 concat한 URL을 메일로 쏘면 code 찾으려고 request할 필요는 없음
+- 할인이 0으로 표시될텐데... 사소한가
+- 나중에 shopify에서 전체 리스트 다운 받아서 code 사용 수 추출
+
+## Week 12, 2024 - dynamic page with Lazy component
+
+bo에서 service 페이지를 열고, 리포트에서 상세 항목을 클릭하면
+
+> Uncaught (in promise) TypeError: Failed to fetch dynamically imported module: `/_nuxt/_code_.EESJVKCf.js`
+
+error를 뱉으면서 / 페이지 refresh 된다.
+뒤로 가기한 뒤에 다시 상세 항목 클릭하면 `/_nuxt/_code_._MbpWpiu.js` 접근하면서 정상 동작.
+
+[code] 같은 dynamic page를 `<Lazy>` component에서 접근하면 lazy의 import와 같이 작용하면서 버그 발생하는 듯
+lazy 제거하니 정상 동작
 
 ## Week 10, 2024 - get Shopify order data on wix
 
@@ -12,6 +76,13 @@ created: 1669264809793
 
 - token of shopify Custom app with read order auth
 - [Wix backend code](https://dev.wix.com/docs/develop-websites/articles/coding-with-wix-studio/wix-studio-about-web-methods) calling Shopify API to bypass CORS
+
+---
+
+shopify order의 status open 이 판매 중인 상품인줄 알았는데 발송 안한 상태(미처리)
+any, closed에 취소 건 수도 들어감
+
+한 페이지에 250개 제한에 product_id로 filter는 데이터 받은 후에 가능. cursor based pagination이라... open+손으로 closed 해야 겠는데?
 
 ## Week 09, 2024 - Nuxt3 template single wrapper
 
