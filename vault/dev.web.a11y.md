@@ -2,7 +2,7 @@
 id: 7tPeWrJHQmeiMg4HWoymw
 title: Accessibility
 desc: ""
-updated: 1710228012359
+updated: 1711698023220
 created: 1644817740456
 ---
 
@@ -27,6 +27,8 @@ created: 1644817740456
 - [Accessible notifications with ARIA Live Regions (Part 1)](https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-1/)
 - [Accessible notifications with ARIA Live Regions (Part 2)](https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-2/)
 - [Designing better target sizes](https://ishadeed.com/article/target-size/)
+- [You Want border-color: transparent, Not border: none](https://frontendmasters.com/blog/you-want-border-color-transparent-not-border-none/)
+  - `@media (forced-colors: active)`
 
 ## [prefers-reduced-motion](https://news.ycombinator.com/item?id=31765773)
 
