@@ -2,9 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1711697997244
+updated: 1712124553424
 created: 1667632965028
 ---
+
+## Week 14, 2024
+
+- [HTTP Speed](https://kitsonkelly.com/posts/http-speed) - Deno, Bun, Node.js
+- [Optimizing Javascript for fun and for profit](https://romgrk.com/posts/optimizing-javascript)
+  - [Avoid different shapes](https://romgrk.com/posts/optimizing-javascript#2-avoid-different-shapes)
+- [Runtime compatibility across JavaScript runtimes](https://runtime-compat.unjs.io/)
+  - https://node.green/
+- [Alpine Ajax - Comparisons between Alpine AJAX and other similar libraries](https://alpine-ajax.js.org/comparisons/)
+- [WebSockets vs Server-Sent-Events vs Long-Polling vs WebRTC vs WebTransport](https://rxdb.info/articles/websockets-sse-polling-webrtc-webtransport.html)
 
 ## Week 13, 2024
 

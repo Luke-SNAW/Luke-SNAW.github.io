@@ -2,9 +2,18 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1711585671791
+updated: 1712128972732
 created: 1669264809793
 ---
+
+## Week 14, 2024 - Dynamic route path on Nuxt generate
+
+비회원 리포트 상세 페이지를 모바일에서 열람하다 의도치 않게 화면을 끌어내려 refresh를 일으킴 → dynamic route path는 nuxt generate 시에 처음 access point로 쓰면 / 로 redirection 됨
+
+/login error 화면이 나옴 → Navigate Back으로 비회원 리포트 요약페이지에 이동하면, access URI가 회원용(/login)이기 때문에 $auth.requestAuth가 setup되지 않아 해당 error가 발생 (s.requestAuth is not a function)
+
+1.  mobile에서 의도치 않게 refresh 되지 않게 overscroll-behavior: contain 으로 mitigate
+2.  $auth.requestAuth 가 setup안되면 page refresh 시켜서 해결
 
 ## Week 12, 2024 - primevue new theme layer
 

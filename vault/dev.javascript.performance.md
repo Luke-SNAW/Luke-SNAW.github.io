@@ -2,7 +2,7 @@
 id: qJYy3qzZt6rXHWQJPZd9Q
 title: Javascript Performance
 desc: ""
-updated: 1697172322484
+updated: 1712124428120
 created: 1644479524849
 ---
 
@@ -34,6 +34,8 @@ created: 1644479524849
   > The DOMContentLoaded event fires once all of your deferred JavaScript has finished running.
 - [Speeding up the JavaScript ecosystem - Polyfills gone rogue](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-6/)
   > Many popular npm packages depend on 6-8x more packages than they need to. Most of these are unnecessary polyfills.
+- [Optimizing Javascript for fun and for profit](https://romgrk.com/posts/optimizing-javascript)
+  - [Avoid different shapes](https://romgrk.com/posts/optimizing-javascript#2-avoid-different-shapes)
 
 ## [Speeding up the JavaScript ecosystem - The barrel file debacle](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7/)
 
