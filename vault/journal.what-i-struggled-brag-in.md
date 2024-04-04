@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1712128972732
+updated: 1712216566737
 created: 1669264809793
 ---
 
@@ -16,6 +16,22 @@ created: 1669264809793
 2.  $auth.requestAuth 가 setup안되면 page refresh 시켜서 해결
 
 ## Week 12, 2024 - primevue new theme layer
+
+사용 중인 primevue theme이
+
+- 3.46.0에선 정상작동
+- 3.47.0에선 checkbox style 망가짐
+- 3.48에서 deprecated
+
+https://github.com/primefaces/primevue/issues/5220
+https://github.com/primefaces/primevue/blob/master/CHANGELOG.md#3480-2024-02-05
+[#5201](https://github.com/primefaces/primevue/issues/5201) theme에 쓰이는 class는 왠만해서 안바뀔줄 알았는데 minor에서 break되다니...
+
+/nonmember/report에서 autocomplete 검색 결과 띄운 후, 페이지 이동, 돌아오면 layer 순서가 바뀌어서 style이 죄다 깨짐.
+
+- https://primevue.org/csslayer/
+
+이전에 FOUC 때문에 primevue에서 dynamic하게 import 하는 style resource들을 우선 순위 낮추기 위해 앞쪽에 import 시키는 code 때문에 발생. -> 제거
 
 ## Week 12, 2024 - Wix shopify referral
 

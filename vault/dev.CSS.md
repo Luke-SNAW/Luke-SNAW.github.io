@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1710226403827
+updated: 1712216461328
 created: 1646129148306
 ---
 
@@ -92,6 +92,13 @@ created: 1646129148306
 - [CSS :has() Interactive Guide](https://ishadeed.com/article/css-has-guide)
 - [Getting Started with Style Queries](https://developer.chrome.com/docs/css-ui/style-queries?hl=en)
   - Can't you do it with attributes?
+- [What is safe alignment in CSS?](https://frontendmasters.com/blog/what-is-safe-alignment-in-css/)
+  ```css
+  .flex {
+    display: flex;
+    align-items: safe center;
+  }
+  ```
 
 ### [12 Modern CSS One-Line Upgrades](https://moderncss.dev/12-modern-css-one-line-upgrades/)
 

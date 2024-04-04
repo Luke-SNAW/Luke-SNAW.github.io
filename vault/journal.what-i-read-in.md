@@ -2,12 +2,23 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1712124553424
+updated: 1712216420623
 created: 1667632965028
 ---
 
 ## Week 14, 2024
 
+- [What is safe alignment in CSS?](https://frontendmasters.com/blog/what-is-safe-alignment-in-css/)
+  ```css
+  .flex {
+    display: flex;
+    align-items: safe center;
+  }
+  ```
+- [LiveView is best with Svelte](https://blog.sequin.io/liveview-is-best-with-svelte/)
+  > LiveView is a unique approach to building web applications that combines the benefits of server-rendered and client-side frameworks. While LiveView offers many advantages, the authors found some limitations around handling complex client-side interactions and the blurry line between client and server state. To address these challenges, the authors describe using LiveView together with the Svelte frontend framework, which they found to be a powerful and productive combination. The LiveView backend handles data fetching, validation, and state management, while the Svelte frontend focuses on rendering and simple event handling. This "LiveSvelte" approach eliminates the need for a separate frontend microservice and allows for a clean separation of concerns between the client and server.
+  >
+  > > One possible solution which I didn't investigate, but should work, is to write all game logic in gleam ([https://gleam.run/](https://gleam.run/)). Gleam is compatible with Elixir, AND it also can compile to js, so you could in theory run the same code on the server and the client. — [POiNTx](https://news.ycombinator.com/item?id=39919223)
 - [HTTP Speed](https://kitsonkelly.com/posts/http-speed) - Deno, Bun, Node.js
 - [Optimizing Javascript for fun and for profit](https://romgrk.com/posts/optimizing-javascript)
   - [Avoid different shapes](https://romgrk.com/posts/optimizing-javascript#2-avoid-different-shapes)
