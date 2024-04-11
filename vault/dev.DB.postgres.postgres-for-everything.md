@@ -1,7 +1,7 @@
 ---
 id: rbvc7to4emhgev54r1gbc50
 title: Just Use Postgres for Everything
-desc: ""
+desc: ''
 updated: 1670804528080
 created: 1670804129283
 ---

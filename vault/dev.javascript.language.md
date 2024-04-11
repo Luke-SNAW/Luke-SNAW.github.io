@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1704956196441
+updated: 1712295474764
 created: 1644885695251
 ---
 
@@ -148,6 +148,10 @@ Table of contents:
 ## Promise
 
 - [JavaScript Promises: then(f,f) vs then(f).catch(f)](https://dmitripavlutin.com/javascript-promises-then-vs-then-catch/)
+- [JavaScript Visualized: Promise Execution](https://www.lydiahallie.com/blog/promise-execution)
+  > Long story short, Promises are just objects with some additional functionality to change their internal state.
+  >
+  > The cool thing about Promises is that this can trigger an asynchronous action if a handler is attached by either then or catch. Since the handlers are pushed to the Microtask Queue, you can handle the eventual result in a non-blocking way. This makes it easier to handle errors, chain multiple operations together, and keep your code more readable and maintainable!
 
 ## Symbol
 

@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1699336170326
+updated: 1712276537354
 created: 1646011997576
 ---
 
@@ -34,10 +34,12 @@ created: 1646011997576
   > - I think the best approach is to use orm for common crud tasks and add specific sql queries when things get a little bit complicated.
   >   [andretti1977](https://news.ycombinator.com/item?id=36503105)
 
-- [Slonik](https://github.com/gajus/slonik) - A [battle-tested](https://github.com/gajus/slonik#user-content-battle-tested) Node.js PostgreSQL client with strict types, detailed logging and assertions.
 - [Stop using Knex.js](https://gajus.medium.com/stop-using-knex-js-and-earn-30-bf410349856c) - Using SQL query builder is an anti-pattern
   > Knex.js (and other query builders) was designed to be a building block for ORMs; it does not add value when majority of the query is static.  
   > I recommend that you use a query builder for those few queries that need to be generated dynamically, and use raw SQL for everything else. It is not one or the other; the two work together.
+  >
+  > > [Slonik](https://github.com/gajus/slonik) - A [battle-tested](https://github.com/gajus/slonik#user-content-battle-tested) Node.js PostgreSQL client with strict types, detailed logging and assertions.
+- [What’s the Difference Between OLAP and OLTP?](https://aws.amazon.com/compare/the-difference-between-olap-and-oltp/)
 
 ## SQL client
 

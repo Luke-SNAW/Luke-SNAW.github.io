@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1711610712625
+updated: 1712795831904
 created: 1646613084338
 ---
 
@@ -43,6 +43,7 @@ created: 1646613084338
 - [MMO Architecture: Source of truth, Dataflows, I/O bottlenecks and how to solve them](https://prdeving.wordpress.com/2023/09/29/mmo-architecture-source-of-truth-dataflows-i-o-bottlenecks-and-how-to-solve-them/) discusses architecture challenges for massively multiplayer online (MMO) games. Unlike enterprise systems, the source of truth for an MMO's game world is the in-memory state, not the database, as persisting frequent updates would cause bottlenecks. To address this, the article recommends using a data service with the full state cached in memory. It should handle data access through RPCs while persisting only critical updates. This allows for direct, low-latency access while still enabling recovery from failures. Additionally, using techniques like compare-and-swap for writes can help avoid race conditions in the distributed system. Managing what data needs persistence and when is presented as more of an art than science to optimize for recovery needs over business requirements.
 - [The Pudding](https://pudding.cool/) is a digital publication that is the best internet rabbit hole.
 - [Webgl Fluid Simulation](https://paveldogreat.github.io/WebGL-Fluid-Simulation/)
+- [QWANJI](https://byronicalpatrick.github.io/qwanji/)
 
 ## News
 

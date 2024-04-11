@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1707114855835
+updated: 1712646857029
 created: 1646129148295
 ---
 
@@ -34,55 +34,24 @@ img {
 }
 ```
 
-## [Preventing Scroll “Bounce” with CSS](https://css-irl.info/preventing-overscroll-bounce-with-css/)
-
-```css
-:root {
-  overscroll-behavior: none;
-}
-```
-
-## [CSS Scroll Snapping Aligned With Global Page Layout: A Full-Width Slider Case Study](https://www.smashingmagazine.com/2023/12/css-scroll-snapping-aligned-global-page-layout-case-study/)
-
-```scss
-.slider {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-
-  > * {
-    flex: 0 0 300px;
-    scroll-snap-align: start;
-  }
-
-  padding-inline: var(--offset-width);
-  scroll-padding-inline-start: var(--offset-width);
-}
-```
-
-## [6 CSS snippets every front-end developer should know in 2023](https://web.dev/articles/6-css-snippets-every-front-end-developer-should-know-in-2023?hl=en)
-
-````css
-.snaps {
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
-}
-
-.snap-target {
-  scroll-snap-align: center;
-}
-
-.snap-force-stop {
-  scroll-snap-stop: always;
-}
-```
-### [Why Techniques Like This Are Important](https://www.smashingmagazine.com/2023/12/css-scroll-snapping-aligned-global-page-layout-case-study/#why-techniques-like-this-are-important)
-
-The best thing about using custom properties to handle calculations is that they are **lighter** and **more performant** than attempting to handle them in JavaScript.
-````
-
 ## [How to align the text of the last paragraph line](https://www.stefanjudis.com/today-i-learned/how-to-align-the-text-of-the-last-paragraph-line/)
 
 > `text-align-last`
+
+## [How to think about HTML responsive images](https://danburzo.ro/responsive-images-html/)
+
+```html
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="macos-dark.png" />
+  <source media="print" srcset="macos-contrast.png" />
+  <img src="macos-light.png" alt="…" />
+</picture>
+```
+
+## [The Power of :has() in CSS](https://css-tricks.com/the-power-of-has-in-css/)
+
+```css
+h1:has(+ h2) {
+  color: blue;
+}
+```

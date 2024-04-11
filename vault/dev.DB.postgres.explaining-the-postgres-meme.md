@@ -1,7 +1,7 @@
 ---
 id: iigqo2m0kkvm741rsklhgti
 title: Explaining The Postgres Meme
-desc: ""
+desc: ''
 updated: 1693810102986
 created: 1693809553384
 tags: bookshelf
