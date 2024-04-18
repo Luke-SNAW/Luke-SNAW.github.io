@@ -2,12 +2,35 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1712795808176
+updated: 1713421928626
 created: 1667632965028
 ---
 
+## Week 16, 2024
+
+- [The Wax and the Wane of the Web](https://alistapart.com/article/the-wax-and-the-wane-of-the-web/)
+- [My favourite animation trick: exponential smoothing](https://lisyarus.github.io/blog/programming/2023/02/21/exponential-smoothing.html) avoids issues like jittering or overshooting that can occur with other methods.
+- [DevTools Tips & Tricks](https://frontendmasters.com/blog/devtools-tips-tricks/)
+  - [Inspect Popups on Hover](https://frontendmasters.com/blog/devtools-tips-tricks/#1-inspect-popups-on-hover)
+  - [Use logpoints](https://frontendmasters.com/blog/devtools-tips-tricks/#2-use-logpoints)
+  - [Emulate foldable devices](https://frontendmasters.com/blog/devtools-tips-tricks/#3-emulate-foldable-devices)
+  - [Inspect Event streams](https://frontendmasters.com/blog/devtools-tips-tricks/#7-inspect-event-streams)
+  - [Live expressions](https://frontendmasters.com/blog/devtools-tips-tricks/#9-live-expressions)
+- [Gap is the new Margin](https://frontendmasters.com/blog/gap-is-the-new-margin/)
+  > > [Margin breaks component encapsulation.](https://mxstbr.com/thoughts/margin/) A well-built component should not affect anything outside itself.
+  > > [Prediction](https://dev.to/argyleink/5-css-predictions-for-2020-pl3): margins in stylesheets will decline as gap in stylesheets climb
+- [Hardest Problem in Computer Science: Centering Things](https://tonsky.me/blog/centering/)
+  > STOP. USING. FONTS. FOR. ICONS.
+- https://ios404.com/ - missing web features in iOS
+- [Hono](https://hono.dev/) is a small, simple, and ultrafast web framework for the Edges. It works on any JavaScript runtime: Cloudflare Workers, Fastly Compute, Deno, Bun, Vercel, AWS Lambda, Lambda@Edge, and Node.js.
+- [Old CSS, new CSS](https://eev.ee/blog/2020/02/01/old-css-new-css/)
+  > > `<H1><FONT COLOR=red>...</FONT></H1>` …every single goddamn time.
+  >
+  > is in fashion again! Only now it’s called class="text-red-500" [:o)](https://news.ycombinator.com/item?id=40029373)
+
 ## Week 15, 2024
 
+- [QCon London: How Duolingo Sent 4 Million Push Notifications in 6 Seconds During the Super Bowl Break](https://www.infoq.com/news/2024/04/qcon-london-duolingo-super-bowl/)
 - [QWANJI](https://byronicalpatrick.github.io/qwanji/)
 - [The Power of :has() in CSS](https://css-tricks.com/the-power-of-has-in-css/)
   ```css

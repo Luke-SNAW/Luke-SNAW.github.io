@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1701146422294
+updated: 1713415249954
 created: 1644882116217
 ---
 
@@ -153,6 +153,12 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 - [memlab](https://github.com/facebookincubator/memlab) is an E2E testing and analysis framework for finding JavaScript memory leaks and optimization opportunities.
 - [fuite](https://github.com/nolanlawson/fuite) is a CLI tool for finding memory leaks in web apps.
   - [Introducing fuite: a tool for finding memory leaks in web apps](https://nolanlawson.com/2021/12/17/introducing-fuite-a-tool-for-finding-memory-leaks-in-web-apps/)
+- [DevTools Tips & Tricks](https://frontendmasters.com/blog/devtools-tips-tricks/)
+  - [Inspect Popups on Hover](https://frontendmasters.com/blog/devtools-tips-tricks/#1-inspect-popups-on-hover)
+  - [Use logpoints](https://frontendmasters.com/blog/devtools-tips-tricks/#2-use-logpoints)
+  - [Emulate foldable devices](https://frontendmasters.com/blog/devtools-tips-tricks/#3-emulate-foldable-devices)
+  - [Inspect Event streams](https://frontendmasters.com/blog/devtools-tips-tricks/#7-inspect-event-streams)
+  - [Live expressions](https://frontendmasters.com/blog/devtools-tips-tricks/#9-live-expressions)
 
 ## Formats
 

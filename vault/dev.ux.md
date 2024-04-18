@@ -2,7 +2,7 @@
 id: x6srexqsxlwe4thhsx9rgt9
 title: UX
 desc: ""
-updated: 1693463167546
+updated: 1713419632333
 created: 1649893699761
 ---
 
@@ -22,6 +22,7 @@ created: 1649893699761
   - **Sideways breadcrumbs** might be a quite surprising and useful discovery for your users.
 - [Designing The Perfect Mobile Navigation UX](https://www.smashingmagazine.com/2022/11/navigation-design-mobile-ux/)
 - [🧠 The Psychology of Design](https://growth.design/psychology) - 106 Cognitive Biases & Principles That Affect Your UX #bookshelf
+- [My favourite animation trick: exponential smoothing](https://lisyarus.github.io/blog/programming/2023/02/21/exponential-smoothing.html) avoids issues like jittering or overshooting that can occur with other methods.
 
 ## [Make me think!](https://ralphammer.com/make-me-think/)
 

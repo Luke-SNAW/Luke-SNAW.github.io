@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1712646602760
+updated: 1713413016691
 created: 1646129148306
 ---
 
@@ -79,6 +79,15 @@ created: 1646129148306
   > the three Sketch blur types, scaled to the equivelent CSS box-shadow value. They now all match!
 - [CSS :has() Interactive Guide](https://ishadeed.com/article/css-has-guide)
 - [CSS scoping from What You Need to Know about Modern CSS (Spring 2024 Edition)](https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-spring-2024-edition/#scoping)
+- [Old CSS, new CSS](https://eev.ee/blog/2020/02/01/old-css-new-css/)
+  > > `<H1><FONT COLOR=red>...</FONT></H1>` …every single goddamn time.
+  >
+  > is in fashion again! Only now it’s called class="text-red-500" [:o)](https://news.ycombinator.com/item?id=40029373)
+- [Hardest Problem in Computer Science: Centering Things](https://tonsky.me/blog/centering/)
+  > STOP. USING. FONTS. FOR. ICONS.
+- [Gap is the new Margin](https://frontendmasters.com/blog/gap-is-the-new-margin/)
+  > > [Margin breaks component encapsulation.](https://mxstbr.com/thoughts/margin/) A well-built component should not affect anything outside itself.
+  > > [Prediction](https://dev.to/argyleink/5-css-predictions-for-2020-pl3): margins in stylesheets will decline as gap in stylesheets climb
 
 ## Pseudo-class
 

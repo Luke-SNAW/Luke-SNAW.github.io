@@ -2,7 +2,7 @@
 id: TN3SWriksRFA35jnzNKzy
 title: Tools
 desc: ""
-updated: 1670717869306
+updated: 1713332664728
 created: 1645523891283
 ---
 
@@ -11,6 +11,7 @@ created: 1645523891283
 - [Dragonfly](https://github.com/dragonflydb/dragonfly) is a modern in-memory datastore, fully compatible with Redis and Memcached APIs. Dragonfly implements novel algorithms and data structures on top of a multi-threaded, shared-nothing architecture. As a result, Dragonfly reaches x25 performance compared to Redis and supports millions of QPS on a single instance.
   - https://news.ycombinator.com/item?id=31560547
 - [mkcert](https://github.com/FiloSottile/mkcert) is a simple tool for making locally-trusted development certificates. It requires no configuration.
+- [Hono](https://hono.dev/) is a small, simple, and ultrafast web framework for the Edges. It works on any JavaScript runtime: Cloudflare Workers, Fastly Compute, Deno, Bun, Vercel, AWS Lambda, Lambda@Edge, and Node.js.
 
 ## API
 
@@ -40,6 +41,7 @@ created: 1645523891283
   - built-in **files and users management**
   - convenient **Admin dashboard UI**
   - and simple **REST-ish API**
+- [Hono](https://hono.dev/) is a small, simple, and ultrafast web framework for the Edges. It works on any JavaScript runtime: Cloudflare Workers, Fastly Compute, Deno, Bun, Vercel, AWS Lambda, Lambda@Edge, and Node.js.
 
 ## Service
 

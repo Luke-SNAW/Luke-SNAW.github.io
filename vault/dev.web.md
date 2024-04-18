@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1709023376155
+updated: 1713421937059
 created: 1645751512675
 ---
 
@@ -38,6 +38,7 @@ created: 1645751512675
   - The web is heterogeneous, not a controlled platform, so it requires an approach that acknowledges its diversity.
   - Simple, progressive techniques like serving HTML first make sites robust and usable for all.
   - The goal is caring for all people who use the web, not prioritizing new technologies.
+- [The Wax and the Wane of the Web](https://alistapart.com/article/the-wax-and-the-wane-of-the-web/)
 
 ## Webview Case
 

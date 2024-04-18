@@ -2,9 +2,26 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1712216566737
+updated: 1713247179891
 created: 1669264809793
 ---
+
+## Week 16, 2024 - Blurry text on canvas
+
+모니터 3개 사용 중인데, 맥북 모니터에서 canvas에서 이미지 저장한 파일의 text가 흐리게 보임
+
+```js
+const canvas = document.createElement("canvas")
+const scale = window.devicePixelRatio || 1 // 텍스트가 흐리게 보여 device pixel ratio에 따라 배율 조정하여 저장
+canvas.width = 360 * scale
+canvas.height = 576 * scale
+canvas.style.width = "360px"
+canvas.style.height = "576px"
+const ctx = canvas.getContext("2d")
+ctx.scale(scale, scale)
+```
+
+- [Canvas drawings, like lines, are blurry](https://stackoverflow.com/a/46920541/5163033)
 
 ## Week 14, 2024 - Dynamic route path on Nuxt generate
 
