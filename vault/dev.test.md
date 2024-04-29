@@ -2,7 +2,7 @@
 id: 1mi9m99hBJq32lfoqGdNB
 title: Test
 desc: ""
-updated: 1690354346667
+updated: 1714003735767
 created: 1645055059758
 ---
 
@@ -33,6 +33,7 @@ created: 1645055059758
 
 - [Testing on the Toilet: Don't Put Logic in Tests](https://testing.googleblog.com/2014/07/testing-on-toilet-dont-put-logic-in.html)
   > Production code computes outputs from inputs while tests specify concrete input/output pairs. Complex test logic should be moved to helper functions with their own tests, leaving test bodies simple.
+- [TDD's Missing Skill: Behavioral Composition](https://tidyfirst.substack.com/p/tdds-missing-skill-behavioral-composition)
 
 ## [An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach](https://dl.acm.org/doi/10.1145/2961111.2962592)
 

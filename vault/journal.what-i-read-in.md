@@ -2,12 +2,39 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1713421928626
+updated: 1714372825218
 created: 1667632965028
 ---
 
+## Week 18, 2024
+
+- [Web GUI for SVGO](https://jakearchibald.github.io/svgomg/)
+- [SVG Viewer](https://www.svgviewer.dev/) – View, edit, and optimize SVGs
+- [What can LLMs never do?](https://www.strangeloopcanon.com/p/what-can-llms-never-do)
+  > inability to perform certain tasks that seem simple for humans, like playing Wordle or predicting the output of cellular automata.
+- [World Wide Web (1991)](https://info.cern.ch/hypertext/WWW/TheProject.html)
+- [Leaving Rust gamedev after 3 years](https://loglog.games/blog/leaving-rust-gamedev/)
+  > Rust's strengths do not always align well with the needs of practical game development.
+- [Passkeys: A Shattered Dream](https://fy.blackhats.net.au/blog/2024-04-26-passkeys-a-shattered-dream/)
+  > The technology has become increasingly controlled by major tech companies like Google and Apple with problems about device compatibility, data loss, and vendor lock-in. Password managers may provide a better user experience for most consumers.
+
+## Week 17, 2024
+
+- [CSS: Specificity](https://thevalleyofcode.com/css/4-specificity)
+- [TDD's Missing Skill: Behavioral Composition](https://tidyfirst.substack.com/p/tdds-missing-skill-behavioral-composition)
+- [The Man Who Killed Google Search](https://www.wheresyoured.at/the-men-who-killed-google/)
+- [Cognition Labs: "Today we're excited to introduce Devin, the first AI software engineer.](https://www.cognition-labs.com/introducing-devin)
+  - [They actually dont do ANYTHING themselfs](https://old.reddit.com/r/cscareerquestions/comments/1bd12gc/relevant_news_cognition_labs_today_were_excited/kujyidr/) - Analytics: Hotjar, Website: NextJS, Login: Clerk, Jobs: Ashby, Waitlist: Google docs (ROFL), Learn more about their funding: A link to twitter
+- [Programming Is Mostly Thinking](https://agileotter.blogspot.com/2014/09/programming-is-mostly-thinking.html)
+- [Coroutines and effects](https://without.boats/blog/coroutines-and-effects/)
+
 ## Week 16, 2024
 
+- [Why you need a "WTF Notebook"](https://www.simplermachines.com/why-you-need-a-wtf-notebook/)
+- [The invisible seafaring industry that keeps the internet afloat.](https://www.theverge.com/c/24070570/internet-cables-undersea-deep-repair-ships)
+- [NEVER sacrifice your life for an artificial deadline.](https://news.ycombinator.com/user?id=nine_zeros)
+  - How to determine if something is an artificial deadline? Because if it were a real deadline with significance to the business, they'd pull more hands on deck, remove roadblocks relentlessly day after day, and even offer to take portions of your work on themselves so that the deadlines can be met.
+- [HTMX Is So Cool I Rolled My Own!](https://dbushell.com/2024/04/16/htmx-and-modern-javascript/)
 - [The Wax and the Wane of the Web](https://alistapart.com/article/the-wax-and-the-wane-of-the-web/)
 - [My favourite animation trick: exponential smoothing](https://lisyarus.github.io/blog/programming/2023/02/21/exponential-smoothing.html) avoids issues like jittering or overshooting that can occur with other methods.
 - [DevTools Tips & Tricks](https://frontendmasters.com/blog/devtools-tips-tricks/)
@@ -17,7 +44,7 @@ created: 1667632965028
   - [Inspect Event streams](https://frontendmasters.com/blog/devtools-tips-tricks/#7-inspect-event-streams)
   - [Live expressions](https://frontendmasters.com/blog/devtools-tips-tricks/#9-live-expressions)
 - [Gap is the new Margin](https://frontendmasters.com/blog/gap-is-the-new-margin/)
-  > > [Margin breaks component encapsulation.](https://mxstbr.com/thoughts/margin/) A well-built component should not affect anything outside itself.
+  > > [Margin breaks component encapsulation.](https://mxstbr.com/thoughts/margin/) A well-built component should not affect anything outside itself.  
   > > [Prediction](https://dev.to/argyleink/5-css-predictions-for-2020-pl3): margins in stylesheets will decline as gap in stylesheets climb
 - [Hardest Problem in Computer Science: Centering Things](https://tonsky.me/blog/centering/)
   > STOP. USING. FONTS. FOR. ICONS.

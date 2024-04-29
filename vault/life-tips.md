@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1709705056756
+updated: 1713485472452
 created: 1645514261238
 ---
 
@@ -19,6 +19,9 @@ created: 1645514261238
   - But it gets worse, especially if you drink lots of caffeine throughout the day. In that case, you never give your body the chance to clear it out. So the base concentration in your blood slowly creeps up. - https://zantafakari.substack.com/i/141012714/the-science-of-sleep
 - [Aristotle — How to live a good life](https://ralphammer.com/aristotle-how-to-live-a-good-life/) - Ralph Ammer
   > Happiness is not a feeling of pleasure. **Happiness is the pursuit of excellence**.
+- [NEVER sacrifice your life for an artificial deadline.](https://news.ycombinator.com/user?id=nine_zeros)
+  - How to determine if something is an artificial deadline? Because if it were a real deadline with significance to the business, they'd pull more hands on deck, remove roadblocks relentlessly day after day, and even offer to take portions of your work on themselves so that the deadlines can be met.
+- [Why you need a "WTF Notebook"](https://www.simplermachines.com/why-you-need-a-wtf-notebook/)
 
 ## Focus
 
@@ -157,3 +160,7 @@ The difference is extraordinary even when looking only 5 years ahead. **Use spac
 > https://news.ycombinator.com/item?id=33140527
 
 So sure, learn spaced repetition, but really, find something and practice it for more joy and better results instead.
+
+## Travel
+
+- [How to Travel With Your Bullet Journal](https://bulletjournal.com/blogs/bulletjournalist/how-to-travel-with-your-bullet-journal)

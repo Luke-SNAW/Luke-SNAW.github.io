@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1702274459044
+updated: 1714372937293
 created: 1647145480774
 ---
 
@@ -47,6 +47,8 @@ created: 1647145480774
   - https://github.com/windmill-labs/windmill
 - [codeium](https://www.codeium.com/) - Free AI-powered code completion for everyone, everywhere
 - [Open Source Software](https://osssoftware.org/) alternatives to popular projects.
+- [Web GUI for SVGO](https://jakearchibald.github.io/svgomg/)
+- [SVG Viewer](https://www.svgviewer.dev/) – View, edit, and optimize SVGs
 
 ## Network
 

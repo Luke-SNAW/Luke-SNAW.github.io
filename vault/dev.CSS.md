@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1713413016691
+updated: 1714103195768
 created: 1646129148306
 ---
 
@@ -86,8 +86,9 @@ created: 1646129148306
 - [Hardest Problem in Computer Science: Centering Things](https://tonsky.me/blog/centering/)
   > STOP. USING. FONTS. FOR. ICONS.
 - [Gap is the new Margin](https://frontendmasters.com/blog/gap-is-the-new-margin/)
-  > > [Margin breaks component encapsulation.](https://mxstbr.com/thoughts/margin/) A well-built component should not affect anything outside itself.
+  > > [Margin breaks component encapsulation.](https://mxstbr.com/thoughts/margin/) A well-built component should not affect anything outside itself.  
   > > [Prediction](https://dev.to/argyleink/5-css-predictions-for-2020-pl3): margins in stylesheets will decline as gap in stylesheets climb
+- [CSS: Specificity](https://thevalleyofcode.com/css/4-specificity)
 
 ## Pseudo-class
 

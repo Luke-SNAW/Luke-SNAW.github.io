@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1710290676362
+updated: 1713845079675
 created: 1644451403760
 ---
 
@@ -41,6 +41,7 @@ created: 1644451403760
 - [People will never be motivated to go the extra mile by a standardized, bureaucratized process.](https://news.ycombinator.com/item?id=39271692)
   - https://news.ycombinator.com/item?id=39272190
 - [Devin: AI Software Engineer - comments](https://news.ycombinator.com/item?id=39679787)
+  - [They actually dont do ANYTHING themselfs](https://old.reddit.com/r/cscareerquestions/comments/1bd12gc/relevant_news_cognition_labs_today_were_excited/kujyidr/) - Analytics: Hotjar, Website: NextJS, Login: Clerk, Jobs: Ashby, Waitlist: Google docs (ROFL), Learn more about their funding: A link to twitter
 - [5 things I learned while developing a billing system](https://arnon.dk/5-things-i-learned-developing-billing-system/)
 
 ### re:Work

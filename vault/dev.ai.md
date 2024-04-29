@@ -2,7 +2,7 @@
 id: 0yknotw2i3rxs1hc9y7kn5n
 title: AI
 desc: ""
-updated: 1702452322725
+updated: 1714371485532
 created: 1649903318189
 ---
 
@@ -17,6 +17,8 @@ created: 1649903318189
 - [AI is an Ideology, Not a Technology](https://www.wired.com/story/opinion-ai-is-an-ideology-not-a-technology/) argues that artificial intelligence is better understood as an ideology rather than just a technology. It promotes a view of autonomous machine intelligence that could replace humans, but this is a mirage since AI relies heavily on human data and contributions. An alternative view is to focus on how people are central to developing AI systems through providing examples, problem-solving and understanding the technology.
 - [Dive into Deep Learning](https://d2l.ai/) #bookshelf
 - [Understanding Deep Learning](https://udlbook.github.io/udlbook/) #bookshelf
+- [What can LLMs never do?](https://www.strangeloopcanon.com/p/what-can-llms-never-do)
+  > inability to perform certain tasks that seem simple for humans, like playing Wordle or predicting the output of cellular automata.
 
 ## [Why it's essential to excel at the things AI excels at](https://youtube.com/watch?v=mdoMPWSSsqs)
 

@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1699588680196
+updated: 1714104491932
 created: 1646011769978
 ---
 
@@ -27,6 +27,8 @@ created: 1646011769978
 - [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) - Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.
 - [JSON Hero](https://marketplace.visualstudio.com/items?itemName=JSONHero.jsonhero-vscode) - a beautiful JSON viewer.
 - [Increment Selection](https://marketplace.visualstudio.com/items?itemName=albymor.increment-selection)
+- [Headwind](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind) to order Tailwind classes automatically
+-
 
 ## Testing
 
