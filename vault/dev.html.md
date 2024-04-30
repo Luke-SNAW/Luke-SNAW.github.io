@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1709165772037
+updated: 1714440434895
 created: 1644885695231
 ---
 
@@ -111,11 +111,17 @@ This makes parsing faster and guaranteed to have no side effects, and conveys th
 
 In addition - “template” also conveys correct semantics to the other developers working on the codebase. If I see an html at the bottom with “display: none” it’s very possible that the intended usage is to leave it there and set “display: block”, ie a modal. “display: none” doesn’t convey “clone me”, but “template” does.
 
+## Forms
+
+- [Forms 101: More tags useful in forms](https://thevalleyofcode.com/forms/5-more-tags-useful-in-forms) - `<fieldset>`, `<legend>`
+
 ## Inputs
 
 - [Scripted `<INPUT>` Matching With Native Error Reporting](https://medium.com/codex/scripted-input-matching-with-native-error-reporting-8287dd7ac40a)
   - https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
 - [Build an OTP input field](https://phuoc.ng/collection/html-dom/build-an-otp-input-field/)
+- [Form fields: File input fields](https://thevalleyofcode.com/form-fields/5-file-input-fields)
+- [Form fields: Autocompleting form fields](https://thevalleyofcode.com/form-fields/8-autocompleting-form-fields)
 
 ## [How to Use Responsive HTML Video (...and Audio!)](https://scottjehl.com//posts/using-responsive-video/)
 

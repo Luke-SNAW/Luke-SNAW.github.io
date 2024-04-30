@@ -2,7 +2,7 @@
 id: 6w36dgapan7eummy1q6jpx1
 title: Back End
 desc: ""
-updated: 1694416277562
+updated: 1714376148301
 created: 1649297934004
 ---
 
@@ -14,6 +14,7 @@ created: 1649297934004
 - [Conditional API Responses For JavaScript vs. HTML Forms](https://austingil.com/http-javascript-vs-html/)
 - [Dealing with cold starts](https://twitter.com/thdxr/status/1661433744970973190)
 - [An Internet of PHP](https://timotijhof.net/posts/2023/an-internet-of-php/)
+- [System Design Interview Question: Design URL Shortener](https://levelup.gitconnected.com/system-design-interview-question-design-url-shortener-c3278a99fc35)
 
 ## Auth
 

@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1709079494986
+updated: 1714451684736
 created: 1644799670081
 ---
 
@@ -97,3 +97,4 @@ created: 1644799670081
 - https://www.perfectmemory.ai/
   - https://www.rewind.ai/
 - [Fraidycat](https://fraidyc.at/) - Follow blogs, wikis, YouTube channels, as well as accounts on Twitter, Instagram, etc. from a single page.
+- [GeekNews](https://news.hada.io/)

@@ -2,12 +2,13 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1713421937059
+updated: 1714443201385
 created: 1645751512675
 ---
 
 ## Collections
 
+- [The Valley of Code](https://thevalleyofcode.com/)
 - [Web Almanac - HTTP Archive’s annual state of the web report 2022](https://almanac.httparchive.org/en/2022/table-of-contents) - HTTP Archive’s annual **state of the web** report
 - [Have Single-Page Apps Ruined the Web? | Transitional Apps with Rich Harris, NYTimes](https://youtu.be/860d8usGC0o)
 - [Move over JavaScript: Back-end languages are coming to the front-end](https://github.com/readme/featured/server-side-languages-for-front-end): A NEW CROP OF SERVER-SIDE TOOLS IS MAKING IT POSSIBLE TO BUILD WEB UIS WITHOUT JAVASCRIPT.

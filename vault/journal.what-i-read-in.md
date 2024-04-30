@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1714372825218
+updated: 1714440431145
 created: 1667632965028
 ---
 
 ## Week 18, 2024
 
+- [Forms 101: More tags useful in forms](https://thevalleyofcode.com/forms/5-more-tags-useful-in-forms) - `<fieldset>`, `<legend>`
+- [Form fields: File input fields](https://thevalleyofcode.com/form-fields/5-file-input-fields)
+- [Form fields: Autocompleting form fields](https://thevalleyofcode.com/form-fields/8-autocompleting-form-fields)
+- [Google Made Me Ruin A Perfectly Good Website: A Case Study On The AI-Generated Internet](https://theluddite.org/#!post/google-ads)
+  > Google's AdSense program rejected the site, claiming it lacked unique content. To get approved, the author resorted to generating low-quality, AI-written content like recipes, poems, and blog posts about their fictional obsession with congressional apportionment. After creating this deranged additional content, Google eventually approved the site for ads. The passage is a critique of how Google's policies are leading to the proliferation of low-quality, SEO-driven content on the internet.
 - [Web GUI for SVGO](https://jakearchibald.github.io/svgomg/)
 - [SVG Viewer](https://www.svgviewer.dev/) – View, edit, and optimize SVGs
 - [What can LLMs never do?](https://www.strangeloopcanon.com/p/what-can-llms-never-do)
