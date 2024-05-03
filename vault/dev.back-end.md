@@ -2,7 +2,7 @@
 id: 6w36dgapan7eummy1q6jpx1
 title: Back End
 desc: ""
-updated: 1714376148301
+updated: 1714708796590
 created: 1649297934004
 ---
 
@@ -15,6 +15,13 @@ created: 1649297934004
 - [Dealing with cold starts](https://twitter.com/thdxr/status/1661433744970973190)
 - [An Internet of PHP](https://timotijhof.net/posts/2023/an-internet-of-php/)
 - [System Design Interview Question: Design URL Shortener](https://levelup.gitconnected.com/system-design-interview-question-design-url-shortener-c3278a99fc35)
+- [I Reviewed 1,000s of GraphQL vs. REST perspectives](https://konfigthis.com/blog/graphql-vs-rest/)
+- Access control
+- Rate limiting
+- Caching
+- [DOS](https://en.wikipedia.org/wiki/Denial-of-service_attack) protection
+- Using Maps/Tables/Dictionaries
+- [N + 1 Problem](https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping)
 
 ## Auth
 

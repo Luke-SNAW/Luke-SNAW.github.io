@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1714440431145
+updated: 1714718686377
 created: 1667632965028
 ---
 
 ## Week 18, 2024
 
+- [You receive a call on your phone. The caller says they're from your bank](https://mastodon.social/@Edent/112372412442888807)
+- [I Reviewed 1,000s of GraphQL vs. REST perspectives](https://konfigthis.com/blog/graphql-vs-rest/)
+- [I Reviewed 1,000s of Opinions on HTMX](https://konfigthis.com/blog/htmx/)
+- [jsDelivr May outage postmortem](https://www.jsdelivr.com/blog/jsdelivr-may-outage-postmortem/)
+- [Locality of Behavior in React Components](https://alexkondov.com/locality-of-behavior-react/)
+  > Abstractions are not an enemy of locality. You don’t need to inline everything in a single file. In the context of a React component, the invocation of the function is more important than what it actually does.
 - [Forms 101: More tags useful in forms](https://thevalleyofcode.com/forms/5-more-tags-useful-in-forms) - `<fieldset>`, `<legend>`
 - [Form fields: File input fields](https://thevalleyofcode.com/form-fields/5-file-input-fields)
 - [Form fields: Autocompleting form fields](https://thevalleyofcode.com/form-fields/8-autocompleting-form-fields)

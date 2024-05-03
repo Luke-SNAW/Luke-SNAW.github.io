@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1708482165894
+updated: 1714701190040
 created: 1645514209965
 ---
 
@@ -41,6 +41,8 @@ created: 1645514209965
   - Don’t re-invent the wheel.
   - Use proven, solid technologies when possible.
 - [Locality of Behaviour (LoB)](https://htmx.org/essays/locality-of-behaviour/)
+- [Locality of Behavior in React Components](https://alexkondov.com/locality-of-behavior-react/)
+  > Abstractions are not an enemy of locality. You don’t need to inline everything in a single file. In the context of a React component, the invocation of the function is more important than what it actually does.
 - [Bloom Filters](https://samwho.dev/bloom-filters/)
   - Bloom filters return true it doesn't mean "yes", it means "maybe", false-positive.
   - If you're happy to accept being wrong 0.0001% of the time (1 in a million), you could use a bloom filter which can store the same data in 82% reduction in size.
