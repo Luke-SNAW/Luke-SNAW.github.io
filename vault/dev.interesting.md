@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1712795831904
+updated: 1715066996876
 created: 1646613084338
 ---
 
@@ -44,6 +44,7 @@ created: 1646613084338
 - [The Pudding](https://pudding.cool/) is a digital publication that is the best internet rabbit hole.
 - [Webgl Fluid Simulation](https://paveldogreat.github.io/WebGL-Fluid-Simulation/)
 - [QWANJI](https://byronicalpatrick.github.io/qwanji/)
+- [Flying planes in Microsoft Flight Simulator with a JavaScript autopilot](https://pomax.github.io/are-we-flying/)
 
 ## News
 

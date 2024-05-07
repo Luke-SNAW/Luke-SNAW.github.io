@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1714372937293
+updated: 1715046262602
 created: 1647145480774
 ---
 
@@ -49,6 +49,7 @@ created: 1647145480774
 - [Open Source Software](https://osssoftware.org/) alternatives to popular projects.
 - [Web GUI for SVGO](https://jakearchibald.github.io/svgomg/)
 - [SVG Viewer](https://www.svgviewer.dev/) – View, edit, and optimize SVGs
+- [JSONata](https://github.com/jsonata-js/jsonata) JSON query and transformation language
 
 ## Network
 
