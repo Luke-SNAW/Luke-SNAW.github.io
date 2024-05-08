@@ -2,7 +2,7 @@
 id: VR93wLLm4G5ngJpglyKwb
 title: Chrome extensions for dev
 desc: ""
-updated: 1698304156002
+updated: 1715129278565
 created: 1644971383110
 ---
 
@@ -41,7 +41,6 @@ created: 1644971383110
 
 ## [[Asana|dev.tools.asana--plug-in]]
 
-- [Ticket Number Generator, by OneHat](https://chrome.google.com/webstore/detail/ticket-number-generator-b/mkiflbeenlaomokhbibbgillnkppgane)
 - [StoryPoint for Asana](https://chrome.google.com/webstore/detail/storypoint-for-asana/ipkcinfcdhhcmibffhlklololceffgnc)
 
 ## Analysis
