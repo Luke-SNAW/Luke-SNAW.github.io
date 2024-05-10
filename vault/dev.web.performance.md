@@ -2,7 +2,7 @@
 id: pa1bstln0xt54o30z6taebc
 title: Web Performance
 desc: ""
-updated: 1709193395878
+updated: 1715307018742
 created: 1646012221215
 ---
 
@@ -26,3 +26,4 @@ created: 1646012221215
 - [preload vs prefetch](https://phuoc.ng/collection/this-vs-that/preload-vs-prefetch/)
 - [The Three Cs: 🤝 Concatenate, 🗜️ Compress, 🗳️ Cache](https://csswizardry.com/2023/10/the-three-c-concatenate-compress-cache/)
 - [WebPerf Snippets](https://webperf-snippets.nucliweb.net/)
+- [Latency numbers every frontend developer should know](https://vercel.com/blog/latency-numbers-every-web-developer-should-know)

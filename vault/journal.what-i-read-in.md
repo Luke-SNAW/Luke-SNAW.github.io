@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1715069003351
+updated: 1715307002207
 created: 1667632965028
 ---
 
 ## Week 19, 2024
 
+- [Latency numbers every frontend developer should know](https://vercel.com/blog/latency-numbers-every-web-developer-should-know)
+- [It’s always TCP_NODELAY. Every damn time.](https://brooker.co.za/blog/2024/05/09/nagle.html) argues that in modern distributed systems, Nagle's algorithm may no longer be necessary. The author recommends that for latency-sensitive distributed systems, TCP_NODELAY should be the default setting, as it provides better performance.
+- [Deaf girl is cured in world first gene therapy trial](https://www.independent.co.uk/news/health/deaf-cure-girl-gene-therapy-b2541735.html)
+- [Homebrew vs. MacPorts, A Systems Software Engineer's Perspective](https://dede.dev/posts/homebrew-vs-macPorts/)
+  > In practice, many engineers use both package managers to combine the strengths of each. For instance, use Homebrew for common software and MacPorts for specialized projects.
+- [chezmoi](https://github.com/twpayne/chezmoi) - Manage your dotfiles across multiple diverse machines, securely.
 - [Distribution is King](https://every.to/napkin-math/distribution-is-king) - What video games can teach us about building billion-dollar companies
   - https://news.hada.io/topic?id=14677
 - [Your 14-Day Free Trial Ain't Gonna Cut It](https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/)
@@ -28,7 +34,6 @@ created: 1667632965028
 - [Form fields: Autocompleting form fields](https://thevalleyofcode.com/form-fields/8-autocompleting-form-fields)
 - [Google Made Me Ruin A Perfectly Good Website: A Case Study On The AI-Generated Internet](https://theluddite.org/#!post/google-ads)
   > Google's AdSense program rejected the site, claiming it lacked unique content. To get approved, the author resorted to generating low-quality, AI-written content like recipes, poems, and blog posts about their fictional obsession with congressional apportionment. After creating this deranged additional content, Google eventually approved the site for ads. The passage is a critique of how Google's policies are leading to the proliferation of low-quality, SEO-driven content on the internet.
-- [Web GUI for SVGO](https://jakearchibald.github.io/svgomg/)
 - [SVG Viewer](https://www.svgviewer.dev/) – View, edit, and optimize SVGs
 - [What can LLMs never do?](https://www.strangeloopcanon.com/p/what-can-llms-never-do)
   > inability to perform certain tasks that seem simple for humans, like playing Wordle or predicting the output of cellular automata.

@@ -2,7 +2,7 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1710375749286
+updated: 1715127496797
 created: 1653704390962
 ---
 
@@ -14,6 +14,7 @@ created: 1653704390962
 - [ls-lint](https://github.com/loeffel-io/ls-lint) - An extremely fast directory and filename linter - Bring some structure to your project filesystem
 - [mise-en-place](https://github.com/jdx/mise) - dev tools, env vars, task runner
 - [Flox](https://github.com/flox/flox/) is a virtual environment and package manager all in one.
+- [chezmoi](https://github.com/twpayne/chezmoi) - Manage your dotfiles across multiple diverse machines, securely.
 
 ## Shell
 
