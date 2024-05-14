@@ -15,3 +15,4 @@ created: 1646005847782
   - https://github.com/initialcommit-com/git-sim
 - [changelogen](https://github.com/unjs/changelogen) - 💅 Beautiful Changelogs using Conventional Commits
 - [Git Large File Storage](https://git-lfs.com/)
+- [git-credential-manager](https://github.com/git-ecosystem/git-credential-manager) - brew installable

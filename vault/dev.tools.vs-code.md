@@ -2,13 +2,14 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1714104491932
+updated: 1715648821849
 created: 1646011769978
 ---
 
 ## Collections
 
 - [VS Code Shortcuts To Code Like You’re Playing a Piano](https://betterprogramming.pub/vs-code-shortcuts-to-code-like-youre-playing-a-piano-e5db7b272d1)
+- [Change the default terminal in Visual Studio Code](https://stackoverflow.com/a/45899693/5163033) - Terminal: Select Default Profile
 
 ## Dev
 
@@ -94,10 +95,6 @@ git config --global core.editor "code -w"
 - Vue Snippets StandardJS
 - Vue VSCode Snippets
 - [Blockman - Highlight Nested Code Blocks](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman)
-
-### Misc
-
-- [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
 
 ## Personal knowledge management
 
