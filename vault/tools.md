@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1715298689277
+updated: 1715673775577
 created: 1644799670081
 ---
 
@@ -10,6 +10,7 @@ created: 1644799670081
 
 - [PhotoPrism - Browse Your Life in Pictures](https://github.com/photoprism/photoprism) - Photos App powered by Go and Google TensorFlow 🌈 ✨
 - [Syncthing](https://github.com/syncthing/syncthing) - Open Source Continuous File Synchronization
+- [PeaZip](https://github.com/peazip/PeaZip/) Free Archiver
 
 ## Windows
 

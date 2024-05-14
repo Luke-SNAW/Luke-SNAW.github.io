@@ -2,9 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1715307002207
+updated: 1715673916584
 created: 1667632965028
 ---
+
+## Week 20, 2024
+
+- [100k Stars](https://stars.chromeexperiments.com/)
+- [PeaZip](https://github.com/peazip/PeaZip/) Free Archiver
+- [Humanoid agent robot](https://www.unitree.com/g1/)
+- [Avoid blundering: 80% of a winning strategy](https://longform.asmartbear.com/avoid-blundering/)
+  - https://news.ycombinator.com/item?id=39902854
+  - https://news.hada.io/topic?id=14789
 
 ## Week 19, 2024
 

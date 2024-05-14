@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1713485472452
+updated: 1715658928594
 created: 1645514261238
 ---
 
@@ -22,6 +22,9 @@ created: 1645514261238
 - [NEVER sacrifice your life for an artificial deadline.](https://news.ycombinator.com/user?id=nine_zeros)
   - How to determine if something is an artificial deadline? Because if it were a real deadline with significance to the business, they'd pull more hands on deck, remove roadblocks relentlessly day after day, and even offer to take portions of your work on themselves so that the deadlines can be met.
 - [Why you need a "WTF Notebook"](https://www.simplermachines.com/why-you-need-a-wtf-notebook/)
+- [Avoid blundering: 80% of a winning strategy](https://longform.asmartbear.com/avoid-blundering/)
+  - https://news.ycombinator.com/item?id=39902854
+  - https://news.hada.io/topic?id=14789
 
 ## Focus
 

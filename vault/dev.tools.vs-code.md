@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1715648821849
+updated: 1715669783252
 created: 1646011769978
 ---
 
@@ -34,7 +34,6 @@ created: 1646011769978
 ## Testing
 
 - [Live Frame](https://marketplace.visualstudio.com/items?itemName=jevakallio.vscode-live-frame) - Live preview your web application inside VS Code
-- [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman) - Mark/Highlight code blocks
 - [XState VSCode](https://marketplace.visualstudio.com/items?itemName=statelyai.stately-vscode) - Visual editing, autocomplete and typegen for XState
 - [7 Unnecessary VSCode Extensions You Should Uninstall Now](https://codingbeautydev.com/blog/unnecessary-vscode-extensions/)
 - [Better Align](https://marketplace.visualstudio.com/items?itemName=Chouzz.vscode-better-align)
@@ -45,9 +44,11 @@ created: 1646011769978
 
 ### Default VS Code As The Git Editor
 
-```
+```shell
 git config --global core.editor "code -w"
 ```
+
+Open the command pallette and run `Shell Command: Install code in PATH`
 
 ## Co-op
 
@@ -94,7 +95,6 @@ git config --global core.editor "code -w"
 - Turbo Console Log
 - Vue Snippets StandardJS
 - Vue VSCode Snippets
-- [Blockman - Highlight Nested Code Blocks](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman)
 
 ## Personal knowledge management
 
