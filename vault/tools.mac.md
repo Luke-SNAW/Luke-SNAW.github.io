@@ -2,7 +2,7 @@
 id: 6en2z3q3u4pnrn5todipo0s
 title: Mac tools
 desc: ""
-updated: 1715650346773
+updated: 1715840586559
 created: 1652405135977
 ---
 
@@ -17,7 +17,6 @@ created: 1652405135977
 - [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
   - [맥 한영전환 딜레이 해결방법](https://blog.naver.com/PostView.naver?blogId=rkdals530&logNo=222385359410) - karabiner에서 right_command를 남는 function key로 binding하고, macOS [시스템 환경설정 - 키보드 - 단축키 - 입력 소스]에 들어가서 입력 메뉴에서 다음 소스 선택을 right_command를 누르면 해당 function key로 설정된다.
 
-
 ## Dev
 
 - [GitUp](https://github.com/git-up/GitUp) - The Git interface you've been missing all your life has finally arrived.
@@ -29,8 +28,8 @@ created: 1652405135977
 
 ## Tiling window manager
 
-- [Amethyst](https://github.com/ianyh/Amethyst) - Automatic tiling window manager for macOS à la xmonad.
 - [Rectangle](https://github.com/rxhanson/Rectangle) - Move and resize windows on macOS with keyboard shortcuts and snap areas
+- [Amethyst](https://github.com/ianyh/Amethyst) - Automatic tiling window manager for macOS à la xmonad.
 - [Yabai](https://github.com/koekeishiya/yabai) - A tiling window manager for macOS based on binary space partitioning
 
 ## Menu bar

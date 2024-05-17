@@ -2,7 +2,7 @@
 id: l29gxghljchn5f6o27ma72d
 title: Git global setting
 desc: ""
-updated: 1670979776999
+updated: 1715845293494
 created: 1655167183618
 ---
 
@@ -82,3 +82,9 @@ git config --global core.whitespace cr-at-eol
 ```
 
 If your `core.whitespace` is already set, you should add `cr-at-eol` to the end of the comma-delimited list instead.
+
+## Etc
+
+```shell
+git config --global init.defaultBranch main
+```

@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1715669783252
+updated: 1715845169541
 created: 1646011769978
 ---
 
@@ -29,7 +29,7 @@ created: 1646011769978
 - [JSON Hero](https://marketplace.visualstudio.com/items?itemName=JSONHero.jsonhero-vscode) - a beautiful JSON viewer.
 - [Increment Selection](https://marketplace.visualstudio.com/items?itemName=albymor.increment-selection)
 - [Headwind](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind) to order Tailwind classes automatically
--
+- [Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold) - Improves code readability by folding class attributes
 
 ## Testing
 

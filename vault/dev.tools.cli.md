@@ -2,7 +2,7 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1715127496797
+updated: 1715902918922
 created: 1653704390962
 ---
 
@@ -22,6 +22,8 @@ created: 1653704390962
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k) - A Zsh theme
 - [try](https://github.com/binpash/try) lets you run a command and inspect its effects before changing your live system. `try` uses Linux's [namespaces (via `unshare`)](https://docs.kernel.org/userspace-api/unshare.html) and the [overlayfs](https://docs.kernel.org/filesystems/overlayfs.html) union filesystem.
 - [atuin](https://github.com/atuinsh/atuin) - ✨ Magical shell history
+- [fish](https://fishshell.com/) - the friendly interactive shell
+  - [pure.fish](https://github.com/pure-fish/pure) - Pretty, minimal, and fast prompt for Fish shell
 
 ## Script
 

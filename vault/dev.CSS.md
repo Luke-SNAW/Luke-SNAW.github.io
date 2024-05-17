@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1714103195768
+updated: 1715912748855
 created: 1646129148306
 ---
 
@@ -89,6 +89,9 @@ created: 1646129148306
   > > [Margin breaks component encapsulation.](https://mxstbr.com/thoughts/margin/) A well-built component should not affect anything outside itself.  
   > > [Prediction](https://dev.to/argyleink/5-css-predictions-for-2020-pl3): margins in stylesheets will decline as gap in stylesheets climb
 - [CSS: Specificity](https://thevalleyofcode.com/css/4-specificity)
+- [The Times You Need A Custom @property Instead Of A CSS Variable](https://www.smashingmagazine.com/2024/05/times-need-custom-property-instead-css-variable/)
+  > CSS custom properties allow developers to specify the syntax, initial value, and inheritance behavior of CSS variables.
+  > This provides more control over how variables are used, enabling advanced animations that were previously only possible with JavaScript.
 
 ## Pseudo-class
 

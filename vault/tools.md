@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1715673775577
+updated: 1715911216770
 created: 1644799670081
 ---
 
@@ -34,6 +34,7 @@ created: 1644799670081
 - [readme.so](https://github.com/octokatherine/readme.so) - An online drag-and-drop editor to easily build READMEs
 - [resume.io](https://resume.io/) - ONLINE RESUME BUILDER
 - [Slidev](https://github.com/slidevjs/slidev) - Presentation Slides for Developers
+- [Edit PDFs for free with Firefox PDF Editor](https://www.mozilla.org/en-GB/firefox/features/pdf-editor/)
 
 ## Network
 
