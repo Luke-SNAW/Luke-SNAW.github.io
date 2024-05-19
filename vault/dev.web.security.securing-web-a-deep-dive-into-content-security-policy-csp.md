@@ -1,7 +1,7 @@
 ---
 id: mobas0nmq2ikdyuhhohudt7
-title: 🔒Securing Web: A Deep Dive into Content Security Policy (CSP)
-desc: ''
+title: "🔒Securing Web: A Deep Dive into Content Security Policy (CSP)"
+desc: ""
 updated: 1708662613002
 created: 1708662499000
 ---
