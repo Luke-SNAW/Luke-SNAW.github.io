@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1716075606088
+updated: 1716191620618
 created: 1667632965028
 ---
 
 ## Week 21, 2024
 
+- [New alternatives to innerHTML](https://fullystacked.net/innerhtml-alternatives/)
+  - `setHTML`
+  - `setHTMLUnsafe` does not perform input sanitization. The setHTMLUnsafe method is particularly useful for working with declarative shadow DOM, where the contents of a `<template>` element with the shadowrootmode attribute need to be rendered as shadow DOM. The setHTML method would remove the template element entirely, whereas setHTMLUnsafe preserves it.
+- [A Brief Note on Highlighted Text](https://adrianroselli.com/2024/05/a-brief-note-on-highlighted-text.html)
+  > If you plan to style text highlighted by the browser, you must give it sufficient contrast — 3:1 for the highlight block against its background and (probably) 4.5:1 for the text within that highlighted block against that background.
+- [Target=\_blank implies rel=noopener](https://www.stefanjudis.com/today-i-learned/target-blank-implies-rel-noopener/)
+- [Thinking out loud about 2nd-gen Email](https://gabrielsieben.tech/2024/05/17/thinking-out-loud-2nd-gen-email/)
 - [Files](https://github.com/files-community/Files) - Building the best file manager for Windows
 
 ## Week 20, 2024

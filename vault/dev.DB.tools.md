@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1712276537354
+updated: 1716182061435
 created: 1646011997576
 ---
 
@@ -45,6 +45,7 @@ created: 1646011997576
 
 - [DBeaver](https://github.com/dbeaver/dbeaver) - Free universal database tool and SQL client
 - [DataGrip](https://www.jetbrains.com/datagrip/)
+- [Sequel-Ace](https://github.com/Sequel-Ace/Sequel-Ace) - MySQL/MariaDB database management for macOS
 
 ## Query builder
 

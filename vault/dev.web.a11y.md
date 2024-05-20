@@ -2,7 +2,7 @@
 id: 7tPeWrJHQmeiMg4HWoymw
 title: Accessibility
 desc: ""
-updated: 1711698023220
+updated: 1716190919943
 created: 1644817740456
 ---
 
@@ -29,6 +29,8 @@ created: 1644817740456
 - [Designing better target sizes](https://ishadeed.com/article/target-size/)
 - [You Want border-color: transparent, Not border: none](https://frontendmasters.com/blog/you-want-border-color-transparent-not-border-none/)
   - `@media (forced-colors: active)`
+- [A Brief Note on Highlighted Text](https://adrianroselli.com/2024/05/a-brief-note-on-highlighted-text.html)
+  > If you plan to style text highlighted by the browser, you must give it sufficient contrast — 3:1 for the highlight block against its background and (probably) 4.5:1 for the text within that highlighted block against that background.
 
 ## [prefers-reduced-motion](https://news.ycombinator.com/item?id=31765773)
 
