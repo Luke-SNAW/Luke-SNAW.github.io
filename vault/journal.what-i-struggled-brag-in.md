@@ -2,9 +2,26 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1713247179891
+updated: 1716442837554
 created: 1669264809793
 ---
+
+## Week 21, 2024 - Swiper
+
+오른쪽 끝까지 swipe 했을 때 빈 공간이 남는다.
+
+|◼️◼️◼️| → |◼️◻️◻️|
+
+이번에 major version v11로 update한 Swiper core API를 사용하면 `slidesOffsetAfter` 값을 수동으로 계산해서 넣으면 되긴 하지만,
+이전에 Swiper element 쓴 code들은 저 계산 없이 정상 동작한다.
+
+```html
+<swiper-container slides-per-view="auto">
+  <swiper-slide class="w-16" />
+</swiper-container>
+```
+
+core API에도 slidesPerView와 width 설정해봤지만 중간에 [layer 하나가 추가](https://swiperjs.com/migration-guide-v10#swiper-element-layout)된 것 때문인지 안됨.
 
 ## Week 16, 2024 - Blurry text on canvas
 

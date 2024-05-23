@@ -2,7 +2,7 @@
 id: pa1bstln0xt54o30z6taebc
 title: Web Performance
 desc: ""
-updated: 1715307018742
+updated: 1716422747332
 created: 1646012221215
 ---
 
@@ -27,3 +27,4 @@ created: 1646012221215
 - [The Three Cs: 🤝 Concatenate, 🗜️ Compress, 🗳️ Cache](https://csswizardry.com/2023/10/the-three-c-concatenate-compress-cache/)
 - [WebPerf Snippets](https://webperf-snippets.nucliweb.net/)
 - [Latency numbers every frontend developer should know](https://vercel.com/blog/latency-numbers-every-web-developer-should-know)
+- [Improvements to the Speculation Rules API](https://developer.chrome.com/blog/speculation-rules-improvements?hl=en) which allows websites to prefetch or prerender future navigations to improve performance.

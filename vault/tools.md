@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1716187104404
+updated: 1716349315302
 created: 1644799670081
 ---
 
@@ -103,3 +103,5 @@ created: 1644799670081
 - [GeekNews](https://news.hada.io/)
 - [BreakTimer](https://breaktimer.app/)
   > brew install --cask breaktimer
+- [QPick.app](https://qpick.app/) website for making random choices easy and fun!
+  - https://qpick.app/burger,pizza,chicken

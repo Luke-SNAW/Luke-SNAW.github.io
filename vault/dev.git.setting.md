@@ -2,7 +2,7 @@
 id: l29gxghljchn5f6o27ma72d
 title: Git global setting
 desc: ""
-updated: 1715845293494
+updated: 1716339135353
 created: 1655167183618
 ---
 
@@ -87,4 +87,7 @@ If your `core.whitespace` is already set, you should add `cr-at-eol` to the end 
 
 ```shell
 git config --global init.defaultBranch main
+# Global ignore
+echo .DS_Store >> ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
 ```

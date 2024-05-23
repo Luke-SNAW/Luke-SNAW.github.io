@@ -2,12 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1716257682398
+updated: 1716436561584
 created: 1667632965028
 ---
 
 ## Week 21, 2024
 
+- [Leaked OpenAI documents reveal aggressive tactics toward former employees](https://www.vox.com/future-perfect/351132/openai-vested-equity-nda-sam-altman-documents-employees)
+- [Improvements to the Speculation Rules API](https://developer.chrome.com/blog/speculation-rules-improvements?hl=en) which allows websites to prefetch or prerender future navigations to improve performance.
+- [QPick.app](https://qpick.app/) website for making random choices easy and fun!
+  - https://qpick.app/burger,pizza,chicken
 - [Rethinking Text Resizing on Web](https://medium.com/airbnb-engineering/rethinking-text-resizing-on-web-1047b12d2881)
   - Airbnb has made improving web accessibility a priority, focusing on the WCAG 1.4.4 Resize Text guideline. This guideline is important for users with low vision, as it requires web content to be maintained when text is scaled 200%.
 - [New alternatives to innerHTML](https://fullystacked.net/innerhtml-alternatives/)
