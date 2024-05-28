@@ -2,12 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1716436561584
+updated: 1716782506642
 created: 1667632965028
 ---
 
+## Week 22, 2024
+
+- [Bubble.ai](https://www.profgalloway.com/bubble-ai/)
+- [Google scrambles to manually remove weird AI answers in search](https://www.theverge.com/2024/5/24/24164119/google-ai-overview-mistakes-search-race-openai)
+
 ## Week 21, 2024
 
+- [iTerm2 and AI hype overload](https://xeiaso.net/notes/2024/ai-hype/)
+  > A terminal emulator is probably one of the most privileged programs.
+  > It deals with all the secrets in the world, and the threat that it could be used to upload them all to a third party is great enough that people are willing to switch away from it sight unseen.
+  >
+  > not letting you use local models
 - [Leaked OpenAI documents reveal aggressive tactics toward former employees](https://www.vox.com/future-perfect/351132/openai-vested-equity-nda-sam-altman-documents-employees)
 - [Improvements to the Speculation Rules API](https://developer.chrome.com/blog/speculation-rules-improvements?hl=en) which allows websites to prefetch or prerender future navigations to improve performance.
 - [QPick.app](https://qpick.app/) website for making random choices easy and fun!

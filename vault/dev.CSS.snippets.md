@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1712646857029
+updated: 1716878476680
 created: 1646129148295
 ---
 
@@ -53,5 +53,59 @@ img {
 ```css
 h1:has(+ h2) {
   color: blue;
+}
+```
+
+## Default setting
+
+```scss
+// fonts
+* {
+  &:lang(ko) {
+    word-break: keep-all;
+  }
+  &:lang(en) {
+    word-break: keep-all;
+  }
+  &:lang(ja) {
+    word-break: normal;
+    word-break: auto-phrase; // From Chrome 119. https://developer.chrome.com/blog/css-i18n-features?hl=en
+  }
+}
+*,
+code,
+kbd,
+samp,
+pre {
+  // 따로 지정하지 않고 *만 쓰면 나머지 tag는 tailwind 기본 reset style이 적용됨.
+  font-family: "Apple SD Gothic Neo", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+// #region text-wrap - https://codersblock.com/blog/nicer-text-wrapping-with-css-text-wrap/#in-closing
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+div,
+p {
+  text-wrap: pretty;
+}
+// #endregion
+
+// reset
+@layer reset {
+  @tailwind base;
+
+  body {
+    @apply text-16 text-grey-900;
+  }
 }
 ```
