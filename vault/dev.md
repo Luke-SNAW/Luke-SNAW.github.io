@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1713845079675
+updated: 1716940507043
 created: 1644451403760
 ---
 
@@ -43,6 +43,8 @@ created: 1644451403760
 - [Devin: AI Software Engineer - comments](https://news.ycombinator.com/item?id=39679787)
   - [They actually dont do ANYTHING themselfs](https://old.reddit.com/r/cscareerquestions/comments/1bd12gc/relevant_news_cognition_labs_today_were_excited/kujyidr/) - Analytics: Hotjar, Website: NextJS, Login: Clerk, Jobs: Ashby, Waitlist: Google docs (ROFL), Learn more about their funding: A link to twitter
 - [5 things I learned while developing a billing system](https://arnon.dk/5-things-i-learned-developing-billing-system/)
+- [Doing is normally distributed, learning is log-normal](https://hiandrewquinn.github.io/til-site/posts/doing-is-normally-distributed-learning-is-log-normal/)
+  - Software estimation is challenging because it fails to recognize that learning is non-normally distributed.
 
 ### re:Work
 

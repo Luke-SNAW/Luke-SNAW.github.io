@@ -2,7 +2,7 @@
 id: g1fngdjl25nes6fs3lip602
 title: Communication
 desc: ""
-updated: 1707697704108
+updated: 1716963527120
 created: 1652404654841
 ---
 
@@ -12,6 +12,8 @@ created: 1652404654841
 - [How to embrace asynchronous communication for remote work](https://about.gitlab.com/company/culture/all-remote/asynchronous/)
 - [Uncurled](https://un.curl.dev/) - running and maintaining Open Source projects for three decades #bookshelf
 - [How to Disagree](http://www.paulgraham.com/disagree.html)
+- [Become excellent. Be unreasonable.](https://www.youtube.com/watch?v=wIRuMJj_igE)
+  - https://corely.ai/content/become-excellent-be-unreasonable
 
 ## [철학자가 말하는 인간관계 핵심 2가지](https://www.youtube.com/watch?v=FX3uttXwETc)
 
@@ -25,3 +27,5 @@ created: 1652404654841
 - Individuals who think outside rigid frameworks have changed society by pursuing their own visions.
 - Art like Picasso's paintings show there are no fixed or single correct ways of viewing something.
 - Communication is a **skill that requires practice understanding others' emotions and intentions through "language games"**.
+
+T

@@ -2,7 +2,7 @@
 id: 6w36dgapan7eummy1q6jpx1
 title: Back End
 desc: ""
-updated: 1714708796590
+updated: 1716962886691
 created: 1649297934004
 ---
 
@@ -22,6 +22,8 @@ created: 1649297934004
 - [DOS](https://en.wikipedia.org/wiki/Denial-of-service_attack) protection
 - Using Maps/Tables/Dictionaries
 - [N + 1 Problem](https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping)
+- [Your API Shouldn't Redirect HTTP to HTTPS](https://jviide.iki.fi/http-redirects)
+  - Redirection can lead to sensitive data being transmitted in plaintext before the encrypted connection is established.
 
 ## Auth
 

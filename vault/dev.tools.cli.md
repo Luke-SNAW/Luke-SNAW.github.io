@@ -2,7 +2,7 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1715902918922
+updated: 1716962690442
 created: 1653704390962
 ---
 
@@ -15,6 +15,7 @@ created: 1653704390962
 - [mise-en-place](https://github.com/jdx/mise) - dev tools, env vars, task runner
 - [Flox](https://github.com/flox/flox/) is a virtual environment and package manager all in one.
 - [chezmoi](https://github.com/twpayne/chezmoi) - Manage your dotfiles across multiple diverse machines, securely.
+- [Terminal Text Effects](https://github.com/ChrisBuilds/terminaltexteffects)
 
 ## Shell
 

@@ -1,13 +1,20 @@
 ---
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
-desc: ""
-updated: 1716782506642
+desc: ''
+updated: 1716963302644
 created: 1667632965028
 ---
 
 ## Week 22, 2024
 
+- [An Anonymous Source Shared Thousands of Leaked Google Search API Documents with Me; Everyone in SEO Should See Them](https://sparktoro.com/blog/an-anonymous-source-shared-thousands-of-leaked-google-search-api-documents-with-me-everyone-in-seo-should-see-them/)
+  > https://hexdocs.pm/google_api_content_warehouse/0.4.0/api-reference.html
+- [Your API Shouldn't Redirect HTTP to HT
+  - Redirection can lead to sensitive data being transmitted in plaintext before the encrypted connection is established.
+- [Terminal Text Effects](https://github.com/ChrisBuilds/terminaltexteffects)
+- [Doing is normally distributed, learning is log-normal](https://hiandrewquinn.github.io/til-site/posts/doing-is-normally-distributed-learning-is-log-normal/)
+  - Software estimation is challenging because it fails to recognize that learning is non-normally distributed.
 - [Bubble.ai](https://www.profgalloway.com/bubble-ai/)
 - [Google scrambles to manually remove weird AI answers in search](https://www.theverge.com/2024/5/24/24164119/google-ai-overview-mistakes-search-race-openai)
 
