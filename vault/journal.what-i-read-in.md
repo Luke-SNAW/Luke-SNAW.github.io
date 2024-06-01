@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ''
-updated: 1716963302644
+updated: 1717236584740
 created: 1667632965028
 ---
 
 ## Week 22, 2024
 
+- [Polyfill.io, 중국 CDN 기업에 인수된 후 보안 및 안정성 문제 발생](https://x.com/hmartapp/status/1796729141309673554)
+  - [polyfill.io now available on cdnjs: reduce your supply chain risk](https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk)
 - [An Anonymous Source Shared Thousands of Leaked Google Search API Documents with Me; Everyone in SEO Should See Them](https://sparktoro.com/blog/an-anonymous-source-shared-thousands-of-leaked-google-search-api-documents-with-me-everyone-in-seo-should-see-them/)
   > https://hexdocs.pm/google_api_content_warehouse/0.4.0/api-reference.html
 - [Your API Shouldn't Redirect HTTP to HT

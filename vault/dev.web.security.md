@@ -2,7 +2,7 @@
 id: fm8vm79bnyq6fq1gu2oq2zr
 title: Web Security
 desc: ""
-updated: 1705303459797
+updated: 1717236592104
 created: 1645751778639
 ---
 
@@ -36,3 +36,5 @@ created: 1645751778639
 - [Preventing HTTPS Downgrade Attacks](https://auth0.com/blog/preventing-https-downgrade-attacks/)
   > - configuring servers to redirect all HTTP traffic to HTTPS and setting the HTTP Content-Security-Policy and Strict-Transport-Security headers to enforce HTTPS-only browsing
   > - The HSTS preload directive further strengthens security by ensuring browsers always use HTTPS for a domain
+- [Polyfill.io, 중국 CDN 기업에 인수된 후 보안 및 안정성 문제 발생](https://x.com/hmartapp/status/1796729141309673554)
+  - [polyfill.io now available on cdnjs: reduce your supply chain risk](https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk)
