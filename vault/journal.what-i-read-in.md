@@ -2,23 +2,26 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1717387936055
+updated: 1717395880085
 created: 1667632965028
 ---
+
+## Week 23, 2024
+
+- [LLMs Aren’t Just “Trained On the Internet” Anymore](https://allenpike.com/2024/llms-trained-on-internet)
+- [Stealing everything you’ve ever typed or viewed on your own Windows PC is now possible with two lines of code — inside the Copilot+ Recall disaster.](https://doublepulsar.com/recall-stealing-everything-youve-ever-typed-or-viewed-on-your-own-windows-pc-is-now-possible-da3e12e9465e)
 
 ## Week 22, 2024
 
 - [Polyfill.io, 중국 CDN 기업에 인수된 후 보안 및 안정성 문제 발생](https://x.com/hmartapp/status/1796729141309673554)
   - [polyfill.io now available on cdnjs: reduce your supply chain risk](https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk)
+- [Why, after 6 years, I’m over GraphQL](https://bessey.dev/blog/2024/05/24/why-im-over-graphql/)
+- [Three Laws of Software Complexity](https://maheshba.bitbucket.io/blog/2024/05/08/2024-ThreeLaws.html)
+  1. A well-designed system will degrade into a badly designed system over time.
+  2. Complexity is a Moat (filled by Leaky Abstractions).
+  3. There is no fundamental upper limit on Software Complexity.
 - [An Anonymous Source Shared Thousands of Leaked Google Search API Documents with Me; Everyone in SEO Should See Them](https://sparktoro.com/blog/an-anonymous-source-shared-thousands-of-leaked-google-search-api-documents-with-me-everyone-in-seo-should-see-them/)
-  > https://hexdocs.pm/google_api_content_warehouse/0.4.0/api-reference.html
-- [Your API Shouldn't Redirect HTTP to HT
-  - Redirection can lead to sensitive data being transmitted in plaintext before the encrypted connection is established.
-- [Terminal Text Effects](https://github.com/ChrisBuilds/terminaltexteffects)
-- [Doing is normally distributed, learning is log-normal](https://hiandrewquinn.github.io/til-site/posts/doing-is-normally-distributed-learning-is-log-normal/)
-  - Software estimation is challenging because it fails to recognize that learning is non-normally distributed.
-- [An Anonymous Source Shared Thousands of Leaked Google Search API Documents with Me; Everyone in SEO Should See Them](https://sparktoro.com/blog/an-anonymous-source-shared-thousands-of-leaked-google-search-api-documents-with-me-everyone-in-seo-should-see-them/)
-- [Your API Shouldn't Redirect HTTP to HT
+- [Your API Shouldn't Redirect HTTP to HTTPS](https://jviide.iki.fi/http-redirects)
   - Redirection can lead to sensitive data being transmitted in plaintext before the encrypted connection is established.
 - [Terminal Text Effects](https://github.com/ChrisBuilds/terminaltexteffects)
 - [Doing is normally distributed, learning is log-normal](https://hiandrewquinn.github.io/til-site/posts/doing-is-normally-distributed-learning-is-log-normal/)
