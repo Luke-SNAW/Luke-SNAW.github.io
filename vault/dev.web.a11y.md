@@ -2,7 +2,7 @@
 id: 7tPeWrJHQmeiMg4HWoymw
 title: Accessibility
 desc: ""
-updated: 1716257720364
+updated: 1717488840264
 created: 1644817740456
 ---
 
@@ -28,6 +28,7 @@ created: 1644817740456
 - [Designing better target sizes](https://ishadeed.com/article/target-size/)
 - [You Want border-color: transparent, Not border: none](https://frontendmasters.com/blog/you-want-border-color-transparent-not-border-none/)
   - `@media (forced-colors: active)`
+- [모두를 위한 디자인](https://a11y.gitbook.io/wcag)
 
 ## Text
 
