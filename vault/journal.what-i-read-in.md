@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1717488831217
+updated: 1717736652266
 created: 1667632965028
 ---
 
 ## Week 23, 2024
 
+- [Should I Use JWTs For Authentication Tokens?](https://blog.ploetzli.ch/2024/should-i-use-jwt-for-authentication/)
+  > They are designed for large-scale environments like Google and Facebook, where the benefits of JWTs (not needing to query a user database for every request) outweigh the drawbacks. However, for most applications that process less than 10,000 requests per second, the complexity of JWTs is unnecessary. A simpler approach is to use a normal opaque session token stored in a database, which is the approach used by most web frameworks.
 - [모두를 위한 디자인](https://a11y.gitbook.io/wcag)
 - [LLMs Aren’t Just “Trained On the Internet” Anymore](https://allenpike.com/2024/llms-trained-on-internet)
 - [Stealing everything you’ve ever typed or viewed on your own Windows PC is now possible with two lines of code — inside the Copilot+ Recall disaster.](https://doublepulsar.com/recall-stealing-everything-youve-ever-typed-or-viewed-on-your-own-windows-pc-is-now-possible-da3e12e9465e)
