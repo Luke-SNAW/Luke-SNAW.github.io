@@ -2,9 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1717736652266
+updated: 1718005062951
 created: 1667632965028
 ---
+
+## Week 24, 2024
+
+- [Microsoft Will Switch Off Recall by Default After Security Backlash](https://www.wired.com/story/microsoft-recall-off-default-security-concerns/)
+  > Satya Nadella told the entire Microsoft org that if anyone had to choose between features and security, to choose security. I'm hearing from Microsoft people that all product roadmaps are deferred for a few months while security features are addressed. Their whole corporate spiel is "Microsoft runs on trust" (see the famous standards of business training on youtube).
+  >
+  > And then someone goes and invents Recall. This is not the work of a lone engineer and a principal PM fishing for Impact or whatever they call success at Microsoft. This had to have gone through multiple levels of review. Microsoft PMs, CVPs, their corpo legal people, marketing approval. And yet no one stopped to say, "wait, this could blow up in our faces"? — https://news.ycombinator.com/item?id=40615205
+- [Cancel Adobe if you are a creative under NDA with your clients](https://x.com/Stretchedwiener/status/1798153619285708909)
 
 ## Week 23, 2024
 
