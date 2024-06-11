@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1714443201385
+updated: 1718077344907
 created: 1645751512675
 ---
 
@@ -40,6 +40,8 @@ created: 1645751512675
   - Simple, progressive techniques like serving HTML first make sites robust and usable for all.
   - The goal is caring for all people who use the web, not prioritizing new technologies.
 - [The Wax and the Wane of the Web](https://alistapart.com/article/the-wax-and-the-wane-of-the-web/)
+- ["Web components" considered harmful](https://www.mayank.co/blog/web-components-considered-harmful/)
+  > It's better to use the specific names (custom elements, shadow DOM, templates) instead of the umbrella term "web components" to avoid confusion and make these APIs more approachable.
 
 ## Webview Case
 

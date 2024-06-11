@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1718005062951
+updated: 1718090037133
 created: 1667632965028
 ---
 
 ## Week 24, 2024
 
+- [ANTI-CHEAT EXPERT: ALL YOUR PIXELS ARE BELONG TO US](https://invlpg.dev/post/ace_screenshots/)
+- ["Web components" considered harmful](https://www.mayank.co/blog/web-components-considered-harmful/)
+  > It's better to use the specific names (custom elements, shadow DOM, templates) instead of the umbrella term "web components" to avoid confusion and make these APIs more approachable.
+- ["AI-powered" has become a red flag](https://iml.bearblog.dev/ai-powered-has-become-a-red-flag/)
+- [Keylogger discovered in image generator extension](https://old.reddit.com/r/comfyui/comments/1dbls5n/psa_if_youve_used_the_comfyui_llmvision_node_from/)
 - [Microsoft Will Switch Off Recall by Default After Security Backlash](https://www.wired.com/story/microsoft-recall-off-default-security-concerns/)
   > Satya Nadella told the entire Microsoft org that if anyone had to choose between features and security, to choose security. I'm hearing from Microsoft people that all product roadmaps are deferred for a few months while security features are addressed. Their whole corporate spiel is "Microsoft runs on trust" (see the famous standards of business training on youtube).
   >
