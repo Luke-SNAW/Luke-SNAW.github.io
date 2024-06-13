@@ -2,7 +2,7 @@
 id: 6en2z3q3u4pnrn5todipo0s
 title: Mac tools
 desc: ""
-updated: 1715840586559
+updated: 1718265509848
 created: 1652405135977
 ---
 
@@ -16,6 +16,8 @@ created: 1652405135977
 - [ImageOptim](https://imageoptim.com/mac) makes images load faster
 - [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
   - [맥 한영전환 딜레이 해결방법](https://blog.naver.com/PostView.naver?blogId=rkdals530&logNo=222385359410) - karabiner에서 right_command를 남는 function key로 binding하고, macOS [시스템 환경설정 - 키보드 - 단축키 - 입력 소스]에 들어가서 입력 메뉴에서 다음 소스 선택을 right_command를 누르면 해당 function key로 설정된다.
+- [AlDente - Charge Limiter🍝](https://github.com/AppHouseKitchen/AlDente-Charge-Limiter) - MacOS menu bar tool to limit maximum charging percentage
+- [Boop.](https://github.com/IvanMathy/Boop) - A scriptable scratchpad for developers.
 
 ## Dev
 
@@ -28,11 +30,11 @@ created: 1652405135977
 
 ## Tiling window manager
 
-- [Rectangle](https://github.com/rxhanson/Rectangle) - Move and resize windows on macOS with keyboard shortcuts and snap areas
-- [Amethyst](https://github.com/ianyh/Amethyst) - Automatic tiling window manager for macOS à la xmonad.
+- [AeroSpace is an i3-like tiling window manager for macOS](https://github.com/nikitabobko/AeroSpace)
 - [Yabai](https://github.com/koekeishiya/yabai) - A tiling window manager for macOS based on binary space partitioning
 
 ## Menu bar
 
 - [Itsycal for Mac](https://www.mowglii.com/itsycal/) is a tiny menu bar calendar.
 - [Hidden Bar](https://github.com/dwarvesf/hidden) lets you hide menu bar items to give your Mac a cleaner look.
+- [RunCat](https://kyome.io/runcat/index.html?lang=en) - The cat tells you the CPU usage of Mac by running speed.

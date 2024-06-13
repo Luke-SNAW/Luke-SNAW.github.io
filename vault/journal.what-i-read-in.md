@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1718090037133
+updated: 1718265505610
 created: 1667632965028
 ---
 
 ## Week 24, 2024
 
+- [RunCat](https://kyome.io/runcat/index.html?lang=en) - The cat tells you the CPU usage of Mac by running speed.
+- [Boop.](https://github.com/IvanMathy/Boop) - A scriptable scratchpad for developers.
+- [AlDente - Charge Limiter🍝](https://github.com/AppHouseKitchen/AlDente-Charge-Limiter) - MacOS menu bar tool to limit maximum charging percentage
+- [Study shows N95 masks near-perfect at blocking escape of airborne COVID-19](https://sph.umd.edu/news/study-shows-n95-masks-near-perfect-blocking-escape-airborne-covid-19)
+- [UUIDv7: The Time-Sortable Identifier for Modern Databases](https://uuid7.com/)
+- [SQLite As An Application File Format](https://www.sqlite.org/aff_short.html)
+- [AeroSpace is an i3-like tiling window manager for macOS](https://github.com/nikitabobko/AeroSpace)
 - [ANTI-CHEAT EXPERT: ALL YOUR PIXELS ARE BELONG TO US](https://invlpg.dev/post/ace_screenshots/)
 - ["Web components" considered harmful](https://www.mayank.co/blog/web-components-considered-harmful/)
   > It's better to use the specific names (custom elements, shadow DOM, templates) instead of the umbrella term "web components" to avoid confusion and make these APIs more approachable.
