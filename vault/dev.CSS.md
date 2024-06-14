@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1715912748855
+updated: 1718344763489
 created: 1646129148306
 ---
 
@@ -92,6 +92,7 @@ created: 1646129148306
 - [The Times You Need A Custom @property Instead Of A CSS Variable](https://www.smashingmagazine.com/2024/05/times-need-custom-property-instead-css-variable/)
   > CSS custom properties allow developers to specify the syntax, initial value, and inheritance behavior of CSS variables.
   > This provides more control over how variables are used, enabling advanced animations that were previously only possible with JavaScript.
+- [CSS Length Units](https://css-tricks.com/css-length-units/)
 
 ## Pseudo-class
 

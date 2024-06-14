@@ -2,9 +2,29 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1716442837554
+updated: 1718325692818
 created: 1669264809793
 ---
+
+## Week 24, 2024 - iOS border height style
+
+```html
+<section class="!h-4 | flex gap-1 | text-10">
+  <div
+    class="w-fit font-bold px-[6px] rounded-full | flex items-center"
+    :class="
+              isNutritionCard
+                ? 'text-grey-500 border border-grey-500'
+                : 'text-grey-50 bg-[#00000099]'
+            "
+  >
+    <!--! chip에서 직접 height를 지정하면, border 유무에 따라 iOS safari와 다른 browser에서 height 계산을 다르게 해서 parent에서 height를 고정 -->
+    {{ topic.category }}
+  </div>
+</section>
+```
+
+비슷하게 chip class style 작성할 때, padding-top 잡는 위치가 1px 차이나서 이걸 고치면 하나씩 엇나가보여, height 25px → 26px 로 수정한 case도 있다.
 
 ## Week 21, 2024 - Swiper
 

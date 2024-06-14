@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1715843746672
+updated: 1718344713183
 created: 1644885695231
 ---
 
@@ -123,6 +123,7 @@ In addition - “template” also conveys correct semantics to the other develop
 - [Build an OTP input field](https://phuoc.ng/collection/html-dom/build-an-otp-input-field/)
 - [Form fields: File input fields](https://thevalleyofcode.com/form-fields/5-file-input-fields)
 - [Form fields: Autocompleting form fields](https://thevalleyofcode.com/form-fields/8-autocompleting-form-fields)
+- [Fine-tuning Text Inputs](https://garrettdimon.com/journal/posts/fine-tuning-text-inputs)
 
 ## [How to Use Responsive HTML Video (...and Audio!)](https://scottjehl.com//posts/using-responsive-video/)
 

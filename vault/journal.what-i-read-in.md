@@ -2,12 +2,21 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1718265505610
+updated: 1718344751367
 created: 1667632965028
 ---
 
 ## Week 24, 2024
 
+- [CSS Length Units](https://css-tricks.com/css-length-units/)
+- [Fine-tuning Text Inputs](https://garrettdimon.com/journal/posts/fine-tuning-text-inputs)
+- [Cap Unit](https://ishadeed.com/article/css-cap-unit/)
+- [Group chats rule the world](https://sriramk.com/group-chats-rule-the-world)
+  > — Salons and groups have always existed but why the recent shift to private discourse?  
+  > Because the public internet makes it too easy for people to sell you stuff, extract value from you, or harass you. Private chats are human-scale environments where understandable social norms---not commerce, algorithms, or formal rules---drive the interactions. It's an authentic experience. [#](https://news.ycombinator.com/item?id=40673318)
+- [The Expanding Dark Forest and Generative AI](https://maggieappleton.com/ai-dark-forest)
+  > As AI takes over the public internet (the trees) the people will retreat to safe underground spaces where they know only authentic humans live. [#](https://news.ycombinator.com/item?id=40673389)
+- [Microsoft Chose Profit Over Security and Left U.S. Government Vulnerable to](https://www.propublica.org/article/microsoft-solarwinds-golden-saml-data-breach-russian-hackers)
 - [RunCat](https://kyome.io/runcat/index.html?lang=en) - The cat tells you the CPU usage of Mac by running speed.
 - [Boop.](https://github.com/IvanMathy/Boop) - A scriptable scratchpad for developers.
 - [AlDente - Charge Limiter🍝](https://github.com/AppHouseKitchen/AlDente-Charge-Limiter) - MacOS menu bar tool to limit maximum charging percentage
