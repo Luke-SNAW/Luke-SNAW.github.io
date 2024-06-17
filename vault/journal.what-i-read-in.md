@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1718344751367
+updated: 1718607746758
 created: 1667632965028
 ---
+
+## Week 25, 2024
+
+- [Start Presentations on the Second Slide](https://tidyfirst.substack.com/p/start-presentations-on-the-second)
+- [Do not try to be the smartest in the room; try to be the kindest.](https://www.jorgegalindo.me/en/blog/posts/do-not-be-the-smartest-in-the-room-try-to-be-the-kindest)
+- [How Stripe’s document databases supported 99.999% uptime with zero-downtime data migrations](https://stripe.com/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations)
 
 ## Week 24, 2024
 
