@@ -2,12 +2,23 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1718607746758
+updated: 1718843500274
 created: 1667632965028
 ---
 
 ## Week 25, 2024
 
+- [DB Browser for SQLite](https://github.com/sqlitebrowser/sqlitebrowser)
+- [Google Gemini tried to kill me](https://old.reddit.com/r/ChatGPT/comments/1diljf2/google_gemini_tried_to_kill_me/)
+- [Cyber Scarecrow](https://www.cyberscarecrow.com/)
+- [Twitter’s Clumsy Pivot to X.com Is a Gift to Phishers](https://krebsonsecurity.com/2024/04/twitters-clumsy-pivot-to-x-com-is-a-gift-to-phishers/)
+- [Mocking is an Anti-Pattern](https://www.amazingcto.com/mocking-is-an-antipattern-how-to-test-without-mocking/) - Mocking is an anti-pattern. Mocking adds complexity, is hard to maintain, introduces its own bugs, doesn't test what should be tested and creates a false sense of security. Several things you can do instead:
+  - More unit testing
+  - Easier to Test IO
+  - Just do IO
+  - Separation of logic and services / IO
+  - E2E integration tests
+- [좋은 에러 메시지를 만드는 6가지 원칙](https://toss.tech/article/how-to-write-error-message)
 - [Start Presentations on the Second Slide](https://tidyfirst.substack.com/p/start-presentations-on-the-second)
 - [Do not try to be the smartest in the room; try to be the kindest.](https://www.jorgegalindo.me/en/blog/posts/do-not-be-the-smartest-in-the-room-try-to-be-the-kindest)
 - [How Stripe’s document databases supported 99.999% uptime with zero-downtime data migrations](https://stripe.com/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations)

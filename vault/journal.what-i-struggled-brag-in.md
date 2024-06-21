@@ -2,9 +2,13 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1718325692818
+updated: 1718863388752
 created: 1669264809793
 ---
+
+## Week 25, 2025 - PDF Generator
+
+이전 [[Pdf Generator|dev.journal.genoplan.pdf-generator]] project를 다시 써야 될 상황이 와서 project를 가져와 package upgrade해서 세팅해보니 Chromium launch error 몇 가지 발생 (Security.setIgnoreCertificateErrors, 등) 2~30분 했는데 다른 error 발생해서 예전 version으로 돌리니 제대로 된다.
 
 ## Week 24, 2024 - iOS border height style
 

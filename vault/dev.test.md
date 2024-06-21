@@ -2,7 +2,7 @@
 id: 1mi9m99hBJq32lfoqGdNB
 title: Test
 desc: ""
-updated: 1714003735767
+updated: 1718672460566
 created: 1645055059758
 ---
 
@@ -34,6 +34,12 @@ created: 1645055059758
 - [Testing on the Toilet: Don't Put Logic in Tests](https://testing.googleblog.com/2014/07/testing-on-toilet-dont-put-logic-in.html)
   > Production code computes outputs from inputs while tests specify concrete input/output pairs. Complex test logic should be moved to helper functions with their own tests, leaving test bodies simple.
 - [TDD's Missing Skill: Behavioral Composition](https://tidyfirst.substack.com/p/tdds-missing-skill-behavioral-composition)
+- [Mocking is an Anti-Pattern](https://www.amazingcto.com/mocking-is-an-antipattern-how-to-test-without-mocking/) - Mocking is an anti-pattern. Mocking adds complexity, is hard to maintain, introduces its own bugs, doesn't test what should be tested and creates a false sense of security. Several things you can do instead:
+  - More unit testing
+  - Easier to Test IO
+  - Just do IO
+  - Separation of logic and services / IO
+  - E2E integration tests
 
 ## [An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach](https://dl.acm.org/doi/10.1145/2961111.2962592)
 
