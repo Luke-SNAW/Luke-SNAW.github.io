@@ -2,9 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1718843500274
+updated: 1719300856975
 created: 1667632965028
 ---
+
+## Week 26, 2024
+
+- [Microsoft Account to local account conversion guide erased from official Windows 11 guide — instructions redacted earlier this week](https://www.tomshardware.com/software/windows/microsoft-account-to-local-account-conversion-guide-erased-from-official-windows-11-guide-instructions-redacted-earlier-this-week)
+- [Readme Driven Development](https://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
+- [Windows 11 is now automatically enabling OneDrive folder backup without asking permission](https://www.neowin.net/news/windows-11-is-now-automatically-enabling-onedrive-folder-backup-without-asking-permission/)
+- [Ruby: a great language for shell scripts!](https://lucasoshiro.github.io/posts-en/2024-06-17-ruby-shellscript/)
+- [llama.ttf](https://fuglede.github.io/llama.ttf/) is a font file which is also a large language model and an inference engine for that model.
+- [함께해요 파이썬 생태계](https://wikidocs.net/book/14021)
+- [EntityCode](https://entitycode.com/)
 
 ## Week 25, 2024
 

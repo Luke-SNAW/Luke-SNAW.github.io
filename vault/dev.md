@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1716940507043
+updated: 1719296541693
 created: 1644451403760
 ---
 
@@ -45,6 +45,7 @@ created: 1644451403760
 - [5 things I learned while developing a billing system](https://arnon.dk/5-things-i-learned-developing-billing-system/)
 - [Doing is normally distributed, learning is log-normal](https://hiandrewquinn.github.io/til-site/posts/doing-is-normally-distributed-learning-is-log-normal/)
   - Software estimation is challenging because it fails to recognize that learning is non-normally distributed.
+- [Readme Driven Development](https://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
 
 ### re:Work
 

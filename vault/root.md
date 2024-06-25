@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1704853672602
+updated: 1719298470122
 created: 1644449449778
 ---
 
@@ -33,6 +33,10 @@ Hi there 👋. I'm a Front-end developer.
 > I think it should be everyone's primary focus to sleep well, drink water, get outside, get active, and eat generally decently. I hate to say it, but if you're not eating a good amount of vegetables and fruit, decent protein, sleep, etc, no amount of XYZ will catch up to that detriment.
 >
 > — [CE02](https://news.ycombinator.com/item?id=35056071)
+
+> Before leaving for the day I leave a comment in code: I’m working on this, need to do A, B C… to get it working.
+>
+> — [makz](https://news.ycombinator.com/item?id=40744916)
 
 ---
 
