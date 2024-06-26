@@ -2,7 +2,7 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1716962690442
+updated: 1719374326485
 created: 1653704390962
 ---
 
@@ -14,13 +14,15 @@ created: 1653704390962
 - [ls-lint](https://github.com/loeffel-io/ls-lint) - An extremely fast directory and filename linter - Bring some structure to your project filesystem
 - [mise-en-place](https://github.com/jdx/mise) - dev tools, env vars, task runner
 - [Flox](https://github.com/flox/flox/) is a virtual environment and package manager all in one.
-- [chezmoi](https://github.com/twpayne/chezmoi) - Manage your dotfiles across multiple diverse machines, securely.
 - [Terminal Text Effects](https://github.com/ChrisBuilds/terminaltexteffects)
+- [chezmoi](https://github.com/twpayne/chezmoi) - Manage your dotfiles across multiple diverse machines, securely.
+- [dotenvx](https://github.com/dotenvx/dotenvx) - _a better dotenv_–from the creator of [`dotenv`](https://github.com/motdotla/dotenv).
+  - run anywhere (cross-platform)
+  - multi-environment
+  - encrypted envs
 
 ## Shell
 
-- [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) - A delightful community-driven (with 2,000+ contributors) framework for managing your zsh configuration.
-- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) - A Zsh theme
 - [try](https://github.com/binpash/try) lets you run a command and inspect its effects before changing your live system. `try` uses Linux's [namespaces (via `unshare`)](https://docs.kernel.org/userspace-api/unshare.html) and the [overlayfs](https://docs.kernel.org/filesystems/overlayfs.html) union filesystem.
 - [atuin](https://github.com/atuinsh/atuin) - ✨ Magical shell history
 - [fish](https://fishshell.com/) - the friendly interactive shell

@@ -2,12 +2,23 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1719300856975
+updated: 1719379285206
 created: 1667632965028
 ---
 
 ## Week 26, 2024
 
+- [Pop!\_OS](https://github.com/pop-os/pop) is an operating system for STEM and creative professionals who use their computer as a tool to discover and create. Unleash your potential on secure, reliable open source software.
+- [A Three-Step Framework For Solving Problems 👌](https://www.lennysnewsletter.com/p/a-three-step-framework-for-solving)
+- [What is Jobs to be Done (JTBD)?](https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca)
+  > Upgrade your user, not your product. Don’t build better cameras — build better photographers.  
+  > — Kathy Sierra
+- [Reshot](https://www.reshot.com/) - Free Icons & Illustrations Design freely with instant downloads and commercial licenses.
+- [1-click Exploit in South Korea's biggest mobile chat app](https://stulle123.github.io/posts/kakaotalk-account-takeover/)
+- [dotenvx](https://github.com/dotenvx/dotenvx) - _a better dotenv_–from the creator of [`dotenv`](https://github.com/motdotla/dotenv).
+  - run anywhere (cross-platform)
+  - multi-environment
+  - encrypted envs
 - [Microsoft Account to local account conversion guide erased from official Windows 11 guide — instructions redacted earlier this week](https://www.tomshardware.com/software/windows/microsoft-account-to-local-account-conversion-guide-erased-from-official-windows-11-guide-instructions-redacted-earlier-this-week)
 - [Readme Driven Development](https://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
 - [Windows 11 is now automatically enabling OneDrive folder backup without asking permission](https://www.neowin.net/news/windows-11-is-now-automatically-enabling-onedrive-folder-backup-without-asking-permission/)

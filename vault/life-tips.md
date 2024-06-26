@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1715658928594
+updated: 1719378448432
 created: 1645514261238
 ---
 
@@ -27,6 +27,17 @@ created: 1645514261238
   - https://news.hada.io/topic?id=14789
 
 ## Focus
+
+### Targeting
+
+- [A Three-Step Framework For Solving Problems 👌](https://www.lennysnewsletter.com/p/a-three-step-framework-for-solving)
+- [What is Jobs to be Done (JTBD)?](https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca)
+  > Upgrade your user, not your product. Don’t build better cameras — build better photographers.  
+  > — Kathy Sierra
+  >
+  > ![Even though customers buy all parts of skateboard, they really want to joy by riding it.](./assets/images/life-tips/what-is-jobs-to-be-done.webp)
+  > The designers at intercom (intercom.com) use this illustration to show what is, and isn’t, important to customers.
+  - https://www.revealed.market/when-coffee-and-kale-compete
 
 ### [wodenokoto](https://news.ycombinator.com/item?id=33258142)
 
