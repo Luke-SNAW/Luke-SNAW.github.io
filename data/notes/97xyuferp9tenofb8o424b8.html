@@ -1,0 +1,310 @@
+<h1 id="pdf-generator">Pdf Generator<a aria-hidden="true" class="anchor-heading icon-link" href="#pdf-generator"></a></h1>
+<p><a href="https://arc42.org/overview">Arc42</a>와 <a href="https://c4model.com/">C4 model</a>을 참고하여
+프로젝트 문서를 작성</p>
+<h2 id="goal">Goal<a aria-hidden="true" class="anchor-heading icon-link" href="#goal"></a></h2>
+<p>제공되는 웹페이지를 A4 크기의 PDF로 만들어 client에게 제공</p>
+<h3 id="requirements-overview">Requirements Overview<a aria-hidden="true" class="anchor-heading icon-link" href="#requirements-overview"></a></h3>
+<p>기존에 PDF 생성에 사용하던 <a href="https://pdfcrowd.com/">PDFCrowd</a>를 대체할 도구 제작</p>
+<h3 id="quality-goals">Quality Goals<a aria-hidden="true" class="anchor-heading icon-link" href="#quality-goals"></a></h3>
+<ol>
+<li>PDFCrowd보다 저럼하게 → $276/month 보다 저렴히</li>
+<li>PDFCrowd보다 빠르게 PDF 생성 → 20~30초보다 빠르게</li>
+<li>PDFCrowd보다 Scalability 좋게 → 동시 생성 가능 개수를 전체 8개보다 많게</li>
+<li>생성된 PDF를 S3 저장하여 서비스하고 그대로 파일을 방치하는 프로세스를 개선하여 인프라·관리 비용을 줄일 것</li>
+</ol>
+<h3 id="stakeholders">Stakeholders<a aria-hidden="true" class="anchor-heading icon-link" href="#stakeholders"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Expectations</th></tr></thead><tbody><tr><td>Luke</td><td>Project, AWS Infra 관리</td></tr></tbody></table></div>
+<h2 id="constraints">Constraints<a aria-hidden="true" class="anchor-heading icon-link" href="#constraints"></a></h2>
+<h3 id="technical-constraints">Technical Constraints<a aria-hidden="true" class="anchor-heading icon-link" href="#technical-constraints"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Constraint</th><th>Background and / or motivation</th></tr></thead><tbody><tr><td>Web browser로 다운가능</td><td>파트너사나 Report 고객에게 PDF를 제공할 때 가장 접근성이 좋다.</td></tr></tbody></table></div>
+<h2 id="context">Context<a aria-hidden="true" class="anchor-heading icon-link" href="#context"></a></h2>
+<div class="mermaid">
+  C4Context
+  title System Context diagram for PDF download
+
+  Person(user, "User", "People that need PDF")
+  System_Boundary(WebApp, "Web App") {
+    Container(WebPage, "Web Page", "Report, Portal, .com")
+    Container(PdfGenerator, "PDF Generator", "AWS Lambda, S3")
+  }
+
+  BiRel(user, WebPage, "1. Request to download PDF ⬇️ / 4. Download PDF file ⬆️")
+  BiRel(WebPage, PdfGenerator, "2. Request API ➡️ / 3. Redirect to PDF file ⬅️")
+
+  UpdateRelStyle(user, WebPage, $offsetX="-115", $offsetY="-30", $lineColor="blue", $textColor="red")
+  UpdateRelStyle(WebPage, PdfGenerator, $offsetX="-85", $offsetY="45")
+</div>
+<h3 id="user">User<a aria-hidden="true" class="anchor-heading icon-link" href="#user"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>사용자</th><th>용도</th></tr></thead><tbody><tr><td>Report 고객</td><td>Mybook 다운로드</td></tr><tr><td>파트너사</td><td>Mybook 인쇄</td></tr><tr><td>[.com] 고객</td><td>동의서(미리 생성)</td></tr></tbody></table></div>
+<h3 id="build-deployment">Build, Deployment<a aria-hidden="true" class="anchor-heading icon-link" href="#build-deployment"></a></h3>
+<p>github action을 통해 nuxt build.</p>
+<p>client code는 S3, cloudfront로 배포, server code는 aws lambda로 배포.
+(cloudfront는 없어도 될 듯?)</p>
+<p>현재 AWS GPJ dev 계정에만 연결되어 있음. 추후 AWS GPK 계정에도 세팅해야 함.</p>
+<h3 id="html-page-to-pdf-render">HTML page to PDF render<a aria-hidden="true" class="anchor-heading icon-link" href="#html-page-to-pdf-render"></a></h3>
+<p>이 프로젝트에서 생성할 PDF target. 2023년 Q3 현재 back-end에서 제작 중.</p>
+<p>추후 front-end에서 담당할 예정</p>
+<details>
+<summary>예제 URL</summary>
+<ul>
+<li><del>Sample URL A</del></li>
+<li><del>Sample URL B</del>
+</li></ul></details>
+
+
+<h3 id="pdf-file">PDF file<a aria-hidden="true" class="anchor-heading icon-link" href="#pdf-file"></a></h3>
+<p>S3에 저장되는 결과물. github action을 통해 하루 단위로 삭제. <a href="#quality-goals">Quality Goals#4</a></p>
+<p>github 공식문서에서 언급하듯이 <a href="#%ED%95%98%EB%A3%A8-%ED%95%9C-%EB%B2%88-s3-directory-%EC%82%AD%EC%A0%9C">cron 신뢰도가 좀 떨어지므로</a> 2번 trigger 걸어놓음.<br>
+결과는 slack channel로 message 보내게 해뒀으니 체크하여 대응할 수 있도록 함.</p>
+<h2 id="solution-strategy">Solution Strategy<a aria-hidden="true" class="anchor-heading icon-link" href="#solution-strategy"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Quality goal</th><th>Solution Approach</th><th>Details</th></tr></thead><tbody><tr><td>$276/month 보다 저렴히</td><td>AWS Lambda 사용</td><td><a href="#lambda-resource-setting">Lambda resource setting</a></td></tr><tr><td>20~30초보다 빠르게 PDF 생성</td><td>AWS Lambda 사용</td><td><a href="#lambda-resource-setting">Lambda resource setting</a></td></tr><tr><td>동시 생성 가능 개수를 전체 8개보다 많게</td><td>AWS Lambda 사용</td><td><a href="#aws-lambda%EB%A5%BC-%EC%93%B0%EB%8A%94-%EC%9D%B4%EC%9C%A0">AWS Lambda를 쓰는 이유</a></td></tr><tr><td>인프라·관리 비용 줄이기</td><td>Github action cron 사용</td><td><a href="#%ED%95%98%EB%A3%A8-%ED%95%9C-%EB%B2%88-s3-directory-%EC%82%AD%EC%A0%9C-quality-goals4">하루 한 번 S3 dir 삭제</a></td></tr></tbody></table></div>
+<h2 id="building-block-view">Building Block View<a aria-hidden="true" class="anchor-heading icon-link" href="#building-block-view"></a></h2>
+<h3 id="serverroutes">/server/routes/*<a aria-hidden="true" class="anchor-heading icon-link" href="#serverroutes"></a></h3>
+<p>Puppeteer로 지정된 Render URL을 PDF로 생성하여 S3에 저장 후 redirect하는 API</p>
+<h3 id="pages">/pages/*<a aria-hidden="true" class="anchor-heading icon-link" href="#pages"></a></h3>
+<p><a href="https://github.com/eligrey/FileSaver.js">FileSaver.js</a>, <a href="https://github.com/Stuk/jszip">JSZip</a>를 사용하여 client 단에서 Download를 실행시키는 페이지</p>
+<h2 id="runtime-view">Runtime View<a aria-hidden="true" class="anchor-heading icon-link" href="#runtime-view"></a></h2>
+<ul>
+<li>AWS Lambda에서 Puppeteer + <a href="https://github.com/Sparticuz/chromium#-min-package">headless chromium</a>으로 PDF 생성
+<ul>
+<li>이미 생성된 PDF가 있다면 생성과정 없이 바로 redirect</li>
+</ul>
+</li>
+<li>PDF는 <a href="#s3%EB%A5%BC-%EC%8D%A8%EC%95%BC-%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0">S3에 저장</a> 후, 해당 URL을 redirect
+<ul>
+<li>내일을 expire day로 잡아 directory로 생성</li>
+<li><a href="#%ED%95%98%EB%A3%A8-%ED%95%9C-%EB%B2%88-s3-directory-%EC%82%AD%EC%A0%9C">하루 한 번 Github action cron으로 directory 삭제</a></li>
+</ul>
+</li>
+<li>redirect 후 단일 PDF <a href="https://github.com/eligrey/FileSaver.js">저장</a> or <a href="#download-multiple-pdf-into-one-zip-file">복수 개의 PDF라면 zip으로 저장</a></li>
+</ul>
+<h2 id="deployment-view">Deployment View<a aria-hidden="true" class="anchor-heading icon-link" href="#deployment-view"></a></h2>
+<h3 id="gpj-dev-계정">GPJ dev 계정<a aria-hidden="true" class="anchor-heading icon-link" href="#gpj-dev-계정"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Infrastructure</th><th>Description</th></tr></thead><tbody><tr><td>AWS Lambda</td><td><del>Lambda Function URL</del></td></tr><tr><td>AWS S3 client 배포용</td><td><del>S3 URL</del></td></tr><tr><td>AWS S3 PDF resources</td><td><del>S3 URL</del></td></tr></tbody></table></div>
+<h2 id="decision-log">Decision Log<a aria-hidden="true" class="anchor-heading icon-link" href="#decision-log"></a></h2>
+<h3 id="client가-아닌-server-generator을-쓰는-이유">Client가 아닌 server generator을 쓰는 이유<a aria-hidden="true" class="anchor-heading icon-link" href="#client가-아닌-server-generator을-쓰는-이유"></a></h3>
+<p>client에서 생성할 수 있지만, server에서 생성해서 내려주는게 사용자별 browser 호환성 문제 없다.</p>
+<details>
+<summary>Client PDF generator tools</summary>
+<ul>
+<li><a href="https://github.com/parallax/jsPDF">https://github.com/parallax/jsPDF</a></li>
+<li><a href="https://github.com/eKoopmans/html2pdf.js">https://github.com/eKoopmans/html2pdf.js</a>
+</li></ul></details>
+
+
+<h3 id="aws-lambda를-쓰는-이유">AWS Lambda를 쓰는 이유<a aria-hidden="true" class="anchor-heading icon-link" href="#aws-lambda를-쓰는-이유"></a></h3>
+<p>Scalability 확보를 위해. <a href="#quality-goals">Quality Goals#3</a></p>
+<p>복수(30개) pdf 생성 &#x26; 다운로드 테스트해보니 <a href="https://stackoverflow.com/a/985704">browser에서 동시 접속 제한</a>만큼 병렬로 생성 됨 (보통 6개)</p>
+<ul>
+<li>이전 PDFCrowd는 여러 명이 사용해도 전체 8개 제한이 있지만 Lambda는 그런 제한이 없음</li>
+</ul>
+<h3 id="lambda-resource-setting">Lambda resource setting<a aria-hidden="true" class="anchor-heading icon-link" href="#lambda-resource-setting"></a></h3>
+<h4 id="생성에-걸리는-시간-quality-goals2-관련">생성에 걸리는 시간 <a href="#quality-goals">Quality Goals#2 관련</a><a aria-hidden="true" class="anchor-heading icon-link" href="#생성에-걸리는-시간-quality-goals2-관련"></a></h4>
+<p>PDFCrowd의 경우 20~30초</p>
+<p>메모리에 따라 CPU 할당도 변경.<br>
+Sample PDF(6.5초 rendering) 기준, run Puppeteer + Load HTML + save PDF to S3에 걸리는 시간:</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>할당된 메모리</th><th>생성에 걸리는 시간</th></tr></thead><tbody><tr><td>4096MB</td><td>18초</td></tr><tr><td>2048MB</td><td>21초</td></tr><tr><td>1024MB</td><td>48초</td></tr></tbody></table></div>
+<p>CPU를 더 할당해도, lambda cold start와 API response time은 못 줄임.</p>
+<h4 id="가격-quality-goals1-충족">가격 <a href="#quality-goals">Quality Goals#1 충족</a><a aria-hidden="true" class="anchor-heading icon-link" href="#가격-quality-goals1-충족"></a></h4>
+<p>2기가 기준으로 sample pdf 하나당 $0.0006993가 소모된다. (<a href="https://aws.amazon.com/ko/lambda/pricing/#AWS_Lambda_Pricing">memory cpu 가격</a>만 따졌을 때) 1만 건당 7달러.<br>
+2022.08~2023.08의 1년에 약 2만 건. $14 vs $3312(PDFCrowd plan $276/month x 12개월)</p>
+<h3 id="s3를-써야-하는-이유">S3를 써야 하는 이유<a aria-hidden="true" class="anchor-heading icon-link" href="#s3를-써야-하는-이유"></a></h3>
+<p>lambda에서 직접 다운로드 불가 - <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#function-configuration-deployment-and-execution">용량 초과(Invocation payload)</a></p>
+<h3 id="하루-한-번-s3-directory-삭제-quality-goals4">하루 한 번 S3 directory 삭제 <a href="#quality-goals">Quality Goals#4</a><a aria-hidden="true" class="anchor-heading icon-link" href="#하루-한-번-s3-directory-삭제-quality-goals4"></a></h3>
+<p>Github cron issue - <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule">공식 문서</a>에서 schedule time이 부정확하고 누락 가능성도 있다고 언급<br>
+-> 새벽에 2번 실행. slack message 확인 후 안됐으면 github에서 직접 실행 가능</p>
+<p>github actions나 AWS lambda 시간은 UTC+0 기준.</p>
+<h3 id="download-multiple-pdf-into-one-zip-file">Download multiple PDF into one zip file<a aria-hidden="true" class="anchor-heading icon-link" href="#download-multiple-pdf-into-one-zip-file"></a></h3>
+<p>파트너사? 사용자가 하나하나 받기 불편하다고 요청</p>
+<p><a href="https://github.com/eligrey/FileSaver.js">FileSaver.js</a>, <a href="https://github.com/Stuk/jszip">JSZip</a>, <a href="https://github.com/Stuk/jszip-utils">JSZipUtils</a>으로 browser 단에서 받도록</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/985704">browser에서 동시 접속 제한</a>만큼 병렬로 생성 됨 (보통 6개)</li>
+<li>30개 생성 + pdf download + zip 생성 후 저장에 2분 안 걸림 (227.4MB)</li>
+<li><a href="https://github.com/eligrey/FileSaver.js#supported-browsers">chrome에서 2GB 제한</a>. 더 큰 파일은 stream 이용하는 code로 변경해야 함</li>
+</ul>
+<h2 id="references">References<a aria-hidden="true" class="anchor-heading icon-link" href="#references"></a></h2>
+<h3 id="generation-pdf-with-headless-chrome">Generation pdf with headless chrome<a aria-hidden="true" class="anchor-heading icon-link" href="#generation-pdf-with-headless-chrome"></a></h3>
+<p>찾는 문서마다 chromium binary가 몇 년 지난 구 버전뿐이라 다른 문서에서 설명하는 docker image로 올려야 하나 고민했는데 계속 찾아보니 최신 binary를 발견</p>
+<details>
+<summary>참고 URLs</summary>
+<ul>
+<li><a href="https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-on-aws-lambda">Running Puppeteer on AWS Lambda</a>
+<ul>
+<li><a href="https://github.com/Sparticuz/chromium">https://github.com/Sparticuz/chromium</a></li>
+<li><a href="https://github.com/Sparticuz/chromium#-min-package">https://github.com/Sparticuz/chromium#-min-package</a>
+<ul>
+<li><a href="https://github.com/Sparticuz/chromium/blob/master/examples/remote-min-binary/index.js">https://github.com/Sparticuz/chromium/blob/master/examples/remote-min-binary/index.js</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Sparticuz/chromium#running-locally--headlessheadful-mode">https://github.com/Sparticuz/chromium#running-locally--headlessheadful-mode</a></li>
+</ul>
+</li>
+<li><a href="https://dev.to/aws-builders/building-a-pdf-generator-using-aws-lambda-4220#the-best-way-out-serverside-generation">https://dev.to/aws-builders/building-a-pdf-generator-using-aws-lambda-4220#the-best-way-out-serverside-generation</a></li>
+<li><a href="https://blog.carlosnunez.me/post/scraping-chromium-lambda-nodeless-zerostress/#lessons-learned">Also make sure that you use --no-sandbox, --disable-dev-shm-usage, --disable-gpu, and --single-process.</a></li>
+<li><a href="https://wkhtmltopdf.org/downloads.html#stable">https://wkhtmltopdf.org/downloads.html#stable</a> - lambda용 binary가 있어 이것도 괜찮을거 같은데 <code>Qt WebKit rendering engine</code>을 써서 개발 시 귀찮을 듯</li>
+<li><a href="https://awstip.com/pdf-generator-by-puppeteer-on-aws-lambda-with-nestjs-and-serverless-framework-669ba22d9fa">Chromium only supports x86_64 architecture inside lambda docker container, not arm64</a></li>
+<li><a href="https://github.com/alixaxel/chrome-aws-lambda/wiki/HOWTO:-Local-Development">Local Development</a></li>
+<li><a href="https://github.com/Wavelop/download-pdf-aws/blob/main/lambdas/download-pdf.ts">header/footer template</a></li>
+<li><a href="https://apitemplate.io/blog/tips-for-generating-pdfs-with-puppeteer/">puppeteer launch option</a></li>
+<li><a href="https://github.com/puppeteer/puppeteer/issues/1523"><code>browser.newPage()</code> returns null</a></li>
+<li><a href="https://stackoverflow.com/questions/11415665/save-base64-string-as-pdf-at-client-side-with-javascript">save base64 string as pdf at client</a>
+</li></ul></details>
+
+
+<h3 id="etc">Etc<a aria-hidden="true" class="anchor-heading icon-link" href="#etc"></a></h3>
+<details>
+<summary>그 외 참고했던 URLs</summary>
+<ul>
+<li><a href="https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-printToPDF">https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-printToPDF</a></li>
+<li><a href="https://blog.grio.com/2020/08/understanding-pdf-generation-with-headless-chrome.html">https://blog.grio.com/2020/08/understanding-pdf-generation-with-headless-chrome.html</a></li>
+<li><a href="https://developer.chrome.com/blog/headless-chrome/">https://developer.chrome.com/blog/headless-chrome/</a></li>
+<li><a href="https://github.com/GoogleChrome/chrome-launcher">https://github.com/GoogleChrome/chrome-launcher</a></li>
+<li><a href="https://medium.com/compass-true-north/go-service-to-convert-web-pages-to-pdf-using-headless-chrome-5fd9ffbae1af">https://medium.com/compass-true-north/go-service-to-convert-web-pages-to-pdf-using-headless-chrome-5fd9ffbae1af</a></li>
+<li><a href="https://dev.to/aromanarguello/using-aws-lambdas-headless-chrome-to-generate-pdf-files-from-html-b4l">https://dev.to/aromanarguello/using-aws-lambdas-headless-chrome-to-generate-pdf-files-from-html-b4l</a></li>
+<li><a href="https://github.com/alixaxel/chrome-aws-lambda">https://github.com/alixaxel/chrome-aws-lambda</a></li>
+<li><a href="https://github.com/adieuadieu/serverless-chrome">https://github.com/adieuadieu/serverless-chrome</a></li>
+<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">Amazon Linux 2</a>
+<ul>
+<li><a href="https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_ARM_Cross-Compile/">https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_ARM_Cross-Compile/</a></li>
+</ul>
+</li>
+<li><a href="https://dev.to/akirautio/generate-a-pdf-in-aws-lambda-with-nodejs-and-puppeteer-2b93">https://dev.to/akirautio/generate-a-pdf-in-aws-lambda-with-nodejs-and-puppeteer-2b93</a>
+<blockquote>
+<p>And here we have everything to generate PDF in AWS lambda. To my opinion generating the pdf with 1024 MB took something like 4000ms which would mean that total price would be close to 1 euro per 20000 PDF generations after free tier.</p>
+<ul>
+<li><a href="https://github.com/ARautio/aws-lambda-pdf-generator-puppeteer">https://github.com/ARautio/aws-lambda-pdf-generator-puppeteer</a></li>
+<li><a href="https://github.com/RelaxedJS/ReLaXed">https://github.com/RelaxedJS/ReLaXed</a></li>
+</ul>
+</blockquote>
+</li>
+<li><a href="https://stackoverflow.com/questions/58629198/base64-to-pdf-export-issue-aws-lambda">https://stackoverflow.com/questions/58629198/base64-to-pdf-export-issue-aws-lambda</a> - API gateway permission</li>
+<li><a href="https://aws.amazon.com/ko/blogs/architecture/field-notes-scaling-browser-automation-with-puppeteer-on-aws-lambda-with-container-image-support/">https://aws.amazon.com/ko/blogs/architecture/field-notes-scaling-browser-automation-with-puppeteer-on-aws-lambda-with-container-image-support/</a></li>
+<li><a href="https://github.com/serverless/examples/tree/v3/aws-node-puppeteer">https://github.com/serverless/examples/tree/v3/aws-node-puppeteer</a></li>
+<li><a href="https://stackoverflow.com/a/74549527/5163033">https://stackoverflow.com/a/74549527/5163033</a> - generate pdf using Blob
+</li></ul></details>
+
+
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>
