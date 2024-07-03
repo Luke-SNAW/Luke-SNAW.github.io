@@ -2,11 +2,9 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1719922436955
+updated: 1719987910339
 created: 1644799670081
 ---
-
-- [Privacy Tools](https://www.privacytools.io/)
 
 ## File management
 
@@ -99,6 +97,7 @@ created: 1644799670081
 - [배민 주아 폰트](http://font.woowahan.com/jua/)
 - [Heynote](https://github.com/heyman/heynote/) is a dedicated scratchpad for developers
 - [Privacy Tools List](https://privacytoolslist.com/)
+- [Privacy Tools](https://www.privacytools.io/)
 - https://www.perfectmemory.ai/
   - https://www.rewind.ai/
 - [Fraidycat](https://fraidyc.at/) - Follow blogs, wikis, YouTube channels, as well as accounts on Twitter, Instagram, etc. from a single page.
@@ -107,3 +106,4 @@ created: 1644799670081
   > brew install --cask breaktimer
 - [QPick.app](https://qpick.app/) website for making random choices easy and fun!
   - https://qpick.app/burger,pizza,chicken
+- [Edna](https://github.com/kjk/edna) is a scratchpad for developers. It's a large persistent text buffer where you can write down anything you like. Works great for that Slack message you don't want to accidentally send, a JSON response from an API you're working with, notes from a meeting, daily to-do list, etc.

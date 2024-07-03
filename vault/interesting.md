@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1707868112737
+updated: 1719994385944
 created: 1669705986186
 ---
 
@@ -21,3 +21,4 @@ created: 1669705986186
 - [Travel by Oisin Carroll](https://imois.in/games/travle/) - A daily game – get between countries in as few guesses as possible
 - [Visual Anagrams: Generating Multi-View Optical Illusions with Diffusion Models](https://dangeng.github.io/visual_anagrams/)
 - [I designed a cube that balances itself on a corner](https://willempennings.nl/balancing-cube/)
+- [Why Is Chile So Long?](https://unchartedterritories.tomaspueyo.com/p/why-is-chile-so-long)

@@ -2,12 +2,24 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1719379285206
+updated: 1719994377690
 created: 1667632965028
 ---
 
+## Week 27, 2024
+
+- [Why Is Chile So Long?](https://unchartedterritories.tomaspueyo.com/p/why-is-chile-so-long)
+- [gRPC: The Bad Parts](https://kmcd.dev/posts/grpc-the-bad-parts/)
+- [Edna](https://github.com/kjk/edna) is a scratchpad for developers. It's a large persistent text buffer where you can write down anything you like. Works great for that Slack message you don't want to accidentally send, a JSON response from an API you're working with, notes from a meeting, daily to-do list, etc.
+- [KT 60만명 해킹의 심각성: 사상 최악의 사이버 범죄로부터 당신은 지금도 안전하지 않다](https://velog.io/@ilotoki0804/kt)
+- [Building an AI-Native Company](https://research.contrary.com/deep-dive/ai-native-company)
+- [Teo](https://github.com/teodevgroup/teo) is schema-driven web server framework. The server side API is native to Rust, Node.js and Python.
+- [마이리얼트립으로 살펴본 여행 산업에서의 SEO, 키워드 성과 분석 중요성](https://inpages.ai/kr/blog/myrealtrip-keyword-analysis)
+- [Microsoft’s AI boss thinks it’s perfectly okay to steal content if it’s on the open web](https://www.theverge.com/2024/6/28/24188391/microsoft-ai-suleyman-social-contract-freeware)
+
 ## Week 26, 2024
 
+- [Liquid Layers](https://grantkot.com/ll/)
 - [Pop!\_OS](https://github.com/pop-os/pop) is an operating system for STEM and creative professionals who use their computer as a tool to discover and create. Unleash your potential on secure, reliable open source software.
 - [A Three-Step Framework For Solving Problems 👌](https://www.lennysnewsletter.com/p/a-three-step-framework-for-solving)
 - [What is Jobs to be Done (JTBD)?](https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca)

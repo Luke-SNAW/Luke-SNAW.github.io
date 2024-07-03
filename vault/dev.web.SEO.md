@@ -2,7 +2,7 @@
 id: nrld55h266x8edgrnds1nvv
 title: SEO
 desc: ""
-updated: 1691453671876
+updated: 1719983175253
 created: 1645666656487
 ---
 
@@ -10,6 +10,7 @@ created: 1645666656487
 
 - [What happened when we turned off AMP](https://searchengineland.com/what-happened-when-we-turned-off-amp-378591)
 - [Important SEO-Related HTML Tags, And How To Optimize Them](https://blog.openreplay.com/important-seo-related-tags-in-html-and-how-to-optimize-them/)
+- [마이리얼트립으로 살펴본 여행 산업에서의 SEO, 키워드 성과 분석 중요성](https://inpages.ai/kr/blog/myrealtrip-keyword-analysis)
 
 ## Tools
 

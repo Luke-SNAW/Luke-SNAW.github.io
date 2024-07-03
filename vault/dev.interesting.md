@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1715673925112
+updated: 1719474765706
 created: 1646613084338
 ---
 
@@ -101,6 +101,7 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 - [Shopify live dashboard](https://bfcm.shopify.com)
 - [Stripe live dashboard](https://bfcm.stripe.dev)
 - [100k Stars](https://stars.chromeexperiments.com/)
+- [Liquid Layers](https://grantkot.com/ll/)
 
 ### [Asterisk Magazine](https://asteriskmag.com/)
 
