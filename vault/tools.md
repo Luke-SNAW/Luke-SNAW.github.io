@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1719987910339
+updated: 1720054013477
 created: 1644799670081
 ---
 
@@ -60,9 +60,19 @@ created: 1644799670081
 - [Webp2jpg-online](https://github.com/renzhezhilu/webp2jpg-online) - image conversion and image stitching, pure front-end implementation, fast speed, privacy protection, and offline use,20 languages supported. [link](https://imagestool.com/webp2jpg-online/)
 - [SVGOMG](https://jakearchibald.github.io/svgomg/) is **[SVGO](https://github.com/svg/svgo)**'s **M**issing **G**UI, aiming to expose the majority, if not all the configuration options of SVGO.
 
+## Security
+
+- [KeePassXC ](https://github.com/keepassxreboot/keepassxc) is a cross-platform community-driven port of the Windows application “Keepass Password Safe”.
+
+## Privacy
+
+- [Privacy Tools](https://www.privacytools.io/) - Encryption Against Mass Surveillance
+- [Privacy Tools List](https://privacytoolslist.com/)
+- [SimpleLogin](https://simplelogin.io/) - With email aliases, you can be anonymous online and protect your inbox against spams and phishing. Open source. Based in Switzerland.
+
 ## Etc
 
-- [Universal Summarizer](https://labs.kagi.com/ai/sum)
+- [Definitive App Comparisons from Reddit](https://docs.google.com/spreadsheets/d/1JqyglRJXzxaj8OcQw9jHabxFUdsv9iWJXMPXcL7On0M/edit?gid=469491148#gid=469491148)
 - [Anki](https://github.com/ankitects/anki)
   - [Anki Manual](https://docs.ankiweb.net/background.html)
   - [AwesomeTTS Anki add-on](https://github.com/AwesomeTTS/awesometts-anki-addon)
@@ -76,9 +86,7 @@ created: 1644799670081
   - Kagi
 - [To improve search results on YouTube, use the search prefix "intitle:"](https://ä1.com/youtube/)
 - [n8n](https://github.com/n8n-io/n8n) - Free and open fair-code licensed node based Workflow Automation Tool. Easily automate tasks across different services.
-- [KeePassXC ](https://github.com/keepassxreboot/keepassxc) is a cross-platform community-driven port of the Windows application “Keepass Password Safe”.
 - [Zulip](https://github.com/zulip/zulip/) is an open-source team collaboration tool with unique [topic-based threading](https://zulip.com/why-zulip/) that combines the best of email and chat to make remote work productive and delightful.
-- [Privacy Tools](https://www.privacytools.io/) - Encryption Against Mass Surveillance
 - [YT-DLP](https://github.com/yt-dlp/yt-dlp) - A youtube-dl fork with additional features and fixes
   - https://news.ycombinator.com/item?id=31061163
     - I had never used youtube-dl until the story happened. I downloaded for windows and its speeds were throttled to around 50kB/s. Posters on Stack recommended the ytdlp fork which i tried and it was 5-10 MB/s. Just fyi
@@ -96,8 +104,6 @@ created: 1644799670081
 - [YouTube Video Finder](https://findyoutubevideo.thetechrobo.ca/)
 - [배민 주아 폰트](http://font.woowahan.com/jua/)
 - [Heynote](https://github.com/heyman/heynote/) is a dedicated scratchpad for developers
-- [Privacy Tools List](https://privacytoolslist.com/)
-- [Privacy Tools](https://www.privacytools.io/)
 - https://www.perfectmemory.ai/
   - https://www.rewind.ai/
 - [Fraidycat](https://fraidyc.at/) - Follow blogs, wikis, YouTube channels, as well as accounts on Twitter, Instagram, etc. from a single page.
