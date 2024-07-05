@@ -2,12 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1719994377690
+updated: 1720152300397
 created: 1667632965028
 ---
 
 ## Week 27, 2024
 
+- [Cardiorespiratory fitness is a strong and consistent predictor of morbidity and mortality among adults](https://bjsm.bmj.com/content/58/10/556): an overview of meta-analyses representing over 20.9 million observations from 199 unique cohort studies
+- [Woodworking as an escape from the absurdity of software](https://alinpanaitiu.com/blog/woodworking-escape-from-software-absurdity/)
+- [HTMX does not play well with content security policy](https://www.sjoerdlangkemper.nl/2024/06/26/htmx-content-security-policy/)
 - [Why Is Chile So Long?](https://unchartedterritories.tomaspueyo.com/p/why-is-chile-so-long)
 - [gRPC: The Bad Parts](https://kmcd.dev/posts/grpc-the-bad-parts/)
 - [Edna](https://github.com/kjk/edna) is a scratchpad for developers. It's a large persistent text buffer where you can write down anything you like. Works great for that Slack message you don't want to accidentally send, a JSON response from an API you're working with, notes from a meeting, daily to-do list, etc.
