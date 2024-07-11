@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1718261780705
+updated: 1720488884726
 created: 1656645858715
 ---
 
@@ -36,6 +36,7 @@ created: 1656645858715
 - [Data Engineering Design Patterns](https://www.dedp.online/) #bookshelf
 - [It's Time To Get Over That Stored Procedure Aversion You Have](https://bigmachine.io/databases/its-time-to-get-over-that-stored-procedure-aversion-you-have/)
 - [UUIDv7: The Time-Sortable Identifier for Modern Databases](https://uuid7.com/)
+- [Identity Crisis: Sequence v. UUID as Primary Key](https://brandur.org/nanoglyphs/026-ids)
 
 ## SQLite
 

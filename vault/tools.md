@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1720143086575
+updated: 1720487206073
 created: 1644799670081
 ---
 
@@ -113,3 +113,4 @@ created: 1644799670081
 - [QPick.app](https://qpick.app/) website for making random choices easy and fun!
   - https://qpick.app/burger,pizza,chicken
 - [Edna](https://github.com/kjk/edna) is a scratchpad for developers. It's a large persistent text buffer where you can write down anything you like. Works great for that Slack message you don't want to accidentally send, a JSON response from an API you're working with, notes from a meeting, daily to-do list, etc.
+- [Radio Garden](https://radio.garden/)

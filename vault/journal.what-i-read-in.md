@@ -2,9 +2,23 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1720152300397
+updated: 1720654276165
 created: 1667632965028
 ---
+
+## Week 28, 2024
+
+- [Spot the Drowning Child](http://spotthedrowningchild.com/)
+- [SEQUOIA - Adapting to Endure](https://content.fortune.com/wp-content/uploads/2022/05/Adapting_to_Endure_May_2022.pdf)
+- Google Chrome gives all _.google.com sites full access to system / tab CPU usage, GPU usage, and memory usage. It also gives access to detailed processor information, and provides a logging backchannel. This API is not exposed to other sites - only to _.google.com. — [#](https://x.com/lcasdev/status/1810696257137959018)
+- [Rye](https://github.com/astral-sh/rye) is a comprehensive project and package management solution for Python.
+- [Reverse engineering Ticketmaster's rotating barcodes](https://conduition.io/coding/ticketmaster/)
+- [I'm Funding Ladybird Because I Can't Fund Firefox](http://jackkelly.name/blog/archives/2024/07/06/im_funding_ladybird_because_i_cant_fund_firefox/)
+- [How to think in writing: Part 1: The thought behind the thought](https://www.henrikkarlsson.xyz/p/writing-to-think)
+  > If your goal is to probe the validity of your thoughts, this is painfully inefficient. You'll get much further if you do one or two simple passes on your writing, and then pass what you've written around and ask for feedback. — [BeetieB](https://news.ycombinator.com/item?id=40894966)
+- [Why privacy is important, and having "nothing to hide" is irrelevant](https://robindoherty.com/2016/01/06/nothing-to-hide.html)
+- [Identity Crisis: Sequence v. UUID as Primary Key](https://brandur.org/nanoglyphs/026-ids)
+- [Radio Garden](https://radio.garden/)
 
 ## Week 27, 2024
 

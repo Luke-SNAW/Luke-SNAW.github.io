@@ -2,7 +2,7 @@
 id: fr5p622n9v5oj4fplc527yn
 title: Travel
 desc: ""
-updated: 1720518540096
+updated: 1720655332410
 created: 1719036070529
 published: false
 ---
@@ -19,6 +19,8 @@ published: false
 그냥 번화가 사람들 보는 것도 좋고
 
 오타루 운하가보니 새 찍는 사람들 좀 있던데, 나도 사진이나 찍고 다닐까? 산책 정도는 하게 되잖아.
+
+이상하게 일본 호텔에서 일본 방송 보는 것도 묘한 흥취가 있다.
 
 ## Common
 
@@ -58,6 +60,9 @@ published: false
 - [ ] 음식
 - [ ] 관광지
 - [ ] Flow
+
+- https://www.myrealtrip.com/
+- https://www.japan-guide.com/
 
 ### 지불수단
 
