@@ -2,7 +2,7 @@
 id: xqvfomqa8mjvxxa5aqtmvuq
 title: Wsaj
 desc: ""
-updated: 1704611348550
+updated: 1720754529622
 created: 1702556747051
 published: false
 ---
@@ -170,3 +170,7 @@ The passage discusses investment strategies and decision making based on the mar
 > 현 시점에서 앞으로를 봤을 때 어떻게 될 거냐 계속 이거를 리프레쉬를 해야 되는 거에요.
 > 내가 만약에 1억을 가지고 하고 있는데 한 10% 정도 이 주식을 사도 될 것 같애 그러니까 예전에 10% 샀다가 지금 주가가 좀 빠졌는데? 그러면 8% 대 있을 거잖아요. 근데 지금 봤을 때 뭐 그래도 10% 사도 될것 같은데 라는 생각이 들면 2% 를 추가로 채우는 거죠 그 이거를 누군가는 물타기 라고 할 수도 있는 거죠. 근데 나는 비중 조절을 한 거죠.
 > 여기에서 매주 단가가 얼마야 내가 지금 이득 보고있냐 손해보고 있냐는 전혀 중요하지 않아요.
+
+## [당신의 투자수익, 제대로 이해하고 계신가요?](https://www.youtube.com/watch?v=h7fsfU7bJcM)
+
+리스크를 감당하여 얻는 수익 beta. 잘 모르는 asset들은 분산시켜 beta를 얻자.
