@@ -2,9 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1720766084265
+updated: 1721117364504
 created: 1667632965028
 ---
+
+## Week 29, 2024
+
+- [Google's Gemini AI caught scanning Google Drive hosted PDF files without permission — user complains feature can't be disabled](https://www.tomshardware.com/tech-industry/artificial-intelligence/gemini-ai-caught-scanning-google-drive-hosted-pdf-files-without-permission-user-complains-feature-cant-be-disabled)
+- ["Firefox added \[ad tracking\] and has already turned it on without asking you"](https://mastodon.social/@mcc/112775362045378963)
+- [As an Employee, You Are Disposable](https://nelson.cloud/as-an-employee-you-are-disposable/)
+- [Dear AWS, please let me be a cloud engineer again](https://lucvandonkersgoed.com/2024/07/13/dear-aws-please-let-me-be-a-cloud-engineer-again/)
+- [A Bunch of Programming Advice I’d Give To Myself 15 Years Ago](https://mbuffett.com/posts/programming-advice-younger-self/)
 
 ## Week 28, 2024
 
