@@ -2,12 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1721117364504
+updated: 1721350231116
 created: 1667632965028
 ---
 
 ## Week 29, 2024
 
+- [Don’t Use Web•dev for Accessibility Info](https://adrianroselli.com/2024/07/dont-use-webdev-for-accessibility-info.html)
+- [I'm All-In on Server-Side SQLite](https://fly.io/blog/all-in-on-sqlite-litestream/)
+- [Researchers: Weak Security Defaults Enabled Squarespace Domains Hijacks](https://krebsonsecurity.com/2024/07/researchers-weak-security-defaults-enabled-squarespace-domains-hijacks/) - "Wait, what if the user's email address isn't verified?"
 - [Google's Gemini AI caught scanning Google Drive hosted PDF files without permission — user complains feature can't be disabled](https://www.tomshardware.com/tech-industry/artificial-intelligence/gemini-ai-caught-scanning-google-drive-hosted-pdf-files-without-permission-user-complains-feature-cant-be-disabled)
 - ["Firefox added \[ad tracking\] and has already turned it on without asking you"](https://mastodon.social/@mcc/112775362045378963)
 - [As an Employee, You Are Disposable](https://nelson.cloud/as-an-employee-you-are-disposable/)
