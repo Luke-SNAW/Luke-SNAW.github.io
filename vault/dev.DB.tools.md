@@ -2,7 +2,7 @@
 id: gyry0ci0rohsl5gvjpsvws1
 title: DB tools
 desc: ""
-updated: 1718843507381
+updated: 1721694281306
 created: 1646011997576
 ---
 
@@ -41,12 +41,13 @@ created: 1646011997576
   > > [Slonik](https://github.com/gajus/slonik) - A [battle-tested](https://github.com/gajus/slonik#user-content-battle-tested) Node.js PostgreSQL client with strict types, detailed logging and assertions.
 - [What’s the Difference Between OLAP and OLTP?](https://aws.amazon.com/compare/the-difference-between-olap-and-oltp/)
 
-## SQL client
+## client
 
 - [DBeaver](https://github.com/dbeaver/dbeaver) - Free universal database tool and SQL client
 - [DataGrip](https://www.jetbrains.com/datagrip/)
 - [Sequel-Ace](https://github.com/Sequel-Ace/Sequel-Ace) - MySQL/MariaDB database management for macOS
 - [DB Browser for SQLite](https://github.com/sqlitebrowser/sqlitebrowser)
+- [TablePlus](https://tableplus.com/) - Database management made easy
 
 ## Query builder
 

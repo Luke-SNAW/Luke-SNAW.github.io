@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1713415249954
+updated: 1721695138331
 created: 1644882116217
 ---
 
@@ -67,6 +67,7 @@ created: 1644882116217
 - [Reflect](https://reflect.net/) - High-performance sync for multiplayer web apps
   - [Ready Player Two](https://rocicorp.dev/blog/ready-player-two) - Transactional Conflict Resolution instead of CRDTs
 - [PartyKit](https://github.com/partykit/partykit/) simplifies developing multiplayer applications
+- [rrweb](https://github.com/rrweb-io/rrweb) - record and replay the web
 
 ## Framework
 

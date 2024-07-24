@@ -2,9 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1721350231116
+updated: 1721778294317
 created: 1667632965028
 ---
+
+## Week 30, 2024
+
+- [Switzerland now requires all government software to be open source](https://www.zdnet.com/article/switzerland-now-requires-all-government-software-to-be-open-source/)
+- [Intent to End OCSP Service](https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls.html)
+- [rrweb](https://github.com/rrweb-io/rrweb) - record and replay the web
+- [TablePlus](https://tableplus.com/) - Database management made easy
 
 ## Week 29, 2024
 
