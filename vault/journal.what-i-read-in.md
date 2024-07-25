@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1721778294317
+updated: 1721869182229
 created: 1667632965028
 ---
 
 ## Week 30, 2024
 
+- [Anchor Links and How to Make Them Awesome](https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/)
+- [CSS Grid Areas](https://ishadeed.com/article/css-grid-area/)
+- [Anyone can Access Deleted and Private Repository Data on GitHub](https://trufflesecurity.com/blog/anyone-can-access-deleted-and-private-repo-data-github)
+  - don't use private forks. Copy the repository instead. [#](https://news.ycombinator.com/item?id=41060617)
+  - the only way to securely remediate a leaked key on a public GitHub repository is through [key rotation](https://howtorotate.com/docs/introduction/getting-started/).
+- [Google Is the Only Search Engine That Works on Reddit Now Thanks to AI Deal](https://www.404media.co/google-is-the-only-search-engine-that-works-on-reddit-now-thanks-to-ai-deal/)
 - [Switzerland now requires all government software to be open source](https://www.zdnet.com/article/switzerland-now-requires-all-government-software-to-be-open-source/)
 - [Intent to End OCSP Service](https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls.html)
 - [rrweb](https://github.com/rrweb-io/rrweb) - record and replay the web

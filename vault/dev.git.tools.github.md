@@ -2,7 +2,7 @@
 id: y96Q2Fyzh0EQb9j3xGKjX
 title: GitHub tools
 desc: ""
-updated: 1682569082713
+updated: 1721865588270
 created: 1644887290931
 ---
 
@@ -23,3 +23,9 @@ created: 1644887290931
 ## Criticism
 
 - [issues](https://news.ycombinator.com/item?id=33772556) - The "issues" on Github could be "bugs", "feature request" or even "improvement" (it could be anything actually).
+
+## Security
+
+- [Anyone can Access Deleted and Private Repository Data on GitHub](https://trufflesecurity.com/blog/anyone-can-access-deleted-and-private-repo-data-github)
+  - don't use private forks. Copy the repository instead. [#](https://news.ycombinator.com/item?id=41060617)
+  - the only way to securely remediate a leaked key on a public GitHub repository is through [key rotation](https://howtorotate.com/docs/introduction/getting-started/).

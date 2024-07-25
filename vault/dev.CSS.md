@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1718344763489
+updated: 1721868298841
 created: 1646129148306
 ---
 
@@ -154,6 +154,7 @@ In this article, we’ll explore how cascade layers work, and how they will help
 
 - [A Complete Guide to CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 - [How To Build A Magazine Layout With CSS Grid Areas](https://www.smashingmagazine.com/2023/02/build-magazine-layout-css-grid-areas/)
+- [CSS Grid Areas](https://ishadeed.com/article/css-grid-area/)
 
 ## Styles
 
