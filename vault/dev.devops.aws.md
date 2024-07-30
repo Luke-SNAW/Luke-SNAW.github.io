@@ -2,12 +2,14 @@
 id: 7mujc4bw6yz1nfbf03gmqc8
 title: Aws
 desc: ""
-updated: 1705370079208
+updated: 1722297492711
 created: 1646005847772
 ---
 
 ## Collections
 
+- [The Guardian Optimizes Mobile Push-Notification Delivery Architecture](https://www.infoq.com/news/2023/05/guardian-push-architecture/)
+  - [Guardian Mobile Notifications](https://github.com/guardian/mobile-n10n)
 - [Slashing Data Transfer Costs in AWS by 99%](https://www.bitsand.cloud/posts/slashing-data-transfer-costs/)
   > AWS replicates S3 data between availability zones
   >
@@ -86,7 +88,12 @@ It's also weird, that ECS Fargate lets you run a container without thinking abou
 
 Re: Other services. I've only heard of API Gateway, DynamoDB and Lambda@Edge; I'll have to spend time investigating the other ones. Thank you for mentioning them!
 
-## Collections
+## S3
 
-- [The Guardian Optimizes Mobile Push-Notification Delivery Architecture](https://www.infoq.com/news/2023/05/guardian-push-architecture/)
-  - [Guardian Mobile Notifications](https://github.com/guardian/mobile-n10n)
+### [How can I use wildcards to `cp` a group of files with the AWS CLI?](https://stackoverflow.com/a/38834779/5163033)
+
+```sh
+aws s3 cp s3://data/ . --recursive --exclude "*" --include "2016-08*"
+```
+
+I'd like to point out the `--exclude "*"` isn't a typo. _If you don't add it, the include will match anything_.

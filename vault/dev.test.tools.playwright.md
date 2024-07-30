@@ -2,7 +2,7 @@
 id: ipgd9pdridgx97j35zmjnva
 title: Playwright
 desc: ""
-updated: 1698976154971
+updated: 1722300953144
 created: 1697607702444
 ---
 
@@ -51,4 +51,23 @@ for (const record of records) {
     console.log(record.test_case, record.some_value, record.some_other_value)
   })
 }
+```
+
+## Performance
+
+### [Why "page.goto()" is slowing down your Playwright tests](https://www.checklyhq.com/blog/why-page-goto-is-slowing-down-your-playwright-test/)
+
+```js
+// Wait until the HTML starts loading.
+await page.goto("/", { waitUntil: "commit" })
+
+// Wait until the HTML is parsed
+// and deferred scripts (`<script deferred>` and `<script type="module">`) are loaded.
+await page.goto("/", { waitUntil: "domcontentloaded" })
+
+// Wait until all initially included resources are loaded.
+await page.goto("/", { waitUntil: "load" })
+
+// Wait until every resource is loaded and the network is silent for 500ms.
+await page.goto("/", { waitUntil: "networkidle" })
 ```

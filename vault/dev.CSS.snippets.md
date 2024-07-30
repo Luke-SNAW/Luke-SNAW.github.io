@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1716878476680
+updated: 1722301386620
 created: 1646129148295
 ---
 
@@ -107,5 +107,26 @@ p {
   body {
     @apply text-16 text-grey-900;
   }
+}
+```
+
+## [Get The Screen Width & Height Without JavaScript](https://css-tip.com/screen-dimension/)
+
+```css
+@property --_w {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 100vw;
+}
+@property --_h {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 100vh;
+}
+:root {
+  --w: tan(atan2(var(--_w), 1px)); /* screen width */
+  --h: tan(
+    atan2(var(--_h), 1px)
+  ); /* screen height*/ /* The result is an integer without unit */
 }
 ```

@@ -2,7 +2,7 @@
 id: 0gqmdqmd5rylcs3ljzwsww4
 title: React
 desc: ""
-updated: 1695271535226
+updated: 1722300772932
 created: 1645666821126
 ---
 
@@ -46,3 +46,10 @@ created: 1645666821126
 - [Understanding React Concurrency](https://www.bbss.dev/posts/react-concurrency/)
   - The basic premise of React concurrency is to rework the rendering process such that while rendering the next view, the current view is kept responsive.
 - [How React 18 Improves Application Performance](https://vercel.com/blog/how-react-18-improves-application-performance)
+
+## Opinions
+
+### [You’ll Write Less Code With Svelte 5.0, Promises Rich Harris](https://thenewstack.io/youll-write-less-code-with-svelte-5-0-promises-rich-harris/)
+
+Harris discussed his perspective on React Server Components (RSCs), seeing them as the logical next step in the journey of co-locating HTML, CSS, and JavaScript within components.
+However, the separation of server and client components in RSCs can be confusing for developers, as it creates two distinct mental models within the same application.

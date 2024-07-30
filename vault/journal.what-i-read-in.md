@@ -2,9 +2,22 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1721960418708
+updated: 1722310574709
 created: 1667632965028
 ---
+
+## Week 31, 2024
+
+- [Children should be allowed to get bored, expert says](https://www.bbc.com/news/education-21895704)
+- [Have It All: External, Styleable, & Scalable SVG](https://scottjehl.com/posts/svgtopia/)
+  - [SVG triangle of compromise](https://me.micahrl.com/blog/svg-triangle-of-compromise/)
+- [Europe Is in Danger of Regulating Its Tech Market Out of Existence](https://foreignpolicy.com/2024/07/26/europe-tech-regulation-apple-meta-google-competition/)
+- [Get The Screen Width & Height Without JavaScript](https://css-tip.com/screen-dimension/)
+- [Why "page.goto()" is slowing down your Playwright tests](https://www.checklyhq.com/blog/why-page-goto-is-slowing-down-your-playwright-test/)
+- [You’ll Write Less Code With Svelte 5.0, Promises Rich Harris](https://thenewstack.io/youll-write-less-code-with-svelte-5-0-promises-rich-harris/)
+- Zstandard, or [zstd](https://github.com/facebook/zstd) as short version, is a fast lossless compression algorithm, targeting real-time compression scenarios at zlib-level and better compression ratios.
+  - https://x.com/adrianco/status/1560854827810361345
+  - https://www.uber.com/en-TW/blog/cost-efficiency-big-data/
 
 ## Week 30, 2024
 

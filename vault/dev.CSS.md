@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1721868298841
+updated: 1722310493264
 created: 1646129148306
 ---
 
@@ -139,6 +139,10 @@ In this article, we’ll explore how cascade layers work, and how they will help
   - Your stylesheet. As a background-image.
 
 ### [Understanding SVG Paths](https://www.nan.fyi/svg-paths)
+
+### [Have It All: External, Styleable, & Scalable SVG](https://scottjehl.com/posts/svgtopia/)
+
+- [SVG triangle of compromise](https://me.micahrl.com/blog/svg-triangle-of-compromise/)
 
 ## Functions
 

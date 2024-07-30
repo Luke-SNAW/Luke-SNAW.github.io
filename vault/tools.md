@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1720487206073
+updated: 1722299748021
 created: 1644799670081
 ---
 
@@ -114,3 +114,7 @@ created: 1644799670081
   - https://qpick.app/burger,pizza,chicken
 - [Edna](https://github.com/kjk/edna) is a scratchpad for developers. It's a large persistent text buffer where you can write down anything you like. Works great for that Slack message you don't want to accidentally send, a JSON response from an API you're working with, notes from a meeting, daily to-do list, etc.
 - [Radio Garden](https://radio.garden/)
+- Zstandard, or [zstd](https://github.com/facebook/zstd) as short version, is a fast lossless compression algorithm, targeting real-time compression scenarios at zlib-level and better compression ratios.
+  - https://x.com/adrianco/status/1560854827810361345
+  - https://www.uber.com/en-TW/blog/cost-efficiency-big-data/
+- 3벌식 - 맥에서는 구름, 윈도우는 날개셋, 리눅스는 kime

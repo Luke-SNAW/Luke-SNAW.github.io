@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1720490485266
+updated: 1722304882407
 created: 1669705986186
 ---
 
@@ -23,3 +23,4 @@ created: 1669705986186
 - [I designed a cube that balances itself on a corner](https://willempennings.nl/balancing-cube/)
 - [Why Is Chile So Long?](https://unchartedterritories.tomaspueyo.com/p/why-is-chile-so-long)
 - [Why privacy is important, and having "nothing to hide" is irrelevant](https://robindoherty.com/2016/01/06/nothing-to-hide.html)
+- [Generating sudokus for fun and no profit](https://tn1ck.com/blog/how-to-generate-sudokus)
