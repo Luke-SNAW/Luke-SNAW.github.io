@@ -2,7 +2,7 @@
 id: 7mujc4bw6yz1nfbf03gmqc8
 title: Aws
 desc: ""
-updated: 1722297492711
+updated: 1722392910827
 created: 1646005847772
 ---
 
@@ -87,6 +87,12 @@ It looks like AWS definitely wants App Runner to be the answer to Cloud Run, but
 It's also weird, that ECS Fargate lets you run a container without thinking about the server that it runs on, and App Runner does too, just with a few extra things. Why is it a whole separate service? Why didn't they just add it onto Fargate?
 
 Re: Other services. I've only heard of API Gateway, DynamoDB and Lambda@Edge; I'll have to spend time investigating the other ones. Thank you for mentioning them!
+
+## CloudFront
+
+https의 url redirection을 하려면 cloudfront가 필요함
+
+> https://repost.aws/ko/knowledge-center/route-53-redirect-to-another-domain
 
 ## S3
 

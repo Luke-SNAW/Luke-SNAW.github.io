@@ -2,7 +2,7 @@
 id: g1fngdjl25nes6fs3lip602
 title: Communication
 desc: ""
-updated: 1716963527120
+updated: 1722397315221
 created: 1652404654841
 ---
 
@@ -14,6 +14,14 @@ created: 1652404654841
 - [How to Disagree](http://www.paulgraham.com/disagree.html)
 - [Become excellent. Be unreasonable.](https://www.youtube.com/watch?v=wIRuMJj_igE)
   - https://corely.ai/content/become-excellent-be-unreasonable
+
+## Why doesn't advice work? - from [efitz](https://news.ycombinator.com/item?id=41113807)
+
+1. It doesn't matter what your title is, how much expert education, training, or experience you have, or even what hard lessons that you have learned: you are not an "expert" in an area unless you are invited in as an "expert". Put another way, unsolicited advice is unwelcome.
+
+2. Smart people want to solve their own problems. Don't offer solutions. No one will feel empowered or much of a sense of accomplishment implementing your solution. Instead tell them the challenges that they will face for various options and let them draw their own conclusions.
+
+3. Your spouse just wants to vent, UNLESS they say "fix it" in which case they want you to fix it, where "fix" means "make it act like I want it to". Your spouse does not want to know how it works so that they can fix it themselves next time, and their mental model is wrong and they don't care to correct it. Just listen, figure out what they want and do it yourself, and do it again next time even though it interrupted you and they could have fixed it themself.
 
 ## [철학자가 말하는 인간관계 핵심 2가지](https://www.youtube.com/watch?v=FX3uttXwETc)
 
@@ -27,5 +35,3 @@ created: 1652404654841
 - Individuals who think outside rigid frameworks have changed society by pursuing their own visions.
 - Art like Picasso's paintings show there are no fixed or single correct ways of viewing something.
 - Communication is a **skill that requires practice understanding others' emotions and intentions through "language games"**.
-
-T

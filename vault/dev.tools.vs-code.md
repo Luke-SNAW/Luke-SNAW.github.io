@@ -2,7 +2,7 @@
 id: ncyn8xow2x0rfon0mjy0bnc
 title: Vs Code
 desc: ""
-updated: 1715845169541
+updated: 1722564778088
 created: 1646011769978
 ---
 
@@ -83,6 +83,14 @@ Open the command pallette and run `Shell Command: Install code in PATH`
 - ES7 React/Redux/GraphQL/React-Native snippets
 - Git Graph
 - GitLens
+  ```
+  "gitlens.autolinks": [
+    {
+      "url": "https://app.asana.com/0/search?q=IT-<num>",
+      "prefix": "IT-"
+    }
+  ],
+  ```
 - HTML CSS Support
 - HTML End Tag Labels
 - Indent-Rainbow

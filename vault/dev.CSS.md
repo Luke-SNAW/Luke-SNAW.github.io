@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1722310493264
+updated: 1722491436748
 created: 1646129148306
 ---
 
@@ -142,7 +142,13 @@ In this article, we’ll explore how cascade layers work, and how they will help
 
 ### [Have It All: External, Styleable, & Scalable SVG](https://scottjehl.com/posts/svgtopia/)
 
-- [SVG triangle of compromise](https://me.micahrl.com/blog/svg-triangle-of-compromise/)
+### [SVG triangle of compromise (resolved)](https://me.micahrl.com/blog/svg-triangle-of-compromise/)
+
+Displaying an external SVG with the `<use>` tag
+
+- stylable
+- cacheable
+- dimensional
 
 ## Functions
 
