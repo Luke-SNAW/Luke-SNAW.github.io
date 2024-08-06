@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1718329485679
+updated: 1722929699660
 created: 1688605282146
 ---
 
@@ -20,3 +20,5 @@ created: 1688605282146
   > Because the public internet makes it too easy for people to sell you stuff, extract value from you, or harass you. Private chats are human-scale environments where understandable social norms---not commerce, algorithms, or formal rules---drive the interactions. It's an authentic experience. [#](https://news.ycombinator.com/item?id=40673318)
 - [The Expanding Dark Forest and Generative AI](https://maggieappleton.com/ai-dark-forest)
   > As AI takes over the public internet (the trees) the people will retreat to safe underground spaces where they know only authentic humans live. [#](https://news.ycombinator.com/item?id=40673389)
+- [How I Use "AI"](https://nicholas.carlini.com/writing/2024/how-i-use-ai.html)
+  - https://news.hada.io/topic?id=16197

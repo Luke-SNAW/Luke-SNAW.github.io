@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1722299748021
+updated: 1722901140618
 created: 1644799670081
 ---
 
@@ -118,3 +118,4 @@ created: 1644799670081
   - https://x.com/adrianco/status/1560854827810361345
   - https://www.uber.com/en-TW/blog/cost-efficiency-big-data/
 - 3벌식 - 맥에서는 구름, 윈도우는 날개셋, 리눅스는 kime
+- [Organic Maps](https://github.com/organicmaps/organicmaps): Offline Hike, Bike, Trails and Navigation

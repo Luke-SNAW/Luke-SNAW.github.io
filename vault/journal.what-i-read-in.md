@@ -2,9 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1722558797148
+updated: 1722929681712
 created: 1667632965028
 ---
+
+## Week 32, 2024
+
+- [How I Use "AI"](https://nicholas.carlini.com/writing/2024/how-i-use-ai.html)
+- [Organic Maps](https://github.com/organicmaps/organicmaps): Offline Hike, Bike, Trails and Navigation
+- [Introducing GitHub Models: A new generation of AI engineers building on GitHub](https://github.blog/news-insights/product-news/introducing-github-models/)
+- [How Google handles JavaScript throughout the indexing process](https://vercel.com/blog/how-google-handles-javascript-throughout-the-indexing-process)
+  - [CSR is possible but has poor support](https://vercel.com/blog/how-google-handles-javascript-throughout-the-indexing-process#moving-forward-with-new-information)
 
 ## Week 31, 2024
 
