@@ -2,7 +2,7 @@
 id: 1mi9m99hBJq32lfoqGdNB
 title: Test
 desc: ""
-updated: 1718672460566
+updated: 1723091757284
 created: 1645055059758
 ---
 
@@ -40,6 +40,7 @@ created: 1645055059758
   - Just do IO
   - Separation of logic and services / IO
   - E2E integration tests
+- [Cringey, But True: How Uber Tests Payments In Production](https://news.alvaroduran.com/p/cringey-but-true-how-uber-tests-payments)
 
 ## [An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach](https://dl.acm.org/doi/10.1145/2961111.2962592)
 

@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1722901140618
+updated: 1723105567213
 created: 1644799670081
 ---
 
@@ -59,6 +59,7 @@ created: 1644799670081
 - [PDF-To-Markdown Converter](https://github.com/jzillmann/pdf-to-markdown) - Javascript tool to parse PDF files and convert them into Markdown format. Online version at [http://pdf2md.morethan.io](http://pdf2md.morethan.io/)!
 - [Webp2jpg-online](https://github.com/renzhezhilu/webp2jpg-online) - image conversion and image stitching, pure front-end implementation, fast speed, privacy protection, and offline use,20 languages supported. [link](https://imagestool.com/webp2jpg-online/)
 - [SVGOMG](https://jakearchibald.github.io/svgomg/) is **[SVGO](https://github.com/svg/svgo)**'s **M**issing **G**UI, aiming to expose the majority, if not all the configuration options of SVGO.
+- [SVG Viewer](https://www.svgviewer.dev/) is an online tool to view, edit and optimize SVGs.
 
 ## Security
 

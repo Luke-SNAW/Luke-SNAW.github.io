@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1714443191715
+updated: 1723002469437
 created: 1645681934406
 tags: bookshelf
 ---
@@ -132,6 +132,7 @@ tags: bookshelf
 - https://github.com/vasanthk/web-security-basics
 - https://people.scs.carleton.ca/~paulv/toolsjewels.html
 - [Software Engineering at Google](https://abseil.io/resources/swe-book) #bookshelf
+- [WebGPU Unleashed: A Practical Tutorial](https://shi-yan.github.io/webgpuunleashed/)
 
 ### Networking
 
