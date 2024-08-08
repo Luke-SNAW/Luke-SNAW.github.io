@@ -1,0 +1,30 @@
+<h1 id="how-to-get-started-with-property-based-testing-in-javascript-using-fast-check">HOW TO GET STARTED WITH PROPERTY-BASED TESTING IN JAVASCRIPT USING FAST-CHECK<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-get-started-with-property-based-testing-in-javascript-using-fast-check"></a></h1>
+<p><a href="https://jrsinclair.com/articles/2021/how-to-get-started-with-property-based-testing-in-javascript-with-fast-check/">https://jrsinclair.com/articles/2021/how-to-get-started-with-property-based-testing-in-javascript-with-fast-check/</a></p>
+<p>Property-based testing helps us write better tests, with less code, and greater coverage. This leads to more confidence in our code, and fewer bugs in our applications. But, as always, there’s a price. Property tests take more effort to write, and they take longer to run. Still, I’m convinced that the trade-off is worth it.</p>
+<h1 id="what-is-property-based-testing">What is property-based testing?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-property-based-testing"></a></h1>
+<p>Most tests we programmers write are example-based tests.</p>
+<p>Instead of writing every example input by hand, we instruct the computer to generate them for us. We tell the computer what types of input we want, and it generates hundreds of random examples.</p>
+<p>Now, this raises a question: If we have randomly generated input, how do we know what output to expect? And the answer is, we don’t. Well, not exactly, anyway. Instead of testing that a particular input matches expected output, we assert properties.</p>
+<p>A property is something that should always be true. They’re sometimes referred to as ‘laws’ or ‘rules’. This sounds abstract, and a little mathematical.</p>
+<h1 id="a-hypothetical-scenario">A hypothetical scenario<a aria-hidden="true" class="anchor-heading icon-link" href="#a-hypothetical-scenario"></a></h1>
+<h1 id="how-do-we-work-out-what-properties-to-test">How do we work out what properties to test?<a aria-hidden="true" class="anchor-heading icon-link" href="#how-do-we-work-out-what-properties-to-test"></a></h1>
+<h1 id="writing-a-property-test">Writing a property test<a aria-hidden="true" class="anchor-heading icon-link" href="#writing-a-property-test"></a></h1>
+<h1 id="fixing-our-code">Fixing our code<a aria-hidden="true" class="anchor-heading icon-link" href="#fixing-our-code"></a></h1>
+<h1 id="is-property-testing-bad-practice">Is property testing bad practice?<a aria-hidden="true" class="anchor-heading icon-link" href="#is-property-testing-bad-practice"></a></h1>
+<p>Now, at first glance, you might think property-based testing goes against conventional wisdom. Instead of a handful of unit tests, we’re suddenly running hundreds or thousands of tests. Won’t this make refactoring difficult? As a colleague of mine commented:</p>
+<blockquote>
+<p>My worry is that introducing property-based testing brings us back to a world where we have very rigid tests, that stifle ongoing development on components.</p>
+</blockquote>
+<p>This is a reasonable concern. But let’s be clear about why we want to avoid having lots of small tests. We want to avoid testing implementation details. That is, we don’t want to over-specify our tests. Doing so wastes time and CPU cycles checking things that don’t matter. Or worse, fixing broken tests that never tested anything useful in the first place.</p>
+<p>Counter to what you might expect, property tests make it harder to over-specify tests. It means not testing things we don’t care about.</p>
+<p>The nice thing about property tests is that they combine the best bits of integration tests, end-to-end tests, and unit tests.</p>
+<h1 id="references">References<a aria-hidden="true" class="anchor-heading icon-link" href="#references"></a></h1>
+<p>If you’d like to learn more about property-based tests, I’ve listed a few good references below:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=a2J_FSkxWKo">The Magic of Generative Testing: Fast-Check in JavaScript</a>. An excellent (and short) presentation introducing property-based testing.</li>
+<li><a href="https://dev.to/glebec/property-testing-with-jsverify-part-i-3one">Property Testing with JSVerify</a>. Gabriel Lebec has written a nice introduction to property testing. It uses another library, jsverify, but it’s still worth a read.</li>
+<li><a href="https://www.youtube.com/watch?v=hXnS_Xjwk2Y">John Hughes - Don’t Write Tests</a>. John Hughes is one of the authors of QuickCheck. QuickCheck is the original property-testing framework for Haskell.</li>
+<li><a href="https://www.youtube.com/watch?v=zvRAyq5wj38">John Hughes - How to specify it! A guide to writing properties of pure functions | Code Mesh LDN 19</a>. More good advice from John Hughes.</li>
+<li><a href="https://www.youtube.com/watch?v=zvRAyq5wj38">Algebra-Driven Design by Sandy Maguire</a>. Sandy Maguire takes property-based testing and applies it to software development in general. He creates a whole new way of approaching software engineering.</li>
+</ul>
+<p>Finally, you can find the code I used to write this tutorial on GitHub.</p>

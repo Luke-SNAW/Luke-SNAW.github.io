@@ -1,0 +1,73 @@
+<h1 id="cli">CLI<a aria-hidden="true" class="anchor-heading icon-link" href="#cli"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://github.com/jlevy/the-art-of-command-line">The Art of Command Line</a></li>
+<li>🤖 <a href="https://github.com/casey/just">just</a> is a handy way to save and run project-specific commands.</li>
+<li><a href="https://github.com/dbohdan/structured-text-tools">Structured text tools</a> - The following is a list of text-based file formats and command line tools for manipulating each.</li>
+<li><a href="https://github.com/loeffel-io/ls-lint">ls-lint</a> - An extremely fast directory and filename linter - Bring some structure to your project filesystem</li>
+<li><a href="https://github.com/jdx/mise">mise-en-place</a> - dev tools, env vars, task runner</li>
+<li><a href="https://github.com/flox/flox/">Flox</a> is a virtual environment and package manager all in one.</li>
+<li><a href="https://github.com/ChrisBuilds/terminaltexteffects">Terminal Text Effects</a></li>
+<li><a href="https://github.com/twpayne/chezmoi">chezmoi</a> - Manage your dotfiles across multiple diverse machines, securely.</li>
+<li><a href="https://github.com/dotenvx/dotenvx">dotenvx</a> - <em>a better dotenv</em>–from the creator of <a href="https://github.com/motdotla/dotenv"><code>dotenv</code></a>.
+<ul>
+<li>run anywhere (cross-platform)</li>
+<li>multi-environment</li>
+<li>encrypted envs</li>
+</ul>
+</li>
+</ul>
+<h2 id="shell">Shell<a aria-hidden="true" class="anchor-heading icon-link" href="#shell"></a></h2>
+<ul>
+<li><a href="https://github.com/binpash/try">try</a> lets you run a command and inspect its effects before changing your live system. <code>try</code> uses Linux's <a href="https://docs.kernel.org/userspace-api/unshare.html">namespaces (via <code>unshare</code>)</a> and the <a href="https://docs.kernel.org/filesystems/overlayfs.html">overlayfs</a> union filesystem.</li>
+<li><a href="https://github.com/atuinsh/atuin">atuin</a> - ✨ Magical shell history</li>
+<li><a href="https://fishshell.com/">fish</a> - the friendly interactive shell
+<ul>
+<li><a href="https://github.com/pure-fish/pure">pure.fish</a> - Pretty, minimal, and fast prompt for Fish shell</li>
+</ul>
+</li>
+</ul>
+<h2 id="script">Script<a aria-hidden="true" class="anchor-heading icon-link" href="#script"></a></h2>
+<ul>
+<li><a href="https://github.com/google/zx">zx</a> - A tool for writing better scripts using javascript</li>
+</ul>
+<h2 id="features">Features<a aria-hidden="true" class="anchor-heading icon-link" href="#features"></a></h2>
+<ul>
+<li><a href="https://github.com/withfig/autocomplete">Fig</a> adds autocomplete to your terminal</li>
+<li><a href="https://github.com/watchexec/watchexec">Watchexec</a> - Executes commands in response to file modifications</li>
+</ul>
+<h3 id="reflex"><a href="https://github.com/cespare/reflex">Reflex</a><a aria-hidden="true" class="anchor-heading icon-link" href="#reflex"></a></h3>
+<p>Run a command when files change</p>
+<blockquote>
+<p>I have been using reflex <a href="https://github.com/cespare/reflex">https://github.com/cespare/reflex</a> for the same thing in some of our docker projects</p>
+</blockquote>
+<blockquote>
+<p>+1 for reflex, love being able to have a config for development<br>
+Example .reflex.conf to run one command when an openapi spec changes and another when any go files change:</p>
+</blockquote>
+<pre class="language-shell"><code class="language-shell">-g <span class="token string">"spec.yaml"</span> -- <span class="token function">bash</span> -c <span class="token string">'make'</span>
+-sr <span class="token string">"\.go$"</span> -- go run cmd/app/main.go
+</code></pre>
+<p>Then run it with:</p>
+<pre class="language-shell"><code class="language-shell">reflex -d fancy -c .reflex.conf
+</code></pre>
+<h4 id="why-you-should-use-reflex-instead">Why you should use reflex instead<a aria-hidden="true" class="anchor-heading icon-link" href="#why-you-should-use-reflex-instead"></a></h4>
+<ul>
+<li>Reflex has no dependencies. No need to install Ruby or anything like that.</li>
+<li>Reflex uses an appropriate file watching mechanism to watch for changes efficiently on your platform.</li>
+<li>Reflex gives your command the name of the file that changed.</li>
+<li>No DSL to learn -- just give it a shell command.</li>
+<li>No plugins.</li>
+<li>Not tied to any language, framework, workflow, or editor.</li>
+</ul>
+<h2 id="viewer">Viewer<a aria-hidden="true" class="anchor-heading icon-link" href="#viewer"></a></h2>
+<ul>
+<li><a href="https://github.com/antonmedv/fx">fx</a> - Terminal JSON viewer</li>
+<li>Write reducers in your favorite language: <a href="https://github.com/antonmedv/fx/blob/master/doc/js.md">JavaScript</a> (default), <a href="https://github.com/antonmedv/fx/blob/master/doc/python.md">Python</a>, or <a href="https://github.com/antonmedv/fx/blob/master/doc/ruby.md">Ruby</a>.</li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/lmkaoriwaly8fn7xim6wnv0">5 Modern Bash Scripting Techniques That Only A Few Programmers Know</a></li>
+<li><a href="/notes/yn68lbuog9rseo4kzfqz6sw">A list of new(ish) command line tools</a></li>
+</ol>
