@@ -2,7 +2,7 @@
 id: sv9iv5nxuufeorw4so9jafl
 title: Note
 desc: ""
-updated: 1690799067991
+updated: 1723244660988
 created: 1688652338329
 published: false
 ---
@@ -110,7 +110,7 @@ RSI 50 이하에서 사면되나?
 화폐의 가치는 다 비슷비슷하게 가는데 위기 대응에 따른 금리 정책에 따라 확연히 달라진다.
 미국과 같은 소비자 국가가 기침(금리 인상)하면 한국 같은 제조국, 또는 원자재 국가들은 몸살을 앓기 때문에 따라서 금리 인상하다가 먼저 위기 수준에 도달해서 금리 동결, 금리 인하를 먼저 한다.
 
-## [‘이웃집 워런버핏’ 숙향이 말하는 38년 투자의 모든 것 / 숙향 (풀버전)](https://www.youtube.com/watch?v=DhO6bzOfVKM)
+## [이웃집 워런버핏’ 숙향이 말하는 38년 투자의 모든 것 / 숙향 (풀버전)](https://www.youtube.com/watch?v=DhO6bzOfVKM)
 
 가치투자
 
