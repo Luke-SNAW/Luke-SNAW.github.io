@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1718077344907
+updated: 1723183017083
 created: 1645751512675
 ---
 
@@ -42,6 +42,7 @@ created: 1645751512675
 - [The Wax and the Wane of the Web](https://alistapart.com/article/the-wax-and-the-wane-of-the-web/)
 - ["Web components" considered harmful](https://www.mayank.co/blog/web-components-considered-harmful/)
   > It's better to use the specific names (custom elements, shadow DOM, templates) instead of the umbrella term "web components" to avoid confusion and make these APIs more approachable.
+- [HTTP Status Codes Glossary](https://www.webfx.com/web-development/glossary/http-status-codes/)
 
 ## Webview Case
 

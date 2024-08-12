@@ -2,9 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1723105526854
+updated: 1723449727001
 created: 1667632965028
 ---
+
+## Week 33, 2024
+
+- [Line-breakable <ruby> and CSS ruby-align property](https://developer.chrome.com/blog/line-breakable-ruby)
+- [China’s total wind and solar capacity outstrips coal, Rystad says](https://renewablesnow.com/news/chinas-total-wind-and-solar-capacity-outstrips-coal-rystad-says-865106/)
 
 ## Week 32, 2024
 
