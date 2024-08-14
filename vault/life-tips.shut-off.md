@@ -1,10 +1,12 @@
 ---
 id: in75sd6nhcfhg41zs38r52y
-title: "Shut Off"
+title: Shut Off
 desc: ""
-updated: 1675125231832
+updated: 1723635504320
 created: 1674897912706
-tags: ["draft", "shut-off"]
+tags:
+  - draft
+  - shut-off
 published: false
 ---
 
@@ -33,3 +35,14 @@ TODO 뇌 가소성 link? 살짝 안맞는듯.
 - [[well-being.sleep]]
 - 영어 읽기 - 자아라고 생각되는 영역의 뇌처리를 점점 떼어내고 영어 읽는 기계로 화하면 된다.
 - [[writing.vomit-draft]]
+
+## [교감신경계 vs 부교감신경계](https://youtu.be/E7Os5tVAr0Q?t=1115)
+
+교감 신경계: 스트레스 상황, 위기 상황, 긴장
+
+- 경쟁, 자극, 흥분, 부정적 감정
+- 직장 스트레스, 밤의 스마트폰, 게임, 포르노, 각종 자극적 커뮤니티, 악플
+
+만성이 되면 문제
+
+## Week 33, 2024
