@@ -2,7 +2,7 @@
 id: cnzc1i8ojequt9lhg3zpkgo
 title: Program Languages
 desc: ""
-updated: 1711611428468
+updated: 1723595365251
 created: 1646612841225
 ---
 
@@ -15,6 +15,7 @@ created: 1646612841225
   - Scheme
 - [Why choose async/await over threads in Rust?](https://notgull.net/why-not-threads/) explains how async/await allows for more composable and flexible concurrency compared to threads, which can be difficult to synchronize. The author argues that the benefits of async/await, such as its ability to easily add timeouts and other functionality, are not always well-communicated.
   - [Futex congestion collapse. Starvation of unfair mutexes.](https://news.ycombinator.com/item?id=39813525)
+- [HN feedback for Go is my hammer, and everything is a nail](https://news.ycombinator.com/item?id=41223902) - [Ko](https://news.hada.io/comment?id=27989)
 
 ## Elixir
 
