@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1723105567213
+updated: 1724028484912
 created: 1644799670081
 ---
 
@@ -11,6 +11,8 @@ created: 1644799670081
 - [PhotoPrism - Browse Your Life in Pictures](https://github.com/photoprism/photoprism) - Photos App powered by Go and Google TensorFlow 🌈 ✨
 - [Syncthing](https://github.com/syncthing/syncthing) - Open Source Continuous File Synchronization
 - [PeaZip](https://github.com/peazip/PeaZip/) Free Archiver
+- [croc](https://github.com/schollz/croc) is a tool that allows any two computers to simply and securely transfer files and folders. AFAIK, croc is the only CLI file-transfer tool
+- [immich](https://github.com/immich-app/immich) - High performance self-hosted photo and video management solution
 
 ## Windows
 
@@ -64,6 +66,7 @@ created: 1644799670081
 ## Security
 
 - [KeePassXC ](https://github.com/keepassxreboot/keepassxc) is a cross-platform community-driven port of the Windows application “Keepass Password Safe”.
+- [Flaw has Microsoft Authenticator overwriting MFA accounts, locking users out](https://www.csoonline.com/article/3480918/design-flaw-has-microsoft-authenticator-overwriting-mfa-accounts-locking-users-out.html)
 
 ## Privacy
 

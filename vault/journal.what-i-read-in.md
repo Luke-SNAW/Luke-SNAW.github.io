@@ -2,9 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1723449727001
+updated: 1724136170546
 created: 1667632965028
 ---
+
+## Week 34, 2024
+
+- [Algorithms we develop software by](https://grantslatton.com/software-pathfinding)
+- [Bun は Node より速いのか？ Misskey で検証](https://gihyo.jp/article/2024/08/misskey-15)
+- [croc](https://github.com/schollz/croc) is a tool that allows any two computers to simply and securely transfer files and folders. AFAIK, croc is the only CLI file-transfer tool
+- [Flaw has Microsoft Authenticator overwriting MFA accounts, locking users out](https://www.csoonline.com/article/3480918/design-flaw-has-microsoft-authenticator-overwriting-mfa-accounts-locking-users-out.html)
 
 ## Week 33, 2024
 
