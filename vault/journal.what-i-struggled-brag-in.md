@@ -2,9 +2,15 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1718863388752
+updated: 1724715835682
 created: 1669264809793
 ---
+
+## Week 35, 2025 - Safari infinite translateX animation flickers on loop
+
+Adding `-webkit-transform: translateZ(0);` to img or picture element will do the trick [#](https://stackoverflow.com/a/71832879/5163033)
+
+scroll element 내의 `<picture>` + lazy loading이 제대로 안되는 버그도 있어 eager로 바꿈
 
 ## Week 25, 2025 - PDF Generator
 

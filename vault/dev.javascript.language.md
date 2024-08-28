@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1723449970556
+updated: 1724630481715
 created: 1644885695251
 ---
 
@@ -175,3 +175,12 @@ Table of contents:
   - **HTML Events** This is the inverse of the browser event. They are the event that occurs in the [element](https://developer.mozilla.org/en-US/docs/Web/API/Element), and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.
 
 - [EventTarget.dispatchEvent()](https://developer.mozilla.org/ko/docs/Web/API/EventTarget/dispatchEvent)
+
+## Date
+
+### [the\_\_alchemist](https://news.ycombinator.com/item?id=41340530)'s comment
+
+Thank god. Javascript is the only language where I... wait for it... roll my own datetimes. Moment's central failure, beyond the surprise mutability, is the conflation of Dates and Times with Datetimes. They are not the same, and this causes so many problems. Python's Arrow library made the same mistake, likely inspired by Moment. I've heard JS devs insist that Dates and Times have no place as standalone constructs outside of a Datetime, but this is incompatible with practical use cases.
+Rust's Chrono? Outstanding. You can find flaws, but it's generally predictable, and most importantly, has fewer flaws than those in other languages. Python's? Kind of messy, but usable. JS's Date and Moment? Unusable.
+
+> My favorite Date v Datetime bug is that Chile changes to DLS at midnight and not 1am. So it’s goes 11:59>1am. Many systems that conflate dates and date times take the existence of midnight as an invariant, which it is not. - [dexwiz](https://news.ycombinator.com/item?id=41340884)
