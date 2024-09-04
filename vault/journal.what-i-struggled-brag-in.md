@@ -2,9 +2,16 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1724715835682
+updated: 1725418202906
 created: 1669264809793
 ---
+
+## Week 36, 2025 - Nuxt hook for page blink during nav
+
+페이지 이동 시 다음 페이지가 캐시되지 않을 경우 지연시간이 있는데,
+그 동안 `현재 페이지 top:0으로 이동` 후에 다음 페이지로 이동해서 UX 상 거슬림
+
+![nuxt page blink during nav](assets/movs/what-i-struggled-brag-in/nuxt-page-blink-during-nav.mp4)
 
 ## Week 35, 2025 - Safari infinite translateX animation flickers on loop
 

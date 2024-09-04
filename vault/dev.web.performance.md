@@ -2,7 +2,7 @@
 id: pa1bstln0xt54o30z6taebc
 title: Web Performance
 desc: ""
-updated: 1716422747332
+updated: 1724992337879
 created: 1646012221215
 ---
 
@@ -28,3 +28,4 @@ created: 1646012221215
 - [WebPerf Snippets](https://webperf-snippets.nucliweb.net/)
 - [Latency numbers every frontend developer should know](https://vercel.com/blog/latency-numbers-every-web-developer-should-know)
 - [Improvements to the Speculation Rules API](https://developer.chrome.com/blog/speculation-rules-improvements?hl=en) which allows websites to prefetch or prerender future navigations to improve performance.
+- [How to make your web page faster before it even loads](https://blog.sentry.io/how-to-make-your-web-page-faster-before-it-even-loads/)

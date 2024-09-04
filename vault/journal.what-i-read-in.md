@@ -2,9 +2,20 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1724198753670
+updated: 1725420004907
 created: 1667632965028
 ---
+
+## Week 36, 2024
+
+- [Greppability is an underrated code metric](https://morizbuesing.com/blog/greppability-code-metric/)
+- [CSS finally adds vertical centering in 2024](https://build-your-own.org/blog/20240813_css_vertical_center/)
+- [Founder Mode](https://paulgraham.com/foundermode.html)
+
+## Week 35, 2024
+
+- [How to make your web page faster before it even loads](https://blog.sentry.io/how-to-make-your-web-page-faster-before-it-even-loads/)
+- [UX Design Patterns for Loading](https://www.pencilandpaper.io/articles/ux-pattern-analysis-loading-feedback)
 
 ## Week 34, 2024
 

@@ -2,7 +2,7 @@
 id: 4f5te8ryaobmq9xvkakjqe0
 title: Web dev tools
 desc: ""
-updated: 1708403446163
+updated: 1724893083320
 created: 1646011961595
 ---
 
@@ -62,3 +62,13 @@ created: 1646011961595
 - Op-ed by Nolan Lawson on Ars Technica: [Op-ed: Safari is the new Internet Explorer](https://arstechnica.com/information-technology/2015/06/op-ed-safari-is-the-new-internet-explorer/)
 - [Safari Team Asks for Feedback Amid Accusations That 'Safari Is the Worst, It's the New IE'](https://www.macrumors.com/2022/02/09/safari-team-asks-for-feedback-amid-accusations/)
 - [File System Access API](https://caniuse.com/native-filesystem-api)
+
+## Web master tools content removal
+
+- https://www.google.com/webmasters/tools/removals
+- https://search.google.com/search-console
+- https://www.bing.com/webmaster/tools/content-removal
+
+- https://support.yahoo-net.jp/PccSearch/s/article/H000007995
+- https://info-search.yahoo.co.jp/archives/002869.php
+- https://support.yahoo-net.jp/form/s/PccSearch
