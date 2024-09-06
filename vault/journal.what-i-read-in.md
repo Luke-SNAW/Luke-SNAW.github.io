@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1725420004907
+updated: 1725600966894
 created: 1667632965028
 ---
 
 ## Week 36, 2024
 
+- [(Life) Advice From The Creator of C++](https://www.youtube.com/watch?v=-QxI-RP6-HM)
+  - https://news.hada.io/topic?id=10726
+- [Paragraphs](https://www.scottohara.me/blog/2024/08/29/paragraphs.html)
+- [What's Functional Programming All About?](https://www.lihaoyi.com/post/WhatsFunctionalProgrammingAllAbout.html)
+- [Should truckers be allowed to sing along with the radio?](https://www.freightwaves.com/news/should-truckers-be-allowed-to-sing-along-with-the-radio)
 - [Greppability is an underrated code metric](https://morizbuesing.com/blog/greppability-code-metric/)
 - [CSS finally adds vertical centering in 2024](https://build-your-own.org/blog/20240813_css_vertical_center/)
 - [Founder Mode](https://paulgraham.com/foundermode.html)
