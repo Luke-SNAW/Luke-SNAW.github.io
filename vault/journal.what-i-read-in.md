@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1725600966894
+updated: 1725870143417
 created: 1667632965028
 ---
+
+## Week 37, 2024
+
+- [자바스크립트는 왜 프로토타입을 선택했을까](https://medium.com/@limsungmook/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%99%9C-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%EC%9D%84-%EC%84%A0%ED%83%9D%ED%96%88%EC%9D%84%EA%B9%8C-997f985adb42)
+- [The Effects of Generative AI on High Skilled Work: Evidence from Three Field Experiments with Software Developers](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4945566)
+- [Inside ECMAScript: JavaScript Standard Gets an Extra Stage](https://thenewstack.io/inside-ecmascript-javascript-standard-gets-an-extra-stage/)
 
 ## Week 36, 2024
 

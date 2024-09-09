@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1722304882407
+updated: 1725842528092
 created: 1669705986186
 ---
 
@@ -24,3 +24,6 @@ created: 1669705986186
 - [Why Is Chile So Long?](https://unchartedterritories.tomaspueyo.com/p/why-is-chile-so-long)
 - [Why privacy is important, and having "nothing to hide" is irrelevant](https://robindoherty.com/2016/01/06/nothing-to-hide.html)
 - [Generating sudokus for fun and no profit](https://tn1ck.com/blog/how-to-generate-sudokus)
+- [10+ Things to Know about The Great Wave](https://www.artic.edu/articles/1139/10-things-to-know-about-the-great-wave)
+  - [GN](https://news.hada.io/topic?id=16663)
+  - [The Great Wave: spot the difference](https://www.britishmuseum.org/blog/great-wave-spot-difference)

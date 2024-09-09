@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1719378448432
+updated: 1725603758945
 created: 1645514261238
 ---
 
@@ -25,6 +25,8 @@ created: 1645514261238
 - [Avoid blundering: 80% of a winning strategy](https://longform.asmartbear.com/avoid-blundering/)
   - https://news.ycombinator.com/item?id=39902854
   - https://news.hada.io/topic?id=14789
+- [(Life) Advice From The Creator of C++](https://www.youtube.com/watch?v=-QxI-RP6-HM)
+  - https://news.hada.io/topic?id=10726
 
 ## Focus
 
