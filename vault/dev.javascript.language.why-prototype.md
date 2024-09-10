@@ -2,7 +2,7 @@
 id: p9blko4uudehmdutpacd2jh
 title: 자바스크립트는 왜 프로토타입을 선택했을까
 desc: ""
-updated: 1725870105143
+updated: 1725870336145
 created: 1725869837002
 published: false
 ---
@@ -212,6 +212,34 @@ Javascript 에 익숙하다면 별다른 설명 없이도 이해되는 부분이
 
 드디어 코드가 나왔습니다!
 
+```js
+function 참새() {
+  this.날개갯수 = 2
+  this.날수있나 = true
+}
+const 참새1 = new 참새()
+
+console.log("참새의 날개 갯수 : ", 참새1.날개갯수) // 2
+
+function 닭() {
+  this.벼슬 = true
+}
+닭.prototype = 참새1 // reference(오른쪽이 인스턴스인 점 주목)
+const 닭1 = new 닭()
+console.log("닭1 날개 : ", 닭1.날개갯수, ", 날수있나? ", 닭1.날수있나) // 2, true
+닭1.날수있나 = false
+console.log("다시 물어본다. 닭1은 날 수 있나? :", 닭1.날수있나) // false
+// 아래는 고전적인 방식의 프로토타입 연결
+function 펭귄() {
+  참새.call(this) // copy properties
+}
+펭귄.prototype = Object.create(참새.prototype) // 프로토타입 연결
+const 펭귄1 = new 펭귄()
+console.log("펭귄1 날개 : ", 펭귄1.날개갯수, ", 날수있나? ", 펭귄1.날수있나) // 2, true
+펭귄1.날수있나 = false
+console.log("다시 물어본다. 펭귄1은 날 수 있나? :", 펭귄1.날수있나) // false
+```
+
 - 5L : 날개가 2개, 날 수 있는 참새1 이 있습니다.
 - 13L : 참새1 을 프로토타입으로 갖는 닭1 이 생겼습니다. 여기서 주목할 점은 오른쪽이 참새(함수)가 아니라 참새1(인스턴스) 인 점입니다. 프로토타입 이론은 이미 존재하는 사물을 통해 범주화한다는 점에서 일치합니다
 - 14L : 닭의 정의(10L)에는 날개갯수가 없지만 2가 출력됩니다. 프로토타입 체인에 의해 참새1 의 속성에 접근했기 때문입니다.
@@ -240,6 +268,20 @@ Javascript 에 익숙하다면 별다른 설명 없이도 이해되는 부분이
 프로토타입 기반 언어인 자바스크립트에서는 ‘단어의 의미가 사용되는 근처 환경’ 에서의 ‘근처'를 어휘적인 범위(Lexical Scope)로 정의했습니다. 자바스크립트 엔진은 코드가 로드될 때 실행 컨텍스트를 생성하고 그 안에 선언된 변수, 함수를 실행 컨텍스트 최상단으로 호이스팅 합니다. 이러한 범위를 렉시컬 스코프라 합니다.
 
 예제 코드를 준비해봤습니다. 주석을 참고하면서 천천히 흐름을 따라가면 좋을 것 같습니다.
+
+```js
+// 전역 실행문맥 생성. 전체 정의(name, init) 호이스팅
+var name = "Kai"
+init() // init 실행문맥 생성. 내부 정의(name, displayName) 호이스팅
+function init() {
+  var name = "Steve"
+  function displayName() {
+    console.log(name) // 현재 실행문맥 내에 정의된게 없으니 outer 로 chain
+    // var name = 'troll?'; // 주석 해제되면 호이스팅
+  }
+  displayName() // displayName 실행문맥 생성. 내부 정의 호이스팅.
+}
+```
 
 - 2L : 코드가 로드될 때 전역 실행문맥(Execution Scope) 이 생성됩니다. 전역의 선언부를 모두 호이스팅 하게 되는데 여기선 2L 의 name 과 4L의 init 이 렉시컬 스코프에 들어갑니다.
 - 3L : 렉시컬 스코프 상에 4L 의 init 함수가 존재하니 에러 없이 실행할 수 있습니다. 코드 로딩 시점에 init 함수를 타고 들어가 실행 문맥을 생성합니다
@@ -301,6 +343,23 @@ Javascript 에 익숙하다면 별다른 설명 없이도 이해되는 부분이
 
 좀더 자세히 알기 위해 예시를 준비했습니다.
 
+```js
+var someValue = "hello"
+function outerFunc() {
+  console.log(this.someValue) // 첫번째 : ?, 두번째 : ?
+  this.innerFunc()
+}
+const obj = {
+  someValue: "world",
+  outerFunc,
+  innerFunc: function () {
+    console.log("innerFunc's this : ", this) // 첫번째 : ?, 두번째 : ?
+  },
+}
+obj.outerFunc() // 첫번째
+outerFunc() // 두번째
+```
+
 - 3L : 13L 에서 호출한 첫번째는 world가, 14L 에서 호출한 두번째는 hello 가 찍힙니다. outerFunc 가 누구를 통해 발화되었는지를 알면 this 가 무엇이 될지 알 수 있습니다
 - 4L : obj 를 통해 발화되면 innerFunc 가 존재하기 때문에 호출되지만, 글로벌에서 발화되면 innerFunc 가 없기 때문에 에러가 납니다
 - 10L : this 가 이중으로 들어가있어 헷갈릴 수 있는데 복잡하지 않습니다. this(obj) 를 통해 발화했기 때문에 첫번째는 obj 가 됩니다.
@@ -327,11 +386,9 @@ Javascript 에 익숙하다면 별다른 설명 없이도 이해되는 부분이
 
 ```js
 function handle() {
- console.log(this); // 첫번째 ?, 두번째 ?
+  console.log(this) // 첫번째 ?, 두번째 ?
 }
-document
- .getElementsByTagName('body')\[0\]
- .addEventListener('click', handle); // 첫번째. 호출되었다고 가정.handle(); // 두번째. 첫번째 이후에 호출되었다고 가정.
+document.getElementsByTagName("body")[0].addEventListener("click", handle) // 첫번째. 호출되었다고 가정.handle(); // 두번째. 첫번째 이후에 호출되었다고 가정.
 ```
 
 this 를 얘기할 때 많이들 헷갈려하는 문제입니다. 발화지점으로 생각하면 전혀 헷갈리지 않습니다.
@@ -346,6 +403,26 @@ addEventListener 함수는 해당 엘리먼트에 콜백을 등록하는 함수�
 - 4번 : 이때 handle 의 실행문맥의 this 는 발화한 div 를 가리킵니다.
 
 마지막 문제는 약간 재미로 넣은 보너스입니다.
+
+```js
+var value = 1
+
+var obj = {
+  value: 100,
+  foo: function () {
+    setTimeout(function () {
+      console.log("callback's this: ", this) // ?
+      console.log("callback's this.value: ", this.value) // ?
+      function bar() {
+        console.log("bar's this: ", this) // ?
+      }
+      bar()
+    }, 1000)
+  },
+}
+
+obj.foo()
+```
 
 this 는 무엇이 될까요?
 

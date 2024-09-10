@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1725843166902
+updated: 1725948841483
 created: 1645681934406
 tags: bookshelf
 ---
@@ -45,6 +45,8 @@ tags: bookshelf
 - [Introduction to Modern Statistics](https://openintro-ims2.netlify.app/)
 - [The Art of HPC](https://theartofhpc.com/) - Textbooks by Victor Eijkhout of TACC
 - [Hacker News Books](https://hackernewsbooks.com/)
+- [Read This Twice](https://www.readthistwice.com/)
+  - [Best Books for 1st Graders](https://www.readthistwice.com/lists/best-books-for-1st-graders)
 
 ## PL
 
