@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1725603758945
+updated: 1726102302715
 created: 1645514261238
 ---
 
@@ -27,6 +27,8 @@ created: 1645514261238
   - https://news.hada.io/topic?id=14789
 - [(Life) Advice From The Creator of C++](https://www.youtube.com/watch?v=-QxI-RP6-HM)
   - https://news.hada.io/topic?id=10726
+- [Just for Fun (2022)](https://justforfunnoreally.dev/)
+  > I've often described my motivation for building software to others using imagery: I like to go find a secluded beach, build a large, magnificent sand castle, and then walk away. Will anyone notice? Probably not. Will the waves eventually destroy it? Yep. Did I still get immense satisfaction? Absolutely. — [aliasxneo](https://news.ycombinator.com/item?id=41497113)
 
 ## Focus
 

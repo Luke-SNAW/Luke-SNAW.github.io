@@ -2,7 +2,7 @@
 id: ycbm1pqytzrms1hjatwjh7y
 title: CSS Performance
 desc: ""
-updated: 1697782306788
+updated: 1726100057545
 created: 1646130152552
 ---
 
@@ -21,3 +21,4 @@ created: 1646130152552
   - https://gist.github.com/paulirish/5d52fb081b3570c81e3a
 - [The truth about CSS selector performance](https://blogs.windows.com/msedgedev/2023/01/17/the-truth-about-css-selector-performance/)
 - [The Ultimate Low-Quality Image Placeholder Technique](https://csswizardry.com/2023/09/the-ultimate-lqip-lcp-technique/)
+- [CSS :has() performance](https://www.joshwcomeau.com/css/has/#:~:text=What%20about%20performance%3F) - Browsers are really good at doing style recalculation. This isn't something we need to worry about. 😄

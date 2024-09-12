@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1722491436748
+updated: 1726126852631
 created: 1646129148306
 ---
 
@@ -93,6 +93,7 @@ created: 1646129148306
   > CSS custom properties allow developers to specify the syntax, initial value, and inheritance behavior of CSS variables.
   > This provides more control over how variables are used, enabling advanced animations that were previously only possible with JavaScript.
 - [CSS Length Units](https://css-tricks.com/css-length-units/)
+- [CSS display contents](https://ishadeed.com/article/display-contents/)
 
 ## Pseudo-class
 

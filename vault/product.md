@@ -2,7 +2,7 @@
 id: 1swsbrhqi9jk41v9eodyi5q
 title: Product
 desc: ""
-updated: 1725957767068
+updated: 1725957936977
 created: 1725929813422
 published: false
 ---
@@ -25,3 +25,5 @@ published: false
 ## 방진 마스크
 
 - [미세먼지가 심하지만 러닝은 하고싶어(방진 마스크 추천)](https://be-inspired.co.kr/entry/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80%EA%B0%80-%EC%8B%AC%ED%95%98%EC%A7%80%EB%A7%8C-%EB%9F%AC%EB%8B%9D%EC%9D%80-%ED%95%98%EA%B3%A0%EC%8B%B6%EC%96%B4%EB%B0%A9%EC%A7%84-%EB%A7%88%EC%8A%A4%ED%81%AC-%EC%B6%94%EC%B2%9C)
+  - 3M 6502 + 2297 필터
+  - 2091K - 방사능 분진 필터

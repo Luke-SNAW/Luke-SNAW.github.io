@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1725948841483
+updated: 1726103300550
 created: 1645681934406
 tags: bookshelf
 ---
@@ -47,6 +47,7 @@ tags: bookshelf
 - [Hacker News Books](https://hackernewsbooks.com/)
 - [Read This Twice](https://www.readthistwice.com/)
   - [Best Books for 1st Graders](https://www.readthistwice.com/lists/best-books-for-1st-graders)
+- [BUTTERICK’S PRACTICAL TYPOGRAPHY](https://practicaltypography.com/)
 
 ## PL
 

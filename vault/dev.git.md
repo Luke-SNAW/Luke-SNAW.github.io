@@ -2,7 +2,7 @@
 id: 4a5zty96wbgszd07faxjv78
 title: Git
 desc: ""
-updated: 1698993244960
+updated: 1726107571461
 created: 1652404655162
 ---
 
@@ -16,6 +16,7 @@ created: 1652404655162
   > - configuration (like the `.gitignore` or `.gitattributes`),
   > - private internal methods...
 - [Confusing git terminology](https://jvns.ca/blog/2023/11/01/confusing-git-terminology/)
+- [Why some of us like "interdiff" code review](https://gist.github.com/thoughtpolice/9c45287550a56b2047c6311fbadebed2)
 
 ## [How to Write Useful Commit Messages](https://dev.to/jacobherrington/how-to-write-useful-commit-messages-my-commit-message-template-20n9)
 
