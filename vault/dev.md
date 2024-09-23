@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1719296541693
+updated: 1726794070926
 created: 1644451403760
 ---
 
@@ -46,6 +46,8 @@ created: 1644451403760
 - [Doing is normally distributed, learning is log-normal](https://hiandrewquinn.github.io/til-site/posts/doing-is-normally-distributed-learning-is-log-normal/)
   - Software estimation is challenging because it fails to recognize that learning is non-normally distributed.
 - [Readme Driven Development](https://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
+- [Drift towards danger and the normalization of deviance](https://risk-engineering.org/concept/Rasmussen-practical-drift) - systemic migration of organizational behavior toward accident under the influence of pressure toward cost-effectiveness in an aggressive, competing environment
+  - [Overton window](https://en.m.wikipedia.org/wiki/Overton_window)
 
 ### re:Work
 

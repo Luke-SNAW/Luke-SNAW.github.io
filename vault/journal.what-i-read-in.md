@@ -2,9 +2,29 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1726126842452
+updated: 1727070446636
 created: 1667632965028
 ---
+
+## Week 39, 2024
+
+- [It is hard to recommend Google Cloud](https://ashishb.net/programming/google-cloud/)
+- [How startups beat incumbents](https://longform.asmartbear.com/startup-beats-incumbent/)
+- [Forbes Marketplace: The Parasite SEO Company Trying to Devour Its Host](https://news.ycombinator.com/item?id=41590466)
+- [Math4Devs](https://math4devs.com/)
+
+## Week 38, 2024
+
+- [Drift towards danger and the normalization of deviance](https://risk-engineering.org/concept/Rasmussen-practical-drift) - systemic migration of organizational behavior toward accident under the influence of pressure toward cost-effectiveness in an aggressive, competing environment
+  - [Overton window](https://en.m.wikipedia.org/wiki/Overton_window)
+- [AI tool cuts unexpected deaths in hospital by 26%, Canadian study finds](https://www.cbc.ca/news/health/ai-health-care-1.7322671)
+- [rga](https://github.com/phiresky/ripgrep-all): ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc.
+- [Fuck founder mode. Work in "Fuck off mode".](https://old.reddit.com/r/SaaS/comments/1fgv248/fuck_founder_mode_work_in_fuck_off_mode/)
+- [Oracle, it’s time to free JavaScript.](https://javascript.tm/)
+- [The HTTP QUERY Method](https://www.ietf.org/archive/id/draft-ietf-httpbis-safe-method-w-body-05.html)
+  - [Why an HTTP Get Request Shouldn’t Have a Body](https://www.baeldung.com/cs/http-get-with-body)
+- [Logical Properties in Size Queries](https://css-irl.info/logical-properties-in-size-queries/)
+- [Animate to height: auto; (and other intrinsic sizing keywords) in CSS](https://developer.chrome.com/docs/css-ui/animate-to-height-auto/)
 
 ## Week 37, 2024
 

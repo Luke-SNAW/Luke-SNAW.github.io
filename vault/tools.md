@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1724028484912
+updated: 1726790203710
 created: 1644799670081
 ---
 
@@ -123,3 +123,4 @@ created: 1644799670081
   - https://www.uber.com/en-TW/blog/cost-efficiency-big-data/
 - 3벌식 - 맥에서는 구름, 윈도우는 날개셋, 리눅스는 kime
 - [Organic Maps](https://github.com/organicmaps/organicmaps): Offline Hike, Bike, Trails and Navigation
+- [rga](https://github.com/phiresky/ripgrep-all): ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc.
