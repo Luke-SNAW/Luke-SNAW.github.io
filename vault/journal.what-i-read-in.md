@@ -2,12 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1727070446636
+updated: 1727230552629
 created: 1667632965028
 ---
 
 ## Week 39, 2024
 
+- [McDonald’s touchscreen kiosks were feared as job killers. Instead, something surprising happened](https://edition.cnn.com/2024/09/20/business/self-service-kiosks-mcdonalds-shake-shack)
+- a “feature” Apple added that auto-corrects file extensions.
+  - [Zed adds .s to my SQL files](https://github.com/zed-industries/zed/issues/16969)
+  - [Sublime text started adding a “.s” to new files.](https://forum.sublimetext.com/t/sublime-text-started-adding-a-s-to-new-files-very-annoying/73628/10)
 - [It is hard to recommend Google Cloud](https://ashishb.net/programming/google-cloud/)
 - [How startups beat incumbents](https://longform.asmartbear.com/startup-beats-incumbent/)
 - [Forbes Marketplace: The Parasite SEO Company Trying to Devour Its Host](https://news.ycombinator.com/item?id=41590466)
