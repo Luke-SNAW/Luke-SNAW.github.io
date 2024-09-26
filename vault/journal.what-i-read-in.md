@@ -2,12 +2,16 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1727230552629
+updated: 1727333003114
 created: 1667632965028
 ---
 
 ## Week 39, 2024
 
+- [Dark Patterns - Hall of Shame](https://hallofshame.design/)
+- [Improving rendering performance with CSS `content-visibility`](https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/)
+  - This final solution achieved around a 45% performance improvement in both Chrome and Firefox, reducing the load time from 3 seconds to 1.3 seconds.
+  - While satisfied with the [content-visibility](https://web.dev/articles/content-visibility) approach, the author acknowledges that a true virtual list implementation would likely provide even better performance, especially for larger datasets.
 - [McDonald’s touchscreen kiosks were feared as job killers. Instead, something surprising happened](https://edition.cnn.com/2024/09/20/business/self-service-kiosks-mcdonalds-shake-shack)
 - a “feature” Apple added that auto-corrects file extensions.
   - [Zed adds .s to my SQL files](https://github.com/zed-industries/zed/issues/16969)
