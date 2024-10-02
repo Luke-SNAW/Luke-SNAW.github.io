@@ -2,12 +2,21 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1727333003114
+updated: 1727836384915
 created: 1667632965028
 ---
 
+## Week 40, 2024
+
+- [Bots, so many Bots](https://wakatime.com/blog/67-bots-so-many-bots)
+- [Bop Spotter](https://walzr.com/bop-spotter)
+- [Meta fined $102 million for storing passwords in plain text](https://www.engadget.com/big-tech/meta-fined-102-million-for-storing-passwords-in-plain-text-110049679.html)
+- [Too much efficiency makes everything worse: overfitting and the strong version of Goodhart's law](https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html)
+
 ## Week 39, 2024
 
+- [NIST will standardise prohibition of requirement of composing passwords from various character styles, and requirement for periodic password changes.](https://mastodon.social/@LukaszOlejnik/113193089731407165)
+  - https://pages.nist.gov/800-63-4/sp800-63b.html#passwordver
 - [Dark Patterns - Hall of Shame](https://hallofshame.design/)
 - [Improving rendering performance with CSS `content-visibility`](https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/)
   - This final solution achieved around a 45% performance improvement in both Chrome and Firefox, reducing the load time from 3 seconds to 1.3 seconds.

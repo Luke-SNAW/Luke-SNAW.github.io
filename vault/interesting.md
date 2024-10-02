@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1725842528092
+updated: 1727828969187
 created: 1669705986186
 ---
 
@@ -27,3 +27,4 @@ created: 1669705986186
 - [10+ Things to Know about The Great Wave](https://www.artic.edu/articles/1139/10-things-to-know-about-the-great-wave)
   - [GN](https://news.hada.io/topic?id=16663)
   - [The Great Wave: spot the difference](https://www.britishmuseum.org/blog/great-wave-spot-difference)
+- [Bop Spotter](https://walzr.com/bop-spotter)

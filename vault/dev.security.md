@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1722558805037
+updated: 1727334874168
 created: 1644825680750
 ---
 
@@ -27,6 +27,8 @@ created: 1644825680750
 - [Second Factor SMS: Worse Than Its Reputation](https://www.ccc.de/en/updates/2024/2fa-sms) - Attackers can intercept SMS one-time passwords through techniques like SIM swapping or exploiting SS7 network vulnerabilities.
 - [Researchers: Weak Security Defaults Enabled Squarespace Domains Hijacks](https://krebsonsecurity.com/2024/07/researchers-weak-security-defaults-enabled-squarespace-domains-hijacks/) - "Wait, what if the user's email address isn't verified?"
 - [Don’t Let Your Domain Name Become a “Sitting Duck”](https://krebsonsecurity.com/2024/07/dont-let-your-domain-name-become-a-sitting-duck/)
+- [NIST will standardise prohibition of requirement of composing passwords from various character styles, and requirement for periodic password changes.](https://mastodon.social/@LukaszOlejnik/113193089731407165)
+  - https://pages.nist.gov/800-63-4/sp800-63b.html#passwordver
 
 ## [A comprehensive guide to the dangers of Regular Expressions in JavaScript](https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/)
 
