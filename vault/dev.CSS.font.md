@@ -2,7 +2,7 @@
 id: ujxz1y7bdvpazo3rn5yyr1c
 title: CSS about font
 desc: ""
-updated: 1718337421447
+updated: 1728021545323
 created: 1647930628665
 ---
 
@@ -18,6 +18,8 @@ created: 1647930628665
 - [When to use CSS text-wrap: balance; vs text-wrap: pretty;](https://blog.stephaniestimac.com/posts/2023/10/css-text-wrap/)
   > Use text-wrap: balance; on headings and subheadings. And use text-wrap: pretty; on paragraphs of text to get rid of orphans on the last line. Despite the Chromium-only support, these would be a good candidate for progressive enhancement.
 - [Cap Unit](https://ishadeed.com/article/css-cap-unit/)
+- [Introducing TODS](https://clagnut.com/blog/2433/) – a typographic and OpenType default stylesheet
+- [The problem with superscripts and subscripts](https://clagnut.com/blog/2434/)
 
 ## [Preventing layout shift with numbers using CSS](https://gomakethings.com/preventing-layout-shift-with-numbers-using-css/)
 

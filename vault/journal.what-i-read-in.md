@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1727836384915
+updated: 1728023508694
 created: 1667632965028
 ---
 
 ## Week 40, 2024
 
+- [Double your specificity with this one weird trick](https://cirrus.twiddles.com/blog/2024/08/21/double-your-specificity-with-this-one-weird-trick/)
+  - `.checkbox__icon.checkbox__icon`
+    > "Repeated occurrences of the same simple selector are allowed and do increase specificity." — [CSS Selectors Level 4](https://www.w3.org/TR/selectors-4/#specificity-rules)
+- [The problem with superscripts and subscripts](https://clagnut.com/blog/2434/)
+- [Introducing TODS](https://clagnut.com/blog/2433/) – a typographic and OpenType default stylesheet
+- [Solarized](https://ethanschoonover.com/solarized/) - Precision colors for machines and people
+- [Why Gumroad Didn't Choose htmx](https://htmx.org/essays/why-gumroad-didnt-choose-htmx/)
 - [Bots, so many Bots](https://wakatime.com/blog/67-bots-so-many-bots)
 - [Bop Spotter](https://walzr.com/bop-spotter)
 - [Meta fined $102 million for storing passwords in plain text](https://www.engadget.com/big-tech/meta-fined-102-million-for-storing-passwords-in-plain-text-110049679.html)

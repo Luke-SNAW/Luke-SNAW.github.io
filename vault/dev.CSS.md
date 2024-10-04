@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1726126852631
+updated: 1728023551928
 created: 1646129148306
 ---
 
@@ -89,6 +89,9 @@ created: 1646129148306
   > > [Margin breaks component encapsulation.](https://mxstbr.com/thoughts/margin/) A well-built component should not affect anything outside itself.  
   > > [Prediction](https://dev.to/argyleink/5-css-predictions-for-2020-pl3): margins in stylesheets will decline as gap in stylesheets climb
 - [CSS: Specificity](https://thevalleyofcode.com/css/4-specificity)
+- [Double your specificity with this one weird trick](https://cirrus.twiddles.com/blog/2024/08/21/double-your-specificity-with-this-one-weird-trick/)
+  - `.checkbox__icon.checkbox__icon`
+    > "Repeated occurrences of the same simple selector are allowed and do increase specificity." — [CSS Selectors Level 4](https://www.w3.org/TR/selectors-4/#specificity-rules)
 - [The Times You Need A Custom @property Instead Of A CSS Variable](https://www.smashingmagazine.com/2024/05/times-need-custom-property-instead-css-variable/)
   > CSS custom properties allow developers to specify the syntax, initial value, and inheritance behavior of CSS variables.
   > This provides more control over how variables are used, enabling advanced animations that were previously only possible with JavaScript.

@@ -2,7 +2,7 @@
 id: z8iu36gfcu6tok0rnwtawg0
 title: CLI
 desc: ""
-updated: 1719374326485
+updated: 1728016513775
 created: 1653704390962
 ---
 
@@ -20,6 +20,7 @@ created: 1653704390962
   - run anywhere (cross-platform)
   - multi-environment
   - encrypted envs
+- [Solarized](https://ethanschoonover.com/solarized/) - Precision colors for machines and people
 
 ## Shell
 
