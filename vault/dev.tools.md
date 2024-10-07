@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1715298686118
+updated: 1728257926277
 created: 1647145480774
 ---
 
@@ -49,6 +49,14 @@ created: 1647145480774
 - [Open Source Software](https://osssoftware.org/) alternatives to popular projects.
 - [SVG Viewer](https://www.svgviewer.dev/) – View, edit, and optimize SVGs
 - [JSONata](https://github.com/jsonata-js/jsonata) JSON query and transformation language
+- [Tauri 2.0 Stable Release](https://v2.tauri.app/blog/tauri-20/)
+  If you check **any** of the boxes below, you should use Tauri:
+  - [ ] Do you want a single UI codebase for all platforms?
+  - [ ] Do you want to reach as many users as possible on their platform (eg. Windows, MacOS, Linux, Android, iOS)?
+  - [ ] Are you a frontend web developer and want to write native applications?
+  - [ ] Are you a Rust developer looking to write applications with a nice looking UI with the option to do it in Rust?
+  - [ ] Do you have an existing team of web developers and want to expand to native application markets with low upfront investment?
+  - [ ] Do you have an existing team of rustaceans and want everything written in Rust?
 
 ## Network
 

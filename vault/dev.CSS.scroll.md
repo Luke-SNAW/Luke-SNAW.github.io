@@ -2,9 +2,13 @@
 id: oimbwesaxcmy18o4ox870jp
 title: CSS about scroll
 desc: ""
-updated: 1712299006847
+updated: 1728276158208
 created: 1712295949951
 ---
+
+## Collections
+
+- [Solved by CSS Scroll-Driven Animations: hide a header when scrolling down, show it again when scrolling up.](https://www.bram.us/2024/09/29/solved-by-css-scroll-driven-animations-hide-a-header-when-scrolling-up-show-it-again-when-scrolling-down/)
 
 ## [Preventing Scroll “Bounce” with CSS](https://css-irl.info/preventing-overscroll-bounce-with-css/)
 

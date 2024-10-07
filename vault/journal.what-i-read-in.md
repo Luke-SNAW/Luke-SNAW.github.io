@@ -2,9 +2,25 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1728023508694
+updated: 1728275671715
 created: 1667632965028
 ---
+
+## Week 41, 2024
+
+- [AI won't replace human devs anytime soon (twitter.com/skeptrune)](https://x.com/skeptrune/status/1843060221494895058)
+- [AI is an impediment to learning web development](https://ben.page/jumbocode-ai)
+  - https://news.ycombinator.com/item?id=41757711
+- [Apple releases Depth Pro, an AI model that rewrites the rules of 3D vision](https://venturebeat.com/ai/apple-releases-depth-pro-an-ai-model-that-rewrites-the-rules-of-3d-vision/)
+- [Gen AI Makes Legal Action Cheap — and Companies Need to Prepare](https://hbr.org/2024/10/gen-ai-makes-legal-action-cheap-and-companies-need-to-prepare)
+- [Tauri 2.0 Stable Release](https://v2.tauri.app/blog/tauri-20/)
+  If you check **any** of the boxes below, you should use Tauri:
+  - [ ] Do you want a single UI codebase for all platforms?
+  - [ ] Do you want to reach as many users as possible on their platform (eg. Windows, MacOS, Linux, Android, iOS)?
+  - [ ] Are you a frontend web developer and want to write native applications?
+  - [ ] Are you a Rust developer looking to write applications with a nice looking UI with the option to do it in Rust?
+  - [ ] Do you have an existing team of web developers and want to expand to native application markets with low upfront investment?
+  - [ ] Do you have an existing team of rustaceans and want everything written in Rust?
 
 ## Week 40, 2024
 

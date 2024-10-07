@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1725849118524
+updated: 1728279408926
 created: 1688605282146
 ---
 
@@ -23,3 +23,6 @@ created: 1688605282146
 - [How I Use "AI"](https://nicholas.carlini.com/writing/2024/how-i-use-ai.html)
   - https://news.hada.io/topic?id=16197
 - [The Effects of Generative AI on High Skilled Work: Evidence from Three Field Experiments with Software Developers](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4945566)
+- [AI is an impediment to learning web development](https://ben.page/jumbocode-ai)
+- [AI won't replace human devs anytime soon (twitter.com/skeptrune)](https://x.com/skeptrune/status/1843060221494895058)
+- [I’m Tired of Fixing Customers’ AI Generated Code](https://medium.com/@thetateman/im-tired-of-fixing-customers-ai-generated-code-94816bde4ceb)
