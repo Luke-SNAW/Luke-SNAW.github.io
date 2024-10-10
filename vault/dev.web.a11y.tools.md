@@ -2,7 +2,7 @@
 id: 530nq8t28bki28yiaikjxrp
 title: Accessibility tools
 desc: ""
-updated: 1677570187495
+updated: 1728364000725
 created: 1672010801202
 ---
 
@@ -21,3 +21,4 @@ created: 1672010801202
   - [Equal Access Accessibility Checker](https://www.ibm.com/able/toolkit/tools) (EAAC) v3.1.42.9999 browser extension for Chrome and Firefox.
 - [Screen Readers support for text level HTML semantics](https://www.tpgi.com/screen-readers-support-for-text-level-html-semantics/)
 - [48 Accessibility Bookmarklets You Can Use For A11Y Testing](https://www.digitala11y.com/accessibility-bookmarklets-testing/)
+- [ARIA DevTools](https://github.com/ziolko/aria-devtools)

@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1726113348811
+updated: 1728366820262
 created: 1644449449778
 ---
 
@@ -13,6 +13,8 @@ Hi there 👋. I'm a Front-end developer.
 > I've often described my motivation for building software to others using imagery: I like to go find a secluded beach, build a large, magnificent sand castle, and then walk away. Will anyone notice? Probably not. Will the waves eventually destroy it? Yep. Did I still get immense satisfaction? Absolutely.
 >
 > — [aliasxneo](https://news.ycombinator.com/item?id=41497113)
+
+> [The Rise of Worse is Better](https://www.dreamsongs.com/RiseOfWorseIsBetter.html)
 
 > “Motivation often comes after starting, not before. Action produces momentum.”
 >

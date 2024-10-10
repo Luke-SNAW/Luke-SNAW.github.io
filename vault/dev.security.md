@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1727334874168
+updated: 1728524091181
 created: 1644825680750
 ---
 
@@ -29,6 +29,8 @@ created: 1644825680750
 - [Don’t Let Your Domain Name Become a “Sitting Duck”](https://krebsonsecurity.com/2024/07/dont-let-your-domain-name-become-a-sitting-duck/)
 - [NIST will standardise prohibition of requirement of composing passwords from various character styles, and requirement for periodic password changes.](https://mastodon.social/@LukaszOlejnik/113193089731407165)
   - https://pages.nist.gov/800-63-4/sp800-63b.html#passwordver
+- [ABC News hacks into popular robot vacuum, watches owner through camera](https://www.abc.net.au/news/2024-10-04/robot-vacuum-hacked-photos-camera-audio/104414020)
+  - [Valetudo](https://github.com/Hypfer/Valetudo) is a cloud replacement for vacuum robots enabling local-only operation.
 
 ## [A comprehensive guide to the dangers of Regular Expressions in JavaScript](https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/)
 

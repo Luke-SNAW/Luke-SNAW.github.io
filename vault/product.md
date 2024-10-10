@@ -2,7 +2,7 @@
 id: 1swsbrhqi9jk41v9eodyi5q
 title: Product
 desc: ""
-updated: 1727221706442
+updated: 1728521500787
 created: 1725929813422
 published: false
 ---
@@ -39,3 +39,13 @@ published: false
 - 기능성 러닝복: 땀 흡수와 보온성이 좋은 기능성 옷이 중요
 
 준비운동과 정리운동, 그리고 야간 러닝 시 반사체나 밝은 색상의 러닝복 착용 등이 필요합니다.
+
+## Coffee
+
+### [ESPRESSO ANATOMY - The Three Layers Of Espresso](https://youtu.be/RD1ktK75OTM)
+
+Prometheus presents an episode of "Espresso Anatomy," focusing on the three distinct layers in a shot of espresso: the heart, the body, and the crema.
+
+The heart is the foundational layer, characterized by dark brown, syrupy drops that are thick and dense, reminiscent of dark chocolate, and carries a good amount of acidity. The body, being the largest portion, contains soluble solids, gases, and insoluble solids, contributing to a complex flavor profile that balances acidity with sweetness. Finally, the crema, often seen as a sign of a well-extracted shot, is a blend of CO2 and coffee oils suspended in water. While it has a bitter taste, it plays a crucial role in the overall balance of the espresso.
+
+Prometheus emphasizes that understanding these layers enhances appreciation of espresso, though it's not necessary for enjoyment.
