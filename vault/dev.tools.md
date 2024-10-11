@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1728257926277
+updated: 1728621076167
 created: 1647145480774
 ---
 
@@ -57,6 +57,10 @@ created: 1647145480774
   - [ ] Are you a Rust developer looking to write applications with a nice looking UI with the option to do it in Rust?
   - [ ] Do you have an existing team of web developers and want to expand to native application markets with low upfront investment?
   - [ ] Do you have an existing team of rustaceans and want everything written in Rust?
+- [Automating Processes with Software is HARD](https://hardcoresoftware.learningbyshipping.com/p/222-automating-processes-with-software)
+  - Many people underestimate the fragility of automated systems, which can fail due to unexpected inputs or tool malfunctions.
+  - the author stresses the importance of human oversight, especially in high-stakes areas.
+  - [Ironies of Automation](https://www.complexcognition.co.uk/2021/06/ironies-of-automation.html)
 
 ## Network
 

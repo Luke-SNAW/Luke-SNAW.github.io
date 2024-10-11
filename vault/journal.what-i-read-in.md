@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1728541080265
+updated: 1728625243282
 created: 1667632965028
 ---
 
 ## Week 41, 2024
 
+- [The Copenhagen Book](https://github.com/pilcrowonpaper/copenhagen)
+- [Automating Processes with Software is HARD](https://hardcoresoftware.learningbyshipping.com/p/222-automating-processes-with-software)
+  - Many people underestimate the fragility of automated systems, which can fail due to unexpected inputs or tool malfunctions.
+  - the author stresses the importance of human oversight, especially in high-stakes areas.
+  - [Ironies of Automation](https://www.complexcognition.co.uk/2021/06/ironies-of-automation.html)
 - [An Illustrated Proof of the CAP Theorem](https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/)
   > The CAP Theorem is a fundamental theorem in distributed systems that states any distributed system can have at most two of the following three properties.
   >
