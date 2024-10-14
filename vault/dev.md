@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1726794070926
+updated: 1728891162665
 created: 1644451403760
 ---
 
@@ -48,6 +48,8 @@ created: 1644451403760
 - [Readme Driven Development](https://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
 - [Drift towards danger and the normalization of deviance](https://risk-engineering.org/concept/Rasmussen-practical-drift) - systemic migration of organizational behavior toward accident under the influence of pressure toward cost-effectiveness in an aggressive, competing environment
   - [Overton window](https://en.m.wikipedia.org/wiki/Overton_window)
+- [소프트웨어 파괴의 미학](https://kciter.so/posts/the-aesthetics-of-destroying-software/)
+  > "소프트웨어 파괴의 미학"은 소프트웨어 개발에 내재된 불확실성을 탐구하며, 끊임없이 변화하는 비즈니스 요구사항 속에서 개발자들이 완벽을 추구하는 과정에서 직면하는 어려움을 강조합니다. 이 글은 개발자들이 품질을 위해 노력하지만 복잡한 비즈니스 역학에 직면하면서 기술 부채가 발생하는 과정을 설명합니다. 또한 Kano 모델을 참조하여 고객 만족도가 시간에 따라 어떻게 변화하는지, 한때 매력적이었던 기능들이 기본적인 기대사항이 되는 과정을 보여줍니다. 이 글은 코드가 결국 시대에 뒤처질 수밖에 없다는 사실을 받아들이고, 이러한 불가피성을 예상하고 받아들이는 마음가짐인 "Destruction-Oriented Development"의 개념을 소개합니다.
 
 ### re:Work
 

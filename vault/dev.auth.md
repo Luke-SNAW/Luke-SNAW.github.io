@@ -2,7 +2,7 @@
 id: v45kc46huiqczj6vx691qf9
 title: Auth
 desc: ""
-updated: 1728625239009
+updated: 1728630569931
 created: 1681888714876
 ---
 
@@ -15,5 +15,3 @@ created: 1681888714876
 ## Tools
 
 - [Auth.js](https://github.com/nextauthjs/next-auth) is a set of open-source packages that are built on Web Standard APIs for authentication in modern applications with any framework on any platform in any JS runtime.
-
-api-authorization-best-practices
