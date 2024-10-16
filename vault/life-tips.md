@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1726102302715
+updated: 1729044553265
 created: 1645514261238
 ---
 
@@ -42,6 +42,7 @@ created: 1645514261238
   > ![Even though customers buy all parts of skateboard, they really want to joy by riding it.](./assets/images/life-tips/what-is-jobs-to-be-done.webp)
   > The designers at intercom (intercom.com) use this illustration to show what is, and isn’t, important to customers.
   - https://www.revealed.market/when-coffee-and-kale-compete
+- [GOOD ENOUGH BEATS GREAT](https://www.meaningfulmoney.life/post/maximizer-vs-satisficer)
 
 ### [wodenokoto](https://news.ycombinator.com/item?id=33258142)
 

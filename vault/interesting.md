@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1728882716030
+updated: 1729044214144
 created: 1669705986186
 ---
 
@@ -29,3 +29,5 @@ created: 1669705986186
   - [The Great Wave: spot the difference](https://www.britishmuseum.org/blog/great-wave-spot-difference)
 - [Bop Spotter](https://walzr.com/bop-spotter)
 - https://sinerider.com/
+- [Explore the Maya Temples at Copán Ruinas](https://mused.com/guided/158/temple-26-and-excavation-tunnels-copan-ruinas/)
+  - [What Lies Beneath: Inside the Maya Temples at Copan](https://blog.mused.com/what-lies-beneath-digitally-recording-over-4km-of-tunnels-inside-the-maya-temples-at-copan/)
