@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1729044522481
+updated: 1729139523053
 created: 1667632965028
 ---
 
 ## Week 42, 2024
 
+- [I’ve Been Doing Blockquotes Wrong](https://css-irl.info/ive-been-doing-blockquotes-wrong/)
+- [I Self-Hosted Llama 3.2 with Coolify on My Home Server](https://geek.sg/blog/how-i-self-hosted-llama-32-with-coolify-on-my-home-server-a-step-by-step-guide)
+  - [Coolify](https://coolify.io/)
+  - [Cloudflare Tunnel](https://www.cloudflare.com/en-gb/products/tunnel/)
+  - [Tailscale Funnel](https://tailscale.com/kb/1223/funnel)
+- [Ask HN: Solopreneurs, how did you come up with your idea?](https://news.ycombinator.com/item?id=41837607)
 - [GOOD ENOUGH BEATS GREAT](https://www.meaningfulmoney.life/post/maximizer-vs-satisficer)
 - [Explore the Maya Temples at Copán Ruinas](https://mused.com/guided/158/temple-26-and-excavation-tunnels-copan-ruinas/)
 - [Bike Manufacturers Are Making Bikes Less Repairable](https://www.ifixit.com/News/101675/bike-manufacturers-are-making-bikes-less-repairable)

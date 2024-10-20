@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1719292339703
+updated: 1729139540558
 created: 1644885695231
 ---
 
@@ -57,6 +57,7 @@ created: 1644885695231
   ```
 - [State of HTML 2023](https://2023.stateofhtml.com/)
 - [EntityCode](https://entitycode.com/)
+- [I’ve Been Doing Blockquotes Wrong](https://css-irl.info/ive-been-doing-blockquotes-wrong/)
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 
