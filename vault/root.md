@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1728366820262
+updated: 1729575913816
 created: 1644449449778
 ---
 
@@ -15,6 +15,14 @@ Hi there 👋. I'm a Front-end developer.
 > — [aliasxneo](https://news.ycombinator.com/item?id=41497113)
 
 > [The Rise of Worse is Better](https://www.dreamsongs.com/RiseOfWorseIsBetter.html)
+
+> We love to see the process, not just the result. The imperfections in your work can be beautiful if they show your struggle for perfection, not a lack of care.
+>
+> — [ralphammer](https://ralphammer.com/is-perfection-boring/)
+
+> A good match is a **structured** dance, where players aim to **score** while they are following well-defined **rules**. This **freedom within a structure** is what makes it fun.
+>
+> — [ralphammer](https://ralphammer.com/how-to-get-started/)
 
 > “Motivation often comes after starting, not before. Action produces momentum.”
 >

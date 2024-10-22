@@ -2,7 +2,7 @@
 id: TN3SWriksRFA35jnzNKzy
 title: Tools
 desc: ""
-updated: 1724808643053
+updated: 1729572875490
 created: 1645523891283
 ---
 
@@ -12,6 +12,7 @@ created: 1645523891283
   - https://news.ycombinator.com/item?id=31560547
 - [mkcert](https://github.com/FiloSottile/mkcert) is a simple tool for making locally-trusted development certificates. It requires no configuration.
 - [Hono](https://hono.dev/) is a small, simple, and ultrafast web framework for the Edges. It works on any JavaScript runtime: Cloudflare Workers, Fastly Compute, Deno, Bun, Vercel, AWS Lambda, Lambda@Edge, and Node.js.
+  - [The story of web framework Hono, from the creator of Hono](https://blog.cloudflare.com/the-story-of-web-framework-hono-from-the-creator-of-hono)
 - [Teo](https://github.com/teodevgroup/teo) is schema-driven web server framework. The server side API is native to Rust, Node.js and Python.
 
 ## API
