@@ -2,7 +2,7 @@
 id: 7tPeWrJHQmeiMg4HWoymw
 title: Accessibility
 desc: ""
-updated: 1725594705954
+updated: 1729752889433
 created: 1644817740456
 ---
 
@@ -30,6 +30,7 @@ created: 1644817740456
   - `@media (forced-colors: active)`
 - [모두를 위한 디자인](https://a11y.gitbook.io/wcag)
 - [Paragraphs](https://www.scottohara.me/blog/2024/08/29/paragraphs.html)
+- [Practical Accessibility Tips You Can Apply Today](https://piccalil.li/blog/practical-accessibility-tips-you-can-apply-today/)
 
 ## Text
 

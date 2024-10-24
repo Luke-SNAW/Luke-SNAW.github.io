@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1729572863196
+updated: 1729752885027
 created: 1667632965028
 ---
 
 ## Week 43, 2024
 
+- [Practical Accessibility Tips You Can Apply Today](https://piccalil.li/blog/practical-accessibility-tips-you-can-apply-today/)
+- [Sucrose - The secret behind Elysia speed](https://saltyaom.com/blog/elysia-sucrose/)
+- [Tog's paradox](https://www.votito.com/methods/togs-paradox/) (also known as The Complexity Paradox or Tog’s Complexity Paradox) is an observation that products aiming to simplify a task for users tend to inspire new, more complex tasks.
+  > Travel became simpler → more vacations now involve flying a plane and thus obtaining tickets online and thus comparison-shopping, aggregating reviews of faraway places, etc → omg, vacation travel is complex again. It just allows to fulfill more of a dream. — [nine_k](https://news.ycombinator.com/item?id=41914693)
+  >
+  > Tog's paradox is the main reason why I suspect that generative AI will never destroy art, it will enhance it. It allows you to create artworks within minutes that until recently required hours to create and years to master. This will cause new art to emerge that pushes these new tools to the limit, again with years of study and mastery, and they will look like nothing we've been able to produce so far. — [posix86](https://news.ycombinator.com/item?id=41914285)
 - [The story of web framework Hono, from the creator of Hono](https://blog.cloudflare.com/the-story-of-web-framework-hono-from-the-creator-of-hono)
 - [Love being interrupted when my monitor asks me to accept user agreements](https://x.com/snwy_me/status/1847396175961641176)
 
