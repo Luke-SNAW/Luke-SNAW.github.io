@@ -2,7 +2,7 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1693271056457
+updated: 1730072417491
 created: 1646021156163
 ---
 
@@ -135,3 +135,46 @@ cloudfront에서 403 error를 SPA framework index.html로 처리하도록 해주
 In brief: when setting up your CloudFront distribution, don’t set the origin to the name of the S3 bucket; instead, set the origin to the static website endpoint that corresponds to that S3 bucket. Amazon [are clear](https://aws.amazon.com/premiumsupport/knowledge-center/s3-rest-api-cloudfront-error-403/) there is a difference here, between REST API endpoints and static website endpoints, but they’re only looking at 403 errors coming from the root in that document. [#](https://www.mark-gilbert.co.uk/serving-index-pages-from-non-root-locations-with-aws-cloudfront/#:~:text=to%20the%20solution.-,In%20brief%3A,-when%20setting%20up)
 
 ![](assets/images/devops/s3-cloudfront__subdir.webp)
+
+## Github Actions with IAM Roles
+
+[Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
+
+```yml
+- name: Configure AWS credentials
+  uses: aws-actions/configure-aws-credentials@v4
+  with:
+    role-to-assume: arn:aws:iam::<arn-number>:role/<role-name>
+    role-duration-seconds: 900
+    aws-region: <region>
+```
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "s3.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::<arn-number>:oidc-provider/token.actions.githubusercontent.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+        },
+        "StringLike": {
+          "token.actions.githubusercontent.com:sub": "repo:<org-name>/<repo-name>:*"
+        }
+      }
+    }
+  ]
+}
+```

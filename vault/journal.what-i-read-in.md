@@ -2,12 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1729752885027
+updated: 1730081708833
 created: 1667632965028
 ---
 
+## Week 44, 2024
+
+- [The open secret of open washing – why companies pretend to be open source](https://www.theregister.com/2024/10/25/opinion_open_washing/)
+- [Before you buy a domain name, first check to see if it's haunted](https://www.bryanbraun.com/2024/10/25/before-you-buy-a-domain-name-first-check-to-see-if-its-haunted/)
+  > Before I bought it, the domain was used to host pirated music. Its urls were delisted by Google (and other search engines).
+
 ## Week 43, 2024
 
+- [Focus on decisions, not tasks](https://technicalwriting.dev/strategy/decisions.html)
 - [Practical Accessibility Tips You Can Apply Today](https://piccalil.li/blog/practical-accessibility-tips-you-can-apply-today/)
 - [Sucrose - The secret behind Elysia speed](https://saltyaom.com/blog/elysia-sucrose/)
 - [Tog's paradox](https://www.votito.com/methods/togs-paradox/) (also known as The Complexity Paradox or Tog’s Complexity Paradox) is an observation that products aiming to simplify a task for users tend to inspire new, more complex tasks.
