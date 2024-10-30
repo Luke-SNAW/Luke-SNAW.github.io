@@ -2,12 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1730081708833
+updated: 1730185928445
 created: 1667632965028
 ---
 
 ## Week 44, 2024
 
+- [How I write code using Cursor: A review](https://www.arguingwithalgorithms.com/posts/cursor-review.html)
 - [The open secret of open washing – why companies pretend to be open source](https://www.theregister.com/2024/10/25/opinion_open_washing/)
 - [Before you buy a domain name, first check to see if it's haunted](https://www.bryanbraun.com/2024/10/25/before-you-buy-a-domain-name-first-check-to-see-if-its-haunted/)
   > Before I bought it, the domain was used to host pirated music. Its urls were delisted by Google (and other search engines).
