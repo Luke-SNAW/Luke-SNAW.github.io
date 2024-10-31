@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1729575913816
+updated: 1730260142599
 created: 1644449449778
 ---
 
@@ -15,6 +15,8 @@ Hi there 👋. I'm a Front-end developer.
 > — [aliasxneo](https://news.ycombinator.com/item?id=41497113)
 
 > [The Rise of Worse is Better](https://www.dreamsongs.com/RiseOfWorseIsBetter.html)
+>
+> better survival characteristics than the-right-thing
 
 > We love to see the process, not just the result. The imperfections in your work can be beautiful if they show your struggle for perfection, not a lack of care.
 >
