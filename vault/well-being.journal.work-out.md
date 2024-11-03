@@ -2,7 +2,7 @@
 id: 9fp3juqfks6477fg71yio1f
 title: Work Out
 desc: ""
-updated: 1730341405511
+updated: 1730624966156
 created: 1649383210461
 published: false
 ---
@@ -12,7 +12,7 @@ published: false
 2024/08/21부터
 2분 뛰고 1분 쉬는 식에서 발전. 현재는 30분.
 
-## 2024/10
+### 2024/10
 
 13,000보 넘기니 뛰고 난 뒤 오른 무릎에서 통증.
 11,000보는 괜찮음
