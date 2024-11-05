@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1729139540558
+updated: 1730790257303
 created: 1644885695231
 ---
 
@@ -58,6 +58,12 @@ created: 1644885695231
 - [State of HTML 2023](https://2023.stateofhtml.com/)
 - [EntityCode](https://entitycode.com/)
 - [I’ve Been Doing Blockquotes Wrong](https://css-irl.info/ive-been-doing-blockquotes-wrong/)
+- [Clarifying the Relationship Between Popovers and Dialogs](https://css-tricks.com/clarifying-the-relationship-between-popovers-and-dialogs/)
+  - Popover is an umbrella term for any kind of on-demand popup.
+  - Dialog is one type of popover — a kind that creates a new window (or card) to contain some content.
+    - Modal: A dialog with an overlay and focus trapping
+    - Non-Modal: A dialog with neither an overlay nor focus trapping
+    - Alert Dialog: A dialog that alerts screen readers when shown. It can be either modal or non-modal.
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 

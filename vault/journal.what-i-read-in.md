@@ -2,9 +2,19 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1730332722377
+updated: 1730790245918
 created: 1667632965028
 ---
+
+## Week 45, 2024
+
+- [Clarifying the Relationship Between Popovers and Dialogs](https://css-tricks.com/clarifying-the-relationship-between-popovers-and-dialogs/)
+  - Popover is an umbrella term for any kind of on-demand popup.
+  - Dialog is one type of popover — a kind that creates a new window (or card) to contain some content.
+    - Modal: A dialog with an overlay and focus trapping
+    - Non-Modal: A dialog with neither an overlay nor focus trapping
+    - Alert Dialog: A dialog that alerts screen readers when shown. It can be either modal or non-modal.
+- [Sleep regularity is a stronger predictor of mortality risk than sleep duration: A prospective cohort study](https://academic.oup.com/sleep/article/47/1/zsad253/7280269)
 
 ## Week 44, 2024
 

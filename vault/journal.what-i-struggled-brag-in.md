@@ -2,24 +2,39 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1725418202906
+updated: 1730784135360
 created: 1669264809793
 ---
 
-## Week 36, 2025 - Nuxt hook for page blink during nav
+## Week 45, 2024 - Nuxt generate fail in Node v22
+
+[x]에서 Node v20에는 build 되는데 v22에서 build 안되는 버그
+증상 - generate command does not return/close on success
+같은 nuxt 기반 project인 [.co.kr]은 v22에서 build 됨
+
+Nuxt 3.13.2 with Nitro 2.9.7으로 같고, vite는 5.4.7, 5.4.10로 차이난다. (전자가 [x])
+
+의심가는 부분
+
+> 5.4.8 (2024-09-25)
+>
+> - fix(css): backport #18113, fix missing source file warning with sass modern api custom importer (#18 ([7d47fc1](https://github.com/vitejs/vite/commit/7d47fc1c749053095a3345ca1d47406a5f31792a)
+>   ), closes [#18183](https://github.com/vitejs/vite/issues/18183)
+
+## Week 36, 2024 - Nuxt hook for page blink during nav
 
 페이지 이동 시 다음 페이지가 캐시되지 않을 경우 지연시간이 있는데,
 그 동안 `현재 페이지 top:0으로 이동` 후에 다음 페이지로 이동해서 UX 상 거슬림
 
 ![nuxt page blink during nav](assets/movs/what-i-struggled-brag-in/nuxt-page-blink-during-nav.mp4)
 
-## Week 35, 2025 - Safari infinite translateX animation flickers on loop
+## Week 35, 2024 - Safari infinite translateX animation flickers on loop
 
 Adding `-webkit-transform: translateZ(0);` to img or picture element will do the trick [#](https://stackoverflow.com/a/71832879/5163033)
 
 scroll element 내의 `<picture>` + lazy loading이 제대로 안되는 버그도 있어 eager로 바꿈
 
-## Week 25, 2025 - PDF Generator
+## Week 25, 2024 - PDF Generator
 
 이전 [[Pdf Generator|dev.journal.genoplan.pdf-generator]] project를 다시 써야 될 상황이 와서 project를 가져와 package upgrade해서 세팅해보니 Chromium launch error 몇 가지 발생 (Security.setIgnoreCertificateErrors, 등) 2~30분 했는데 다른 error 발생해서 예전 version으로 돌리니 제대로 된다.
 
@@ -1287,3 +1302,5 @@ vue3이 나온 시점에서 무조건 최신 plugin을 쓰면 호환이 안되�
 ## Week 15, 2022 - Cypress
 
 ![](assets/images/genoplan/cypress.webp)
+
+e
