@@ -2,7 +2,7 @@
 id: hjNeNc1F2JUh0lTWanH4h
 title: Well Being
 desc: ""
-updated: 1678238286685
+updated: 1730959974800
 created: 1645634209109
 ---
 
@@ -30,3 +30,4 @@ created: 1645634209109
   > I think it should be everyone's primary focus to sleep well, drink water, get outside, get active, and eat generally decently. The huge cognitive and physical gains that would come from these basic activities far surpass any marginal benefit from optimization. I hate to say it, but if you're not eating a good amount of vegetables and fruit, decent protein, sleep, etc, no amount of mushrooms will catch up to that detriment.  
   > Now if these fundementals are in place, findings like this are truly fascinating! I just see so many people put the cart before the horse far too often.  
   > — [CE02](https://news.ycombinator.com/item?id=35056071)
+- [New Study Reveals Blood Sugar Control is a Key Factor in Slowing Brain Aging, Highlighting the Benefits of the Mediterranean Diet](https://www.bgu.ac.il/en/news-and-articles/blood-sugar-control-is-key-factor-in-slowing-brain-aging/)

@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1728524091181
+updated: 1730955026317
 created: 1644825680750
 ---
 
@@ -31,6 +31,10 @@ created: 1644825680750
   - https://pages.nist.gov/800-63-4/sp800-63b.html#passwordver
 - [ABC News hacks into popular robot vacuum, watches owner through camera](https://www.abc.net.au/news/2024-10-04/robot-vacuum-hacked-photos-camera-audio/104414020)
   - [Valetudo](https://github.com/Hypfer/Valetudo) is a cloud replacement for vacuum robots enabling local-only operation.
+- [Attacking APIs using JSON Injection](https://danaepp.com/attacking-apis-using-json-injection)
+  > This endpoint had no sanitization on the parameters throughout the processing of the JSON body. Moreover, the library Samsung relied on (json-c) was compiled with `JSON_TOKENER_STRICT=0`, which allows for defining strings with both single and double quotes.
+  > You can [read a great writeup here](https://www.talosintelligence.com/vulnerability_reports/TALOS-2018-0556) from Cisco TALOS. This became [CVE-2018-3879](https://www.cvedetails.com/cve/CVE-2018-3879/), and when chained with [CVE-2018-3880](https://www.cvedetails.com/cve/CVE-2018-3880/), had a CVSS rating of 9.9.
+  > JSON Injection → SQL Injection → Buffer Overflow → ROP = PWNED
 
 ## [A comprehensive guide to the dangers of Regular Expressions in JavaScript](https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/)
 

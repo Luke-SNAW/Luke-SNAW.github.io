@@ -2,12 +2,18 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1730790245918
+updated: 1730959964864
 created: 1667632965028
 ---
 
 ## Week 45, 2024
 
+- [New Study Reveals Blood Sugar Control is a Key Factor in Slowing Brain Aging, Highlighting the Benefits of the Mediterranean Diet](https://www.bgu.ac.il/en/news-and-articles/blood-sugar-control-is-key-factor-in-slowing-brain-aging/)
+- [Useful built-in macOS command-line utilities](https://weiyen.net/articles/useful-macos-cmd-line-utilities)
+- [AI Slop Is Flooding Medium](https://www.wired.com/story/ai-generated-medium-posts-content-moderation/)
+- [Attacking APIs using JSON Injection](https://danaepp.com/attacking-apis-using-json-injection)
+  > This endpoint had no sanitization on the parameters throughout the processing of the JSON body. Moreover, the library Samsung relied on (json-c) was compiled with `JSON_TOKENER_STRICT=0`, which allows for defining strings with both single and double quotes.
+  > JSON Injection → SQL Injection → Buffer Overflow → ROP = PWNED
 - [Clarifying the Relationship Between Popovers and Dialogs](https://css-tricks.com/clarifying-the-relationship-between-popovers-and-dialogs/)
   - Popover is an umbrella term for any kind of on-demand popup.
   - Dialog is one type of popover — a kind that creates a new window (or card) to contain some content.
