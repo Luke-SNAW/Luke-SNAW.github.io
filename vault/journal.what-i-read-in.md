@@ -2,9 +2,20 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1730959964864
+updated: 1731286323983
 created: 1667632965028
 ---
+
+## Week 46, 2024
+
+- [100 Scrappy Things](https://www.florin-pop.com/blog/100-scrappy-things/)
+  > Putting in the work without expecting any external reward at first (eg views, followers, likes, etc) will pay off in the long run.
+  > [He was talking about making 100 crappy videos](https://www.youtube.com/watch?v=OnUBaQ1Sp_E) to get better over time. Putting in the reps and improving a little bit each time.
+- [Hundreds of code libraries posted to NPM try to install malware on dev machines](https://arstechnica.com/security/2024/11/javascript-developers-targeted-by-hundreds-of-malicious-code-libraries/)
+  > The IP address returned by a package Phylum analyzed was: hxxp://193.233.201[.]21:3001.
+  > While the method was likely intended to conceal the source of second-stage infections, it ironically had the effect of leaving a trail of previous addresses the attackers had used in the past.
+  >
+  > Attacks like this one rely on typosquatting, a term for the use of names that closely mimic those of legitimate packages but contain small differences, such as those that might occur if the package was inadvertently misspelled.
 
 ## Week 45, 2024
 

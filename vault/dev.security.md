@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1730955026317
+updated: 1731286052615
 created: 1644825680750
 ---
 
@@ -35,6 +35,11 @@ created: 1644825680750
   > This endpoint had no sanitization on the parameters throughout the processing of the JSON body. Moreover, the library Samsung relied on (json-c) was compiled with `JSON_TOKENER_STRICT=0`, which allows for defining strings with both single and double quotes.
   > You can [read a great writeup here](https://www.talosintelligence.com/vulnerability_reports/TALOS-2018-0556) from Cisco TALOS. This became [CVE-2018-3879](https://www.cvedetails.com/cve/CVE-2018-3879/), and when chained with [CVE-2018-3880](https://www.cvedetails.com/cve/CVE-2018-3880/), had a CVSS rating of 9.9.
   > JSON Injection → SQL Injection → Buffer Overflow → ROP = PWNED
+- [Hundreds of code libraries posted to NPM try to install malware on dev machines](https://arstechnica.com/security/2024/11/javascript-developers-targeted-by-hundreds-of-malicious-code-libraries/)
+  > The IP address returned by a package Phylum analyzed was: hxxp://193.233.201[.]21:3001.
+  > While the method was likely intended to conceal the source of second-stage infections, it ironically had the effect of leaving a trail of previous addresses the attackers had used in the past.
+  >
+  > Attacks like this one rely on typosquatting, a term for the use of names that closely mimic those of legitimate packages but contain small differences, such as those that might occur if the package was inadvertently misspelled.
 
 ## [A comprehensive guide to the dangers of Regular Expressions in JavaScript](https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/)
 
