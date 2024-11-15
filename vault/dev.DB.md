@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1721259307436
+updated: 1731461191444
 created: 1656645858715
 ---
 
@@ -37,6 +37,7 @@ created: 1656645858715
 - [It's Time To Get Over That Stored Procedure Aversion You Have](https://bigmachine.io/databases/its-time-to-get-over-that-stored-procedure-aversion-you-have/)
 - [UUIDv7: The Time-Sortable Identifier for Modern Databases](https://uuid7.com/)
 - [Identity Crisis: Sequence v. UUID as Primary Key](https://brandur.org/nanoglyphs/026-ids)
+- [What I Wish Someone Told Me About DB(Postgres)](https://challahscript.com/what_i_wish_someone_told_me_about_postgres)
 
 ## PostgreSQL
 
