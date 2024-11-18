@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1728621076167
+updated: 1731916202720
 created: 1647145480774
 ---
 
@@ -108,3 +108,10 @@ created: 1647145480774
 C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippets) for creating C4 diagrams with PlantUML.
 
 > [I only use system context and containers; components and code are too detailed.](https://brianmckenna.org/blog/architecture_code#:~:text=I%20only%20use%20system%20context%20and%20containers%3B%20components%20and%20code%20are%20too%20detailed.)
+
+## Images
+
+- https://jakearchibald.github.io/svgomg/
+- https://www.svgviewer.dev/
+- https://imagestool.com/webp2jpg-online/
+- https://evanw.github.io/thumbhash/

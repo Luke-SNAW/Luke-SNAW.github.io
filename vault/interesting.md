@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1731904533747
+updated: 1731904627193
 created: 1669705986186
 ---
 
@@ -33,4 +33,4 @@ created: 1669705986186
   - [What Lies Beneath: Inside the Maya Temples at Copan](https://blog.mused.com/what-lies-beneath-digitally-recording-over-4km-of-tunnels-inside-the-maya-temples-at-copan/)
 - [Leaving and Waving](https://deannadikeman.com/leaving-and-waving)
 - [We built our house for LAN parties](https://lanparty.house/)
-- [How to win by doing things that don't scale](https://www.operatorshandbook.com/p/how-to-win-by-doing-things-that-dont)
+- [How to win by doing things that don't scale](https://www.operatorshandbook.com/p/how-to-win-by-doing-things-that-dont) - a winning strategy even well beyond the early days of a startup
