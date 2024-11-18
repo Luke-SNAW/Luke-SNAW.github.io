@@ -2,7 +2,7 @@
 id: jza6mtnstdhgn6s6t4ucujn
 title: query
 desc: ""
-updated: 1712645016817
+updated: 1731904186721
 created: 1712298656661
 ---
 
@@ -32,6 +32,8 @@ created: 1712298656661
     /* Apply the full variation. */
   }
   ```
+
+- [A Friendly Introduction to Container Queries](https://www.joshwcomeau.com/css/container-queries-introduction/)
 
 ## Style Queries
 

@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1731459787441
+updated: 1731904533747
 created: 1669705986186
 ---
 
@@ -32,3 +32,5 @@ created: 1669705986186
 - [Explore the Maya Temples at Copán Ruinas](https://mused.com/guided/158/temple-26-and-excavation-tunnels-copan-ruinas/)
   - [What Lies Beneath: Inside the Maya Temples at Copan](https://blog.mused.com/what-lies-beneath-digitally-recording-over-4km-of-tunnels-inside-the-maya-temples-at-copan/)
 - [Leaving and Waving](https://deannadikeman.com/leaving-and-waving)
+- [We built our house for LAN parties](https://lanparty.house/)
+- [How to win by doing things that don't scale](https://www.operatorshandbook.com/p/how-to-win-by-doing-things-that-dont)

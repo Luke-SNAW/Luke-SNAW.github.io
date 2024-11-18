@@ -2,9 +2,15 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1731644976840
+updated: 1731904505066
 created: 1667632965028
 ---
+
+## Week 47, 2024
+
+- [A Friendly Introduction to Container Queries](https://www.joshwcomeau.com/css/container-queries-introduction/)
+- [How to win by doing things that don't scale](https://www.operatorshandbook.com/p/how-to-win-by-doing-things-that-dont)
+- [The Long Tail of AI](https://research.contrary.com/deep-dive/long-tail-of-ai) - how non-AI companies are integrating artificial intelligence.
 
 ## Week 46, 2024
 

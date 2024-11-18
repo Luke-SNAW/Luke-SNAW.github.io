@@ -2,7 +2,7 @@
 id: nel3zsrmws3r4793shzbte8
 title: To Read List
 desc: ""
-updated: 1726103300550
+updated: 1731900908935
 created: 1645681934406
 tags: bookshelf
 ---
@@ -48,6 +48,12 @@ tags: bookshelf
 - [Read This Twice](https://www.readthistwice.com/)
   - [Best Books for 1st Graders](https://www.readthistwice.com/lists/best-books-for-1st-graders)
 - [BUTTERICK’S PRACTICAL TYPOGRAPHY](https://practicaltypography.com/)
+- [Structure and Interpretation of Computer Programs](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/index.html)
+  - [Javascript version](https://sourceacademy.org/sicpjs/index)
+  - [Python version](http://www.composingprograms.com/)
+  - [MIT 6.001 Structure and Interpretation, 1986 - Youtube playlist](https://www.youtube.com/playlist?list=PLE18841CABEA24090)
+- [wikipeida of The Elements of Programming Style](https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style)
+  - [slides of The Elements Of Programming Style Second Edition (Brian W. Kernighan And P. J. Plauger)](https://archive.org/details/the-elements-of-programming-style-second-edition/page/7/mode/2up)
 
 ## PL
 

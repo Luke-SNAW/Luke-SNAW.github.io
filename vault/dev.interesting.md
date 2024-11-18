@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1729559912093
+updated: 1731647256573
 created: 1646613084338
 ---
 
@@ -81,6 +81,10 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
   - To reduce costs and increase speed, they developed a technique to generate a moderately sized corpus of completions made by a larger model, and fine-tune a smaller model to do the same task. This can reduce costs by 40x and increase speed by 5x. This is an interesting approach to using GPT-3 to reduce costs and increase speed, and could be useful for other applications.
   - [Knowledge distillation](https://en.m.wikipedia.org/wiki/Knowledge_distillation)
 - [I made ChatGPT and Bing AI have a conversation (and they are friends now)](https://moritz.pm/posts/chatgpt-bing)
+- [🌴 Stretch My Time Off](https://stretchmytimeoff.com/) - a quick experiment using Cursor (Anysphere's AI code editor) and GPT-4o to see how far AI could go in building a simple, functional site.
+  - https://github.com/zachd/stretch-my-time-off
+- [The disposable web](https://paul.kinlan.me/the-disposable-web/)
+  - [Generated Web Apps](https://paul.kinlan.me/generated-web-apps/) - https://websim.ai/, https://replit.com/
 
 ## Graphic
 

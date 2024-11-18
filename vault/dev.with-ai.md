@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1731643518409
+updated: 1731902572818
 created: 1688605282146
 ---
 
@@ -32,3 +32,4 @@ created: 1688605282146
   > Tog's paradox is the main reason why I suspect that generative AI will never destroy art, it will enhance it. It allows you to create artworks within minutes that until recently required hours to create and years to master. This will cause new art to emerge that pushes these new tools to the limit, again with years of study and mastery, and they will look like nothing we've been able to produce so far. — [posix86](https://news.ycombinator.com/item?id=41914285)
 - [The disposable web](https://paul.kinlan.me/the-disposable-web/)
   - [Generated Web Apps](https://paul.kinlan.me/generated-web-apps/) - https://websim.ai/, https://replit.com/
+- [The Long Tail of AI](https://research.contrary.com/deep-dive/long-tail-of-ai) - how non-AI companies are integrating artificial intelligence.
