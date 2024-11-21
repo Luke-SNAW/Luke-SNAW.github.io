@@ -2,7 +2,7 @@
 id: 7mujc4bw6yz1nfbf03gmqc8
 title: Aws
 desc: ""
-updated: 1722392910827
+updated: 1732000942971
 created: 1646005847772
 ---
 
@@ -103,3 +103,7 @@ aws s3 cp s3://data/ . --recursive --exclude "*" --include "2016-08*"
 ```
 
 I'd like to point out the `--exclude "*"` isn't a typo. _If you don't add it, the include will match anything_.
+
+## [Create an OpenID Connect (OIDC) identity provider in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+
+- [Github Actions - Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)

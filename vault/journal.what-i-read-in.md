@@ -2,12 +2,14 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1731916150574
+updated: 1732154154772
 created: 1667632965028
 ---
 
 ## Week 47, 2024
 
+- [Overflow Clip](https://ishadeed.com/article/overflow-clip/)
+- [AAA - Analytical Anti-Aliasing](https://blog.frost.kiwi/analytical-anti-aliasing/)
 - [A Friendly Introduction to Container Queries](https://www.joshwcomeau.com/css/container-queries-introduction/)
 - [How to win by doing things that don't scale](https://www.operatorshandbook.com/p/how-to-win-by-doing-things-that-dont) - a winning strategy even well beyond the early days of a startup
 - [The Long Tail of AI](https://research.contrary.com/deep-dive/long-tail-of-ai) - how non-AI companies are integrating artificial intelligence.
