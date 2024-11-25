@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1717053207271
+updated: 1732496219395
 created: 1645514209965
 ---
 
@@ -71,6 +71,7 @@ created: 1645514209965
 ## Architecture
 
 - [Domain-centric Architectures (Clean and Hexagonal) for Dummies](https://medium.com/codex/clean-architecture-for-dummies-df6561d42c94)
+- [Domain-Driven Hexagon](https://github.com/Sairyss/domain-driven-hexagon)
 - [BBC Online Uses Serverless to Scale Extremely Fast](https://www.infoq.com/news/2021/01/bbc-serverless-scale/)
 - [Islands Architecture](https://www.patterns.dev/posts/islands-architecture/)
 - [HN: Modules, not microservices](https://news.ycombinator.com/item?id=34230641)
