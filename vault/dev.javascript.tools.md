@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1721695138331
+updated: 1732596236607
 created: 1644882116217
 ---
 
@@ -68,6 +68,7 @@ created: 1644882116217
   - [Ready Player Two](https://rocicorp.dev/blog/ready-player-two) - Transactional Conflict Resolution instead of CRDTs
 - [PartyKit](https://github.com/partykit/partykit/) simplifies developing multiplayer applications
 - [rrweb](https://github.com/rrweb-io/rrweb) - record and replay the web
+- [Fraction.js - ℚ in JavaScript](https://github.com/rawify/Fraction.js)
 
 ## Framework
 

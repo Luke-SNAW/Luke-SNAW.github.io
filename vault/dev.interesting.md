@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1732152849405
+updated: 1732585421751
 created: 1646613084338
 ---
 
@@ -47,6 +47,7 @@ created: 1646613084338
 - [Flying planes in Microsoft Flight Simulator with a JavaScript autopilot](https://pomax.github.io/are-we-flying/)
 - [So you think you know box shadows?](https://dgerrells.com/blog/how-not-to-use-box-shadows)
 - [The Art Of Andrew Wulf](https://digcon.art/)
+- [🤫오프라인이지만 온라인이어야 해요 - 로컬 생성 결제 토큰](https://blog.javien.dev/4)
 
 ## News
 
