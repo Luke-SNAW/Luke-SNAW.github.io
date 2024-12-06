@@ -1,0 +1,30 @@
+<h1 id="control-what-you-share-with-google">Control what you share with Google<a aria-hidden="true" class="anchor-heading icon-link" href="#control-what-you-share-with-google"></a></h1>
+<blockquote>
+<p><a href="https://developers.google.com/search/docs/crawling-indexing/control-what-you-share">https://developers.google.com/search/docs/crawling-indexing/control-what-you-share</a></p>
+</blockquote>
+<p>Control what information Google sees on your site and what is shown in search results. There are a few reasons you might want to hide content from Google:</p>
+<ul>
+<li><strong>To keep data private</strong></li>
+<li><strong>To hide content of less value to your audience</strong></li>
+<li><strong>To have Google focus on your important content</strong></li>
+</ul>
+<h2 id="how-to-block-content">How to block content<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-block-content"></a></h2>
+<h3 id="remove-the-content">Remove the content<a aria-hidden="true" class="anchor-heading icon-link" href="#remove-the-content"></a></h3>
+<p><strong>For all content types</strong></p>
+<p>Removing content from your site is the best way to ensure that it won't appear in Google Search, or anywhere. If the information is already appearing in Google, you might need to <a href="https://developers.google.com/search/docs/crawling-indexing/remove-information">take additional steps</a> to make your removal permanent.</p>
+<h3 id="password-protect-your-files">Password-protect your files<a aria-hidden="true" class="anchor-heading icon-link" href="#password-protect-your-files"></a></h3>
+<p><strong>For all content types</strong></p>
+<p>If you have confidential or private content that you don't want to appear in Google search results, the simplest and most effective way to block private URLs from appearing is to store them in a password-protected directory on your site server. Googlebot and all other web crawlers are unable to access content in password-protected directories.</p>
+<p><strong>Advanced users:</strong> If you're using Apache Web Server, you can edit your <code>.htaccess</code> file to password-protect the directory on your server. There are a lot of tools on the web that can help you do this.</p>
+<h3 id="robotstxt-andor-emergency-image-removal-request">robots.txt and/or emergency image removal request<a aria-hidden="true" class="anchor-heading icon-link" href="#robotstxt-andor-emergency-image-removal-request"></a></h3>
+<p><strong>For images</strong></p>
+<p>Use <a href="https://developers.google.com/search/docs/crawling-indexing/prevent-images-on-your-page">robots.txt rules to block images</a>.</p>
+<p><a href="https://developers.google.com/search/docs/crawling-indexing/block-indexing"><code>noindex</code> directive</a></p>
+<p><strong>For web pages</strong></p>
+<p><code>noindex</code> is a technique that tells Google not to read your page or let it appear in Google search results. Your pages can still be linked to and visited through other web pages, or directly visited by users with a link, but the pages will not appear in Google search results. This method requires technical savvy, and may not be available if you use a content management system to host your site.</p>
+<p><a href="https://support.google.com/webmasters/answer/3035947">Opt out of specific Google properties</a></p>
+<p><strong>For web pages</strong></p>
+<p>You can tell Google not to include content from your site in specific Google properties, rather than all Google properties.</p>
+<h3 id="nosnippet-meta-tag"><a href="https://developers.google.com/search/docs/appearance/snippet#nosnippet"><code>nosnippet</code> meta tag</a><a aria-hidden="true" class="anchor-heading icon-link" href="#nosnippet-meta-tag"></a></h3>
+<p><strong>For Search result snippets</strong></p>
+<p>Add the <code>&#x3C;meta name="robots" content="nosnippet"></code> tag to your page's HTML <code>head</code> section to prevent a snippet from appearing in Search. However, note that this can generate a confusing message in search results ("No information is available for this page").</p>
