@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1733203410092
+updated: 1733463523123
 created: 1667632965028
 ---
 
 ## Week 49, 2024
 
+- [Exploring the HTML5 <a> Tag Ping Attribute](https://jsdev.space/html-ping-attribute/)
+- [How to Grow Professional Relationships](https://tej.as/blog/how-to-grow-professional-relationships-tjs-model)
+  > There is so much to go around. The world is abundant and not zero-sum. I intentionally let people take advantage of me because I know I’ll recover whatever I need in another way.
+  > A useful habit is to practice random acts of kindness daily, whenever convenient.
+- [Stop using JPA/Hibernate](https://www.stemlaur.com/blog/2021/03/30/tech-hibern-hate/)
 - [You Must Read At Least One Book To Ride](https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/)
 - [Go vs Bun, Go언어는 정말 JS 런타임보다 빠를까?](https://tsboard.dev/blog/sirini/41)
   > DB 입출력이 잦은 리얼 월드에서는 **Bun** 런타임과 **Elysia** 웹프레임워크, 그리고 **mysql2** 라이브러리의 조합이 예상 외로 훌륭한 결과를 보여주었습니다. 동시 요청이 많아도 Go가 보여주는 것만큼의 안정적인 동작을 보여주었고, 미약해 보였던 싱글 스레드 기반의 이벤트 루프는 **비동기 I/O와 함께 의외의 슈퍼 파워**를 보여주었습니다.

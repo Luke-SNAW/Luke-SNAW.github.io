@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1732596236607
+updated: 1733356588109
 created: 1644882116217
 ---
 
@@ -69,6 +69,7 @@ created: 1644882116217
 - [PartyKit](https://github.com/partykit/partykit/) simplifies developing multiplayer applications
 - [rrweb](https://github.com/rrweb-io/rrweb) - record and replay the web
 - [Fraction.js - ℚ in JavaScript](https://github.com/rawify/Fraction.js)
+- [BETTER-AUTH](https://github.com/better-auth/better-auth) - The most comprehensive authentication framework for TypeScript
 
 ## Framework
 

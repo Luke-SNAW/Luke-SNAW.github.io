@@ -2,7 +2,7 @@
 id: g1fngdjl25nes6fs3lip602
 title: Communication
 desc: ""
-updated: 1722397315221
+updated: 1733460542832
 created: 1652404654841
 ---
 
@@ -14,6 +14,9 @@ created: 1652404654841
 - [How to Disagree](http://www.paulgraham.com/disagree.html)
 - [Become excellent. Be unreasonable.](https://www.youtube.com/watch?v=wIRuMJj_igE)
   - https://corely.ai/content/become-excellent-be-unreasonable
+- [How to Grow Professional Relationships](https://tej.as/blog/how-to-grow-professional-relationships-tjs-model) - https://news.hada.io/topic?id=18105
+  > There is so much to go around. The world is abundant and not zero-sum. I intentionally let people take advantage of me because I know I’ll recover whatever I need in another way.
+  > A useful habit is to practice random acts of kindness daily, whenever convenient.
 
 ## Why doesn't advice work? - from [efitz](https://news.ycombinator.com/item?id=41113807)
 

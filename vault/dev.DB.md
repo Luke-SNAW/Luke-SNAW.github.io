@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1731461191444
+updated: 1733441793273
 created: 1656645858715
 ---
 
@@ -38,6 +38,7 @@ created: 1656645858715
 - [UUIDv7: The Time-Sortable Identifier for Modern Databases](https://uuid7.com/)
 - [Identity Crisis: Sequence v. UUID as Primary Key](https://brandur.org/nanoglyphs/026-ids)
 - [What I Wish Someone Told Me About DB(Postgres)](https://challahscript.com/what_i_wish_someone_told_me_about_postgres)
+- [Stop using JPA/Hibernate](https://www.stemlaur.com/blog/2021/03/30/tech-hibern-hate/)
 
 ## PostgreSQL
 

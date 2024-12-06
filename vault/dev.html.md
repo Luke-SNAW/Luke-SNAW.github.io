@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1730790257303
+updated: 1733463530389
 created: 1644885695231
 ---
 
@@ -64,6 +64,7 @@ created: 1644885695231
     - Modal: A dialog with an overlay and focus trapping
     - Non-Modal: A dialog with neither an overlay nor focus trapping
     - Alert Dialog: A dialog that alerts screen readers when shown. It can be either modal or non-modal.
+- [Exploring the HTML5 <a> Tag Ping Attribute](https://jsdev.space/html-ping-attribute/)
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 

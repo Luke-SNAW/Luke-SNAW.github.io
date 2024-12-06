@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1733207106291
+updated: 1733207169549
 created: 1733205020636
 published: false
 ---
@@ -24,7 +24,7 @@ published: false
 - 아침에 근력운동 2024/11
   - 1~2 세트라도
 - 쓰기?
-  - piece. ralph cite.
+  - piece. ralphammer cite.
   - 재배
 
 ## 유지
