@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1733441793273
+updated: 1733722661561
 created: 1656645858715
 ---
 
@@ -39,6 +39,7 @@ created: 1656645858715
 - [Identity Crisis: Sequence v. UUID as Primary Key](https://brandur.org/nanoglyphs/026-ids)
 - [What I Wish Someone Told Me About DB(Postgres)](https://challahscript.com/what_i_wish_someone_told_me_about_postgres)
 - [Stop using JPA/Hibernate](https://www.stemlaur.com/blog/2021/03/30/tech-hibern-hate/)
+- [7 Databases in 7 Weeks for 2025](https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/)
 
 ## PostgreSQL
 
