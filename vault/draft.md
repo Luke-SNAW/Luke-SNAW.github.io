@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1733749355334
+updated: 1733791200190
 created: 1733205020636
 published: false
 ---
@@ -114,3 +114,9 @@ break
 ## 2024-12-09
 
 퇴근 직전까지 우울하다가 퇴근 버스에서 자고 일어나니 괜찮고...
+
+---
+
+Everything is designed to invoke negative emotions because negative emotions are engaging and engagement is money. Be less informed on international affairs and more involved in your own communities.
+
+https://news.ycombinator.com/item?id=42354417

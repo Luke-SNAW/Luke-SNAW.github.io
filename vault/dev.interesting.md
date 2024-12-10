@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1732585421751
+updated: 1733814336292
 created: 1646613084338
 ---
 
@@ -48,6 +48,7 @@ created: 1646613084338
 - [So you think you know box shadows?](https://dgerrells.com/blog/how-not-to-use-box-shadows)
 - [The Art Of Andrew Wulf](https://digcon.art/)
 - [🤫오프라인이지만 온라인이어야 해요 - 로컬 생성 결제 토큰](https://blog.javien.dev/4)
+- [Every UUID Dot Com](https://everyuuid.com/) - https://eieio.games/blog/writing-down-every-uuid/
 
 ## News
 

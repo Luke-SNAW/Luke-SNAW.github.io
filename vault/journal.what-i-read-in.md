@@ -2,12 +2,13 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1733726343135
+updated: 1733814337856
 created: 1667632965028
 ---
 
 ## Week 50, 2024
 
+- [Every UUID Dot Com](https://everyuuid.com/) - https://eieio.games/blog/writing-down-every-uuid/
 - [The 70% problem: Hard truths about AI-assisted coding](https://addyo.substack.com/p/the-70-problem-hard-truths-about)
 - [7 Databases in 7 Weeks for 2025](https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/)
 

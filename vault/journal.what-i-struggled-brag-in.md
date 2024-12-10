@@ -2,9 +2,14 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1730784135360
+updated: 1733814487190
 created: 1669264809793
 ---
+
+## Week 50, 2024 - AWS S3 Presigned URL for PDF
+
+- [[dev.web.pdf]]
+- [[dev.devops.aws.s3.presigned-url]]
 
 ## Week 45, 2024 - Nuxt generate fail in Node v22
 

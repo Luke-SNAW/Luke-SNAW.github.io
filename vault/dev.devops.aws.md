@@ -2,7 +2,7 @@
 id: 7mujc4bw6yz1nfbf03gmqc8
 title: Aws
 desc: ""
-updated: 1732000942971
+updated: 1733811100640
 created: 1646005847772
 ---
 
@@ -93,16 +93,6 @@ Re: Other services. I've only heard of API Gateway, DynamoDB and Lambda@Edge; I'
 https의 url redirection을 하려면 cloudfront가 필요함
 
 > https://repost.aws/ko/knowledge-center/route-53-redirect-to-another-domain
-
-## S3
-
-### [How can I use wildcards to `cp` a group of files with the AWS CLI?](https://stackoverflow.com/a/38834779/5163033)
-
-```sh
-aws s3 cp s3://data/ . --recursive --exclude "*" --include "2016-08*"
-```
-
-I'd like to point out the `--exclude "*"` isn't a typo. _If you don't add it, the include will match anything_.
 
 ## [Create an OpenID Connect (OIDC) identity provider in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
 
