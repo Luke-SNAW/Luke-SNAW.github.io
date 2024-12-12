@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1733791200190
+updated: 1733985963012
 created: 1733205020636
 published: false
 ---
@@ -120,3 +120,17 @@ break
 Everything is designed to invoke negative emotions because negative emotions are engaging and engagement is money. Be less informed on international affairs and more involved in your own communities.
 
 https://news.ycombinator.com/item?id=42354417
+
+# 퍼질러 쉬는 게 더 나약해짐
+
+2024-12-11 연계...
+멘탈 금가서 확 쉬었다. 조깅 X, 6시간 수면, 단 음식 섭취
+결과는... 몸 컨디션은 오히려 떨어짐.
+몸 컨디션에 비롯되는 멘탈 상태도 좋은 편은 아니고
+멘탈에 금가도 조깅, 7시간 이상 수면 같은 건강 루틴은 지키는게 오히려 좋아 보인다.
+
+# 습관 형성
+
+## colemak-dh
+
+24-12-12
