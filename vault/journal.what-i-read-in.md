@@ -2,9 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1733963372589
+updated: 1734422040044
 created: 1667632965028
 ---
+
+## Week 51, 2024
+
+- [Control the Viewport Resize Behavior on mobile with `interactive-widget`](https://htmhell.dev/adventcalendar/2024/4/)
+- [State of Node.js Performance 2024](https://nodesource.com/blog/State-of-Nodejs-Performance-2024)
+- Man ran 700 miles to make ‘insanely impressive’ art on GPS fitness app
+  - https://www.tiktok.com/@duncan77mccabe/video/7438366744776903992
+  - https://www.youtube.com/watch?v=fO--TM4_6hw
 
 ## Week 50, 2024
 

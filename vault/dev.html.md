@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1733463530389
+updated: 1734422035911
 created: 1644885695231
 ---
 
@@ -65,6 +65,7 @@ created: 1644885695231
     - Non-Modal: A dialog with neither an overlay nor focus trapping
     - Alert Dialog: A dialog that alerts screen readers when shown. It can be either modal or non-modal.
 - [Exploring the HTML5 <a> Tag Ping Attribute](https://jsdev.space/html-ping-attribute/)
+- [Control the Viewport Resize Behavior on mobile with `interactive-widget`](https://htmhell.dev/adventcalendar/2024/4/)
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 
