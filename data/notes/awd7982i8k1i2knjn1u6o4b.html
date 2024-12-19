@@ -1,0 +1,27 @@
+<h1 id="flexibly-centering-an-element-with-side-aligned-content">Flexibly Centering an Element with Side-Aligned Content<a aria-hidden="true" class="anchor-heading icon-link" href="#flexibly-centering-an-element-with-side-aligned-content"></a></h1>
+<p><a href="https://meyerweb.com/eric/thoughts/2022/04/26/flexibly-centering-an-element-with-side-aligned-content/">https://meyerweb.com/eric/thoughts/2022/04/26/flexibly-centering-an-element-with-side-aligned-content/</a></p>
+<p><a href="https://jsfiddle.net/oduska/va4djs9o/">https://jsfiddle.net/oduska/va4djs9o/</a></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>ol</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Foreword<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Chapter 1: The Day I Was Born<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Chapter 2: Childhood<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Chapter 3: Teachers I Admired<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Chapter 4: Teenage Dreaming<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Chapter 5: Look Out World<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Chapter 6: The World Strikes Back<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Chapter 7: Righting My Ship<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Chapter 8: In Hindsight<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span>Afterword<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>ol</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">ol</span> <span class="token punctuation">{</span>
+  <span class="token property">max-inline-size</span><span class="token punctuation">:</span> max-content<span class="token punctuation">;</span>
+  <span class="token property">margin-inline</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>You can also achieve this with:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">ol</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
