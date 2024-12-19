@@ -2,7 +2,7 @@
 id: g1fngdjl25nes6fs3lip602
 title: Communication
 desc: ""
-updated: 1733460542832
+updated: 1734583231264
 created: 1652404654841
 ---
 
@@ -17,6 +17,8 @@ created: 1652404654841
 - [How to Grow Professional Relationships](https://tej.as/blog/how-to-grow-professional-relationships-tjs-model) - https://news.hada.io/topic?id=18105
   > There is so much to go around. The world is abundant and not zero-sum. I intentionally let people take advantage of me because I know I’ll recover whatever I need in another way.
   > A useful habit is to practice random acts of kindness daily, whenever convenient.
+- [Always Go To The Funeral](https://www.npr.org/2005/08/08/4785079/always-go-to-the-funeral)
+  > In my humdrum life, the daily battle hasn't been good versus evil. It's hardly so epic. Most days, my real battle is doing good versus doing nothing.
 
 ## Why doesn't advice work? - from [efitz](https://news.ycombinator.com/item?id=41113807)
 

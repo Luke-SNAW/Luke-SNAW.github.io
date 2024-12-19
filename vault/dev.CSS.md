@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1728023551928
+updated: 1734596482041
 created: 1646129148306
 ---
 
@@ -111,6 +111,7 @@ created: 1646129148306
   - [:is() does not work with pseudo-element selectors (for now)](https://www.bram.us/2021/03/19/three-important-things-you-should-know-about-css-is/#simple-selectors)
 - [4 ways CSS :has() can make your HTML forms even better](https://austingil.com/css-has-with-html-forms/?utm_campaign=Frontend%2BWeekly&utm_medium=email&utm_source=Frontend_Weekly_337)
 - [How to Kill the Cascade](https://robinrendle.com/the-cascade/017-how-to-kill-the-cascade/)
+- [My Modern CSS Reset](https://jakelazaroff.com/words/my-modern-css-reset/)
 
 ## Cascade Precedence
 

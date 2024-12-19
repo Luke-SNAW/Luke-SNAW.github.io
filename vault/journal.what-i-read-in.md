@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1734422040044
+updated: 1734596471232
 created: 1667632965028
 ---
 
 ## Week 51, 2024
 
+- [My Modern CSS Reset](https://jakelazaroff.com/words/my-modern-css-reset/)
+- [What PWA Can Do Today](https://whatpwacando.today/)
+- [Moon](https://ciechanow.ski/moon/)
+- [Always Go To The Funeral](https://www.npr.org/2005/08/08/4785079/always-go-to-the-funeral)
+  > In my humdrum life, the daily battle hasn't been good versus evil. It's hardly so epic. Most days, my real battle is doing good versus doing nothing.
 - [Control the Viewport Resize Behavior on mobile with `interactive-widget`](https://htmhell.dev/adventcalendar/2024/4/)
 - [State of Node.js Performance 2024](https://nodesource.com/blog/State-of-Nodejs-Performance-2024)
 - Man ran 700 miles to make ‘insanely impressive’ art on GPS fitness app

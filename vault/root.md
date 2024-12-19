@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1731286433360
+updated: 1734583310605
 created: 1644449449778
 ---
 
@@ -51,6 +51,10 @@ Simplicity, even if it sacrifices some ideal functionality has better survival c
 > I think it should be everyone's primary focus to sleep well, drink water, get outside, get active, and eat generally decently. I hate to say it, but if you're not eating a good amount of vegetables and fruit, decent protein, sleep, etc, no amount of XYZ will catch up to that detriment.
 >
 > — [CE02](https://news.ycombinator.com/item?id=35056071)
+
+> My real battle is doing good versus doing nothing.
+>
+> — [Deirdre Sullivan](https://www.npr.org/2005/08/08/4785079/always-go-to-the-funeral)
 
 > Before leaving for the day I leave a comment in code: I’m working on this, need to do A, B C… to get it working.
 >

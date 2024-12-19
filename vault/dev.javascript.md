@@ -2,7 +2,7 @@
 id: IowIScQvzEu3KQ4dvwPTt
 title: JavaScript
 desc: ""
-updated: 1708934430919
+updated: 1734596326090
 created: 1645056460403
 ---
 
@@ -18,6 +18,7 @@ created: 1645056460403
   - https://beta.nextjs.org/docs/rendering/fundamentals
 - [How to escape CSS selectors in JavaScript](https://www.stefanjudis.com/today-i-learned/how-to-escape-css-selectors-in-javascript/) - a handy static method in the `CSS` JavaScript namespace to help with this exact problem — [`CSS.escape()`](https://developer.mozilla.org/en-US/docs/Web/API/CSS/escape_static)
 - [console.delight](https://frontendmasters.com/blog/console-delight/)
+- [What PWA Can Do Today](https://whatpwacando.today/)
 
 ## [Discover the Magic of Portals: A Beginner’s Guide to React’s Most Powerful Tool](https://blog.bitsrc.io/discover-the-magic-of-portals-a-beginners-guide-to-react-s-most-powerful-tool-f6f1965ea305)
 
