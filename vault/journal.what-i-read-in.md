@@ -2,12 +2,17 @@
 id: t9eilmx27nd8ytoelbm5v10
 title: "\U0001F453 What I read in"
 desc: ""
-updated: 1734596471232
+updated: 1734937601559
 created: 1667632965028
 ---
 
+## Week 52, 2024
+
+- [New Google Sheet on half of 13.6" MacBook Air screen is fully covered by popups](https://imgur.com/a/NQskWzI)
+
 ## Week 51, 2024
 
+- [My favourite colour is Chuck Norris red](https://htmhell.dev/adventcalendar/2024/20/)
 - [My Modern CSS Reset](https://jakelazaroff.com/words/my-modern-css-reset/)
 - [What PWA Can Do Today](https://whatpwacando.today/)
 - [Moon](https://ciechanow.ski/moon/)

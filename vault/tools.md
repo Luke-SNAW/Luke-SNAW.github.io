@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1726790203710
+updated: 1734655844510
 created: 1644799670081
 ---
 
@@ -74,6 +74,24 @@ created: 1644799670081
 - [Privacy Tools List](https://privacytoolslist.com/)
 - [SimpleLogin](https://simplelogin.io/) - With email aliases, you can be anonymous online and protect your inbox against spams and phishing. Open source. Based in Switzerland.
 
+## Keyboard Layout
+
+- 3벌식 - 맥에서는 구름, 윈도우는 날개셋, 리눅스는 kime
+
+### [Colemak dh ansi us wide](https://github.com/ColemakMods/mod-dh/blob/master/klc/colemak_dh_ansi_us_wide.jpg)
+
+[순수 타이핑은 matrix가 더 나아보이지만](https://colemakmods.github.io/mod-dh/compare.html), coding시 특수 기호 빈도가 일반 타이핑보다 높아 wide로... 할 예정이었지만 split keyboard에서 안좋을 수 있다니까 잠시 보류 (+Mac에서 wide 세팅에 손이 더 간다.)
+
+> Split boards offer much better separation. You may still want to redistribute pinky-index loads. — [dreymar.colemak.org](https://dreymar.colemak.org/ergo-mods.html)
+
+android는 3벌식과 같이 쓰려면 colemak을 쓸 수 밖에 없어보여 그냥 colemak으로 갈까 했지만, 빈도수가 적을 거 같아 android 영타는 포기한다.
+
+#### MacOS
+
+[Ukelele](https://software.sil.org/ukelele/), free, lets you make and install whatever layout you want. You can speed that up slightly by installing the default Colemak layout with regular macOS prefs, switching to it, then in Ukelele, File > New Layout From Current Input Source. — [5erif](https://www.reddit.com/r/Colemak/comments/11nu8ug/comment/jbp1s7w/)
+
+https://github.com/Caffa/Tarmak-DH-Mac?tab=readme-ov-file#how-i-generate-custom-text-based-on-letters
+
 ## Etc
 
 - [Definitive App Comparisons from Reddit](https://docs.google.com/spreadsheets/d/1JqyglRJXzxaj8OcQw9jHabxFUdsv9iWJXMPXcL7On0M/edit?gid=469491148#gid=469491148)
@@ -121,6 +139,5 @@ created: 1644799670081
 - Zstandard, or [zstd](https://github.com/facebook/zstd) as short version, is a fast lossless compression algorithm, targeting real-time compression scenarios at zlib-level and better compression ratios.
   - https://x.com/adrianco/status/1560854827810361345
   - https://www.uber.com/en-TW/blog/cost-efficiency-big-data/
-- 3벌식 - 맥에서는 구름, 윈도우는 날개셋, 리눅스는 kime
 - [Organic Maps](https://github.com/organicmaps/organicmaps): Offline Hike, Bike, Trails and Navigation
 - [rga](https://github.com/phiresky/ripgrep-all): ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc.

@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1734590218375
+updated: 1734675146707
 created: 1646613084338
 ---
 
@@ -112,6 +112,7 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 - [100k Stars](https://stars.chromeexperiments.com/)
 - [Liquid Layers](https://grantkot.com/ll/)
 - [Moon](https://ciechanow.ski/moon/)
+- [My favourite colour is Chuck Norris red](https://htmhell.dev/adventcalendar/2024/20/)
 
 ### [Asterisk Magazine](https://asteriskmag.com/)
 
