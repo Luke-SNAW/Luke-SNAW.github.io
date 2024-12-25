@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1733985963012
+updated: 1735129402376
 created: 1733205020636
 published: false
 ---
@@ -134,3 +134,14 @@ https://news.ycombinator.com/item?id=42354417
 ## colemak-dh
 
 24-12-12
+
+# 자신감?
+
+24-12-25
+운동화 사러 아울렛, 백화점에 감
+
+완전 vivid 톤의 녹색 sweat shirt와 노란색 후드를 입고 감
+중년 나이에 너무 강한 색이었지만 다른 사람들은 모노톤이 대부분이고 가~끔 파스텔 톤이어서 자신감? 고양감이 생김
+
+실제 오늘 내 패션이 최악이었든 말든 난 좋았다.
+객관적인 패션 센스보다 자기 만족감, 자신감이 넘치는게 훨씬 중요하게 느껴짐
