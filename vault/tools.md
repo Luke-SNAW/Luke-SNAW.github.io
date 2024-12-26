@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1734655844510
+updated: 1735192145312
 created: 1644799670081
 ---
 
@@ -91,6 +91,25 @@ android는 3벌식과 같이 쓰려면 colemak을 쓸 수 밖에 없어보여 �
 [Ukelele](https://software.sil.org/ukelele/), free, lets you make and install whatever layout you want. You can speed that up slightly by installing the default Colemak layout with regular macOS prefs, switching to it, then in Ukelele, File > New Layout From Current Input Source. — [5erif](https://www.reddit.com/r/Colemak/comments/11nu8ug/comment/jbp1s7w/)
 
 https://github.com/Caffa/Tarmak-DH-Mac?tab=readme-ov-file#how-i-generate-custom-text-based-on-letters
+
+#### Windows
+
+Microsoft IME, [날개셋 입력기](https://namu.wiki/w/%EB%82%A0%EA%B0%9C%EC%85%8B%20%EC%9E%85%EB%A0%A5%EA%B8%B0 "날개셋 입력기"), 새나루 입력기가 콜맥 자판을 지원한다. 단, 마이크로소프트 IME는 [사이트](http://colemak.com/wiki/index.php?title=Windows "http://colemak.com/wiki/index.php?title=Windows")에서 설정파일을 받아야 쓸 수 있다. 저 사이트에서 캡스 락에 백스페이스를 할당한 IME 설치 주소도 제공한다.
+
+- 날개셋 입력기로만 한글 자판과 콜맥을 쓰기.  
+   1-2단계는 입력기를 만들고, 3-5단계는 빈 입력 스키마를 콜맥으로 설정하며, 6-7단계는 한/영 키에 한영 전환 기능을 할당한다. 모두 수행하면 단축키나 비밀번호를 입력할 때도 콜맥으로 입력된다.
+  1. "날개셋 제어판 - 입력기 계층 - 로마자 쿼티 - 글쇠배열 - 불러오기 - Non-Hangul - Colemak.key"
+  2. 입력기 계층에 Colemak, KS X 5002 두벌식, 빈 입력 스키마를 남겨둔다.
+  3. IME 설정 파일을 설치
+  4. "시스템 계층 - 고급 시스템 옵션 - 운영체제 차원의 설정"에서 Colemak 선택
+  5. "운영체제 표준 컨트롤러에서 TSF 지원을 확장"을 체크
+  6. "편집기 계층-단축글쇠-추가-직접 눌러보기"에 커서를 대고 한/영 키(혹은 한영 전환을 할당할 키)를 눌러 가상 키코드를 입력
+  7. "할당할 기능-계산식"에 !A 입력하고 확인
+  8. 윈도우 입력 설정에서 기존 IME 삭제
+
+위 날개셋 입력기 사용법에서 1-2단계만 수행해도 통해 콜맥 자판을 사용할 수 있다. 다만 밑바닥 자판이 기본값인 미국 쿼티로 유지되어서 비밀번호 입력이나 단축키 사용 등에서는 콜맥대로 할 수가 없다. 또 서양권 IME에서 많이 쓰이는 [Alt Gr](https://namu.wiki/w/Alt%20Gr "Alt Gr") 키를 통한 [특수 문자](https://namu.wiki/w/%ED%8A%B9%EC%88%98%20%EB%AC%B8%EC%9E%90 "특수 문자") 입력도 불가능하다. 콜맥 누리집에서 배포하는 공식 콜맥 IME에서 Alt Gr을 지원하며, 콜맥만의 사용법은 [이 문서](https://colemak.com/Multilingual "https://colemak.com/Multilingual")를 참고할 것.
+
+- 윈도우 키보드 설정에서 콜맥 IME를 설정하고 한영 전환은 왼쪽 Alt + Shift를 통해서 하든가 제어판에서 한국어 IME와 콜맥 IME에 전용 단축키를 할당해서 써야 한다. 이 방식대로 하면 단축키가 현재 IME가 무엇이냐에 따라 다르게 작동한다는 문제가 있다. 한국어 IME일 때 단축키를 쓰면 밑바닥 자판인 미국 쿼티 배열대로 동작하고, 콜맥 IME일 때 단축키를 쓰면 콜맥대로 동작한다.
 
 ## Etc
 
