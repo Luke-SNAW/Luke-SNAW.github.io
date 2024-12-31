@@ -1,8 +1,8 @@
 ---
 id: t9eilmx27nd8ytoelbm5v10
-title: "\U0001F453 What I read in"
-desc: ''
-updated: 1734937601559
+title: "\U0001F453 What I read in 2024"
+desc: ""
+updated: 1735610818026
 created: 1667632965028
 ---
 
@@ -932,7 +932,3 @@ created: 1667632965028
 - [It's not microservice or monolith; it's cognitive load you need to understand first](https://fernandovillalba.substack.com/p/its-not-microservice-or-monolith)
 - [Cold-blooded software](https://dubroy.com/blog/cold-blooded-software/)
 - [Heynote](https://github.com/heyman/heynote/) is a dedicated scratchpad for developers
-
-## [[2023|journal.what-i-read-in.2023]]
-
-## [[2022|journal.what-i-read-in.2022]]
