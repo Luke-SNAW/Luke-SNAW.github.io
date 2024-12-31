@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1734583310605
+updated: 1735605256712
 created: 1644449449778
 ---
 
@@ -64,7 +64,7 @@ Simplicity, even if it sacrifices some ideal functionality has better survival c
 
 ## What I read in past
 
-- [[What I read in 2024|journal.what-i-read-in]]
+- [[What I read in 2024|journal.what-i-read-in.2024]]
   - [[2023|journal.what-i-read-in.2023]]
   - [[2022|journal.what-i-read-in.2022]]
 - 📝 [Gists](https://gist.github.com/Luke-SNAW)
