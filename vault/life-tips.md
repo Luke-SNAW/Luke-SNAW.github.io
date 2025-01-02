@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1733202794480
+updated: 1735781812881
 created: 1645514261238
 ---
 
@@ -30,6 +30,8 @@ created: 1645514261238
 - [Just for Fun (2022)](https://justforfunnoreally.dev/)
   > I've often described my motivation for building software to others using imagery: I like to go find a secluded beach, build a large, magnificent sand castle, and then walk away. Will anyone notice? Probably not. Will the waves eventually destroy it? Yep. Did I still get immense satisfaction? Absolutely. — [aliasxneo](https://news.ycombinator.com/item?id=41497113)
 - [You Must Read At Least One Book To Ride](https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/)
+- [An Unreasonable Amount of Time](https://allenpike.com/2024/an-unreasonable-amount-of-time) - A method for magic.
+  > Sometimes magic is just someone spending more time on something than anyone else might reasonably expect. — [Teller](https://www.goodreads.com/quotes/6641527-sometimes-magic-is-just-someone-spending-more-time-on-something)
 
 ## Focus
 
