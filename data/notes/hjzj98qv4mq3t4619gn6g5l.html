@@ -1,0 +1,19 @@
+<h1 id="what-is-token-based-authentication">What is Token-Based Authentication?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-token-based-authentication"></a></h1>
+<blockquote>
+<p><a href="https://www.permit.io/blog/what-is-token-based-authentication/">https://www.permit.io/blog/what-is-token-based-authentication/</a></p>
+</blockquote>
+<h2 id="why-not-password-and-sessions">Why Not Password and Sessions?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-not-password-and-sessions"></a></h2>
+<ol>
+<li><strong>Scalability</strong>: Managing session states across multiple servers or microservices can be time-consuming and inefficient.</li>
+<li><strong>Performance</strong>: Constantly verifying session information with each request adds overhead, impacting application performance.</li>
+<li><strong>Security Risks</strong>: Sessions can be vulnerable to various attacks, such as session hijacking and cross-site scripting (XSS).</li>
+</ol>
+<p>Token-based authentication addresses these issues by offering a <strong>stateless approach</strong>. Each token encapsulates the user's identity and permissions, eliminating the need for the server to maintain the session state. This approach doesn’t just simplify the architecture but also enhances security.</p>
+<h2 id="challenges-in-using-tokens"><strong>Challenges in Using Tokens</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#challenges-in-using-tokens"></a></h2>
+<p>While token-based authentication offers numerous advantages, it also comes with its own challenges that developers must navigate.</p>
+<ol>
+<li><strong>Token Management</strong>: Securely storing and managing tokens, especially refresh tokens, is crucial. Poorly managed tokens can become a security liability.</li>
+<li><strong>Token Expiration</strong>: Implementing and handling token expiration requires careful thought to balance security and user experience.</li>
+<li><strong>Scalability and Performance</strong>: In high-traffic systems, validating tokens for each request can become a performance bottleneck.</li>
+<li><strong>Cross-Domain/Cross-Origin Issues</strong>: When tokens are used across different domains, developers need to handle potential CORS (Cross-Origin Resource Sharing) issues.</li>
+</ol>
