@@ -2,7 +2,7 @@
 id: x48fiduxul4ukd9sqx4fzxm
 title: S3
 desc: ""
-updated: 1733811114196
+updated: 1736144894429
 created: 1733811085461
 ---
 
@@ -15,3 +15,5 @@ aws s3 cp s3://data/ . --recursive --exclude "*" --include "2016-08*"
 ```
 
 I'd like to point out the `--exclude "*"` isn't a typo. _If you don't add it, the include will match anything_.
+
+### [Managing the lifecycle of objects > Expiring objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-expire-general-considerations.html)
