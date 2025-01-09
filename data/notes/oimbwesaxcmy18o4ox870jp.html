@@ -1,0 +1,90 @@
+<h1 id="css-about-scroll">CSS about scroll<a aria-hidden="true" class="anchor-heading icon-link" href="#css-about-scroll"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://www.bram.us/2024/09/29/solved-by-css-scroll-driven-animations-hide-a-header-when-scrolling-up-show-it-again-when-scrolling-down/">Solved by CSS Scroll-Driven Animations: hide a header when scrolling down, show it again when scrolling up.</a></li>
+</ul>
+<pre class="language-css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">{</span>
+  <span class="token property">scrollbar-width</span><span class="token punctuation">:</span> thin<span class="token punctuation">;</span>
+  <span class="token property">scrollbar-gutter</span><span class="token punctuation">:</span> stable both-edges<span class="token punctuation">;</span> // body에만 scroll을 두고 header와 body 영역이 차이나면 header에 활용할 수 있다.
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="preventing-scroll-bounce-with-css"><a href="https://css-irl.info/preventing-overscroll-bounce-with-css/">Preventing Scroll “Bounce” with CSS</a><a aria-hidden="true" class="anchor-heading icon-link" href="#preventing-scroll-bounce-with-css"></a></h2>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token pseudo-class">:root</span></span> <span class="token punctuation">{</span>
+  <span class="token property">overscroll-behavior</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="css-scroll-snapping-aligned-with-global-page-layout-a-full-width-slider-case-study"><a href="https://www.smashingmagazine.com/2023/12/css-scroll-snapping-aligned-global-page-layout-case-study/">CSS Scroll Snapping Aligned With Global Page Layout: A Full-Width Slider Case Study</a><a aria-hidden="true" class="anchor-heading icon-link" href="#css-scroll-snapping-aligned-with-global-page-layout-a-full-width-slider-case-study"></a></h2>
+<pre class="language-scss"><code class="language-scss"><span class="token selector">.slider </span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token number">24</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">overflow-x</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">scroll-snap-type</span><span class="token punctuation">:</span> x mandatory<span class="token punctuation">;</span>
+
+  <span class="token selector">> * </span><span class="token punctuation">{</span>
+    <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">scroll-snap-align</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token property">padding-inline</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--offset-width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">scroll-padding-inline-start</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--offset-width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="6-css-snippets-every-front-end-developer-should-know-in-2023"><a href="https://web.dev/articles/6-css-snippets-every-front-end-developer-should-know-in-2023?hl=en">6 CSS snippets every front-end developer should know in 2023</a><a aria-hidden="true" class="anchor-heading icon-link" href="#6-css-snippets-every-front-end-developer-should-know-in-2023"></a></h2>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.snaps</span></span> <span class="token punctuation">{</span>
+  <span class="token property">overflow-x</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span>
+  <span class="token property">scroll-snap-type</span><span class="token punctuation">:</span> x mandatory<span class="token punctuation">;</span>
+  <span class="token property">overscroll-behavior-x</span><span class="token punctuation">:</span> contain<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.snap-target</span></span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-snap-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.snap-force-stop</span></span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-snap-stop</span><span class="token punctuation">:</span> always<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="chill-scroll-snapping-article-headers"><a href="https://frontendmasters.com/blog/chill-scroll-snapping-article-headers/">Chill Scroll Snapping: Article Headers</a><a aria-hidden="true" class="anchor-heading icon-link" href="#chill-scroll-snapping-article-headers"></a></h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-snap-type</span><span class="token punctuation">:</span> y mandatory<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">main</span> <span class="token punctuation">{</span>
+  <span class="token selector">h2<span class="token punctuation">,</span>
+  h3</span> <span class="token punctuation">{</span>
+    <span class="token property">scroll-snap-stop</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+    <span class="token property">scroll-snap-align</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">main</span> <span class="token punctuation">{</span>
+  <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">60</span><span class="token unit">ch</span><span class="token punctuation">;</span>
+  <span class="token property">margin-inline</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token selector">h1<span class="token punctuation">,</span>
+  h2<span class="token punctuation">,</span>
+  <span class="token combinator">></span> h1 <span class="token combinator">+</span> *</span> <span class="token punctuation">{</span>
+    <span class="token property">scroll-snap-stop</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+    <span class="token property">scroll-snap-align</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector"><span class="token combinator">></span> h1 <span class="token combinator">+</span> *<span class="token punctuation">,</span>
+  h2</span> <span class="token punctuation">{</span>
+    <span class="token property">scroll-margin-block-start</span><span class="token punctuation">:</span> <span class="token number">0.5</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-snap-type</span><span class="token punctuation">:</span> y mandatory<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="12-modern-css-one-line-upgrades"><a href="https://moderncss.dev/12-modern-css-one-line-upgrades/">12 Modern CSS One-Line Upgrades</a><a aria-hidden="true" class="anchor-heading icon-link" href="#12-modern-css-one-line-upgrades"></a></h2>
+<ul>
+<li>Stable Enhancements: <code>accent-color</code>, <code>scroll-margin-top/bottom</code></li>
+<li>progressive enhancement: <code>overscroll-behavior: contain</code>, <code>scrollbar-gutter</code></li>
+<li><a href="https://news.ycombinator.com/item?id=39176717">https://news.ycombinator.com/item?id=39176717</a></li>
+</ul>
+<h3 id="scroll-margin-topbottom">scroll-margin-top/bottom<a aria-hidden="true" class="anchor-heading icon-link" href="#scroll-margin-topbottom"></a></h3>
+<p>I like to include a generic starting rule in my reset for any element with an <code>[id]</code> attribute given it has the potential to become an anchor link.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">id</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-margin-top</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
