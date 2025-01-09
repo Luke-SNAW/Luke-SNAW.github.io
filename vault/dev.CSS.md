@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1734596482041
+updated: 1736308351415
 created: 1646129148306
 ---
 
@@ -97,6 +97,7 @@ created: 1646129148306
   > This provides more control over how variables are used, enabling advanced animations that were previously only possible with JavaScript.
 - [CSS Length Units](https://css-tricks.com/css-length-units/)
 - [CSS display contents](https://ishadeed.com/article/display-contents/)
+- [CSS margin-trim and line height units](https://12daysofweb.dev/2024/css-margin-trim-line-height-units/)
 
 ## Pseudo-class
 

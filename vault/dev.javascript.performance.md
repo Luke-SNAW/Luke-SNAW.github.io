@@ -2,7 +2,7 @@
 id: qJYy3qzZt6rXHWQJPZd9Q
 title: Javascript Performance
 desc: ""
-updated: 1712124428120
+updated: 1736382730440
 created: 1644479524849
 ---
 
@@ -36,6 +36,10 @@ created: 1644479524849
   > Many popular npm packages depend on 6-8x more packages than they need to. Most of these are unnecessary polyfills.
 - [Optimizing Javascript for fun and for profit](https://romgrk.com/posts/optimizing-javascript)
   - [Avoid different shapes](https://romgrk.com/posts/optimizing-javascript#2-avoid-different-shapes)
+- [JavaScript Benchmarking Is a Mess](https://byteofdev.com/posts/javascript-benchmarking-mess/)
+  - The garbage collector and its tendency to pause everything randomly
+  - The JIT compiler’s ability to delete all of your code because it “isn’t necessary”
+  - Terribly broad flame graphs in most JavaScript devtools
 
 ## [Speeding up the JavaScript ecosystem - The barrel file debacle](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7/)
 
