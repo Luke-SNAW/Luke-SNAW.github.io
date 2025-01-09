@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1734418417674
+updated: 1736403454486
 created: 1669705986186
 ---
 
@@ -37,3 +37,5 @@ created: 1669705986186
 - Man ran 700 miles to make ‘insanely impressive’ art on GPS fitness app
   - https://www.tiktok.com/@duncan77mccabe/video/7438366744776903992
   - https://www.youtube.com/watch?v=fO--TM4_6hw
+- [Unoffice Hours](https://interconnected.org/home/2020/09/24/unoffice_hours)
+- [A Pixel Parable](https://olano.dev/blog/a-pixel-parable/)

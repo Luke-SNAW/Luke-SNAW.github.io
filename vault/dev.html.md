@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1736382380898
+updated: 1736385433400
 created: 1644885695231
 ---
 
@@ -66,7 +66,7 @@ created: 1644885695231
     - Alert Dialog: A dialog that alerts screen readers when shown. It can be either modal or non-modal.
 - [Exploring the HTML5 <a> Tag Ping Attribute](https://jsdev.space/html-ping-attribute/)
 - [Control the Viewport Resize Behavior on mobile with `interactive-widget`](https://htmhell.dev/adventcalendar/2024/4/)
-- [The underrated <dl> element](https://htmhell.dev/adventcalendar/2024/26/)
+- [The underrated `<dl>` element](https://htmhell.dev/adventcalendar/2024/26/)
 - [The search input: They almost got it right](https://htmhell.dev/adventcalendar/2024/24/)
 - [Relatively New Things You Should Know about HTML Heading Into 2025](https://frontendmasters.com/blog/bone-up-html-2025/)
 - [The `<details>` and `<summary>` elements are getting an upgrade](https://blog.stephaniestimac.com/posts/2024/10/html-details-and-summary-update/)
