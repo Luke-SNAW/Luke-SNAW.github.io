@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1733726347660
+updated: 1736741556372
 created: 1688605282146
 ---
 
@@ -34,3 +34,4 @@ created: 1688605282146
   - [Generated Web Apps](https://paul.kinlan.me/generated-web-apps/) - https://websim.ai/, https://replit.com/
 - [The Long Tail of AI](https://research.contrary.com/deep-dive/long-tail-of-ai) - how non-AI companies are integrating artificial intelligence.
 - [The 70% problem: Hard truths about AI-assisted coding](https://addyo.substack.com/p/the-70-problem-hard-truths-about)
+- [How AI-assisted coding will change software engineering: hard truths](https://newsletter.pragmaticengineer.com/p/how-ai-will-change-software-engineering)
