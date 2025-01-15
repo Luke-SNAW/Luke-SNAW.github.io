@@ -2,7 +2,7 @@
 id: PddvXCJLzVqmA6DFKD6Uh
 title: Productivity
 desc: ""
-updated: 1704416721142
+updated: 1736910761868
 created: 1645523620804
 ---
 
@@ -44,6 +44,13 @@ In simple terms, it’s merely being in the same room with another person who is
 
 “Many people with ADHD find it easier to **_stay focused_** on housework, homework, bill paying, and other tasks when someone else is around to keep them company. The body double may just sit quietly. He may read, listen to music on headphones, or work on the task that the person with ADHD is working on. Hard work is simply more fun when someone else is nearby.”  
 – Patricia Quinn M.D., [ADDitudeMag.com](https://www.additudemag.com/getting-stuff-done-easier-with-a-friend-body-double/)
+
+## 펼쳐진 페이지 앞에서 멍때리기
+
+> 도무지 읽히지 않는 책 앞에서 내가 택한 방법은 펼쳐진 페이지 앞에서 멍때리기이다.다르게 표현하면 이렇다. 펼쳐진 두 페이지 앞에서 오래 머물기.
+>
+> 책을 펼쳐놓는 것으로 충분하다. 읽지 못해도 좋다. 매일 정해진 진도를 나가야 하는 학교 수업이 아니니까. 하지만 읽지 않아도 괜찮다고 해서 펼쳐두지조차 않으면 곤란하다. 가능한 한 자주 책을 펼쳐두도록 하자. 전혀 읽지 않고 멍하니 바라보고 있다가 다시 덮게 되더라도
+> — 막막한 독서. 시로군. P.10~13
 
 ## Just 4 pages a day
 

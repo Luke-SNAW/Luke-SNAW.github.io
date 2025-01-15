@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1736749438586
+updated: 1736910231893
 created: 1733205020636
 published: false
 ---
@@ -18,6 +18,7 @@ published: false
 - colemak-dh 2024-12
   - 직장 지하 교보문고에서 키보드 -> split keyboard -> 키보드 관련 블로그에서 workman layout 발견 -> colemak layout
   - 상황에 따른 단축키 변경이 가장 난관
+  - 한 달 정도 지나니 한 계단을 넘은 상태. qwerty만큼 편하진 않지만, 의식해서 치면 답답한 느낌 없이 영타 칠 수 있음.
 - 조깅 2024/08
   - 야식을 안하게 됨
   - 수면시간이 늘어남
@@ -156,3 +157,8 @@ https://news.ycombinator.com/item?id=42354417
 
 집에서 휴식 = 황폐 = 활력↑+기력소모, 무기력
 정갈 취미-손 글씨, 카페인, 명상, 시 필사?, ASMR?
+
+# 2025-01-14
+
+수면 시간 5시간 - 눈감고 1시간 휴식으로 수면시간이 모자라서 일과 시간에 브레인 포그가 자주 발생했는데,
+시집 필사를 하니 걷힘. 신기한데? 손글씨의 효과로 보임.
