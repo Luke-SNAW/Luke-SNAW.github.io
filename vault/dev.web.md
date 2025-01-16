@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1723183017083
+updated: 1737010569716
 created: 1645751512675
 ---
 
@@ -54,3 +54,73 @@ created: 1645751512675
   > WebP was more prone to posterization and artifacts, especially on photos with smooth gradients.  
   > For similar visual quality on a portrait photo, WebP was actually 30-39% heavier than JPEG.  
   > WebP is not necessarily better than JPEG for all photographic use cases.
+
+## [Double-keyed Caching: How Browser Cache Partitioning Changed the Web](https://addyosmani.com/blog/double-keyed-caching/)
+
+### How Caching Used to Work (Pre-2020)
+
+In the traditional model, browsers maintained a simple key-value store for cached resources:
+
+```json
+cache = {
+  "https://cdn.example.com/jquery-3.6.0.min.js": resourceData,
+  "https://fonts.googleapis.com/css?family=Roboto": resourceData
+}
+```
+
+This meant that once a user visited any site loading jQuery from a public CDN, subsequent visits to other sites using the same CDN-hosted jQuery would get an instant cache hit. This model powered the “CDN-first” approach that dominated web development through the 2010s.
+
+The advantages were compelling:
+
+- Reduced bandwidth usage through cross-site resource sharing
+- Better performance for users visiting multiple sites using common resources
+- Lower hosting costs by leveraging public CDNs
+- Faster page loads through cache hits
+
+#### The Privacy Problem
+
+While efficient, this model leaked information. Consider these attack vectors:
+
+1. Cache probing: Site A could check if resources from Site B were in the cache, revealing browsing history
+2. Timing attacks: Measuring resource load times exposed cache status
+3. Cross-site tracking: Cached resources could be used as persistent identifiers
+
+### The New Model: Double-Keyed Caching
+
+Double-keyed caching introduces a fundamental change to how browsers store and retrieve resources. Instead of using just the resource URL as the cache key, browsers now use two pieces of information: the top-level site making the request and the resource’s URL. Let’s look at an example.
+
+When site-a.com requests jQuery from a CDN, the browser creates a HTTP cache entry that combines both site-a.com (the requester) and the full resource URL. Later, when site-b.com requests that exact same jQuery file, instead of reusing the cached copy, the browser creates a completely new cache entry with site-b.com as part of the key. This is what modern cache entries look like:
+
+```json
+cache = {
+  {
+    topLevelSite: "site-a.com",
+    resource: "https://cdn.example.com/jquery-3.6.0.min.js"
+  }: resourceData,
+  {
+    topLevelSite: "site-b.com",
+    resource: "https://cdn.example.com/jquery-3.6.0.min.js"
+  }: resourceData
+}
+```
+
+This means that even identical resources are cached separately for each site that requests them, effectively partitioning the cache by the requesting site’s origin. While this prevents cross-site tracking and other privacy issues, it also means we’re storing duplicate copies of the same resource - a trade-off between security and efficiency.
+
+#### Performance Impact on Cache Hit Rates
+
+According to Chrome’s [implementation data](https://developer.chrome.com/blog/http-cache-partitioning/?utm_source=chatgpt.com#what_is_the_impact_of_this_behavioral_change), double-keyed caching leads to approximately:
+
+- 3.6% increase in overall cache miss rate
+- 4% increase in bytes loaded from the network
+- 0.3% impact on First Contentful Paint (FCP)
+
+While these numbers might seem modest, their impact varies significantly based on resource type and usage patterns.
+
+While double-keyed caching introduces some performance overhead, it’s important to understand that these impacts are accepted as a necessary trade-off for enhanced security and privacy protection. The mechanism helps prevent various security vulnerabilities:
+
+- Protection against timing attacks that could expose user browsing history
+- Prevention of cross-site tracking through cache-based fingerprinting
+- Mitigation of side-channel attacks that exploit shared cache states
+- Enhanced resistance to cross-site search attacks
+
+These security benefits justify the performance costs, though understanding and optimizing around these impacts remains crucial.
