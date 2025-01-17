@@ -2,11 +2,13 @@
 id: vti7us7fksaxnm7x9wjwl6v
 title: Sleep
 desc: ""
-updated: 1730626530310
+updated: 1737077559156
 created: 1674863142489
 tags: [shut-off, draft]
 published: false
 ---
+
+- [Norepinephrine-mediated slow vasomotion drives glymphatic clearance during sleep](<https://www.cell.com/cell/abstract/S0092-8674(24)01343-6>)
 
 ## 2024/10
 

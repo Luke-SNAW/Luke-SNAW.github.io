@@ -2,12 +2,16 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1737010772145
+updated: 1737085719399
 created: 1667632965028
 ---
 
 ## Week 3, 2025
 
+- [Google is making AI in Gmail and Docs free — but raising the price of Workspace](https://www.theverge.com/2025/1/15/24343794/google-workspace-ai-features-free) - The B2B AI wars are heating up, and Google’s trying to make sure everyone gets a taste of Gemini.
+- [Norepinephrine-mediated slow vasomotion drives glymphatic clearance during sleep](<https://www.cell.com/cell/abstract/S0092-8674(24)01343-6>)
+- [Announcing Six Day and IP Address Certificate Options in 2025](https://letsencrypt.org/2025/01/16/6-day-and-ip-certs/)
+- [Five years of React Native at Shopify](https://shopify.engineering/five-years-of-react-native-at-shopify)
 - [Double-keyed Caching: How Browser Cache Partitioning Changed the Web](https://addyosmani.com/blog/double-keyed-caching/)
 - [Take the pedals off the bike](https://www.fortressofdoors.com/take-the-pedals-off-the-bike/) - the most important and fundamental skill first – balance
 - [Adobe Lightroom's AI Remove feature added a Bitcoin to bird in flight photo](https://bsky.app/profile/matthewraifman.bsky.social/post/3lfaqbygva22j)
