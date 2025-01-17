@@ -1,0 +1,22 @@
+<h1 id="print-github-action-context">Print github action context<a aria-hidden="true" class="anchor-heading icon-link" href="#print-github-action-context"></a></h1>
+<p>github 문서를 계속 찾아봐도 action이 실행되는 동안 제공되는 context에 대한 정보가 불명확해서 직접 출력하는 script를 찾아서 결과를 확인해봄</p>
+<pre class="language-yml"><code class="language-yml"><span class="token comment"># https://github.com/orgs/community/discussions/27058#discussioncomment-3254475</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"Print github context"</span>
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">workflow_dispatch</span><span class="token punctuation">:</span>
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">build</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+    <span class="token key atrule">timeout-minutes</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Check object
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          cat &#x3C;&#x3C; OBJECT
+          ${{ toJson(github) }}
+          OBJECT</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>
