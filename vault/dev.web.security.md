@@ -2,7 +2,7 @@
 id: fm8vm79bnyq6fq1gu2oq2zr
 title: Web Security
 desc: ""
-updated: 1717236592104
+updated: 1737345173855
 created: 1645751778639
 ---
 
@@ -38,3 +38,4 @@ created: 1645751778639
   > - The HSTS preload directive further strengthens security by ensuring browsers always use HTTPS for a domain
 - [Polyfill.io, 중국 CDN 기업에 인수된 후 보안 및 안정성 문제 발생](https://x.com/hmartapp/status/1796729141309673554)
   - [polyfill.io now available on cdnjs: reduce your supply chain risk](https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk)
+- [DoubleClickjacking: A New Era of UI Redressing](https://www.paulosyibelo.com/2024/12/doubleclickjacking-what.html) - get users to commit to clicking twice, but the pop up page only accepts a single click before closing. Their second click goes to the page underneath the pop up, which is e.g. an authentication button. — [nneonneo](https://news.ycombinator.com/item?id=42746553)

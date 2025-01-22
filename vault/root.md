@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1737011623628
+updated: 1737507711912
 created: 1644449449778
 ---
 
@@ -46,6 +46,8 @@ Hi there 👋. I'm a Front-end developer.
 > I think it should be everyone's primary focus to sleep well, drink water, get outside, get active, and eat generally decently. I hate to say it, but if you're not eating a good amount of vegetables and fruit, decent protein, sleep, etc, no amount of XYZ will catch up to that detriment. — [CE02](https://news.ycombinator.com/item?id=35056071)
 
 > My real battle is doing good versus doing nothing. — [Deirdre Sullivan](https://www.npr.org/2005/08/08/4785079/always-go-to-the-funeral)
+
+[Kind Engineering](https://kind.engineering/) - How To Engineer Kindness
 
 > Sometimes magic is just someone spending more time on something than anyone else might reasonably expect. — [Teller](https://www.goodreads.com/quotes/6641527-sometimes-magic-is-just-someone-spending-more-time-on-something)
 

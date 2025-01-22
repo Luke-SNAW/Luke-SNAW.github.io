@@ -2,9 +2,16 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1737085719399
+updated: 1737505150219
 created: 1667632965028
 ---
+
+## Week 4, 2025
+
+- [Kind Engineering](https://kind.engineering/) - How To Engineer Kindness
+- [UK's elite hardware talent is being wasted.](https://josef.cn/blog/uk-talent)
+- [DoubleClickjacking: A New Era of UI Redressing](https://www.paulosyibelo.com/2024/12/doubleclickjacking-what.html) - get users to commit to clicking twice, but the pop up page only accepts a single click before closing. Their second click goes to the page underneath the pop up, which is e.g. an authentication button. — [nneonneo](https://news.ycombinator.com/item?id=42746553)
+- [Thoughts On A Month With Devin](https://www.answer.ai/posts/2025-01-08-devin.html)
 
 ## Week 3, 2025
 
