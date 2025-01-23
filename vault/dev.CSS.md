@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1736308351415
+updated: 1737605242521
 created: 1646129148306
 ---
 
@@ -98,6 +98,7 @@ created: 1646129148306
 - [CSS Length Units](https://css-tricks.com/css-length-units/)
 - [CSS display contents](https://ishadeed.com/article/display-contents/)
 - [CSS margin-trim and line height units](https://12daysofweb.dev/2024/css-margin-trim-line-height-units/)
+- [KRDS v1.0.0](https://www.krds.go.kr/html/site/index.html) - 대한민국 정부 디자인 시스템
 
 ## Pseudo-class
 

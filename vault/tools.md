@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1735192145312
+updated: 1737593503631
 created: 1644799670081
 ---
 
@@ -160,3 +160,4 @@ Microsoft IME, [날개셋 입력기](https://namu.wiki/w/%EB%82%A0%EA%B0%9C%EC%8
   - https://www.uber.com/en-TW/blog/cost-efficiency-big-data/
 - [Organic Maps](https://github.com/organicmaps/organicmaps): Offline Hike, Bike, Trails and Navigation
 - [rga](https://github.com/phiresky/ripgrep-all): ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc.
+- https://shapecatcher.com/ - Unicode Character Recognition

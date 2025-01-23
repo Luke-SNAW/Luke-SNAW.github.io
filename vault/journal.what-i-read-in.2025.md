@@ -2,12 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1737505150219
+updated: 1737614138427
 created: 1667632965028
 ---
 
 ## Week 4, 2025
 
+- [The 7 Most Influential Papers in Computer Science History](https://terriblesoftware.org/2025/01/22/the-7-most-influential-papers-in-computer-science-history/)
+- [KRDS v1.0.0](https://www.krds.go.kr/html/site/index.html) - 대한민국 정부 디자인 시스템
+- https://shapecatcher.com/ - Unicode Character Recognition
+- [Psychological Safety and the Only Pyramid Scheme That Works](https://iamevan.me/blog/psychological-safety-and-the-only-pyramid-scheme-that-works)
+  > As people feel more and more secure in doing deployments, raising issues and speaking confidently in a company, the amount of failure goes down.
 - [Kind Engineering](https://kind.engineering/) - How To Engineer Kindness
 - [UK's elite hardware talent is being wasted.](https://josef.cn/blog/uk-talent)
 - [DoubleClickjacking: A New Era of UI Redressing](https://www.paulosyibelo.com/2024/12/doubleclickjacking-what.html) - get users to commit to clicking twice, but the pop up page only accepts a single click before closing. Their second click goes to the page underneath the pop up, which is e.g. an authentication button. — [nneonneo](https://news.ycombinator.com/item?id=42746553)
