@@ -2,12 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1737614138427
+updated: 1738311406211
 created: 1667632965028
 ---
 
 ## Week 4, 2025
 
+- [A phishing attack involving g.co, Google's URL shortener](https://gist.github.com/zachlatta/f86317493654b550c689dc6509973aa4)
 - [The 7 Most Influential Papers in Computer Science History](https://terriblesoftware.org/2025/01/22/the-7-most-influential-papers-in-computer-science-history/)
 - [KRDS v1.0.0](https://www.krds.go.kr/html/site/index.html) - 대한민국 정부 디자인 시스템
 - https://shapecatcher.com/ - Unicode Character Recognition

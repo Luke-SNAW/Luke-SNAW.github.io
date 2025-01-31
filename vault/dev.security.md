@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1731286052615
+updated: 1738311428269
 created: 1644825680750
 ---
 
@@ -40,6 +40,7 @@ created: 1644825680750
   > While the method was likely intended to conceal the source of second-stage infections, it ironically had the effect of leaving a trail of previous addresses the attackers had used in the past.
   >
   > Attacks like this one rely on typosquatting, a term for the use of names that closely mimic those of legitimate packages but contain small differences, such as those that might occur if the package was inadvertently misspelled.
+- [A phishing attack involving g.co, Google's URL shortener](https://gist.github.com/zachlatta/f86317493654b550c689dc6509973aa4)
 
 ## [A comprehensive guide to the dangers of Regular Expressions in JavaScript](https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/)
 
