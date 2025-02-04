@@ -2,13 +2,25 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1738311406211
+updated: 1738631552596
 created: 1667632965028
 ---
 
-## Week 4, 2025
+## Week 6, 2025
+
+- [Anthropic: "Applicants should not use AI assistants"](https://simonwillison.net/2025/Feb/2/anthropic/)
+  - [Yes, and they should state that they also don't use AI in the selection process.](https://news.ycombinator.com/item?id=42917187)
+  - [It’s cause they wanna use the data to train AI on and traininy AI on AI is useless.](https://news.ycombinator.com/item?id=42917324)
+- [Everyone knows your location: tracking myself down through in-app ads](https://timsh.org/tracking-myself-down-through-in-app-ads/)
+- [How to Train an AI Image Model on Yourself](https://www.coryzue.com/writing/make-ai-pictures-of-yourself/) - It takes less than an hour and $3.
+- [Things people get wrong about Electron](https://felixrieseberg.com/things-people-get-wrong-about-electron/)
+
+## Week 5, 2025
 
 - [A phishing attack involving g.co, Google's URL shortener](https://gist.github.com/zachlatta/f86317493654b550c689dc6509973aa4)
+
+## Week 4, 2025
+
 - [The 7 Most Influential Papers in Computer Science History](https://terriblesoftware.org/2025/01/22/the-7-most-influential-papers-in-computer-science-history/)
 - [KRDS v1.0.0](https://www.krds.go.kr/html/site/index.html) - 대한민국 정부 디자인 시스템
 - https://shapecatcher.com/ - Unicode Character Recognition

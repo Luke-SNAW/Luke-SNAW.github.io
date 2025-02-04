@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1733356588109
+updated: 1738569940794
 created: 1644882116217
 ---
 
@@ -70,6 +70,7 @@ created: 1644882116217
 - [rrweb](https://github.com/rrweb-io/rrweb) - record and replay the web
 - [Fraction.js - ℚ in JavaScript](https://github.com/rawify/Fraction.js)
 - [BETTER-AUTH](https://github.com/better-auth/better-auth) - The most comprehensive authentication framework for TypeScript
+- [Things people get wrong about Electron](https://felixrieseberg.com/things-people-get-wrong-about-electron/)
 
 ## Framework
 
