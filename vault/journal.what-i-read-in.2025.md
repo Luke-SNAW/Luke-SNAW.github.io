@@ -2,12 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1738631552596
+updated: 1738720947611
 created: 1667632965028
 ---
 
 ## Week 6, 2025
 
+- [WikiTok](https://wikitok.vercel.app/) - [creator's comment](https://news.ycombinator.com/item?id=42936923)
 - [Anthropic: "Applicants should not use AI assistants"](https://simonwillison.net/2025/Feb/2/anthropic/)
   - [Yes, and they should state that they also don't use AI in the selection process.](https://news.ycombinator.com/item?id=42917187)
   - [It’s cause they wanna use the data to train AI on and traininy AI on AI is useless.](https://news.ycombinator.com/item?id=42917324)

@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1720572440057
+updated: 1738720235618
 created: 1657500862975
 ---
 
@@ -14,6 +14,14 @@ created: 1657500862975
   - https://ckochis.com/webgl-map-demo
   - https://github.com/kochis/webgl-map
 - [FauxPilot](https://github.com/moyix/fauxpilot) is an open-source GitHub Copilot server
+- ["A computer can never be held accountable"](https://news.hada.io/topic?id=19056)
+  - 컴퓨터 사용이 책임 회피의 수단으로 사용됨을 지적함. Neil Postman의 책 *Technopoly*에서 인용된 문구를 통해 설명함. 컴퓨터가 마치 진정한 권위의 원천인 것처럼 보이게 하여, 책임을 회피하는 경향이 있음
+  - 자율주행차에 대한 의문을 제기함. 책임이 운전자에서 제조사로 이동하게 되며, 제조사가 그 책임을 원할지 의문임
+  - 칩 카드의 도입이 은행의 책임을 사용자에게 전가하기 위한 것임을 주장함. 보안이 강화되었지만, 실질적으로는 신용카드 사기 책임을 사용자에게 넘기려는 의도임
+  - 신원 도용도 마찬가지로 은행 사기임을 강조함. 이를 신원 도용이라 부름으로써 은행의 문제가 아닌 개인의 문제로 전환됨
+  - 어떤 회사에서는 관리자가 책임을 질 수 있기 때문에 결정을 내리지 않으려는 정책이 있음
+  - "책임"이라는 단어가 이제는 의미 없는 치료적 언어가 되었음을 지적함. CEO가 책임을 진다고 말하지만 실제로는 아무런 결과가 따르지 않음
+  - 법적 원칙으로는 운영자가 책임을 져야 한다고 주장함. 그렇지 않으면 방화 예방을 위해 성냥을 금지해야 한다는 비유를 사용함
 
 ### [Bartosz Ciechanowski](https://ciechanow.ski/archives/)
 

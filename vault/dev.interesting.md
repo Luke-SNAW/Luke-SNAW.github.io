@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1734675146707
+updated: 1738720960275
 created: 1646613084338
 ---
 
@@ -49,6 +49,7 @@ created: 1646613084338
 - [The Art Of Andrew Wulf](https://digcon.art/)
 - [🤫오프라인이지만 온라인이어야 해요 - 로컬 생성 결제 토큰](https://blog.javien.dev/4)
 - [Every UUID Dot Com](https://everyuuid.com/) - https://eieio.games/blog/writing-down-every-uuid/
+- [WikiTok](https://wikitok.vercel.app/) - [creator's comment](https://news.ycombinator.com/item?id=42936923)
 
 ## News
 
