@@ -2,9 +2,22 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1738720947611
+updated: 1739433017997
 created: 1667632965028
 ---
+
+## Week 7, 2025
+
+- [AI Founder's Bitter Lesson. Chapter 1 - History Repeats Itself](https://lukaspetersson.com/blog/2025/bitter-vertical/)
+- [The year I didn't survive](https://bessstillman.substack.com/p/the-year-i-didnt-survive)
+- [Smuggling arbitrary data through an emoji](https://paulbutler.org/2025/smuggling-arbitrary-data-through-an-emoji/)
+- [8 Design Breakthroughs Defining AI's Future](https://www.unknownarts.co/p/8-design-breakthroughs-defining-ais)
+- [How I Built an Open Source AI Tool to Find My Autoimmune Disease (After $100k and 30+ Hospital Visits)](https://old.reddit.com/r/selfhosted/comments/1ij7s4m/how_i_built_an_open_source_ai_tool_to_find_my/) - Now Available for Anyone to Use - [github](https://github.com/OpenHealthForAll/open-health)
+- [Advertising is a cancer on society](https://jacek.zlydach.pl/blog/2019-07-31-ads-as-cancer.html)
+- [Deep dive into LLMs like ChatGPT by Andrej Karpathy (TL;DR)](https://anfalmushtaq.com/articles/deep-dive-into-llms-like-chatgpt-tldr)
+- [MODERN-DAY ORACLES or BULLSHIT MACHINES?](https://thebullshitmachines.com/) - How to thrive in a ChatGPT world
+- [Copilot stops working on `gender` related subjects](https://github.com/orgs/community/discussions/72603)
+- [I’m done with Ubuntu](https://ounapuu.ee/posts/2025/02/05/done-with-ubuntu/)
 
 ## Week 6, 2025
 

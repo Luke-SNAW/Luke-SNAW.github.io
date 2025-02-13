@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1738311428269
+updated: 1739413061933
 created: 1644825680750
 ---
 
@@ -41,6 +41,10 @@ created: 1644825680750
   >
   > Attacks like this one rely on typosquatting, a term for the use of names that closely mimic those of legitimate packages but contain small differences, such as those that might occur if the package was inadvertently misspelled.
 - [A phishing attack involving g.co, Google's URL shortener](https://gist.github.com/zachlatta/f86317493654b550c689dc6509973aa4)
+- [Smuggling arbitrary data through an emoji](https://paulbutler.org/2025/smuggling-arbitrary-data-through-an-emoji/)
+  - https://news.ycombinator.com/item?id=43023508, https://news.hada.io/topic?id=19199
+  - Unicode 문자열을 수용하는 시스템에서 버퍼 오버플로우를 유발할 수 있음
+  - LLM 출력 워터마킹에 이 기술을 사용하는 아이디어가 마음에 듦 - 99%의 복사 붙여넣기 생성기를 쉽게 잡아낼 수 있음
 
 ## [A comprehensive guide to the dangers of Regular Expressions in JavaScript](https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/)
 
