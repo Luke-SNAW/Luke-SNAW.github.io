@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1738219446254
+updated: 1739665874530
 created: 1737241895427
 published: false
 ---
@@ -66,3 +66,21 @@ published: false
 
 치킨이 땡겼으나 일단 양배추 라페?를 먹어보기로 함.
 맛있게 먹고나니 치킨 필요 없다.
+
+## 2025-02-12
+
+여유있을 때 예방하는 마음으로 미리 일을 처리하는게 편하긴 하다.
+
+이전에도 LLM 지식은 알았지만 관련 기사 2개를 읽어서 더 강하게 인식.
+
+- [Deep dive into LLMs like ChatGPT by Andrej Karpathy (TL;DR)](https://anfalmushtaq.com/articles/deep-dive-into-llms-like-chatgpt-tldr)
+- [MODERN-DAY ORACLES or BULLSHIT MACHINES?](https://thebullshitmachines.com/) - How to thrive in a ChatGPT world
+
+생각의 frame으로 삼아서 효과가 좋아지면 당연히 채용해야지.
+순차적, 확률적으로 선택하여 token을 생성하는 LLM과 비슷하게, 하루 일과를 공부, 운동, 게임으로 목표를 잡고 실행할 때 게임을 먼저 한다면, 공부나 운동을 먼저 실행하는 경우보다 3가지를 모두 수행할 확률이 확연히 차이난다.
+
+## 2025-02-13
+
+몰입은 너무 심하다.
+한 시간 동안 움직임 없으면 손목 시계에서 알람이 울리기 때문에 그걸 기점으로 그만 두기로 사전에 정했는데 알람을 인지하고도 계속 함.
+22시에 그만 뒀어야 했는데, 23시가 넘은 걸 인지했음에도 행동으로 옮기지 않음.
