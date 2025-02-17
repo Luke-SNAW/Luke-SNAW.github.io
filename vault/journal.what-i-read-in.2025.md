@@ -2,9 +2,14 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1739433017997
+updated: 1739765136396
 created: 1667632965028
 ---
+
+## Week 8, 2025
+
+- [Watt The Fox?](https://h.43z.one/blog/2025-02-12/)
+- [Dust from Car Brakes More Harmful than Exhaust, Study Finds](https://e360.yale.edu/digest/brake-pads-lung-damage-study)
 
 ## Week 7, 2025
 
