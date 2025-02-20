@@ -2,12 +2,20 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1739765136396
+updated: 1740037308104
 created: 1667632965028
 ---
 
 ## Week 8, 2025
 
+- [Svelte is not Javascript](https://hodlbod.npub.pro/post/1739830562159/)
+- [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)
+  > So the abstractions save us time working, but they don’t save us time learning.
+- [No Startup Has Ever Failed Because it Didn’t Have a Blog](https://hackernoon.com/no-startup-has-ever-failed-because-it-didnt-have-a-blog)
+  - Airbnb tackled crappy check-in rates by bringing their cameras into homes and taking better photos, not by blogging about the future of holiday stays.
+- [The Deep Research problem](https://www.ben-evans.com/benedictevans/2025/2/17/the-deep-research-problem) - OpenAI’s Deep Research is built for me, and I can’t use it.
+  > LLMs are good at the things that computers are bad at, and bad at the things that computers are good at.
+- [When Imperfect Systems are Good, Actually: Bluesky's Lossy Timelines](https://jazco.dev/2025/02/19/imperfection/)
 - [Watt The Fox?](https://h.43z.one/blog/2025-02-12/)
 - [Dust from Car Brakes More Harmful than Exhaust, Study Finds](https://e360.yale.edu/digest/brake-pads-lung-damage-study)
 

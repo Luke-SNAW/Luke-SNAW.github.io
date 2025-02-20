@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1739238288274
+updated: 1740028060213
 created: 1688605282146
 ---
 
@@ -37,3 +37,7 @@ created: 1688605282146
 - [How AI-assisted coding will change software engineering: hard truths](https://newsletter.pragmaticengineer.com/p/how-ai-will-change-software-engineering)
 - [MODERN-DAY ORACLES or BULLSHIT MACHINES?](https://thebullshitmachines.com/) - How to thrive in a ChatGPT world
 - [Deep dive into LLMs like ChatGPT by Andrej Karpathy (TL;DR)](https://anfalmushtaq.com/articles/deep-dive-into-llms-like-chatgpt-tldr)
+- [The Deep Research problem](https://www.ben-evans.com/benedictevans/2025/2/17/the-deep-research-problem) - OpenAI’s Deep Research is built for me, and I can’t use it.
+  > LLMs are good at the things that computers are bad at, and bad at the things that computers are good at.
+- [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)
+  > So the abstractions save us time working, but they don’t save us time learning.

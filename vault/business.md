@@ -2,11 +2,14 @@
 id: 778ijii93yu5uwnrwmn5zi4
 title: Business
 desc: ""
-updated: 1729124136786
+updated: 1740027858439
 created: 1729047278920
 ---
 
 ## Collections
+
+- [No Startup Has Ever Failed Because it Didn’t Have a Blog](https://hackernoon.com/no-startup-has-ever-failed-because-it-didnt-have-a-blog)
+  - Airbnb tackled crappy check-in rates by bringing their cameras into homes and taking better photos, not by blogging about the future of holiday stays.
 
 ### [Ask HN: Solopreneurs, how did you come up with your idea?](https://news.ycombinator.com/item?id=41837607)
 
