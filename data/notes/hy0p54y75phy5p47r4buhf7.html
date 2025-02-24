@@ -1,0 +1,68 @@
+<h1 id="optimizing-third-party-script-loading-in-nextjs">Optimizing third-party script loading in Next.js<a aria-hidden="true" class="anchor-heading icon-link" href="#optimizing-third-party-script-loading-in-nextjs"></a></h1>
+<blockquote>
+<p><a href="https://web.dev/script-component/">https://web.dev/script-component/</a></p>
+</blockquote>
+<h2 id="third-party-scripts-and-their-impact-on-performance">Third-party scripts and their impact on performance<a aria-hidden="true" class="anchor-heading icon-link" href="#third-party-scripts-and-their-impact-on-performance"></a></h2>
+<h2 id="auroras-focus-on-third-party-scripts">Aurora’s focus on third-party scripts<a aria-hidden="true" class="anchor-heading icon-link" href="#auroras-focus-on-third-party-scripts"></a></h2>
+<h2 id="sequencing-third-party-scripts-without-a-framework-component">Sequencing third-party scripts without a framework component<a aria-hidden="true" class="anchor-heading icon-link" href="#sequencing-third-party-scripts-without-a-framework-component"></a></h2>
+<p>The <a href="https://web.dev/efficiently-load-third-party-javascript/">available guidance</a> to reduce the impact of render-blocking scripts provides the following methods for efficiently loading and sequencing third-party scripts:</p>
+<ol>
+<li>
+<p>Use the <code>async</code> or <code>defer</code> attribute with <code>&#x3C;script></code> tags that tell the browser to load non-critical third-party scripts without blocking the document parser. Scripts not required for initial page load or the first user interaction may be considered non-critical.</p>
+<ul>
+<li>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://example.com/script1.js<span class="token punctuation">"</span></span> <span class="token attr-name">defer</span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://example.com/script2.js<span class="token punctuation">"</span></span> <span class="token attr-name">async</span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="https://web.dev/preconnect-and-dns-prefetch/">Establish early connections to required origins</a> using preconnect and dns-prefetch. This allows critical scripts to start downloading earlier.</p>
+<ul>
+<li>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>preconnect<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://PreconnThis.com<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dns-prefetch<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://PrefetchThis.com<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="https://web.dev/embed-best-practices/#lazy-loading">Lazy-load</a> third-party resources and embeds after the main page content has finished loading or when the user scrolls down to the part of the page where they are included.</p>
+</li>
+</ol>
+<h2 id="the-nextjs-script-component">The Next.js Script component<a aria-hidden="true" class="anchor-heading icon-link" href="#the-nextjs-script-component"></a></h2>
+<p>The <a href="https://nextjs.org/docs/basic-features/script">Next.js Script component</a> implements the above methods for sequencing scripts and provides a template for developers to define their loading strategy. Once the suitable strategy is specified, it will load optimally without blocking other critical resources.</p>
+<p>The Script component builds on the HTML <script> tag and provides an option to set the loading priority for third-party scripts using the strategy attribute.</script>
+</p><pre class="language-jsx"><code class="language-jsx"><span class="token comment">// Example for beforeInteractive:</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">Script</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserverEntry%2CIntersectionObserver<span class="token punctuation">"</span></span>
+  <span class="token attr-name">strategy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>beforeInteractive<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span>
+<span class="token comment">// Example for afterInteractive (default):</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">Script</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://example.com/samplescript.js<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token comment">// Example for lazyonload:</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">Script</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://connect.facebook.net/en_US/sdk.js<span class="token punctuation">"</span></span> <span class="token attr-name">strategy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lazyOnload<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>The strategy attribute can take three values.</p>
+<ol>
+<li>
+<p><code>beforeInteractive</code>: This option may be used for critical scripts that should execute before the page becomes interactive. Next.js ensures that such scripts are injected into the initial HTML on the server and executed before other self-bundled JavaScript. Consent management, bot detection scripts, or helper libraries required to render critical content are good candidates for this strategy.</p>
+</li>
+<li>
+<p><code>afterInteractive</code>: This is the default strategy applied and is equivalent to loading a script with the defer attribute. It should be used for scripts that the browser can run after the page is interactive—for example, analytics scripts. Next.js injects these scripts on the client-side, and they run after the page is hydrated. Thus, unless otherwise specified, all third-party scripts defined using the Script component are deferred by Next.js, thereby providing a strong default.</p>
+</li>
+<li>
+<p><code>lazyOnload</code>: This option may be used to lazy-load low-priority scripts when the browser is idle. The functionality provided by such scripts is not required immediately after the page becomes interactive—for example, chat or social media plug-ins.</p>
+</li>
+</ol>
+<h2 id="measuring-the-impact"><a href="https://web.dev/script-component/#measuring-the-impact">Measuring the impact</a><a aria-hidden="true" class="anchor-heading icon-link" href="#measuring-the-impact"></a></h2>
+<h2 id="whats-next-for-the-script-component">What’s next for the Script component<a aria-hidden="true" class="anchor-heading icon-link" href="#whats-next-for-the-script-component"></a></h2>
+<h3 id="using-web-workers">Using web workers<a aria-hidden="true" class="anchor-heading icon-link" href="#using-web-workers"></a></h3>
+<p><a href="https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Using_web_workers">Web workers</a> can be used to run independent scripts on background threads which can free up the main thread to handle processing user interface tasks and improve performance. Web Workers are best suited for offloading JavaScript processing, rather than UI work, off the main thread. Scripts used for customer support or marketing, which typically do not interact with the UI, may be good candidates for execution on a background thread. A lightweight third-party library—<a href="https://github.com/BuilderIO/partytown">PartyTown</a>—may be used to isolate such scripts into a web worker.</p>
+<p>With the current implementation of the Next.js script component, we recommend deferring these scripts on the main thread by setting the strategy to <code>afterInteractive</code> or <code>lazyOnload</code>. In the future, we propose introducing a new strategy option, <code>'worker'</code>, which will allow Next.js to use PartyTown or a custom solution to run scripts on web workers.</p>
+<h3 id="minimizing-cls">Minimizing CLS<a aria-hidden="true" class="anchor-heading icon-link" href="#minimizing-cls"></a></h3>
+<p>Third-party embeds like advertisements, video, or social media feed embeds can cause layout shifts when lazy-loaded. This affects the user experience and the <a href="https://web.dev/cls/">Cumulative Layout Shift (CLS)</a> metric for the page. CLS can be minimized by specifying the size of the container where the embed will load.</p>
+<h3 id="wrapper-components">Wrapper components<a aria-hidden="true" class="anchor-heading icon-link" href="#wrapper-components"></a></h3>

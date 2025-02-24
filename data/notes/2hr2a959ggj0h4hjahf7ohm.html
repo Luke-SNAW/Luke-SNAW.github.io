@@ -1,0 +1,239 @@
+<h1 id="5-must-know-differences-between-ref-and-reactive-in-vue">5 Must-Know Differences Between ref() and reactive() in Vue<a aria-hidden="true" class="anchor-heading icon-link" href="#5-must-know-differences-between-ref-and-reactive-in-vue"></a></h1>
+<blockquote>
+<p><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/">https://dmitripavlutin.com/ref-reactive-differences-vue/</a></p>
+</blockquote>
+<h2 id="1-primitive-values">1. Primitive values<a aria-hidden="true" class="anchor-heading icon-link" href="#1-primitive-values"></a></h2>
+<p><code>ref()</code> and <code>reactive()</code> handle differently primitive values: strings, numbers, booleans, <code>null</code>, and <code>undefined</code>.</p>
+<h3 id="11-ref"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#11-ref"></a>1.1 ref()<a aria-hidden="true" class="anchor-heading icon-link" href="#11-ref"></a></h3>
+<p><code>refs()</code> stores both primitive values and objects:</p>
+<pre class="language-typescript"><code class="language-typescript"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+<span class="token keyword">const</span> numberRef <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// OK</span>
+<span class="token keyword">const</span> objectRef <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// OK</span>
+</code></pre>
+<p>In the example above <code>ref(0)</code> creates a ref storing a primitive value.</p>
+<p>Same way, <code>ref({ count: 0 })</code> creates a ref storing a plain JavaScript object.</p>
+<h3 id="12-reactive"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#12-reactive"></a>1.2 reactive()<a aria-hidden="true" class="anchor-heading icon-link" href="#12-reactive"></a></h3>
+<p>On the other side, <code>reactive()</code> doesn't store primitives, but stores only objects:</p>
+<pre class="language-typescript"><code class="language-typescript"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> reactive <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+<span class="token keyword">const</span> numberReactive <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// NOT OK!</span>
+<span class="token keyword">const</span> objectReactive <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// OK</span>
+</code></pre>
+<p>Calling <code>reactive(0)</code> with a primitive value is incorrect. Don't do this. If you need to make reactive primitive values, <code>ref(0)</code> is the way to go.</p>
+<p>The reason why <code>reactive()</code> works only with objects is in Vue's reactivity implementation. <a href="https://github.com/vuejs/core/blob/main/packages/reactivity/src/reactive.ts#L212">Vue uses Proxies</a> to intercept property changes on objects. And proxies do not work with primitives.</p>
+<p>Nevertheless, <code>reactive({ count: 0})</code> initialized with an object is perfectly valid and creates a reactive object.</p>
+<p>In conclusion:</p>
+<blockquote>
+<p><code>ref()</code> <em>can</em> store primitive values, while <code>reactive()</code> <em>cannot</em>.</p>
+</blockquote>
+<h2 id="2-accessing-reactive-data"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#2-accessing-reactive-data"></a>2. Accessing reactive data<a aria-hidden="true" class="anchor-heading icon-link" href="#2-accessing-reactive-data"></a></h2>
+<p>The second difference is how you'd access the data stored inside <code>ref()</code> and <code>reactive()</code>.</p>
+<h3 id="21-ref"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#21-ref"></a>2.1 ref()<a aria-hidden="true" class="anchor-heading icon-link" href="#21-ref"></a></h3>
+<p><code>ref()</code> data, either a primitive value or an object, is accessed through a special property <code>.value</code>:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+<span class="token keyword">const</span> numberRef <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>numberRef<span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span> <span class="token comment">// logs 0</span>
+<span class="token keyword">const</span> objectRef <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>objectRef<span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">.</span><span class="token property-access">count</span><span class="token punctuation">)</span> <span class="token comment">// logs 0</span>
+</code></pre>
+<p><code>numberRef.value</code> is how you access the primitive value from the ref <code>numberRef</code>.</p>
+<p><code>&#x3C;ref>.value</code> is a special property available on all the refs to read or update the ref value.</p>
+<p>Also, <code>objectRef.value.count</code> is how you can access a property of an object in ref.</p>
+<p>Note that inside templates you don't have to use <code>.value</code> to access a ref value: they're auto-unwrapped.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> numberRef <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>{{ numberRef }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token comment">&#x3C;!-- &#x3C;div>0&#x3C;/div> --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><a href="https://codesandbox.io/s/ref-unwrapping-template-hp5ixh?file=/src/App.vue">Open the demo.</a></p>
+<p>In the interpolation <code>{{ numberRef }}</code> the ref is auto-unwrapped.</p>
+<h3 id="22-reactive"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#22-reactive"></a>2.2 reactive()<a aria-hidden="true" class="anchor-heading icon-link" href="#22-reactive"></a></h3>
+<p><code>reactive()</code> data, on the other hand, is accessed directly:</p>
+<pre class="language-typescript"><code class="language-typescript"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> reactive <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+<span class="token keyword">const</span> objectReactive <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>objectReactive<span class="token punctuation">.</span><span class="token property-access">count</span><span class="token punctuation">)</span> <span class="token comment">// logs 0</span>
+</code></pre>
+<p>Accessing reactive data created using <code>reactive({ count: 0} )</code> doesn't need additional syntax and is done directly: <code>objectReactive.count</code>.</p>
+<p>The reactive object returned by <code>reactive(originalObject)</code> is a proxy object of <code>originalObject</code>. Meaning that the reactive object has the same properties (aka has the same interface) as the <code>originalObject</code>.</p>
+<p>In conclusion:</p>
+<blockquote>
+<p><code>ref()</code> data is accessed using <em><code>value</code> property</em> (exception: in templates the ref is auto-unwrapped), while <code>reactive()</code> data is accessed <em>directly</em>.</p>
+</blockquote>
+<h2 id="3-reassigning-data"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#3-reassigning-data"></a>3. Reassigning data<a aria-hidden="true" class="anchor-heading icon-link" href="#3-reassigning-data"></a></h2>
+<p><code>ref()</code> is accessed and updated using <code>.value</code> property, while <code>reactive()</code> is a proxy of the original object. As result <code>ref()</code> can be reassigned to an new object, while <code>reactive()</code> cannot.</p>
+<h3 id="ref"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#ref"></a>ref()<a aria-hidden="true" class="anchor-heading icon-link" href="#ref"></a></h3>
+<p>Reassigning the value of a <code>ref()</code> entirely to a new value is perfectly valid:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref<span class="token punctuation">,</span> onMounted <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> objectRef <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span>objectRef<span class="token punctuation">.</span><span class="token property-access">value</span> <span class="token operator">=</span> <span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>{{ objectRef.count }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><a href="https://codesandbox.io/s/ref-reassign-oi4zjy?file=/src/App.vue">Try the demo.</a></p>
+<p>Open the demo, and see that replacing entirely the ref value <code>objectRef.value = { count: 1 }</code> after mounting is reflected in the output. The reactivity is kept.</p>
+<h3 id="reactive"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#reactive"></a>reactive()<a aria-hidden="true" class="anchor-heading icon-link" href="#reactive"></a></h3>
+<p>Reassigning entirely a <code>reactive()</code> object, however, is not possible:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> reactive<span class="token punctuation">,</span> onMounted <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">let</span> objectReactive <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span>objectReactive <span class="token operator">=</span> <span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>{{ objectReactive.count }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><a href="https://codesandbox.io/s/reactive-reassign-dpf9yf?file=/src/App.vue">Try the demo.</a></p>
+<p>Open the demo, and see that replacing entirely the reactive object value <code>objectReactive = { count: 1 }</code> after mounting is not reflected in the output. Doing so breaks the reactivity of <code>objectReactive</code>.</p>
+<p>In conclusion:</p>
+<blockquote>
+<p><code>ref()</code> value can be reassigned entirely to a new object, while a <code>reactive()</code> cannot.</p>
+</blockquote>
+<h2 id="4-typing"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#4-typing"></a>4. Typing<a aria-hidden="true" class="anchor-heading icon-link" href="#4-typing"></a></h2>
+<h3 id="ref-1"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#ref-1"></a>ref()<a aria-hidden="true" class="anchor-heading icon-link" href="#ref-1"></a></h3>
+<p>A direct consequence of ref data being accessed through <code>.value</code> property is how refs are typed.</p>
+<p>To annotate a ref you need to use a special type <code>Ref</code>, available for importing from <code>vue</code> library:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref<span class="token punctuation">,</span> <span class="token maybe-class-name">Ref</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+<span class="token keyword">const</span> numberRef<span class="token operator">:</span> <span class="token maybe-class-name">Ref</span><span class="token operator">&#x3C;</span><span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>Ref&#x3C;number></code> is the type meaning a ref holding a number.</p>
+<p>If you want to assign a ref as an argument to a composable, for example, then make sure to use the <code>Ref&#x3C;V></code> type (where <code>V</code> is the value's type) to annotate a ref parameter:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref<span class="token punctuation">,</span> <span class="token maybe-class-name">Ref</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+<span class="token keyword">const</span> numberRef<span class="token operator">:</span> <span class="token maybe-class-name">Ref</span><span class="token operator">&#x3C;</span><span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword module">export</span> <span class="token keyword">const</span> <span class="token function-variable function">useIsEven</span> <span class="token operator">=</span> <span class="token punctuation">(</span>numberRef<span class="token operator">:</span> <span class="token maybe-class-name">Ref</span><span class="token operator">&#x3C;</span><span class="token builtin">number</span><span class="token operator">></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> numberRef<span class="token punctuation">.</span><span class="token property-access">value</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> isEven <span class="token operator">=</span> <span class="token function">useIsEven</span><span class="token punctuation">(</span>numberRef<span class="token punctuation">)</span> <span class="token comment">// type check passed</span>
+</code></pre>
+<h3 id="reactive-1"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#reactive-1"></a>reactive()<a aria-hidden="true" class="anchor-heading icon-link" href="#reactive-1"></a></h3>
+<p>On the other hand, reactive data returned by <code>reactive()</code> is typed as the initial object:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> reactive <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+<span class="token keyword">const</span> objectReactive<span class="token operator">:</span> <span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>reactive({ count: 0})</code> returns an object of type <code>{ count: number }</code>. The reactive object normally keeps the type of the original object.</p>
+<p>But there's one exception — if the reactive object contains refs, then these refs are unwrapped.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> reactive<span class="token punctuation">,</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+<span class="token keyword">const</span> objectReactive<span class="token operator">:</span> <span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Even though the reactive object is <code>{ count: ref(0) }</code>, the returned type is still <code>{ count: number }</code>. All because <code>reactive()</code> automatically unwraps the refs found in the reactive object.</p>
+<p>In conclusion:</p>
+<blockquote>
+<p>refs returned by <code>ref(value: T)</code> are of type <code>Ref&#x3C;T></code>, while reactive objects returned by <code>reactive(object: T)</code> are of type <code>T</code> (exception: refs in reactive are unwrapped).</p>
+</blockquote>
+<h2 id="5-watching"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#5-watching"></a>5. Watching<a aria-hidden="true" class="anchor-heading icon-link" href="#5-watching"></a></h2>
+<p><code>watch()</code> watches reactive data change. The default behavior of <code>watch()</code> differs for <code>ref()</code> and <code>reactive()</code>.</p>
+<h3 id="ref-2"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#ref-2"></a>ref()<a aria-hidden="true" class="anchor-heading icon-link" href="#ref-2"></a></h3>
+<p><code>watch()</code> determines if <code>.value</code> property of the ref is changed:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref<span class="token punctuation">,</span> watch <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> countNumberRef <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+  <span class="token function">watch</span><span class="token punctuation">(</span>countNumberRef<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"changed!"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">increase</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> countNumberRef<span class="token punctuation">.</span><span class="token property-access">value</span><span class="token operator">++</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  {{ countNumberRef }}
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>increase<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Increase<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><a href="https://codesandbox.io/s/watch-ref-value-y6ery8?file=/src/App.vue">Open the demo.</a></p>
+<p>Every time you click the "Increase" button, you'll see in the console the message "changed!". <code>watch(count, callback)</code> calls <code>callback</code> every time <code>countNumberRef.value</code> changes.</p>
+<p>But does <code>watch()</code> watch deep changes of an object stored in <code>ref()</code>? Let's try!</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref<span class="token punctuation">,</span> watch <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> countObjectRef <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token function">watch</span><span class="token punctuation">(</span>countObjectRef<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"changed!"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">increase</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> countObjectRef<span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">.</span><span class="token property-access">count</span><span class="token operator">++</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  {{ countObjectRef.count }}
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>increase<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Increase<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><a href="https://codesandbox.io/s/watch-ref-value-deep-x8re97?file=/src/App.vue">Open the demo.</a></p>
+<p>This time, however, if you click the "Increase" button there will be no message in the console! The conclusion is that <code>watch()</code> doesn't deeply watch refs by default.</p>
+<p>However, DOM still updates when <code>countObjectRef.value.count</code> changes: which means the object in the ref is still reactive in regards to the rendered output.</p>
+<p>Of course, if you ask <code>watch()</code> to watch the ref deeply, it's working as full deep watch:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// ...</span>
+<span class="token function">watch</span><span class="token punctuation">(</span>
+  count<span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"changed!"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> deep<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+<span class="token comment">// ...</span>
+</code></pre>
+<p><a href="https://codesandbox.io/s/watch-ref-value-deep-working-m7t9eq?file=/src/App.vue">Open the demo.</a></p>
+<h3 id="reactive-2"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#reactive-2"></a>reactive()<a aria-hidden="true" class="anchor-heading icon-link" href="#reactive-2"></a></h3>
+<p>In the case of watching a reactive object, <code>watch()</code> always performs a deep watch (even if you don't indicate <code>{ deep: true }</code>) option.</p>
+<p>ts</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> reactive<span class="token punctuation">,</span> watch <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> countObjectReactive <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> counter<span class="token operator">:</span> <span class="token punctuation">{</span> val<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token function">watch</span><span class="token punctuation">(</span>countObjectReactive<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"changed!"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">increase</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> countObjectReactive<span class="token punctuation">.</span><span class="token property-access">counter</span><span class="token punctuation">.</span><span class="token property-access">val</span><span class="token operator">++</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  {{ countObjectReactive.counter.val }}
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>increase<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Increase<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><a href="https://codesandbox.io/s/reactive-deep-watch-3klsxl?file=/src/App.vue">Open the demo.</a></p>
+<p>Every time you click the "Increase" button, you'll see in the console the message "changed!". <code>watch(countObjectReactive, callback)</code> calls <code>callback</code> every time any property (even a deep one) of <code>countObjectReactive</code> changes.</p>
+<p>In conclusion:</p>
+<blockquote>
+<p><code>watch()</code> by default watches <em>only direct <code>.value</code> change</em> of <code>ref()</code>, while doing a <em>deep</em> watch of a <code>reactive()</code> object.</p>
+</blockquote>
+<h2 id="6-usage"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#6-usage"></a>6. Usage<a aria-hidden="true" class="anchor-heading icon-link" href="#6-usage"></a></h2>
+<p>While there isn't a strict rule, still, there are situations when using a specific reactivity function is preferable:</p>
+<ol>
+<li>If you need a reactive primitive value, then using <code>ref()</code> is the right choice.</li>
+<li>If you need a reactive <a href="https://en.wikipedia.org/wiki/Value_object">value object</a> (an object whose properties usually don't change), then using <code>ref()</code> is a good option.</li>
+<li>If you need a reactive mutable object, and you want to track even the deeply mutated properties of that object, then using <code>reactive()</code> is a good option.</li>
+</ol>
+<h2 id="7-conclusion"><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/#7-conclusion"></a>7. Conclusion<a aria-hidden="true" class="anchor-heading icon-link" href="#7-conclusion"></a></h2>
+<p>This post presented the differences between <code>ref()</code> and <code>reactive()</code> in composition API:</p>
+<ol>
+<li><code>ref()</code> can store a primitive value, while <code>reactive()</code> cannot.</li>
+<li>You access the value stored in a <code>ref()</code> using <code>&#x3C;ref>.value</code>, while <code>reactive()</code> object can be used directly as a regular object.</li>
+<li><code>ref()</code> value can be reassigned to an entirely new object, while <code>reactive()</code> cannot.</li>
+<li><code>ref()</code> is typed as <code>Ref&#x3C;V></code>, while the reactive object returned by <code>reactive(originalObject)</code> usually maintains the type of the <code>originalObject</code>.</li>
+<li><code>watch()</code> (when used without options) normally watches only direct changes of <code>&#x3C;ref>.value</code>, while watching deeply <code>reactive()</code> objects.</li>
+</ol>
+<p>You'd use <code>ref()</code> to store primitives or value objects, but <code>reactive()</code> if you're interested to watch deep changes of a mutable object.</p>
