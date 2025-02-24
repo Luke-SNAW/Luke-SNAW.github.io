@@ -2,12 +2,18 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1740037308104
+updated: 1740111531674
 created: 1667632965028
 ---
 
 ## Week 8, 2025
 
+- [I put my heart and soul into this AI but nobody cares](https://newslttrs.com/i-put-my-heart-and-soul-into-this-ai-but-nobody-cares/)
+- [Trust, 2-Party Relays, and QUIC](https://obscura.net/blog/bootstrapping-trust/)
+- [The Hidden Costs of Running a Global Engineering Team and Recipes for Mitigation](https://michaelbensoussan.com/posts/challenges-of-global-engineering-teams/)
+  > - A 3-hour gap is manageable.
+  > - A 6-hour gap starts breaking things. Someone’s always sacrificing their schedule, and a one-day delay easily turns into two.
+  > - A 9-hour gap? This is where things fall apart completely. Simple decisions that should take 30 minutes turned into multi-day sagas. By the time you got an answer to your question, the context had changed so much you needed to ask new questions.
 - [Svelte is not Javascript](https://hodlbod.npub.pro/post/1739830562159/)
 - [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)
   > So the abstractions save us time working, but they don’t save us time learning.
