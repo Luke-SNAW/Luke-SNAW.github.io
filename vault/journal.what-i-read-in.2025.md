@@ -2,9 +2,14 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1740111531674
+updated: 1740725464819
 created: 1667632965028
 ---
+
+## Week 9, 2025
+
+- [How the UK is Weakening Safety Worldwide](https://blog.thenewoil.org/how-the-uk-is-weakening-safety-worldwide)
+- [How Core Git Developers Configure Git](https://blog.gitbutler.com/how-git-core-devs-configure-git/)
 
 ## Week 8, 2025
 
