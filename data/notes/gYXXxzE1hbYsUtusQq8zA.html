@@ -1,0 +1,14 @@
+<h1 id="a-pipe-operator-for-javascript-introduction-and-use-cases">A pipe operator for JavaScript: introduction and use cases<a aria-hidden="true" class="anchor-heading icon-link" href="#a-pipe-operator-for-javascript-introduction-and-use-cases"></a></h1>
+<p><a href="https://2ality.com/2022/01/pipe-operator.html">https://2ality.com/2022/01/pipe-operator.html</a></p>
+<p>The proposal <a href="https://github.com/tc39/proposal-pipeline-operator#tacit-unary-function-application-syntax">“Pipe operator (|>) for JavaScript”</a> (by J. S. Choi, James DiGioia, Ron Buckton and Tab Atkins) introduces a new operator.</p>
+<hr>
+<p>There originally were two competing proposals for a pipe operator, inspired by other programming languages:</p>
+<ul>
+<li>
+<p>F# by Microsoft is a functional programming language whose core is based on OCaml. This pipe operator works together well with curried functions (I’ll explain what that is soon).</p>
+</li>
+<li>
+<p>Hack by Facebook is – roughly – a statically typed version of PHP. This pipe operator focuses on language features other than curried functions. It includes syntactic support for partial application.</p>
+</li>
+</ul>
+<p>The latter proposal won. However, if you prefer the F# pipe, there is good news: Its benefits may be added to the Hack pipe at a later time (details are explained later).</p>

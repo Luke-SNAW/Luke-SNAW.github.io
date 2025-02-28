@@ -1,0 +1,69 @@
+<h1 id="securing-web-a-deep-dive-into-content-security-policy-csp">🔒Securing Web: A Deep Dive into Content Security Policy (CSP)<a aria-hidden="true" class="anchor-heading icon-link" href="#securing-web-a-deep-dive-into-content-security-policy-csp"></a></h1>
+<blockquote>
+<p><a href="https://dev.to/vashnavichauhan18/securing-web-a-deep-dive-into-content-security-policy-csp-2nna">https://dev.to/vashnavichauhan18/securing-web-a-deep-dive-into-content-security-policy-csp-2nna</a></p>
+</blockquote>
+<h2 id="why-csp-matters-for-web-applications-">Why CSP Matters for Web Applications 🤔<a aria-hidden="true" class="anchor-heading icon-link" href="#why-csp-matters-for-web-applications-"></a></h2>
+<p>Think of CSP (Content Security Policy) as the security guard for your web application. It's like setting up rules to keep your site safe from digital troublemakers. With CSP, you decide who's allowed in and who's not, ensuring only the good stuff gets through. It's like putting up a "No Entry"🚫 sign for hackers and cyber crooks👾, so your web app stays safe.</p>
+<ul>
+<li><strong>Client-Side Rendering (CSR)</strong>: Web applications often rely on client-side rendering, where the browser runs JavaScript to show content. If a malicious script gets injected into the app, it can run in the user's browser, risking data compromise or unauthorized actions.</li>
+<li><strong>Dynamic Content</strong>: Web apps often deal with dynamic content like user inputs or data from external APIs. Without security measures like CSP, attackers can exploit these dynamic parts to run harmful scripts, risking security breaches or data theft.</li>
+<li><strong>Component-Based Architecture</strong>: Web apps use a component-based structure, letting us create reusable pieces for UI and functionality. This makes code easier to reuse and maintain. However, it challenges handling security across different components, especially when adding third-party tools.</li>
+<li><strong>Protection Against XSS Attacks</strong>:XSS is a common threat in web apps. CSP helps fight XSS by setting strict rules for running scripts, stopping unauthorized ones, and defending against script injection attacks.</li>
+</ul>
+<h2 id="understanding-csp-directives-"><a href="https://dev.to/vashnavichauhan18/securing-web-a-deep-dive-into-content-security-policy-csp-2nna#understanding-csp-directives">Understanding CSP Directives 🧠</a><a aria-hidden="true" class="anchor-heading icon-link" href="#understanding-csp-directives-"></a></h2>
+<ol>
+<li><em><strong>default-src</strong></em>: Sets the default source for content types if no other directive is specified.</li>
+<li><em><strong>script-src</strong></em>: Controls which scripts can be executed on the page.</li>
+<li><em><strong>style-src</strong></em>: Determines which stylesheets and CSS files can be applied to the page.</li>
+<li><em><strong>img-src</strong></em>: Specifies the allowed sources for loading images.</li>
+<li><strong><em>font-src</em></strong>: Controls the sources from which fonts can be loaded.</li>
+<li><em><strong>connect-src</strong></em>: Defines the allowed origins for making network requests.</li>
+<li><em><strong>frame-src</strong></em>: Specifies the sources from which the page can embed frames or iframes.</li>
+<li><em><strong>media-src</strong></em>: Determines the allowed sources for loading audio and video files.</li>
+<li><strong><em>form-action</em></strong>: Controls the destinations where form submissions can be sent.</li>
+<li><em><strong>base-uri</strong></em>: Specifies the base URL for resolving relative URLs within the document.</li>
+</ol>
+<h2 id="implementing-csp-in-web-apps️"><a href="https://dev.to/vashnavichauhan18/securing-web-a-deep-dive-into-content-security-policy-csp-2nna#implementing-csp-in-web-apps">Implementing CSP in Web Apps🛡️</a><a aria-hidden="true" class="anchor-heading icon-link" href="#implementing-csp-in-web-apps️"></a></h2>
+<h3 id="meta-tags">Meta Tags<a aria-hidden="true" class="anchor-heading icon-link" href="#meta-tags"></a></h3>
+<p>Add CSP directives directly into the <code>&#x3C;meta></code> tags of your Web App project's index.html file.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span>
+    <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Content-Security-Policy<span class="token punctuation">"</span></span>
+    <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; script-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; style-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; font-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; img-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; frame-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span><span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Now, normally CSP might block these inline scripts for security reasons. But fear not! <em>"Main hoon na"</em>😉 We have a solution: using <strong><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce">nonces</a></strong>.</p>
+<blockquote>
+<p>A "nonce" is like a secret code that tells CSP, "Hey, this particular inline script is allowed to run."</p>
+</blockquote>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token comment">&#x3C;!-- CSP policy with a nonce --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span>
+    <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Content-Security-Policy<span class="token punctuation">"</span></span>
+    <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; script-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span> <span class="token punctuation">'</span>nonce-dfghj1234<span class="token punctuation">'</span>; style-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; font-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; img-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; frame-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span><span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token comment">&#x3C;!-- Include an inline script with the nonce --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">nonce</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dfghj1234<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hey, I'm an inline script and I'm allowed thanks to CSP! 😄"</span><span class="token punctuation">)</span>
+  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="http-headers">HTTP Headers<a aria-hidden="true" class="anchor-heading icon-link" href="#http-headers"></a></h3>
+<p>You can also add CSP headers to your server's HTTP response. This method is more scalable and allows for centralized control over CSP policies.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> helmet <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"helmet"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span>
+  helmet<span class="token punctuation">.</span><span class="token method function property-access">contentSecurityPolicy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    directives<span class="token operator">:</span> <span class="token punctuation">{</span>
+      defaultSrc<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"'self'"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      scriptSrc<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"'self'"</span><span class="token punctuation">,</span> <span class="token string">"https://vookie.netlify.app/"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token comment">// you can add other directives here ...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>

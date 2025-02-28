@@ -1,0 +1,123 @@
+<h1 id="-the-14-pains-of-building-your-own-billing-system">🦑 The 14 pains of building your own billing system<a aria-hidden="true" class="anchor-heading icon-link" href="#-the-14-pains-of-building-your-own-billing-system"></a></h1>
+<blockquote>
+<p><a href="https://arnon.dk/the-14-pains-of-billing/">https://arnon.dk/the-14-pains-of-billing/</a></p>
+</blockquote>
+<p>Billing and revenue systems are a necessity if you ever plan to monetize your business.</p>
+<p>If you’ve spent any time with them, you know that billing systems are <em><strong>complicated</strong></em>, and no one wants to think about them. When they work, it’s great and everyone is happy.</p>
+<p>I’ve seen them likened to an octopus, and I fully agree. They touch finance, product, experience, customer support, customers, legal, compliance, sales, and sometimes more.</p>
+<p>Billing is hard, intertwined, and complicated.</p>
+<p>Because it’s so inter-connected, it can go belly-up rather quickly if something breaks. And stuff does break. <em>Frequently</em>. (If you have a team that’s maintaining this system and it’s not you, ask them!).</p>
+<p>Also, if your system isn’t breaking just yet. Give it some time.</p>
+<p>Look, I know you are busy running the business and you already have lots on your plate. You just want to collect some money and move on to more pressing features that actually matter to customers.</p>
+<p>But remember:</p>
+<p>👉 if you can’t collect revenue legally and correctly, it’ll become your headache and you’ll have more on your plate than you could possibly ever chew 👈</p>
+<h2 id="the-three-patterns">The three patterns<a aria-hidden="true" class="anchor-heading icon-link" href="#the-three-patterns"></a></h2>
+<p>This is not unique to billing systems. It is very common to see one of three patterns:</p>
+<ol>
+<li>Home-grown</li>
+<li>Full 3rd party system</li>
+<li>or a hybrid of a home-grown and 3rd party system</li>
+</ol>
+<p>These all have their own benefits and drawbacks, naturally.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Build your own / Home-grown</strong></th><th><strong>Hybrid</strong></th><th><strong>3rd party</strong></th></tr></thead><tbody><tr><td>An entirely home-grown solution.<br>The control is hard to beat. Full control, fully customizable, and you aren’t paying anyone from the outside for fees.<br>Many think (and this happens to many companies) that building and maintaining your own billing system is the best option for your business.</td><td>A mix of home-grown solutions and 3rd parties.<br>For example, your billing engine is internal, payments are handled by a PSP, and tax compliance by a tax SaaS.<br>Here, you can control the business logic (e.g., when do you update quantities), but the logic is handled by the 3rd parties.<br></td><td>A turnkey solution that handles everything for you.<br>All the business logic, payment processing, invoicing, tax compliance, usage, metering – all done by one full-service solution.<br>This is convenient for companies, but you lose a lot of control and may have to shell out a lot of money to get to this place</td></tr></tbody></table></div>
+<p>It’s very natural, when you just start your company (or you’re taking your first steps with a new product) to build everything by yourself.</p>
+<p>You have engineers. You want to keep it very simple.</p>
+<p>Or so you think.</p>
+<p>Why not? <strong>Because you’re often still thinking like an engineer.</strong></p>
+<p>You’re thinking of billing as an engineering issue. You’ll say to yourself <em>“why can’t we just dump a file of what we need to bill on S3, and have a CRON job pick it up and collect payment?”</em>.</p>
+<p>But you’re wrong. It’s a very big and difficult problem, you just aren’t seeing it yet.</p>
+<p>Here is my very high-level description of the things a typical billing team needs to worry about (YMMV):</p>
+<p><a href="https://arnon.dk/wp-content/uploads/2024/02/monetization-responsibilities@2x.png">monetization-responsibilities</a></p>
+<p>A typical billing or monetization team has so many responsibilities that it’s hard to grasp even for seasoned professionals.</p>
+<p>Everyone knows you don’t do your own security (or date handling). You also shouldn’t do your own billing from scratch.</p>
+<h2 id="my-14-pains-of-billing-and-monetization">My 14 pains of billing and monetization<a aria-hidden="true" class="anchor-heading icon-link" href="#my-14-pains-of-billing-and-monetization"></a></h2>
+<p>Allow me to list <em>some</em> of the problems I’ve had with home-grown billing systems, from least complex to most complex (partial list!):</p>
+<ol>
+<li>
+<p><strong>Idempotency</strong>. All requests to do billing, collecting payments need to be unique and idempotent. This will become apparent when you hit API limits and need to retry, or need to spin up more instances of your billing system. Then, you risk double-charging. Luckily crediting/refunding is not a big problem, but this is a problem nonetheless when you scale your infrastructure.</p>
+</li>
+<li>
+<p><strong>Date handling.</strong> When do you bill? Every 30 days (calendar), or every month (anniversary)? What about leap days, time-zones, etc?</p>
+<ul>
+<li><a href="https://xkcd.com/2867/">DateTime via XKCD: 2687</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Proration and “leftovers”</strong>. Do you prorate on upgrade or only downgrade? Refund? Credits? Ignore it? Block it from happening (don’t allow upgrades/downgrades)?</p>
+</li>
+<li>
+<p><strong>Usage metering.</strong> There are dozens of way to decide how to calculate usage, <em>and</em> they can be changed frequently or by customer type</p>
+</li>
+<li>
+<p><strong>Invoice formatting</strong>. Sounds easy if you’re operating in one country. But when you expand you suddenly realise you have to collect not just sales tax, but also sometimes VAT and sometimes GST and sometimes additional levies (country-dependant) and you now need individual templates for each market.</p>
+</li>
+<li>
+<p><strong>Complex customer hierarchy</strong>. Customers (especially in B2B) could have subsidiaries and partners that they want to manage their billing relationships. How do you roll-up usage up to the paying entity?<br>
+This is often something that you don’t think about at first, but changes when you grow and expand.</p>
+<ul>
+<li>Making that even more complex: They could be in different locations, and taxed differently based on their location or where the services are delivered. Then, you are legally required to split the bills/invoices.<br>
+These rules can also change every few months</li>
+</ul>
+</li>
+<li>
+<p><strong>Payment collection and churn prevention</strong>. When do you give up retrying? How do you handle chargebacks (terminate the account, suspend, refund)?</p>
+</li>
+<li>
+<p><strong>Pausing/resuming</strong>. What level of access do you let customers have when they pause their subscription?</p>
+</li>
+<li>
+<p><strong>Crediting / refunding</strong>. If you always refund the entire amount it may not be hard, but what about partial mistakes? Would you maybe want to give a “store credit” instead of a refund? Should that credit ever expire?</p>
+</li>
+<li>
+<p><strong>Tax handling</strong>. You may think different items having different tax rates is complex enough, but these also change frequently if you’re on the global level.</p>
+</li>
+<li>
+<p><strong>Custom deals</strong>. If you’re PLG-only this isn’t an issue but if you sign contracts, you will very quickly end up with edge cases and special deals that can’t be easily configured with the assumptions you made.</p>
+</li>
+<li>
+<p><strong>Human error.</strong> Customers are often comprised of humans who have made mistakes, and corrections need to be made. Businesses too are comprised of humans, who can misconfigure their customers and then need to make corrections. Crediting and reissuing invoices is a very time-consuming task.</p>
+<ul>
+<li>This is also true when customer’s legal details change (address, VAT ID, etc.)</li>
+</ul>
+</li>
+<li>
+<p><strong>Selective pricing changes</strong>. Pricing changes often don’t affect all customers. When only new customers are affected, you must keep distinct versions of your pricing points to ensure customers’ agreements are kept.</p>
+</li>
+<li>
+<p><strong>Revenue recognition and accrued revenue.</strong> I can’t even begin to explain this – but <a href="https://www.ifrs.org/content/dam/ifrs/publications/pdf-standards/english/2021/issued/part-a/ifrs-15-revenue-from-contracts-with-customers.pdf">here’s a 64 page PDF specification of revenue recognition rules according to IFRS-15</a>. If you understand this – you’re special and please e-mail me, I want to know why.
+Bonus points if you also did a custom <strong>ERP integration</strong> 🥲.</p>
+</li>
+</ol>
+<h2 id="why-are-these-hard">Why are these hard?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-are-these-hard"></a></h2>
+<p>Some things change very regularly, more than you’d expect. Some things you only have to do once and never touch again.</p>
+<p>Idempotency is a great example of an engineering issue that, once solved, rarely has to be touched.</p>
+<p>However, tax rules change regularly across the world. The more countries you’re in, the more tax laws you have to keep track of.</p>
+<p>Customer problems around mistakes is a relatively constant issue, but it increases in size as you grow, requiring more customer support and more manual corrections.</p>
+<p>Let me try and put it in a table. It’s entirely subjective, but it should help explain the relationship between how frequently things change (== break), and how impacted they are by scale.</p>
+<table><tbody><tr><td><strong>Changes frequently</strong> <strong>/ Impacted by scale</strong></td><td><strong>🤏</strong> <strong>Somewhat impacted by your scale</strong></td><td><strong>📈</strong> <strong>Highly impacted by your scale</strong></td></tr><tr><td><strong>🪨 Doesn’t change</strong></td><td>* Idempotency<br>* Dates<br>* Pause and resume rules</td><td>* Crediting / refunding<br>* Human errors</td></tr><tr><td><strong>🦥</strong> <strong>Changes sometimes</strong></td><td>* Proration rules<br>* Customer hierarchies</td><td>* Usage calculations<br>* Payment collection<br>* Pricing changes</td></tr><tr><td><strong>🐇</strong> <strong>Changes frequently</strong></td><td>* Custom deals<br>* Revenue Recognition rules</td><td>* Tax handling<br>* Invoice formatting</td></tr></tbody></table>
+<p>My subjective assessment of why some topics are more difficult than others</p>
+<blockquote>
+<p>tl;dr: <strong>Billing is <em>initially</em> an engineering problem rooted in a very very complex problem space which is really hard to understand even for industry veterans.</strong></p>
+</blockquote>
+<h2 id="what-should-you-do-about-it">What should you do about it?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-should-you-do-about-it"></a></h2>
+<p>Offload as many problems as you can to someone else. Buy something off-the-shelf. Buy as much as you can.</p>
+<p>I can’t stress this enough.</p>
+<p>Let <a href="https://www.chargebee.com/">Chargebee</a>, <a href="https://www.solvimon.com/">Solvimon</a>, <a href="https://stripe.com/en-dk/billing">Stripe</a>, <a href="https://recurly.com/">Recurly</a>, <a href="https://www.withorb.com/">Orb</a>, <a href="https://metronome.com/">Metronome</a>, <a href="https://www.getlago.com/">Lago</a>, <a href="https://www.togai.com/">Togai</a> or anyone else manage your billing when you start. 90% of the “Subscription and billing” section in the diagram above can be handled by any of these.</p>
+<p>Let <a href="https://www.stigg.io/">Stigg</a> handle your pricing pages, experiments, and <a href="https://arnon.dk/why-you-should-separate-your-billing-from-entitlement/">entitlements</a>.</p>
+<p>Let your ERP handle your RevRec/Accounting (or use what’s built in with something else).</p>
+<p><strong>You should only focus on updating the usage / basic customer lifecycle events, the things that are unique to your product.</strong></p>
