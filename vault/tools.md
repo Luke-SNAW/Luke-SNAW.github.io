@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1739239884298
+updated: 1741047028020
 created: 1644799670081
 ---
 
@@ -13,6 +13,7 @@ created: 1644799670081
 - [PeaZip](https://github.com/peazip/PeaZip/) Free Archiver
 - [croc](https://github.com/schollz/croc) is a tool that allows any two computers to simply and securely transfer files and folders. AFAIK, croc is the only CLI file-transfer tool
 - [immich](https://github.com/immich-app/immich) - High performance self-hosted photo and video management solution
+- [localsend](https://github.com/localsend/localsend) - An open-source cross-platform alternative to AirDrop
 
 ## Windows
 

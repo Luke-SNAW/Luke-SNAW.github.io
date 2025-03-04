@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1738720235618
+updated: 1741050230630
 created: 1657500862975
 ---
 
@@ -22,6 +22,7 @@ created: 1657500862975
   - 어떤 회사에서는 관리자가 책임을 질 수 있기 때문에 결정을 내리지 않으려는 정책이 있음
   - "책임"이라는 단어가 이제는 의미 없는 치료적 언어가 되었음을 지적함. CEO가 책임을 진다고 말하지만 실제로는 아무런 결과가 따르지 않음
   - 법적 원칙으로는 운영자가 책임을 져야 한다고 주장함. 그렇지 않으면 방화 예방을 위해 성냥을 금지해야 한다는 비유를 사용함
+- [Inheriting is becoming nearly as important as working](https://www.economist.com/leaders/2025/02/27/inheriting-is-becoming-nearly-as-important-as-working)
 
 ### [Bartosz Ciechanowski](https://ciechanow.ski/archives/)
 

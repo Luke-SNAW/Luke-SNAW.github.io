@@ -2,9 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1740725464819
+updated: 1741054108353
 created: 1667632965028
 ---
+
+## Week 10, 2025
+
+- [The housing theory of everything](https://worksinprogress.co/issue/the-housing-theory-of-everything/)
+- [The $100 Trillion Disruption: The Unforeseen Economic Earthquake](https://wildfirelabs.substack.com/p/the-100-trillion-disruption-the-unforeseen)
+- [Executive wealth as a factor in return-to-office](https://x.com/EthanEvansVP/status/1895845734177452369)
+- [Inheriting is becoming nearly as important as working](https://www.economist.com/leaders/2025/02/27/inheriting-is-becoming-nearly-as-important-as-working)
+- [localsend](https://github.com/localsend/localsend) - An open-source cross-platform alternative to AirDrop
 
 ## Week 9, 2025
 
