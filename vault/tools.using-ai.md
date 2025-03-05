@@ -2,9 +2,13 @@
 id: g0km0ja41byx2klobfqhwcc
 title: Using AI
 desc: ""
-updated: 1731645014715
+updated: 1741138483978
 created: 1731642860849
 ---
+
+## Collections
+
+- [Comparing local large language models for alt-text generation](https://dri.es/comparing-local-llms-for-alt-text-generation)
 
 ## Code gen
 

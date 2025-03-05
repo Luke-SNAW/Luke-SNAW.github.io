@@ -2,13 +2,14 @@
 id: scyurl1eklmxej9fev7q4fb
 title: CLI
 desc: ""
-updated: 1730957470887
+updated: 1741135766718
 created: 1730957314802
 ---
 
 ## Collections
 
 - [macOS Bash commands](https://ss64.com/mac/)
+- [How I Automated My Computer Routine With macOS Folder Actions](https://interfacecraft.online/posts/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/)
 
 ## [Useful built-in macOS command-line utilities](https://weiyen.net/articles/useful-macos-cmd-line-utilities)
 

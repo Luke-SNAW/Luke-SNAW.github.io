@@ -2,12 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1741054108353
+updated: 1741139409653
 created: 1667632965028
 ---
 
 ## Week 10, 2025
 
+- [Rendering the Simulation Theory: Exploring Fractals, GLSL, and the Nature of Reality](https://tympanus.net/codrops/2025/02/18/rendering-the-simulation-theory-exploring-fractals-glsl-and-the-nature-of-reality/)
+- [Comparing local large language models for alt-text generation](https://dri.es/comparing-local-llms-for-alt-text-generation)
+- [Hacking Gemini's Memory with Prompt Injection and Delayed Tool Invocation](https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/)
+- [SQLite-on-the-Server Is Misunderstood: Better At Hyper-Scale Than Micro-Scale](https://rivet.gg/blog/2025-02-16-sqlite-on-the-server-is-misunderstood)
+- [How I Automated My Computer Routine With macOS Folder Actions](https://interfacecraft.online/posts/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/)
 - [The housing theory of everything](https://worksinprogress.co/issue/the-housing-theory-of-everything/)
 - [The $100 Trillion Disruption: The Unforeseen Economic Earthquake](https://wildfirelabs.substack.com/p/the-100-trillion-disruption-the-unforeseen)
 - [Executive wealth as a factor in return-to-office](https://x.com/EthanEvansVP/status/1895845734177452369)

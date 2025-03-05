@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1739413061933
+updated: 1741138396001
 created: 1644825680750
 ---
 
@@ -54,3 +54,7 @@ Two real world examples caused major outages at Stack Overflow and CloudFlare du
 The article details how issues like excessive use of wildcards, quantifiers and overlapping patterns can cause catastrophic backtracking.  
 It also offers techniques for testing regex safety and fixing vulnerable patterns, such as limiting matches, using string methods instead of regex, and refactoring nested groups.  
 Overall, the article effectively raises awareness of the ReDoS threat within seemingly benign regex code.
+
+## AI
+
+- [Hacking Gemini's Memory with Prompt Injection and Delayed Tool Invocation](https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/)

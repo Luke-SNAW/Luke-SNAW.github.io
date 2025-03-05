@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1738720960275
+updated: 1741139424517
 created: 1646613084338
 ---
 
@@ -114,6 +114,7 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 - [Liquid Layers](https://grantkot.com/ll/)
 - [Moon](https://ciechanow.ski/moon/)
 - [My favourite colour is Chuck Norris red](https://htmhell.dev/adventcalendar/2024/20/)
+- [Rendering the Simulation Theory: Exploring Fractals, GLSL, and the Nature of Reality](https://tympanus.net/codrops/2025/02/18/rendering-the-simulation-theory-exploring-fractals-glsl-and-the-nature-of-reality/)
 
 ### [Asterisk Magazine](https://asteriskmag.com/)
 

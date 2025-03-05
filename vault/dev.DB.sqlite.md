@@ -2,7 +2,7 @@
 id: droc7w967f365b24yxuvm1y
 title: SQLite
 desc: ""
-updated: 1721259349942
+updated: 1741137624556
 created: 1721259311149
 ---
 
@@ -12,3 +12,4 @@ created: 1721259311149
 - [BIG DATA IS DEAD](https://motherduck.com/blog/big-data-is-dead/)
   > The author suggests that the real problem is often data hoarding rather than true "Big Data" challenges. Overall, the passage contends that the Big Data hype has passed and organizations should focus on using their data effectively rather than worrying about sheer data volume.
 - [SQLite As An Application File Format](https://www.sqlite.org/aff_short.html)
+- [SQLite-on-the-Server Is Misunderstood: Better At Hyper-Scale Than Micro-Scale](https://rivet.gg/blog/2025-02-16-sqlite-on-the-server-is-misunderstood)
