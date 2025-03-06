@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1736403454486
+updated: 1741246910162
 created: 1669705986186
 ---
 
@@ -10,6 +10,7 @@ created: 1669705986186
 
 - [Japanese Artist Creates Amazing Miniature Dioramas Every Day For 10 Years](https://digitalsynopsis.com/design/miniature-dioramas/)
 - [Animated Koots](https://www.animatedknots.com/)
+  - [Bowline Knot](https://www.animatedknots.com/bowline-knot)
 - [Akiyoshi's illusion pages](https://www.ritsumei.ac.jp/~akitaoka/index-e.html)
 - [Immanuel Kant—What can we know?](https://ralphammer.com/immanuel-kant-what-can-we-know/)
 - [Window-swap](https://www.window-swap.com/) – open a new window somewhere in the world
