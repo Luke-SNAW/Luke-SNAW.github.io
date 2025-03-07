@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1741246910162
+updated: 1741318396474
 created: 1669705986186
 ---
 
@@ -40,3 +40,4 @@ created: 1669705986186
   - https://www.youtube.com/watch?v=fO--TM4_6hw
 - [Unoffice Hours](https://interconnected.org/home/2020/09/24/unoffice_hours)
 - [A Pixel Parable](https://olano.dev/blog/a-pixel-parable/)
+- [Age and cognitive skills: Use it or lose it](https://www.science.org/doi/full/10.1126/sciadv.ads1560?af=R)
