@@ -2,9 +2,16 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1741318386762
+updated: 1741924024270
 created: 1667632965028
 ---
+
+## Week 11, 2025
+
+- [Relative Colors](https://ishadeed.com/article/css-relative-colors/) - An interactive guide to learn CSS Relative Colors.
+  - [OKLCH in CSS: why we moved from RGB and HSL](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl)
+- [In Memoriam: Mark Klein, AT&T Whistleblower Who Revealed NSA Mass Spying](https://www.eff.org/deeplinks/2025/03/memoriam-mark-klein-att-whistleblower-about-nsa-mass-spying)
+- [Succinct data structures](https://blog.startifact.com/posts/succinct/)
 
 ## Week 10, 2025
 

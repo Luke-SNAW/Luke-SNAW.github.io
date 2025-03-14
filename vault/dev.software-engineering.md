@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1740027037448
+updated: 1741564362142
 created: 1645514209965
 ---
 
@@ -51,6 +51,7 @@ created: 1645514209965
   2. Complexity is a Moat (filled by Leaky Abstractions).
   3. There is no fundamental upper limit on Software Complexity.
 - [When Imperfect Systems are Good, Actually: Bluesky's Lossy Timelines](https://jazco.dev/2025/02/19/imperfection/)
+- [Succinct data structures](https://blog.startifact.com/posts/succinct/)
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 
