@@ -2,9 +2,14 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1741924024270
+updated: 1742256589242
 created: 1667632965028
 ---
+
+## Week 12, 2025
+
+- [HTTP/3 is everywhere but nowhere](https://httptoolkit.com/blog/http3-quic-open-source-support-nowhere/)
+- [Recommendations for designing magic numbers of binary file formats](https://hackers.town/@zwol/114155595855705796)
 
 ## Week 11, 2025
 
