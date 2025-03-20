@@ -2,12 +2,16 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1742256589242
+updated: 1742455529410
 created: 1667632965028
 ---
 
 ## Week 12, 2025
 
+- [AI Blindspots](https://ezyang.github.io/ai-blindspots/)
+- [The Lost Art of Research as Leisure](https://kasurian.com/p/research-as-leisure)
+  - Research as leisure involves cultivating curiosity, developing meaningful questions, gathering evidence, and creating tangible outcomes from research efforts.
+  - The act of reading should be seen as playful and intentional, moving beyond mere consumption to active engagement with ideas.
 - [HTTP/3 is everywhere but nowhere](https://httptoolkit.com/blog/http3-quic-open-source-support-nowhere/)
 - [Recommendations for designing magic numbers of binary file formats](https://hackers.town/@zwol/114155595855705796)
 

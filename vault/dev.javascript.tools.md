@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1738569940794
+updated: 1742431608150
 created: 1644882116217
 ---
 
@@ -172,3 +172,5 @@ A collection of native JavaScript [methods](https://vanillajstoolkit.com/referen
 ## Graphic
 
 - [gpu-io](https://apps.amandaghassaei.com/gpu-io/examples/) - A GPU-accelerated computing library for physics simulations and other mathematical calculations
+- [pixijs](https://github.com/pixijs/pixijs)
+  - https://www.goodboydigital.com/pixijs/bunnymark/ - https://news.ycombinator.com/item?id=43415380

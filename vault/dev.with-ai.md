@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1741246828959
+updated: 1742455535802
 created: 1688605282146
 ---
 
@@ -48,3 +48,4 @@ created: 1688605282146
     3. in the long run it plateaus and even inhibits further progress, and
     4. breakthrough progress eventually arrives by an opposing approach based on scaling computation by search and learning.
 - [My LLM codegen workflow atm](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/)
+- [AI Blindspots](https://ezyang.github.io/ai-blindspots/)
