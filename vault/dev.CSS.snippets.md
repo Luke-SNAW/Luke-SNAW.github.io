@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1722301386620
+updated: 1742523881901
 created: 1646129148295
 ---
 
@@ -128,5 +128,33 @@ p {
   --h: tan(
     atan2(var(--_h), 1px)
   ); /* screen height*/ /* The result is an integer without unit */
+}
+```
+
+## [A guide to image overlays in CSS](https://blog.logrocket.com/css-overlay/)
+
+```html
+<div class="image-wrapper">
+  <img src="" alt="Sample Image" width="800" height="600" />
+  <div class="overlay-text">The Pros and Cons of Buying vs. Renting a Home</div>
+</div>
+```
+
+```css
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+```
+
+```css
+.image-wrapper {
+  position: relative;
+  /* Other styles */
 }
 ```

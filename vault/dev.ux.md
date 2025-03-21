@@ -2,7 +2,7 @@
 id: x6srexqsxlwe4thhsx9rgt9
 title: UX
 desc: ""
-updated: 1713419632333
+updated: 1742518446024
 created: 1649893699761
 ---
 
@@ -20,6 +20,7 @@ created: 1649893699761
   - On mobile, use accordions to display a full path if needed.
   - The parent of the current page should be visible at all times.
   - **Sideways breadcrumbs** might be a quite surprising and useful discovery for your users.
+- [Breadcrumbs Are Dead in Web Design](https://webdesignerdepot.com/breadcrumbs-are-dead-in-web-design/)
 - [Designing The Perfect Mobile Navigation UX](https://www.smashingmagazine.com/2022/11/navigation-design-mobile-ux/)
 - [🧠 The Psychology of Design](https://growth.design/psychology) - 106 Cognitive Biases & Principles That Affect Your UX #bookshelf
 - [My favourite animation trick: exponential smoothing](https://lisyarus.github.io/blog/programming/2023/02/21/exponential-smoothing.html) avoids issues like jittering or overshooting that can occur with other methods.

@@ -2,12 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1742455529410
+updated: 1742523814374
 created: 1667632965028
 ---
 
 ## Week 12, 2025
 
+- [A guide to image overlays in CSS](https://blog.logrocket.com/css-overlay/)
+- [Why You Should Choose HTML5 article Over section](https://www.smashingmagazine.com/2020/01/html5-article-section/)
+- [An Opinionated Guide on Which AI Model to Use in 2025](https://creatoreconomy.so/p/an-opinionated-guide-on-which-ai-model-2025)
+- [Breadcrumbs Are Dead in Web Design](https://webdesignerdepot.com/breadcrumbs-are-dead-in-web-design/)
+- [FOSS infrastructure is under attack by AI companies](https://thelibre.news/foss-infrastructure-is-under-attack-by-ai-companies/)
 - [AI Blindspots](https://ezyang.github.io/ai-blindspots/)
 - [The Lost Art of Research as Leisure](https://kasurian.com/p/research-as-leisure)
   - Research as leisure involves cultivating curiosity, developing meaningful questions, gathering evidence, and creating tangible outcomes from research efforts.

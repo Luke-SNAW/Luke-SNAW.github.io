@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1736385433400
+updated: 1742523648081
 created: 1644885695231
 ---
 
@@ -72,6 +72,7 @@ created: 1644885695231
 - [The `<details>` and `<summary>` elements are getting an upgrade](https://blog.stephaniestimac.com/posts/2024/10/html-details-and-summary-update/)
 - [Use "translate" to turn off element translations](https://www.stefanjudis.com/today-i-learned/non-translatable-html-elements/)
   - `translate="no"` attribute
+- [Why You Should Choose HTML5 article Over section](https://www.smashingmagazine.com/2020/01/html5-article-section/)
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 
