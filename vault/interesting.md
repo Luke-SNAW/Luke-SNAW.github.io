@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1741318396474
+updated: 1742866724084
 created: 1669705986186
 ---
 
@@ -41,3 +41,5 @@ created: 1669705986186
 - [Unoffice Hours](https://interconnected.org/home/2020/09/24/unoffice_hours)
 - [A Pixel Parable](https://olano.dev/blog/a-pixel-parable/)
 - [Age and cognitive skills: Use it or lose it](https://www.science.org/doi/full/10.1126/sciadv.ads1560?af=R)
+- [63 Chinese Cuisines: the Complete Guide](https://chinesecookingdemystified.substack.com/p/63-chinese-cuisines-the-complete)
+- [Do viruses trigger Alzheimer's?](https://www.economist.com/science-and-technology/2025/03/17/do-viruses-trigger-alzheimers)

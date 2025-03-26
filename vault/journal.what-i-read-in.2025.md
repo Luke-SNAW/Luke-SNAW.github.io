@@ -2,9 +2,16 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1742523814374
+updated: 1742953571650
 created: 1667632965028
 ---
+
+## Week 13, 2025
+
+- [Stoop Coffee: How a Simple Idea Transformed My Neighborhood](https://supernuclear.substack.com/p/stoop-coffee-how-a-simple-idea-transformed)
+- [Do viruses trigger Alzheimer's?](https://www.economist.com/science-and-technology/2025/03/17/do-viruses-trigger-alzheimers)
+- [I won't connect my dishwasher to your stupid cloud](https://www.jeffgeerling.com/blog/2025/i-wont-connect-my-dishwasher-your-stupid-cloud)
+- [63 Chinese Cuisines: the Complete Guide](https://chinesecookingdemystified.substack.com/p/63-chinese-cuisines-the-complete)
 
 ## Week 12, 2025
 

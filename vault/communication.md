@@ -2,7 +2,7 @@
 id: g1fngdjl25nes6fs3lip602
 title: Communication
 desc: ""
-updated: 1734583231264
+updated: 1742953588722
 created: 1652404654841
 ---
 
@@ -40,3 +40,7 @@ created: 1652404654841
 - Individuals who think outside rigid frameworks have changed society by pursuing their own visions.
 - Art like Picasso's paintings show there are no fixed or single correct ways of viewing something.
 - Communication is a **skill that requires practice understanding others' emotions and intentions through "language games"**.
+
+## Local
+
+- [Stoop Coffee: How a Simple Idea Transformed My Neighborhood](https://supernuclear.substack.com/p/stoop-coffee-how-a-simple-idea-transformed)

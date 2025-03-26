@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1741241282499
+updated: 1742866237638
 created: 1733205020636
 published: false
 ---
@@ -56,6 +56,8 @@ published: false
 - 핸드크림
 
 ---
+
+## Keyword, agenda, context, draft, BBD, FP
 
 ## 2024-10-23
 
@@ -176,9 +178,11 @@ https://news.ycombinator.com/item?id=42354417
 
 보통 시간 효율을 추구하여 잡다한 일을 한 번에 처리한다든지, pending 걸리는 일을 미치 처리하고 다른 일을 한다든지의 멀티테스킹 시도의 땔감은 내 멘탈이다. 바닥을 치지 않도록 조절이 필요.
 
-집중이나 회복의 효과를 높이려면 효율은 낮춰라.
+집중이나 회복의 효과를 높이려면 효율은 낮춰라. 몇 chunk로 나눠서 하는 식도 좋고.
 
 - 타이핑을 하지 않고 손글씨 쓰는게 생각의 효과를 높일 수 있나?
+
+## 스트레스:해소를 1:9, 2:8로 난이도 조절
 
 # 2025-03
 

@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1742455535802
+updated: 1742946690396
 created: 1688605282146
 ---
 
@@ -49,3 +49,12 @@ created: 1688605282146
     4. breakthrough progress eventually arrives by an opposing approach based on scaling computation by search and learning.
 - [My LLM codegen workflow atm](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/)
 - [AI Blindspots](https://ezyang.github.io/ai-blindspots/)
+
+## ETC
+
+### [nerdponx](https://news.ycombinator.com/item?id=43471910)
+
+This has been my complaint about AI from the beginning, and it hasn't gotten better. In the time spend I figuring out how to explain to the AI what I need it to do, I can just sit down and figure it out. AI, for me, has never been a useful assistant for writing code.
+Where AI has really improved my productivity is in acting like a colleague I can talk to. "I'm going to start working on X: how would you approach it? what should I know that isn't obvious from the beginning?" or "I am thinking about using Y approach for X problem but I don't see a lot of literature about it. Is there a reason it's not more common?".
+
+These "chats" only take 10-30 minutes and have already led me to learn a bunch of new things, and helps keep me moving on projects where in the past I'd have spent 2-3x as long working through ideas, searching for literature, and figuring things out.
