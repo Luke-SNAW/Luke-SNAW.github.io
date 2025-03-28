@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1741564362142
+updated: 1743049853025
 created: 1645514209965
 ---
 
@@ -88,6 +88,7 @@ created: 1645514209965
   > - If you have only one team, consider adjusting your architecture to match the team’s capacity. Favour monolithic, cohesive and modular architectures.
   > - If you have multiple teams, consider doing microservices or similar type of architectures so they can work independently.
   > - The types of communication boundaries change significantly between single and multiple team architectures. Single teams are optimized to communicate via the codebase, documentation, discussions and design meetings. Multiple teams are better optimized to communicate via well-designed APIs (or libraries) that abstract the complexities of their domains.
+- [한국어 몰라요 - 글로벌 협업의 4가지 패턴](https://techblog.lycorp.co.jp/ko/4-patterns-of-global-collaboration)
 
 ### [Thread-per-core](https://without.boats/blog/thread-per-core/)
 

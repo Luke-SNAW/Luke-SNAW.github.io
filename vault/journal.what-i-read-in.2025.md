@@ -2,12 +2,22 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1742953571650
+updated: 1743133091331
 created: 1667632965028
 ---
 
 ## Week 13, 2025
 
+- [How to Use Em Dashes (–), En Dashes (–), and Hyphens (-)](https://www.merriam-webster.com/grammar/em-dash-en-dash-how-to-use)
+  > - Hyphens connect things, such as compound words: double-decker, cut-and-dried, 212-555-5555.
+  > - EN dashes make a range between things: Boston–San Francisco flight, 10–20 years: both connect not only the endpoints, but define that all the space between is included. (Compare the last usage with the phone number example under Hyphens.)
+  > - EM dashes break things, such as sentences or thoughts: 'What the—!'; A paragraph should express one idea—but rules are made to be broken.
+  >   — [mmooss](https://news.ycombinator.com/item?id=43499567)
+- [You should know this before choosing Next.js](https://eduardoboucas.com/posts/2025-03-25-you-should-know-this-before-choosing-nextjs/)
+- [Inside Google’s Two-Year Frenzy to Catch Up With OpenAI](https://www.wired.com/story/google-openai-gemini-chatgpt-artificial-intelligence/)
+- [BANEX 템플릿 - 사업부터 개발까지 모든 스테이크홀더의 눈높이를 맞추는 프로덕트 플래닝](https://engineering.linecorp.com/ko/blog/banex-template-for-product-planning)
+- [한국어 몰라요 - 글로벌 협업의 4가지 패턴](https://techblog.lycorp.co.jp/ko/4-patterns-of-global-collaboration)
+- [Coding Isn't Programming](https://www.socallinuxexpo.org/scale/22x/presentations/closing-keynote-leslie-lamport) - Closing Keynote with Leslie Lamport [PDF](https://www.socallinuxexpo.org/sites/default/files/presentations/linux-expo%20%281%29.pdf)
 - [Stoop Coffee: How a Simple Idea Transformed My Neighborhood](https://supernuclear.substack.com/p/stoop-coffee-how-a-simple-idea-transformed)
 - [Do viruses trigger Alzheimer's?](https://www.economist.com/science-and-technology/2025/03/17/do-viruses-trigger-alzheimers)
 - [I won't connect my dishwasher to your stupid cloud](https://www.jeffgeerling.com/blog/2025/i-wont-connect-my-dishwasher-your-stupid-cloud)
