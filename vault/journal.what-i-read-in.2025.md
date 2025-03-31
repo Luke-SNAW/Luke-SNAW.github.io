@@ -2,9 +2,20 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1743133091331
+updated: 1743464331319
 created: 1667632965028
 ---
+
+## Week 14, 2025
+
+- [AI Agents: Less Capability, More Reliability, Please](https://www.sergey.fyi/articles/reliability-vs-capability) - Turning such a straightforward process into a mysterious AI black box isn't innovation—it's a headache.
+- [Terms of Service Didn't Read](https://tosdr.org/en)
+- [Everyone knows all the apps on your phone](https://peabee.substack.com/p/everyone-knows-what-apps-you-use)
+- [Et Tu, Grammarly?](https://dbushell.com/2025/03/29/et-tu-grammarly/)
+- [Why you should use modeling \[with TLA+/PlusCal\]](https://muratbuffalo.blogspot.com/2018/01/why-you-should-use-modeling-with.html)
+  - Modeling shows you how sloppy your "design" is.
+  - Being smart does not scale; exhaustive model checking comes to the rescue
+  - Don't trust your deduction abilities for proving that each action preserves the safety conditions you identify.
 
 ## Week 13, 2025
 

@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1743049853025
+updated: 1743377830630
 created: 1645514209965
 ---
 
@@ -52,6 +52,15 @@ created: 1645514209965
   3. There is no fundamental upper limit on Software Complexity.
 - [When Imperfect Systems are Good, Actually: Bluesky's Lossy Timelines](https://jazco.dev/2025/02/19/imperfection/)
 - [Succinct data structures](https://blog.startifact.com/posts/succinct/)
+
+## Modeling
+
+- [Coding Isn't Programming](https://www.socallinuxexpo.org/scale/22x/presentations/closing-keynote-leslie-lamport) - Closing Keynote with Leslie Lamport [PDF](https://www.socallinuxexpo.org/sites/default/files/presentations/linux-expo%20%281%29.pdf)
+  - https://news.hada.io/topic?id=19969
+- [Why you should use modeling \[with TLA+/PlusCal\]](https://muratbuffalo.blogspot.com/2018/01/why-you-should-use-modeling-with.html)
+  - Modeling shows you how sloppy your "design" is.
+  - Being smart does not scale; exhaustive model checking comes to the rescue
+  - Don't trust your deduction abilities for proving that each action preserves the safety conditions you identify.
 
 ## [You Can't Buy Integration](https://martinfowler.com/articles/cant-buy-integration.html)
 

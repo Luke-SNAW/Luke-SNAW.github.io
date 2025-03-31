@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1741047028020
+updated: 1743462912294
 created: 1644799670081
 ---
 
@@ -74,6 +74,7 @@ created: 1644799670081
 - [Privacy Tools](https://www.privacytools.io/) - Encryption Against Mass Surveillance
 - [Privacy Tools List](https://privacytoolslist.com/)
 - [SimpleLogin](https://simplelogin.io/) - With email aliases, you can be anonymous online and protect your inbox against spams and phishing. Open source. Based in Switzerland.
+- [Terms of Service Didn't Read](https://tosdr.org/en)
 
 ## Keyboard Layout
 

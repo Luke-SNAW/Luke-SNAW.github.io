@@ -2,13 +2,14 @@
 id: gnh7pclc140wsbtf84b5yf8
 title: Javascript debug
 desc: ""
-updated: 1699852617467
+updated: 1743386893206
 created: 1646265630764
 ---
 
 ## Collections
 
 - [How to Inspect Interactions in the Browser](https://www.builder.io/blog/inspect-interactions-in-the-browser)
+- [Et Tu, Grammarly?](https://dbushell.com/2025/03/29/et-tu-grammarly/)
 
 ## [Developer Tools secrets that shouldn’t be secrets](https://christianheilmann.com/2021/11/01/developer-tools-secrets-that-shouldnt-be-secrets/)
 
