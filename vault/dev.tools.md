@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1741140402683
+updated: 1743725628635
 created: 1647145480774
 ---
 
@@ -61,6 +61,8 @@ created: 1647145480774
   - Many people underestimate the fragility of automated systems, which can fail due to unexpected inputs or tool malfunctions.
   - the author stresses the importance of human oversight, especially in high-stakes areas.
   - [Ironies of Automation](https://www.complexcognition.co.uk/2021/06/ironies-of-automation.html)
+- [curl-impersonate](https://github.com/lwthiker/curl-impersonate) - A special build of curl that can impersonate the four major browsers
+  - https://github.com/lexiforest/curl-impersonate - An active fork of curl-impersonate with more versions and build targets.
 
 ## Network
 

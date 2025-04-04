@@ -2,7 +2,7 @@
 id: 1v3zueuge3dc4szjhatotul
 title: CSs tools
 desc: ""
-updated: 1707789153732
+updated: 1743641213398
 created: 1646130002277
 ---
 
@@ -26,6 +26,7 @@ created: 1646130002277
 - [Super Useful CSS Resources](https://dev.to/lissy93/super-useful-css-resources-1ba3)
 - [What is my viewport](https://whatismyviewport.com/) - A simple online tool for quickly finding the dimensions of your current device's viewport!
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) is a project that patches developer targeted fonts with a high number of glyphs (icons). Specifically to add a high number of extra glyphs from popular 'iconic fonts' such as [Font Awesome](https://github.com/FortAwesome/Font-Awesome), [Devicons](https://vorillaz.github.io/devicons/), [Octicons](https://github.com/primer/octicons), and [others](https://github.com/ryanoasis/nerd-fonts#glyph-sets).
+- [Minimal CSS-only blurry image placeholders](https://leanrada.com/notes/css-only-lqip/)
 
 ## Calculator
 

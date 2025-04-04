@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1742866724084
+updated: 1743636701385
 created: 1669705986186
 ---
 
@@ -43,3 +43,4 @@ created: 1669705986186
 - [Age and cognitive skills: Use it or lose it](https://www.science.org/doi/full/10.1126/sciadv.ads1560?af=R)
 - [63 Chinese Cuisines: the Complete Guide](https://chinesecookingdemystified.substack.com/p/63-chinese-cuisines-the-complete)
 - [Do viruses trigger Alzheimer's?](https://www.economist.com/science-and-technology/2025/03/17/do-viruses-trigger-alzheimers)
+- [13 Animals Made From 13 Circles](https://www.dorithegiant.com/2016/05/13-animals-made-from-13-circles.html)

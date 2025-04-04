@@ -2,12 +2,19 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1743469817382
+updated: 1743726222589
 created: 1667632965028
 ---
 
 ## Week 14, 2025
 
+- [An image of an archeologist adventurer who wears a hat and uses a bullwhip](https://theaiunderwriter.substack.com/p/an-image-of-an-archeologist-adventurer)
+- [curl-impersonate](https://github.com/lwthiker/curl-impersonate) - A special build of curl that can impersonate the four major browsers
+  - https://github.com/lexiforest/curl-impersonate - An active fork of curl-impersonate with more versions and build targets.
+- [절대 Cron에서 표준 출력을 사용하지 마세요 - root 볼륨 포화 괴담](https://velog.io/@skynet/%EC%A0%88%EB%8C%80-Cron%EC%97%90%EC%84%9C-%ED%91%9C%EC%A4%80-%EC%B6%9C%EB%A0%A5%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EB%A7%88%EC%84%B8%EC%9A%94-root-%EB%B3%BC%EB%A5%A8-%ED%8F%AC%ED%99%94-%EA%B4%B4%EB%8B%B4)
+- [Minimal CSS-only blurry image placeholders](https://leanrada.com/notes/css-only-lqip/)
+- [TV Garden](https://tv.garden/) - your gateway to free live TV streaming from anywhere.
+- [13 Animals Made From 13 Circles](https://www.dorithegiant.com/2016/05/13-animals-made-from-13-circles.html)
 - [Life Altering Postgresql Patterns](https://mccue.dev/pages/3-11-25-life-altering-postgresql-patterns)
 - [AI Agents: Less Capability, More Reliability, Please](https://www.sergey.fyi/articles/reliability-vs-capability) - Turning such a straightforward process into a mysterious AI black box isn't innovation—it's a headache.
 - [Terms of Service Didn't Read](https://tosdr.org/en)

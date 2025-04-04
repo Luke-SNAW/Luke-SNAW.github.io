@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1743462912294
+updated: 1743640673784
 created: 1644799670081
 ---
 
@@ -164,3 +164,4 @@ Microsoft IME, [날개셋 입력기](https://namu.wiki/w/%EB%82%A0%EA%B0%9C%EC%8
 - [rga](https://github.com/phiresky/ripgrep-all): ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc.
 - https://shapecatcher.com/ - Unicode Character Recognition
 - [How I Built an Open Source AI Tool to Find My Autoimmune Disease (After $100k and 30+ Hospital Visits)](https://old.reddit.com/r/selfhosted/comments/1ij7s4m/how_i_built_an_open_source_ai_tool_to_find_my/) - Now Available for Anyone to Use - [github](https://github.com/OpenHealthForAll/open-health)
+- [TV Garden](https://tv.garden/) - your gateway to free live TV streaming from anywhere.
