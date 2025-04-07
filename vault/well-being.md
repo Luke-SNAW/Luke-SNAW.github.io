@@ -2,7 +2,7 @@
 id: hjNeNc1F2JUh0lTWanH4h
 title: Well Being
 desc: ""
-updated: 1730959974800
+updated: 1744000248299
 created: 1645634209109
 ---
 
@@ -31,3 +31,4 @@ created: 1645634209109
   > Now if these fundementals are in place, findings like this are truly fascinating! I just see so many people put the cart before the horse far too often.  
   > — [CE02](https://news.ycombinator.com/item?id=35056071)
 - [New Study Reveals Blood Sugar Control is a Key Factor in Slowing Brain Aging, Highlighting the Benefits of the Mediterranean Diet](https://www.bgu.ac.il/en/news-and-articles/blood-sugar-control-is-key-factor-in-slowing-brain-aging/)
+- [Study finds solo music listening boosts social well-being](https://phys.org/news/2025-03-solo-music-boosts-social.html)

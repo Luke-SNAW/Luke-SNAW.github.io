@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1742946690396
+updated: 1743739786588
 created: 1688605282146
 ---
 
@@ -49,6 +49,9 @@ created: 1688605282146
     4. breakthrough progress eventually arrives by an opposing approach based on scaling computation by search and learning.
 - [My LLM codegen workflow atm](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/)
 - [AI Blindspots](https://ezyang.github.io/ai-blindspots/)
+- [Dijkstra On the foolishness of "natural language programming"](https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html)
+  - The expectation for programming to be simplified through "natural language programming" is misguided; formal symbolism is essential for accuracy.
+  - Formal texts provide a structured framework that helps eliminate nonsensical statements, which are more prevalent in natural language.
 
 ## ETC
 
