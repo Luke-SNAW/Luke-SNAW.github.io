@@ -2,7 +2,7 @@
 id: dnqq11162p04a178qiuu23x
 title: Node
 desc: ""
-updated: 1734421542807
+updated: 1744093377473
 created: 1646868633251
 ---
 
@@ -31,3 +31,4 @@ created: 1646868633251
   - [chrome dev tools](https://cdn.builder.io/api/v1/image/assets%252FYJIGb4i01jvw0SRdL5Bt%252Ff5dd633650214ff28d620d233299329b?format=webp&width=2000)
 - [Time to move from Node.js Buffer to Uint8Array](https://sindresorhus.com/blog/goodbye-nodejs-buffer)
 - [State of Node.js Performance 2024](https://nodesource.com/blog/State-of-Nodejs-Performance-2024)
+- set COREPACK_ENABLE_AUTO_PIN to 0 in your bash profile and remove the existing packageManager field from your package.json.

@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1743636701385
+updated: 1744271482677
 created: 1669705986186
 ---
 
@@ -44,3 +44,7 @@ created: 1669705986186
 - [63 Chinese Cuisines: the Complete Guide](https://chinesecookingdemystified.substack.com/p/63-chinese-cuisines-the-complete)
 - [Do viruses trigger Alzheimer's?](https://www.economist.com/science-and-technology/2025/03/17/do-viruses-trigger-alzheimers)
 - [13 Animals Made From 13 Circles](https://www.dorithegiant.com/2016/05/13-animals-made-from-13-circles.html)
+- [Tokyo Weekender](https://www.tokyoweekender.com/) - Japan's English Lifestyle Magazine
+- [Why I don't discuss politics with friends](https://shwin.co/blog/why-i-dont-discuss-politics-with-friends)
+  - https://news.hada.io/topic?id=20131
+- [Photographs of 19th Century Japan](https://cosmographia.substack.com/p/photographs-of-old-japan)

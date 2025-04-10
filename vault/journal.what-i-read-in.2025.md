@@ -2,18 +2,21 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1743999179342
+updated: 1744271476898
 created: 1667632965028
 ---
 
 ## Week 15, 2025
 
+- [Photographs of 19th Century Japan](https://cosmographia.substack.com/p/photographs-of-old-japan)
+- [Apache ECharts](https://github.com/apache/echarts) is a powerful, interactive charting and data visualization library for browser
 - [Study finds solo music listening boosts social well-being](https://phys.org/news/2025-03-solo-music-boosts-social.html)
 - [Standard Ebooks](https://standardebooks.org/) is a volunteer-driven project that produces new editions of public domain ebooks that are lovingly formatted, open source, free of U.S. copyright restrictions, and free of cost.
 
 ## Week 14, 2025
 
 - [Why I don't discuss politics with friends](https://shwin.co/blog/why-i-dont-discuss-politics-with-friends)
+  - https://news.hada.io/topic?id=20131
 - [Dijkstra On the foolishness of "natural language programming"](https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html)
   - The expectation for programming to be simplified through "natural language programming" is misguided; formal symbolism is essential for accuracy.
   - Formal texts provide a structured framework that helps eliminate nonsensical statements, which are more prevalent in natural language.
