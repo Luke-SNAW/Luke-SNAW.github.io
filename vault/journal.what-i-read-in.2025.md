@@ -2,9 +2,18 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1744271476898
+updated: 1744607933700
 created: 1667632965028
 ---
+
+## Week 16, 2025
+
+- [Anubis works](https://xeiaso.net/notes/2025/anubis-works/)
+- [Four years of running a SaaS in a competitive market](https://maxrozen.com/on-four-years-running-saas-competitive-market)
+- [But what if I really want a faster horse?](https://rakhim.exotext.com/but-what-if-i-really-want-a-faster-horse)
+  - YouTube. YouTube: Once a video catalog with social discovery. Now? TikTok.
+  - LinkedIn. Once a network of resumes. Now? TikTok.
+  - Substack. Yeah, a newsletter platform... now launching TikTok-style videos. [Seriously](https://techcrunch.com/2025/03/31/substack-is-rolling-out-a-tiktok-like-video-feed-in-its-app/).
 
 ## Week 15, 2025
 
