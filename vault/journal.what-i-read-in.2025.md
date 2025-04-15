@@ -2,12 +2,22 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1744607933700
+updated: 1744692265643
 created: 1667632965028
 ---
 
 ## Week 16, 2025
 
+- [The Problem with “Vibe Coding”](https://dylanbeattie.net/2025/04/11/the-problem-with-vibe-coding.html)
+- [Understanding JavaScript Memory Management: Deep Dive into Garbage Collection Techniques](https://jsdev.space/js-garbage-collection/)
+  > Generational Garbage Collection
+  - Core Principle: The Weak Generation Hypothesis suggests younger objects tend to die faster.
+  - V8 Specific Implementation: Objects that survive several GC cycles in the "new generation" are promoted to the "old generation."
+- [Making :visited more private](https://developer.chrome.com/blog/visited-links)
+  - with partitioning, browsing on Site A and click a link to go to Site B, the combination of "Site A + Site B" is stored in your `:visited` history
+- [New Vulnerability in GitHub Copilot and Cursor](https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents)
+  - "Rules File Backdoor," which injects malicious instructions into configuration files used by AI coding assistants
+  - The attack exploits hidden unicode characters and evasion techniques
 - [Anubis works](https://xeiaso.net/notes/2025/anubis-works/)
 - [Four years of running a SaaS in a competitive market](https://maxrozen.com/on-four-years-running-saas-competitive-market)
 - [But what if I really want a faster horse?](https://rakhim.exotext.com/but-what-if-i-really-want-a-faster-horse)

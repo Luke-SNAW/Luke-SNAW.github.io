@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1743739786588
+updated: 1744692272923
 created: 1688605282146
 ---
 
@@ -52,6 +52,7 @@ created: 1688605282146
 - [Dijkstra On the foolishness of "natural language programming"](https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html)
   - The expectation for programming to be simplified through "natural language programming" is misguided; formal symbolism is essential for accuracy.
   - Formal texts provide a structured framework that helps eliminate nonsensical statements, which are more prevalent in natural language.
+- [The Problem with “Vibe Coding”](https://dylanbeattie.net/2025/04/11/the-problem-with-vibe-coding.html)
 
 ## ETC
 
