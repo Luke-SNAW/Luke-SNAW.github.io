@@ -2,7 +2,7 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1744692265643
+updated: 1744808777207
 created: 1667632965028
 ---
 
@@ -27,6 +27,7 @@ created: 1667632965028
 
 ## Week 15, 2025
 
+- [Tailwind’s @apply Feature is Better Than it Sounds](https://css-tricks.com/tailwinds-apply-feature-is-better-than-it-sounds/)
 - [Photographs of 19th Century Japan](https://cosmographia.substack.com/p/photographs-of-old-japan)
 - [Apache ECharts](https://github.com/apache/echarts) is a powerful, interactive charting and data visualization library for browser
 - [Study finds solo music listening boosts social well-being](https://phys.org/news/2025-03-solo-music-boosts-social.html)

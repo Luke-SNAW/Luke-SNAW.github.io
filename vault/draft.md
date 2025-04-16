@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1743421466662
+updated: 1744810869871
 created: 1733205020636
 published: false
 ---
@@ -207,3 +207,7 @@ https://news.ycombinator.com/item?id=42354417
 퇴근 후 여유를 챙기고 (여유가 없으면 미소 명상이라도 해서)
 내 행복을 위해 노력
 실내 자전거, 공부, 일찍 샤워 (샤워를 늦게 하면 내가 불행해짐)
+
+# 2025-04
+
+조깅도 그렇지만 뭘 할 때, 힘들면 난이도를 낮춰. 할 만 해. 더 내리면, 오히려 즐길 여지까지 생긴다.
