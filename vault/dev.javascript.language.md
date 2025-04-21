@@ -2,7 +2,7 @@
 id: mraMGoestTO9V6pkpE8XE
 title: Language
 desc: ""
-updated: 1724630481715
+updated: 1745190639935
 created: 1644885695251
 ---
 
@@ -101,21 +101,18 @@ created: 1644885695251
 - [10 Interview Questions Every JavaScript Developer Should Know in 2024](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-in-2024-c1044bcb0dfb)
 - [Garbage collection and closures](https://jakearchibald.com/2024/garbage-collection-and-closures/)
 - [Patterns for Memory Efficient DOM Manipulation with Modern Vanilla JavaScript](https://frontendmasters.com/blog/patterns-for-memory-efficient-dom-manipulation/)
+- [Some features that every JavaScript developer should know in 2025](https://waspdev.com/articles/2025-04-06/features-that-every-js-developer-must-know-in-2025)
+  ```js
+  arr
+    .values()
+    .drop(10)
+    .take(10)
+    .filter((el) => el < 10)
+    .map((el) => el + 5)
+    .toArray()
+  ```
 
 ---
-
-## [Avoid the “delete” Keyword in JavaScript](https://javascript.plainenglish.io/avoid-the-delete-keyword-in-javascript-87ff2a47f26c)
-
-```javascript
-const snowbit = {
-  age: 15,
-  test: "abc",
-}
-const { test, ...newSnowbit } = snowbit
-console.log(newSnowbit) //  {age: 15}
-```
-
-Let me explain, You should not use `delete` to remove the property from the object because this mutates the original and that can lead to unpredictable behaviours and becomes difficult to debug.
 
 ## [What are wrapper objects for primitive values?](https://2ality.com/2022/02/wrapper-objects.html)
 

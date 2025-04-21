@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1744271482677
+updated: 1745202188585
 created: 1669705986186
 ---
 
@@ -48,3 +48,4 @@ created: 1669705986186
 - [Why I don't discuss politics with friends](https://shwin.co/blog/why-i-dont-discuss-politics-with-friends)
   - https://news.hada.io/topic?id=20131
 - [Photographs of 19th Century Japan](https://cosmographia.substack.com/p/photographs-of-old-japan)
+- [Cozy comfort](https://www.reuters.com/graphics/VIDEO-GAMES/MENTAL-HEALTH/akpeewkqgpr/) - New research backs up what gamers have thought for years: video games can be an antidote to stress and anxiety.

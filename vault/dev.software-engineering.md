@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1743377830630
+updated: 1745202544893
 created: 1645514209965
 ---
 
@@ -52,6 +52,8 @@ created: 1645514209965
   3. There is no fundamental upper limit on Software Complexity.
 - [When Imperfect Systems are Good, Actually: Bluesky's Lossy Timelines](https://jazco.dev/2025/02/19/imperfection/)
 - [Succinct data structures](https://blog.startifact.com/posts/succinct/)
+- [How to pack ternary numbers in 8-bit bytes](https://compilade.net/blog/ternary-packing)
+  > `log(3) / log(2)` bits per ternary digit
 
 ## Modeling
 

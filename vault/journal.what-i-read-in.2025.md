@@ -2,9 +2,29 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1744808777207
+updated: 1745209648790
 created: 1667632965028
 ---
+
+## Week 17, 2025
+
+- [Vibe Coding is not an excuse for low-quality work](https://addyo.substack.com/p/vibe-coding-is-not-an-excuse-for) - AI 기반 바이브 코딩은 혁신적이지만, 품질 없는 속도는 위험하다는 경고의 글
+  - 품질은 자동으로 따라오지 않음
+  - 속도는 품질 없이는 무의미함
+  - AI는 대체자가 아니라 인턴입니다 (사람이 루프 안에 있어야 함)
+- [Cozy comfort](https://www.reuters.com/graphics/VIDEO-GAMES/MENTAL-HEALTH/akpeewkqgpr/) - New research backs up what gamers have thought for years: video games can be an antidote to stress and anxiety.
+- [How to pack ternary numbers in 8-bit bytes](https://compilade.net/blog/ternary-packing)
+  > `log(3) / log(2)` bits per ternary digit
+- [Some features that every JavaScript developer should know in 2025](https://waspdev.com/articles/2025-04-06/features-that-every-js-developer-must-know-in-2025)
+  ```js
+  arr
+    .values()
+    .drop(10)
+    .take(10)
+    .filter((el) => el < 10)
+    .map((el) => el + 5)
+    .toArray()
+  ```
 
 ## Week 16, 2025
 
@@ -210,3 +230,7 @@ created: 1667632965028
 - [An Unreasonable Amount of Time](https://allenpike.com/2024/an-unreasonable-amount-of-time) - A method for magic.
   > Sometimes magic is just someone spending more time on something than anyone else might reasonably expect. — [Teller](https://www.goodreads.com/quotes/6641527-sometimes-magic-is-just-someone-spending-more-time-on-something)
 - [Passkey technology is elegant, but it’s most definitely not usable security](https://arstechnica.com/security/2024/12/passkey-technology-is-elegant-but-its-most-definitely-not-usable-security/)
+
+```
+
+```

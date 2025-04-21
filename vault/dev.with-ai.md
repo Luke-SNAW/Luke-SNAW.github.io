@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1744692272923
+updated: 1745209658165
 created: 1688605282146
 ---
 
@@ -53,6 +53,10 @@ created: 1688605282146
   - The expectation for programming to be simplified through "natural language programming" is misguided; formal symbolism is essential for accuracy.
   - Formal texts provide a structured framework that helps eliminate nonsensical statements, which are more prevalent in natural language.
 - [The Problem with “Vibe Coding”](https://dylanbeattie.net/2025/04/11/the-problem-with-vibe-coding.html)
+- [Vibe Coding is not an excuse for low-quality work](https://addyo.substack.com/p/vibe-coding-is-not-an-excuse-for) - AI 기반 바이브 코딩은 혁신적이지만, 품질 없는 속도는 위험하다는 경고의 글
+  - 품질은 자동으로 따라오지 않음
+  - 속도는 품질 없이는 무의미함
+  - AI는 대체자가 아니라 인턴입니다 (사람이 루프 안에 있어야 함)
 
 ## ETC
 
