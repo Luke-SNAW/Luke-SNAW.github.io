@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1744895747198
+updated: 1745301365544
 created: 1733205020636
 published: false
 ---
@@ -217,3 +217,10 @@ https://news.ycombinator.com/item?id=42354417
 하고 싶은 거 말고 되고 싶을 걸 해.
 이상-롤모델을 흉내내라 10%라도.
 물론 멘탈 바닥 치지 않게 조절 해.
+
+## 외부자극
+
+오밤중 빗소리는 평안한데
+윗집 물 쏟는 소리는 왜 스트레스인가.
+매너를 기대하기 때문.
+빗소리로 치부하니 어느 정도 흘러넘길 수 있다.

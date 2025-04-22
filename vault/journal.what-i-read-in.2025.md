@@ -2,12 +2,15 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1745209648790
+updated: 1745298664280
 created: 1667632965028
 ---
 
 ## Week 17, 2025
 
+- [Botnet Part 2: The Web is Broken](https://jan.wildeboer.net/2025/04/Web-is-Broken-Botnet-Part-2/)
+  > Certain companies recruit app developers to create botnets by injecting “network sharing” SDKs into their apps. These botnets then use the network bandwidth of unsuspecting users of said apps to crawl the web, brute-force mail servers and other nasty things.
+- [Why LLM-Powered Programming is More Mech Suit Than Artificial Human](https://matthewsinclair.com/blog/0178-why-llm-powered-programming-is-more-mech-suit-than-artificial-human) - [“Centaur chess”](https://en.wikipedia.org/wiki/Advanced_chess) pairs humans with AI chess engines, creating teams that outperform both solo humans and solo AI systems playing on their own.
 - [Vibe Coding is not an excuse for low-quality work](https://addyo.substack.com/p/vibe-coding-is-not-an-excuse-for) - AI 기반 바이브 코딩은 혁신적이지만, 품질 없는 속도는 위험하다는 경고의 글
   - 품질은 자동으로 따라오지 않음
   - 속도는 품질 없이는 무의미함
