@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1743992491523
+updated: 1745365890463
 created: 1644799670081
 ---
 
@@ -166,3 +166,8 @@ Microsoft IME, [날개셋 입력기](https://namu.wiki/w/%EB%82%A0%EA%B0%9C%EC%8
 - [How I Built an Open Source AI Tool to Find My Autoimmune Disease (After $100k and 30+ Hospital Visits)](https://old.reddit.com/r/selfhosted/comments/1ij7s4m/how_i_built_an_open_source_ai_tool_to_find_my/) - Now Available for Anyone to Use - [github](https://github.com/OpenHealthForAll/open-health)
 - [TV Garden](https://tv.garden/) - your gateway to free live TV streaming from anywhere.
 - [Standard Ebooks](https://standardebooks.org/) is a volunteer-driven project that produces new editions of public domain ebooks that are lovingly formatted, open source, free of U.S. copyright restrictions, and free of cost.
+
+### 구글 시트
+
+- 열 넘버 가져오기 - `=ROW()`
+- 선택한 영역에 같은 값 적용 - 선택 후 (mac)command+Enter, (windows) ctrl+Enter, 단축키 + R도 확인

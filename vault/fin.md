@@ -2,7 +2,7 @@
 id: ok0e729ho7o09xetujkxc0m
 title: Financial
 desc: ""
-updated: 1704282636529
+updated: 1745362980341
 created: 1667694740818
 ---
 
@@ -11,6 +11,7 @@ created: 1667694740818
 - [Harry Browne’s 17 Golden Rules of Financial Safety](https://thetaoofwealth.wordpress.com/2013/02/17/harry-brownes-17-golden-rules-of-financial-safety/)
 - [변동성 높은 시장을 헤쳐나가기 위한 필수 투자 원칙 10가지](https://kr.investing.com/analysis/article-200445547)
 - [시장은 합리적지만 가끔 비이성적 - 49:16](https://youtube.com/watch?v=Vkhzi1Zegfg)
+- 진짜 반등이면 경기 민감주가 치고 나갔을 것
 
 ## Stock
 
