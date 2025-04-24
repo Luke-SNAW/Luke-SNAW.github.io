@@ -2,12 +2,15 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1745298664280
+updated: 1745475202311
 created: 1667632965028
 ---
 
 ## Week 17, 2025
 
+- [AI Horseless Carriages](https://koomen.dev/essays/horseless-carriages/)
+  > Their app is a little bit of AI jammed into an interface designed for mundane human labor rather than an interface designed for automating mundane labor.
+  > [“Horseless carriage”](https://en.wikipedia.org/wiki/Horseless_carriage) refers to the early motor car designs that borrowed heavily from the horse-drawn carriages that preceded them.
 - [Botnet Part 2: The Web is Broken](https://jan.wildeboer.net/2025/04/Web-is-Broken-Botnet-Part-2/)
   > Certain companies recruit app developers to create botnets by injecting “network sharing” SDKs into their apps. These botnets then use the network bandwidth of unsuspecting users of said apps to crawl the web, brute-force mail servers and other nasty things.
 - [Why LLM-Powered Programming is More Mech Suit Than Artificial Human](https://matthewsinclair.com/blog/0178-why-llm-powered-programming-is-more-mech-suit-than-artificial-human) - [“Centaur chess”](https://en.wikipedia.org/wiki/Advanced_chess) pairs humans with AI chess engines, creating teams that outperform both solo humans and solo AI systems playing on their own.

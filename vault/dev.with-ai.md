@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1745298670633
+updated: 1745475214879
 created: 1688605282146
 ---
 
@@ -58,6 +58,9 @@ created: 1688605282146
   - 속도는 품질 없이는 무의미함
   - AI는 대체자가 아니라 인턴입니다 (사람이 루프 안에 있어야 함)
 - [Why LLM-Powered Programming is More Mech Suit Than Artificial Human](https://matthewsinclair.com/blog/0178-why-llm-powered-programming-is-more-mech-suit-than-artificial-human) - [“Centaur chess”](https://en.wikipedia.org/wiki/Advanced_chess) pairs humans with AI chess engines, creating teams that outperform both solo humans and solo AI systems playing on their own.
+- [AI Horseless Carriages](https://koomen.dev/essays/horseless-carriages/)
+  > Their app is a little bit of AI jammed into an interface designed for mundane human labor rather than an interface designed for automating mundane labor.
+  > [“Horseless carriage”](https://en.wikipedia.org/wiki/Horseless_carriage) refers to the early motor car designs that borrowed heavily from the horse-drawn carriages that preceded them.
 
 ## ETC
 
