@@ -2,9 +2,18 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1745475202311
+updated: 1745907268609
 created: 1667632965028
 ---
+
+## Week 18, 2025
+
+- [Novel Universal Bypass for All Major LLMs](https://hiddenlayer.com/innovation-hub/novel-universal-bypass-for-all-major-llms/)
+- [The Gruen Transfer is consuming the internet](https://sebs.website/blog/the%20gruen-transfer-is-consuming-the-internet)
+  > looking to buy a specific item, only to find the layout confusing? Perhaps you ended up aimlessly strolling around, purchasing other items?
+- [The Alliance](https://www.theallianceframework.com/)
+  > The employer-employee relationship is broken. Managers face a seemingly impossible dilemma: You can’t afford to offer lifetime employment. But you can’t build a lasting, innovative business when everyone acts like a free agent.
+  > The solution: Stop thinking of employees as family or free agents, and start thinking of them as allies on a tour of duty.
 
 ## Week 17, 2025
 

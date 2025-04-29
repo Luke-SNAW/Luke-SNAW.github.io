@@ -2,7 +2,7 @@
 id: 0yknotw2i3rxs1hc9y7kn5n
 title: AI
 desc: ""
-updated: 1715922977149
+updated: 1745907279481
 created: 1649903318189
 ---
 
@@ -16,6 +16,7 @@ created: 1649903318189
 - [Anti-hype LLM reading list](https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e) #bookshelf
 - [Dive into Deep Learning](https://d2l.ai/) #bookshelf
 - [Understanding Deep Learning](https://udlbook.github.io/udlbook/) #bookshelf
+- [Novel Universal Bypass for All Major LLMs](https://hiddenlayer.com/innovation-hub/novel-universal-bypass-for-all-major-llms/)
 
 ## [Why it's essential to excel at the things AI excels at](https://youtube.com/watch?v=mdoMPWSSsqs)
 

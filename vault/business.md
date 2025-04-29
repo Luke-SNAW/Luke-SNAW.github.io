@@ -2,7 +2,7 @@
 id: 778ijii93yu5uwnrwmn5zi4
 title: Business
 desc: ""
-updated: 1741054194843
+updated: 1745796318951
 created: 1729047278920
 ---
 
@@ -32,6 +32,9 @@ created: 1729047278920
   - **Health Consequences**: Urban sprawl and lack of walkable environments linked to housing shortages contribute to rising obesity rates and related health issues.
   - **Environmental Impact**: More densely populated, walkable cities lead to lower carbon emissions, whereas sprawl increases reliance on cars and energy consumption.
   - **Urgent Solutions Needed**: Addressing housing shortages is crucial for improving quality of life, fostering economic growth, and creating equitable communities, necessitating innovative policy approaches to increase housing supply.
+- [The Alliance](https://www.theallianceframework.com/)
+  > The employer-employee relationship is broken. Managers face a seemingly impossible dilemma: You can’t afford to offer lifetime employment. But you can’t build a lasting, innovative business when everyone acts like a free agent.
+  > The solution: Stop thinking of employees as family or free agents, and start thinking of them as allies on a tour of duty.
 
 ### [Ask HN: Solopreneurs, how did you come up with your idea?](https://news.ycombinator.com/item?id=41837607)
 

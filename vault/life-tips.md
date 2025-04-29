@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1737010746859
+updated: 1745797434825
 created: 1645514261238
 ---
 
@@ -190,3 +190,8 @@ So sure, learn spaced repetition, but really, find something and practice it for
 ## Travel
 
 - [How to Travel With Your Bullet Journal](https://bulletjournal.com/blogs/bulletjournalist/how-to-travel-with-your-bullet-journal)
+
+## Caution
+
+- [The Gruen Transfer is consuming the internet](https://sebs.website/blog/the%20gruen-transfer-is-consuming-the-internet)
+  > looking to buy a specific item, only to find the layout confusing? Perhaps you ended up aimlessly strolling around, purchasing other items?
