@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1745362946391
+updated: 1745968920343
 created: 1733205020636
 published: false
 ---
@@ -167,7 +167,7 @@ https://news.ycombinator.com/item?id=42354417
 
 # 2025-01
 
-## 잠-명상-여유-집중-몰입
+## 잠-명상-멍\_여유-집중-몰입
 
 명상 유도를 좀 더 잘하게 되는 방법을 찾고 나선 명상도 잘되고, 잠도 잘 온다.
 
