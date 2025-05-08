@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1745968920343
+updated: 1746685533542
 created: 1733205020636
 published: false
 ---
@@ -173,6 +173,8 @@ https://news.ycombinator.com/item?id=42354417
 
 1. 원시 뇌신경절, 복잡한 사고는 뇌신경절이 할 수 있는 것이 아니므로 버린다. 지렁이 수준으로 생각
 2. 텅 비우기
+
+- [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming) - 🥱 -> 🤔💡🌱 (Boredom -> Reflection, Creativity, Growth)
 
 ## 시간 효율
 

@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1745797434825
+updated: 1746685733516
 created: 1645514261238
 ---
 
@@ -34,6 +34,13 @@ created: 1645514261238
   > Sometimes magic is just someone spending more time on something than anyone else might reasonably expect. — [Teller](https://www.goodreads.com/quotes/6641527-sometimes-magic-is-just-someone-spending-more-time-on-something)
 
 > 정리를 무조건 버려야 한다고 생각하는 분들이 많은데 사실 그렇지 않아요. 공간에 어울리는 물건들을 쓰기 편하게 두는 게 정리거든요. — 1일 1정리. 심지은 지음
+
+- [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming)
+  - 🥱 -> 🤔💡🌱 (Boredom -> Reflection, Creativity, Growth)
+  - Smartphones eliminate boredom and dullness, but as a result, creativity and empathy are being impaired.
+  - Interstitial time, which used to be moments for meditation, daydreaming, and observation—human activities—has now mostly been replaced by digital consumption.
+  - The habit of avoiding waiting and boredom leads to the weakening of our attention, patience, and imagination.
+  - With access to an iPad or a smartphone, children in the twenty-first century never had to be bored;
 
 ## Focus
 

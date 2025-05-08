@@ -2,7 +2,7 @@
 id: 6hzeqsofq67gdk88flxlkhp
 title: Book Report
 desc: ""
-updated: 1745968872313
+updated: 1746685524448
 created: 1737617297333
 ---
 
@@ -24,6 +24,8 @@ Book reports tend to be a little more descriptive (What is this book about?) and
 \+ 거리 조절
 
 잠 명상 여유(멍) 집중 몰입
+
+- [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming) - 🥱 -> 🤔💡🌱 (Boredom -> Reflection, Creativity, Growth)
 
 일에 너무 몰입 말라
 2025-04-28

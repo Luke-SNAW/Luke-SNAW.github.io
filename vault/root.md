@@ -2,13 +2,15 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1739234994528
+updated: 1746688092998
 created: 1644449449778
 ---
 
 Hi there 👋. I'm a Front-end developer.
 
 ---
+
+- 🥱 -> 🤔💡🌱 — [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming)
 
 > We love to see the process, not just the result. The imperfections in your work can be beautiful if they show your struggle for perfection, not a lack of care. — [ralphammer](https://ralphammer.com/is-perfection-boring/)
 
@@ -19,6 +21,8 @@ Hi there 👋. I'm a Front-end developer.
 > [Roberto Blake was talking about making 100 crappy videos](https://www.youtube.com/watch?v=OnUBaQ1Sp_E) to get better over time. Putting in the reps and improving a little bit each time.
 >
 > Putting in the work without expecting any external reward at first (eg views, followers, likes, etc) will pay off in the long run. — [100 Scrappy Things](https://www.florin-pop.com/blog/100-scrappy-things/)
+
+> Make the difficult habitual, the habitual easy, and the easy beautiful. — [Constantin S. Stanislavski](https://www.goodreads.com/quotes/7102271-make-the-difficult-habitual-the-habitual-easy-and-the-easy)
 
 > A good match is a **structured** dance, where players aim to **score** while they are following well-defined **rules**. This **freedom within a structure** is what makes it fun. — [ralphammer](https://ralphammer.com/how-to-get-started/)
 
@@ -50,8 +54,6 @@ Hi there 👋. I'm a Front-end developer.
 [Kind Engineering](https://kind.engineering/) - How To Engineer Kindness
 
 > Sometimes magic is just someone spending more time on something than anyone else might reasonably expect. — [Teller](https://www.goodreads.com/quotes/6641527-sometimes-magic-is-just-someone-spending-more-time-on-something)
-
-> Before leaving for the day I leave a comment in code: I’m working on this, need to do A, B C… to get it working. — [makz](https://news.ycombinator.com/item?id=40744916)
 
 ---
 

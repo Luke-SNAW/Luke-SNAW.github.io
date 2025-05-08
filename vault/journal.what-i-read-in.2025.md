@@ -2,12 +2,22 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1745907268609
+updated: 1746685690966
 created: 1667632965028
 ---
 
+## Week 19, 2025
+
+- [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming)
+  - 🥱 -> 🤔💡🌱 (Boredom -> Reflection, Creativity, Growth)
+  - Smartphones eliminate boredom and dullness, but as a result, creativity and empathy are being impaired.
+  - Interstitial time, which used to be moments for meditation, daydreaming, and observation—human activities—has now mostly been replaced by digital consumption.
+  - The habit of avoiding waiting and boredom leads to the weakening of our attention, patience, and imagination.
+  - With access to an iPad or a smartphone, children in the twenty-first century never had to be bored;
+
 ## Week 18, 2025
 
+- [NotebookLM Audio Overviews are now available in over 50 languages](https://blog.google/technology/google-labs/notebooklm-audio-overviews-50-languages/) - https://notebooklm.google/
 - [Novel Universal Bypass for All Major LLMs](https://hiddenlayer.com/innovation-hub/novel-universal-bypass-for-all-major-llms/)
 - [The Gruen Transfer is consuming the internet](https://sebs.website/blog/the%20gruen-transfer-is-consuming-the-internet)
   > looking to buy a specific item, only to find the layout confusing? Perhaps you ended up aimlessly strolling around, purchasing other items?

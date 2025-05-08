@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1743725628635
+updated: 1746141952304
 created: 1647145480774
 ---
 
@@ -63,6 +63,7 @@ created: 1647145480774
   - [Ironies of Automation](https://www.complexcognition.co.uk/2021/06/ironies-of-automation.html)
 - [curl-impersonate](https://github.com/lwthiker/curl-impersonate) - A special build of curl that can impersonate the four major browsers
   - https://github.com/lexiforest/curl-impersonate - An active fork of curl-impersonate with more versions and build targets.
+- [NotebookLM Audio Overviews are now available in over 50 languages](https://blog.google/technology/google-labs/notebooklm-audio-overviews-50-languages/) - https://notebooklm.google/
 
 ## Network
 
