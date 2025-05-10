@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1746840615480
+updated: 1746861354230
 created: 1733205020636
 published: false
 ---
@@ -25,7 +25,7 @@ published: false
   - 직장 지하 교보문고에서 키보드 -> split keyboard -> 키보드 관련 블로그에서 workman layout 발견 -> colemak layout
   - 상황에 따른 단축키 변경이 가장 난관
   - 한 달 정도 지나니 한 계단을 넘은 상태. qwerty만큼 편하진 않지만, 의식해서 치면 답답한 느낌 없이 영타 칠 수 있음.
-  - 1분기 정도 지나니 단축키 말고는 qwerty보다 편안
+  - 1분기 정도 지나니 단축키 말고는 qwerty가 불편해짐
 - 조깅 2024/08
   - 야식을 안하게 됨
   - 수면시간이 늘어남 - 6시간 정도에서 7시간 30분 정도
