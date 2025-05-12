@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1741139424517
+updated: 1747034087409
 created: 1646613084338
 ---
 
@@ -50,6 +50,8 @@ created: 1646613084338
 - [🤫오프라인이지만 온라인이어야 해요 - 로컬 생성 결제 토큰](https://blog.javien.dev/4)
 - [Every UUID Dot Com](https://everyuuid.com/) - https://eieio.games/blog/writing-down-every-uuid/
 - [WikiTok](https://wikitok.vercel.app/) - [creator's comment](https://news.ycombinator.com/item?id=42936923)
+- [(t,i,x,y) => "creative code golfing"](https://tixy.land/)
+- [Reservoir Sampling](https://samwho.dev/reservoir-sampling/)
 
 ## News
 
