@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1746926065286
+updated: 1747290122926
 created: 1669705986186
 ---
 
@@ -52,3 +52,4 @@ created: 1669705986186
 - [ (7화) 부동산이 흥하면 나라가 망하는 이유 | The Civilization 위대한 문명사 7화 | 서울대 김태유 명예교수](https://www.youtube.com/watch?v=UsHxl_5QJbY)
   - 가치를 창출하는 투자보다 부동산 투자가 더 이득이 크면 그 쪽으로 자원이 쏠려 점점 비생산적 사회가 된다.
   - 분업화. 인간성 말살 비판이 있었지만, 포드의 생산성 폭증으로 기사 계급이 되어야 겨우 타던 말을 거의 모든 사람이 탈 수 있던 차로
+- [Internet Artifacts](https://neal.fun/internet-artifacts/)

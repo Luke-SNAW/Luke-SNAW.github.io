@@ -2,9 +2,36 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1733814487190
+updated: 1747273830827
 created: 1669264809793
 ---
+
+## Week 20, 2025 - Astro + Vue 중대결함
+
+헤더 작성 중, 스크롤에 따라 배경색이 바뀌는 기능이 있어 scroll event 처리 함수 추가
+`client:only="vue"` attribute 필요함
+
+```html
+<header client:only="vue" />
+```
+
+버튼 클릭에 따라 메뉴가 toggle되어야 함. toggle에 필요한 state를 vue로 처리하는 와중에
+
+```js
+import { ref } from "vue" // auto import in nuxt
+```
+
+가 없으면 헤더가 **render 되지 않지만 아무런 error message를 출력하지 않음.**
+
+```json
+{
+  "dependencies": {
+    "@astrojs/vue": "^5.0.13",
+    "astro": "^5.7.12",
+    "vue": "^3.5.13"
+  }
+}
+```
 
 ## Week 50, 2024 - AWS S3 Presigned URL for PDF
 

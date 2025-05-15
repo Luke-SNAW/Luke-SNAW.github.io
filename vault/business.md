@@ -2,7 +2,7 @@
 id: 778ijii93yu5uwnrwmn5zi4
 title: Business
 desc: ""
-updated: 1745796318951
+updated: 1747286569852
 created: 1729047278920
 ---
 
@@ -35,6 +35,10 @@ created: 1729047278920
 - [The Alliance](https://www.theallianceframework.com/)
   > The employer-employee relationship is broken. Managers face a seemingly impossible dilemma: You can’t afford to offer lifetime employment. But you can’t build a lasting, innovative business when everyone acts like a free agent.
   > The solution: Stop thinking of employees as family or free agents, and start thinking of them as allies on a tour of duty.
+- [Product Purgatory: When they love it but still don’t buy](https://longform.asmartbear.com/purgatory/)
+  - Even if a product could be implemented effortlessly and at no cost, customers may still decline due to perceived risks and implementation challenges.
+  - Products must provide **significant value that far exceeds the penalties of adoption**; otherwise, customers will not prioritize them.
+  - Identifying which customers have an **urgent need** for a product. Companies often delay purchases until they address higher-priority issues.
 
 ### [Ask HN: Solopreneurs, how did you come up with your idea?](https://news.ycombinator.com/item?id=41837607)
 
@@ -54,3 +58,6 @@ What you has but not others is that you are small, and is the actual person othe
 That is the whole thing of working as a freelancer, solo, small business. You can, FOR REAL, provide personal training/consulting/support, etc.
 
 And that works even if you just take the product made by the big corporation and just know how to use it. There is business in being the guy who knows Excel well.
+
+- Products must provide **significant value that far exceeds the penalties of adoption**; otherwise, customers will not prioritize them.
+  - Identifying which customers have an **urgent need** for a product. Companies often delay purchases until they address higher-priority issues.

@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1741924031612
+updated: 1747292649689
 created: 1646129148306
 ---
 
@@ -101,6 +101,7 @@ created: 1646129148306
 - [KRDS v1.0.0](https://www.krds.go.kr/html/site/index.html) - 대한민국 정부 디자인 시스템
 - [Relative Colors](https://ishadeed.com/article/css-relative-colors/) - An interactive guide to learn CSS Relative Colors.
   - [OKLCH in CSS: why we moved from RGB and HSL](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl)
+- [How to have the browser pick a contrasting color in CSS](https://webkit.org/blog/16929/contrast-color/)
 
 ## Pseudo-class
 

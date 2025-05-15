@@ -2,7 +2,7 @@
 id: kiZBVVwRNBJUzgKgIBQVN
 title: Javascript Tools
 desc: ""
-updated: 1744167999571
+updated: 1747290247223
 created: 1644882116217
 ---
 
@@ -71,6 +71,7 @@ created: 1644882116217
 - [Fraction.js - ℚ in JavaScript](https://github.com/rawify/Fraction.js)
 - [BETTER-AUTH](https://github.com/better-auth/better-auth) - The most comprehensive authentication framework for TypeScript
 - [Things people get wrong about Electron](https://felixrieseberg.com/things-people-get-wrong-about-electron/)
+- [base65536](https://github.com/qntm/base65536)
 
 ## Framework
 
