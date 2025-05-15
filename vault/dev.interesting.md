@@ -52,6 +52,7 @@ created: 1646613084338
 - [WikiTok](https://wikitok.vercel.app/) - [creator's comment](https://news.ycombinator.com/item?id=42936923)
 - [(t,i,x,y) => "creative code golfing"](https://tixy.land/)
 - [Reservoir Sampling](https://samwho.dev/reservoir-sampling/)
+  - Sampling method to use when you don't know how many samples will come in.
 
 ## News
 

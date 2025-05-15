@@ -2,13 +2,21 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1747034079189
+updated: 1747272707679
 created: 1667632965028
 ---
 
 ## Week 20, 2025
 
+- [Bus Stops Here: Shanghai Lets Riders Design Their Own Routes](https://www.sixthtone.com/news/1017072)
+- [I failed a take-home assignment from Kagi Search](https://bloggeroo.dev/articles/202504031434)
+  - The applicant wanted to communicate thoroughly and made efforts toward it, but the hiring manager brushed it off.
+  - https://news.ycombinator.com/item?id=43980036
+- [상남자식 마크다운 공유 웹서비스](https://mdshare060114.web.app/?edit=false)
+  - DB따위 쓰지 않고 URL로 모든 정보를 저장하는 호방함과 안전함, 그리고 간단함
+  - .md파일 업로드 혹은 textarea에서 직접 마크다운 문서 작성 가능
 - [Reservoir Sampling](https://samwho.dev/reservoir-sampling/)
+  - Sampling method to use when you don't know how many samples will come in.
 - [One-Click RCE in ASUS’s Preinstalled Driver Software](https://mrbruh.com/asusdriverhub/)
   > I asked ASUS if they offered bug bounties. They responded saying they do not, but they would instead put my name in their [“hall of fame”](https://www.asus.com/content/asus-product-security-advisory/#header2025).
 - [(t,i,x,y) => "creative code golfing"](https://tixy.land/)
