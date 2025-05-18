@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1747293320366
+updated: 1747527534991
 created: 1733205020636
 published: false
 ---
@@ -14,6 +14,7 @@ published: false
 - 🥱 -> 🤔💡🌱 04
 - 명상 02
 - 15년 동안 기록해온 시간 tracking 버림 01
+- 독서 01
 
 ## 2024
 
