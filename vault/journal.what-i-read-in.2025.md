@@ -2,12 +2,22 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1747292638091
+updated: 1747638267540
 created: 1667632965028
 ---
 
+## Week 21, 2025
+
+- [I think the ergonomics of generators is growing on me.](https://macarthur.me/posts/generators/)
+  - Generators encapsulate state management, reducing tight coupling between components and allowing for cleaner, more modular code.
+    > Since state and logic are self-contained, you could have multiple, distinct generators being used in parallel with no issue.
+  - The document illustrates how generators can replace complex patterns like recursion or callbacks, simplifying code and enhancing readability.
+- [Mystical](https://github.com/denismm/mystical_ps) - is more like a way to write PostScript that looks like a magical circle.
+
 ## Week 20, 2025
 
+- [Here Is Everything That Has Changed Since Congestion Pricing Started in New York](https://www.nytimes.com/interactive/2025/05/11/upshot/congestion-pricing.html)
+  - New York's congestion pricing benefits all commuters and drivers and others without a balloon effect.
 - [How to have the browser pick a contrasting color in CSS](https://webkit.org/blog/16929/contrast-color/)
 - [base65536](https://github.com/qntm/base65536)
 - [Internet Artifacts](https://neal.fun/internet-artifacts/)

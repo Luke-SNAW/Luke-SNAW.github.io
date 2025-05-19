@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1747290122926
+updated: 1747613311732
 created: 1669705986186
 ---
 
@@ -53,3 +53,6 @@ created: 1669705986186
   - 가치를 창출하는 투자보다 부동산 투자가 더 이득이 크면 그 쪽으로 자원이 쏠려 점점 비생산적 사회가 된다.
   - 분업화. 인간성 말살 비판이 있었지만, 포드의 생산성 폭증으로 기사 계급이 되어야 겨우 타던 말을 거의 모든 사람이 탈 수 있던 차로
 - [Internet Artifacts](https://neal.fun/internet-artifacts/)
+- [Here Is Everything That Has Changed Since Congestion Pricing Started in New York](https://www.nytimes.com/interactive/2025/05/11/upshot/congestion-pricing.html)
+  - New York's congestion pricing benefits all commuters and drivers and others without a balloon effect.
+- [Mystical](https://github.com/denismm/mystical_ps) - is more like a way to write PostScript that looks like a magical circle.
