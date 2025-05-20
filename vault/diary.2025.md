@@ -2,13 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-<<<<<<< Updated upstream
-updated: 1747651732520
-||||||| Stash base
-updated: 1747097472759
-=======
-updated: 1747351923651
->>>>>>> Stashed changes
+updated: 1747698578225
 created: 1737241895427
 published: false
 ---
