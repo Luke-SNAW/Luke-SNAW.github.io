@@ -2,12 +2,15 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1747638267540
+updated: 1747791084591
 created: 1667632965028
 ---
 
 ## Week 21, 2025
 
+- [The behavior of LLMs in hiring decisions](https://davidrozado.substack.com/p/the-strange-behavior-of-llms-in-hiring): Systemic biases in candidate selection
+- ReScript - [Difference vs TypeScript](https://rescript-lang.org/docs/manual/v11.0.0/introduction#difference-vs-typescript)
+- [WHAT THE HELL ARE PEOPLE DOING?](https://humans.maxcomperatore.com/) - Live-ish estimates based on global population dynamics & simulated day/night cycles
 - [I think the ergonomics of generators is growing on me.](https://macarthur.me/posts/generators/)
   - Generators encapsulate state management, reducing tight coupling between components and allowing for cleaner, more modular code.
     > Since state and logic are self-contained, you could have multiple, distinct generators being used in parallel with no issue.

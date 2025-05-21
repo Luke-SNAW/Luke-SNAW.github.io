@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1747613311732
+updated: 1747782613688
 created: 1669705986186
 ---
 
@@ -56,3 +56,4 @@ created: 1669705986186
 - [Here Is Everything That Has Changed Since Congestion Pricing Started in New York](https://www.nytimes.com/interactive/2025/05/11/upshot/congestion-pricing.html)
   - New York's congestion pricing benefits all commuters and drivers and others without a balloon effect.
 - [Mystical](https://github.com/denismm/mystical_ps) - is more like a way to write PostScript that looks like a magical circle.
+- [WHAT THE HELL ARE PEOPLE DOING?](https://humans.maxcomperatore.com/) - Live-ish estimates based on global population dynamics & simulated day/night cycles
