@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1742523881901
+updated: 1747877668671
 created: 1646129148295
 ---
 
@@ -156,5 +156,40 @@ p {
 .image-wrapper {
   position: relative;
   /* Other styles */
+}
+```
+
+## [adactio](https://adactio.com/journal/21896)
+
+For instance, I’m a huge fan of view transitions and I enable them by default on every new project, but I do it like this:
+
+```css
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+```
+
+```css
+ul,
+ol,
+dl,
+dt,
+dd,
+p,
+figure,
+blockquote {
+  hanging-punctuation: first last;
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+  text-wrap: balance;
 }
 ```

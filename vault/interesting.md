@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1747782613688
+updated: 1747870824663
 created: 1669705986186
 ---
 
@@ -57,3 +57,4 @@ created: 1669705986186
   - New York's congestion pricing benefits all commuters and drivers and others without a balloon effect.
 - [Mystical](https://github.com/denismm/mystical_ps) - is more like a way to write PostScript that looks like a magical circle.
 - [WHAT THE HELL ARE PEOPLE DOING?](https://humans.maxcomperatore.com/) - Live-ish estimates based on global population dynamics & simulated day/night cycles
+- [Animated Factorization](http://www.datapointed.net/visualizations/math/factorization/animated-diagrams/)

@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1745475214879
+updated: 1747870140607
 created: 1688605282146
 ---
 
@@ -61,6 +61,11 @@ created: 1688605282146
 - [AI Horseless Carriages](https://koomen.dev/essays/horseless-carriages/)
   > Their app is a little bit of AI jammed into an interface designed for mundane human labor rather than an interface designed for automating mundane labor.
   > [“Horseless carriage”](https://en.wikipedia.org/wiki/Horseless_carriage) refers to the early motor car designs that borrowed heavily from the horse-drawn carriages that preceded them.
+- [My new hobby: watching AI slowly drive Microsoft employees insane](https://old.reddit.com/r/ExperiencedDevs/comments/1krttqo/my_new_hobby_watching_ai_slowly_drive_microsoft/)
+  - https://github.com/dotnet/runtime/pull/115762
+  - https://github.com/dotnet/runtime/pull/115743
+  - https://github.com/dotnet/runtime/pull/115733
+  - https://github.com/dotnet/runtime/pull/115732
 
 ## ETC
 

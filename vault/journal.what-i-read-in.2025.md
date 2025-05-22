@@ -2,12 +2,14 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1747791084591
+updated: 1747870819655
 created: 1667632965028
 ---
 
 ## Week 21, 2025
 
+- [Animated Factorization](http://www.datapointed.net/visualizations/math/factorization/animated-diagrams/)
+- [My new hobby: watching AI slowly drive Microsoft employees insane](https://old.reddit.com/r/ExperiencedDevs/comments/1krttqo/my_new_hobby_watching_ai_slowly_drive_microsoft/)
 - [The behavior of LLMs in hiring decisions](https://davidrozado.substack.com/p/the-strange-behavior-of-llms-in-hiring): Systemic biases in candidate selection
 - ReScript - [Difference vs TypeScript](https://rescript-lang.org/docs/manual/v11.0.0/introduction#difference-vs-typescript)
 - [WHAT THE HELL ARE PEOPLE DOING?](https://humans.maxcomperatore.com/) - Live-ish estimates based on global population dynamics & simulated day/night cycles

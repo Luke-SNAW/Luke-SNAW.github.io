@@ -2,7 +2,7 @@
 id: n6xqsade86snodlovo88rr0
 title: 법정 - 스스로 행복하라
 desc: ""
-updated: 1747808047620
+updated: 1747867671339
 created: 1747639468803
 ---
 
@@ -14,6 +14,8 @@ created: 1747639468803
 > 집에서 몸만 빠져나온 것을 가르켜 출가라고 할 수는 없습니다. 단 하나의 집착이라도 미련 없이 털고 나올 수 있어야 진정한 출가입니다.
 
 몸도 빌려쓴다 생각하고 집착하지 말고, 잘 관리해
+
+lite 버전으로 [a simple but effective organizing system that uses a transformative criterion: choosing what sparks joy.](https://konmari.com/)
 
 호머기질 줄이는데 도움이 됐으면...
 
