@@ -2,7 +2,7 @@
 id: 9qf7j06jtdkm6rnx9ymvwb0
 title: Draft
 desc: ""
-updated: 1747867758641
+updated: 1747964971127
 created: 1733205020636
 published: false
 ---
@@ -86,13 +86,17 @@ https://news.ycombinator.com/item?id=42354417
 
 ## 잠-명상-심심-여유-집중-몰입
 
+- [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming) - 🥱 -> 🤔💡🌱 (Boredom -> Reflection, Creativity, Growth)
+
 명상 유도를 좀 더 잘하게 되는 방법을 찾고 나선 명상도 잘되고, 잠도 잘 온다.
 
 1. 가수면, 원시 뇌신경절로 퇴행. 복잡한 사고는 뇌신경절이 할 수 있는 것이 아니므로 버린다. 지렁이 수준으로 생각
-   -> 향을 살라 연기 (아직 몸 경계 안) -> 구름 (몸 경계 바깥) -> 넓고 옅게 공기 2025-05
 2. 텅 비우기
 
-- [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming) - 🥱 -> 🤔💡🌱 (Boredom -> Reflection, Creativity, Growth)
+### 2025-05
+
+스트레스와 자아를 향처럼 살라 연기 (아직 몸 경계 안) -> 구름 (몸 경계 바깥) -> 넓고 옅게 공기
+-> 사실 명상이 아니라 그냥 잠일 수 있다. 하지만 스트레스 해소는 확실하다.
 
 ## 시간 효율
 

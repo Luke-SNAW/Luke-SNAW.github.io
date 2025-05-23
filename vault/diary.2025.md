@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1747869596385
+updated: 1747965154934
 created: 1737241895427
 published: false
 ---
@@ -296,3 +296,8 @@ pomodoro timer를 한 동안 사용하다 중단했는데, 일정 시간 후에 
 ### market - SE
 
 abstract, modeling, state machine, black box, leaky abstraction - debugging
+
+### 퇴근
+
+퇴근 지하철 20분 넘게 통화하는 사람. 스트레스. 여전히 [[편견|book-report.법륜-스님의-행복]]과 [[집착|book-report.법정-스스로-행복하라]] 벗어나기가 힘드네.
+요사이 불교 교리? 언급을 많이하는데, 문제 해결 방안으로 최근에 읽은 책 내용을 적용해보는 것이다. 안되면 다른 방법을 써야겠지.
