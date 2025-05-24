@@ -2,12 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1747958456318
+updated: 1748077415991
 created: 1667632965028
 ---
 
 ## Week 21, 2025
 
+- [불만족의 해독제](https://www.youtube.com/watch?v=kMEO5pDwkH0) - 감사함
 - [Simple Made Easy - Rich Hickey (2011)](https://www.youtube.com/watch?v=SxdOUGdseq4)
   - Simplicity in software design is about focusing on one task or concept, avoiding the intertwining of multiple functionalities.
   - Choosing simpler constructs and avoiding complex artifacts can lead to more reliable and maintainable software systems.

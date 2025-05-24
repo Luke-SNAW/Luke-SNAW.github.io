@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1746685733516
+updated: 1748077428956
 created: 1645514261238
 ---
 
@@ -41,6 +41,7 @@ created: 1645514261238
   - Interstitial time, which used to be moments for meditation, daydreaming, and observation—human activities—has now mostly been replaced by digital consumption.
   - The habit of avoiding waiting and boredom leads to the weakening of our attention, patience, and imagination.
   - With access to an iPad or a smartphone, children in the twenty-first century never had to be bored;
+- [불만족의 해독제](https://www.youtube.com/watch?v=kMEO5pDwkH0) - 감사함
 
 ## Focus
 
