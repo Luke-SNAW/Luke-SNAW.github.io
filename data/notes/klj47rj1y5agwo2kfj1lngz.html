@@ -1,0 +1,38 @@
+<h1 id="css-is-and-where-are-coming-to-browsers">CSS :is() and :where() are coming to browsers<a aria-hidden="true" class="anchor-heading icon-link" href="#css-is-and-where-are-coming-to-browsers"></a></h1>
+<p><a href="https://webplatform.news/issues/2020-06-04">https://webplatform.news/issues/2020-06-04</a></p>
+<h1 id="use-is-to-reduce-repetition">Use :is() to reduce repetition<a aria-hidden="true" class="anchor-heading icon-link" href="#use-is-to-reduce-repetition"></a></h1>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* BEFORE */</span>
+<span class="token selector"><span class="token class">.embed</span> <span class="token class">.save-button</span><span class="token pseudo-class">:hover</span><span class="token punctuation">,</span>
+<span class="token class">.attachment</span> <span class="token class">.save-button</span><span class="token pseudo-class">:hover</span></span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* AFTER */</span>
+<span class="token selector"><span class="token pseudo-class">:is</span><span class="token punctuation">(</span><span class="token class">.embed</span><span class="token punctuation">,</span> <span class="token class">.attachment</span><span class="token punctuation">)</span> <span class="token class">.save-button</span><span class="token pseudo-class">:hover</span></span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The specificity of <code>:is()</code> is determined by its <strong>most specific selector</strong> argument. See <a href="https://twitter.com/stefanjudis/status/1264628338397777921">Stefan Judis’s short video</a> for an annotated example of this behavior.</p>
+<h1 id="use-where-to-keep-specificity-low">Use :where() to keep specificity low<a aria-hidden="true" class="anchor-heading icon-link" href="#use-where-to-keep-specificity-low"></a></h1>
+<p>The <code>:where()</code> pseudo-class has the same syntax and functionality as <code>:is()</code>. The only difference between them is that <code>:where()</code> doesn’t increase the overall selector’s specificity.</p>
+<p>This functionality is useful for <strong>styles that should be easy to override</strong>. For example, the base stylesheet <a href="https://github.com/csstools/sanitize.css">sanitize.css</a> includes the following style rule, which sets the default fill color if the <code>&#x3C;svg fill></code> attribute is missing:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">svg<span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">fill</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">fill</span><span class="token punctuation">:</span> currentColor<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Because of its higher specificity (B = 1, C = 1), a website cannot override this declaration with a single class selector (B = 1) and is forced to add !important or artificially increase the selector’s specificity (e.g., .share-icon.share-icon).</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.share-icon</span></span> <span class="token punctuation">{</span>
+<span class="token property">fill</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span> /_ doesn’t apply because of lower specificity _/
+<span class="token punctuation">}</span>
+</code></pre>
+<p>CSS libraries and base stylesheets can avoid this issue by wrapping their attribute selectors in :where() to keep the overall selector’s specificity low (C = 1).</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">/_ sanitize<span class="token class">.css</span> _/
+svg<span class="token pseudo-class">:where</span><span class="token punctuation">(</span><span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">fill</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+<span class="token property">fill</span><span class="token punctuation">:</span> currentColor<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">/_ author stylesheet _/
+<span class="token class">.share-icon</span></span> <span class="token punctuation">{</span>
+<span class="token property">fill</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span> /_ applies because of higher specificity _/
+<span class="token punctuation">}</span>
+</code></pre>
