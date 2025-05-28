@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1747870140607
+updated: 1748389908276
 created: 1688605282146
 ---
 
@@ -66,6 +66,18 @@ created: 1688605282146
   - https://github.com/dotnet/runtime/pull/115743
   - https://github.com/dotnet/runtime/pull/115733
   - https://github.com/dotnet/runtime/pull/115732
+- [The Copilot Delusion](https://deplet.ing/the-copilot-delusion/)
+  > Management has an AI shaped hammer and they're hitting everything to see if it's a nail. — [#](https://news.ycombinator.com/item?id=44068593)
+  >
+  > This--all of this--seems exactly antithetical to computing/development/design/"engineering"/architecture/whatever-the-hell people call this profession as I understood it.  
+  > Typically, I labored under the delusion that competent technical decision makers would integrate tooling or choose to use a language, "service", platform, whatever, if they saw benefits and if they could make a "case" for why something was the correct approach, i.e how it met some product's needs, addressed some shortcomings, made things more efficient. — [#](https://news.ycombinator.com/item?id=44068694)
+  >
+  > My point of comparison of choice is overseas contractors, not pair programming.  
+  > Copilot or Cursor or whatnot is basically a better experience because you do not have to get on Zoom calls (after Slack has failed) to ask why some chunk of your system that cares about root nodes has mysteriously gained a function called isChild (not hasChildren) that returns a boolean based on whether or not the node has children and not whether it has a parent. Or to figure out why a bunch a API parameters that used to accept arrays now don't. — [#](https://news.ycombinator.com/item?id=44078849)
+- [The Recurring Cycle of 'Developer Replacement' Hype](https://alonso.network/the-recurring-cycle-of-developer-replacement-hype/)
+  > The pattern is becoming clear once again: the technology doesn't replace the skill, it elevates it to a higher level of abstraction.
+  > For agency work building disposable marketing sites, this doesn't matter. For systems that need to evolve over years, it's catastrophic.
+  - The biggest asset of a developer is saying "no" to people. — [#](https://news.ycombinator.com/item?id=44105883)
 
 ## ETC
 

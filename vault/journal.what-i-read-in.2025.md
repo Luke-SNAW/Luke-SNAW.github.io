@@ -2,9 +2,24 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1748077415991
+updated: 1748389823142
 created: 1667632965028
 ---
+
+## Week 22, 2025
+
+- [The Recurring Cycle of 'Developer Replacement' Hype](https://alonso.network/the-recurring-cycle-of-developer-replacement-hype/)
+  > The pattern is becoming clear once again: the technology doesn't replace the skill, it elevates it to a higher level of abstraction.
+  > For agency work building disposable marketing sites, this doesn't matter. For systems that need to evolve over years, it's catastrophic.
+  - The biggest asset of a developer is saying "no" to people. — [#](https://news.ycombinator.com/item?id=44105883)
+- [The Copilot Delusion](https://deplet.ing/the-copilot-delusion/)
+  > Management has an AI shaped hammer and they're hitting everything to see if it's a nail. — [#](https://news.ycombinator.com/item?id=44068593)
+  >
+  > This--all of this--seems exactly antithetical to computing/development/design/"engineering"/architecture/whatever-the-hell people call this profession as I understood it.  
+  > Typically, I labored under the delusion that competent technical decision makers would integrate tooling or choose to use a language, "service", platform, whatever, if they saw benefits and if they could make a "case" for why something was the correct approach, i.e how it met some product's needs, addressed some shortcomings, made things more efficient. — [#](https://news.ycombinator.com/item?id=44068694)
+  >
+  > My point of comparison of choice is overseas contractors, not pair programming.  
+  > Copilot or Cursor or whatnot is basically a better experience because you do not have to get on Zoom calls (after Slack has failed) to ask why some chunk of your system that cares about root nodes has mysteriously gained a function called isChild (not hasChildren) that returns a boolean based on whether or not the node has children and not whether it has a parent. Or to figure out why a bunch a API parameters that used to accept arrays now don't. — [#](https://news.ycombinator.com/item?id=44078849)
 
 ## Week 21, 2025
 
@@ -13,7 +28,6 @@ created: 1667632965028
   - Simplicity in software design is about focusing on one task or concept, avoiding the intertwining of multiple functionalities.
   - Choosing simpler constructs and avoiding complex artifacts can lead to more reliable and maintainable software systems.
   - The need for clear separations between "what" a function does and "how" it is implemented is vital for creating effective abstractions in programming.
-  - Overall, simplicity should be a guiding principle in software development to enhance understanding, flexibility, and long-term usability.
 - [Animated Factorization](http://www.datapointed.net/visualizations/math/factorization/animated-diagrams/)
 - [My new hobby: watching AI slowly drive Microsoft employees insane](https://old.reddit.com/r/ExperiencedDevs/comments/1krttqo/my_new_hobby_watching_ai_slowly_drive_microsoft/)
 - [The behavior of LLMs in hiring decisions](https://davidrozado.substack.com/p/the-strange-behavior-of-llms-in-hiring): Systemic biases in candidate selection

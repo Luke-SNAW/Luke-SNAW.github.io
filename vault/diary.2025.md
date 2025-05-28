@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1747965154934
+updated: 1748398144793
 created: 1737241895427
 published: false
 ---
@@ -301,3 +301,31 @@ abstract, modeling, state machine, black box, leaky abstraction - debugging
 
 퇴근 지하철 20분 넘게 통화하는 사람. 스트레스. 여전히 [[편견|book-report.법륜-스님의-행복]]과 [[집착|book-report.법정-스스로-행복하라]] 벗어나기가 힘드네.
 요사이 불교 교리? 언급을 많이하는데, 문제 해결 방안으로 최근에 읽은 책 내용을 적용해보는 것이다. 안되면 다른 방법을 써야겠지.
+
+## 2025-05-25 #draft
+
+고등어 봉초밥
+
+서울대공원
+
+## 2025-05-26
+
+### 부교감신경 활성 #test
+
+명상 때 심상보다 호흡 제한을 통한 부교감신경 활성화가 더 중요할 지도 모른다.
+
+## 2025-05-28
+
+### 의식후퇴 #draft #test
+
+명상 때 의식하지 않고 멍 때림이 자연스럽다 여겼는데,
+의식적으로 의식을 후퇴시켜 무의식이 청소하도록 자리를 내주는 것이 더 좋을지도 모르겠다.
+다른 사람이 청소할 때 발 들거나 자리를 비켜주듯
+
+### [Leslie Lamport: Thinking Above the Code](https://www.youtube.com/watch?v=-4Yp3j_jk8Q)
+
+> Writing is nature's way of letting you know how sloppy your thinking is. — Guindon
+
+To think, you have to write.
+
+If you're thinking without writing, you only think you're thinking.
