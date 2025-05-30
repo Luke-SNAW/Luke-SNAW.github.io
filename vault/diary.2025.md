@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1748398144793
+updated: 1748563047982
 created: 1737241895427
 published: false
 ---
@@ -329,3 +329,13 @@ abstract, modeling, state machine, black box, leaky abstraction - debugging
 To think, you have to write.
 
 If you're thinking without writing, you only think you're thinking.
+
+### 국립중앙박물관 #draft
+
+## 2025-05-29 #draft
+
+최소 반차. 연차까지 필요한가?
+
+## 2025-05-30 #question
+
+박살난 건 기호자아로 보이는데, 욕구폭발이 아니라 depressed. 왜지?

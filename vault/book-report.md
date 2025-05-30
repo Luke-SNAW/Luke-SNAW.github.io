@@ -2,7 +2,7 @@
 id: 6hzeqsofq67gdk88flxlkhp
 title: Book Report
 desc: ""
-updated: 1747639760348
+updated: 1748580813561
 created: 1737617297333
 ---
 
@@ -21,5 +21,5 @@ Book reports tend to be a little more descriptive (What is this book about?) and
 
 ## Log
 
-- [[법정 - 스스로 행복하라|book-report.법정-스스로-행복하라]] ing
+- [[법정 - 스스로 행복하라|book-report.법정-스스로-행복하라]] 2025/05
 - [[법륜 스님의 행복|book-report.법륜-스님의-행복]] 2025/05
