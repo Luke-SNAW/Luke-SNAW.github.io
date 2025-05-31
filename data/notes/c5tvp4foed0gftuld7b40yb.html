@@ -1,0 +1,33 @@
+<h1 id="debugging-dynamic-content-in-browser-dev-tools">Debugging dynamic content in browser dev tools<a aria-hidden="true" class="anchor-heading icon-link" href="#debugging-dynamic-content-in-browser-dev-tools"></a></h1>
+<blockquote>
+<p><a href="https://darekkay.com/blog/debugging-dynamic-content/">https://darekkay.com/blog/debugging-dynamic-content/</a></p>
+</blockquote>
+<p>The following button displays a big outline on hover/focus — <strong>which color value is it exactly</strong>?</p>
+<p>CSS effect</p>
+<p>We can inspect the hover/focus styles with <a href="https://umaar.com/dev-tips/43-trigger-pseudo-class/">browser dev tools</a>. Press the <code>:hov</code> button in the Rules (Firefox) or Styles (Chrome) tab and activate the <code>:focus</code> pseudo class:</p>
+<p><a href="https://darekkay.com/blog/css-focus.png">Firefox DevTools: Rules panel with the :focus pseudo class active.</a></p>
+<p>But how do we debug <em>dynamic</em> changes, i.e., effects triggered by JavaScript? Try debugging the following hover/focus effect:</p>
+<p>JavaScript effect</p>
+<p>You might notice that the first method doesn't work here, because the effect is based on JavaScript <code>focus</code>/<code>mouseenter</code> events. That's why debugging tooltips/popovers is often more difficult.</p>
+<h2 id="emulate-a-focused-page"><a href="https://darekkay.com/blog/debugging-dynamic-content/#emulate-a-focused-page">Emulate a focused page</a><a aria-hidden="true" class="anchor-heading icon-link" href="#emulate-a-focused-page"></a></h2>
+<p>There is a setting in Chrome that makes JavaScript <code>focus</code> events "semi-persistent" (see a <a href="https://twitter.com/simevidas/status/1376281628260114432">demo</a> from Šime Vidas). Go to the <em>"Rendering"</em> tab in the DevTools and select the <em>"Emulate a focused page"</em> checkbox. Now, focus styles will remain active even after switching to the element inspector:</p>
+<p><a href="https://darekkay.com/blog/emulation.png">Chrome's 'emulate a focused page' setting</a></p>
+<p>This method doesn't cover the <code>:hover</code> case, and it is only available in Chromium browsers, but it's sufficient in many cases.</p>
+<h2 id="trigger-debugger-on-dom-changes"><a href="https://darekkay.com/blog/debugging-dynamic-content/#trigger-debugger-on-dom-changes">Trigger debugger on DOM changes</a><a aria-hidden="true" class="anchor-heading icon-link" href="#trigger-debugger-on-dom-changes"></a></h2>
+<p>Another way to inspect dynamic styles is to <a href="https://www.matuzo.at/blog/dev-tools-debugging-dom-tree-modifications/">break on DOM tree modifications</a>:</p>
+<ol>
+<li>Right-click the button in the DOM inspector.</li>
+<li>Select "Break on" and "attribute modification".</li>
+<li>Trigger the effect (hover or focus the button).</li>
+</ol>
+<p><a href="https://darekkay.com/blog/dom-modifications.png">DevTools screenshot</a></p>
+<p>The browser will freeze and make the element inspector work out of the box:</p>
+<p><a href="https://darekkay.com/blog/debugger.png">Active Chrome debugger</a></p>
+<h2 id="trigger-debugger-after-a-few-seconds"><a href="https://darekkay.com/blog/debugging-dynamic-content/#trigger-debugger-after-a-few-seconds">Trigger debugger after a few seconds</a><a aria-hidden="true" class="anchor-heading icon-link" href="#trigger-debugger-after-a-few-seconds"></a></h2>
+<p>Finding the right element to "listen" to in the last method is sometimes tricky. Instead, I often prefer the following little hack. Paste the following into the browser dev tools console, trigger the effect and wait for the browser to freeze after 3 seconds (3000 ms):</p>
+<pre class="language-js"><code class="language-js"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">debugger</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Try out this <strong>bookmarklet</strong> for easier access: <a href="/javascript:(function()%7BsetTimeout(()%20%3D%3E%20%7B%20debugger%20%7D%2C%203000)%7D)()">Debugger</a>. Drag and drop this link onto your bookmarks bar, open the browser dev tools and click the bookmark.</p>
+<p>Here's a CodePen playground: <a href="https://codepen.io/darekkay/pen/WNoroBb">https://codepen.io/darekkay/pen/WNoroBb</a></p>
