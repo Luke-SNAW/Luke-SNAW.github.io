@@ -2,14 +2,14 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1748389823142
+updated: 1748591374354
 created: 1667632965028
 ---
 
 ## Week 22, 2025
 
 - [The Recurring Cycle of 'Developer Replacement' Hype](https://alonso.network/the-recurring-cycle-of-developer-replacement-hype/)
-  > The pattern is becoming clear once again: the technology doesn't replace the skill, it elevates it to a higher level of abstraction.
+  > The pattern is becoming clear once again: the technology doesn't replace the skill, it elevates it to a higher level of abstraction.  
   > For agency work building disposable marketing sites, this doesn't matter. For systems that need to evolve over years, it's catastrophic.
   - The biggest asset of a developer is saying "no" to people. — [#](https://news.ycombinator.com/item?id=44105883)
 - [The Copilot Delusion](https://deplet.ing/the-copilot-delusion/)

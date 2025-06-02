@@ -1,9 +1,9 @@
 ---
-id: rcvyqmd5bjtapd69mzzk70v
-title: Habit Formation
+id: j71mrhhqz6x9o90gwj5lmks
+title: Accomplishments Habit Formation
 desc: ""
-updated: 1748681895953
-created: 1748681702638
+updated: 1748831025157
+created: 1748831002093
 ---
 
 # 성취 - 습관형성
