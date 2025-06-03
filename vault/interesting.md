@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1747870824663
+updated: 1748906353652
 created: 1669705986186
 ---
 
@@ -58,3 +58,7 @@ created: 1669705986186
 - [Mystical](https://github.com/denismm/mystical_ps) - is more like a way to write PostScript that looks like a magical circle.
 - [WHAT THE HELL ARE PEOPLE DOING?](https://humans.maxcomperatore.com/) - Live-ish estimates based on global population dynamics & simulated day/night cycles
 - [Animated Factorization](http://www.datapointed.net/visualizations/math/factorization/animated-diagrams/)
+- [Probe lenses and focus stacking: the secrets to incredible photos taken inside instruments](https://www.dpreview.com/photography/5400934096/probe-lenses-and-focus-stacking-the-secrets-to-incredible-photos-taken-inside-instruments)
+  - https://www.architectureinmusic.com/
+  - https://www.charlesbrooks.info/
+- [Every 5x5 Nonogram](https://pixelogic.app/every-5x5-nonogram)

@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1748818871213
+updated: 1748903555191
 created: 1737241895427
 published: false
 ---
@@ -321,9 +321,10 @@ abstract, modeling, state machine, black box, leaky abstraction - debugging
 
 로스터스 창가의 소나무를 멍하니 바라보는게 좋다.
 
-## 2025-05-25 #draft
+## 2025-05-25 #draft #R5C
 
-고등어 봉초밥
+고등어 봉초밥. 기대보다 맛있네. 가끔 주말에 예약하고 사먹어도 될 듯.
+같이 먹은 사시미는 특별할 건 없었다. 우니가 아주 살짝 비렸지만 생으로 먹을만 했고.
 
 서울대공원
 
@@ -414,3 +415,7 @@ If you're thinking without writing, you only think you're thinking.
 부채가 필요한 더운 열기가 땅에서 올라옴. 여름이 다가오고 분수 열어주는 만큼 납득가는 불편함이었지만, 대선선거유세가 계속 들려온건 좀 마이너스. 이 놈들...
 
 좀 걷다 처음가는 로스터스 방문. 주말이라 핸드드립 안된다네, 젠장.
+
+## 2025-06-02
+
+지하철. 기대를,기준을 낮춰놓으니 덥고 사람이 많아도 그러려니... 가 가능했음.

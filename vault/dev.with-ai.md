@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1748389908276
+updated: 1748949399207
 created: 1688605282146
 ---
 
@@ -78,6 +78,9 @@ created: 1688605282146
   > The pattern is becoming clear once again: the technology doesn't replace the skill, it elevates it to a higher level of abstraction.
   > For agency work building disposable marketing sites, this doesn't matter. For systems that need to evolve over years, it's catastrophic.
   - The biggest asset of a developer is saying "no" to people. — [#](https://news.ycombinator.com/item?id=44105883)
+- [The rise of judgement over technical skill](https://notsocommonthoughts.com/blog/ai-and-judgement/)
+  > AI is democratizing a wide range of creative and professional tasks.  
+  > The key differentiator is no longer technical skill but judgement.
 
 ## ETC
 

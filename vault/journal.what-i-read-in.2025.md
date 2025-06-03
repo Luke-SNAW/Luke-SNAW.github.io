@@ -2,9 +2,15 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1748591374354
+updated: 1748949380236
 created: 1667632965028
 ---
+
+## Week 23, 2025
+
+- [The rise of judgement over technical skill](https://notsocommonthoughts.com/blog/ai-and-judgement/)
+  > AI is democratizing a wide range of creative and professional tasks.  
+  > The key differentiator is no longer technical skill but judgement.
 
 ## Week 22, 2025
 
