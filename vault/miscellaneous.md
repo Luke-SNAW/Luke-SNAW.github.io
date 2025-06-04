@@ -2,7 +2,7 @@
 id: 4fvoqrplw0cweo554usbjos
 title: Miscellaneous
 desc: ""
-updated: 1741050230630
+updated: 1749004835921
 created: 1657500862975
 ---
 
@@ -23,6 +23,9 @@ created: 1657500862975
   - "책임"이라는 단어가 이제는 의미 없는 치료적 언어가 되었음을 지적함. CEO가 책임을 진다고 말하지만 실제로는 아무런 결과가 따르지 않음
   - 법적 원칙으로는 운영자가 책임을 져야 한다고 주장함. 그렇지 않으면 방화 예방을 위해 성냥을 금지해야 한다는 비유를 사용함
 - [Inheriting is becoming nearly as important as working](https://www.economist.com/leaders/2025/02/27/inheriting-is-becoming-nearly-as-important-as-working)
+- [Typing 118 WPM Broke My Brain in the Right Ways (A Year-Long Journey)](https://balaji-amg.surge.sh/blog/typing-118-wpm-brain-rewiring)
+  > Every morning, before I even think about opening VS Code, before Slack starts destroying my soul, before the daily standup where we pretend we know what we're doing, I just type. Five minutes. That's it.
+  > rushing makes everything worse.
 
 ### [Bartosz Ciechanowski](https://ciechanow.ski/archives/)
 

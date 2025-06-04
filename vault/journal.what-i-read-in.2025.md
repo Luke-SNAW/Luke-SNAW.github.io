@@ -2,7 +2,7 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1749027432427
+updated: 1749078047780
 created: 1667632965028
 ---
 
@@ -10,6 +10,9 @@ created: 1667632965028
 
 - [Disclosure: Covert Web-to-App Tracking via Localhost on Android - Meta and Yandex](https://localmess.github.io/)
   > These native Android apps receive browsers' metadata, cookies and commands from the Meta Pixel and Yandex Metrica scripts embedded on thousands of web sites.
+- [Typing 118 WPM Broke My Brain in the Right Ways (A Year-Long Journey)](https://balaji-amg.surge.sh/blog/typing-118-wpm-brain-rewiring)
+  > Every morning, before I even think about opening VS Code, before Slack starts destroying my soul, before the daily standup where we pretend we know what we're doing, I just type. Five minutes. That's it.
+  > rushing makes everything worse.
 - [The rise of judgement over technical skill](https://notsocommonthoughts.com/blog/ai-and-judgement/)
   > AI is democratizing a wide range of creative and professional tasks.  
   > The key differentiator is no longer technical skill but judgement.
