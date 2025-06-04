@@ -2,12 +2,14 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1748949380236
+updated: 1749027432427
 created: 1667632965028
 ---
 
 ## Week 23, 2025
 
+- [Disclosure: Covert Web-to-App Tracking via Localhost on Android - Meta and Yandex](https://localmess.github.io/)
+  > These native Android apps receive browsers' metadata, cookies and commands from the Meta Pixel and Yandex Metrica scripts embedded on thousands of web sites.
 - [The rise of judgement over technical skill](https://notsocommonthoughts.com/blog/ai-and-judgement/)
   > AI is democratizing a wide range of creative and professional tasks.  
   > The key differentiator is no longer technical skill but judgement.
