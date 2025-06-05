@@ -1,0 +1,48 @@
+<h1 id="qwik">Qwik<a aria-hidden="true" class="anchor-heading icon-link" href="#qwik"></a></h1>
+<p><a href="https://github.com/builderio/qwik">Qwik</a> is designed for the fastest possible page load time, by delivering pure HTML with near 0 javascript for your pages to become interactive, regardless of how complex your site or app is. It achieves this via <a href="#resumable-vs-replayable">resumability</a> of HTML and <a href="https://github.com/BuilderIO/qwik/blob/main/docs/LAZY_LOADING.md">ultra fine-grained lazy-loading</a> of code.</p>
+<h1 id="resumable-vs-replayable">Resumable vs Replayable<a aria-hidden="true" class="anchor-heading icon-link" href="#resumable-vs-replayable"></a></h1>
+<p><a href="https://github.com/BuilderIO/qwik/blob/main/docs/RESUMABLE.md">from</a></p>
+<p>A key concept of Qwik applications is that they are resumable from server-side-rendered state. The best way to explain resumability is to understand how the current generation of frameworks are replayable.</p>
+<h2 id="frameworks-must-understand-the-application">Frameworks must understand the application<a aria-hidden="true" class="anchor-heading icon-link" href="#frameworks-must-understand-the-application"></a></h2>
+<p>Frameworks have the need to understand the structure of the application. Examples of such knowledge are:</p>
+<ul>
+<li>location of the event handlers</li>
+<li>understanding component structure (parent child relationship)</li>
+<li>bindings</li>
+</ul>
+<p>We call the above information the framework-internal-state.</p>
+<h2 id="heap-centric-frameworks-are-replayable">Heap-centric frameworks are replayable<a aria-hidden="true" class="anchor-heading icon-link" href="#heap-centric-frameworks-are-replayable"></a></h2>
+<p>The current generation of frameworks store the framework-internal-state in the Javascript heap as a set of objects, and closures. The frameworks build up their internal-state by bootstrapping the application. Because the frameworks are not designed with serializability in mind, the framework-internal-state is not serializable and needs to be re-built on application bootstrap. The consequence of this is that if a site is server-side-rendered then the framework must re-bootstrap the application in order to rebuild the framework-internal-state. Bootstrapping the application is slow because:</p>
+<ul>
+<li>Most of the framework needs to be downloaded and executed.</li>
+<li>All component templates on the page need to be downloaded. (Proportional to the size of the application.)</li>
+<li>The browser must parse and execute the code (usually in slow interpreted mode as JIT has not had sufficient time to warm up).</li>
+<li>On bootstrap the application often performs complex initialization and data fetching.</li>
+<li>The newly bootstrapped application generates DOM which needs to be reconciled with the server-side-rendered DOM (usually the new DOM just replaces the SSR DOM).</li>
+</ul>
+<p>The consequence of the above constraints is that the application initializes twice. Once on the server, and than once again on the client. We say that the application is <strong>replayable</strong> because the application must <em>replay</em> its bootstrap on the client to get the framework-internal-state into the same state as it was on the server.</p>
+<p>The <strong>re-playability</strong> property of the framework is what makes the applications built with the current generation of frameworks have less than ideal <a href="https://web.dev/interactive/">time to interactive</a> performance. Usually the performance is proportional to the application size. An application may start with good time-to-interactive and as the application gets bigger its time-to-interactive performance progressively gets worse.</p>
+<h2 id="dom-centric-frameworks-are-resumable">DOM centric frameworks are resumable<a aria-hidden="true" class="anchor-heading icon-link" href="#dom-centric-frameworks-are-resumable"></a></h2>
+<p>If time-to-interactive is your top concern then you want to have a framework which is <strong>resumable</strong>. By <strong>resumable</strong> we mean that the application bootstraps on the server, gets serialized into HTML, and can continue execution on the client without re-bootstrapping itself on the client. The application simply <em>resumes</em> from where the server left off.</p>
+<p>In order for the framework to be resumable it must store the framework-internal-state in an easily serializable format. The most obvious location is to store framework-internal-state directly on the DOM in the form of attributes as they are serializable.</p>
+<p>Examples of information which the framework needs to store in the DOM are:</p>
+<ul>
+<li>DOM listeners</li>
+<li>Component state</li>
+<li>Pointers to component templates for re-rendering.</li>
+<li>Entity state</li>
+<li>Entity component relationships.</li>
+</ul>
+<p>By keeping the above state in the DOM the framework does not have any additional information (other than what is stored in the DOM) and as a result the framework can continue executing from where the server left off. Because the framework provides a mechanism for application component and entities to also be serialized into the DOM the result is that both the framework as well as application state can be serialized into HTML and the application can fully be resumed on the client.</p>
+<h2 id="writing-applications-with-serializability-in-mind">Writing applications with serializability in mind<a aria-hidden="true" class="anchor-heading icon-link" href="#writing-applications-with-serializability-in-mind"></a></h2>
+<p>The resumability property of the framework must extend to resumability of the application as well. This means that the framework must provide mechanisms for the developer to express Components and Entities of the applications in a way which can be serialized and then resumed (without re-bootstrapping). This necessitates that applications are written with resumability constraints in mind. It is simply not possible for developers to continue to write applications in a heap-centric way and expect that a better framework can somehow make up for this sub-optimal approach.</p>
+<p>Developers must write their applications in a DOM-centric way. This will require a change of behavior and retooling of web-developers skills. Frameworks need to provide guidance and APIs to make it easy for developers to write the applications in this way.</p>
+<h2 id="other-benefits-of-resumability">Other benefits of resumability<a aria-hidden="true" class="anchor-heading icon-link" href="#other-benefits-of-resumability"></a></h2>
+<p>The most obvious benefit of using resumability is for server-side-rendering. However, there are secondary benefits:</p>
+<ul>
+<li>Serializing existing PWA apps so that users don't loose context when they return to the application</li>
+<li>Improved rendering performance because only changed components need to be re-rendered</li>
+<li>Fine-grained-lazy loading</li>
+<li>Decreased memory pressure, especially on mobile devices</li>
+<li>Progressive interactivity of existing static websites</li>
+</ul>
