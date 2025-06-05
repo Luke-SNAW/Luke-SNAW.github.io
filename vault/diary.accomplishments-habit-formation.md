@@ -2,7 +2,7 @@
 id: j71mrhhqz6x9o90gwj5lmks
 title: Accomplishments Habit Formation
 desc: ""
-updated: 1749031320871
+updated: 1749079071059
 created: 1748831002093
 ---
 
@@ -60,3 +60,5 @@ created: 1748831002093
 
 - 휴식
   - 자꾸 머리 혹사 시킴. 머리 혹사시킬 때마다 치매 확률 올라간다고 생각하고 좀 쉬자.
+- 영어해석: 해석도 잘 안되면서 속도만 내려고 한다.
+  - rushing makes everything worse. — [Typing 118 WPM Broke My Brain in the Right Ways (A Year-Long Journey)](https://balaji-amg.surge.sh/blog/typing-118-wpm-brain-rewiring)
