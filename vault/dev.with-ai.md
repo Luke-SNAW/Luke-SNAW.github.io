@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1748949399207
+updated: 1749446418407
 created: 1688605282146
 ---
 
@@ -81,6 +81,8 @@ created: 1688605282146
 - [The rise of judgement over technical skill](https://notsocommonthoughts.com/blog/ai-and-judgement/)
   > AI is democratizing a wide range of creative and professional tasks.  
   > The key differentiator is no longer technical skill but judgement.
+- [A look at CloudFlare’s AI-coded OAuth library](https://neilmadden.blog/2025/06/06/a-look-at-cloudflares-ai-coded-oauth-library/)
+  > It’s not bad, but I wouldn’t really recommend it for use yet.
 
 ## ETC
 

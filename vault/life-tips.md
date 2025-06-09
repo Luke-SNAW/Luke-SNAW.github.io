@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1748077428956
+updated: 1749450939099
 created: 1645514261238
 ---
 
@@ -58,6 +58,9 @@ created: 1645514261238
   > The designers at intercom (intercom.com) use this illustration to show what is, and isn’t, important to customers.
   - https://www.revealed.market/when-coffee-and-kale-compete
 - [GOOD ENOUGH BEATS GREAT](https://www.meaningfulmoney.life/post/maximizer-vs-satisficer)
+- [Pivot Points](https://longform.asmartbear.com/pivot-points/)
+  - **Contextual Evaluation**: Unlike traditional assessments that categorize traits as strengths or weaknesses, Pivot Points recognize that their value is context-dependent.
+  - **Embracing Constraints**: Pivot Points are viewed as enabling constraints that, when embraced, can lead to more fulfilling personal and professional lives, allowing individuals and organizations to thrive by aligning actions with inherent strengths.
 
 ### [wodenokoto](https://news.ycombinator.com/item?id=33258142)
 

@@ -2,16 +2,28 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1749078986598
+updated: 1749452031053
 created: 1667632965028
 ---
+
+## Week 24, 2025
+
+- [Tracking the performance of the various coding agents.](https://aavetis.github.io/ai-pr-watcher/)
+- [Pivot Points](https://longform.asmartbear.com/pivot-points/)
+  - **Contextual Evaluation**: Unlike traditional assessments that categorize traits as strengths or weaknesses, Pivot Points recognize that their value is context-dependent.
+  - **Embracing Constraints**: Pivot Points are viewed as enabling constraints that, when embraced, can lead to more fulfilling personal and professional lives, allowing individuals and organizations to thrive by aligning actions with inherent strengths.
+- [Deep in Mordor where the shadows lie: Dystopian tales of that time when I sold out to Google](https://wordsmith.social/elilla/deep-in-mordor-where-the-shadows-lie-dystopian-stories-of-my-time-as-a-googler)
+- [A look at CloudFlare’s AI-coded OAuth library](https://neilmadden.blog/2025/06/06/a-look-at-cloudflares-ai-coded-oauth-library/)
+  > It’s not bad, but I wouldn’t really recommend it for use yet.
+- [Falsehoods Programmers Believe About Aviation](https://flightaware.engineering/falsehoods-programmers-believe-about-aviation/)
+- [Solo Performance Prompting (SPP)](https://www.lmtoolkit.com/prompt_dictionary/zero_shot/solo_performance_prompting/)
 
 ## Week 23, 2025
 
 - [Disclosure: Covert Web-to-App Tracking via Localhost on Android - Meta and Yandex](https://localmess.github.io/)
   > These native Android apps receive browsers' metadata, cookies and commands from the Meta Pixel and Yandex Metrica scripts embedded on thousands of web sites.
 - [Typing 118 WPM Broke My Brain in the Right Ways (A Year-Long Journey)](https://balaji-amg.surge.sh/blog/typing-118-wpm-brain-rewiring)
-  > Every morning, before I even think about opening VS Code, before Slack starts destroying my soul, before the daily standup where we pretend we know what we're doing, I just type. Five minutes. That's it.
+  > Every morning, before I even think about opening VS Code, before Slack starts destroying my soul, before the daily standup where we pretend we know what we're doing, I just type. Five minutes. That's it.  
   > rushing makes everything worse.
 - [The rise of judgement over technical skill](https://notsocommonthoughts.com/blog/ai-and-judgement/)
   > AI is democratizing a wide range of creative and professional tasks.  
