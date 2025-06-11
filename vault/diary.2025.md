@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1749470199098
+updated: 1749606487402
 created: 1737241895427
 published: false
 ---
@@ -397,7 +397,7 @@ If you're thinking without writing, you only think you're thinking.
 커피 마신 후 점심먹기 전에 주변 걸으면서 나무, 떨어진 열매, 결혼식장 주차안내 구경.
 이런게 산책이지. 걸으며 폰 보지말고 생각 흐름 전환이 필요하다.
 
-### 조깅
+### 조깅 #jogging #심심
 
 오늘 나가기 싫었는데, 별 저항 없이 나간 건 심심함을 끌어안은 덕분인 듯.
 바깥 제기차기 동작이 불균형에 도움이 되는 듯.
@@ -416,7 +416,7 @@ If you're thinking without writing, you only think you're thinking.
 
 좀 걷다 처음가는 로스터스 방문. 주말이라 핸드드립 안된다네, 젠장.
 
-## 2025-06-02
+## 2025-06-02 #기대낮춤
 
 지하철. 기대를, 기준을 낮춰놓으니 덥고 사람이 많아도 그러려니... 가 가능했음. — [[기대로 고통받지 마라|book-report.법륜-스님의-행복#기대로-고통받지-마라]]
 
@@ -454,12 +454,55 @@ R5C 모임
 
 ### 그림
 
-전신그림 1, 손 그림 5개. modeling만 생각하여 엉성하게 그림.
+전신그림 1, 손 그림 5점. modeling만 생각하여 엉성하게 그림.
 2분은 있어야 할 거 같고 3분이 편할 거 같은데
 
-## 2025-06-09
+## 2025-06-07 #vomit
+
+7시 40분 차 예매. 6시 50분 알람에 일어나 3분 정도 밍기적
+준비 끝나니 22분
+버스 시간이 안될 거 같음. 택시 바로 잡히는거 아니면...
+자전거 시간을 보니 9분 걸림. 신호등 때문에 9분이 가능한거 맞아?
+자전거로 조금 밟으니 13분 정도 걸림. 땀도 살짝 나고
+아침 일찍 갈 땐 한 시간 일찍 일어나자. 자전거로 여유있게 올 수 있다.
+
+아침에 일어나 자전거 타고 멍하니 차에서 경치보니 좋네. 평소 주말에도 살릴 수 있을까?
+
+### 컴
+
+아침에 출근하는 느낌으로 컴 안키고 바로 준비하면 별 저항이 없군
+
+### 귀경
+
+속 안좋은데 다른 모험루트 고르지 말자. 모험루트 구경은 좋았지만
+
+## 2025-06-08 #vomit
+
+스타필드
+
+너무 자주 나가는거... 흥미로운 경험이지만
+
+지하철 자리 있는데 바닥에 주저 앉은 사람
+
+## 2025-06-09 #기대낮춤
 
 퇴근길 지하철.
 더움. 여름이니 그러려니 함.
 30초 차로 지하철 놓치고 10분 기다려서 다음 지하철 탐. 그러려니 함.
 보통 한 시간 이동거리면 시간 경과 자체로 조금 짜증났는데 오늘은 별로 상관없음. 정신력 소모가 적어서 그런가?
+
+## 2025-06-11 #vomit #test
+
+글 읽으면서 chunk. 색깔로 심상?
+-> web browser extension. drag block with constantly changing color?
+
+### 특성 #vomit
+
+modeling with constraints?
+
+> The painter who begins with a blank canvas faces more paralysis than the one who starts with a frame and a palette.
+> One person sets a goal: become a best-selling author. Another imposes a constraint: write every day, but never write what bores me.
+
+- [Pivot Points](https://longform.asmartbear.com/pivot-points/)
+  - **Contextual Evaluation**: Unlike traditional assessments that categorize traits as strengths or weaknesses, Pivot Points recognize that their value is context-dependent.
+  - **Embracing Constraints**: Pivot Points are viewed as enabling constraints that, when embraced, can lead to more fulfilling personal and professional lives, allowing individuals and organizations to thrive by aligning actions with inherent strengths.

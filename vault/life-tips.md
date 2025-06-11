@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1749450939099
+updated: 1749606494539
 created: 1645514261238
 ---
 
@@ -61,6 +61,13 @@ created: 1645514261238
 - [Pivot Points](https://longform.asmartbear.com/pivot-points/)
   - **Contextual Evaluation**: Unlike traditional assessments that categorize traits as strengths or weaknesses, Pivot Points recognize that their value is context-dependent.
   - **Embracing Constraints**: Pivot Points are viewed as enabling constraints that, when embraced, can lead to more fulfilling personal and professional lives, allowing individuals and organizations to thrive by aligning actions with inherent strengths.
+- [Smart People Don't Chase Goals; They Create Limits](https://www.joanwestenberg.com/smart-people-dont-chase-goals-they-create-limits/)
+  > The painter who begins with a blank canvas faces more paralysis than the one who starts with a frame and a palette.
+  > One person sets a goal: become a best-selling author. Another imposes a constraint: write every day, but never write what bores me.
+  >
+  > > Wut? The constraints are what made it a hard problem, but the only reason they were able to hit this goal in an impossibly short timeline is the huge amount of resources that they put toward a very clear goal (which was, honestly, less "let man explore the heavens" than "beat the Soviets"). — [#](https://news.ycombinator.com/vote?id=44237540&how=un&auth=51df6f06022c423f1c5abe96dab72810e7a7f3c5&goto=item%3Fid%3D44232714#44237540)
+  >
+  > - 결점을 알고도 일부러 썼다면 사기에 가까운 장시논리. 일부에게만 팔려도 이득이라는 betting
 
 ### [wodenokoto](https://news.ycombinator.com/item?id=33258142)
 
