@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1749694378773
+updated: 1749726899461
 created: 1737241895427
 published: false
 ---
@@ -536,3 +536,8 @@ break time도 두 번 무시함. 인지를 해도 무시. 지금 당장이 못 �
 또 웃긴게, 이후에 명상도 제대로 함.
 
 지금 단계에선 접근통제+보상 간격 미루기 외엔 대응 방법이 떠오르지 않는다.
+
+### easy habit formation
+
+꾸준함으로 발전하기 위해 easy habit 생성
+[[Vomit|writing.vomit-draft]], [making 100 crappy videos](https://www.youtube.com/watch?v=OnUBaQ1Sp_E), 평소 70% 강도 수행하다 컨디션 좋을 때 고강도, 준비운동.
