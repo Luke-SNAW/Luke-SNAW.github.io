@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1749606487402
+updated: 1749694378773
 created: 1737241895427
 published: false
 ---
@@ -424,23 +424,26 @@ If you're thinking without writing, you only think you're thinking.
 
 R5C 모임
 
-안양시청에서 만나기 전에 커피 사가기로. 텀블러
+안양시청에서 만나기 전에 커피 사가기로. 텀블러 챙겨서 환경오염 줄이는 발버둥이라도 쳐보려고 했는데 350ml라서 커피가 다 안들어감 500ml가 필요한 듯. 하필 주문한 메뉴가 일반 물 얼음이 아니라 커피를 얼린 얼음이라 버리라고 하지 못하고 작은 종이컵 2개 받아옴.
+텀블러 챙겨서 커피 받는게 어색하고 쑥쓰러웠지만 밀고 나감.
 
 오리고기
 
 백남준 아트 센터
 이게 현대예술? 양자역학처럼 이해 어려운 layer들이 쌓여서 달나라로 가버린건가?
 
-광교호수 산책
+광교호수 산책:
+나중에 은퇴하면 이런 곳에서 살고 싶다. 집 코 앞에 산책코스가...
+지금 조깅루트 안양천 근처도 좋지만, 여긴 호수주변에 상점가도 짱짱하네
 
-## 2025-06-04 #vomit
+## 2025-06-04 #vomit #test
 
 여백, 여유
 
-- 빽빽한 이면지 필기
+- 빽빽한 이면지 필기 -> ' V ' 으로 줄 여백 두기 test
 - 그림. 여백의 미
 - 심심. 여유
-- 이틀 전 도시락 놓고옴
+- 이틀 전 도시락 놓고옴. 탁자 위에 잡동사니들이 뭉쳐 있어 들고 나갈 물건들이 시각적으로 파묻혀 구분이 안된다.
 - 날짜별 todo list 노트
 
 - 명상, 암적응, 호흡 느리게, 논리영역, 심박수 낮춤, 사고 clock 느리게
@@ -506,3 +509,30 @@ modeling with constraints?
 - [Pivot Points](https://longform.asmartbear.com/pivot-points/)
   - **Contextual Evaluation**: Unlike traditional assessments that categorize traits as strengths or weaknesses, Pivot Points recognize that their value is context-dependent.
   - **Embracing Constraints**: Pivot Points are viewed as enabling constraints that, when embraced, can lead to more fulfilling personal and professional lives, allowing individuals and organizations to thrive by aligning actions with inherent strengths.
+
+### 쉬는 시간 심심한 가사
+
+쉬는 시간에 조금씩, 자잘한 가사처리가 즐겁다. 드는 노력은 거의 0에 나중에 생길 문제를 미리 없애니... 공짜 마법 같음.
+묶을 수록 일로 변해서 스트레스가 쌓이니 조금씩만
+
+### 접근통제 #test #kelly_criterion
+
+지루한 일로 하루 일과 토대를 단단히 쌓고, 노는 비중을 낮추고 후순위로.
+자극이 심한 보상은 기간에 따라 어떤 날엔 아예 접근하지 말기. 양 조절하면 OK인데, 자극이 자극을 불러 실패. 승률이 낮다.
+ex:
+
+- 과자, 치킨
+- 인방
+
+종류별로 섞어 하는 게 좋은데, 한 세션의 일부만 보상으로? (-> 바로 다음 날 실패)
+게임에는 적용하기 어렵겠군.
+
+## 2025-06-12
+
+### 접근통제 #test
+
+어제에 이어 실패. 세션 일부 보상으로 넣었으나 한 세션에서 성공 후 두 번째 세션에서 보상을 먼저 땡겨쓰다가 그게 쭉 이어져버림.
+break time도 두 번 무시함. 인지를 해도 무시. 지금 당장이 못 즐긴다해서 영영 사라지는게 아니라 잠시 뒤로 미루서 즐기면 되는 것을...
+또 웃긴게, 이후에 명상도 제대로 함.
+
+지금 단계에선 접근통제+보상 간격 미루기 외엔 대응 방법이 떠오르지 않는다.
