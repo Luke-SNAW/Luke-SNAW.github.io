@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1749606494539
+updated: 1749708947804
 created: 1645514261238
 ---
 
@@ -68,6 +68,9 @@ created: 1645514261238
   > > Wut? The constraints are what made it a hard problem, but the only reason they were able to hit this goal in an impossibly short timeline is the huge amount of resources that they put toward a very clear goal (which was, honestly, less "let man explore the heavens" than "beat the Soviets"). — [#](https://news.ycombinator.com/vote?id=44237540&how=un&auth=51df6f06022c423f1c5abe96dab72810e7a7f3c5&goto=item%3Fid%3D44232714#44237540)
   >
   > - 결점을 알고도 일부러 썼다면 사기에 가까운 장시논리. 일부에게만 팔려도 이득이라는 betting
+  >
+  > I agree with the author, but I would also say there is something above goals and constraints. Values. A set of things that, when comparing multiple options, make the choice clear. An example of some values I frequently use is "What will give me the most enjoyment the furthest into the future? "What will result in the world being a better place?" "What will make me become someone who resembles Jesus more?" They are different from constraints as they don't knock out any options by default. Instead, they make triaging when there are many different things I could be doing much easier, and circumvent my messy intuition which is based on hormones, hunger, weather, etc.  
+  > I think values, goals, and constraints are all valuable, but it's a hierarchy. We should create constraints that help us become more aligned with our values. We should create shorter-term goals that make it easy to stay within our constraints. — [#](https://news.ycombinator.com/item?id=44236709)
 
 ### [wodenokoto](https://news.ycombinator.com/item?id=33258142)
 

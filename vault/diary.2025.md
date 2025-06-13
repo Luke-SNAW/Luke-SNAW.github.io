@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1749726899461
+updated: 1749794129220
 created: 1737241895427
 published: false
 ---
@@ -541,3 +541,17 @@ break time도 두 번 무시함. 인지를 해도 무시. 지금 당장이 못 �
 
 꾸준함으로 발전하기 위해 easy habit 생성
 [[Vomit|writing.vomit-draft]], [making 100 crappy videos](https://www.youtube.com/watch?v=OnUBaQ1Sp_E), 평소 70% 강도 수행하다 컨디션 좋을 때 고강도, 준비운동.
+
+## 2025-06-13
+
+### reward app #test
+
+When you accomplish a task, the app shows reward sentences, and pictures.
+
+- provocation, reward pair?
+
+### 내부 시그널 #vomit
+
+요즘 명상이나 풍경, 글쓰기, 일기 등의 활동이 늘어나서 외부자극 대비 내부 시그널 관찰 비율이 확 늘었다.
+덕분에 유튜브나 만화 보는 비중이 많이 낮아서 갱신량을 쫓을 수 없을 지경.
+요즘 밥먹을 때는 화면 보기가 싫고 맛에 좀 더 집중하게 된다.

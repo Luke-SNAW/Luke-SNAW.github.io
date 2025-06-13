@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1741138396001
+updated: 1749787846079
 created: 1644825680750
 ---
 
@@ -45,6 +45,8 @@ created: 1644825680750
   - https://news.ycombinator.com/item?id=43023508, https://news.hada.io/topic?id=19199
   - Unicode 문자열을 수용하는 시스템에서 버퍼 오버플로우를 유발할 수 있음
   - LLM 출력 워터마킹에 이 기술을 사용하는 아이디어가 마음에 듦 - 99%의 복사 붙여넣기 생성기를 쉽게 잡아낼 수 있음
+- Password policy recommendations for Microsoft 365 passwords > Some common approaches and their negative impacts
+  - [Password expiration requirements for users](https://learn.microsoft.com/en-us/microsoft-365/admin/misc/password-policy-recommendations?view=o365-worldwide#password-expiration-requirements-for-users)
 
 ## [A comprehensive guide to the dangers of Regular Expressions in JavaScript](https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/)
 

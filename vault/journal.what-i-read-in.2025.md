@@ -2,12 +2,20 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1749606465065
+updated: 1749788231386
 created: 1667632965028
 ---
 
 ## Week 24, 2025
 
+- [Next.js 15.1+ is unusable outside of Vercel](https://omarabid.com/nextjs-vercel)
+- Password policy recommendations for Microsoft 365 passwords > Some common approaches and their negative impacts
+  - [Password expiration requirements for users](https://learn.microsoft.com/en-us/microsoft-365/admin/misc/password-policy-recommendations?view=o365-worldwide#password-expiration-requirements-for-users)
+- [A receipt printer cured my procrastination](https://www.laurieherault.com/articles/a-thermal-receipt-printer-cured-my-procrastination)
+  - Video games are addictive due to their fast feedback loops, providing immediate reactions and rewards.
+  - To combat procrastination, tasks should be broken down into smaller, manageable micro-tasks.
+  - Using sticky notes for tasks adds a physical element that makes them harder to ignore and provides satisfying feedback when completed.
+  - A thermal receipt printer can streamline the task management process by allowing users to print tasks quickly and efficiently.
 - [Smart People Don't Chase Goals; They Create Limits](https://www.joanwestenberg.com/smart-people-dont-chase-goals-they-create-limits/)
   > The painter who begins with a blank canvas faces more paralysis than the one who starts with a frame and a palette.
   > One person sets a goal: become a best-selling author. Another imposes a constraint: write every day, but never write what bores me.
@@ -15,6 +23,9 @@ created: 1667632965028
   > > Wut? The constraints are what made it a hard problem, but the only reason they were able to hit this goal in an impossibly short timeline is the huge amount of resources that they put toward a very clear goal (which was, honestly, less "let man explore the heavens" than "beat the Soviets"). — [#](https://news.ycombinator.com/vote?id=44237540&how=un&auth=51df6f06022c423f1c5abe96dab72810e7a7f3c5&goto=item%3Fid%3D44232714#44237540)
   >
   > - 결점을 알고도 일부러 썼다면 사기에 가까운 장시논리. 일부에게만 팔려도 이득이라는 betting
+  >
+  > I agree with the author, but I would also say there is something above goals and constraints. Values. A set of things that, when comparing multiple options, make the choice clear. An example of some values I frequently use is "What will give me the most enjoyment the furthest into the future? "What will result in the world being a better place?" "What will make me become someone who resembles Jesus more?" They are different from constraints as they don't knock out any options by default. Instead, they make triaging when there are many different things I could be doing much easier, and circumvent my messy intuition which is based on hormones, hunger, weather, etc.  
+  > I think values, goals, and constraints are all valuable, but it's a hierarchy. We should create constraints that help us become more aligned with our values. We should create shorter-term goals that make it easy to stay within our constraints. — [#](https://news.ycombinator.com/item?id=44236709)
 - [Tracking the performance of the various coding agents.](https://aavetis.github.io/ai-pr-watcher/)
 - [Pivot Points](https://longform.asmartbear.com/pivot-points/)
   - **Contextual Evaluation**: Unlike traditional assessments that categorize traits as strengths or weaknesses, Pivot Points recognize that their value is context-dependent.
