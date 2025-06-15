@@ -2,9 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1749788231386
+updated: 1749980419547
 created: 1667632965028
 ---
+
+## Week 25, 2025
+
+- [If the moon were only 1 pixel: A tediously accurate solar system model (2014)](https://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html)
+- [How do I give back to people helped me when I was young and had nothing?](https://news.ycombinator.com/item?id=44268448)
+  - Keep the gates open that were not gatekept for you
+  - simply telling them "you were incredibly kind to me and you are a big reason for me trying to be kind to others" might just make their day
+  - Pay it forward
 
 ## Week 24, 2025
 
@@ -16,6 +24,7 @@ created: 1667632965028
   - To combat procrastination, tasks should be broken down into smaller, manageable micro-tasks.
   - Using sticky notes for tasks adds a physical element that makes them harder to ignore and provides satisfying feedback when completed.
   - A thermal receipt printer can streamline the task management process by allowing users to print tasks quickly and efficiently.
+  - I'll use [3M Flags, Tabs & Page Markers](https://www.3m.com/3M/en_US/p/c/office-supplies/flags-tabs-page-markers/i/consumer/office/)
 - [Smart People Don't Chase Goals; They Create Limits](https://www.joanwestenberg.com/smart-people-dont-chase-goals-they-create-limits/)
   > The painter who begins with a blank canvas faces more paralysis than the one who starts with a frame and a palette.
   > One person sets a goal: become a best-selling author. Another imposes a constraint: write every day, but never write what bores me.

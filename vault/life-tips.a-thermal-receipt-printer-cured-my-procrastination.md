@@ -2,9 +2,12 @@
 id: 5rogevg8i90bq52acpx8kny
 title: A receipt printer cured my procrastination
 desc: ""
-updated: 1749786311147
+updated: 1749977162597
 created: 1749781810153
+tags: test
 ---
+
+I'll use [3M Flags, Tabs & Page Markers](https://www.3m.com/3M/en_US/p/c/office-supplies/flags-tabs-page-markers/i/consumer/office/)
 
 > https://www.laurieherault.com/articles/a-thermal-receipt-printer-cured-my-procrastination
 
@@ -25,10 +28,6 @@ Why can I focus for hours on a game but procrastinate on simple tasks? I finally
 ---
 
 By Laurie Hérault
-
-10 min. read
-
-View original
 
 ---
 

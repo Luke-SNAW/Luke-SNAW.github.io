@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1749889564342
+updated: 1749988817347
 created: 1737241895427
 published: false
 ---
@@ -445,6 +445,7 @@ R5C 모임
 - 심심. 여유
 - 이틀 전 도시락 놓고옴. 탁자 위에 잡동사니들이 뭉쳐 있어 들고 나갈 물건들이 시각적으로 파묻혀 구분이 안된다.
 - 날짜별 todo list 노트
+- 휴식시간 되면 더 할만하다면서 진행하는 경우가 많은데, 그냥 쉬어. 모두 소진하고 쉬지말고. 여유 남기고 휴식을 취해라.
 
 - 명상, 암적응, 호흡 느리게, 논리영역, 심박수 낮춤, 사고 clock 느리게
 
@@ -579,3 +580,13 @@ When you accomplish a task, the app shows reward sentences, and pictures.
 ### 환기
 
 이발 외출 전에 환기를 시켰더니 시원한 바람에 기분전환이 됨. 공기 좋을 땐 열어놓자구
+
+## 2025-06-15
+
+### 여유
+
+왠지 하루가 여유 있음.
+
+- 여지를 남기고 휴식을 일부러 챙겨서?
+- 폰을 잘 안봐서?
+- flag로 chore 처리해서? [[A receipt printer cured my procrastination|life-tips.a-thermal-receipt-printer-cured-my-procrastination]]
