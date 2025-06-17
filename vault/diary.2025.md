@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1749988817347
+updated: 1750127216201
 created: 1737241895427
 published: false
 ---
@@ -590,3 +590,49 @@ When you accomplish a task, the app shows reward sentences, and pictures.
 - 여지를 남기고 휴식을 일부러 챙겨서?
 - 폰을 잘 안봐서?
 - flag로 chore 처리해서? [[A receipt printer cured my procrastination|life-tips.a-thermal-receipt-printer-cured-my-procrastination]]
+
+## 2025-06-16 #vomit
+
+### 일과 여유
+
+flag로 chore 처리와 동시에 일부러 여백 휴식을 가지니 확실히 좋다.
+후술할 패배로 망가졌지만
+
+### 20% 승률
+
+시간 효율 보면 맞는데, 자꾸 내 뇌건강이 소모된다.
+접근 통제.
+제발 여유 있을 때 휴식.
+
+## 2025-06-17
+
+### typing #vomit
+
+뭔가 느끼는게 많음
+
+- 서두르면 망친다. 확실한 수행이 중요.
+  - 의식하지 못했던 영어 속독 집착 버림
+- 당장 속도가 안나와도 꾸준히 쌓는게 중요
+  - 편안하게 70% 정도의 강도로 습관 형성
+- 단어 타이핑 하는 그 짧은 시간에도 사전에 손가락 흐름 머리속으로 한 번 그리고 치면 더 좋음. 익숙해지면 필요 없어질 거 같긴 함.
+  - modeling 확인?
+
+### AI code generation #test #vomit
+
+옛날 러시아 프로그래머들은 실제 프로그램 돌리는 비용이 너무 들어가니 수행 전에 빡세게 생각했다고 한다. (디버깅 횟수 줄이기)
+modeling. 레즐리 램포트는 무조건 생각 먼저 해보는게 좋다고 한다.
+AI에게 맡기기전에 설계급으로 디자인, 가드레일, 문서 draft? -> AI가 제대로 생성하면 개이득, 결과물이 별로여도 내가 미리 만든 건 가치있는 생성
+캔트백은 지속적으로 그 동안의 "90%의 기술이 가치를 잃고, 10%의 기술이 1000배 증가"한다고 함.
+
+Unfortunately reviewing code is actually harder than most people think. It takes me at least the same amount of time to review code not written by me than it would take me to write the code myself, if not more. — https://blog.miguelgrinberg.com/post/why-generative-ai-coding-tools-and-agents-do-not-work-for-me
+
+### 뒷덜미 누르기 #test
+
+뭐지? 잠 1시간 모자라서 머리가 잘 안돌아가는데 sit up때 목덜미 거는 식으로 한 손으로 누르니 정신이 맑아지는데?
+
+### 공간 효율 -> 여백으로 인지 부담 적게? #vomit
+
+예전부터 물건이 있으면 공간효율 때문에 책, 휴대폰, 종이 같은 게 있으면 쌓을 수 있을 때 쌓아뒀는데,
+ref여백을 의식해서 단층, 각각 margin을 두고 두니 더 좋아보이는 거 같기도?
+
+첵에 휴대폰 올려놓는 걸 예로 들면, collision 영역이 줄어들어 인지 부담이 줄어드는 거 같기도 하고. 더 깔끔해보이고. 의미있어 보이고.

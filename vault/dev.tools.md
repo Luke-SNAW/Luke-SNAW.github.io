@@ -2,7 +2,7 @@
 id: 5iokala6y4rafqa368l1a4h
 title: Dev Tools
 desc: ""
-updated: 1746141952304
+updated: 1750121717061
 created: 1647145480774
 ---
 
@@ -10,16 +10,6 @@ created: 1647145480774
 
 - [free-for.dev](https://github.com/ripienaar/free-for-dev) - A list of SaaS, PaaS and IaaS offerings that have free tiers of interest to devops and infradev
 - [Materials for Programming Courses](https://marko-knoebl.github.io/slides/)
-  - React
-  - Vue
-  - Python
-  - Python and Data Science
-  - General
-  - HTML and CSS
-  - JavaScript and Typescript
-  - Data Types and Data Formats
-  - Databases
-  - Others
 - [Devhints.io](https://devhints.io/) - cheatsheets
 - [crontab guru](https://crontab.guru/) - The quick and simple editor for cron schedule expressions by [Cronitor]
   - [Cronitor](https://cronitor.io/cron-job-monitoring/) - Cron job monitoring and observability"
@@ -94,8 +84,6 @@ created: 1647145480774
   - [Hacker News FAQ](https://news.ycombinator.com/newsfaq.html)
   - [A List of Hacker News's Undocumented Features and Behaviors](https://github.com/minimaxir/hacker-news-undocumented)
   - about [down vote](https://news.ycombinator.com/item?id=16131314)
-  - [Ask Hacker News Weekly](https://www.daemonology.net/hn-weekly-ask/)
-- [Code Philosophy](https://www.codephilosophy.co/) - https://alexkondov.com/
 
 ## Low code
 
@@ -120,3 +108,13 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
 - https://www.svgviewer.dev/
 - https://imagestool.com/webp2jpg-online/
 - https://evanw.github.io/thumbhash/
+
+## AI
+
+### CUDA
+
+스테이블 디퓨젼 또는 LLM 프로그램같이 쿠다 가속을 이용하는 경우, 그래픽 카드의 메모리 사용 용량을 넘어가서 시스템 메모리와 혼용해서 사용하게 되면, 실행 속도가 극단적으로 느려지게 된다. 완료에 30초 걸릴 프로그램이 10~20분 넘어도 완료가 안될수도 있다. 이런 경우, 그냥 종료하고 프로그램 셋팅을 다시 잡아서 AI 프로그램이 사용할 메모리 용량이 그래픽카드의 램을 초과하지 않게 하는게 나은데, 아래 설정으로 쿠다 가속을 사용하는 AI 프로그램이 시스템 메모리를 사용하지 않게 설정이 가능한다.
+
+바탕화면에서 우클릭후 nvidia 제어판을 열어서 3D 설정관리 / 프로그램 설정에서 공유 메모리를 제한할 프로그램(주로 Python.exe) 경로를 선택하고, 설정을 '시스템 메모리 배대체 선호'로 변경해 준다.
+
+복구는 위항목으로 디폴트값으로 변경하거나 해당 프로그램 설정 자체를 삭제하면 된다.
