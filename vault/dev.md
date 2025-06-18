@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1743377827322
+updated: 1750210264006
 created: 1644451403760
 ---
 
@@ -54,6 +54,7 @@ created: 1644451403760
   > In technical communication, we don’t talk much about decision support; we talk about task support… In many cases, the information people need to complete their tasks is not information on how to operate machines, but information to support their decision making… simply documenting the procedures is never enough… What I am talking about is documenting the context, letting users know what decisions they must make, making them aware of the consequences, and, as far as possible, leading them to resources and references that will assist them in deciding what to do. — [Every Page Is Page One](https://xmlpress.net/publications/eppo/)
 - [Psychological Safety and the Only Pyramid Scheme That Works](https://iamevan.me/blog/psychological-safety-and-the-only-pyramid-scheme-that-works)
   > As people feel more and more secure in doing deployments, raising issues and speaking confidently in a company, the amount of failure goes down.
+- [The Grug Brained Developer](https://grugbrain.dev/) - A layman's guide to thinking like the self-aware smol brained
 
 ### re:Work
 

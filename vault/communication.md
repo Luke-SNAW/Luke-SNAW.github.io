@@ -2,7 +2,7 @@
 id: g1fngdjl25nes6fs3lip602
 title: Communication
 desc: ""
-updated: 1742953588722
+updated: 1750205225199
 created: 1652404654841
 ---
 
@@ -19,6 +19,13 @@ created: 1652404654841
   > A useful habit is to practice random acts of kindness daily, whenever convenient.
 - [Always Go To The Funeral](https://www.npr.org/2005/08/08/4785079/always-go-to-the-funeral)
   > In my humdrum life, the daily battle hasn't been good versus evil. It's hardly so epic. Most days, my real battle is doing good versus doing nothing.
+- [How to give a senior leader feedback (without getting fired)](https://newsletter.weskao.com/p/how-to-give-a-senior-leader-feedback-without-getting-fired)
+  - Before giving feedback, assess your own role in the situation and consider if the issue is worth addressing.
+  - Use the "even more" technique to frame feedback positively, suggesting enhancements rather than criticizing past actions.
+  - Share personal experiences instead of directly telling the leader what to do to reduce defensiveness.
+  - Employ diplomatic language that invites collaboration, such as "What are your thoughts on..." or "Perhaps we could..."
+  - Offer concrete examples and data to support your feedback, making it more persuasive and actionable.
+  - Position your feedback to focus on future improvements rather than past mistakes to prevent a defensive reaction.
 
 ## Why doesn't advice work? - from [efitz](https://news.ycombinator.com/item?id=41113807)
 

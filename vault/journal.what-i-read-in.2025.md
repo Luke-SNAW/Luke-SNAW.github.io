@@ -2,12 +2,24 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1749980419547
+updated: 1750210639958
 created: 1667632965028
 ---
 
 ## Week 25, 2025
 
+- [The Grug Brained Developer](https://grugbrain.dev/) - A layman's guide to thinking like the self-aware smol brained
+- [How to give a senior leader feedback (without getting fired)](https://newsletter.weskao.com/p/how-to-give-a-senior-leader-feedback-without-getting-fired)
+  - Before giving feedback, assess your own role in the situation and consider if the issue is worth addressing.
+  - Use the "even more" technique to frame feedback positively, suggesting enhancements rather than criticizing past actions.
+  - Share personal experiences instead of directly telling the leader what to do to reduce defensiveness.
+  - Employ diplomatic language that invites collaboration, such as "What are your thoughts on..." or "Perhaps we could..."
+  - Offer concrete examples and data to support your feedback, making it more persuasive and actionable.
+  - Position your feedback to focus on future improvements rather than past mistakes to prevent a defensive reaction.
+- [Why Generative AI Coding Tools and Agents Do Not Work For Me](https://blog.miguelgrinberg.com/post/why-generative-ai-coding-tools-and-agents-do-not-work-for-me)
+  - reviewing AI-generated code takes as much time as writing code from scratch, if not more.
+  - interns learn and improve over time, while AI does not retain knowledge from past tasks.
+  - Claims that AI increases speed or productivity often come from lowering quality standards while accepting additional risks, or stem from the interests of AI vendors.
 - [If the moon were only 1 pixel: A tediously accurate solar system model (2014)](https://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html)
 - [How do I give back to people helped me when I was young and had nothing?](https://news.ycombinator.com/item?id=44268448)
   - Keep the gates open that were not gatekept for you

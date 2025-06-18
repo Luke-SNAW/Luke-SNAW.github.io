@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1749446418407
+updated: 1750210662927
 created: 1688605282146
 ---
 
@@ -83,6 +83,10 @@ created: 1688605282146
   > The key differentiator is no longer technical skill but judgement.
 - [A look at CloudFlare’s AI-coded OAuth library](https://neilmadden.blog/2025/06/06/a-look-at-cloudflares-ai-coded-oauth-library/)
   > It’s not bad, but I wouldn’t really recommend it for use yet.
+- [Why Generative AI Coding Tools and Agents Do Not Work For Me](https://blog.miguelgrinberg.com/post/why-generative-ai-coding-tools-and-agents-do-not-work-for-me)
+  - reviewing AI-generated code takes as much time as writing code from scratch, if not more.
+  - interns learn and improve over time, while AI does not retain knowledge from past tasks.
+  - Claims that AI increases speed or productivity often come from lowering quality standards while accepting additional risks, or stem from the interests of AI vendors.
 
 ## ETC
 
