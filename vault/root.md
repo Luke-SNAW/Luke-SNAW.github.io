@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1747097383182
+updated: 1750297625092
 created: 1644449449778
 ---
 
@@ -26,6 +26,10 @@ Hi there 👋. I'm a Front-end developer.
 > Make the difficult habitual, the habitual easy, and the easy beautiful. — [Constantin S. Stanislavski](https://www.goodreads.com/quotes/7102271-make-the-difficult-habitual-the-habitual-easy-and-the-easy)
 
 > A good match is a **structured** dance, where players aim to **score** while they are following well-defined **rules**. This **freedom within a structure** is what makes it fun. — [ralphammer](https://ralphammer.com/how-to-get-started/)
+
+- [Pivot Points](https://longform.asmartbear.com/pivot-points/)
+  - non-judgmental aspects of personality that can be strengths in some contexts and weaknesses in others
+  - Pivot Points are fixed in the short term
 
 > “Motivation often comes after starting, not before. Action produces momentum.” — James Clear
 
