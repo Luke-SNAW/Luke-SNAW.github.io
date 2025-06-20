@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1747292649689
+updated: 1750396739999
 created: 1646129148306
 ---
 
@@ -102,6 +102,7 @@ created: 1646129148306
 - [Relative Colors](https://ishadeed.com/article/css-relative-colors/) - An interactive guide to learn CSS Relative Colors.
   - [OKLCH in CSS: why we moved from RGB and HSL](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl)
 - [How to have the browser pick a contrasting color in CSS](https://webkit.org/blog/16929/contrast-color/)
+- [Animating zooming using CSS: transform order is important… sometimes](https://jakearchibald.com/2025/animating-zooming/)
 
 ## Pseudo-class
 
