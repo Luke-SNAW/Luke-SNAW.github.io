@@ -2,9 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1750396727682
+updated: 1750730028999
 created: 1667632965028
 ---
+
+## Week 26, 2025
+
+- [Software Sprawl, The Golden Path, and Scaling Teams With Agency](https://charity.wtf/2018/12/02/software-sprawl-the-golden-path-and-scaling-teams-with-agency/)
+  - The Golden Path should be fully supported by the organization, ensuring engineers understand that using non-standard components comes with the responsibility for their maintenance.
+  - Emphasizing the need for friction when adding new components can help manage the support burden and prevent unnecessary complexity in the tech stack.
+- [Am I unique?](https://www.amiunique.org/fingerprint)
+- [Cover your tracks](https://coveryourtracks.eff.org/) - See how trackers view your browser
 
 ## Week 25, 2025
 

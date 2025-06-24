@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1746746445607
+updated: 1750640319773
 created: 1644799670081
 ---
 
@@ -170,6 +170,8 @@ Microsoft IME, [날개셋 입력기](https://namu.wiki/w/%EB%82%A0%EA%B0%9C%EC%8
 - [상남자식 마크다운 공유 웹서비스](https://mdshare060114.web.app/?edit=false)
   - DB따위 쓰지 않고 URL로 모든 정보를 저장하는 호방함과 안전함, 그리고 간단함
   - .md파일 업로드 혹은 textarea에서 직접 마크다운 문서 작성 가능
+- [Am I unique?](https://www.amiunique.org/fingerprint)
+- [Cover your tracks](https://coveryourtracks.eff.org/) - See how trackers view your browser
 
 ### 구글 시트
 

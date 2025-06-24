@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1750210264006
+updated: 1750730038941
 created: 1644451403760
 ---
 
@@ -55,6 +55,9 @@ created: 1644451403760
 - [Psychological Safety and the Only Pyramid Scheme That Works](https://iamevan.me/blog/psychological-safety-and-the-only-pyramid-scheme-that-works)
   > As people feel more and more secure in doing deployments, raising issues and speaking confidently in a company, the amount of failure goes down.
 - [The Grug Brained Developer](https://grugbrain.dev/) - A layman's guide to thinking like the self-aware smol brained
+- [Software Sprawl, The Golden Path, and Scaling Teams With Agency](https://charity.wtf/2018/12/02/software-sprawl-the-golden-path-and-scaling-teams-with-agency/)
+  - The Golden Path should be fully supported by the organization, ensuring engineers understand that using non-standard components comes with the responsibility for their maintenance.
+  - Emphasizing the need for friction when adding new components can help manage the support burden and prevent unnecessary complexity in the tech stack.
 
 ### re:Work
 
