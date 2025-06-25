@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1750739701521
+updated: 1750809113714
 created: 1737241895427
 published: false
 ---
@@ -776,3 +776,9 @@ ref점점 외부 contents 비중이 줄어들고 나 자신에 대한 것들이 
 bad - OK - good - great
 
 뇌 상태 봐가며 OK에 휴식을 취하니 관리하기 좋음
+
+**주의**
+기껏 일찍 자려고 세팅 다 해놓고 누웠는데 잠이 안옴.
+
+만화나 보면서 뇌 상태 체크 했는데 good
+그래도 시간 너무 지나서 끄고 다시 잠 청할까 했는데 갑자기 ok 밑으로 떨어짐.
