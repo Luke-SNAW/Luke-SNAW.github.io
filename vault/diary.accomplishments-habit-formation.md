@@ -2,7 +2,7 @@
 id: j71mrhhqz6x9o90gwj5lmks
 title: Accomplishments Habit Formation
 desc: ""
-updated: 1749079071059
+updated: 1750920317865
 created: 1748831002093
 ---
 
@@ -10,6 +10,7 @@ created: 1748831002093
 
 ## 2025
 
+- 외부에서 가져와 노력없이 편히 소비하는 contents 비중이 점점 줄어들고, 글쓰기나, 독서 같은 자신에게 생산적인 활동에서 얻는 contents 소비 비중이 늘어남 06
 - 🥱 -> 🤔💡🌱 04
   - [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming)
     - boredom -> easy fun -> art -> profit?
