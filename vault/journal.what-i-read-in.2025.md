@@ -2,12 +2,16 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1750730028999
+updated: 1750981647678
 created: 1667632965028
 ---
 
 ## Week 26, 2025
 
+- [Navigating the unpredictability of everything](https://longform.asmartbear.com/predict-the-future/)
+  - A robust strategy should include multiple pathways to success, reducing reliance on any single outcome and increasing resilience against unpredictability.
+  - Companies should focus on what will not change in the future, such as customer desires and fundamental needs, rather than trying to predict specific changes.
+  - Exploring a range of possible futures and simplifying complex plans can help organizations better manage unpredictability and respond effectively to changing circumstances.
 - [Software Sprawl, The Golden Path, and Scaling Teams With Agency](https://charity.wtf/2018/12/02/software-sprawl-the-golden-path-and-scaling-teams-with-agency/)
   - The Golden Path should be fully supported by the organization, ensuring engineers understand that using non-standard components comes with the responsibility for their maintenance.
   - Emphasizing the need for friction when adding new components can help manage the support burden and prevent unnecessary complexity in the tech stack.

@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1750920394752
+updated: 1750983458399
 created: 1737241895427
 published: false
 ---
@@ -797,3 +797,7 @@ bad - OK - good - great
 
 다른 글씨는 잘 쓴거 같은데, 잘 쓴거 맞나? 싶기도 함.
 한석봉 글씨는 그냥 잘 썼음.
+
+## 2025-06-27
+
+사진 구성 요소 조합도 [[Hedged|lift-tips.predict-the-future#hedged-bets]]의 개념으로?
