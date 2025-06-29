@@ -1,0 +1,44 @@
+<h1 id="reliably-send-an-http-request-as-a-user-leaves-a-page">Reliably Send an HTTP Request as a User Leaves a Page<a aria-hidden="true" class="anchor-heading icon-link" href="#reliably-send-an-http-request-as-a-user-leaves-a-page"></a></h1>
+<p><a href="https://css-tricks.com/send-an-http-request-on-page-exit/">https://css-tricks.com/send-an-http-request-on-page-exit/</a></p>
+<h1 id="browsers-dont-guarantee-to-preserve-open-http-requests">Browsers don’t guarantee to preserve open HTTP requests<a aria-hidden="true" class="anchor-heading icon-link" href="#browsers-dont-guarantee-to-preserve-open-http-requests"></a></h1>
+<p>When something occurs to terminate a page in the browser, there’s no guarantee that an in-process HTTP request will be successful (<a href="https://developers.google.com/web/updates/2018/07/page-lifecycle-api">see more</a> about the “terminated” and other states of a page’s lifecycle).</p>
+<p>...</p>
+<p>When navigation occurs, the request is cancelled.</p>
+<h1 id="but-why-are-they-cancelled">But why are they cancelled?<a aria-hidden="true" class="anchor-heading icon-link" href="#but-why-are-they-cancelled"></a></h1>
+<p>The root of the issue is that, by default, <strong>XHR</strong> requests (via fetch or XMLHttpRequest) are asynchronous and non-blocking. As soon as the request is queued, the actual work of the request is handed off to a browser-level API behind the scenes.</p>
+<p>As it relates to performance, this is good — you don’t want requests hogging the main thread. But it also means there’s a risk of them being deserted when a page enters into that “terminated” state, leaving no guarantee that any of that behind-the-scenes work reaches completion. <a href="https://developers.google.com/web/updates/2018/07/page-lifecycle-api#states">Here’s how Google summarizes</a> that specific lifecycle state:</p>
+<blockquote>
+<p>A page is in the terminated state once it has started being unloaded and cleared from memory by the browser. No <a href="https://html.spec.whatwg.org/multipage/webappapis.html#queue-a-task">new tasks</a> can start in this state, and in-progress tasks may be killed if they run too long.</p>
+</blockquote>
+<p>In short, the browser is designed with the assumption that when a page is dismissed, there’s no need to continue to process any background processes queued by it.</p>
+<h1 id="so-what-are-our-options">So, what are our options?<a aria-hidden="true" class="anchor-heading icon-link" href="#so-what-are-our-options"></a></h1>
+<p>... to delay the user action until the request returns a response.<br>
+That gets the job done, but there are some non-trivial drawbacks.</p>
+<p>First, it compromises the user’s experience by delaying the desired behavior from occurring.</p>
+<p>Second, this approach isn’t as reliable as it initially sounds, since some termination behaviors can’t be programmatically delayed.<br>
+For example, e.preventDefault() is useless in delaying someone from closing a browser tab.</p>
+<h1 id="instructing-the-browser-to-preserve-outstanding-requests">Instructing the browser to preserve outstanding requests<a aria-hidden="true" class="anchor-heading icon-link" href="#instructing-the-browser-to-preserve-outstanding-requests"></a></h1>
+<h2 id="using-fetchs-keepalive-flag">Using Fetch’s keepalive flag<a aria-hidden="true" class="anchor-heading icon-link" href="#using-fetchs-keepalive-flag"></a></h2>
+<p>If the <a href="https://fetch.spec.whatwg.org/#request-keepalive-flag">keepalive flag</a> is set to true when using fetch(), the corresponding request will remain open, even if the page that initiated that request is terminated.</p>
+<h2 id="using-navigatorsendbeacon">Using <a href="https://w3c.github.io/beacon/#sec-processing-model">Navigator.sendBeacon()</a><a aria-hidden="true" class="anchor-heading icon-link" href="#using-navigatorsendbeacon"></a></h2>
+<h2 id="an-honorable-mention-for-the-ping-attribute">An honorable mention for <a href="https://css-tricks.com/the-ping-attribute-on-anchor-links/">the ping attribute</a><a aria-hidden="true" class="anchor-heading icon-link" href="#an-honorable-mention-for-the-ping-attribute"></a></h2>
+<p>It’s technically similar to sending a beacon, but has a few notable limitations:</p>
+<ol>
+<li>It’s strictly limited for use on links, which makes it a non-starter if you need to track data associated with other interactions, like button clicks or form submissions.</li>
+<li>Browser support is good, <a href="https://caniuse.com/ping">but not great</a>.</li>
+<li>You’re unable to send any custom data along with the request. As mentioned, the most you’ll get is a couple of ping-* headers, along with whatever other headers are along for the ride.</li>
+</ol>
+<h1 id="so-which-one-should-i-reach-for">So, which one should I reach for?<a aria-hidden="true" class="anchor-heading icon-link" href="#so-which-one-should-i-reach-for"></a></h1>
+<p>There are definitely tradeoffs to using either fetch with keepalive or sendBeacon() to send your last-second requests. To help discern which is the most appropriate for different circumstances, here are some things to consider:</p>
+<h2 id="you-might-go-with-fetch--keepalive-if">You might go with <code>fetch()</code> + <code>keepalive</code> if:<a aria-hidden="true" class="anchor-heading icon-link" href="#you-might-go-with-fetch--keepalive-if"></a></h2>
+<ul>
+<li>You need to easily pass custom headers with the request.</li>
+<li>You want to make a GET request to a service, rather than a POST.</li>
+<li>You’re supporting older browsers (like IE) and already have a fetch polyfill being loaded.</li>
+</ul>
+<h2 id="but-sendbeacon-might-be-a-better-choice-if">But <code>sendBeacon()</code> might be a better choice if:<a aria-hidden="true" class="anchor-heading icon-link" href="#but-sendbeacon-might-be-a-better-choice-if"></a></h2>
+<ul>
+<li>You’re making simple service requests that don’t need much customization.</li>
+<li>You prefer the cleaner, more elegant API.</li>
+<li>You want to guarantee that your requests don’t compete with other high-priority requests being sent in the application.</li>
+</ul>
