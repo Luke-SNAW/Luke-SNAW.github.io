@@ -2,7 +2,7 @@
 id: 6hzeqsofq67gdk88flxlkhp
 title: Book Report
 desc: ""
-updated: 1750048984507
+updated: 1751200558308
 created: 1737617297333
 ---
 
@@ -23,7 +23,11 @@ Book reports tend to be a little more descriptive (What is this book about?) and
 
 - [[법정 - 스스로 행복하라|book-report.법정-스스로-행복하라]] 2025/05
 - [[법륜 스님의 행복|book-report.법륜-스님의-행복]] 2025/05
-- 좋은 사진을 만드는 ZAKO의 여행 사진 잘 찍는 법
-  - 황금비율? main, sub의 비율로 밸런스를 추구:
+- 좋은 사진을 만드는 ZAKO의 여행 사진 잘 찍는 법 2025/06
+  - 황금비율, 1:1, 1:2 등 main, sub의 비율로 밸런스를 추구:
     - main target만 찍으면 심심하거나 균형감이 떨어진다고 생각하는 듯
     - 도로를 찍을 때 빈 공간에 사람이 오길 기다린다든지
+  - 가장 높은 건물에서 찍기 위해 주인에게 허락을 받음
+- 새는 바보다 2025/06
+  - 소소한 요소까지 풍자
+  - 스케치i
