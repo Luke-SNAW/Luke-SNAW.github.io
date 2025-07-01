@@ -1,7 +1,7 @@
 ---
 id: xehebn8zss3g5hosg16i25j
 title: Navigating the unpredictability of everything
-desc: ""
+desc: ''
 updated: 1750983422378
 created: 1750981395861
 ---

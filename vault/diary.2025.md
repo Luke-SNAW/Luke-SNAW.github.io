@@ -809,7 +809,7 @@ bad - OK - good - great
 
 ## 2025-06-27
 
-사진 구성 요소 조합도 [[Hedged|lift-tips.predict-the-future#hedged-bets]]의 개념으로? #vomit
+사진 구성 요소 조합도 [[Hedged|life-tips.predict-the-future#hedged-bets]]의 개념으로? #vomit
 
 ### 퇴근 지하철 내리고 명상
 
