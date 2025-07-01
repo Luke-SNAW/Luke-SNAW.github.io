@@ -2,9 +2,15 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1750981647678
+updated: 1751241360674
 created: 1667632965028
 ---
+
+## Week 27, 2025
+
+- [Try This One Weird Trick Russian Hackers Hate (2021)](https://krebsonsecurity.com/2021/05/try-this-one-weird-trick-russian-hackers-hate/)
+- [The Death of the Middle-Class Musician](https://thewalrus.ca/the-death-of-the-middle-class-musician/)
+  - https://news.ycombinator.com/item?id=44408552
 
 ## Week 26, 2025
 
