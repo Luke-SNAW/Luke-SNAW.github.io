@@ -2,11 +2,11 @@
 id: q1s1t5u04tbps902e9vksy3
 title: Impression
 desc: ""
-updated: 1751420181132
+updated: 1751463208782
 created: 1751067827277
 ---
 
-## with [Pivot Points](https://longform.asmartbear.com/pivot-points/)
+## with [Pivot Points](https://longform.asmartbear.com/pivot-points/) #with_pivot_points
 
 - 🥱 -> 🤔💡🌱 — [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming)
 
