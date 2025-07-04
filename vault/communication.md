@@ -2,7 +2,7 @@
 id: g1fngdjl25nes6fs3lip602
 title: Communication
 desc: ""
-updated: 1750205225199
+updated: 1751601602070
 created: 1652404654841
 ---
 
@@ -26,6 +26,9 @@ created: 1652404654841
   - Employ diplomatic language that invites collaboration, such as "What are your thoughts on..." or "Perhaps we could..."
   - Offer concrete examples and data to support your feedback, making it more persuasive and actionable.
   - Position your feedback to focus on future improvements rather than past mistakes to prevent a defensive reaction.
+- No one likes meetings. They’re sending their AI note takers instead.
+  - https://news.ycombinator.com/item?id=44446916
+  - https://news.hada.io/comment?id=40962
 
 ## Why doesn't advice work? - from [efitz](https://news.ycombinator.com/item?id=41113807)
 

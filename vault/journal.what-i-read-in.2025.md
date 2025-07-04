@@ -2,12 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1751241360674
+updated: 1751606154861
 created: 1667632965028
 ---
 
 ## Week 27, 2025
 
+- No one likes meetings. They’re sending their AI note takers instead.
+  - https://news.ycombinator.com/item?id=44446916
+  - https://news.hada.io/comment?id=40962
+- [I scanned all of GitHub's "oops commits" for leaked secrets](https://trufflesecurity.com/blog/guest-post-how-i-scanned-all-of-github-s-oops-commits-for-leaked-secrets)
+  - Maybe I missed it but the article doesn't mention the even easier way to see this: the activity tab. Any force push to hide ugly prototype code is kept forever which annoys me. — [Pwhy1](https://news.ycombinator.com/item?id=44452623)
 - [Try This One Weird Trick Russian Hackers Hate (2021)](https://krebsonsecurity.com/2021/05/try-this-one-weird-trick-russian-hackers-hate/)
 - [The Death of the Middle-Class Musician](https://thewalrus.ca/the-death-of-the-middle-class-musician/)
   - https://news.ycombinator.com/item?id=44408552
