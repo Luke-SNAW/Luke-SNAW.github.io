@@ -2,7 +2,7 @@
 id: qf0l4wbrc9jgooyzexmbq5v
 title: Writing
 desc: ""
-updated: 1720490772703
+updated: 1752130464272
 created: 1674003802450
 ---
 
@@ -20,3 +20,4 @@ created: 1674003802450
   > — [albrewer](https://news.ycombinator.com/item?id=35307562)
 - [How to think in writing: Part 1: The thought behind the thought](https://www.henrikkarlsson.xyz/p/writing-to-think)
   > If your goal is to probe the validity of your thoughts, this is painfully inefficient. You'll get much further if you do one or two simple passes on your writing, and then pass what you've written around and ask for feedback. — [BeetieB](https://news.ycombinator.com/item?id=40894966)
+- [Writing in the Age of LLMs](https://www.sh-reya.com/blog/ai-writing/)

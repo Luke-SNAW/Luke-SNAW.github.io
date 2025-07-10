@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1750210662927
+updated: 1751847680377
 created: 1688605282146
 ---
 
@@ -96,3 +96,39 @@ This has been my complaint about AI from the beginning, and it hasn't gotten bet
 Where AI has really improved my productivity is in acting like a colleague I can talk to. "I'm going to start working on X: how would you approach it? what should I know that isn't obvious from the beginning?" or "I am thinking about using Y approach for X problem but I don't see a lot of literature about it. Is there a reason it's not more common?".
 
 These "chats" only take 10-30 minutes and have already led me to learn a bunch of new things, and helps keep me moving on projects where in the past I'd have spent 2-3x as long working through ideas, searching for literature, and figuring things out.
+
+## [Show HN: I AI-coded a tower defense game and documented the whole process](https://news.ycombinator.com/item?id=44463967)
+
+> [Prompts used to develop Tower of Time](https://github.com/maciej-trebacz/tower-of-time-game/blob/main/PROMPTS.md)
+
+> vibe coding 성공 사례"에 관한 글들은, 마치 다수의 에이전트와 복잡한 코드 오케스트레이션, LLM으로 생성된 룰만 갖추면 “시간을 되감는 타워 디펜스 게임을 만들고 결함도 버그도 없게”라는 프롬프트 한 줄로 게임이 뚝딱 만들어진다는 식의 환상을 주는 경우가 많음
+> 하지만, 실제 프로젝트에 사용된 프롬프트들은 AI 코딩에 가장 잘 먹히는 방식과 일치함
+> 명확하고 꼼꼼한 아이디어를 수백 개의 작은 문제로 쪼개고, 정말 중요한 부분에는 구체적인 아키텍처적 가이드를 주는 방식이 효과적임
+
+> > 기술 리드와 프로덕트 오너 역할을 병행하는 입장에서, 이 방식이 인간과 일할 때도 정석임
+> > 내 일의 70%는 임원의 “타임 트래블 타워 게임, 버그 없이”라는 추상적 요구를, 팀이 높은 추상화를 유지하면서 서로 겹치지 않게 작업할 수 있도록, 강력한 아키텍처 비전이 맥락에 담긴 일련의 프롬프트로 바꾸는 일임
+
+> > AI 코딩에서 잘 통하는 내 방식은, 기본 기능이나 게임플레이 뼈대를 AI로 ‘원샷’으로 만든 뒤, 그 위에 여러 번 반복적으로 쌓아가는 것임
+> > 원샷 결과가 바로 인상적이지 않으면, 바로 다른 프롬프트로 보완해서 괜찮은 결과가 나올 때까지 재시도해 기반을 마련함
+
+> AI는 크게 세 가지 역할을 함
+> (1) 학습 도구 - 내가 용어를 몰라도 질문 의도를 잘 파악해서 시작점을 잡아주고, ‘내가 몰랐던 사실’까지 알려주기에 제일 중요한 역할임
+> (2) 반복적이거나 지루한 일 처리 - 코드 주석, 설정 파일 작성 등은 내가 할 수도 있지만 속도를 늦추는 일들을 무난하게 처리함
+> (3) 검색 - (1)번처럼 실제로 내가 원하는 게 뭔지 AI가 파악해 필터링이나 추천 등을 맡김
+> AI에게 “생각”을 맡길 수도 있지만 그럴 필요는 없음
+> 인간보다 똑똑하지 않고 단지 더 빠르고 더 많은 걸 아는 FPU 같은 존재임
+
+> 회의론의 이유는 현재 AI 솔루션이 “팔리고 있는 모습”과 “실제 하는 일” 사이의 간극 때문임
+> 모든 AI 솔루션, 특히 에이전트는 숙련된 사람의 가이드 없이는 쓸모 없는 결과만 냄
+> 실제로 “자율적”인 요소는 거의 없음
+> ‘vibe coding’이라는 용어를 만든 사람조차, 업계가 순서를 거꾸로 밟고 있다고 얘기함
+> 이런 툴이 환상적이긴 하지만 반드시 강하게 통제해야 한다는 점을 빼놓는 건 사실상 거짓말임
+
+> 10x 레버리지에 대한 예시로, 언어를 들 수 있음
+> 예전에는 Lisp 등이 더 많은 일을 더 빠르게 해준다고 했는데, 이제는 실제로 작성해야 할 코드는 줄이면서도 결과물은 빠르고 고성능 언어로 생성할 수 있음
+> 단, 생성된 코드 중 쉽게 검증되지 않는 부분을 충분히 검토해야 한다는 ‘덫’이 있음
+> 고도 표현력을 가진 언어 덕분에 사전 플랜 없는 사람들이 난장판 코드베이스를 양산하기도 했던 것처럼, AI 도구로도 이런 일이 반복될 항목
+> 하지만 내가 진짜 시간 절약하는 부분은, 완전히 새 코드를 짜는 것보다 옛 코드와 신 코드를 통합하거나 개선할 때임
+> 디버깅에서 큰 도약이 일어남
+> 예전처럼 print만 찍지 않고, 코드를 복사해 붙여넣기만 해도 “출력이 이렇지 않고 저렇다는 데 왜 그렇냐?”고 AI에게 물어 빠르게 원인과 대안을 얻을 수 있음
+> 특히 SQL, IaC, 빌드 스크립트 등 디버거 붙이기 어려운 작업에서 이런 방식이 엄청나게 큰 장점임

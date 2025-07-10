@@ -2,9 +2,18 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1751606154861
+updated: 1752130456570
 created: 1667632965028
 ---
+
+## Week 28, 2025
+
+- [Writing in the Age of LLMs](https://www.sh-reya.com/blog/ai-writing/)
+- [Supabase MCP can leak your entire SQL database](https://www.generalanalysis.com/blog/supabase-mcp-blog)
+- [Show HN: I AI-coded a tower defense game and documented the whole process](https://news.ycombinator.com/item?id=44463967)
+  - [Prompts used to develop Tower of Time](https://github.com/maciej-trebacz/tower-of-time-game/blob/main/PROMPTS.md)
+- [My open source project was relicensed by a YC company \[license updated\]](https://x.com/soham_btw/status/1940952786491027886)
+  - https://news.ycombinator.com/item?id=44460552
 
 ## Week 27, 2025
 
