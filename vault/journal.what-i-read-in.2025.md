@@ -2,7 +2,7 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1752130456570
+updated: 1752132516346
 created: 1667632965028
 ---
 
@@ -17,7 +17,7 @@ created: 1667632965028
 
 ## Week 27, 2025
 
-- No one likes meetings. They’re sending their AI note takers instead.
+- [No one likes meetings. They’re sending their AI note takers instead.](https://www.washingtonpost.com/technology/2025/07/02/ai-note-takers-meetings-bots/)
   - https://news.ycombinator.com/item?id=44446916
   - https://news.hada.io/comment?id=40962
 - [I scanned all of GitHub's "oops commits" for leaked secrets](https://trufflesecurity.com/blog/guest-post-how-i-scanned-all-of-github-s-oops-commits-for-leaked-secrets)
