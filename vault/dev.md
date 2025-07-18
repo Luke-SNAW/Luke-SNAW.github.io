@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1750730038941
+updated: 1752798809734
 created: 1644451403760
 ---
 
@@ -58,6 +58,11 @@ created: 1644451403760
 - [Software Sprawl, The Golden Path, and Scaling Teams With Agency](https://charity.wtf/2018/12/02/software-sprawl-the-golden-path-and-scaling-teams-with-agency/)
   - The Golden Path should be fully supported by the organization, ensuring engineers understand that using non-standard components comes with the responsibility for their maintenance.
   - Emphasizing the need for friction when adding new components can help manage the support burden and prevent unnecessary complexity in the tech stack.
+- [How I build software quickly](https://evanhahn.com/how-i-build-software-quickly/)
+  > - Start with a rough draft/spike
+  > - Try to soften requirements if you can
+  > - Don’t get distracted
+  >   https://news.ycombinator.com/item?id=44557115
 
 ### re:Work
 

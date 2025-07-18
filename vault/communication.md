@@ -2,7 +2,7 @@
 id: g1fngdjl25nes6fs3lip602
 title: Communication
 desc: ""
-updated: 1751601602070
+updated: 1752801446946
 created: 1652404654841
 ---
 
@@ -29,6 +29,10 @@ created: 1652404654841
 - No one likes meetings. They’re sending their AI note takers instead.
   - https://news.ycombinator.com/item?id=44446916
   - https://news.hada.io/comment?id=40962
+- [The sound of inevitability](https://tomrenner.com/posts/llm-inevitabilism/)
+  - Debating with a skilled opponent can be challenging, as they can control the conversation's framing, leading to a loss of momentum and confidence.
+  - Framing a conversation in your terms is a powerful debating strategy.
+  - This framing allows inevitabilists to dismiss opposing views and engage only with those who accept their premise.
 
 ## Why doesn't advice work? - from [efitz](https://news.ycombinator.com/item?id=41113807)
 

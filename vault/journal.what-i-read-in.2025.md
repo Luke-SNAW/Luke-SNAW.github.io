@@ -2,9 +2,26 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1752132516346
+updated: 1752810973567
 created: 1667632965028
 ---
+
+## Week 29, 2025
+
+- [Rocks, Pebbles, Sand: How to implement in practice](https://longform.asmartbear.com/rocks-pebbles-sand/)
+  - Prioritize by impact, not just size: The Rocks, Pebbles, Sand framework emphasizes prioritizing tasks based on their strategic impact rather than just their size or urgency.
+  - Use a simple sprint-planning system: Prioritize tasks in this order: time-critical items, Rocks, Pebbles, and Sand. Adjust as needed based on capacity and the readiness of high-quality stories.
+  - Avoid common mistakes: Don't let easy or urgent tasks (Sand) crowd out strategic tasks (Rocks). Also, don't assume that the size of a task determines its priority.
+- [The sound of inevitability](https://tomrenner.com/posts/llm-inevitabilism/)
+  - Debating with a skilled opponent can be challenging, as they can control the conversation's framing, leading to a loss of momentum and confidence.
+  - Framing a conversation in your terms is a powerful debating strategy.
+  - This framing allows inevitabilists to dismiss opposing views and engage only with those who accept their premise.
+- [How I build software quickly](https://evanhahn.com/how-i-build-software-quickly/)
+  > - Start with a rough draft/spike
+  > - Try to soften requirements if you can
+  > - Don’t get distracted
+  >   https://news.ycombinator.com/item?id=44557115
+- [At Least 13 People Died by Suicide Amid U.K. Post Office Scandal, Report Says](https://www.nytimes.com/2025/07/10/world/europe/uk-post-office-scandal-report.html)
 
 ## Week 28, 2025
 

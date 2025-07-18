@@ -2,7 +2,7 @@
 id: ettkt3iClONnxpbGwBVLl
 title: Life Tips
 desc: ""
-updated: 1749708947804
+updated: 1752810993949
 created: 1645514261238
 ---
 
@@ -71,6 +71,10 @@ created: 1645514261238
   >
   > I agree with the author, but I would also say there is something above goals and constraints. Values. A set of things that, when comparing multiple options, make the choice clear. An example of some values I frequently use is "What will give me the most enjoyment the furthest into the future? "What will result in the world being a better place?" "What will make me become someone who resembles Jesus more?" They are different from constraints as they don't knock out any options by default. Instead, they make triaging when there are many different things I could be doing much easier, and circumvent my messy intuition which is based on hormones, hunger, weather, etc.  
   > I think values, goals, and constraints are all valuable, but it's a hierarchy. We should create constraints that help us become more aligned with our values. We should create shorter-term goals that make it easy to stay within our constraints. — [#](https://news.ycombinator.com/item?id=44236709)
+- [Rocks, Pebbles, Sand: How to implement in practice](https://longform.asmartbear.com/rocks-pebbles-sand/)
+  - Prioritize by impact, not just size: The Rocks, Pebbles, Sand framework emphasizes prioritizing tasks based on their strategic impact rather than just their size or urgency.
+  - Use a simple sprint-planning system: Prioritize tasks in this order: time-critical items, Rocks, Pebbles, and Sand. Adjust as needed based on capacity and the readiness of high-quality stories.
+  - Avoid common mistakes: Don't let easy or urgent tasks (Sand) crowd out strategic tasks (Rocks). Also, don't assume that the size of a task determines its priority.
 
 ### [wodenokoto](https://news.ycombinator.com/item?id=33258142)
 
