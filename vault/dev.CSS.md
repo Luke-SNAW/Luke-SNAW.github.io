@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1750396739999
+updated: 1753081389372
 created: 1646129148306
 ---
 
@@ -160,6 +160,8 @@ Displaying an external SVG with the `<use>` tag
 - stylable
 - cacheable
 - dimensional
+
+### [Simulating Hand-Drawn Motion with SVG Filters](https://camillovisini.com/coding/simulating-hand-drawn-motion-with-svg-filters)
 
 ## Functions
 

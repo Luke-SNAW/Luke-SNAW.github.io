@@ -2,9 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1752810973567
+updated: 1753081346787
 created: 1667632965028
 ---
+
+## Week 30, 2025
+
+- [Simulating Hand-Drawn Motion with SVG Filters](https://camillovisini.com/coding/simulating-hand-drawn-motion-with-svg-filters)
 
 ## Week 29, 2025
 
