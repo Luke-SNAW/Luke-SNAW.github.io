@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1752798033869
+updated: 1753314296199
 created: 1737241895427
 published: false
 ---
@@ -881,3 +881,7 @@ bad - OK - good - great
 오늘은 왠지 아침부터 정신적 여유가 있군. 잠을 그리 많이 잔건 아닌데... (어제 2시간 자고, 오늘 퇴근 후 2시간 + 5.5시간)
 
 모기 물려도 신경도 안쓰이고
+
+## 2025-07-23
+
+break time에 의식 외출 시키고 뇌 청소 #test
