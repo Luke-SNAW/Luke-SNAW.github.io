@@ -1,0 +1,6 @@
+<h1 id="cli">CLI<a aria-hidden="true" class="anchor-heading icon-link" href="#cli"></a></h1>
+<h2 id="set-the-path-environment-variables-in-windows-powershell"><a href="https://www.delftstack.com/howto/powershell/set-the-path-environment-variable-in-powershell/">Set the PATH Environment Variables in Windows PowerShell</a><a aria-hidden="true" class="anchor-heading icon-link" href="#set-the-path-environment-variables-in-windows-powershell"></a></h2>
+<p>Other software also relies on the <code>PATH</code> environment variable, and accidentally overwriting this may lead to multiple issues. Performing the syntax above will serve as your primary backup for your environment variable values.</p>
+<p>To set a new path, you will need to append your new path to the variable by performing a simple string operation.</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$Env</span>:PATH <span class="token operator">+=</span> <span class="token string">";C:\Program Files\Scripts"</span>
+</code></pre>
