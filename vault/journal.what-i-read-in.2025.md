@@ -2,15 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1753240070301
+updated: 1753669460238
 created: 1667632965028
 ---
 
 ## Week 30, 2025
 
+- [Vibe Specs: Vibe Coding That Actually Works](https://lukebechtel.com/blog/vibe-speccing)
 - [Why Facts Don’t Change Minds in the Culture Wars—Structure Does](https://vasily.cc/blog/facts-dont-change-minds/)
   - Belief Systems as Structures: Belief systems can be visualized as interconnected graphs where core ideas (nodes) and their connections (edges) form a stable, self-reinforcing structure. Challenging a core idea or connection can destabilize the entire system.
   - Historical Example: The Church's resistance to Galileo's heliocentric model was not just about superstition but about protecting a belief structure that underpinned its authority and societal order.
+    - https://news.ycombinator.com/item?id=44652605
 - [The Big LLM Architecture Comparison](https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison) - From DeepSeek-V3 to Kimi K2: A Look At Modern LLM Architecture Design
 - [Simulating Hand-Drawn Motion with SVG Filters](https://camillovisini.com/coding/simulating-hand-drawn-motion-with-svg-filters)
 
