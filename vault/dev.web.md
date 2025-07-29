@@ -2,7 +2,7 @@
 id: e2owgssw5t9oo46vsvwsu3f
 title: Web
 desc: ""
-updated: 1737010569716
+updated: 1753745369798
 created: 1645751512675
 ---
 
@@ -43,6 +43,17 @@ created: 1645751512675
 - ["Web components" considered harmful](https://www.mayank.co/blog/web-components-considered-harmful/)
   > It's better to use the specific names (custom elements, shadow DOM, templates) instead of the umbrella term "web components" to avoid confusion and make these APIs more approachable.
 - [HTTP Status Codes Glossary](https://www.webfx.com/web-development/glossary/http-status-codes/)
+
+## SPA
+
+> I swear if I see another "SEO" guy or some rando web dev who joined the workforce after Covid complaining about SPAs by misrepresenting it, I'm gonna explode.  
+> As someone who's been developing web apps since the 2000s, let me tell you the origin of SPA has few things to do with the "false promise of SPAs" he listed, but largely due to companies in the late 2000/early 2010s wanting to go "mobile first". This usually meant they still had a desktop second somewhere, which implied they were architecting the entire system to completely separate the frontends and the backend.
+>
+> Before, what web devs meant by frontend was essentially server-side rendered HTML templates with perhaps a little bit of jQuery running on the client-side. Now, since mobile and desktop web apps are to share some business logic and the database somehow, people had to rediscover REST by reading Roy Fielding's Phd dissertation that inspired the original HTTP. This meant now every company was moving to service-oriented architecture and started exposing their backend APIs onto the open internet so their mobile apps and SPAs running in the browser can share the same APIs. This was a cost saving measure.
+>
+> This period also coincided with the steady decline of full-stack webapp frameworks like Ruby on Rails and Django because for a couple of years, these frameworks had no good ways to support an API only applications. Django hadn't even reached 1.0 back then. This was a time when NodeJS was really starting to pick up momentum. Once people had started being more comfortable with JS on the server-side, lots of people suddenly realized they could push a lot of business logic to increasing powerful desktop browsers and phones, application hosts people now call "edge devices".
+>
+> This is the true impetus of SPA. How is CSS going to kill this need? — [wyuenho](https://news.ycombinator.com/item?id=44690219)
 
 ## Webview Case
 

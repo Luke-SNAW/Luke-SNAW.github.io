@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1753314296199
+updated: 1753773449756
 created: 1737241895427
 published: false
 ---
@@ -885,3 +885,8 @@ bad - OK - good - great
 ## 2025-07-23
 
 break time에 의식 외출 시키고 뇌 청소 #test
+
+## 2025-07-28 #draft
+
+운동할 때든 자연히 할 마음 상태가 갖춰지길 기다리다가 결국 안하는 경우가 많아.
+70% 강도라도 억지로 해야 진행이 된다.
