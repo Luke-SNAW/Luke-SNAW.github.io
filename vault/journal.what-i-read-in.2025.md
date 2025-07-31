@@ -2,11 +2,28 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1753747627298
+updated: 1753917486226
 created: 1667632965028
 ---
 
 ## Week 31, 2025
+
+- [Does AI Actually Boost Developer Productivity? (100k Devs Study) - Yegor Denisov-Blanch, Stanford](https://www.youtube.com/watch?v=tbDDYKRFjhk)
+  - **AI's Impact on Developer Productivity**: AI increases developer productivity by roughly 15-20% on average, but this varies based on several factors.
+  - **Task Complexity Matters**: AI is more effective for low-complexity tasks, with productivity gains of 30-40%, compared to 10-15% for high-complexity tasks.
+  - **Context Window Limitations**: Even with larger context windows, AI performance decreases as the amount of context increases.
+  - **Methodology**: The study used a model that automates the evaluation of code changes, making it scalable and affordable compared to manual expert evaluations.
+  - **Surveys are Ineffective**: Self-reported surveys are poor predictors of developer productivity, with developers often misjudging their own productivity by about 30 percentile points.
+- [Stop selling "unlimited", when you mean "until we change our minds"](https://blog.kilocode.ai/p/ai-pricing-playbook-strikes-again) 🤥
+
+  > That "5%" Drives Everything - Who actually gets hit by these limits: - **Power users**, **Early adopters**, **Team influencers**, **$200/month Claude Max subscribers**
+  >
+  > **The real damage:** You're not frustrating 5% of users—you're breaking trust with the exact people who drive growth and adoption.
+  >
+  > @dvyio on Twitter/X called this “[vibe limiting](https://x.com/dvyio/status/1949918722849984953)”
+
+  - ↔ Anthropic **never sold an unlimited plan**
+    > The new Max plan delivers exactly that. With up to 20x higher usage limits — [Introducing the Max Plan](https://www.anthropic.com/news/max-plan)
 
 - [LLM Embeddings Explained: A Visual and Intuitive Guide](https://huggingface.co/spaces/hesamation/primer-llm-embedding)
 

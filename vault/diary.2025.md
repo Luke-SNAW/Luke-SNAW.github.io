@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1753773449756
+updated: 1753936211132
 created: 1737241895427
 published: false
 ---
@@ -885,6 +885,7 @@ bad - OK - good - great
 ## 2025-07-23
 
 break time에 의식 외출 시키고 뇌 청소 #test
+빈 자리를 관조
 
 ## 2025-07-28 #draft
 
