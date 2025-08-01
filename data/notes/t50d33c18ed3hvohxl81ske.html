@@ -1,0 +1,102 @@
+<h1 id="how-to-make-external-links-accessible">How to make external links accessible<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-make-external-links-accessible"></a></h1>
+<blockquote>
+<p><a href="https://blog.pope.tech/2024/01/02/how-to-make-external-links-accessible/">https://blog.pope.tech/2024/01/02/how-to-make-external-links-accessible/</a></p>
+</blockquote>
+<p>Links are what connect online content – they’re everywhere. Since they’re so common, their design and functionality often go unnoticed, especially when it comes to external links. But, as you’ll learn, it’s actually an important design decision.</p>
+<p>External links go to pages on different websites. For example, pope.tech to webaim.org. <strong>Here’s the important decision – the external link can open in the same tab or in a new tab.</strong></p>
+<p>In this article, we’ll go over why most external links should open in the same tab. We’ll also go over how to make external links that open in new tabs more accessible including code snippets.</p>
+<ul>
+<li><a href="#why-external-links-should-open-in-the-same-tab">Why external links should open in the same tab</a>
+<ul>
+<li><a href="#a-common-reason-why-people-choose-to-open-external-links-in-a-new-tab-busted">A common reason why people choose to open external links in a new tab busted</a></li>
+</ul>
+</li>
+<li><a href="#when-external-links-should-open-in-a-new-tab">When external links should open in a new tab</a>
+<ul>
+<li><a href="#lose-form-progress">Lose form progress</a>
+<ul>
+<li><a href="#an-alternative-solution-to-opening-a-link-in-a-new-tab">An alternative solution to opening a link in a new tab</a></li>
+</ul>
+</li>
+<li><a href="#terminate-login">Terminate login</a></li>
+<li><a href="#user-needs-information-on-both-pages">User needs information on both pages</a></li>
+</ul>
+</li>
+<li><a href="#accessible-design-and-code-for-external-links-opening-in-a-new-tab">Accessible design and code for external links opening in a new tab</a></li>
+</ul>
+<p>Learn more about link accessibility in <a href="https://blog.pope.tech/2023/01/01/link-accessibility/">A beginner’s guide to link accessibility</a>.</p>
+<h2 id="why-external-links-should-open-in-the-same-tab">Why external links should open in the same tab<a aria-hidden="true" class="anchor-heading icon-link" href="#why-external-links-should-open-in-the-same-tab"></a></h2>
+<p>The biggest reason why links should open in the same tab comes down to giving users the choice. If a link is set to open in the same tab, the user always has a choice to open it in a new tab. They can right-click and select “Open Link in new tab” or use control/command and click.</p>
+<p>When a link is already programmed to open in a new tab, the user no longer has a choice. The link <em>has</em> to open in a new tab taking the user’s choice away.</p>
+<p>Experts from accessibility and usability also agree that most external links should open in the same tab (not a new tab or window).</p>
+<p>W3C, the organization that sets web accessibility standards, said:</p>
+<blockquote>
+<p>“In general, it is better not to open new windows and tabs since they can be disorienting for people, especially people who have difficulty perceiving visual content.”</p>
+<p><a href="https://www.w3.org/TR/WCAG20-TECHS/G200.html">W3C</a></p>
+</blockquote>
+<p>The same advice continues from the <a href="https://www.nngroup.com/articles/new-browser-windows-and-tabs/">Nielson Norman Group</a>. They found in their user research that “for the most part, <strong>always</strong> <strong>open links in the same browser tab or window</strong>.”</p>
+<p>Here’s why opening external links in the same browser tab is better for accessibility and overall usability:</p>
+<ul>
+<li>Visual users with low vision sometimes use zoom features to see content. Low-vision users using zoom features can miss the link opening in a new tab if it’s outside their zoomed area.</li>
+<li>Opening a link in a new tab can be disorienting for users with cognitive disabilities.</li>
+<li>When a link opens in a new tab, the user can’t use the back button to return to the previous page, which can be especially frustrating on mobile.</li>
+<li>Links that open in a new tab clutter users’ browser window. This can be difficult for keyboard, screen reader, mouse, and visual users to navigate.</li>
+</ul>
+<h3 id="a-common-reason-why-people-choose-to-open-external-links-in-a-new-tab-busted">A common reason why people choose to open external links in a new tab busted<a aria-hidden="true" class="anchor-heading icon-link" href="#a-common-reason-why-people-choose-to-open-external-links-in-a-new-tab-busted"></a></h3>
+<p>A common reason people use to justify opening external links in a new tab is to keep users on their website. This reason is seen as a user retention trick. But, all it does is add to users’ tabs and cognitive load.</p>
+<p>If your user wants to leave the webpage, they will, and trying to keep them there can feel like a ploy. On the other hand, if they want to stay on your website, they will. Users can choose to open the link in a new tab.</p>
+<p>Setting external links to open in the same tab gives the user that choice and is often the best experience for the user.</p>
+<h2 id="when-external-links-should-open-in-a-new-tab">When external links should open in a new tab<a aria-hidden="true" class="anchor-heading icon-link" href="#when-external-links-should-open-in-a-new-tab"></a></h2>
+<p>There are times when links should open in a new tab.</p>
+<h3 id="lose-form-progress">Lose form progress<a aria-hidden="true" class="anchor-heading icon-link" href="#lose-form-progress"></a></h3>
+<p>Often when a user navigates away from a form, they’ll lose unsaved or all their progress. External links that are on the form page or part of the form could open in a new tab, so the user doesn’t lose their progress.</p>
+<p>The Pope Tech platform has several forms for new users, websites, permissions, settings, etc. We also occasionally link to content on our blog, which is an external link. To make sure users don’t lose progress on their current workflow, we’ve made all external links open in a new tab. They each have an icon showing it opens in a new tab and visually hidden content that says, “Opens in new tab.”</p>
+<p><a href="https://blog.pope.tech/wp-content/uploads/2023/12/Screenshot-2023-12-07-at-3.43.11-PM-1024x226.png">External link with opens in new tab icon on Pope Tech dashboard.</a></p>
+<h4 id="an-alternative-solution-to-opening-a-link-in-a-new-tab">An alternative solution to opening a link in a new tab<a aria-hidden="true" class="anchor-heading icon-link" href="#an-alternative-solution-to-opening-a-link-in-a-new-tab"></a></h4>
+<p>Even though losing form progress is a good reason to open a link in a new tab and there are ways to make that link accessible, there are still alternative solutions that keep the user in the same window without them losing any information.</p>
+<p>In an intentional effort to limit our external links and keep users in the same tab, we brought all of the Pope Tech help content into the platform. The help article opens in the same window without disrupting any workflows the user is doing. They can easily exit the help article and pick up right where they were.</p>
+<p>For example, the user works on adding a new website using the New Website form. They can search for and read the Add Websites help article. Once they’re done, they select the ‘X’ at the top and go straight back to completing the form without losing any information.</p>
+<p><a href="https://blog.pope.tech/wp-content/uploads/2023/12/Screenshot-2023-12-21-at-12.04.13-PM-1024x480.png">Screenshot1</a></p>
+<p><a href="https://blog.pope.tech/wp-content/uploads/2023/12/Screenshot-2023-12-21-at-12.04.28-PM-1024x474.png">Screenshot2</a></p>
+<h3 id="terminate-login">Terminate login<a aria-hidden="true" class="anchor-heading icon-link" href="#terminate-login"></a></h3>
+<p>Sometimes external links in secured areas (or areas users have to log in to) can terminate a user’s session if they open in the same tab. If this is the case for your online software, then external links could open in a new tab or window so users keep their login active.</p>
+<p>For example, university applications often have multiple pages and workflows. External links that take users away from the application could log the user out and cause them to lose progress. These external links could open in a new tab, so it doesn’t disrupt log the user out.</p>
+<h3 id="user-needs-information-on-both-pages">User needs information on both pages<a aria-hidden="true" class="anchor-heading icon-link" href="#user-needs-information-on-both-pages"></a></h3>
+<p>Nielson Norman Group does advise content writers:</p>
+<p>“Don’t go overboard with opening links in new browser tabs or windows simply because you think users might need them to display that way for certain cases.”</p>
+<p>That said, sometimes opening a link in a new tab or window depends on the situation. If opening the link in a new tab would be helpful to users because they still need information on the current page, then that could justify opening the link in a new tab or window.</p>
+<p>If it wouldn’t be helpful to some users or you’re unsure, set the link to open in the same tab. Then, the user has the choice to open it in a new tab if needed.</p>
+<h2 id="accessible-design-and-code-for-external-links-opening-in-a-new-tab">Accessible design and code for external links opening in a new tab<a aria-hidden="true" class="anchor-heading icon-link" href="#accessible-design-and-code-for-external-links-opening-in-a-new-tab"></a></h2>
+<p>If you open a link in a new tab or window, give visual and non-visual users a warning that it opens in a new tab.</p>
+<p>The easiest way to do this is by simply adding “(opens in new tab)” after an external link that opens in a new tab. For example, <a href="https://blog.pope.tech/2023/01/01/link-accessibility/">A beginner’s guide to link accessibility (opens in new tab)</a>.</p>
+<p>Another way is to add an “opens in new tab” icon after the link. This icon is becoming more common and if used consistently, can signify to your visual users the link opens in a new tab.</p>
+<p><a href="https://blog.pope.tech/wp-content/uploads/2023/12/Screenshot-2023-12-12-at-3.09.09-PM-1024x289.png">Links with an icon after them. The icon is a square with an arrow in it pointing upwards and to the right.</a></p>
+<p>Adding the icon only accommodates visual users. Non-visual users still don’t have any indication that the link opens in a new tab. To accommodate non-visual users, we need to:</p>
+<ul>
+<li>Remove the icon from the accessibility API using aria-hidden=”true”.</li>
+<li>Add “Opens in new tab” text that is visually hidden off the page using CSS. Visual users won’t see it, but screen readers will read it with the link.</li>
+</ul>
+<p>Here’s the HTML for a link with an icon and text that is visually hidden off the page. First, is the link and the link’s text. Next is the icon with aria-hidden=”true”. Lastly is the “Opens in new tab” text with the CSS class “visually-hidden”.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://blog.pope.tech/2023/03/01/a-beginners-guide-to-manual-  accessibility-testing/<span class="token punctuation">"</span></span>
+  <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span>
+  A beginner’s guide to manual accessibility testing
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>i</span> <span class="token attr-name">aria-hidden</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fa-solid fa-up-right-from-square<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>i</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>visually-hidden<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Opens in new tab<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Here is the CSS for the class that hides content off the page.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.visually-hidden</span></span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  <span class="token property">clip</span><span class="token punctuation">:</span> <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token unit">px</span> <span class="token number">1</span><span class="token unit">px</span> <span class="token number">1</span><span class="token unit">px</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* IE 6/7 */</span>
+  <span class="token property">clip</span><span class="token punctuation">:</span> <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Watch <a href="https://www.youtube.com/watch?v=Ti2sT7-9VSI">this video</a> to hear Mac’s VoiceOver screen reader announce a link with this code.</p>
+<p>If external links that open in a new tab are common on your website, consider adding the visually-hidden CSS and a template for links that open in a new tab that includes the icon and visually-hidden class. Once that’s in place, it’s easy to copy and paste or select that template for those links going forward.</p>
