@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1753936211132
+updated: 1754030276004
 created: 1737241895427
 published: false
 ---
@@ -885,7 +885,7 @@ bad - OK - good - great
 ## 2025-07-23
 
 break time에 의식 외출 시키고 뇌 청소 #test
-빈 자리를 관조
+빈 자리를 관조. 비운 자리에서 자라나는 의식이 발견되면 벗어내고 관조. 재귀반복
 
 ## 2025-07-28 #draft
 
