@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1751847680377
+updated: 1754523536504
 created: 1688605282146
 ---
 
@@ -132,3 +132,7 @@ These "chats" only take 10-30 minutes and have already led me to learn a bunch o
 > 디버깅에서 큰 도약이 일어남
 > 예전처럼 print만 찍지 않고, 코드를 복사해 붙여넣기만 해도 “출력이 이렇지 않고 저렇다는 데 왜 그렇냐?”고 AI에게 물어 빠르게 원인과 대안을 얻을 수 있음
 > 특히 SQL, IaC, 빌드 스크립트 등 디버거 붙이기 어려운 작업에서 이런 방식이 엄청나게 큰 장점임
+
+### [p4coder](https://news.ycombinator.com/item?id=44800248)
+
+Today physical world is largely mechanized, we rarely walk, run lift heavy things for survival. So we grow fat and weak unless we exercise. Tomorrow vast majority of us will never think, create, investigate for earning a living. So we will get dumb and dumber over time. A small minority of us will keep polishing their intellect but will never be smarter than machines just like the best athletes of today can't outrun machines.
