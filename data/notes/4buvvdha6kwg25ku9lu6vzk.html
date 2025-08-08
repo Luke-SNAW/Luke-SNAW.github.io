@@ -1,0 +1,88 @@
+<h1 id="vibe-specs-vibe-coding-that-actually-works">Vibe Specs: Vibe Coding That Actually Works<a aria-hidden="true" class="anchor-heading icon-link" href="#vibe-specs-vibe-coding-that-actually-works"></a></h1>
+<blockquote>
+<p><a href="https://lukebechtel.com/blog/vibe-speccing">https://lukebechtel.com/blog/vibe-speccing</a></p>
+</blockquote>
+<p>TL;DR: Make your AI write requirements before code. It takes 5 extra minutes and saves hours of confusion. Copy the cursor rules below and try it on your next feature.</p>
+<p><strong>Just wanna try it? Here's the fastest path:</strong></p>
+<p>👉 Expand for Quick Start Instructions</p>
+<p><strong>1. Copy this into your <a href="https://docs.cursor.com/context/rules">Cursor settings</a> (or your AI IDE of choice)</strong></p>
+<p><strong>📋 Copy These Instructions</strong></p>
+<pre class="language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">##</span> Development Workflow: Spec → Code</span>
+
+THESE INSTRUCTIONS ARE CRITICAL!
+
+They dramatically improve the quality of the work you create.
+
+<span class="token title important"><span class="token punctuation">###</span> Phase 1: Requirements First</span>
+
+When asked to implement any feature or make changes, ALWAYS start by asking:
+"Should I create a Spec for this task first?"
+
+IFF user agrees:
+
+<span class="token list punctuation">-</span> Create a markdown file in <span class="token code-snippet code keyword">`.cursor/scopes/FeatureName.md`</span>
+<span class="token list punctuation">-</span> Interview the user to clarify:
+<span class="token list punctuation">-</span> Purpose &#x26; user problem
+<span class="token list punctuation">-</span> Success criteria
+<span class="token list punctuation">-</span> Scope &#x26; constraints
+<span class="token list punctuation">-</span> Technical considerations
+<span class="token list punctuation">-</span> Out of scope items
+
+<span class="token title important"><span class="token punctuation">###</span> Phase 2: Review &#x26; Refine</span>
+
+After drafting the Spec:
+
+<span class="token list punctuation">-</span> Present it to the user
+<span class="token list punctuation">-</span> Ask: "Does this capture your intent? Any changes needed?"
+<span class="token list punctuation">-</span> Iterate until user approves
+<span class="token list punctuation">-</span> End with: "Spec looks good? Type 'GO!' when ready to implement"
+
+<span class="token title important"><span class="token punctuation">###</span> Phase 3: Implementation</span>
+
+ONLY after user types "GO!" or explicitly approves:
+
+<span class="token list punctuation">-</span> Begin coding based on the Spec
+<span class="token list punctuation">-</span> Reference the Spec for decisions
+<span class="token list punctuation">-</span> Update Spec if scope changes, but ask user first.
+
+<span class="token title important"><span class="token punctuation">###</span> File Organization</span>
+
+\`\`\`
+
+.cursor/
+├── scopes/
+│ ├── FeatureName.md # Shared/committed Specs
+│ └── .local/ # Git-ignored experimental Specs
+│ └── Experiment.md
+
+\`\`\`
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Remember: Think first, ask clarifying questions, <span class="token italic"><span class="token punctuation">_</span><span class="token content">then</span><span class="token punctuation">_</span></span> code. The Spec is your north star.</span><span class="token punctuation">**</span></span>
+
+(source: https://lukebechtel.com/blog/vibe-speccing)
+</code></pre>
+<p><strong>2. Make sure the rules are labelled "Always Attached"</strong></p>
+<p><strong>3. Start a new chat and type:</strong></p>
+<pre><code>"Help me add user authentication to my app"
+</code></pre>
+<p><strong>4. Follow the AI Through Spec Creation</strong></p>
+<p>The AI will:</p>
+<ul>
+<li>❓ Ask smart questions you hadn't considered</li>
+<li>📝 Write a clear requirements document</li>
+<li>✅ Wait for your approval</li>
+</ul>
+<p><em>Example questions it might ask:</em></p>
+<ul>
+<li>"Will users log in with email or username?"</li>
+<li>"Do you need password reset functionality?"</li>
+<li>"Should sessions expire?"</li>
+</ul>
+<p>You're free to edit this for as long as you'd like.</p>
+<p>The LLM won't write code until you say you want it!</p>
+<p><strong>5. Authorize Code</strong></p>
+<p>Once you're happy, you can authorize the LLM to go (just say "go!").</p>
+<p>The LLM will then build exactly what you agreed on</p>
+<p><strong>That's it!</strong> You just experienced Vibe Speccing.</p>
+<p>⏱️ <strong>Time invested:</strong> 5 minutes writing requirements<br>
+💰 <strong>Time saved:</strong> Hours of wrong implementations</p>
