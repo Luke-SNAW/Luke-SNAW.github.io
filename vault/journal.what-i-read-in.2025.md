@@ -2,12 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1754268745091
+updated: 1754614111442
 created: 1667632965028
 ---
 
 ## Week 32, 2025
 
+- https://www.vibechart.net/
 - [Live coding sucks](https://hadid.dev/posts/living-coding/) - Live coding interviews measure stress, not coding skills
 
 ## Week 31, 2025
