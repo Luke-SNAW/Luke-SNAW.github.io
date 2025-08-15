@@ -59,6 +59,8 @@ created: 1667632965028
 
 ## Week 29, 2025
 
+- [My bank keeps on undermining anti-phishing education](https://moritz-mander.de/blog/my_bank_keeps_on_undermining_anti-phishing_education/)
+  > my bank sent out emails with websites which looked a lot like phishing mails, so much so that this similarity could potentially be used against them legally by potential phishing victims
 - [Rocks, Pebbles, Sand: How to implement in practice](https://longform.asmartbear.com/rocks-pebbles-sand/)
   - Prioritize by impact, not just size: The Rocks, Pebbles, Sand framework emphasizes prioritizing tasks based on their strategic impact rather than just their size or urgency.
   - Use a simple sprint-planning system: Prioritize tasks in this order: time-critical items, Rocks, Pebbles, and Sand. Adjust as needed based on capacity and the readiness of high-quality stories.
