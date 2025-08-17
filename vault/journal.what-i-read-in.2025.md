@@ -2,13 +2,19 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1754614111442
+updated: 1755127902612
 created: 1667632965028
 ---
 
+## Week 33, 2025
+
+- [Search all text in New York City](https://www.alltext.nyc/)
+  - https://pudding.cool/2025/07/street-view/
+- [Why MCP’s Disregard for 40 Years of RPC Best Practices Will Burn Enterprises](https://julsimon.medium.com/why-mcps-disregard-for-40-years-of-rpc-best-practices-will-burn-enterprises-8ef85ce5bc9b)
+
 ## Week 32, 2025
 
-- https://www.vibechart.net/
+- https://www.vibechart.net/ - https://bsky.app/profile/tylermw.com/post/3lvtac5hues2n
 - [Live coding sucks](https://hadid.dev/posts/living-coding/) - Live coding interviews measure stress, not coding skills
 
 ## Week 31, 2025

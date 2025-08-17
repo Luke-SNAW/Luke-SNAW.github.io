@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1748906353652
+updated: 1755127907519
 created: 1669705986186
 ---
 
@@ -62,3 +62,5 @@ created: 1669705986186
   - https://www.architectureinmusic.com/
   - https://www.charlesbrooks.info/
 - [Every 5x5 Nonogram](https://pixelogic.app/every-5x5-nonogram)
+- [Search all text in New York City](https://www.alltext.nyc/)
+  - https://pudding.cool/2025/07/street-view/
