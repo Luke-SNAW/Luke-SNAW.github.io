@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1754523536504
+updated: 1755576257368
 created: 1688605282146
 ---
 
@@ -136,3 +136,25 @@ These "chats" only take 10-30 minutes and have already led me to learn a bunch o
 ### [p4coder](https://news.ycombinator.com/item?id=44800248)
 
 Today physical world is largely mechanized, we rarely walk, run lift heavy things for survival. So we grow fat and weak unless we exercise. Tomorrow vast majority of us will never think, create, investigate for earning a living. So we will get dumb and dumber over time. A small minority of us will keep polishing their intellect but will never be smarter than machines just like the best athletes of today can't outrun machines.
+
+## [나날이 발전하고픈 개발자를 위한 AI 활용법](https://www.stdy.blog/how-to-use-ai-for-developers-who-want-to-develop-everyday/)
+
+### STICC framework
+
+> 컨텍스트 엔지니어링: AI에게 '어떻게(How)'보다는 '무엇을(What)'과 '왜(Why)'를 명확히 전달하는 것이 중요함. 이를 위해 상황(Situation), 작업(Task), 의도(Intention), 우려(Concern), 조정(Calibration)을 담은 STICC 프레임워크가 유용함.
+
+### 불확실성 지도
+
+> 응답의 하단에는 "불확실성 지도"를 추가해줘. 이 지도에는 네가 가장 덜 자신있는 부분, 지나치게 단순화했을 수 있는 부분, 그리고 어떤 질문이나 추가 정보가 네 의견을 바꿀 수 있을지를 포함해줘.
+> → 환각 확인 및 컨텍스트 보충이 쉬워짐
+
+### 프롬프트 개선
+
+메타 프롬프트로 내 프롬프트 개선하면 메타인지하기
+
+<프롬프트> 이 프롬프트를 개선해줘. 그렇게 개선하는 이유도 알려줘.
+→ 메타인지: 내가 보통 어떤 정보를 덜 주고 있지? 주로 언제 그렇게 하지?
+
+OpenAI의 Prompt Optimizer도 좋음
+
+(단, 개선된 프롬프트는 '정답'이 절대 아님 - 꼭 실제로 내 의도대로 '개선'되는지 실험해볼 것)
