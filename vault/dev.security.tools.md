@@ -2,7 +2,7 @@
 id: V2Jt0WU66kh2siiIUoeLS
 title: Security tools
 desc: ""
-updated: 1728892030277
+updated: 1756077709130
 created: 1644825770935
 ---
 
@@ -14,3 +14,14 @@ created: 1644825770935
 - [Identity & Access Management Resources](https://curity.io/resources/)
 - [URLhaus](https://urlhaus.abuse.ch/) is a project from abuse.ch with the goal of sharing malicious URLs that are being used for malware distribution.
 - [zxcvbn](https://github.com/dropbox/zxcvbn) - Low-Budget Password Strength Estimation
+
+## Misc
+
+### [Bitwarden - Error “Failed to fetch” in Chrome](https://community.bitwarden.com/t/error-failed-to-fetch-in-chrome-when-logging-in-to-bitwarden-vault-after-first-logout/46156/12)
+
+If you want the extension to run “On specific sites” add these two sites:
+
+- https://identity.bitwarden.com
+- https://api.bitwarden.com
+
+or https://\*.bitwarden.com/\*

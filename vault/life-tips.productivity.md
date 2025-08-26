@@ -2,7 +2,7 @@
 id: PddvXCJLzVqmA6DFKD6Uh
 title: Productivity
 desc: ""
-updated: 1737011621046
+updated: 1756164192721
 created: 1645523620804
 ---
 
@@ -85,6 +85,23 @@ This is the single best solution I've ever found to the "interruption" problem. 
 I wrote a bit more about this approach here: https://simonwillison.net/2022/Nov/26/productivity/
 
 A recent example issue: https://github.com/datasette/datasette-enrichments-gpt/issues/2
+
+## 3-3-3
+
+### [The three-or-four-hours rule for getting creative work done](https://www.oliverburkeman.com/fourhours)
+
+suggests that consistent, high-focus work is typically limited to about three or four hours a day.
+
+- The rule emphasizes protecting a block of undisturbed focus time rather than striving for perfection by eliminating all distractions.
+- Modern work culture often demands relentless productivity, but the key is to prioritize focused work hours over extended, scattered efforts.
+
+### [Get More Done With the ‘3-3-3 Method’](https://lifehacker.com/get-more-done-with-the-3-3-3-method-1850729849)
+
+planning each workday around a 3-3-3 model
+
+- first devoting three hours to deep work on your most important project.
+- Next, complete three other urgent tasks that don’t require three hours of focus.
+- Finally, do three “maintenance” tasks, like cleaning, answering emails, or scheduling other work.
 
 ## Collections
 
