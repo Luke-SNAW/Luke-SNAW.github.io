@@ -2,9 +2,45 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1754620105218
+updated: 1756363103622
 created: 1669264809793
 ---
+
+## Week 35, 2025 - 환자번호 검색 시, 리스트에는 환자번호가 나오지 않음 GIT-5593
+
+테이블 리스트에 기본 데이터 출력 후 환자번호 검색하면 환자번호가 없는 걸로 표시됨.
+
+자식 component에서 환자번호에 `ref(props.data.patient.number)`를 쓰면 페이지 넘어갈 때나 검색 시 component가 파괴되지 않는 경우, 데이터 갱신이 되지 않는다. computed로 수정하여 해결
+
+## Week 35, 2025 - 자식 간의 데이터 조건 참조 GIT-5592
+
+환자번호가 있어야 접수확인 버튼 활성화.
+환자번호 입력을 자식 component에서 defineModel이 아니라 update:patientNumber로 처리
+
+defineModel은 환자번호 타이핑할 때마다 데이터가 갱신되기 때문에 실제 DB에 입력 완료된 상태가 아니더라도 활성화 조건이 만족되지만
+API를 통해 DB에 환자번호 입력 성공 시에 update 이벤트를 통한 데이터 갱신으로 처리하면 의도대로 활성화 조건이 처리 됨
+
+https://vuejs.org/guide/components/v-model#under-the-hood
+
+```html
+<!-- Child.vue -->
+<script setup>
+  const props = defineProps(["modelValue"])
+  const emit = defineEmits(["update:modelValue"])
+</script>
+
+<template>
+  <input
+    :value="props.modelValue"
+    @input="emit('update:modelValue', $event.target.value)"
+  />
+</template>
+```
+
+```html
+<!-- Parent.vue -->
+<Child :modelValue="foo" @update:modelValue="$event => (foo = $event)" />
+```
 
 ## Week 20, 2025 - Astro + Vue 중대결함
 
@@ -1125,7 +1161,7 @@ ver.10.0에서 삭제했다가 [feedback](https://github.com/cypress-io/cypress/
 
 ### 원인
 
-나중에 알아보니 EC2 생성 시 기본으로 [root volumn이 종료 시 삭제 설정](https://aws.amazon.com/ko/premiumsupport/knowledge-center/deleteontermination-ebs/)된다. 🤨
+나중에 알아보니 EC2 생성 시 기본으로 [root volume이 종료 시 삭제 설정](https://aws.amazon.com/ko/premiumsupport/knowledge-center/deleteontermination-ebs/)된다. 🤨
 
 > The instance is stopped - The data does not persist - [Data persistence for Amazon EC2 instance store volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-lifetime.html)
 

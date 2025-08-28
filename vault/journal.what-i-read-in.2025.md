@@ -2,12 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1756173060663
+updated: 1756255098015
 created: 1667632965028
 ---
 
 ## Week 35, 2025
 
+- [Ask HN: Why hasn't x86 caught up with Apple M series?](https://news.ycombinator.com/item?id=45019483)
 - [The three-or-four-hours rule for getting creative work done](https://www.oliverburkeman.com/fourhours) suggests that consistent, high-focus work is typically limited to about three or four hours a day.
   - The rule emphasizes protecting a block of undisturbed focus time rather than striving for perfection by eliminating all distractions.
   - Modern work culture often demands relentless productivity, but the key is to prioritize focused work hours over extended, scattered efforts.
