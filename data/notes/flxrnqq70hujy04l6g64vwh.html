@@ -1,0 +1,37 @@
+<h1 id="6-best-practices-to-manage-pull-request-creation-and-feedback">6 Best Practices to Manage Pull Request Creation and Feedback<a aria-hidden="true" class="anchor-heading icon-link" href="#6-best-practices-to-manage-pull-request-creation-and-feedback"></a></h1>
+<blockquote>
+<p><a href="https://doordash.engineering/2022/08/23/6-best-practices-to-manage-pull-request-creation-and-feedback/">https://doordash.engineering/2022/08/23/6-best-practices-to-manage-pull-request-creation-and-feedback/</a></p>
+</blockquote>
+<h2 id="why-bad-prs-slow-down-the-development-cycle">Why bad PRs slow down the development cycle<a aria-hidden="true" class="anchor-heading icon-link" href="#why-bad-prs-slow-down-the-development-cycle"></a></h2>
+<h2 id="pr-basics">PR basics<a aria-hidden="true" class="anchor-heading icon-link" href="#pr-basics"></a></h2>
+<h2 id="write-descriptive-and-consistent-names">Write descriptive and consistent names<a aria-hidden="true" class="anchor-heading icon-link" href="#write-descriptive-and-consistent-names"></a></h2>
+<h2 id="create-a-clear-pr-title-and-description">Create a clear PR title and description<a aria-hidden="true" class="anchor-heading icon-link" href="#create-a-clear-pr-title-and-description"></a></h2>
+<p>While many people think only about the code when they create a PR, context is essential for understanding and reviewing that PR.</p>
+<p>Reviewers must know what the fundamental problem is before they can understand if it’s been resolved. Don’t force a reviewer to read through 600 lines of code. Instead, provide a descriptive PR title and high-level summary at the top of the PR.</p>
+<p>This is why it's good practice to create and enforce the use of PR templates, such as:</p>
+<ul>
+<li>Problem</li>
+<li>Solution</li>
+<li>Impact</li>
+<li>Testing plan</li>
+</ul>
+<h2 id="keep-prs-short-same-with-files-and-functions">Keep PRs short (same with files and functions)<a aria-hidden="true" class="anchor-heading icon-link" href="#keep-prs-short-same-with-files-and-functions"></a></h2>
+<h2 id="manage-pr-disagreements-through-direct-communication">Manage PR disagreements through direct communication<a aria-hidden="true" class="anchor-heading icon-link" href="#manage-pr-disagreements-through-direct-communication"></a></h2>
+<p>Why does direct communication help?</p>
+<ul>
+<li>Feedback will be faster.</li>
+<li>Verbal communication leads to fewer misunderstandings.</li>
+<li>10 minutes of verbal communication is a much more thorough review than a few back and forth GitHub comments.</li>
+<li>Direct conversation prevents constant context switching between other work and checking the PR comment section.</li>
+</ul>
+<h2 id="avoid-rewrites-by-getting-feedback-early">Avoid rewrites by getting feedback early<a aria-hidden="true" class="anchor-heading icon-link" href="#avoid-rewrites-by-getting-feedback-early"></a></h2>
+<h2 id="request-additional-reviewers-to-create-dialogue">Request additional reviewers to create dialogue<a aria-hidden="true" class="anchor-heading icon-link" href="#request-additional-reviewers-to-create-dialogue"></a></h2>
+<p>Sometimes we want our code merged in quickly, so we seek an approval instead of a proper review and dialogue. However, shallow reviews defeat the purpose of code review.</p>
+<p>One step that can help open up a dialogue is to request more reviewers.</p>
+<p>Why does requesting more reviewers help?</p>
+<ul>
+<li>It adds more perspectives. If only one approval is required, and only one review requested, other teammates will never get a chance to disagree.</li>
+<li>People are available at different times. Requesting more reviewers increases the likelihood that eyes get on the PR sooner.</li>
+<li>If there’s a more general coding style/design disagreement in the PR, others have a chance to weigh in or at least become aware of it.</li>
+<li>Standups are by nature more status updates than working in the weeds. When someone is requested on a PR, they can read exactly what a teammate is working on and can reference that code if they encounter a similar issue.</li>
+</ul>
