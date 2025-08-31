@@ -2,7 +2,7 @@
 id: 4a5zty96wbgszd07faxjv78
 title: Git
 desc: ""
-updated: 1726107571461
+updated: 1756617680799
 created: 1652404655162
 ---
 
@@ -63,3 +63,5 @@ Next, create a file called `.gitattributes` if it's not already present and add 
 ```
 
 > [So it does look like git's delta encoding works with sqlite's blocks.](https://news.ycombinator.com/item?id=38117779)
+
+## 구현 후 soft reset으로 정리? #test
