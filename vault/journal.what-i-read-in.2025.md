@@ -2,13 +2,26 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1756255098015
+updated: 1756688951281
 created: 1667632965028
 ---
+
+## Week 36, 2025
+
+- [Eternal Struggle](https://yoavg.github.io/eternal/)
+  - https://francisduvivier.github.io/eternal-struggle-with-speed-control/v2.html
+- [Use One Big Server: 2022](https://specbranch.com/posts/one-big-server/) - One server today is capable of:
+  - [Serving video files at 400 Gbps](https://people.freebsd.org/~gallatin/talks/euro2021.pdf) (now [800 Gbps](http://nabstreamingsummit.com/wp-content/uploads/2022/05/2022-Streaming-Summit-Netflix.pdf))
+  - [1 million IOPS on a NoSQL database](https://www.scylladb.com/2017/05/10/faster-and-better-what-to-expect-running-scylla-on-aws-i3-instances/)
+  - [70k IOPS in PostgreSQL](https://www.enterprisedb.com/blog/pgbench-performance-benchmark-postgresql-12-and-edb-advanced-server-12)
+  - [500k requests per second to nginx](https://openbenchmarking.org/test/pts/nginx)
+  - [Compiling the linux kernel in 20 seconds](https://openbenchmarking.org/test/pts/build-linux-kernel-1.14.0)
+  - [Rendering 4k video with x264 at 75 FPS](https://openbenchmarking.org/test/pts/x264-2.7.0)
 
 ## Week 35, 2025
 
 - [Ask HN: Why hasn't x86 caught up with Apple M series?](https://news.ycombinator.com/item?id=45019483)
+  - 레거시 부담과 분산된 생태계, intel 진영은 제조사·MS·하드웨어 벤더가 분리돼 있어 최적화에 한계
 - [The three-or-four-hours rule for getting creative work done](https://www.oliverburkeman.com/fourhours) suggests that consistent, high-focus work is typically limited to about three or four hours a day.
   - The rule emphasizes protecting a block of undisturbed focus time rather than striving for perfection by eliminating all distractions.
   - Modern work culture often demands relentless productivity, but the key is to prioritize focused work hours over extended, scattered efforts.

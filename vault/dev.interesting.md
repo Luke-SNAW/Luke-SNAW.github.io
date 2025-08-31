@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1749980453864
+updated: 1756688986161
 created: 1646613084338
 ---
 
@@ -53,6 +53,8 @@ created: 1646613084338
 - [(t,i,x,y) => "creative code golfing"](https://tixy.land/)
 - [Reservoir Sampling](https://samwho.dev/reservoir-sampling/)
   - Sampling method to use when you don't know how many samples will come in.
+- [Eternal Struggle](https://yoavg.github.io/eternal/)
+  - https://francisduvivier.github.io/eternal-struggle-with-speed-control/v2.html
 
 ## News
 
@@ -76,9 +78,6 @@ Spelling correction & Fuzzy search: 1 million times faster through Symmetric Del
 
 ## AI
 
-- [DALL·E 2](https://openai.com/dall-e-2/) is a new AI system that can create realistic images and art from a description in natural language.
-- [DALL-E 2 - Pytorch](https://github.com/lucidrains/DALLE2-pytorch) - Implementation of [DALL-E 2](https://openai.com/dall-e-2/), OpenAI's updated text-to-image synthesis neural network, in Pytorch.
-  - https://news.ycombinator.com/item?id=31228710
 - [carefree-creator](https://github.com/carefree0910/carefree-creator) - An AI-powered creator for everyone.
 - [Domain Name Search with AI](https://smartynames.com/) - https://news.ycombinator.com/item?id=33882497
 - [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) #bookmark

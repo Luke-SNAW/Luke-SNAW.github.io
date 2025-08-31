@@ -2,7 +2,7 @@
 id: ZbdkdApFqLdks4Moq92R9
 title: Dev
 desc: ""
-updated: 1752798809734
+updated: 1756688514866
 created: 1644451403760
 ---
 
@@ -63,6 +63,13 @@ created: 1644451403760
   > - Try to soften requirements if you can
   > - Don’t get distracted
   >   https://news.ycombinator.com/item?id=44557115
+- [Use One Big Server: 2022](https://specbranch.com/posts/one-big-server/) - One server today is capable of:
+  - [Serving video files at 400 Gbps](https://people.freebsd.org/~gallatin/talks/euro2021.pdf) (now [800 Gbps](http://nabstreamingsummit.com/wp-content/uploads/2022/05/2022-Streaming-Summit-Netflix.pdf))
+  - [1 million IOPS on a NoSQL database](https://www.scylladb.com/2017/05/10/faster-and-better-what-to-expect-running-scylla-on-aws-i3-instances/)
+  - [70k IOPS in PostgreSQL](https://www.enterprisedb.com/blog/pgbench-performance-benchmark-postgresql-12-and-edb-advanced-server-12)
+  - [500k requests per second to nginx](https://openbenchmarking.org/test/pts/nginx)
+  - [Compiling the linux kernel in 20 seconds](https://openbenchmarking.org/test/pts/build-linux-kernel-1.14.0)
+  - [Rendering 4k video with x264 at 75 FPS](https://openbenchmarking.org/test/pts/x264-2.7.0)
 
 ### re:Work
 
