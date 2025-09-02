@@ -2,7 +2,7 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1756363103622
+updated: 1756790684271
 created: 1669264809793
 ---
 
@@ -11,6 +11,8 @@ created: 1669264809793
 테이블 리스트에 기본 데이터 출력 후 환자번호 검색하면 환자번호가 없는 걸로 표시됨.
 
 자식 component에서 환자번호에 `ref(props.data.patient.number)`를 쓰면 페이지 넘어갈 때나 검색 시 component가 파괴되지 않는 경우, 데이터 갱신이 되지 않는다. computed로 수정하여 해결
+
+-> Column에 key를 생성하면 ref로 해결됨. 이쪽이 더 정석같군.
 
 ## Week 35, 2025 - 자식 간의 데이터 조건 참조 GIT-5592
 
