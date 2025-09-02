@@ -2,12 +2,19 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1756788959438
+updated: 1756869425461
 created: 1667632965028
 ---
 
 ## Week 36, 2025
 
+- [Vibe Coding as a Coding Veteran](https://levelup.gitconnected.com/vibe-coding-as-a-coding-veteran-cd370fe2be50)
+  - This article records the actual experience of "Coding with AI" by a developer with 40 years of experience, who undertook a **2-week project with an AI coding assistant**.
+  - The results showed advantages such as **increased productivity (up to 2x)**, **surprising accuracy, and creative validation**, alongside disadvantages like **20% erroneous/incomplete code** and **excessive industrial complexity**.
+  - The author describes the interaction with AI as a psychological experience that fosters **flow** and **learning effects** while also creating a **tension between trust and control**.
+  - In conclusion, AI coding is likened to a **powerful companion yet a dangerous bicycle**, presented as a **new collaborative paradigm** that experienced developers must proactively manage.
+- [Next.js is infuriating](https://blog.meca.sh/3lxoty3shjc2z)
+  - https://news.ycombinator.com/item?id=45099922
 - [The Day AppGet Died.](https://keivan.io/the-day-appget-died/) - The story of how Microsoft embraced and then killed AppGet.
   - [winget install learning](https://devblogs.microsoft.com/commandline/winget-install-learning/)
 - [Google AI Overview made up an elaborate story about me](https://bsky.app/profile/bennjordan.bsky.social/post/3lxojrbessk2z) - AI hallucinations
