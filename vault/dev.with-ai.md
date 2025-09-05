@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1755576257368
+updated: 1756949647574
 created: 1688605282146
 ---
 
@@ -87,6 +87,9 @@ created: 1688605282146
   - reviewing AI-generated code takes as much time as writing code from scratch, if not more.
   - interns learn and improve over time, while AI does not retain knowledge from past tasks.
   - Claims that AI increases speed or productivity often come from lowering quality standards while accepting additional risks, or stem from the interests of AI vendors.
+- [Where's the Shovelware? Why AI Coding Claims Don't Add Up](https://mikelovesrobots.substack.com/p/wheres-the-shovelware-why-ai-coding)
+  - They’re not showing a sudden spike or hockey-stick line of growth. (chart of new iOS/android/steam app releases, domain name, github repos)
+  - > As for you, personally, show me the 30 apps you created this year.
 
 ## ETC
 

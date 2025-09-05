@@ -2,12 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1756869425461
+updated: 1757048564384
 created: 1667632965028
 ---
 
 ## Week 36, 2025
 
+- [LLM Visualization](https://bbycroft.net/llm)
+  - [TRANSFORMER EXPLAINER](https://poloclub.github.io/transformer-explainer/)
+- [Where's the Shovelware? Why AI Coding Claims Don't Add Up](https://mikelovesrobots.substack.com/p/wheres-the-shovelware-why-ai-coding)
+  - They’re not showing a sudden spike or hockey-stick line of growth. (chart of new iOS/android/steam app releases, domain name, github repos)
+  - > As for you, personally, show me the 30 apps you created this year.
 - [Vibe Coding as a Coding Veteran](https://levelup.gitconnected.com/vibe-coding-as-a-coding-veteran-cd370fe2be50)
   - This article records the actual experience of "Coding with AI" by a developer with 40 years of experience, who undertook a **2-week project with an AI coding assistant**.
   - The results showed advantages such as **increased productivity (up to 2x)**, **surprising accuracy, and creative validation**, alongside disadvantages like **20% erroneous/incomplete code** and **excessive industrial complexity**.

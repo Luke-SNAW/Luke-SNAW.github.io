@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1756688986161
+updated: 1757048601046
 created: 1646613084338
 ---
 
@@ -55,6 +55,8 @@ created: 1646613084338
   - Sampling method to use when you don't know how many samples will come in.
 - [Eternal Struggle](https://yoavg.github.io/eternal/)
   - https://francisduvivier.github.io/eternal-struggle-with-speed-control/v2.html
+- [LLM Visualization](https://bbycroft.net/llm)
+  - [TRANSFORMER EXPLAINER](https://poloclub.github.io/transformer-explainer/)
 
 ## News
 
