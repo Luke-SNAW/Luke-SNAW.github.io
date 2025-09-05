@@ -1,0 +1,89 @@
+<h1 id="vue">Vue<a aria-hidden="true" class="anchor-heading icon-link" href="#vue"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://www.syncfusion.com/blogs/post/vue-composition-api-vs-react-hooks.aspx#:~:text=Note%3A%20The%20main%20difference%20is%20that%20the%20watchEffect%20starts%20instantly%20while%20the%20watch()%20runs%20lazily">Note: The main difference is that the watchEffect starts instantly while the watch() runs lazily</a></li>
+<li><a href="https://medium.com/@felixdavid12/top-7-tips-features-in-vue-3-7119cee4a918">Top 7 tips/features in Vue 3</a> 3. Reactive CSS</li>
+<li><a href="https://dmitripavlutin.com/props-destructure-vue-composition/">How to Destructure Props in Vue (Composition API)</a></li>
+<li><a href="https://medium.com/@dlyall/the-new-wikipedia-appearance-that-took-a-whole-village-52637b34a00f">The new Wikipedia appearance that took the whole village</a>
+<ul>
+<li><a href="https://lists.wikimedia.org/hyperkitty/list/wikitech-l@lists.wikimedia.org/thread/SOZREBYR36PUNFZXMIUBVAIOQI4N7PDU/">Vue.js has been selected as Wikimedia Foundation's future JavaScript framework</a></li>
+<li><a href="https://phabricator.wikimedia.org/T241180">RFC: Adopt a modern JavaScript framework for use with MediaWiki</a> and <a href="https://phabricator.wikimedia.org/T241180#:~:text=Project%20lead%20of%20Vue.js%20here.">EvanYou comment</a></li>
+</ul>
+</li>
+<li><a href="https://thenewstack.io/vue-2023/">What to Expect from Vue in 2023 and How it Differs from React</a></li>
+<li><a href="https://medium.com/@lindblomdev/why-im-sticking-with-vue-in-2023-d67bce7bc2f4">Why I’m sticking with Vue in 2023</a>
+<ul>
+<li>Script setup + composition API produce clean code</li>
+<li>Performance is good</li>
+<li>Best tooling I have used</li>
+</ul>
+</li>
+<li><a href="https://github.com/vuejs/rfcs/discussions/503">[Core Team RFC] New SFC macro: defineModel</a></li>
+<li><a href="https://github.com/nuxt/nuxt/issues/20476">useFetch triggers a request on the client side in nested components (using resolveComponent) #20476</a></li>
+<li><a href="https://github.com/vuejs/vue-loader/issues/957#issuecomment-329947476">Vue - scoped style leak</a></li>
+<li><a href="https://vuejs.org/guide/scaling-up/ssr.html#hydration-mismatch">Hydration Mismatch</a>
+<ul>
+<li>invalid HTML nesting structure</li>
+<li>randomly generated values</li>
+<li>The server and the client are in different time zones</li>
+</ul>
+</li>
+</ul>
+<h2 id="nexttick">nextTick<a aria-hidden="true" class="anchor-heading icon-link" href="#nexttick"></a></h2>
+<h3 id="how-to-use-nexttick-in-vue"><a href="https://dmitripavlutin.com/vue-next-tick/">How to Use nextTick() in Vue</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-use-nexttick-in-vue"></a></h3>
+<p>If you don't supply the callback argument to Vue.nextTick() or this.$nextTick(): then the functions would return a promise that's being resolved when DOM is updated.<br>
+Using this with an async/await syntax makes the code more readable than the callbacks approach.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword control-flow">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">$nextTick</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">show</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$refs</span><span class="token punctuation">.</span><span class="token property-access">content</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="how-to-wait-for-a-browser-re-render-vuenexttick-doesnt-seem-to-cover-it-and-settimeout-0-is-not-good-enough"><a href="https://github.com/vuejs/vue/issues/9200">How to wait for a browser re-render? Vue.nextTick doesn't seem to cover it, and setTimeout(..., 0) is not good enough.</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-wait-for-a-browser-re-render-vuenexttick-doesnt-seem-to-cover-it-and-settimeout-0-is-not-good-enough"></a></h3>
+<h4 id="await-thisnexttick">await this.$nextTick()<a aria-hidden="true" class="anchor-heading icon-link" href="#await-thisnexttick"></a></h4>
+<p>리포트 데이터를 테이블로 그리는 탭을 띄우고 바로 인쇄를 호출 했을 때, 테이블 내용이 모두 렌더링 되지 않은 상태에서 인쇄 상태로 전환됨.<br>
+해서 DOM에 해당 데이터가 업데이트 됐는지 <a href="https://github.com/connor4312/cockatiel">cockatiel</a>를 통해 polling으로 확인 후 nextTick으로 인쇄 시도 했는데 역시 렌더링이 완료 안된 상태로 진행 됨. DOM 적용과 rendering 시간차가 꽤 되는 듯</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">$nextTick</span><span class="token punctuation">(</span><span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">print</span><span class="token punctuation">)</span> <span class="token comment">// no rendering completed</span>
+</code></pre>
+<p>위 code와 동일한 걸로 보이는 vue issue link에 나온 다음 code로는 잘 됨.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword control-flow">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">$nextTick</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// rendering completed</span>
+</code></pre>
+<h4 id="double-requestanimationframe">double <code>requestAnimationFrame</code><a aria-hidden="true" class="anchor-heading icon-link" href="#double-requestanimationframe"></a></h4>
+<p>다음 2 링크도 흥미로움.<br>
+setTimeout 0은 안되고 25가 되는 이유.</p>
+<ul>
+<li><a href="https://github.com/vuejs/vue/issues/9200#issuecomment-468503909">https://github.com/vuejs/vue/issues/9200#issuecomment-468503909</a></li>
+<li><a href="https://github.com/vuejs/vue/issues/9200#issuecomment-468512304">https://github.com/vuejs/vue/issues/9200#issuecomment-468512304</a></li>
+</ul>
+<h2 id="filter">filter<a aria-hidden="true" class="anchor-heading icon-link" href="#filter"></a></h2>
+<h3 id="declare">declare<a aria-hidden="true" class="anchor-heading icon-link" href="#declare"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token maybe-class-name">Vue</span><span class="token punctuation">.</span><span class="token method function property-access">filter</span><span class="token punctuation">(</span><span class="token string">"USD"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> value <span class="token operator">!==</span> <span class="token string">"number"</span><span class="token punctuation">)</span> <span class="token keyword control-flow">throw</span> <span class="token string">"value must be number"</span>
+
+  <span class="token keyword">const</span> formatter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intl<span class="token punctuation">.</span>NumberFormat</span><span class="token punctuation">(</span><span class="token string">"en-IN"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    style<span class="token operator">:</span> <span class="token string">"currency"</span><span class="token punctuation">,</span>
+    currency<span class="token operator">:</span> <span class="token string">"USD"</span><span class="token punctuation">,</span>
+    minimumFractionDigits<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword control-flow">return</span> formatter<span class="token punctuation">.</span><span class="token method function property-access">format</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="use-in-template">use in template<a aria-hidden="true" class="anchor-heading icon-link" href="#use-in-template"></a></h3>
+<pre class="language-html"><code class="language-html">{{ price | USD}}
+</code></pre>
+<h3 id="use-in-javascript">use in javascript<a aria-hidden="true" class="anchor-heading icon-link" href="#use-in-javascript"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$options</span><span class="token punctuation">.</span><span class="token property-access">filter</span><span class="token punctuation">.</span><span class="token constant">USD</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">price</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="about-event">About event<a aria-hidden="true" class="anchor-heading icon-link" href="#about-event"></a></h2>
+<h3 id="vue-prevent-form-submit-when-pressing-enter-inside-form"><a href="https://stackoverflow.com/a/70152112/5163033">Vue Prevent form submit when pressing enter inside form</a><a aria-hidden="true" class="anchor-heading icon-link" href="#vue-prevent-form-submit-when-pressing-enter-inside-form"></a></h3>
+<p>You can prevent submission on enter key down just annotating the top-level form.</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">&#x3C;</span>form @submit<span class="token punctuation">.</span><span class="token property-access">prevent</span><span class="token operator">=</span><span class="token string">"handleLogin"</span> @keydown<span class="token punctuation">.</span><span class="token property-access">enter</span><span class="token operator">=</span><span class="token string">"$event.preventDefault()"</span> <span class="token operator">/</span><span class="token operator">></span>
+</code></pre>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/2hr2a959ggj0h4hjahf7ohm">5 Must-Know Differences Between ref() and reactive() in Vue</a></li>
+<li><a href="/notes/1fp5c6sls5ohtbharazsymx">Dynamic Component Props</a></li>
+<li><a href="/notes/68plnpawbzlhk9cdivnsfnp">Have You Mastered These 9 Vue Techniques</a></li>
+<li><a href="/notes/g591hgvcg5ld92hijel3i4c">How to Use v-model with Form Inputs in Vue</a></li>
+<li><a href="/notes/n5ogpv9x88nbej5in300ri4">Vue tools</a></li>
+<li><a href="/notes/c3h278rnmp6ak53huyvatbu">What is the difference between ref, toRef and toRefs</a></li>
+</ol>
