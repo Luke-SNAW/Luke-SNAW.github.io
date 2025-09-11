@@ -2,7 +2,7 @@
 id: 778ijii93yu5uwnrwmn5zi4
 title: Business
 desc: ""
-updated: 1747286569852
+updated: 1757572709836
 created: 1729047278920
 ---
 
@@ -39,6 +39,9 @@ created: 1729047278920
   - Even if a product could be implemented effortlessly and at no cost, customers may still decline due to perceived risks and implementation challenges.
   - Products must provide **significant value that far exceeds the penalties of adoption**; otherwise, customers will not prioritize them.
   - Identifying which customers have an **urgent need** for a product. Companies often delay purchases until they address higher-priority issues.
+- [Your target market isn't demographic](https://longform.asmartbear.com/target-market/)
+  - The actual target market is defined by the characteristics shared by users who benefit from a product, not by demographic factors.
+  - For a TV show, the target market is not just females aged 19-29, but those who enjoy the genre, actors, aesthetic, and writing style.
 
 ### [Ask HN: Solopreneurs, how did you come up with your idea?](https://news.ycombinator.com/item?id=41837607)
 

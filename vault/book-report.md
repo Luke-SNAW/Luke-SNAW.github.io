@@ -2,7 +2,7 @@
 id: 6hzeqsofq67gdk88flxlkhp
 title: Book Report
 desc: ""
-updated: 1751518019874
+updated: 1757553864881
 created: 1737617297333
 ---
 
@@ -31,3 +31,6 @@ Book reports tend to be a little more descriptive (What is this book about?) and
     - main target만 찍으면 심심하거나 균형감이 떨어진다고 생각하는 듯
     - 도로를 찍을 때 빈 공간에 사람이 오길 기다린다든지
   - 가장 높은 건물에서 찍기 위해 주인에게 허락을 받음
+- 최고의 휴식 2025/09
+  - 걷기 명상, 라벨링의 지식 외에는 되새김
+  - 7년 전 출판된 책. 7년 전에 봤으면 더 도움이 됐겠지만, 그 때는 관심이 별로 없어서 도움이 안됐을지도

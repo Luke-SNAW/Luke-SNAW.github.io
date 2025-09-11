@@ -2,12 +2,26 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1757048564384
+updated: 1757572698922
 created: 1667632965028
 ---
 
+## Week 37, 2025
+
+- [Your target market isn't demographic](https://longform.asmartbear.com/target-market/)
+  - The actual target market is defined by the characteristics shared by users who benefit from a product, not by demographic factors.
+  - For a TV show, the target market is not just females aged 19-29, but those who enjoy the genre, actors, aesthetic, and writing style.
+- [Local Server Security Best Practices](https://green.sapphi.red/blog/local-server-security-best-practices)
+  > 1. An attacker serves a malicious site (e.g., http://malicious.example.com).
+  > 2. A user accesses a site that executes JavaScript served by the malicious site. This isn't limited to top-level navigation; it includes embedding via iframes or scripts on external sites.
+  > 3. The served JavaScript executes fetch('http://127.0.0.1:3000/main.js'), and the response content is sent to the attacker.
+  > 4. The attacker receives the contents of http://127.0.0.1:3000/main.js.
+- [iPhone dumbphone](https://stopa.io/post/297) - using [Apple Configurator](https://support.apple.com/apple-configurator) for saving about 2 hours of screen time a day.
+  > Moving all the distractions to another device that I can't carry around with me is a great idea - [#](https://news.ycombinator.com/item?id=45180528)
+
 ## Week 36, 2025
 
+- [30 minutes with a stranger](https://pudding.cool/2025/06/hello-stranger/)
 - [LLM Visualization](https://bbycroft.net/llm)
   - [TRANSFORMER EXPLAINER](https://poloclub.github.io/transformer-explainer/)
 - [Where's the Shovelware? Why AI Coding Claims Don't Add Up](https://mikelovesrobots.substack.com/p/wheres-the-shovelware-why-ai-coding)
