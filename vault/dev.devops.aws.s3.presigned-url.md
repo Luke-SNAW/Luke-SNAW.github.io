@@ -2,7 +2,7 @@
 id: jc12ch4ruj1eak2p8fj2m7h
 title: Presigned URL
 desc: ""
-updated: 1733814627238
+updated: 1758261616035
 created: 1733811121555
 ---
 
@@ -38,23 +38,6 @@ presigned URL 다운로드 시 fetch 없이 [file-saver](https://github.com/elig
 ## S3 setting
 
 ### Block all public access on
-
-### Bucket policy
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "public-read",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::~~/*"
-    }
-  ]
-}
-```
 
 ### CORS
 

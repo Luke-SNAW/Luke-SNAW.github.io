@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1757837763818
+updated: 1758238626834
 created: 1645514209965
 ---
 
@@ -63,6 +63,12 @@ created: 1645514209965
   3.  Once the number of bytes are determined, read all the remaining bits except the leading bits, and find the binary value (aka. code point) of the character.
   4.  Look up the code point in the Unicode character set to find the corresponding character and display it on the screen.
   5.  Read the next byte and repeat the process.
+- [V8과 WebAssembly: 현대 자바스크립트 엔진의 구조와 성능 최적화(상하편)](https://www.zigae.com/chrome-gc/)
+  - V8의 세대별 힙 구조는 객체의 수명에 따라 최적화된 처리를 가능하게 하며, Young Generation과 Old Generation으로 구분되어 관리된다.
+  - V8의 세대별 객체 승격 메커니즘은 Age-based, Size-based, Pretenuring 등의 복합적인 휴리스틱을 사용하여 객체를 Old Generation으로 승격시킨다.
+  - React의 Fiber 아키텍처는 V8의 세대별 가설과 충돌하며, Fiber 노드는 컴포넌트가 마운트된 동안 계속 살아있어 Old Generation으로 승격되어 Major GC 부담을 증가시킨다.
+  - React Hooks는 클로저 메모리 누수를 일으킬 수 있으며, useEffect와 같은 훅은 클로저가 전체 컴포넌트 스코프를 캡처하여 메모리 누수를 유발할 수 있다.
+  - V8의 Orinoco 프로젝트는 병렬 처리, 증분 처리, 동시 처리 등의 기술을 도입하여 GC pause time을 크게 감소시켰으며, 특히 동시 마킹은 Major GC pause time을 60-70% 감소시켰다.
 
 ## Modeling
 

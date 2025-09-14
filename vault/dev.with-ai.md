@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1756949647574
+updated: 1757981532858
 created: 1688605282146
 ---
 
@@ -90,6 +90,7 @@ created: 1688605282146
 - [Where's the Shovelware? Why AI Coding Claims Don't Add Up](https://mikelovesrobots.substack.com/p/wheres-the-shovelware-why-ai-coding)
   - They’re not showing a sudden spike or hockey-stick line of growth. (chart of new iOS/android/steam app releases, domain name, github repos)
   - > As for you, personally, show me the 30 apps you created this year.
+- Neither one is a substitute for the 'driver'. Claude code is like the level 2 self driving of programming. - [HN](https://news.ycombinator.com/item?id=45235106)
 
 ## ETC
 

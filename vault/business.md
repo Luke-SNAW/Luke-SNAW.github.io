@@ -2,7 +2,7 @@
 id: 778ijii93yu5uwnrwmn5zi4
 title: Business
 desc: ""
-updated: 1757572709836
+updated: 1757632461817
 created: 1729047278920
 ---
 
@@ -42,6 +42,10 @@ created: 1729047278920
 - [Your target market isn't demographic](https://longform.asmartbear.com/target-market/)
   - The actual target market is defined by the characteristics shared by users who benefit from a product, not by demographic factors.
   - For a TV show, the target market is not just females aged 19-29, but those who enjoy the genre, actors, aesthetic, and writing style.
+- [OpenAI’s Product Lead Reveals the 4-Part Framework for AI Product Strategy](https://www.thevccorner.com/p/ai-product-strategy-openai-guide) - Build AI products that scale profitably, retain users, and defend against commoditization
+  - AI costs are real and scale with usage, unlike SaaS where marginal costs trend toward zero, making cost management critical in AI.
+  - Using OpenAI's API without a unique value proposition can lead to quick commoditization and failure, as anyone can access the same models.
+  - The 4D Framework for AI product strategy includes Direction, Differentiation, Design, and Deployment, which help in building defensible AI products.
 
 ### [Ask HN: Solopreneurs, how did you come up with your idea?](https://news.ycombinator.com/item?id=41837607)
 

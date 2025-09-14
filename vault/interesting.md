@@ -2,7 +2,7 @@
 id: eq0wc6t7wl2wv221yb68ro4
 title: Interesting
 desc: ""
-updated: 1755127907519
+updated: 1757979577678
 created: 1669705986186
 ---
 
@@ -64,3 +64,9 @@ created: 1669705986186
 - [Every 5x5 Nonogram](https://pixelogic.app/every-5x5-nonogram)
 - [Search all text in New York City](https://www.alltext.nyc/)
   - https://pudding.cool/2025/07/street-view/
+- [The case against social media is stronger than you think](https://news.ycombinator.com/item?id=45234323)
+  > If you're a politician, you need people to vote for you. "Your" people will. Try not to alienate too much others so you can fish moderates and get to 50%.
+  > If you're an "influencer" you need engagement. You can live off a 10% easily. And you need retention. So keep the message heated. - https://news.ycombinator.com/item?id=45239513
+  >
+  > > I'm not sure I agree. Leading political parties are certainly fishing moderates, but for smaller parties it often makes more sense to cater to extreme views - both because people who care strongly about it will vote for you, and because it gives you more visibility. - https://news.ycombinator.com/item?id=45241029
+- [Anycrap](https://anycrap.shop/) - A store that generates products from anything you type in search

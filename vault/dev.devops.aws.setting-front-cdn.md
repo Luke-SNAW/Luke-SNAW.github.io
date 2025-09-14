@@ -2,16 +2,22 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1730072417491
+updated: 1758255643947
 created: 1646021156163
 ---
 
+## Cloudfront
+
+- 원본 편집 - 원본 액세스 - 원본 액세스 제어 설정 - Origin access control
+
 ## S3 버킷 생성
 
-### 권한 탭
+- [Restrict access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)
+- Amazon S3 Object Ownership to Bucket owner enforced
+- pubilc access 퍼블릭 액세스 차단
+- not a bucket configured as a website endpoint. 정적 웹 사이트 호스팅 쓰지 않기
 
-- 객체 소유권→ ACL 활성화됨. 객체 라이터
-- 퍼블릭 액세스 차단(버킷 설정) - 모두 비활성
+### 권한 탭
 
 <details>
   <summary>버킷 정책</summary>
@@ -44,6 +50,20 @@ created: 1646021156163
       "Effect": "Allow"
     },
     {
+      // Cloudfront OAC, https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::your-bucket/*",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceArn": "arn:aws:cloudfront::YOUR-ACCOUNT-ID:distribution/YOUR-DISTRIBUTION-ID"
+        }
+      }
+    },
+    {
       //Public read가 필요하다면
       "Sid": "public-read",
       "Effect": "Allow",
@@ -57,17 +77,9 @@ created: 1646021156163
 
 </details>
 
-### 속성 탭
-
-정적 웹 호스팅 편집
-
-- 정적 웹 사이트 호스팅: 활성화
-- 호스팅 유형: 정적 웹 사이트 호스팅
-- 인덱스 문서: index.html
-
 ## CloudFront 배포 생성
 
-- origin domain: S3> 속성 탭> 정적 웹 사이트 호스팅> 버킷 웹 사이트 엔드포인트
+- origin domain: S3
 - SSL Certicicate → Custom SSL → ACM에 만들어져 있는 SSL
 - CNAME: domain name
 - default root object: index.html
@@ -129,12 +141,6 @@ function handler(event) {
 
 cloudfront에서 403 error를 SPA framework index.html로 처리하도록 해주면 framework에서 404 처리해 줌
 ![CloudFront> 배포> id> 오류 페이지 응답 편집> 사용자 정의 ...> 403, 예, 응답 페이지 경로/index.html](assets/images/what-i-struggled-brag-in/s3-cloudfront-404-custom-setting.webp)
-
-## [How do I serve index.html in subfolders with S3/Cloudfront?](https://stackoverflow.com/a/59649703/5163033)
-
-In brief: when setting up your CloudFront distribution, don’t set the origin to the name of the S3 bucket; instead, set the origin to the static website endpoint that corresponds to that S3 bucket. Amazon [are clear](https://aws.amazon.com/premiumsupport/knowledge-center/s3-rest-api-cloudfront-error-403/) there is a difference here, between REST API endpoints and static website endpoints, but they’re only looking at 403 errors coming from the root in that document. [#](https://www.mark-gilbert.co.uk/serving-index-pages-from-non-root-locations-with-aws-cloudfront/#:~:text=to%20the%20solution.-,In%20brief%3A,-when%20setting%20up)
-
-![](assets/images/devops/s3-cloudfront__subdir.webp)
 
 ## Github Actions with IAM Roles
 

@@ -2,7 +2,7 @@
 id: 6hzeqsofq67gdk88flxlkhp
 title: Book Report
 desc: ""
-updated: 1757553864881
+updated: 1757641409548
 created: 1737617297333
 ---
 
@@ -33,4 +33,5 @@ Book reports tend to be a little more descriptive (What is this book about?) and
   - 가장 높은 건물에서 찍기 위해 주인에게 허락을 받음
 - 최고의 휴식 2025/09
   - 걷기 명상, 라벨링의 지식 외에는 되새김
+  - 고통인지, 분리는 제행무상 하위개념 같은데
   - 7년 전 출판된 책. 7년 전에 봤으면 더 도움이 됐겠지만, 그 때는 관심이 별로 없어서 도움이 안됐을지도

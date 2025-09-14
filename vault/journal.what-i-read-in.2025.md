@@ -2,12 +2,25 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1757837725580
+updated: 1758237911093
 created: 1667632965028
 ---
 
 ## Week 38, 2025
 
+- [V8과 WebAssembly: 현대 자바스크립트 엔진의 구조와 성능 최적화(상하편)](https://www.zigae.com/chrome-gc/)
+  - V8의 세대별 힙 구조는 객체의 수명에 따라 최적화된 처리를 가능하게 하며, Young Generation과 Old Generation으로 구분되어 관리된다.
+  - V8의 세대별 객체 승격 메커니즘은 Age-based, Size-based, Pretenuring 등의 복합적인 휴리스틱을 사용하여 객체를 Old Generation으로 승격시킨다.
+  - React의 Fiber 아키텍처는 V8의 세대별 가설과 충돌하며, Fiber 노드는 컴포넌트가 마운트된 동안 계속 살아있어 Old Generation으로 승격되어 Major GC 부담을 증가시킨다.
+  - React Hooks는 클로저 메모리 누수를 일으킬 수 있으며, useEffect와 같은 훅은 클로저가 전체 컴포넌트 스코프를 캡처하여 메모리 누수를 유발할 수 있다.
+  - V8의 Orinoco 프로젝트는 병렬 처리, 증분 처리, 동시 처리 등의 기술을 도입하여 GC pause time을 크게 감소시켰으며, 특히 동시 마킹은 Major GC pause time을 60-70% 감소시켰다.
+- [Distributing your own scripts via Homebrew](https://justin.searls.co/posts/how-to-distribute-your-own-scripts-via-homebrew/)
+  - Creating a Homebrew tap involves setting up a GitHub repository and using the brew tap-new command.
+- [Anycrap](https://anycrap.shop/) - A store that generates products from anything you type in search
+- [Many Hard Leetcode Problems are Easy Constraint Problems](https://buttondown.com/hillelwayne/archive/many-hard-leetcode-problems-are-easy-constraint/)
+  > Constraint solvers runtimes are unpredictable and almost always slower than an ideal bespoke algorithm because they are more expressive, in what I refer to as the [capability/tractability tradeoff](https://buttondown.com/hillelwayne/archive/the-capability-tractability-tradeoff/). But even so, they'll do way better than a _bad_ bespoke algorithm, and I'm not experienced enough in handwriting algorithms to consistently beat a solver.
+  > The real advantage of solvers, though, is how well they handle new constraints.
+- [Proton Mail suspended journalist accounts at request of cybersecurity agency](https://theintercept.com/2025/09/12/proton-mail-journalist-accounts-suspended/)
 - [UTF-8 is a Brilliant Design](https://iamvishnu.com/posts/utf8-is-brilliant-design) - still be backward compatible with ASCII
   1.  Read a byte. If it starts with 0, it's a single-byte character (ASCII). Show the character represented by the remaining 7 bits on the screen. Continue with the next byte.
   2.  If the byte didn't start with a 0, then:
@@ -20,6 +33,10 @@ created: 1667632965028
 
 ## Week 37, 2025
 
+- [OpenAI’s Product Lead Reveals the 4-Part Framework for AI Product Strategy](https://www.thevccorner.com/p/ai-product-strategy-openai-guide) - Build AI products that scale profitably, retain users, and defend against commoditization
+  - AI costs are real and scale with usage, unlike SaaS where marginal costs trend toward zero, making cost management critical in AI.
+  - Using OpenAI's API without a unique value proposition can lead to quick commoditization and failure, as anyone can access the same models.
+  - The 4D Framework for AI product strategy includes Direction, Differentiation, Design, and Deployment, which help in building defensible AI products.
 - [Your target market isn't demographic](https://longform.asmartbear.com/target-market/)
   - The actual target market is defined by the characteristics shared by users who benefit from a product, not by demographic factors.
   - For a TV show, the target market is not just females aged 19-29, but those who enjoy the genre, actors, aesthetic, and writing style.
