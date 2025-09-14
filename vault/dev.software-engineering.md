@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1745202544893
+updated: 1757837763818
 created: 1645514209965
 ---
 
@@ -54,6 +54,15 @@ created: 1645514209965
 - [Succinct data structures](https://blog.startifact.com/posts/succinct/)
 - [How to pack ternary numbers in 8-bit bytes](https://compilade.net/blog/ternary-packing)
   > `log(3) / log(2)` bits per ternary digit
+- [UTF-8 is a Brilliant Design](https://iamvishnu.com/posts/utf8-is-brilliant-design) - still be backward compatible with ASCII
+  1.  Read a byte. If it starts with 0, it's a single-byte character (ASCII). Show the character represented by the remaining 7 bits on the screen. Continue with the next byte.
+  2.  If the byte didn't start with a 0, then:
+      - If it starts with 110, it's a two-byte character, so read the next byte as well.
+      - If it starts with 1110, it's a three-byte character, so read the next two bytes.
+      - If it starts with 11110, it's a four-byte character, so read the next three bytes.
+  3.  Once the number of bytes are determined, read all the remaining bits except the leading bits, and find the binary value (aka. code point) of the character.
+  4.  Look up the code point in the Unicode character set to find the corresponding character and display it on the screen.
+  5.  Read the next byte and repeat the process.
 
 ## Modeling
 
