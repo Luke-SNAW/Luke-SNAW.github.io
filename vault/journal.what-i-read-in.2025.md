@@ -2,9 +2,24 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1758237911093
+updated: 1758497487002
 created: 1667632965028
 ---
+
+## Week 39, 2025
+
+- [Give footnotes the boot](https://jakearchibald.com/2025/give-footnotes-the-boot/)
+
+  - Footnotes disrupt the reading flow by requiring readers to navigate away from the main content.
+  - On the web, footnotes are even more cumbersome due to scrolling and navigation challenges.
+  - Readers should be able to easily skip over supplementary content if they choose.
+
+  > For example: [#](https://jakearchibald.com/2025/give-footnotes-the-boot/#comment-6731381255)
+  >
+  > - 50+% likelihood and content is short? → Parentheses
+  > - 50+% likelihood and content is medium or long? → note block
+  > - 20-50% likelihood and content is medium or long? → collapsed note block
+  > - < 20% likelihood and content is short or medium? → footnote
 
 ## Week 38, 2025
 
