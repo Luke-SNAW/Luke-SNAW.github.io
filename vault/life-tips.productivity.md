@@ -2,7 +2,7 @@
 id: PddvXCJLzVqmA6DFKD6Uh
 title: Productivity
 desc: ""
-updated: 1756164192721
+updated: 1758844816733
 created: 1645523620804
 ---
 
@@ -102,6 +102,17 @@ planning each workday around a 3-3-3 model
 - first devoting three hours to deep work on your most important project.
 - Next, complete three other urgent tasks that don’t require three hours of focus.
 - Finally, do three “maintenance” tasks, like cleaning, answering emails, or scheduling other work.
+
+### [시간 관리의 세 단계 진화: 왜 빈 큐를 먼저 만들어야 하는가](https://unnud.com/the-three-stage-evolution-of-time-management-why-you-should-create-an-empty-queue-first/)
+
+- 시간 구조를 먼저 설계: Deep Work Queue, Creative Queue, Admin Queue
+  - 구조는 고정하되 내용은 유연하게 - 이번 주는 기획서, 다음 주는 분석 보고서
+  - 좋은 그릇(시간 구조)을 먼저 준비하고 담을 것(할 일)을 고르는 순서의 역전
+  - 시간 관리의 비밀은 많이 하는 게 아니라 맞는 일을 맞는 시간에 하는 것
+- 주의
+  - 긴 목록이 뇌에 "위험하다"는 신호 → 스트레스 호르몬 분비 → 미루기는 게으름이 아닌 방어 기제
+  - 30분 단위는 스트레스 → 90분-2시간 큐가 적정
+  - 모든 큐 채우려는 완벽주의 → 70% 채우고 30% 버퍼
 
 ## Collections
 

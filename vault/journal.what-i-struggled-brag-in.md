@@ -2,9 +2,13 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1756790684271
+updated: 1758685787082
 created: 1669264809793
 ---
+
+## Week 39, 2025 - AWS S3 public access block
+
+## Week 38, 2025 - Claude Code
 
 ## Week 35, 2025 - 환자번호 검색 시, 리스트에는 환자번호가 나오지 않음 GIT-5593
 
