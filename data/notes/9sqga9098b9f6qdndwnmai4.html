@@ -1,0 +1,41 @@
+<h1 id="prompt">Prompt<a aria-hidden="true" class="anchor-heading icon-link" href="#prompt"></a></h1>
+<ul>
+<li>각 component의 머리글에 spec을 명시. spec은 다음 섹션을 가진다. (추후 사용자가 섹션을 제거할 수 있음)
+<ul>
+<li>핵심기능</li>
+<li>부가기능</li>
+<li>엣지케이스</li>
+<li>불확실성 지도
+<ul>
+<li>이 지도에는 네가 가장 덜 자신있는 부분, 지나치게 단순화했을 수 있는 부분, 그리고 어떤 질문이나 추가 정보가 네 의견을 바꿀 수 있을지를 포함</li>
+<li>개발 과정 중에 해결된 항목은 불확실성 지도 섹션 바깥으로 이동</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>핵심기능을 먼저 구현. 모두 한꺼번에 구현하면 읽을 코드가 많아진다.
+부가기능이나 엣지케이스가 지나친 coverage를 가질 수 있다.</p>
+<p>Claude Code가 나눠주는 핵심/부가 기능, 엣지케이스가 내 기준과는 좀 다름
+부가기능 - 사용 편의성, 엣지케이즈 - 프로그래머가 신경 쓸 디테일 정도로 정의해서 줄까?</p>
+<h2 id="나날이-발전하고픈-개발자를-위한-ai-활용법"><a href="https://www.stdy.blog/how-to-use-ai-for-developers-who-want-to-develop-everyday/">나날이 발전하고픈 개발자를 위한 AI 활용법</a><a aria-hidden="true" class="anchor-heading icon-link" href="#나날이-발전하고픈-개발자를-위한-ai-활용법"></a></h2>
+<h3 id="sticc-framework">STICC framework<a aria-hidden="true" class="anchor-heading icon-link" href="#sticc-framework"></a></h3>
+<blockquote>
+<p>컨텍스트 엔지니어링: AI에게 '어떻게(How)'보다는 '무엇을(What)'과 '왜(Why)'를 명확히 전달하는 것이 중요함. 이를 위해 상황(Situation), 작업(Task), 의도(Intention), 우려(Concern), 조정(Calibration)을 담은 STICC 프레임워크가 유용함.</p>
+</blockquote>
+<h3 id="불확실성-지도">불확실성 지도<a aria-hidden="true" class="anchor-heading icon-link" href="#불확실성-지도"></a></h3>
+<blockquote>
+<p>응답의 하단에는 "불확실성 지도"를 추가해줘. 이 지도에는 네가 가장 덜 자신있는 부분, 지나치게 단순화했을 수 있는 부분, 그리고 어떤 질문이나 추가 정보가 네 의견을 바꿀 수 있을지를 포함해줘.
+→ 환각 확인 및 컨텍스트 보충이 쉬워짐</p>
+</blockquote>
+<h3 id="프롬프트-개선">프롬프트 개선<a aria-hidden="true" class="anchor-heading icon-link" href="#프롬프트-개선"></a></h3>
+<p>메타 프롬프트로 내 프롬프트 개선하면 메타인지하기</p>
+<p>&#x3C;프롬프트> 이 프롬프트를 개선해줘. 그렇게 개선하는 이유도 알려줘.
+→ 메타인지: 내가 보통 어떤 정보를 덜 주고 있지? 주로 언제 그렇게 하지?</p>
+<p>OpenAI의 Prompt Optimizer도 좋음</p>
+<p>(단, 개선된 프롬프트는 '정답'이 절대 아님 - 꼭 실제로 내 의도대로 '개선'되는지 실험해볼 것)</p>
+<hr>
+<h2 id="tags">Tags<a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a></h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">draft (Private)</a></li>
+</ol>
