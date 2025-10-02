@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1759196554561
+updated: 1759378018327
 created: 1688605282146
 ---
 
@@ -140,3 +140,11 @@ These "chats" only take 10-30 minutes and have already led me to learn a bunch o
 ### [p4coder](https://news.ycombinator.com/item?id=44800248)
 
 Today physical world is largely mechanized, we rarely walk, run lift heavy things for survival. So we grow fat and weak unless we exercise. Tomorrow vast majority of us will never think, create, investigate for earning a living. So we will get dumb and dumber over time. A small minority of us will keep polishing their intellect but will never be smarter than machines just like the best athletes of today can't outrun machines.
+
+--
+
+AI를 coding에 사용하는 방법이 사람마다 다름
+
+- 초기 8~90% critical path는 자신이 작성, 나머지 시간걸리는 세부사항은 AI에게
+- 반대로 뼈대를 AI에게 맡기고 디테일+완성은 자신이
+- 문서화, test 작성 등 덜 흥미로운 일들을 AI에게

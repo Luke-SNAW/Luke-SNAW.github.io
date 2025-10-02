@@ -2,7 +2,7 @@
 id: 9sqga9098b9f6qdndwnmai4
 title: Prompt
 desc: ""
-updated: 1759199764333
+updated: 1759377877452
 created: 1759192243421
 tags: draft
 ---
@@ -17,6 +17,9 @@ tags: draft
 
 핵심기능을 먼저 구현. 모두 한꺼번에 구현하면 읽을 코드가 많아진다.
 부가기능이나 엣지케이스가 지나친 coverage를 가질 수 있다.
+
+Claude Code가 나눠주는 핵심/부가 기능, 엣지케이스가 내 기준과는 좀 다름
+부가기능 - 사용 편의성, 엣지케이즈 - 프로그래머가 신경 쓸 디테일 정도로 정의해서 줄까?
 
 ## [나날이 발전하고픈 개발자를 위한 AI 활용법](https://www.stdy.blog/how-to-use-ai-for-developers-who-want-to-develop-everyday/)
 
