@@ -2,9 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1759196078520
+updated: 1760060132839
 created: 1667632965028
 ---
+
+## Week 41, 2025
+
+- [How a Competitor Crippled a $23.5M Bootcamp By Becoming a Reddit Moderator](https://larslofgren.com/codesmith-reddit-reputation-attack/) - [HN](https://news.ycombinator.com/item?id=45521920)
 
 ## Week 40, 2025
 
