@@ -1,0 +1,41 @@
+<h1 id="let-vs-var-what-is-the-actual-difference">'let' vs 'var': What is the Actual Difference?<a aria-hidden="true" class="anchor-heading icon-link" href="#let-vs-var-what-is-the-actual-difference"></a></h1>
+<p><a href="https://javascript.plainenglish.io/let-vs-var-what-is-the-actual-difference-5acdb1f1c83">https://javascript.plainenglish.io/let-vs-var-what-is-the-actual-difference-5acdb1f1c83</a></p>
+<h1 id="scope">Scope<a aria-hidden="true" class="anchor-heading icon-link" href="#scope"></a></h1>
+<p>Both var and let are scoped differently. var is scoped for the immediate enclosing function while let is scoped for the immediate enclosing block.</p>
+<h2 id="example">Example:<a aria-hidden="true" class="anchor-heading icon-link" href="#example"></a></h2>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> first <span class="token operator">=</span> <span class="token string">"First"</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> second <span class="token operator">=</span> <span class="token string">"Second"</span><span class="token punctuation">;</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> second<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// First Second</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> third <span class="token operator">=</span> <span class="token string">"Third"</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> fourth <span class="token operator">=</span> <span class="token string">"Fourth"</span><span class="token punctuation">;</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>third<span class="token punctuation">,</span> fourth<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Third Fourth</span>
+  <span class="token punctuation">}</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>third<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Third</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>fourth<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h1 id="creating-global-properties">Creating global properties<a aria-hidden="true" class="anchor-heading icon-link" href="#creating-global-properties"></a></h1>
+<p>The global var variables are added to the global object as properties. The global object is window on the web browser and global on Node.js:</p>
+<pre class="language-javscript"><code class="language-javscript">var counter = 0;
+console.log(window.counter); //  0
+</code></pre>
+<p>However, the let variables are not added to the global object:</p>
+<pre class="language-javscript"><code class="language-javscript">let counter = 0;
+console.log(window.counter); // undefined
+</code></pre>
+<h1 id="the-temporal-dead-zone">The Temporal dead zone<a aria-hidden="true" class="anchor-heading icon-link" href="#the-temporal-dead-zone"></a></h1>
+<p>The let variables have temporal dead zones while the var variables don’t. To understand the temporal dead zone, let’s examine the life cycles of both var and let variables, which have two steps: creation and execution.</p>
+<h2 id="the-var-variables">The var variables<a aria-hidden="true" class="anchor-heading icon-link" href="#the-var-variables"></a></h2>
+<ul>
+<li>In the creation phase, the JavaScript engine assigns storage spaces to var variables and immediately initializes them to undefined.</li>
+<li>In the execution phase, the JavaScript engine assigns the var variables the values specified by the assignments if there are ones. Otherwise, the var variables remain undefined.</li>
+</ul>
+<h2 id="the-let-variables">The let variables<a aria-hidden="true" class="anchor-heading icon-link" href="#the-let-variables"></a></h2>
+<ul>
+<li>In the creation phase, the JavaScript engine assigns storage spaces to the let variables but does not initialize the variables. Referencing uninitialized variables will cause a ReferenceError.</li>
+<li>The let variables have the same execution phase as the var variables.</li>
+</ul>
