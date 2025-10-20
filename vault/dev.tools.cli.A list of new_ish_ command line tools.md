@@ -2,7 +2,7 @@
 id: yn68lbuog9rseo4kzfqz6sw
 title: A list of new(ish) command line tools
 desc: ""
-updated: 1661126778099
+updated: 1760485916140
 created: 1649891027466
 ---
 
@@ -13,12 +13,12 @@ Hello! Today I asked [on twitter](https://twitter.com/b0rk/status/15139032214666
 
 I got a bunch of replies with tools I hadn’t heard of, so I thought I’d make a list here. A lot of people also pointed at the [modern-unix](https://github.com/ibraheemdev/modern-unix) list.
 
-# replacements for standard tools
+## replacements for standard tools
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep/), [ag](https://github.com/ggreer/the_silver_searcher), [ack](https://github.com/beyondgrep/ack3) (grep)
 - [exa](https://github.com/ogham/exa), [lsd](https://github.com/Peltoche/lsd) (ls)
 - [mosh](https://mosh.org/) (ssh)
-- [bat](https://github.com/sharkdp/bat) (cat)
+- [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings
 - [delta](https://github.com/dandavison/delta) (a pager for git)
 - [fd](https://github.com/sharkdp/fd) (find)
 - [drill](https://www.nlnetlabs.nl/projects/ldns/about/), [dog](https://github.com/ogham/dog) (dig)
@@ -33,16 +33,17 @@ I got a bunch of replies with tools I hadn’t heard of, so I thought I’d make
 - [plocate](https://plocate.sesse.net/) (locate)
 - xxd, [hexyl](https://github.com/sharkdp/hexyl) (hexdump)
 
-# new inventions
+## new inventions
 
 Here are some tools that are not exactly replacements for standard tools:
 
 - [z](https://github.com/rupa/z), [fasd](https://github.com/clvv/fasd), [autojump](https://github.com/wting/autojump), [zoxide](https://github.com/ajeetdsouza/zoxide) (tools to make it easier to find files / change directories)
 - [broot](https://github.com/Canop/broot), [nnn](https://github.com/jarun/nnn), [ranger](https://github.com/ranger/ranger) (file manager)
 - [direnv](https://github.com/direnv/direnv) (load environment variables depending on the current directory)
-- [fzf](https://github.com/junegunn/fzf), [peco](https://github.com/peco/peco) (“fuzzy finder”)
+- [fzf](https://github.com/junegunn/fzf) - 🌸 A command-line fuzzy finder
+- [peco](https://github.com/peco/peco) (“fuzzy finder”)
 - [croc](https://github.com/schollz/croc) and [magic-wormhole](https://github.com/magic-wormhole/magic-wormhole) (send files from one computer to another)
-- [hyperfine](https://github.com/sharkdp/hyperfine) (benchmarking)
+- [hyperfine](https://github.com/sharkdp/hyperfine) - A command-line benchmarking tool
 - [httpie](https://httpie.io/), [curlie](https://github.com/rs/curlie), [xh](https://github.com/ducaale/xh) (for making HTTP requests)
 - [entr](https://github.com/eradman/entr) (run arbitrary commands when files change)
 - [asdf](https://github.com/asdf-vm/asdf) (version manager for multiple languages)
@@ -81,7 +82,7 @@ Here are some tools that are not exactly replacements for standard tools:
 - [gron](https://github.com/tomnomnom/gron) (make JSON greppable)
 - [ripgrep-all](https://github.com/phiresky/ripgrep-all) (ripgrep, but also PDF, zip, ebooks, etc)
 
-## less-new tools
+### less-new tools
 
 Here are a few of not-so-new tools folks mentioned aren’t that well known:
 
@@ -89,7 +90,7 @@ Here are a few of not-so-new tools folks mentioned aren’t that well known:
 - vidir (from [moreutils](https://joeyh.name/code/moreutils), lets you batch rename/delete files in vim)
 - sponge, ts, parallel (also from moreutils)
 
-## some of my favourites
+### some of my favourites
 
 My favourites of these that I use already are `entr`, `ripgrep`, `git-delta`, `httpie`, `plocate`, and `jq`.
 

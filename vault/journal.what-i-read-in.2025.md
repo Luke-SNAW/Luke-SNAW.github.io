@@ -2,9 +2,15 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1760060132839
+updated: 1760594540405
 created: 1667632965028
 ---
+
+## Week 42, 2025
+
+- [An Illustrated Introduction to Linear Algebra](https://www.ducktyped.org/p/an-illustrated-introduction-to-linear)
+- [How I Almost Got Hacked By A 'Job Interview'](https://blog.daviddodda.com/how-i-almost-got-hacked-by-a-job-interview)
+- [They traveled to Thailand. They wound up cyber scam slaves in Myanmar.](https://www.reuters.com/graphics/SOUTHEASTASIA-SCAMS/mypmxwdwwvr/) - Across Southeast Asia, a multibillion-dollar fraud industry has emerged, staffed in part by victims of trafficking.
 
 ## Week 41, 2025
 

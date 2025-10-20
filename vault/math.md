@@ -2,7 +2,7 @@
 id: hvh5bud6yp7dc89tuh95tr9
 title: Math
 desc: ""
-updated: 1724024822555
+updated: 1760594548501
 created: 1655855843037
 ---
 
@@ -12,6 +12,7 @@ created: 1655855843037
 - [Category Theory Illustrated](https://abuseofnotation.github.io/category-theory-illustrated/)
 - [A Gentle Introduction to the Art of Mathematics, version 3.1](https://giam.southernct.edu/GIAM/)
 - [Discrete Mathematics](https://discrete.openmathbooks.org/dmoi4.html) An Open Introduction, 4th edition
+- [An Illustrated Introduction to Linear Algebra](https://www.ducktyped.org/p/an-illustrated-introduction-to-linear)
 
 ## Probabilities
 

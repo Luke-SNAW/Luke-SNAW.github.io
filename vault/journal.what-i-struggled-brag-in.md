@@ -2,13 +2,45 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1758685787082
+updated: 1760924805538
 created: 1669264809793
 ---
 
 ## Week 39, 2025 - AWS S3 public access block
 
 ## Week 38, 2025 - Claude Code
+
+기대한 영역은 기대에 못 미치고 기대 안한 부분은 기대 이상.
+context로 제공 안한 부분은 추측으로 넣어주는데, 수정이 필요해서 번거로움.
+API에서 특정 데이터 이름이 이 API에선 camelCase로 쓰이고 저 API에선 snake_case로 쓰이니 손으로 다 수정해줘야 했음.
+figma는 mcp연결이 한 번에 된 반면에 postman mcp는 그게 안되어 밀린 일정에 건너뛰었는데 JSON export라도 해서 context로 넣었다면...
+
+<details>
+  <summary>나중에 ~/.claud.json에 설정 추가해서 해결 (공식문서에 없고 repo 뒤져서 찾음)</summary>
+  ```json
+  // https://github.com/postmanlabs/postman-mcp-server/blob/main/README.md#vs-code-integration-1
+  
+  "mcpServers": {
+    "postman-api-http-server-minimal": {
+      "type": "http",
+      "url": "https://mcp.postman.com/minimal",
+      "headers": {
+        "Authorization": "Bearer xxx"
+      }
+    }
+  }
+  ```
+  </details>
+
+figma도 wireframe 수준의 영역을 긁어왔더니 UI가 다 깨짐. 기능명세만 긁어오자.
+
+위에 말한 기대 외 디테일, 부가기능 만들어주는 건 좋지만 핵심기능 수정을 해야하는데 인지부하와 code 찾기가 부담된다. phase 나눠서 작성이 좋을 듯.
+
+TODO 모아보기 편하게 component 상단에 작성.
+
+다른 query 할 때도 postman mcp로 인해 16.2k tokens이 할당된다. 아예 mcp project를 따로 둬서 그 쪽에서만 관련 작업을 하는게 나음.
+
+그 외 prompt 관련은 [[Prompt|dev.with-ai.prompt]]에서 관리
 
 ## Week 35, 2025 - 환자번호 검색 시, 리스트에는 환자번호가 나오지 않음 GIT-5593
 
