@@ -2,7 +2,7 @@
 id: 6hzeqsofq67gdk88flxlkhp
 title: Book Report
 desc: ""
-updated: 1760924970698
+updated: 1761004434113
 created: 1737617297333
 ---
 
@@ -37,5 +37,6 @@ Book reports tend to be a little more descriptive (What is this book about?) and
   - 7년 전 출판된 책. 7년 전에 봤으면 더 도움이 됐겠지만, 그 때는 관심이 별로 없어서 도움이 안됐을지도
 - 횡설수설하지 않고 정확하게 설명하는 법 2025/10
   - 상대가 필요한/득이되는 이야기
-  - 대화 시작에 약속
+    - 대화 시작에 benefit을 약속
+    - 요청은 context로 시작
   - 그 외 팁들이 많아 세세히 정리하기 귀찮아서 E-book으로 삼

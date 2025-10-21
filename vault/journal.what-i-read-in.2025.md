@@ -2,9 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1760594540405
+updated: 1761002616740
 created: 1667632965028
 ---
+
+## Week 43, 2025
+
+- [Space Elevator](https://neal.fun/space-elevator/)
 
 ## Week 42, 2025
 
