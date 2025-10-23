@@ -2,12 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1761002616740
+updated: 1761175650922
 created: 1667632965028
 ---
 
 ## Week 43, 2025
 
+- [Fallout from the AWS outage: Smart mattresses go rogue](https://quasa.io/media/the-strangest-fallout-from-the-aws-outage-smart-mattresses-go-rogue-and-ruin-sleep-worldwide) - An AWS outage caused widespread disruptions, including issues with smart mattresses from Eight Sleep.
+- [How Deno protects against npm exploits](https://deno.com/blog/deno-protects-npm-exploits)
+  - Deno offers a secure alternative by running code in a sandbox with no OS access by default.
+  - Deno requires explicit permissions for file system access, network connections, and environment variables.
+  - But, deno's current permission model is applied on a per-project basis, meaning if a project has already granted permissions, a malicious package could exploit those permissions. Fine-grained permission control per package (e.g., per-package permissions) is not yet fully implemented, which prevents complete blocking of supply chain attacks.
 - [Space Elevator](https://neal.fun/space-elevator/)
 
 ## Week 42, 2025
