@@ -2,12 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1761175650922
+updated: 1761288526459
 created: 1667632965028
 ---
 
 ## Week 43, 2025
 
+- [How Complex Systems Fail](https://how.complexsystems.fail)
+  - Complex systems always contain latent failures that change over time due to technological and organizational changes.
+  - Complex systems operate in a degraded mode, with continuous failures and repairs, making accidents seem inevitable in hindsight.
+  - Post-accident analyses often incorrectly attribute failures to a single root cause, overlooking the multiple contributing factors.
+  - Hindsight bias affects post-accident assessments, making it difficult to accurately evaluate human performance during the event.
 - [Fallout from the AWS outage: Smart mattresses go rogue](https://quasa.io/media/the-strangest-fallout-from-the-aws-outage-smart-mattresses-go-rogue-and-ruin-sleep-worldwide) - An AWS outage caused widespread disruptions, including issues with smart mattresses from Eight Sleep.
 - [How Deno protects against npm exploits](https://deno.com/blog/deno-protects-npm-exploits)
   - Deno offers a secure alternative by running code in a sandbox with no OS access by default.
