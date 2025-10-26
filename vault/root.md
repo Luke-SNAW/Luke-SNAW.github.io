@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1757462971603
+updated: 1761443819756
 created: 1644449449778
 ---
 
@@ -35,7 +35,10 @@ Hi there 👋. I'm a Front-end developer.
 - [Hedged Bets](https://longform.asmartbear.com/predict-the-future/#hedged-bets)
   - trading slightly less maximum upside for predictable, net-positive outcomes.
 
-> “Motivation often comes after starting, not before. Action produces momentum.” - James Clear
+> “Motivation often comes after starting, not before. Action produces momentum.”
+> [When you start a new habit, it should take less than two minutes to do.](https://jamesclear.com/how-to-stop-procrastinating)
+>
+> - James Clear
 
 > Focus is more about **not** keeping busy when you need to wait for something.  
 > Eat the boredom for a minute.

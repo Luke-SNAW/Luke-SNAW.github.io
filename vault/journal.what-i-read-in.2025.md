@@ -2,9 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1761288526459
+updated: 1761443606042
 created: 1667632965028
 ---
+
+## Week 44, 2025
+
+- [Finding Flow: Escaping Digital Distractions Through Deep Work and Slow Living](https://www.ssp.sh/blog/finding-flow/) - A personal guide to reclaiming focus in the age of endless temptation
 
 ## Week 43, 2025
 
