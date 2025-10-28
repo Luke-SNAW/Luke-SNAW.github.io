@@ -2,12 +2,31 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1761443606042
+updated: 1761611987232
 created: 1667632965028
 ---
 
 ## Week 44, 2025
 
+- [Avoid 2:00 and 3:00 am cron jobs!](https://www.endpointdev.com/blog/2013/04/avoid-200-and-300-am-cron-jobs/) Most of the time such cron jobs will run fine, but if they run every Sunday morning, then twice per year they will run at the exact time daylight savings time (aka summer time) kicks in or ends, sometimes with very strange results.
+- [It's insulting to read your AI-generated blog post](https://blog.pabloecortez.com/its-insulting-to-read-your-ai-generated-blog-post/)
+
+  - Making mistakes and learning from them is a fundamentally human experience.
+  - AI-generated content creates a sterile barrier between the writer and the reader.
+  - This barrier prevents genuine engagement and connection.
+
+  > I personally don’t think I care if a blog post is AI generated or not. The only thing that matters to me is the content. I use ChatGPT to learn about a variety of different things, so if someone came up with an interesting set of prompts and follow ups and shared a summary of the research ChatGPT did, it could be meaningful content to me.
+  >
+  > > No, don't use it to fix your grammar, or for translations, or for whatever else you think you are incapable of doing. Make the mistake. Feel embarrassed. Learn from it. Why? Because that's what makes us human!
+  >
+  > It would be more human to handwrite your blog post instead. I don’t see how this is a good argument. The use of tools to help with writing and communication should make it easier to convey your thoughts, and that itself is valuable. - [alyxya](https://news.ycombinator.com/item?id=45723176)
+
+- [Cloudflare’s 2025 Annual Founders’ Letter](https://blog.cloudflare.com/cloudflare-2025-annual-founders-letter/)
+  - The internet's core business model has historically relied on traffic generation (ads, subscriptions) to reward content creators.
+  - Traffic has been an imperfect proxy for value, leading to issues like clickbait and ragebait, driven by the need to maximize traffic.
+  - The shift from Search Engines to Answer Engines (like AI chatbots) is fundamentally changing internet discovery, providing direct answers instead of links.
+    - This transition is causing significant short-term pain for industries reliant on traffic monetization, particularly media companies.
+  - A new internet business model is emerging, potentially rewarding creators of unique, original content that fills knowledge gaps identified by AI.
 - [Finding Flow: Escaping Digital Distractions Through Deep Work and Slow Living](https://www.ssp.sh/blog/finding-flow/) - A personal guide to reclaiming focus in the age of endless temptation
 
 ## Week 43, 2025

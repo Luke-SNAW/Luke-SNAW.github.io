@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1759378018327
+updated: 1761610370953
 created: 1688605282146
 ---
 
@@ -91,6 +91,23 @@ created: 1688605282146
   - They’re not showing a sudden spike or hockey-stick line of growth. (chart of new iOS/android/steam app releases, domain name, github repos)
   - > As for you, personally, show me the 30 apps you created this year.
 - Neither one is a substitute for the 'driver'. Claude code is like the level 2 self driving of programming. - [HN](https://news.ycombinator.com/item?id=45235106)
+- [Cloudflare’s 2025 Annual Founders’ Letter](https://blog.cloudflare.com/cloudflare-2025-annual-founders-letter/)
+  - The internet's core business model has historically relied on traffic generation (ads, subscriptions) to reward content creators.
+  - Traffic has been an imperfect proxy for value, leading to issues like clickbait and ragebait, driven by the need to maximize traffic.
+  - The shift from Search Engines to Answer Engines (like AI chatbots) is fundamentally changing internet discovery, providing direct answers instead of links.
+    - This transition is causing significant short-term pain for industries reliant on traffic monetization, particularly media companies.
+  - A new internet business model is emerging, potentially rewarding creators of unique, original content that fills knowledge gaps identified by AI.
+- [It's insulting to read your AI-generated blog post](https://blog.pabloecortez.com/its-insulting-to-read-your-ai-generated-blog-post/)
+
+  - Making mistakes and learning from them is a fundamentally human experience.
+  - AI-generated content creates a sterile barrier between the writer and the reader.
+  - This barrier prevents genuine engagement and connection.
+
+  > I personally don’t think I care if a blog post is AI generated or not. The only thing that matters to me is the content. I use ChatGPT to learn about a variety of different things, so if someone came up with an interesting set of prompts and follow ups and shared a summary of the research ChatGPT did, it could be meaningful content to me.
+  >
+  > > No, don't use it to fix your grammar, or for translations, or for whatever else you think you are incapable of doing. Make the mistake. Feel embarrassed. Learn from it. Why? Because that's what makes us human!
+  >
+  > It would be more human to handwrite your blog post instead. I don’t see how this is a good argument. The use of tools to help with writing and communication should make it easier to convey your thoughts, and that itself is valuable. - [alyxya](https://news.ycombinator.com/item?id=45723176)
 
 ## ETC
 
