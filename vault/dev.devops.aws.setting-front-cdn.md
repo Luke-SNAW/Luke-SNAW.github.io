@@ -2,13 +2,9 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1758255643947
+updated: 1761617582013
 created: 1646021156163
 ---
-
-## Cloudfront
-
-- 원본 편집 - 원본 액세스 - 원본 액세스 제어 설정 - Origin access control
 
 ## S3 버킷 생성
 
@@ -80,6 +76,7 @@ created: 1646021156163
 ## CloudFront 배포 생성
 
 - origin domain: S3
+  - 원본 편집 - 원본 액세스 - 원본 액세스 제어 설정 - Origin access control
 - SSL Certicicate → Custom SSL → ACM에 만들어져 있는 SSL
 - CNAME: domain name
 - default root object: index.html
@@ -133,6 +130,33 @@ function handler(event) {
 ```
 
 함수연결 - 뷰어 응답
+
+#### IP 기반 리다이렉션
+
+```js
+// cloudfront-js-2.0
+function handler(event) {
+  const request = event.request
+  const clientIp = event.viewer.ip // 클라이언트 IP 주소 (IPv4 또는 IPv6)
+
+  const allowedIPs = ["211.53.77.21", "211.53.77.22", "221.163.163.122"] // 211.53.77.21-22 신논현 FastFive, 221.163.163.122 판교
+
+  // IP가 허용 목록에 있는지 확인
+  if (!allowedIPs.includes(clientIp)) {
+    return {
+      statusCode: 302,
+      statusDescription: "Found",
+      headers: {
+        location: { value: "https://medical.genoplan.com/gccare" },
+        "cache-control": { value: "max-age=3600" }, // 1시간 캐싱 (선택적)
+      },
+    }
+  }
+
+  // 허용: 원래 요청 그대로 전달 (캐싱/오리진 처리 진행)
+  return request
+}
+```
 
 ## SPA framework - S3 - CloudFront 배포 시 404 error 처리
 

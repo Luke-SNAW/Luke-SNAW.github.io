@@ -2,11 +2,112 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1760924805538
+updated: 1761616950910
 created: 1669264809793
 ---
 
-## Week 39, 2025 - AWS S3 public access block
+## Week 43, 2025 - Android AAB
+
+Target SDK를 ver.35로 올리라는 메일 옴. Mac 머신 고장으로 새 Mac에서 처음하는 앱 빌드.
+
+OpenJDK를 쓸 수 있다는 걸 처음 앎.
+
+```bash
+# Homebrew를 통한 OpenJDK 17 설치
+brew install openjdk@17
+```
+
+### platform 추가 시 무한 pending
+
+cordova로 android platform 추가 했을 때 아무 반응 없어서 좀 헤맸다.
+
+```bash
+cordova platform add android@14.0.0 --verbose
+```
+
+Claude가 해결방법 중 하나로 기존 Android 플랫폼 제거를 제시해서 보니 플랫폼 설치가 되어 있음. 거기에 패키지 수동 설치 후 --nofetch 옵션으로 플랫폼 추가. `--nofetch` 옵션은 cordova-fetch를 우회하고 이미 node_modules에 설치된 패키지를 사용
+
+```bash
+cordova platform add android@14.0.0 --nofetch --verbose
+```
+
+진행이 됨.
+머신 바꿨을 때 설치했었나? 그래도 에러 메시지는 보여줘야지!
+
+### 빌드 오류
+
+```
+com.android.builder.errors.EvalIssueException: compileSdkVersion is not specified. Please add it to build.gradle
+```
+
+Claude가 제시한 방법대로 하니 빌드 됨. 왜 기본 도구 설치, build flow로 진행이 되지 않는가...
+
+### AAB 파일, 앱 서명
+
+Claude 제시를 따라 build하니 AAB 파일이 생성됨. 이전엔 APK로 했었음.
+Google Play Console에 AAB 파일을 업로드하려면 서명이 필요. (Google Play Console에 앱 무결성 > Play 앱 서명 작업됨)
+손으로 좀 작업함. build.json 파일 생성.
+
+### 파일 백업 압축
+
+백업을 하기 위해 암호 암축을 Claude와 작업했는데 처음 접하는 방식이라 기록
+
+#### 백업 파일 암호화
+
+```bash
+# 1. 백업 디렉토리 생성
+mkdir -p ~/genoplan-backup-android-gpclient2-$(date +%Y%m%d)
+
+# 2. 필요한 파일 복사
+cp platforms/keystore.jks ~/genoplan-backup-android-gpclient2-$(date +%Y%m%d)/
+cp build.json ~/genoplan-backup-android-gpclient2-$(date +%Y%m%d)/
+
+# 3. 메타정보 작성
+cat > ~/genoplan-backup-android-gpclient2-$(date +%Y%m%d)/INFO.txt <<EOF
+Backup Date: $(date)
+Keystore: keystore.jks
+Alias: gpclient2
+App ID: com.genoplan.mobile.client2
+EOF
+
+# 4. 암호화 압축 (AES-256-CBC)
+cd ~
+tar czf - genoplan-backup-android-gpclient2-$(date +%Y%m%d) | \
+  openssl enc -aes-256-cbc -pbkdf2 -out genoplan-backup-android-gpclient2-$(date +%Y%m%d).tar.gz.enc
+
+# 5. 원본 디렉토리 삭제 (암호화된 파일만 보관)
+rm -rf genoplan-backup-android-gpclient2-$(date +%Y%m%d)
+```
+
+**옵션 설명:**
+
+- `-aes-256-cbc`: AES 256bit 암호화
+- `-pbkdf2`: 키 유도 함수 사용 (보안 강화)
+- 실행 시 비밀번호 입력 프롬프트가 나타남
+
+#### 백업 파일 복호화
+
+```bash
+# 방법 1: 복호화 + 압축 해제 (한 번에)
+openssl enc -aes-256-cbc -pbkdf2 -d -in genoplan-backup-android-gpclient2-20241024.tar.gz.enc | tar xzf -
+
+# 방법 2: 2단계로 나눠서 실행
+# 1단계: 복호화
+openssl enc -aes-256-cbc -pbkdf2 -d -in genoplan-backup-android-gpclient2-20241024.tar.gz.enc \
+  -out genoplan-backup-android-gpclient2-20241024.tar.gz
+
+# 2단계: 압축 해제
+tar xzf genoplan-backup-android-gpclient2-20241024.tar.gz
+
+# 압축 해제 없이 목록만 확인
+openssl enc -aes-256-cbc -pbkdf2 -d -in genoplan-backup-android-gpclient2-20241024.tar.gz.enc | tar tzf -
+```
+
+## Week 39, 2025 - AWS S3 public access block, CloudFront OAC
+
+그 동안 client side rendering 프로젝트를 배포할 때 AWS S3의 Static website hosting, public access 설정하고 CloudFront에서 제공했는데
+이번에 배운 [[CloudFront OAC|dev.devops.aws.setting-front-cdn]] 방식으로 전환함.
+이 방식이면 S3의 Static website hosting, public access 설정을 끌 수 있기 때문에 S3 endpoint 유출 됐을 시, 악의적인 과금 유도를 차단할 수 있음. 가능성은 적지만 뭐... 보안이니까
 
 ## Week 38, 2025 - Claude Code
 
@@ -15,22 +116,7 @@ context로 제공 안한 부분은 추측으로 넣어주는데, 수정이 필�
 API에서 특정 데이터 이름이 이 API에선 camelCase로 쓰이고 저 API에선 snake_case로 쓰이니 손으로 다 수정해줘야 했음.
 figma는 mcp연결이 한 번에 된 반면에 postman mcp는 그게 안되어 밀린 일정에 건너뛰었는데 JSON export라도 해서 context로 넣었다면...
 
-<details>
-  <summary>나중에 ~/.claud.json에 설정 추가해서 해결 (공식문서에 없고 repo 뒤져서 찾음)</summary>
-  ```json
-  // https://github.com/postmanlabs/postman-mcp-server/blob/main/README.md#vs-code-integration-1
-  
-  "mcpServers": {
-    "postman-api-http-server-minimal": {
-      "type": "http",
-      "url": "https://mcp.postman.com/minimal",
-      "headers": {
-        "Authorization": "Bearer xxx"
-      }
-    }
-  }
-  ```
-  </details>
+나중에 ~/.claud.json에 설정 추가해서 해결 ([[~/.claud.json - mcp 설정|journal.what-i-struggled-brag-in#claudjson---mcp-설정]] 참고. 공식문서에 없고 repo 뒤져서 찾음)
 
 figma도 wireframe 수준의 영역을 긁어왔더니 UI가 다 깨짐. 기능명세만 긁어오자.
 
@@ -41,6 +127,22 @@ TODO 모아보기 편하게 component 상단에 작성.
 다른 query 할 때도 postman mcp로 인해 16.2k tokens이 할당된다. 아예 mcp project를 따로 둬서 그 쪽에서만 관련 작업을 하는게 나음.
 
 그 외 prompt 관련은 [[Prompt|dev.with-ai.prompt]]에서 관리
+
+### ~/.claud.json - mcp 설정
+
+```
+// https://github.com/postmanlabs/postman-mcp-server/blob/main/README.md#vs-code-integration-1
+
+"mcpServers": {
+  "postman-api-http-server-minimal": {
+    "type": "http",
+    "url": "https://mcp.postman.com/minimal",
+    "headers": {
+      "Authorization": "Bearer xxx"
+    }
+  }
+}
+```
 
 ## Week 35, 2025 - 환자번호 검색 시, 리스트에는 환자번호가 나오지 않음 GIT-5593
 
