@@ -2,13 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1761611987232
+updated: 1761705794329
 created: 1667632965028
 ---
 
 ## Week 44, 2025
 
+- ['Washington Post' editorials omit a key disclosure: Bezos' financial ties](https://www.npr.org/2025/10/28/nx-s1-5587932/washington-post-editorials-omit-a-key-disclosure-bezos-financial-ties)
+- [Samsung makes ads on smart fridges official with upcoming software update](https://arstechnica.com/gadgets/2025/10/samsung-makes-ads-on-3499-smart-fridges-official-with-upcoming-software-update/)
 - [Avoid 2:00 and 3:00 am cron jobs!](https://www.endpointdev.com/blog/2013/04/avoid-200-and-300-am-cron-jobs/) Most of the time such cron jobs will run fine, but if they run every Sunday morning, then twice per year they will run at the exact time daylight savings time (aka summer time) kicks in or ends, sometimes with very strange results.
+  > Just use UTC folks unless you have a really good idea why you shouldn't. - [noir_lord](https://news.ycombinator.com/item?id=45723859)
+  > I put a little analog clock on my desk that's set to UTC time. It helps a lot with converting logs to get a quick reference. - [yabones](https://news.ycombinator.com/item?id=45724173)
 - [It's insulting to read your AI-generated blog post](https://blog.pabloecortez.com/its-insulting-to-read-your-ai-generated-blog-post/)
 
   - Making mistakes and learning from them is a fundamentally human experience.
