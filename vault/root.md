@@ -2,13 +2,15 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1761443819756
+updated: 1761796791487
 created: 1644449449778
 ---
 
 Hi there 👋. I'm a Front-end developer.
 
 ---
+
+- 단순함과 꾸준함은 가장 쉬우면서도 지키기 어려운 원칙.
 
 - 🥱 -> 🤔💡🌱 - [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming)
   - boredom -> easy fun -> art -> profit?
