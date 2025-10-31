@@ -1,0 +1,96 @@
+<h1 id="temporary-tables-in-sqlite">Temporary tables in SQLite<a aria-hidden="true" class="anchor-heading icon-link" href="#temporary-tables-in-sqlite"></a></h1>
+<blockquote>
+<p><a href="https://antonz.org/temp-tables/">https://antonz.org/temp-tables/</a></p>
+</blockquote>
+<p>Sometimes you want to combine data from multiple tables into one and query the results. For example, join vacancies together with employers and regions:</p>
+<p><a href="https://antonz.org/temp-tables/combine-then-query.png">Combine, then query</a></p>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">select</span> v<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>name<span class="token punctuation">,</span> a<span class="token punctuation">.</span>name
+<span class="token keyword">from</span> vacancy <span class="token keyword">as</span> v
+  <span class="token keyword">join</span> employer <span class="token keyword">as</span> e <span class="token keyword">on</span> e<span class="token punctuation">.</span>id <span class="token operator">=</span> v<span class="token punctuation">.</span>employer_id
+  <span class="token keyword">join</span> area <span class="token keyword">as</span> a <span class="token keyword">on</span> a<span class="token punctuation">.</span>id <span class="token operator">=</span> v<span class="token punctuation">.</span>area_id
+</code></pre>
+<p>The question is how to reference the combined dataset in further queries. There are three ways of doing that:</p>
+<ol>
+<li>Common Table Expressions (CTEs)</li>
+<li>Views</li>
+<li>Temporary tables</li>
+</ol>
+<p><a href="https://antonz.org/temp-tables/cte.png">CTE</a></p>
+<p>A <strong>Common Table Expression</strong> is basically a named subquery:</p>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">with</span> combined_cte <span class="token keyword">as</span> <span class="token punctuation">(</span>
+  <span class="token keyword">select</span> v<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>name<span class="token punctuation">,</span> a<span class="token punctuation">.</span>name
+  <span class="token keyword">from</span> vacancy <span class="token keyword">as</span> v
+    <span class="token keyword">join</span> employer <span class="token keyword">as</span> e <span class="token keyword">on</span> e<span class="token punctuation">.</span>id <span class="token operator">=</span> v<span class="token punctuation">.</span>employer_id
+    <span class="token keyword">join</span> area <span class="token keyword">as</span> a <span class="token keyword">on</span> a<span class="token punctuation">.</span>id <span class="token operator">=</span> v<span class="token punctuation">.</span>area_id
+<span class="token punctuation">)</span>
+<span class="token keyword">select</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">from</span> combined_cte
+<span class="token keyword">where</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<p>The CTE is repeated in each query and computed on the fly. So if the subquery for the combined dataset is slow, the entire query will be even slower.</p>
+<p><a href="https://antonz.org/temp-tables/view.png">View</a></p>
+<p>A <strong>view</strong> works like a CTE, but you can reference it by name and not repeat the subquery every time. Views are computed on the fly, similar to CTEs.</p>
+<pre class="language-sql"><code class="language-sql"><span class="token comment">-- 1) create once</span>
+<span class="token keyword">create</span> <span class="token keyword">view</span> combined_view <span class="token keyword">as</span>
+<span class="token keyword">select</span> v<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>name<span class="token punctuation">,</span> a<span class="token punctuation">.</span>name
+<span class="token keyword">from</span> vacancy <span class="token keyword">as</span> v
+  <span class="token keyword">join</span> employer <span class="token keyword">as</span> e <span class="token keyword">on</span> e<span class="token punctuation">.</span>id <span class="token operator">=</span> v<span class="token punctuation">.</span>employer_id
+  <span class="token keyword">join</span> area <span class="token keyword">as</span> a <span class="token keyword">on</span> a<span class="token punctuation">.</span>id <span class="token operator">=</span> v<span class="token punctuation">.</span>area_id<span class="token punctuation">;</span>
+
+<span class="token comment">-- 2) use everywhere</span>
+<span class="token keyword">select</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">from</span> combined_view
+<span class="token keyword">where</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<p>PostgreSQL and others have materialized views, which store data on disk. But not SQLite.</p>
+<p><a href="https://antonz.org/temp-tables/temp-table.png">Temporary table</a></p>
+<p>A <strong>temporary table</strong> is like a real table: it stores data on disk, and you can build indexes. But it exists only while the database connection is open.</p>
+<pre class="language-sql"><code class="language-sql"><span class="token comment">-- 1) create once</span>
+<span class="token keyword">create</span> <span class="token keyword">temp</span> <span class="token keyword">table</span> combined_temp <span class="token keyword">as</span>
+<span class="token keyword">select</span> v<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>name<span class="token punctuation">,</span> a<span class="token punctuation">.</span>name
+<span class="token keyword">from</span> vacancy <span class="token keyword">as</span> v
+  <span class="token keyword">join</span> employer <span class="token keyword">as</span> e <span class="token keyword">on</span> e<span class="token punctuation">.</span>id <span class="token operator">=</span> v<span class="token punctuation">.</span>employer_id
+  <span class="token keyword">join</span> area <span class="token keyword">as</span> a <span class="token keyword">on</span> a<span class="token punctuation">.</span>id <span class="token operator">=</span> v<span class="token punctuation">.</span>area_id<span class="token punctuation">;</span>
+
+<span class="token comment">-- 2) use everywhere</span>
+<span class="token keyword">select</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">from</span> combined_temp
+<span class="token keyword">where</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<p>Technically, SQLite stores temporary tables in a separate <code>temp</code> database. It keeps that database in a separate file on disk, visible only to the current database connection. The temporary database is deleted automatically as soon as the connection is closed.</p>
+<p><strong>Temporary database location</strong></p>
+<p>On unix-like systems, the directory for storing the temp database can be one of the following:</p>
+<ol>
+<li>The directory set by <code>PRAGMA temp_store_directory</code> (deprecated)</li>
+<li>The <code>SQLITE_TMPDIR</code> environment variable</li>
+<li>The <code>TMPDIR</code> environment variable</li>
+<li><code>/var/tmp</code></li>
+<li><code>/usr/tmp</code></li>
+<li><code>/tmp</code></li>
+<li>The current working directory (<code>.</code>)</li>
+</ol>
+<p>SQLite picks the first one with both write and execute permissions.</p>
+<p>To store the temp database in memory, set <code>PRAGMA temp_store = MEMORY</code>.</p>
+<p><a href="https://sqlite.org/tempfiles.html">documentation</a></p>
+<p>Temporary tables are great for experimenting when you're just getting to know the data. Do whatever you want — everything will be forgotten after disconnecting from the database ツ</p>
+<hr>
+<h2 id="httpsnewshadaiotopicid6581"><a href="https://news.hada.io/topic?id=6581">https://news.hada.io/topic?id=6581</a><a aria-hidden="true" class="anchor-heading icon-link" href="#httpsnewshadaiotopicid6581"></a></h2>
+<p>여러 개의 테이블을 하나로 묶어서 쿼리할 때 선택할 수 있는 옵션은 3가지 : CTE, View, 임시테이블</p>
+<ul>
+<li>CTE : 서브쿼리들을 묶어서 실시간으로 계속 계산되기 때문에 서브쿼리가 느리면 같이 느려짐</li>
+<li>View : CTE 처럼 동작하지만 레퍼런스 가능하고 서브쿼리를 계속 반복하지는 않음. 하지만 역시나 계속 실시간 계산. PostgreSQL 같은 경우는 디스크에 저장하는 Materialized View가 있지만 SQLite에는 없음</li>
+<li>Temporary Table : 실제 테이블 처럼 디스크에 데이터를 저장하고 인덱스 생성도 가능. 하지만 DB 커넥션이 살아있는 동안에만 존재함.
+<ul>
+<li>SQLite는 임시 테이블을 별도의 temp 데이터 베이스에 저장함</li>
+<li>temp db는 아예 디스크에서 별도의 파일로 관리하며 현재 DB 커넥션에게만 보임</li>
+<li>커넥션이 종료되면 자동으로 삭제</li>
+</ul>
+</li>
+<li>임시테이블은 데이터에 대해 뭔가를 알아보고 실험하기에 좋으니 편하게 활용 가능</li>
+</ul>
