@@ -2,9 +2,14 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1761784366026
+updated: 1762149553454
 created: 1667632965028
 ---
+
+## Week 45, 2025
+
+- [1fr 1fr vs auto auto vs 50% 50%](https://frontendmasters.com/blog/1fr-1fr-vs-auto-auto-vs-50-50/)
+- [Strange attractors](https://blog.shashanktomar.com/posts/strange-attractors)
 
 ## Week 44, 2025
 

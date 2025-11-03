@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1753081389372
+updated: 1762149578200
 created: 1646129148306
 ---
 
@@ -229,6 +229,7 @@ Displaying an external SVG with the `<use>` tag
     }
   }
   ```
+- [1fr 1fr vs auto auto vs 50% 50%](https://frontendmasters.com/blog/1fr-1fr-vs-auto-auto-vs-50-50/)
 
 ### [columns](https://developer.mozilla.org/en-US/docs/Web/CSS/columns)
 

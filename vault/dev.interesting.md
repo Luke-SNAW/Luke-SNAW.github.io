@@ -2,7 +2,7 @@
 id: moi1qs3lz3lg69m5f5fw8xz
 title: Interesting
 desc: ""
-updated: 1761002776411
+updated: 1762132903246
 created: 1646613084338
 ---
 
@@ -57,6 +57,7 @@ created: 1646613084338
   - https://francisduvivier.github.io/eternal-struggle-with-speed-control/v2.html
 - [LLM Visualization](https://bbycroft.net/llm)
   - [TRANSFORMER EXPLAINER](https://poloclub.github.io/transformer-explainer/)
+- [Strange attractors](https://blog.shashanktomar.com/posts/strange-attractors)
 
 ## News
 
