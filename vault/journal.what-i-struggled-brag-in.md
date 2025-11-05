@@ -2,9 +2,25 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1761616950910
+updated: 1762311852206
 created: 1669264809793
 ---
+
+## Week 45, 2025 - Nuxt, Pinia SSR Error
+
+nuxt v3 generate 후 S3에 업로드 하고 cloudfront에서 OAC를 통해 서비스하는 사이트 **배포환경에서 모든 URI가 root / 로 redirect**
+
+**개발환경 error**
+
+```
+Error: obj.hasOwnProperty is not a function
+⁃ at shouldHydrate (node_modules/.pnpm/pinia@2.3.1_typescript@5.8.2_vue@3.5.22_typescript@5.8.2_/node_modules/pinia/dist/pinia.mjs:1212:40)
+```
+
+Pinia 버전 충돌: @pinia/nuxt 모듈의 최신 버전(예: 0.6.0 이상)과 Nuxt 3(특히 3.15.x 이상) 간의 호환성 이슈
+shouldHydrate 함수에서 hasOwnProperty를 호출할 때 객체가 아닌 값(예: 쿼리 결과나 페이로드)이 전달되어 오류 발생. 이는 Pinia가 SSR 중 상태를 처리할 때 일어나며, 에러가 발생하면 Nuxt의 에러 핸들링이 중단.
+SSR 관련 설정: ssr: true로 설정된 프로젝트에서 404나 기타 에러(예: 와일드카드 라우트)를 throw할 때 이 문제가 더 두드러짐.
+브라우저나 서버 로그에서 500 에러로 기록되며, error.vue가 무시됨.
 
 ## Week 43, 2025 - Android AAB
 
