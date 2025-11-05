@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1762149578200
+updated: 1762221967878
 created: 1646129148306
 ---
 
@@ -103,6 +103,7 @@ created: 1646129148306
   - [OKLCH in CSS: why we moved from RGB and HSL](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl)
 - [How to have the browser pick a contrasting color in CSS](https://webkit.org/blog/16929/contrast-color/)
 - [Animating zooming using CSS: transform order is important… sometimes](https://jakearchibald.com/2025/animating-zooming/)
+- [Use Cases for Field Sizing](https://ishadeed.com/article/field-sizing/)
 
 ## Pseudo-class
 

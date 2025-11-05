@@ -2,18 +2,24 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1762149553454
+updated: 1762305225597
 created: 1667632965028
 ---
 
 ## Week 45, 2025
 
+- [Israel’s top military lawyer arrested after she admitted leaking video of soldiers’ abuse](https://www.theguardian.com/world/2025/nov/03/israels-top-military-lawyer-arrested-after-she-admitted-leaking-video-of-soldiers-abuse)
+  - The Israeli Minister of Defense accused the leaker of 'blood libel,' a term historically used to incite violence against Jewish people.
+  - Rightwing politicians and media figures have accused her of damaging Israel's global standing and undermining the state by pursuing the case.
+  - She faces charges including fraud, breach of trust, abuse of office, obstruction of justice, and disclosure of official information.
+- [Use Cases for Field Sizing](https://ishadeed.com/article/field-sizing/)
+- [Simple trick to increase coverage: Lying to users about signal strength](https://nickvsnetworking.com/simple-trick-to-increase-coverage-lying-to-users-about-signal-strength/) - a flag (KEY_INFLATE_SIGNAL_STRENGTH_BOOL) to always report the signal strength to the user as one bar higher than it really is.
 - [1fr 1fr vs auto auto vs 50% 50%](https://frontendmasters.com/blog/1fr-1fr-vs-auto-auto-vs-50-50/)
 - [Strange attractors](https://blog.shashanktomar.com/posts/strange-attractors)
 
 ## Week 44, 2025
 
-- [Tips for stroke-surviving software engineers](https://blog.j11y.io/2025-10-29_stroke_tips_for_engineers/) - Prioritizing Cognitive Fatigue Reduction at Work. 일하며 1순위로 인지피로 줄이기 팁들.
+- [Tips for stroke-surviving software engineers](https://blog.j11y.io/2025-10-29_stroke_tips_for_engineers/) - Prioritizing Cognitive Fatigue Reduction at Work. 인지피로 줄이며 일하기 팁들.
 - ['Washington Post' editorials omit a key disclosure: Bezos' financial ties](https://www.npr.org/2025/10/28/nx-s1-5587932/washington-post-editorials-omit-a-key-disclosure-bezos-financial-ties)
 - [Samsung makes ads on smart fridges official with upcoming software update](https://arstechnica.com/gadgets/2025/10/samsung-makes-ads-on-3499-smart-fridges-official-with-upcoming-software-update/)
 - [Avoid 2:00 and 3:00 am cron jobs!](https://www.endpointdev.com/blog/2013/04/avoid-200-and-300-am-cron-jobs/) Most of the time such cron jobs will run fine, but if they run every Sunday morning, then twice per year they will run at the exact time daylight savings time (aka summer time) kicks in or ends, sometimes with very strange results.
@@ -658,7 +664,3 @@ created: 1667632965028
 - [An Unreasonable Amount of Time](https://allenpike.com/2024/an-unreasonable-amount-of-time) - A method for magic.
   > Sometimes magic is just someone spending more time on something than anyone else might reasonably expect. — [Teller](https://www.goodreads.com/quotes/6641527-sometimes-magic-is-just-someone-spending-more-time-on-something)
 - [Passkey technology is elegant, but it’s most definitely not usable security](https://arstechnica.com/security/2024/12/passkey-technology-is-elegant-but-its-most-definitely-not-usable-security/)
-
-```
-
-```
