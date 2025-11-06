@@ -2,7 +2,7 @@
 id: svrfdskxkhh0adm4djmu590
 title: "2025"
 desc: ""
-updated: 1762069065743
+updated: 1762390956134
 created: 1761216664642
 ---
 
@@ -92,3 +92,7 @@ Chapter 4. 체제, 중국, 제조업, 지정학적 자산
 - 2025/10
 
 ## 좋은 사진을 만드는 정승익의 사진구도
+
+## [[Bits of Unsolicited Advice|life-tips.bits-of-unsolicited-advice]]
+
+다시 읽음 - 2025/11

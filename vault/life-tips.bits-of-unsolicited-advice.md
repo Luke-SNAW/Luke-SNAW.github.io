@@ -2,7 +2,7 @@
 id: cw7eifmt54p6yzurhd50f0g
 title: Bits of Unsolicited Advice
 desc: ""
-updated: 1741244507254
+updated: 1762391361088
 created: 1741242562125
 published: false
 ---
@@ -78,7 +78,7 @@ Wired 창립 편집장 케빈 켈리(KK)
 - When brainstorming, improvising, jamming with others, you’ll go much further and deeper if you build upon each contribution with a playful “yes — and” example instead of a deflating “no — but” reply.
   - 다른 사람들과 브레인스토밍, 즉흥적으로 뭘 하거나(improvising), 재밍(Jamming, 즉흥연주) 등을 할 때, "아니오, 하지만(no - but)" 보다는 "네 - 그리고(yes - and)" 형태로 기여하면 더 멀리 깊게 참여 할 수 있습니다.
 - On the way to a grand goal, celebrate the smallest victories as if each one were the final goal. No matter where it ends you are victorious.
-  - 위대한 목표를 향해 갈 때, 작은 승리 들을 마지막 목표 인 것처럼 축하하세요. 그것이 어디서 끝나든 당신은 승리하게 됩니다.
+  - 위대한 목표를 향해 갈 때, 작은 승리들을 마지막 목표인 것처럼 축하하세요. 그것이 어디서 끝나든 당신은 승리하게 됩니다.
 - Contemplating the weaknesses of others is easy; contemplating the weaknesses in yourself is hard, but it pays a much higher reward.
   - 다른 사람의 약점을 고민하는 것은 쉽습니다. 자신의 약점을 고민하는 것은 어렵지만 훨씬 더 많은 보상을 줍니다.
 - To quiet a crowd or a drunk, just whisper.
@@ -95,11 +95,11 @@ Wired 창립 편집장 케빈 켈리(KK)
 - If someone is trying to convince you it’s not a pyramid scheme, it’s a pyramid scheme.
   - 누군가 당신에게 피라미드 사기가 아니라는 걸 납득시키려 한다면 그건 피라미드 사기입니다.
 - Learn how to tie a bowline knot. Practice in the dark. With one hand. For the rest of your life you’ll use this knot more times than you would ever believe.
-  - Bowline 매듭 묶는 법을 배우세요. 어둠속에서 연습하세요. 한손으로 연습하세요. 남은 생애동안 믿지 못할 만큼 많이 사용하게 될 겁니다.
+  - Bowline 매듭 묶는 법을 배우세요. 어둠 속에서 연습하세요. 한 손으로 연습하세요. 남은 생애동안 믿지 못할 만큼 많이 사용하게 될 겁니다.
 - In all things — except love — start with the exit strategy. Prepare for the ending. Almost anything is easier to get into than out of.
   - 사랑을 제외한 모든 것에 출구 전략을 가지고 시작하세요. 결말을 준비하세요. 거의 모든 것들이 들어가는 것보다 나오는 게 어렵습니다.
 - Assume anyone asking for your account information for any reason is guilty of scamming you, unless proven innocent. The way to prove innocence is to call them back, or login to your account using numbers or a website that you provide, not them. Don’t release any identifying information while they are contacting you via phone, message or email. You must control the channel.
-  - 어떤 이유던 당신의 계정 정보를 묻는 사람이 무죄라고 입증되지 않는 한, 당신을 대상으로 사기치는 유죄라고 가정합니다. 무죄를 증명하는 방법은 그들에게 다시 전화를 걸거나, 그들이 제공한 번호나 웹사이트가 아닌 당신이 입력한 정보로 로그인 해보는 겁니다. 그들이 전화, 메시지, 이메일로 연락한다면 어떤 식별 정보도 공개하지 마세요. 당신이 채널을 통제해야 합니다.
+  - 어떤 이유든 당신의 계정 정보를 묻는 사람이 무죄라고 입증되지 않는 한, 당신을 대상으로 사기치는 유죄라고 가정합니다. 무죄를 증명하는 방법은 그들에게 다시 전화를 걸거나, 그들이 제공한 번호나 웹사이트가 아닌 당신이 입력한 정보로 로그인 해보는 겁니다. 그들이 전화, 메시지, 이메일로 연락한다면 어떤 식별 정보도 공개하지 마세요. 당신이 채널을 통제해야 합니다.
 - Your best response to an insult is “You’re probably right.” Often they are.
   - 모욕에 대한 최고의 반응은 "당신이 옳을 수도 있어요" 입니다. 종종 그렇습니다.
 - The worst evils in history have always been committed by those who truly believed they were combating evil. Beware of combating evil.
@@ -107,9 +107,9 @@ Wired 창립 편집장 케빈 켈리(KK)
 - When a child asks an endless string of “why?” questions, the smartest reply is, “I don’t know, what do you think?”
   - 아이가 "왜?"라는 질문을 계속할 때 현명한 대답은 "잘 모르겠는데, 넌 어떻게 생각해?" 입니다.
 - Work to become, not to acquire.
-  - 얻기 위해 일하지 말고, 뭔가 가 되기 위해 일하세요.
+  - 얻기 위해 일하지 말고, 뭔가가 되기 위해 일하세요.
 - Your passion in life should fit you exactly; but your purpose in life should exceed you. Work for something much larger than yourself.
-  - 삶에 대한 당신의 열정은 당신에게 딱 맞아야 합니다; 하지만 당신의 삶의 목적은 당신을 능가 해야 합니다. 당신 자신보다 더 큰 무언가를 위해 일하세요.
+  - 삶에 대한 당신의 열정은 당신에게 딱 맞아야 합니다; 하지만 당신의 삶의 목적은 당신을 능가해야 합니다. 당신 자신보다 더 큰 무언가를 위해 일하세요.
 - If you borrow something, try to return it in better shape than you received it. Clean it, sharpen it, fill it up.
   - 뭔가를 빌린 경우, 받았을 때 보다 더 좋은 모양으로 돌려주려고 노력해보세요. 청소하고, 날카롭게 만들고, 채워서 돌려주세요.
 - Even in the tropics it gets colder at night than you think. Pack warmly.
@@ -117,7 +117,7 @@ Wired 창립 편집장 케빈 켈리(KK)
 - Writing down one thing you are grateful for each day is the cheapest possible therapy ever.
   - 매일 감사한 것 한 가지를 적는 것이 가장 저렴한 치료법입니다.
 - You are given the gift of life in order to discover what your gift _in_ life is. You will complete your mission when you figure out what your mission is. This is not a paradox. This is the way.
-  - 당신은 당신 삶에 선물이 뭔 지를 알아내기 위해 삶이란 선물을 받았습니다. 당신의 미션이 뭔 지 알아내면 당신은 미션을 완수하게 될 겁니다. 패러독스가 아닙니다. 이게 길이예요.
+  - 당신은 당신 삶에 선물이 뭔지를 알아내기 위해 삶이란 선물을 받았습니다. 당신의 미션이 뭔지 알아내면 당신은 미션을 완수하게 될 겁니다. 패러독스가 아닙니다. 이게 길이예요.
 - Don’t treat people as bad as they are. Treat them as good as you are.
   - 사람들을 있는 그대로 나쁘게 대하지 마세요. 당신처럼 그들을 잘 대우해 주세요.
 - You can eat any dessert you want if you take only 3 bites.
