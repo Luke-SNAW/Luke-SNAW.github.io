@@ -2,7 +2,7 @@
 id: qf0l4wbrc9jgooyzexmbq5v
 title: Writing
 desc: ""
-updated: 1752130464272
+updated: 1762474978840
 created: 1674003802450
 ---
 
@@ -21,3 +21,5 @@ created: 1674003802450
 - [How to think in writing: Part 1: The thought behind the thought](https://www.henrikkarlsson.xyz/p/writing-to-think)
   > If your goal is to probe the validity of your thoughts, this is painfully inefficient. You'll get much further if you do one or two simple passes on your writing, and then pass what you've written around and ask for feedback. — [BeetieB](https://news.ycombinator.com/item?id=40894966)
 - [Writing in the Age of LLMs](https://www.sh-reya.com/blog/ai-writing/)
+- [How Freewriting Can Boost Your Creativity](https://www.grammarly.com/blog/writing-techniques/free-writing/)
+- [How to Write an Effective Rough Draft: Practical Tips for Every Writer](https://www.grammarly.com/blog/writing-process/how-to-write-a-rough-draft/)

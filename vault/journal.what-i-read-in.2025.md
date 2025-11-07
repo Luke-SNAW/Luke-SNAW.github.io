@@ -2,12 +2,14 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1762305225597
+updated: 1762474908045
 created: 1667632965028
 ---
 
 ## Week 45, 2025
 
+- [How Freewriting Can Boost Your Creativity](https://www.grammarly.com/blog/writing-techniques/free-writing/)
+- [How to Write an Effective Rough Draft: Practical Tips for Every Writer](https://www.grammarly.com/blog/writing-process/how-to-write-a-rough-draft/)
 - [Israel’s top military lawyer arrested after she admitted leaking video of soldiers’ abuse](https://www.theguardian.com/world/2025/nov/03/israels-top-military-lawyer-arrested-after-she-admitted-leaking-video-of-soldiers-abuse)
   - The Israeli Minister of Defense accused the leaker of 'blood libel,' a term historically used to incite violence against Jewish people.
   - Rightwing politicians and media figures have accused her of damaging Israel's global standing and undermining the state by pursuing the case.
