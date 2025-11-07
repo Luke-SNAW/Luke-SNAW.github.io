@@ -2,7 +2,7 @@
 id: svrfdskxkhh0adm4djmu590
 title: "2025"
 desc: ""
-updated: 1762390956134
+updated: 1762498177372
 created: 1761216664642
 ---
 
@@ -96,3 +96,7 @@ Chapter 4. 체제, 중국, 제조업, 지정학적 자산
 ## [[Bits of Unsolicited Advice|life-tips.bits-of-unsolicited-advice]]
 
 다시 읽음 - 2025/11
+
+## 비즈니스 협상론
+
+- 권위에 압도되어 스스로의 협상력을 절하치 마라
