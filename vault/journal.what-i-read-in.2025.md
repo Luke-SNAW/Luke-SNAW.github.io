@@ -2,9 +2,13 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1762474908045
+updated: 1762748125702
 created: 1667632965028
 ---
+
+## Week 46, 2025
+
+- [Analysis indicates that the universe’s expansion is not accelerating](https://ras.ac.uk/news-and-press/research-highlights/universes-expansion-now-slowing-not-speeding)
 
 ## Week 45, 2025
 
