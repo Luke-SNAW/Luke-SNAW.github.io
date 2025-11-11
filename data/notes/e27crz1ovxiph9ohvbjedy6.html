@@ -1,0 +1,188 @@
+<h1 id="setting-front-cdn">Setting Front CDN<a aria-hidden="true" class="anchor-heading icon-link" href="#setting-front-cdn"></a></h1>
+<h2 id="s3-버킷-생성">S3 버킷 생성<a aria-hidden="true" class="anchor-heading icon-link" href="#s3-버킷-생성"></a></h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Restrict access to an Amazon S3 origin</a></li>
+<li>Amazon S3 Object Ownership to Bucket owner enforced</li>
+<li>pubilc access 퍼블릭 액세스 차단</li>
+<li>not a bucket configured as a website endpoint. 정적 웹 사이트 호스팅 쓰지 않기</li>
+</ul>
+<h3 id="권한-탭">권한 탭<a aria-hidden="true" class="anchor-heading icon-link" href="#권한-탭"></a></h3>
+<details>
+  <summary>버킷 정책</summary>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"Version"</span><span class="token operator">:</span> <span class="token string">"2012-10-17"</span><span class="token punctuation">,</span>
+  <span class="token property">"Statement"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"s3:ListBucket"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"arn:aws:s3:::YOUR_BUCKET"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"Principal"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"AWS"</span><span class="token operator">:</span> <span class="token string">"arn:aws:iam::YOUR_ACCOUNT_NUMBER:user/YOUR_USERNAME"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"s3:PutObject"</span><span class="token punctuation">,</span>
+        <span class="token string">"s3:PutObjectAcl"</span><span class="token punctuation">,</span>
+        <span class="token string">"s3:DeleteObject"</span><span class="token punctuation">,</span> <span class="token comment">// sync --delete에 필요. https://stackoverflow.com/a/30638955/5163033</span>
+        <span class="token string">"s3:GetObject"</span><span class="token punctuation">,</span>
+        <span class="token string">"s3:GetObjectAcl"</span><span class="token punctuation">,</span>
+        <span class="token string">"s3:AbortMultipartUpload"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"arn:aws:s3:::YOUR_BUCKET/*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"Principal"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"AWS"</span><span class="token operator">:</span> <span class="token string">"arn:aws:iam::YOUR_ACCOUNT_NUMBER:user/YOUR_USERNAME"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token comment">// Cloudfront OAC, https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Principal"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"Service"</span><span class="token operator">:</span> <span class="token string">"cloudfront.amazonaws.com"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token string">"s3:GetObject"</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token string">"arn:aws:s3:::your-bucket/*"</span><span class="token punctuation">,</span>
+      <span class="token property">"Condition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"StringEquals"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"AWS:SourceArn"</span><span class="token operator">:</span> <span class="token string">"arn:aws:cloudfront::YOUR-ACCOUNT-ID:distribution/YOUR-DISTRIBUTION-ID"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token comment">//Public read가 필요하다면</span>
+      <span class="token property">"Sid"</span><span class="token operator">:</span> <span class="token string">"public-read"</span><span class="token punctuation">,</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Principal"</span><span class="token operator">:</span> <span class="token string">"*"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token string">"s3:GetObject"</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token string">"arn:aws:s3:::YOUR_BUCKET/*"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</details>
+<h2 id="cloudfront-배포-생성">CloudFront 배포 생성<a aria-hidden="true" class="anchor-heading icon-link" href="#cloudfront-배포-생성"></a></h2>
+<ul>
+<li>origin domain: S3
+<ul>
+<li>원본 편집 - 원본 액세스 - 원본 액세스 제어 설정 - Origin access control</li>
+</ul>
+</li>
+<li>SSL Certicicate → Custom SSL → ACM에 만들어져 있는 SSL</li>
+<li>CNAME: domain name</li>
+<li>default root object: index.html</li>
+</ul>
+<h2 id="route53">Route53<a aria-hidden="true" class="anchor-heading icon-link" href="#route53"></a></h2>
+<h3 id="cname-생성">CNAME 생성<a aria-hidden="true" class="anchor-heading icon-link" href="#cname-생성"></a></h3>
+<ul>
+<li>레코드 이름: site name</li>
+<li>값: CloudFront의 URL</li>
+</ul>
+<h2 id="cache">Cache<a aria-hidden="true" class="anchor-heading icon-link" href="#cache"></a></h2>
+<blockquote>
+<p><a href="https://medium.com/wantedjobs/cloudfront-cloudfront-functions-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-next-js-%EB%B2%88%EB%93%A4%ED%8C%8C%EC%9D%BC-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%84%9C%EB%B9%99%ED%95%98%EA%B8%B0-9ccc0541e406">https://medium.com/wantedjobs/cloudfront-cloudfront-functions-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-next-js-%EB%B2%88%EB%93%A4%ED%8C%8C%EC%9D%BC-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%84%9C%EB%B9%99%ED%95%98%EA%B8%B0-9ccc0541e406</a></p>
+</blockquote>
+<h3 id="cloudfront-functions">CloudFront Functions<a aria-hidden="true" class="anchor-heading icon-link" href="#cloudfront-functions"></a></h3>
+<pre class="language-js"><code class="language-js"><span class="token comment">// cache</span>
+<span class="token comment">// path pattern - Default (*)</span>
+<span class="token keyword">function</span> <span class="token function">handler</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> response <span class="token operator">=</span> event<span class="token punctuation">.</span><span class="token property-access">response</span>
+  <span class="token keyword">var</span> headers <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token property-access">headers</span>
+
+  <span class="token comment">// CORS header</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>headers<span class="token punctuation">[</span><span class="token string">"access-control-allow-origin"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    headers<span class="token punctuation">[</span><span class="token string">"access-control-allow-origin"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> value<span class="token operator">:</span> <span class="token string">"*"</span> <span class="token punctuation">}</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Access-Control-Allow-Origin was missing, adding it now."</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// cache-control</span>
+  headers<span class="token punctuation">[</span><span class="token string">"cache-control"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> value<span class="token operator">:</span> <span class="token string">"public,max-age=31536000,immutable;"</span> <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">return</span> response
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// non-cache index.html cache가 남아 있으면 front 배포 때마다 새로 build 된 assets의 uri을 못 가져온다.</span>
+<span class="token comment">// path pattern - *.html</span>
+<span class="token keyword">function</span> <span class="token function">handler</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> response <span class="token operator">=</span> event<span class="token punctuation">.</span><span class="token property-access">response</span>
+  <span class="token keyword">var</span> headers <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token property-access">headers</span>
+
+  <span class="token comment">// CORS header</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>headers<span class="token punctuation">[</span><span class="token string">"access-control-allow-origin"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    headers<span class="token punctuation">[</span><span class="token string">"access-control-allow-origin"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> value<span class="token operator">:</span> <span class="token string">"*"</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// cache-control</span>
+  headers<span class="token punctuation">[</span><span class="token string">"cache-control"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> value<span class="token operator">:</span> <span class="token string">"no-store, must-revalidate"</span> <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">return</span> response
+<span class="token punctuation">}</span>
+</code></pre>
+<p>함수연결 - 뷰어 응답</p>
+<h4 id="ip-기반-리다이렉션">IP 기반 리다이렉션<a aria-hidden="true" class="anchor-heading icon-link" href="#ip-기반-리다이렉션"></a></h4>
+<pre class="language-js"><code class="language-js"><span class="token comment">// cloudfront-js-2.0</span>
+<span class="token keyword">function</span> <span class="token function">handler</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> request <span class="token operator">=</span> event<span class="token punctuation">.</span><span class="token property-access">request</span>
+  <span class="token keyword">const</span> clientIp <span class="token operator">=</span> event<span class="token punctuation">.</span><span class="token property-access">viewer</span><span class="token punctuation">.</span><span class="token property-access">ip</span> <span class="token comment">// 클라이언트 IP 주소 (IPv4 또는 IPv6)</span>
+
+  <span class="token keyword">const</span> allowedIPs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"211.53.77.21"</span><span class="token punctuation">,</span> <span class="token string">"211.53.77.22"</span><span class="token punctuation">,</span> <span class="token string">"221.163.163.122"</span><span class="token punctuation">]</span> <span class="token comment">// 211.53.77.21-22 신논현 FastFive, 221.163.163.122 판교</span>
+
+  <span class="token comment">// IP가 허용 목록에 있는지 확인</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>allowedIPs<span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span>clientIp<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+      statusCode<span class="token operator">:</span> <span class="token number">302</span><span class="token punctuation">,</span>
+      statusDescription<span class="token operator">:</span> <span class="token string">"Found"</span><span class="token punctuation">,</span>
+      headers<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token dom variable">location</span><span class="token operator">:</span> <span class="token punctuation">{</span> value<span class="token operator">:</span> <span class="token string">"https://medical.genoplan.com/gccare"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">"cache-control"</span><span class="token operator">:</span> <span class="token punctuation">{</span> value<span class="token operator">:</span> <span class="token string">"max-age=3600"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">// 1시간 캐싱 (선택적)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 허용: 원래 요청 그대로 전달 (캐싱/오리진 처리 진행)</span>
+  <span class="token keyword control-flow">return</span> request
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="spa-framework---s3---cloudfront-배포-시-404-error-처리">SPA framework - S3 - CloudFront 배포 시 404 error 처리<a aria-hidden="true" class="anchor-heading icon-link" href="#spa-framework---s3---cloudfront-배포-시-404-error-처리"></a></h2>
+<p>없는 URI로 접근 시 403 error가 뜬다. <a href="https://dexlee.tistory.com/189#:~:text=%ED%95%B4%EB%8B%B9%20url%20path%EB%A5%BC%20cloudFront%EC%97%90%EC%84%9C%20%EC%9D%B8%EC%8B%9D%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%B4%EC%84%9C%20S3%EB%A1%9C%20%EC%9A%94%EC%B2%AD%EC%9D%B4%20%EA%B0%84%EB%8B%A4.%20public%EC%9D%B4%20%EC%95%84%EB%8B%88%EB%8B%88%20%EB%8B%B9%EC%97%B0%ED%9E%88%20permission%20denied%20%EC%97%90%EB%9F%AC%20%EB%B0%9C%EC%83%9D.">아마도 해당 url path를 cloudFront에서 인식하지 못해서 S3로 요청이 가고 public이 아니니 permission denied 에러</a>
+<img src="/assets/images/what-i-struggled-brag-in/s3-cloudfront-404-error.webp"></p>
+<p>cloudfront에서 403 error를 SPA framework index.html로 처리하도록 해주면 framework에서 404 처리해 줌
+<img src="/assets/images/what-i-struggled-brag-in/s3-cloudfront-404-custom-setting.webp" alt="CloudFront> 배포> id> 오류 페이지 응답 편집> 사용자 정의 ...> 403, 예, 응답 페이지 경로/index.html"></p>
+<h2 id="github-actions-with-iam-roles">Github Actions with IAM Roles<a aria-hidden="true" class="anchor-heading icon-link" href="#github-actions-with-iam-roles"></a></h2>
+<p><a href="https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services">Configuring OpenID Connect in Amazon Web Services</a></p>
+<pre class="language-yml"><code class="language-yml"><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Configure AWS credentials
+  <span class="token key atrule">uses</span><span class="token punctuation">:</span> aws<span class="token punctuation">-</span>actions/configure<span class="token punctuation">-</span>aws<span class="token punctuation">-</span>credentials@v4
+  <span class="token key atrule">with</span><span class="token punctuation">:</span>
+    <span class="token key atrule">role-to-assume</span><span class="token punctuation">:</span> arn<span class="token punctuation">:</span>aws<span class="token punctuation">:</span>iam<span class="token punctuation">:</span><span class="token punctuation">:</span>&#x3C;arn<span class="token punctuation">-</span>number<span class="token punctuation">></span><span class="token punctuation">:</span>role/&#x3C;role<span class="token punctuation">-</span>name<span class="token punctuation">></span>
+    <span class="token key atrule">role-duration-seconds</span><span class="token punctuation">:</span> <span class="token number">900</span>
+    <span class="token key atrule">aws-region</span><span class="token punctuation">:</span> &#x3C;region<span class="token punctuation">></span>
+</code></pre>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"Version"</span><span class="token operator">:</span> <span class="token string">"2012-10-17"</span><span class="token punctuation">,</span>
+  <span class="token property">"Statement"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Principal"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"Service"</span><span class="token operator">:</span> <span class="token string">"s3.amazonaws.com"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token string">"sts:AssumeRole"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Principal"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"Federated"</span><span class="token operator">:</span> <span class="token string">"arn:aws:iam::&#x3C;arn-number>:oidc-provider/token.actions.githubusercontent.com"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token string">"sts:AssumeRoleWithWebIdentity"</span><span class="token punctuation">,</span>
+      <span class="token property">"Condition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"StringEquals"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"token.actions.githubusercontent.com:aud"</span><span class="token operator">:</span> <span class="token string">"sts.amazonaws.com"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"StringLike"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"token.actions.githubusercontent.com:sub"</span><span class="token operator">:</span> <span class="token string">"repo:&#x3C;org-name>/&#x3C;repo-name>:*"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>
