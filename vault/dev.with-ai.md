@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1761610370953
+updated: 1762815929384
 created: 1688605282146
 ---
 
@@ -108,6 +108,10 @@ created: 1688605282146
   > > No, don't use it to fix your grammar, or for translations, or for whatever else you think you are incapable of doing. Make the mistake. Feel embarrassed. Learn from it. Why? Because that's what makes us human!
   >
   > It would be more human to handwrite your blog post instead. I don’t see how this is a good argument. The use of tools to help with writing and communication should make it easier to convey your thoughts, and that itself is valuable. - [alyxya](https://news.ycombinator.com/item?id=45723176)
+
+- [On the foolishness of "natural language programming".](https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html)
+  - Formal texts, unlike natural languages, have simple rules for manipulation, making them effective tools for preventing nonsense.
+  - Instead of regarding the obligation to use formal symbols as a burden, we should regard the convenience of using them as a privilege: thanks to them, school children can learn to do what in earlier days only genius could achieve.
 
 ## ETC
 

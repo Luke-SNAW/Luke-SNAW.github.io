@@ -2,12 +2,15 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1762748125702
+updated: 1762816060168
 created: 1667632965028
 ---
 
 ## Week 46, 2025
 
+- [On the foolishness of "natural language programming".](https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html)
+  - Formal texts, unlike natural languages, have simple rules for manipulation, making them effective tools for preventing nonsense.
+  - Instead of regarding the obligation to use formal symbols as a burden, we should regard the convenience of using them as a privilege: thanks to them, school children can learn to do what in earlier days only genius could achieve.
 - [Analysis indicates that the universe’s expansion is not accelerating](https://ras.ac.uk/news-and-press/research-highlights/universes-expansion-now-slowing-not-speeding)
 
 ## Week 45, 2025
