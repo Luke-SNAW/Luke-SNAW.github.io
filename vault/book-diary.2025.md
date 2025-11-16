@@ -2,7 +2,7 @@
 id: svrfdskxkhh0adm4djmu590
 title: "2025"
 desc: ""
-updated: 1762674393660
+updated: 1763021090906
 created: 1761216664642
 ---
 
@@ -95,6 +95,12 @@ Chapter 4. 체제, 중국, 제조업, 지정학적 자산
 - 2025/10
 
 ## 좋은 사진을 만드는 정승익의 사진구도
+
+p.59
+
+- 어떤 상황인지 알 수 있도록 화면을 구성하라.
+- 한 곳에만 집중하면 주제가 무엇인지 놋치는 경우가 발생
+- 보도 사진은 상황과 의도에 맞는 화면 구성과 행동 중심의 인물 강조가 핵심
 
 ## [[Bits of Unsolicited Advice|life-tips.bits-of-unsolicited-advice]]
 
