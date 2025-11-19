@@ -2,7 +2,7 @@
 id: 1swsbrhqi9jk41v9eodyi5q
 title: Product
 desc: ""
-updated: 1728521500787
+updated: 1763428604573
 created: 1725929813422
 published: false
 ---
@@ -49,3 +49,8 @@ Prometheus presents an episode of "Espresso Anatomy," focusing on the three dist
 The heart is the foundational layer, characterized by dark brown, syrupy drops that are thick and dense, reminiscent of dark chocolate, and carries a good amount of acidity. The body, being the largest portion, contains soluble solids, gases, and insoluble solids, contributing to a complex flavor profile that balances acidity with sweetness. Finally, the crema, often seen as a sign of a well-extracted shot, is a blend of CO2 and coffee oils suspended in water. While it has a bitter taste, it plays a crucial role in the overall balance of the espresso.
 
 Prometheus emphasizes that understanding these layers enhances appreciation of espresso, though it's not necessary for enjoyment.
+
+## Tea
+
+마오펭수이
+로드 버가못도 마셔봤는데 마오펭수이가 더 좋다. 꽤 오래 우려도 쓴 맛이 나지 않고 삼킬 때 꽃내음이..
