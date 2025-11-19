@@ -1,0 +1,23 @@
+<h1 id="webpack">Webpack<a aria-hidden="true" class="anchor-heading icon-link" href="#webpack"></a></h1>
+<h1 id="webpack4-nextjs---cordova-app-lazy-loading">Webpack4, next.js - Cordova App lazy loading<a aria-hidden="true" class="anchor-heading icon-link" href="#webpack4-nextjs---cordova-app-lazy-loading"></a></h1>
+<pre class="language-bash"><code class="language-bash"><span class="token function">yarn</span> <span class="token function">add</span> webpack-assets-manifest
+</code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// next.config.js</span>
+<span class="token keyword">const</span> <span class="token maybe-class-name">WebpackAssetsManifest</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"webpack-assets-manifest"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">webpack</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">config<span class="token punctuation">,</span> <span class="token punctuation">{</span> buildId<span class="token punctuation">,</span> dev<span class="token punctuation">,</span> isServer<span class="token punctuation">,</span> defaultLoaders<span class="token punctuation">,</span> webpack <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// Note: we provide webpack above so you should not `require` it</span>
+    config<span class="token punctuation">.</span><span class="token property-access">plugins</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>
+      <span class="token keyword">new</span> <span class="token class-name">WebpackAssetsManifest</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token function">sortManifest</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"m"</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+          <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>b<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"m"</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+          <span class="token keyword control-flow">return</span> b<span class="token punctuation">.</span><span class="token method function property-access">localeCompare</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">return</span> config<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
