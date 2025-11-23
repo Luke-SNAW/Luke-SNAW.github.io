@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1763432822654
+updated: 1763699873919
 created: 1737241895427
 published: false
 ---
@@ -1089,3 +1089,7 @@ figma에서 spec 긁어와서 강화 돌려보자.
 
 롯데 프리미엄 아울렛 의왕점
 마오펭수이 맛이 좋다.
+
+## 2025-11-21
+
+손글씨를 쓸 때 서예, 조각하는 느낌이 든다.

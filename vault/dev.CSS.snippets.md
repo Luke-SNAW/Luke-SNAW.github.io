@@ -2,7 +2,7 @@
 id: g05lfgv5zmp5zwv7c40j8n1
 title: CSS snippets
 desc: ""
-updated: 1747877668671
+updated: 1763622752132
 created: 1646129148295
 ---
 
@@ -191,5 +191,22 @@ h5,
 h6 {
   text-align: center;
   text-wrap: balance;
+}
+```
+
+## [The Universal Focus Ring](https://css-tip.com/universal-focus/)
+
+```css
+html::after {
+  content: "";
+  position: fixed;
+  position-anchor: --focus;
+  inset: anchor(inside, 0);
+  outline: 2px solid darkred;
+  transition: 0.4s;
+}
+*:focus-visible {
+  outline: none;
+  anchor-name: --focus;
 }
 ```

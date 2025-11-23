@@ -2,9 +2,14 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1763099389353
+updated: 1763688431942
 created: 1667632965028
 ---
+
+## Week 47, 2025
+
+- [Toasts pose significant accessibility concerns and are not recommended for use](https://primer.style/accessibility/toasts/) - GitHub no longer uses toasts because of their accessibility and usability issues.
+- [The Universal Focus Ring](https://css-tip.com/universal-focus/)
 
 ## Week 46, 2025
 
