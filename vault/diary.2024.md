@@ -2,7 +2,7 @@
 id: tu740bkselabkpjbw62ptqq
 title: "2024"
 desc: ""
-updated: 1762124342596
+updated: 1763894188492
 created: 1737887566039
 published: false
 ---
@@ -158,20 +158,7 @@ shattered.
 막스로스터스에 갈까? 시그니쳐 로스터스에 갈까?
 미경험쪽으로 채찍질
 
-### 시그니쳐 로스터스
-
-커피 내리는 전과정이 눈에 보이도록 배치
-
-**COLOMBIA Gronja Las Magaritus Geisha Natural**  
-첫 향은 Brown Sugar 향이 느껴짐.
-후에 Red Grape, wine, cherry, Cranberri, Asian Plum느낌이 다 있다.
-중간에 청포도도 느껴짐.
-note 적힌대로 다 느껴지기는 처음인데...
-갈 수록 옅어지는 중에 Plum과 청포도는 지속됨.
-
-**SYNERGY brand 에스프레소**  
-드립보다 힘이 없네? 향은 약하지만 산미는 강렬.
-향이 있긴한데 note는 하나도 모르겠다. 드립과 정반대네.
+[[시그니쳐 로스터스 - 2024-12-29|diary.tasting-note#시그니쳐-로스터스---2024-12-29]]
 
 ### chore 다루기 #focus
 

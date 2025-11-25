@@ -2,9 +2,36 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1763688431942
+updated: 1764052955221
 created: 1667632965028
 ---
+
+## Week 48, 2025
+
+- [A Practical Guide to Blobs, File APIs, and Memory Optimization](https://jsdev.space/howto/blob-file-handling-guide/)
+  **Use Blobs when you:**
+  - Need to **create files on the front end** (JSON, CSV, images, exports)
+  - Want to **stream or chunk large files** without loading them fully into memory
+  - Implement **image compression or format conversion**
+  - Provide a **unified file preview** experience
+  - Need safe **download/export** flows for big datasets
+  - Care about **long-running apps and memory leaks**
+- [Learning from Running](https://blog.get-nerve.com/learning-from-running/)
+  - Avoid the 'Bank Metaphor' in training, which assumes linear progress from effort; instead, focus on specific stimuli to trigger physiological adaptations.
+  - Aerobic training requires 'low and slow' efforts for adaptation, while anaerobic training demands high intensity, necessitating a balance and majority of time spent at a leisurely pace.
+  - Consistency is crucial for long-term improvement, as it signals to the body the need for adaptation and becomes a habit that compounds over time.
+  - Improvements in performance are often gradual and non-linear, making it difficult to 'feel' progress from workout to workout, despite underlying changes.
+  - Focus on mastering fundamental basics rather than seeking quick hacks or tricks for significant and sustainable improvement.
+  - To continue improving, it's essential to step outside your comfort zone and engage in 'desirable difficulties' that challenge you without being overwhelming.
+- [Why AC is cheap, but AC repair is a luxury](https://www.a16z.news/p/why-ac-is-cheap-but-ac-repair-is)
+  - If you live in the United States today, and you accidentally knock a hole in your wall, it’s probably cheaper to buy a flatscreen TV and stick it in front of the hole, compared to hiring a handyman to fix your drywall.
+  - The cheapness of air conditioning (a product of technological abundance) contrasts sharply with the rising cost of repairing it (a labor-intensive service immune to such gains), illustrating how technology reshapes value across the economy.
+  - As AI drives productivity in some areas, wages in other sectors will rise, making services like home AC repair more expensive even if the technology for repair hasn't improved.
+- [Windows 11 to add an AI agent that runs in background with access to personal folders, warns of security risk](https://www.windowslatest.com/2025/11/18/windows-11-to-add-an-ai-agent-that-runs-in-background-with-access-to-personal-folders-warns-of-security-risk/)
+- [Fuel Your Creativity With a Dopamine Menu For Artists](https://gortmanillustration.com/blog/2024/1/10/fuel-your-creativity-with-a-dopamine-menu-for-artists)
+  - The author realized that her novelty-motivated brain requires regular short and long breaks to avoid burnout.
+  - A 'dopamine menu' is a personalized list of fulfilling activities categorized to help manage creative energy.
+  - This post provides examples of activities for each category: Starters, Main Courses, Sides, Desserts, and Specials.
 
 ## Week 47, 2025
 
