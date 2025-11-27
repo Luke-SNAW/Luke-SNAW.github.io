@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1762815929384
+updated: 1764222225110
 created: 1688605282146
 ---
 
@@ -112,6 +112,7 @@ created: 1688605282146
 - [On the foolishness of "natural language programming".](https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html)
   - Formal texts, unlike natural languages, have simple rules for manipulation, making them effective tools for preventing nonsense.
   - Instead of regarding the obligation to use formal symbols as a burden, we should regard the convenience of using them as a privilege: thanks to them, school children can learn to do what in earlier days only genius could achieve.
+- [Trillions Spent and Big Software Projects Are Still Failing](https://spectrum.ieee.org/it-management-software-failures) - AI won’t solve IT’s management problems
 
 ## ETC
 

@@ -2,12 +2,16 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1764052955221
+updated: 1764223493413
 created: 1667632965028
 ---
 
 ## Week 48, 2025
 
+- [Someone At YouTube Needs Glasses: The Prophecy Has Been Fulfilled](https://jayd.ml/2025/11/10/someone-at-youtube-needs-glasses-prophecy-fulfilled.html)
+- [Trillions Spent and Big Software Projects Are Still Failing](https://spectrum.ieee.org/it-management-software-failures) - AI won’t solve IT’s management problems
+- [Brain has five ‘eras’, scientists say – with adult mode not starting until early 30s](https://www.theguardian.com/science/2025/nov/25/brain-human-cognitive-development-life-stages-cambridge-study)
+  > [The study](https://www.nature.com/articles/s41467-025-65974-8), based on the brain scans of nearly 4,000 people aged under one to 90, mapped neural connections and how they evolve during our lives. This revealed five broad phases, split up by four pivotal “turning points” in which brain organisation moves on to a different trajectory, at around the ages of nine, 32, 66 and 83 years.
 - [A Practical Guide to Blobs, File APIs, and Memory Optimization](https://jsdev.space/howto/blob-file-handling-guide/)
   **Use Blobs when you:**
   - Need to **create files on the front end** (JSON, CSV, images, exports)
