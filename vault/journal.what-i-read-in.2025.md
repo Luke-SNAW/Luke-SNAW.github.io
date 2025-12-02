@@ -2,12 +2,24 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1764223493413
+updated: 1764660883282
 created: 1667632965028
 ---
 
+## Week 49, 2025
+
+- [It’s Always the Process, Stupid!](https://its.promp.td/its-always-the-process-stupid/) - Why AI Won’t Save Your Broken Workflow
+  - AI does not inherently make an organization smarter; it only makes processes faster.
+  - Implementing AI on a flawed business process will only accelerate the generation of poor outcomes.
+  - To effectively use AI for unstructured data, the workflow itself must first be structured and designed.
+  - The core recommendation is to map, streamline, and optimize business processes before applying AI to enhance speed.
+
 ## Week 48, 2025
 
+- [Credit Report Shows Meta Keeping $27 Billion Off Its Books Through Advanced Geometry](https://stohl.substack.com/p/exclusive-credit-report-shows-meta)
+  - Meta is structured to provide all material economic support to the project while keeping approximately $27 billion of assets and debt off its balance sheet.
+- [5 Whys Technique: Simple Steps to Find Real Problems](https://reliability.com/resources/articles/5-whys-technique-root-cause-analysis-example-and-template/) - it helps you uncover the underlying reasons behind a problem, layer by layer. By repeatedly asking “why” at least five times, this method digs deep to reveal the root cause of an issue.
+  - [5 Whys Root Cause Analysis vs. Logic Trees](https://reliability.com/resources/5-whys-root-cause-analysis-vs-logic-trees/)
 - [Someone At YouTube Needs Glasses: The Prophecy Has Been Fulfilled](https://jayd.ml/2025/11/10/someone-at-youtube-needs-glasses-prophecy-fulfilled.html)
 - [Trillions Spent and Big Software Projects Are Still Failing](https://spectrum.ieee.org/it-management-software-failures) - AI won’t solve IT’s management problems
 - [Brain has five ‘eras’, scientists say – with adult mode not starting until early 30s](https://www.theguardian.com/science/2025/nov/25/brain-human-cognitive-development-life-stages-cambridge-study)

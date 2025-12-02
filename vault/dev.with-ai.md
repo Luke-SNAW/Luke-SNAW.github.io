@@ -2,9 +2,13 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1764222225110
+updated: 1764292293518
 created: 1688605282146
 ---
+
+2025년도 대부분의 AI는 통계적으로 확률이 높은 그럴듯한 토큰을 뱉는다.
+edge를 확인, 확장은 반대편 영역일 터. 그 영역에 focus를 두도록 명령하면 다시 fractal처럼... 잘 한다고 쳐도
+인간이 그 영역을 인지하고 명령은 내려야겠지.
 
 ## Collections
 
