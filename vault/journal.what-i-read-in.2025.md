@@ -2,12 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1764660883282
+updated: 1765244862261
 created: 1667632965028
 ---
 
 ## Week 49, 2025
 
+- [21 Lessons from 14 Years at Google](https://addyo.substack.com/p/21-lessons-from-14-years-at-google)
+
+## Week 50, 2025
+
+- [$5짜리 프롬프트로 $2,418짜리 취약점 찾은 썰](https://new-blog.ch4n3.kr/llm-found-security-issues-from-django-ko/)
 - [It’s Always the Process, Stupid!](https://its.promp.td/its-always-the-process-stupid/) - Why AI Won’t Save Your Broken Workflow
   - AI does not inherently make an organization smarter; it only makes processes faster.
   - Implementing AI on a flawed business process will only accelerate the generation of poor outcomes.
