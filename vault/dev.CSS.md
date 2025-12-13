@@ -2,7 +2,7 @@
 id: 14ndat1u737ts8fzosspizp
 title: CSS
 desc: ""
-updated: 1764226750672
+updated: 1765418043391
 created: 1646129148306
 ---
 
@@ -54,8 +54,6 @@ created: 1646129148306
   - font가 settings에 들어가는게 맞아? 다른 articles에선 CSS generate 하는 곳이 아니라는데...
 - [Resume and pause animations in CSS](https://www.amitmerchant.com/run-and-pause-animations-in-css/)
   - `animation-play-state` property. - `running` and `paused`
-- [Tailwind, and the death of web craftsmanship](https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/)
-  > While Tailwind may help with initial development speed, it can reduce craftsmanship and make code harder to work with over time.
 - [Styling External Links with Attribute Selectors](https://css-irl.info/styling-external-links-with-attribute-selectors/)
   - Class contains the word 'link' - `a[class~='link']`
   - Case sensitive - `a[href*='css-irl' s]`

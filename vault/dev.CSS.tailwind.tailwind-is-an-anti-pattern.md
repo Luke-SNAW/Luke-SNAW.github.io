@@ -1,7 +1,7 @@
 ---
 id: 78dfzzy16rxii38x2wnzh3n
-title: Tailwind is an Anti-Pattern
-desc: ""
+title: tailwind-is-an-anti-pattern
+desc: ''
 updated: 1658217095034
 created: 1658216990738
 ---

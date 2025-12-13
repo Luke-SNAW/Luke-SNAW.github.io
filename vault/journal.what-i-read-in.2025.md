@@ -2,15 +2,20 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1765244862261
+updated: 1765510758714
 created: 1667632965028
 ---
 
-## Week 49, 2025
+## Week 50, 2025
 
+- [Own a Graph](https://staysaasy.com/strategy/2025/11/25/own-a-graph.html) - If you are a senior engineer or PM or designer, you should own a graph.
+  - Graphs are a critical unit of ownership for senior people to track their progress, communicate outcomes, and get feedback. If you don’t own one, fix that ASAP.
+- [Utility First, Component Second](https://mytory.net/archives/17476)
+  - 유틸리티 우선 방법론은 컴포넌트 구성 시점을 늦춤으로써, 개발자가 유틸리티로 빠르게 시작하고 중복이 보일 때 컴포넌트를 만드는 '시점'의 문제로 전환했습니다.
+  - 유틸리티 우선 방법론에서 'First'는 유틸리티 중시뿐만 아니라, 컴포넌트 구성 시점을 늦추는 관점을 도입하여 CSS 아키텍처의 난제를 해결하는 데 기여했습니다.
 - [21 Lessons from 14 Years at Google](https://addyo.substack.com/p/21-lessons-from-14-years-at-google)
 
-## Week 50, 2025
+## Week 49, 2025
 
 - [$5짜리 프롬프트로 $2,418짜리 취약점 찾은 썰](https://new-blog.ch4n3.kr/llm-found-security-issues-from-django-ko/)
 - [It’s Always the Process, Stupid!](https://its.promp.td/its-always-the-process-stupid/) - Why AI Won’t Save Your Broken Workflow

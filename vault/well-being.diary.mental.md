@@ -2,7 +2,7 @@
 id: luxwzit27o0l0utx8epr8v4
 title: Mental
 desc: ""
-updated: 1765251380951
+updated: 1765591172863
 created: 1730626589078
 published: false
 ---
@@ -36,6 +36,17 @@ youtube 최초 공개 실시간 시청 20분. 이사 날 일찍 출근해서 제
 영어듣기 태도는 이쪽이 훨씬 좋다. **같이 노는 느낌**도 들고.
 그간 영어영상을 너무 피상적으로 접함. 언어장벽 때문에 자꾸 확인, 모르는 발음·단어 찾아보느라 즐기지 못했다.
 즐기기에 집중하고 challenge는 적게 하자구 - 2025-11-12
+
+## 특성
+
+modeling with constraints? - 2025-06-11
+
+> The painter who begins with a blank canvas faces more paralysis than the one who starts with a frame and a palette.
+> One person sets a goal: become a best-selling author. Another imposes a constraint: write every day, but never write what bores me.
+
+- [Pivot Points](https://longform.asmartbear.com/pivot-points/)
+  - **Contextual Evaluation**: Unlike traditional assessments that categorize traits as strengths or weaknesses, Pivot Points recognize that their value is context-dependent.
+  - **Embracing Constraints**: Pivot Points are viewed as enabling constraints that, when embraced, can lead to more fulfilling personal and professional lives, allowing individuals and organizations to thrive by aligning actions with inherent strengths.
 
 ## 온전히 어울림
 
@@ -144,6 +155,12 @@ green을 많이 하고 red를 가끔 challenge - 2025-11-16
 ## 주의력 토큰 -> 메타인지
 
 주의력 지불을 좀 더 비싸게 인지. 기사 읽을 때 뇌연산을 가려서 투자 - 2025-11-21
+
+## 2025-12-08
+
+오늘은 1, 다음 날엔 3, 다음 날엔 2, ...
+할 수 있는 만큼 하면 장시간이 지나면 5, 4, 7, ... 위 레벨로 기준선 span이 향상된다.
+강압스런 의지력은 오래가기 힘들다.
 
 ---
 

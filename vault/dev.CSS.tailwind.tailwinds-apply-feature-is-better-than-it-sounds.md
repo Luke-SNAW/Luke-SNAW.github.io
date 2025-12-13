@@ -1,7 +1,7 @@
 ---
 id: h9cbej0h6u45ebffps7xolh
 title: Tailwind’s @apply Feature is Better Than it Sounds
-desc: ""
+desc: ''
 updated: 1744452682511
 created: 1744450131167
 ---
