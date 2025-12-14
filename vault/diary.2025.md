@@ -2,7 +2,7 @@
 id: npakrnxm9grrjyyt6jzgjxp
 title: "2025"
 desc: ""
-updated: 1765591051733
+updated: 1765628084944
 created: 1737241895427
 published: false
 ---
@@ -969,4 +969,4 @@ figma에서 spec 긁어와서 강화 돌려보자.
 
 ## 2025-11-21
 
-손글씨를 쓸 때 서예, 조각하는 느낌이 든다.
+손글씨를 쓸 때 박자에 맞춰 서예, 조각하는 느낌이 든다.
