@@ -2,9 +2,21 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1765510758714
+updated: 1765882297072
 created: 1667632965028
 ---
+
+## Week 51, 2025
+
+- [Why Your Best Engineers Are Interviewing Elsewhere](https://codegood.co/writing/why-your-best-engineers-are-interviewing-elsewhere)
+  - Hierarchies within organizations tend to filter out bad news, preventing executives from being aware of developing problems until they become crises.
+  - Middle managers often suppress bad news to appear professional and 'handle problems at their level,' leading to information latency.
+  - Skip-level conversations (executives talking directly to engineers several levels down) are often discouraged due to concerns about undermining middle management, but they provide crucial ground truth.
+- [Software Component Names Should Be Whimsical And Cryptic](https://medium.com/better-programming/software-component-names-should-be-whimsical-and-cryptic-ca260b013de0)
+  - Descriptive names for software components can be misleading as the scope and purpose of a component can change over time, rendering the original name inaccurate.
+  - Descriptive names create an [illusion of transparency](https://en.wikipedia.org/wiki/Illusion_of_transparency) rather than true clarity, leading to incorrect assumptions about a component's functionality.
+  - For variables within code that are frequently changed, descriptive names like numCols and numRows are preferable to generic ones like i and j.
+  - When a name serves as an identifier for a complex, long-lived entity, it should be an opaque and immutable identifier, similar to using numerical IDs instead of email addresses as foreign keys in databases.
 
 ## Week 50, 2025
 

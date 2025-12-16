@@ -2,11 +2,22 @@
 id: dax0sddsev75ppbbxdu88ie
 title: 21 Lessons from 14 Years at Google
 desc: ""
-updated: 1765244972311
+updated: 1765851618247
 created: 1765244917041
 ---
 
 > https://addyo.substack.com/p/21-lessons-from-14-years-at-google
+
+- Engineers who thrive at Google are not necessarily the best programmers, but those who can navigate aspects beyond code, such as people, politics, and alignment.
+- The most valuable engineers are obsessed with solving user problems by deeply understanding them, rather than falling in love with a technology and seeking applications for it.
+- Prioritizing collaboration and alignment ('getting to right together') is more crucial for project success than always being technically correct.
+- A bias towards action and shipping, even imperfectly, is essential for learning and progress, as a bad page can be edited, but a blank one cannot.
+- Clarity in code is paramount for maintainability and reduces operational risk, especially for engineers working on it at 2 am during an outage.
+- Novelty in technology choices should be approached cautiously, as it incurs overhead in terms of outages, hiring, and cognitive load.
+- An engineer's impact is amplified by people advocating for them, as code alone does not 'speak' for its creator in large organizations.
+- The most effective code is often the code that is never written, as it reduces debugging, maintenance, and explanation overhead.
+- At scale, even bugs become dependencies, making compatibility work as critical as new feature development and requiring careful deprecation strategies.
+- Team slowness is typically a symptom of misalignment rather than a lack of effort or incorrect technology, highlighting the importance of clarifying direction and priorities.
 
 ---
 
