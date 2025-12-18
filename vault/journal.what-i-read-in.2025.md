@@ -2,12 +2,17 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1765882297072
+updated: 1766038264511
 created: 1667632965028
 ---
 
 ## Week 51, 2025
 
+- [30 Years of `<br>` Tags](https://www.artmann.co/articles/30-years-of-br-tags) - Three decades of making things on the internet
+- [AI's real superpower: consuming, not creating](https://msanroman.io/blog/ai-consumption-paradigm)
+  - AI's real superpower lies not in creation, but in consumption and analysis of vast amounts of existing information.
+  - A personal knowledge management system, like an Obsidian vault, can store years of notes, reflections, and insights.
+  - Connecting an AI to a personal knowledge base allows users to query their past discoveries and evolving thoughts.
 - [Why Your Best Engineers Are Interviewing Elsewhere](https://codegood.co/writing/why-your-best-engineers-are-interviewing-elsewhere)
   - Hierarchies within organizations tend to filter out bad news, preventing executives from being aware of developing problems until they become crises.
   - Middle managers often suppress bad news to appear professional and 'handle problems at their level,' leading to information latency.
