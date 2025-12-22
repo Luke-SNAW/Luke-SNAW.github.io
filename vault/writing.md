@@ -2,7 +2,7 @@
 id: qf0l4wbrc9jgooyzexmbq5v
 title: Writing
 desc: ""
-updated: 1762474978840
+updated: 1766120653691
 created: 1674003802450
 ---
 
@@ -23,3 +23,9 @@ created: 1674003802450
 - [Writing in the Age of LLMs](https://www.sh-reya.com/blog/ai-writing/)
 - [How Freewriting Can Boost Your Creativity](https://www.grammarly.com/blog/writing-techniques/free-writing/)
 - [How to Write an Effective Rough Draft: Practical Tips for Every Writer](https://www.grammarly.com/blog/writing-process/how-to-write-a-rough-draft/)
+- [LEADERSHIP LAB: The Craft of Writing Effectively](https://www.youtube.com/watch?v=vtIzMaLkCaM)
+  - Effective writing, especially for experts, is not about adhering to rules but about focusing on the reader and their needs.
+  - Experts often use their writing process to aid their complex thinking, a contrast to journalists who typically use writing to convey pre-formed ideas.
+  - Academic writing should aim to change how readers see the world, rather than simply conveying the writer's own ideas or demonstrating understanding.
+  - Effective academic writing involves understanding and using the 'code' of a specific community of readers to communicate value and persuade them.
+  - Academic conversations are dynamic and evolving, with knowledge being constructed and deconstructed by communities, rather than being a static accumulation of facts.

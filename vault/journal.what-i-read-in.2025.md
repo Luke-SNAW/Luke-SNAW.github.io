@@ -2,12 +2,18 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1766038264511
+updated: 1766407070372
 created: 1667632965028
 ---
 
 ## Week 51, 2025
 
+- [LEADERSHIP LAB: The Craft of Writing Effectively](https://www.youtube.com/watch?v=vtIzMaLkCaM)
+  - Effective writing, especially for experts, is not about adhering to rules but about focusing on the reader and their needs.
+  - Experts often use their writing process to aid their complex thinking, a contrast to journalists who typically use writing to convey pre-formed ideas.
+  - Academic writing should aim to change how readers see the world, rather than simply conveying the writer's own ideas or demonstrating understanding.
+  - Effective academic writing involves understanding and using the 'code' of a specific community of readers to communicate value and persuade them.
+  - Academic conversations are dynamic and evolving, with knowledge being constructed and deconstructed by communities, rather than being a static accumulation of facts.
 - [30 Years of `<br>` Tags](https://www.artmann.co/articles/30-years-of-br-tags) - Three decades of making things on the internet
 - [AI's real superpower: consuming, not creating](https://msanroman.io/blog/ai-consumption-paradigm)
   - AI's real superpower lies not in creation, but in consumption and analysis of vast amounts of existing information.
