@@ -2,9 +2,20 @@
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
 desc: ""
-updated: 1766407070372
+updated: 1766470373420
 created: 1667632965028
 ---
+
+## Week 52, 2025
+
+- [Send email with SMTP relay from a printer, scanner, or app](https://support.google.com/a/answer/176600?hl=en)
+- ['It's a moment of death and rebirth': The ancient monuments saluting the winter solstice](https://www.bbc.com/culture/article/20251219-the-ancient-monuments-saluting-the-winter-solstice)
+  - Ancient monuments across the Northern Hemisphere, some dating back 5,000 years, are precisely aligned to capture the rising and setting sun during the winter solstice.
+  - The winter solstice, occurring around December 21st or 22nd, marks the shortest day of the year and symbolizes the end of one cycle and the beginning of another, with days gradually lengthening afterward.
+- [I got hacked, my server started mining Monero this morning.](https://blog.jakesaunders.dev/my-server-started-mining-monero-this-morning/)
+  - The author's server was compromised and used to mine Monero for 10 days due to a vulnerability in the Umami analytics tool, which is built with Next.js.
+  - The vulnerability (CVE-2025-66478) was an unsafe deserialization flaw in Next.js's React Server Components' Flight protocol, allowing arbitrary code execution.
+  - Despite the compromise, container isolation prevented the malware from escaping the Umami container and affecting the host system or other containers.
 
 ## Week 51, 2025
 
