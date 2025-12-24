@@ -1,0 +1,88 @@
+<h1 id="javascript">JavaScript<a aria-hidden="true" class="anchor-heading icon-link" href="#javascript"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://mmazzarolo.com/blog/2022-02-16-track-down-the-javascript-code-responsible-for-polluting-the-global-scope/">Track down the JavaScript code responsible for polluting the global scope</a></li>
+<li><a href="https://medium.com/frontend-canteen/web-developers-dont-just-know-about-localstorage-2f37385bd8ad">Web Developers Don’t Just Know About localStorage</a></li>
+<li>🛁 <a href="https://github.com/ryanmcdermott/clean-code-javascript">clean-code-javascript</a> - Clean Code concepts adapted for JavaScript</li>
+<li><a href="https://news.ycombinator.com/item?id=34218003">Ask HN: Why did Frontend development explode in complexity?</a></li>
+<li><a href="https://www.robinwieruch.de/web-development-trends/">10 Web Development Trends in 2023</a></li>
+<li><a href="https://javascriptweekly.com/link/135369/web">useSignal() is the future of web frameworks and is a better abstraction than useState(), which is showing its age.</a></li>
+<li><a href="https://www.thearmchaircritic.org/mansplainings/react-server-components-vs-server-side-rendering">React Server Components vs. Server-Side Rendering</a>
+<ul>
+<li><a href="https://beta.nextjs.org/docs/rendering/fundamentals">https://beta.nextjs.org/docs/rendering/fundamentals</a></li>
+</ul>
+</li>
+<li><a href="https://www.stefanjudis.com/today-i-learned/how-to-escape-css-selectors-in-javascript/">How to escape CSS selectors in JavaScript</a> - a handy static method in the <code>CSS</code> JavaScript namespace to help with this exact problem — <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS/escape_static"><code>CSS.escape()</code></a></li>
+<li><a href="https://frontendmasters.com/blog/console-delight/">console.delight</a></li>
+<li><a href="https://whatpwacando.today/">What PWA Can Do Today</a></li>
+<li><a href="https://hodlbod.npub.pro/post/1739830562159/">Svelte is not Javascript</a></li>
+</ul>
+<h2 id="discover-the-magic-of-portals-a-beginners-guide-to-reacts-most-powerful-tool"><a href="https://blog.bitsrc.io/discover-the-magic-of-portals-a-beginners-guide-to-react-s-most-powerful-tool-f6f1965ea305">Discover the Magic of Portals: A Beginner’s Guide to React’s Most Powerful Tool</a><a aria-hidden="true" class="anchor-heading icon-link" href="#discover-the-magic-of-portals-a-beginners-guide-to-reacts-most-powerful-tool"></a></h2>
+<p>Portals allow you to render components outside of their parent component’s tree.</p>
+<h3 id="when-should-you-use-portals">When should you use portals?<a aria-hidden="true" class="anchor-heading icon-link" href="#when-should-you-use-portals"></a></h3>
+<ul>
+<li>Modals and dialogs</li>
+<li>Tooltips and popovers</li>
+<li>Overlaying content</li>
+</ul>
+<h2 id="15-useful-javascript-tips"><a href="https://javascript.plainenglish.io/15-useful-javascript-tips-814eeba1f4fd">15 Useful JavaScript Tips</a><a aria-hidden="true" class="anchor-heading icon-link" href="#15-useful-javascript-tips"></a></h2>
+<h3 id="event-listeners-run-only-once">Event listeners run only once<a aria-hidden="true" class="anchor-heading icon-link" href="#event-listeners-run-only-once"></a></h3>
+<pre class="language-js"><code class="language-js">element<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"I run only once"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  once<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="elements-dataset">element’s dataset<a aria-hidden="true" class="anchor-heading icon-link" href="#elements-dataset"></a></h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user<span class="token punctuation">"</span></span> <span class="token attr-name">data-name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Maxwell<span class="token punctuation">"</span></span> <span class="token attr-name">data-age</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>32<span class="token punctuation">"</span></span> <span class="token attr-name">data-something</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Some Data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  Hello Maxwell
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">)</span>
+
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token property-access">dataset</span><span class="token punctuation">)</span>
+  <span class="token comment">// { name: "Maxwell", age: "32", something: "Some Data" }</span>
+
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token property-access">dataset</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">)</span> <span class="token comment">// "Maxwell"</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token property-access">dataset</span><span class="token punctuation">.</span><span class="token property-access">age</span><span class="token punctuation">)</span> <span class="token comment">// "32"</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token property-access">dataset</span><span class="token punctuation">.</span><span class="token property-access">something</span><span class="token punctuation">)</span> <span class="token comment">// "Some Data"</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="api">API<a aria-hidden="true" class="anchor-heading icon-link" href="#api"></a></h2>
+<ul>
+<li><a href="https://webkit.org/blog/13862/the-user-activation-api/">The User Activation API</a></li>
+</ul>
+<h3 id="reliably-send-an-http-request-as-a-user-leaves-a-page"><a href="https://css-tricks.com/send-an-http-request-on-page-exit/">Reliably Send an HTTP Request as a User Leaves a Page</a><a aria-hidden="true" class="anchor-heading icon-link" href="#reliably-send-an-http-request-as-a-user-leaves-a-page"></a></h3>
+<p>Browsers do not guarantee that HTTP requests will complete if a page is unloaded, such as when a user navigates to a new page. This can cause issues for requests meant to log analytics data. Two reliable methods are available: using the "keepalive" flag with fetch requests, or the sendBeacon() API, which sends low priority requests. Both ensure requests are not cancelled even after page navigation. The article also discusses delaying navigation until requests finish, but this hurts the user experience. It provides examples demonstrating unreliable requests and how the different methods work. In summary, sendBeacon() is best for simple logs as it has cleaner code, while fetch with keepalive allows for custom headers and GET requests. The author hopes sharing these lessons learned will help others avoid similar analytics logging issues.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/1kzin30l7wriarmnxs4zbk6">A Practical Guide to Blobs, File APIs, and Memory Optimization</a></li>
+<li><a href="/notes/1be9g2aj3wfun16lcdrgw9l">Angular, Qwik Creator on How JS Frameworks Handle Reactivity</a></li>
+<li><a href="/notes/k4uned6w1envoh0kklczw1s">Closing Modals By Pressing the Back Button in Vue.js</a></li>
+<li><a href="/notes/mp15yjw2lf4app651ecc2o5">Demystifying Fresh — Build Your own Islands of Interactivity</a></li>
+<li><a href="/notes/wv11w33zrg2w7dy3pllnb09">Detecting Rendered Line Breaks in a Text Node in JavaScript</a></li>
+<li><a href="/notes/yWa1wrYH9UNop3dtcuTNq">Divops - javascript build system, CI, ...</a></li>
+<li><a href="/notes/0pt1h99anrpns3e7xkundxk">Draggable objects</a></li>
+<li><a href="/notes/rr1v0qgo9y5a4h5txghol3i">Event Delegation with Lokalised Anchor</a></li>
+<li><a href="/notes/ta9cd62ewmjduqlbk6wqpg9">Interesting</a></li>
+<li><a href="/notes/vf7legeg0iluoyi3l1haomp">JavaScript Closure: A Simple Explanation</a></li>
+<li><a href="/notes/qJYy3qzZt6rXHWQJPZd9Q">Javascript Performance</a></li>
+<li><a href="/notes/kiZBVVwRNBJUzgKgIBQVN">Javascript Tools</a></li>
+<li><a href="/notes/gnh7pclc140wsbtf84b5yf8">Javascript debug</a></li>
+<li><a href="/notes/mraMGoestTO9V6pkpE8XE">Language</a></li>
+<li><a href="/notes/nlziv322irq7qvs5s5jvh8y">Lit</a></li>
+<li><a href="/notes/x5vdgiy4jair5082znpkigd">Low Javascript</a></li>
+<li><a href="/notes/b7sdh51rdxwox9axd0829tf">Next.js</a></li>
+<li><a href="/notes/dnqq11162p04a178qiuu23x">Node</a></li>
+<li><a href="/notes/0gqmdqmd5rylcs3ljzwsww4">React</a></li>
+<li><a href="/notes/xmrcx4tzqlen2i7np0o97ig">Reasons to avoid Javascript CDNs</a></li>
+<li><a href="/notes/p2wp6sqctlcz8te1gsllrzw">Reliably Send an HTTP Request as a User Leaves a Page</a></li>
+<li><a href="/notes/umjy02luc1sswk6szl3salf">Say goodbye to resource-caching across sites and domains</a></li>
+<li><a href="/notes/vjlre6d942v52sjkc0u3a95">Snippets</a></li>
+<li><a href="/notes/y9wg206qulytiq9twv7q6sp">Statistics about javascript</a></li>
+<li><a href="/notes/mrnt29z4m4i5swe317adbwf">The balance has shifted away from SPAs</a></li>
+<li><a href="/notes/ugm1gu94iaddw4o9srqf08r">Trouble Shooting</a></li>
+<li><a href="/notes/a8zbwhfmtzwmplthrmphpms">Virtual DOM is pure overhead</a></li>
+<li><a href="/notes/p6jdsvhol2ebyzilnb5u3ot">Vue</a></li>
+<li><a href="/notes/qhrthdzzsqq8vnya3nutgzy">We Don't Need Faster Frameworks, We Need Better Tooling</a></li>
+<li><a href="/notes/z5miymcgzlcmtxnkir54oop">WebSockets vs Server-Sent-Events vs Long-Polling vs WebRTC vs WebTransport</a></li>
+</ol>

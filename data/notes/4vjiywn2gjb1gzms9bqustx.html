@@ -1,0 +1,21 @@
+<h1 id="curry-or-partial-application">Curry or Partial Application?<a aria-hidden="true" class="anchor-heading icon-link" href="#curry-or-partial-application"></a></h1>
+<p><a href="https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8">https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8</a></p>
+<p>The Difference Between
+Partial Application and Curry</p>
+<h1 id="definitions">Definitions<a aria-hidden="true" class="anchor-heading icon-link" href="#definitions"></a></h1>
+<p>Application: The process of applying a function to its arguments in order to produce a return value.</p>
+<p>Partial Application: The process of applying a function to some of its arguments. The partially applied function gets returned for later use. In other words, a function that <strong>takes a function with multiple parameters</strong> and <strong>returns a function with fewer parameters</strong>. Partial application fixes (partially applies the function to) one or more arguments inside the returned function, and the returned function takes the remaining parameters as arguments in order to complete the function application.</p>
+<p>Curry: A function that <strong>takes a function with multiple parameters</strong> as input and <strong>returns a function with exactly one parameter</strong>.</p>
+<h1 id="why-does-this-matter">Why Does this Matter?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-does-this-matter"></a></h1>
+<p>James Coglan gave a great talk that will help explain why you should care:
+<a href="https://youtu.be/XcS-LdEBUkE">https://youtu.be/XcS-LdEBUkE</a></p>
+<ul>
+<li>A partial application <strong>may or may not have a predictable return type</strong>.</li>
+<li>A curried function always returns another function with an arity of 1 until all of the arguments have been applied.</li>
+</ul>
+<p>All the cool things James talks about rely on <strong>function type uniformity</strong>. For example he talks about how promises can help abstract your program logic’s dependence on time.</p>
+<p>Promises do that because they <strong>lift</strong> whatever function you’re calling so that the return type is always uniform: All functions that return promises return the same type, which means that you can use them in standardized ways. James talks about lots of ways that promises help.</p>
+<p>By dealing with <strong>containers</strong> instead of the <strong>values inside of containers</strong>, you can create lots of <strong>generic functions that will work universally</strong> for anything that uses the <strong>container’s interface</strong>.</p>
+<p>Like promises, <strong>curried functions return containers</strong> that all share the same interface. The <strong>returned functions are the containers</strong> in this case. You just keep calling the returned function until you’ve exhausted all the arguments and the final value gets returned.</p>
+<p>In other words, <strong>a curried function is a function that can lift all of its arguments</strong> so that <strong>you can deal</strong> with those arguments <strong>in a standardized way</strong>.</p>
+<p>The most common use for currying in functional programming is to make it easier to compose functions. For more on that topic, read <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0">“Master the JavaScript Interview: What is Function Composition?”</a></p>
