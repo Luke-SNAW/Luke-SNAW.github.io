@@ -1,8 +1,8 @@
 ---
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
-desc: ""
-updated: 1762473265392
+desc: ''
+updated: 1766965759366
 created: 1644449449778
 ---
 
@@ -76,10 +76,11 @@ Hi there 👋. I'm a Front-end developer.
 
 ## What I read in past
 
-- [[What I read in 2025|journal.what-i-read-in.2025]]
-  - [[2024|journal.what-i-read-in.2024]]
-  - [[2023|journal.what-i-read-in.2023]]
-  - [[2022|journal.what-i-read-in.2022]]
+- [[What I read in 2026|diary.2026.articles]]
+  - [[2025|diary.2025.articles]]
+  - [[2024|diary.2024.articles]]
+  - [[2023|diary.2023.articles]]
+  - [[2022|diary.2022.articles]]
 - 📝 [Gists](https://gist.github.com/Luke-SNAW)
 - 📜 [Journals](https://luke-snaw.github.io/Luke-SNAW__netlify-CMS.github.io/)
 

@@ -1,7 +1,7 @@
 ---
 id: 3c3ubyy4jyo2x0qui65nwtu
 title: "\U0001F453 What I read in 2025"
-desc: ""
+desc: ''
 updated: 1766470373420
 created: 1667632965028
 ---
