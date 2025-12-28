@@ -2,7 +2,7 @@
 id: xqvfomqa8mjvxxa5aqtmvuq
 title: Wsaj
 desc: ""
-updated: 1720754529622
+updated: 1766907517630
 created: 1702556747051
 published: false
 ---
@@ -174,3 +174,8 @@ The passage discusses investment strategies and decision making based on the mar
 ## [당신의 투자수익, 제대로 이해하고 계신가요?](https://www.youtube.com/watch?v=h7fsfU7bJcM)
 
 리스크를 감당하여 얻는 수익 beta. 잘 모르는 asset들은 분산시켜 beta를 얻자.
+
+## [채권은 정말 주식을 헷지해 줄까?](https://www.youtube.com/watch?v=mUMpIy149uM)
+
+시장의 관심사가 **성장**일 때는 주식과 채권의 자산 배분 효과가 나타나지만
+**물가**일 경우에는 자산 배분 효과가 망가진다. (물가 급등 -> 금리 인상 -> 주가하락 + 채권 하락)
