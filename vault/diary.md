@@ -2,9 +2,8 @@
 id: uoc5hhki3o4py15cesddu8q
 title: Diary
 desc: ""
-updated: 1737242795695
+updated: 1767068072628
 created: 1737241928634
-published: false
 ---
 
 손글씨로 적는 기록을 정리하여 문서로 옮기려니 매우 힘들다.
