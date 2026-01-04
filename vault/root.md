@@ -76,11 +76,11 @@ Hi there 👋. I'm a Front-end developer.
 
 ## What I read in past
 
-- [[What I read in 2026|diary.2026.articles]]
-  - [[2025|diary.2025.articles]]
-  - [[2024|diary.2024.articles]]
-  - [[2023|diary.2023.articles]]
-  - [[2022|diary.2022.articles]]
+- [[What I read in 2026|read.2026.articles]]
+  - [[2025|read.2025.articles]]
+  - [[2024|read.2024.articles]]
+  - [[2023|read.2023.articles]]
+  - [[2022|read.2022.articles]]
 - 📝 [Gists](https://gist.github.com/Luke-SNAW)
 - 📜 [Journals](https://luke-snaw.github.io/Luke-SNAW__netlify-CMS.github.io/)
 

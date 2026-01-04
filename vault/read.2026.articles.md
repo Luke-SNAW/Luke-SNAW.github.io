@@ -1,7 +1,7 @@
 ---
 id: ataxcwed7jsdij9iwqz5m9e
 title: What I read in 2026
-desc: ""
+desc: ''
 updated: 1767338216946
 created: 1766965709816
 ---
