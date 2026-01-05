@@ -1,8 +1,8 @@
 ---
 id: svrfdskxkhh0adm4djmu590
-title: Books
-desc: ''
-updated: 1766103244861
+title: Books I read in 2025
+desc: ""
+updated: 1767575011055
 created: 1761216664642
 ---
 

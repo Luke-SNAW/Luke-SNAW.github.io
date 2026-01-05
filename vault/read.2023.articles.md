@@ -1,8 +1,8 @@
 ---
 id: d9io1hr2n9vdbvucvy3iquj
-title: What I read in 2023
-desc: ''
-updated: 1704156028527
+title: Articles I read in 2023
+desc: ""
+updated: 1767571825749
 created: 1704156002508
 ---
 
