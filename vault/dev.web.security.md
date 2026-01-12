@@ -2,7 +2,7 @@
 id: fm8vm79bnyq6fq1gu2oq2zr
 title: Web Security
 desc: ""
-updated: 1737345173855
+updated: 1767919856334
 created: 1645751778639
 ---
 
@@ -39,3 +39,5 @@ created: 1645751778639
 - [Polyfill.io, 중국 CDN 기업에 인수된 후 보안 및 안정성 문제 발생](https://x.com/hmartapp/status/1796729141309673554)
   - [polyfill.io now available on cdnjs: reduce your supply chain risk](https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk)
 - [DoubleClickjacking: A New Era of UI Redressing](https://www.paulosyibelo.com/2024/12/doubleclickjacking-what.html) - get users to commit to clicking twice, but the pop up page only accepts a single click before closing. Their second click goes to the page underneath the pop up, which is e.g. an authentication button. — [nneonneo](https://news.ycombinator.com/item?id=42746553)
+- [Cross-Site Request Forgery is dead!](https://scotthelme.co.uk/csrf-is-dead/) - Same-Site Cookies. `SameSite=Strict`, `SameSite=Lax`
+- [CSRF Protection without Tokens or Hidden Form Fields](https://blog.miguelgrinberg.com/post/csrf-protection-without-tokens-or-hidden-form-fields) - The so called "modern" method to protect against CSRF attacks is based on the [Sec-Fetch-Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Site) header, which all modern desktop and mobile browsers include in the requests they send to servers.

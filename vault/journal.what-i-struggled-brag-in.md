@@ -2,9 +2,47 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1762311852206
+updated: 1768205765393
 created: 1669264809793
 ---
+
+## Week 3, 2026 - Samsung Browser Download Issue
+
+Samsung Internet browser 다운로드 실패. Presigned URL을 Blob으로 변환하는 과정에서 문제 발생. **해결: Blob 변환 제거하고 presigned URL 직접 사용.**
+
+### Problem
+
+PDF 다운로드가 Samsung browser에서만 실패. Chrome/Safari는 정상.
+
+### Root Cause
+
+`fetch() → blob → createObjectURL()` 패턴이 Samsung browser에서 안 됨.
+
+```javascript
+// ❌ 문제 코드
+export const downloadPresignedUrl = async (presignedUrl, fileName) => {
+  const response = await fetch(presignedUrl)
+  const blob = await response.blob()
+  return downloadBlob(blob, fileName)
+}
+```
+
+### Solution
+
+Blob 변환 완전 제거. Presigned URL을 직접 사용.
+
+```javascript
+// ✅ 해결 코드
+export const downloadPresignedUrl = (presignedUrl, fileName) => {
+  const a = document.createElement("a")
+  a.href = presignedUrl // Blob 거치지 않고 직접 사용
+  a.download = fileName
+  a.style.display = "none"
+  document.body.appendChild(a)
+  a.click()
+  setTimeout(() => document.body.removeChild(a), 100)
+}
+```
 
 ## Week 45, 2025 - Nuxt, Pinia SSR Error
 

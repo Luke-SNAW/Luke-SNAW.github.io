@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1742523648081
+updated: 1768189085829
 created: 1644885695231
 ---
 
@@ -73,6 +73,16 @@ created: 1644885695231
 - [Use "translate" to turn off element translations](https://www.stefanjudis.com/today-i-learned/non-translatable-html-elements/)
   - `translate="no"` attribute
 - [Why You Should Choose HTML5 article Over section](https://www.smashingmagazine.com/2020/01/html5-article-section/)
+
+## `<a download>` 동작 규칙
+
+- **Same-origin URL** (같은 출처):
+  - `download="filename.ext"`로 **파일명 지정 가능**
+  - 브라우저가 해당 파일명을 사용해 다운로드
+- **Cross-origin URL** (다른 출처):
+  - `download` 속성 **무시됨**
+  - 서버의 `Content-Disposition` 헤더가 **우선 적용**
+  - `Content-Disposition: attachment; filename="server-filename.ext"`
 
 ## [Amazing HTML5 Features That Just 3% of Developers Knows](https://halimshams.medium.com/amazing-html5-features-that-just-3-of-developers-knows-easy-and-surprising-ac67ff598162)
 
