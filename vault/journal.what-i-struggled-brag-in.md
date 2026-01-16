@@ -2,9 +2,55 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1768205765393
+updated: 1768456520490
 created: 1669264809793
 ---
+
+## Week 3, 2026 - Preview 페이지 SSG 리다이렉트 버그 수정
+
+AI 작성.
+
+- **증상**: `/preview#eyJxxxx...` URL로 접근 시, 로컬에서는 정상 동작하지만 SSG 배포 환경에서는 `/#eyJxxxx...`로 잘못 리다이렉트됨
+- **환경**: Nuxt 3/4 SSG + AWS S3 + CloudFront (S3 정적 웹호스팅 미사용, 이전 정적 웹호스팅 사용할 땐 잘 됐음)
+
+### 원인 - S3 + CloudFront 라우팅 문제
+
+S3 정적 웹호스팅을 사용하지 않는 환경에서:
+
+1. `/preview#token`으로 접근
+2. S3에서 `/preview` 파일(키)을 찾지 못함 (디렉토리이므로)
+3. 404 발생
+4. CloudFront 에러 페이지 설정에 의해 `/index.html`로 fallback
+5. 결과: `/#token`으로 리다이렉트
+
+### 해결 - S3에 확장자 없는 파일 업로드
+
+**파일**: `.github/workflows/test__build--deploy.yml`, `main__build--deploy.yml`
+
+```yaml
+- name: Sync with S3
+  run: aws s3 sync .output/public s3://$PROJECT_NAME --delete
+- name: Upload preview file for S3 direct access
+  run: aws s3 cp .output/public/preview/index.html s3://$PROJECT_NAME/preview --content-type "text/html"
+```
+
+S3 sync 후 `/preview/index.html`을 `/preview` 키로 추가 업로드하여:
+
+- `/preview#token` 접근 시 → S3의 `/preview` 파일 서빙
+- `/preview/` 접근 시 → S3의 `/preview/index.html` 서빙
+- `/preview/report/` 접근 시 → S3의 `/preview/report/index.html` 서빙
+
+#### 시도
+
+sync 과정에서
+
+> upload: .output/public/preview/index.html to s3://\*\*/preview/index.html
+
+가 있으니 그냥 --content-type "text/html" 추가하면 될 듯 싶었지만 안되네...
+
+### 참고
+
+- S3 정적 웹호스팅을 활성화하면 index document 설정으로 자동 처리 가능
 
 ## Week 3, 2026 - Samsung Browser Download Issue
 
