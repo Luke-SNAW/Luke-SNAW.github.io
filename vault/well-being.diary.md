@@ -1,7 +1,7 @@
 ---
 id: mq3s6vq7lgdul6mobam7vck
 title: Diary
-desc: ""
+desc: ''
 updated: 1761452013608
 created: 1645750982391
 published: false
@@ -29,7 +29,7 @@ published: false
 
 #### 2022/07/10
 
-[[골반 전방경사|well-being.journal.posture#골반-전방경사---좌골신경통-연관]]에 대해 신경쓰니 거의 사라짐. 가끔 통증이 생기는데 골반위치 리셋하면 없어짐
+[[골반 전방경사|well-being.diary.posture#골반-전방경사---좌골신경통-연관]]에 대해 신경쓰니 거의 사라짐. 가끔 통증이 생기는데 골반위치 리셋하면 없어짐
 
 #### 2025/09
 
