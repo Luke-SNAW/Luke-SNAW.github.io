@@ -2,7 +2,7 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1761617582013
+updated: 1768977102821
 created: 1646021156163
 ---
 
@@ -88,50 +88,39 @@ created: 1646021156163
 - 레코드 이름: site name
 - 값: CloudFront의 URL
 
-## Cache
+## Front SPA framework 배포 시 cache와 상관없이 새 버전 적용을 위해
 
-> https://medium.com/wantedjobs/cloudfront-cloudfront-functions-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-next-js-%EB%B2%88%EB%93%A4%ED%8C%8C%EC%9D%BC-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%84%9C%EB%B9%99%ED%95%98%EA%B8%B0-9ccc0541e406
+no-cache 헤더 + RefreshHit
 
-### CloudFront Functions
+### RefreshHit from cloudfront
 
-```js
-// cache
-// path pattern - Default (*)
-function handler(event) {
-  var response = event.response
-  var headers = response.headers
+`x-cache: RefreshHit from cloudfront`
 
-  // CORS header
-  if (!headers["access-control-allow-origin"]) {
-    headers["access-control-allow-origin"] = { value: "*" }
-    console.log("Access-Control-Allow-Origin was missing, adding it now.")
-  }
-  // cache-control
-  headers["cache-control"] = { value: "public,max-age=31536000,immutable;" }
-  return response
-}
+RefreshHit 과정:
+
+1. 캐시 만료 → CloudFront가 오리진에 **조건부 GET** (If-None-Match/If-Modified-Since)
+2. 오리진 응답:
+   ├─ **304 Not Modified** → 기존 캐시 재사용 (RefreshHit)
+   └─ **200 OK + 새 콘텐츠** → **새 버전으로 캐시 교체**
+
+### no-cache header by S3
+
+```yaml
+aws s3 sync .output/public s3://$PROJECT_NAME \
+--exclude "*" --include "*.html" \
+--cache-control 'no-store, no-cache, must-revalidate' \
+--delete
+aws s3 sync .output/public s3://$PROJECT_NAME \
+--exclude "*" --include "*.js" \
+--cache-control 'no-store, no-cache, must-revalidate' \
+--delete
+aws s3 sync .output/public s3://$PROJECT_NAME \
+--exclude "*.html" --exclude "*.js" \
+--cache-control 'max-age=31536000, immutable' \
+--delete
 ```
 
-```js
-// non-cache index.html cache가 남아 있으면 front 배포 때마다 새로 build 된 assets의 uri을 못 가져온다.
-// path pattern - *.html
-function handler(event) {
-  var response = event.response
-  var headers = response.headers
-
-  // CORS header
-  if (!headers["access-control-allow-origin"]) {
-    headers["access-control-allow-origin"] = { value: "*" }
-  }
-  // cache-control
-  headers["cache-control"] = { value: "no-store, must-revalidate" }
-  return response
-}
-```
-
-함수연결 - 뷰어 응답
-
-#### IP 기반 리다이렉션
+## CloudFront Functions IP 기반 리다이렉션
 
 ```js
 // cloudfront-js-2.0
@@ -139,7 +128,7 @@ function handler(event) {
   const request = event.request
   const clientIp = event.viewer.ip // 클라이언트 IP 주소 (IPv4 또는 IPv6)
 
-  const allowedIPs = ["211.53.77.21", "211.53.77.22", "221.163.163.122"] // 211.53.77.21-22 신논현 FastFive, 221.163.163.122 판교
+  const allowedIPs = ["xxx.xxx.xxx.xxx."]
 
   // IP가 허용 목록에 있는지 확인
   if (!allowedIPs.includes(clientIp)) {
@@ -147,7 +136,7 @@ function handler(event) {
       statusCode: 302,
       statusDescription: "Found",
       headers: {
-        location: { value: "https://medical.genoplan.com/gccare" },
+        location: { value: "https://xxx.com/xxx" },
         "cache-control": { value: "max-age=3600" }, // 1시간 캐싱 (선택적)
       },
     }

@@ -2,9 +2,69 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1768456520490
+updated: 1768968719486
 created: 1669264809793
 ---
+
+## Week 4, 2026 - Prisma upgrade 5 -> 6 - CORS 에러
+
+### 현상
+
+브라우저에서 GraphQL 요청 시 CORS 에러 발생:
+
+```
+Access to fetch at 'https://*/app/graphql' from origin 'https://*' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+```
+
+- Prisma 5.1.0 사용 시: 정상 동작
+- Prisma 6.x 업그레이드 후: CORS 에러 발생
+
+### 원인
+
+**CORS 설정 문제가 아니라 서버 시작 실패 문제였음.**
+
+1. Prisma 6.x 업그레이드 후 `prisma generate` 미실행
+2. Node.js 앱 시작 시 `Cannot find module '.prisma/client/default'` 에러 발생
+3. PM2 앱 상태: `errored`
+4. Apache 프록시가 백엔드(localhost:4000)에 연결 실패
+5. Apache가 503 응답 반환 (CORS 헤더 없음)
+6. 브라우저가 CORS 에러로 인식
+
+**추가 문제:**
+
+- 서버의 Node.js 버전(v18.12.1)이 Prisma 6.x 요구사항(v18.18+)보다 낮았음
+- 서버에 pnpm이 설치되어 있지 않아 `npx prisma generate` 사용 시 최신 버전(7.x) 설치 시도
+
+### 해결 방법
+
+#### 1. Node.js 업그레이드 (v22)
+
+```bash
+## nvm 설치
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc
+
+## Node.js v22 설치 및 사용
+nvm install 22
+nvm use 22
+```
+
+#### 2. pnpm 설치 후 Prisma 클라이언트 생성
+
+```bash
+npm install --global corepack@latest
+corepack enable pnpm
+
+cd /opt/bitnami/apache/htdocs
+pnpm exec prisma generate
+```
+
+#### 3. PM2 앱 재시작
+
+```bash
+pm2 restart index
+pm2 status  ## 상태 확인
+```
 
 ## Week 3, 2026 - Preview 페이지 SSG 리다이렉트 버그 수정
 
@@ -864,7 +924,9 @@ tailwind 쓰려면 기존 primevue에서 제공하는 걸 모두 날리는게 [�
 > chrome 72, firefox 69, edge 79 이상의 browser에서 확인하셔야 합니다.
 
 [^instance-fields]: `instance fields`: https://stackoverflow.com/a/60026710/5163033
+
 [^safari-14_1-release-notes]: `safari-14_1-release-notes`: https://developer.apple.com/documentation/safari-release-notes/safari-14_1-release-notes#JavaScript-and-WebAssembly
+
 [^chart.js-issue-11151]: `chart.js-issue-11151`: https://github.com/chartjs/Chart.js/issues/11151
 
 ### Babel config

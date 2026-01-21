@@ -2,7 +2,7 @@
 id: g1fngdjl25nes6fs3lip602
 title: Communication
 desc: ""
-updated: 1752801446946
+updated: 1768977943790
 created: 1652404654841
 ---
 
@@ -33,6 +33,13 @@ created: 1652404654841
   - Debating with a skilled opponent can be challenging, as they can control the conversation's framing, leading to a loss of momentum and confidence.
   - Framing a conversation in your terms is a powerful debating strategy.
   - This framing allows inevitabilists to dismiss opposing views and engage only with those who accept their premise.
+- > I've been in therapy for over a year and one of the most valuable things I've learned as a fellow "problem solver" is to run through the "three H's" when something comes up:
+  >
+  > 1. Do you want to be Helped?
+  > 2. Do you want to be Heard?
+  > 3. Do you want to be Hugged?
+  >
+  > I'm still trying to get in the habit of using this approach more often with my partner, and as I do, it has noticeably improved our relationship. It turns out most of the time, she just wants to be hugged. - https://news.ycombinator.com/item?id=46695055
 
 ## Why doesn't advice work? - from [efitz](https://news.ycombinator.com/item?id=41113807)
 
