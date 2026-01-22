@@ -1,13 +1,14 @@
 ---
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
-desc: ''
-updated: 1768811850115
+desc: ""
+updated: 1769053689569
 created: 1766965709816
 ---
 
 ## Week 4, 2026
 
+- [AI slop security reports submitted to curl](https://gist.github.com/bagder/07f7581f6e3d78ef37dfbfc81fd1d1cd)
 - [The Influentists](https://carette.xyz/posts/influentists/) - The trend of 'hype first and context later' is characterized by individuals called 'The Influentists' who leverage large audiences to propagate unproven or misleading claims.
   > - Doesn't the existence of consumer products like ChatGPT indicate that LLMs aren't able to do human-level work? If OpenAI really had a digital workforce with the capabilities of ~100k programmers/scientists/writers/lawyers/doctors etc, wouldn't the most profitable move be to utilize those "workers" directly, rather that renting out their skills piecemeal? - https://news.ycombinator.com/item?id=46624115
 - [Our approach to advertising and expanding access to ChatGPT](https://openai.com/index/our-approach-to-advertising-and-e
