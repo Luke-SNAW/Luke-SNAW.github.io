@@ -2,7 +2,7 @@
 id: eha8xvsaz0zdh4f18pqqls2
 title: DB
 desc: ""
-updated: 1743469829656
+updated: 1769141242233
 created: 1656645858715
 ---
 
@@ -41,6 +41,12 @@ created: 1656645858715
 - [Stop using JPA/Hibernate](https://www.stemlaur.com/blog/2021/03/30/tech-hibern-hate/)
 - [7 Databases in 7 Weeks for 2025](https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/)
 - [Life Altering Postgresql Patterns](https://mccue.dev/pages/3-11-25-life-altering-postgresql-patterns)
+- [The challenges of soft delete](https://atlas9.dev/blog/soft-delete.html)
+  - The `archived_at` column approach can lead to significant complexity in queries, operations, and application code, with archived data often being ignored and accumulating over time.
+  - Migrations involving soft delete data can be complex and non-trivial, especially when dealing with old records.
+  - Restoring a soft-deleted record isn't always as simple as nullifying a timestamp; it may require complex, potentially buggy, restoration code.
+  - Application-level archiving, where delete events trigger archiving to external storage like S3, can simplify the primary database but introduces its own reliability and infrastructure challenges.
+  - The trigger-based approach is recommended for new projects needing soft delete due to its simplicity, ability to keep live tables clean, and ease of querying archived data without extra infrastructure.
 
 ## PostgreSQL
 
