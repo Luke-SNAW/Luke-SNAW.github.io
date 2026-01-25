@@ -2,7 +2,7 @@
 id: hjNeNc1F2JUh0lTWanH4h
 title: Well Being
 desc: ""
-updated: 1744000248299
+updated: 1769297581694
 created: 1645634209109
 ---
 
@@ -14,7 +14,6 @@ created: 1645634209109
 - [Weeklong improved colour contrasts sensitivity after single 670 nm exposures associated with enhanced mitochondrial function](https://www.nature.com/articles/s41598-021-02311-1)
   - https://news.ycombinator.com/item?id=34611077
 - [Optimal program design 2.0](https://mennohenselmans.com/optimal-program-design/)
-
   - Resting less than 2 minutes increases cortisol production and worsens the T:C ratio, which is related to muscle growth.
   - Training each muscle at least twice a week is necessary for maximum muscle growth.
   - The traditional bro bodybuilding idea of the hypertrophy zone (6-12 reps) is not supported by evidence.
@@ -32,3 +31,16 @@ created: 1645634209109
   > — [CE02](https://news.ycombinator.com/item?id=35056071)
 - [New Study Reveals Blood Sugar Control is a Key Factor in Slowing Brain Aging, Highlighting the Benefits of the Mediterranean Diet](https://www.bgu.ac.il/en/news-and-articles/blood-sugar-control-is-key-factor-in-slowing-brain-aging/)
 - [Study finds solo music listening boosts social well-being](https://phys.org/news/2025-03-solo-music-boosts-social.html)
+
+## [How to strengthen your cartilage?](https://www.youtube.com/watch?v=6PNBjKJ9hxQ)
+
+- Cartilage can be strengthened because it is a metabolically active tissue with living cells called chondrocytes.
+- Chondrocytes produce extracellular cartilage matrix and collagen fibers, providing shock absorption and smooth joint gliding.
+- Exercise and activity positively (anabolic) or negatively (catabolic) influence cartilage matrix and collagen production.
+- Cartilage is best strengthened by short bouts (10-15 minutes) of cyclic, non-impact or soft-impact exercise of moderate intensity and resistance.
+- Sufficiently long rest periods (4-8 hours, depending on cartilage health) are crucial between exercise sessions.
+- Cyclic, repetitive gliding motion stimulates cartilage cells to produce matrix and collagen, especially when combined with moderate actual pressure.
+- Ideal exercises include stationary cycling, cross-trainers, rowing machines, and leg press machines, performed for 10-15 minutes with moderate resistance and adequate rest.
+- Sudden spikes of load, like in running or jumping, are not ideal for cartilage itself but can strengthen the subchondral bone plate.
+- Strengthening the subchondral bone plate can protect deeper bone and potentially allow a return to impact sports over time, but requires a very gradual progression.
+- Supplements like glucosamine, AKBA, undenatured collagen type 2, collagen hydrolysate, and bromelain may support cartilage health by reinforcing anabolic mechanisms or decreasing catabolic pathways.

@@ -2,9 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1769053689569
+updated: 1769297875075
 created: 1766965709816
 ---
+
+## Week 5, 2026
+
+- [Bugs Apple Loves](https://www.bugsappleloves.com/)
+  - https://news.ycombinator.com/item?id=46727587
 
 ## Week 4, 2026
 
