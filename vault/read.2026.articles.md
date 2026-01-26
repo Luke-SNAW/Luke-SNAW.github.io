@@ -2,12 +2,21 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1769297875075
+updated: 1769399565186
 created: 1766965709816
 ---
 
 ## Week 5, 2026
 
+- [The future of software engineering is SRE](https://swizec.com/blog/the-future-of-software-engineering-is-sre/)
+  > - Everybody wants to write a greenfield demo. Nobody wants to run a service.
+  >   - The first 90% to get a working demo is easy. It's the other 190% that matters.
+  > - People don't buy software, they hire a service. - result
+- [The '3.5% rule': How a small minority can change the world](https://www.bbc.com/future/article/20190513-it-only-takes-35-of-people-to-change-the-world)
+  - Nonviolent protests are twice as likely to succeed as armed conflicts.
+  - Civil resistance involving a threshold of 3.5% of the population actively participating has never failed to bring about change.
+  - Erica Chenoweth's research analyzed hundreds of campaigns over the last century to compare the success rates of nonviolent versus violent protests.
+    > - Chenoweth has backed off her previous conclusions in recent years, observing that nonviolent protest strategies have dramatically declined in effectiveness as governments have adjusted their tactics of repression and messaging. See eg [The Harvard Professor Who Quantified Democracy](https://www.harvardmagazine.com/2025/07/erica-chenoweth-democracy-data-harvard) - https://news.ycombinator.com/item?id=46759139
 - [Bugs Apple Loves](https://www.bugsappleloves.com/)
   - https://news.ycombinator.com/item?id=46727587
 
