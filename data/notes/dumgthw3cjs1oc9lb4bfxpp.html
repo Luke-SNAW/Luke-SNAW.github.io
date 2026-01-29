@@ -1,0 +1,46 @@
+<h1 id="yagni-exceptions">Yagni Exceptions<a aria-hidden="true" class="anchor-heading icon-link" href="#yagni-exceptions"></a></h1>
+<blockquote>
+<p><a href="https://lukeplant.me.uk/blog/posts/yagni-exceptions/">https://lukeplant.me.uk/blog/posts/yagni-exceptions/</a></p>
+</blockquote>
+<p>I'm essentially a believer in <a href="https://martinfowler.com/bliki/Yagni.html">You Aren't Gonna Need It</a> — the principle that you should add features to your software — including generality and abstraction — when it becomes clear that you need them, and not before.</p>
+<p>However, there are some things which really are easier to do earlier than later, and where natural tendencies or a ruthless application of YAGNI might neglect them. This is my collection so far:</p>
+<ul>
+<li>Applications of <a href="http://wiki.c2.com/?ZeroOneInfinityRule">Zero One Many</a>. If the requirements go from saying “we need to be able to store an address for each user”, to “we need to be able to store two addresses for each user”, 9 times out of 10 you should go straight to “we can store many addresses for each user”, with a soft limit of two for the user interface only, because there is a very high chance you will need more than two. You will almost certainly win significantly by making that assumption, and even if you lose it won't be by much.</li>
+<li>Versioning. This can apply to protocols, APIs, file formats etc. It is good to think about how, for example, a client/server system will detect and respond to different versions ahead of time (i.e. even when there is only one version), especially when you don't control both ends or can't change them together, because it is too late to think about this when you find you need a version 2 after all. This is really an application of <a href="http://wiki.c2.com/?EmbraceChange">Embrace Change</a>, which is a principle at the heart of YAGNI.</li>
+<li>Logging. Especially for after-the-fact debugging, and in non-deterministic or hard to reproduce situations, where it is often too late to add it after you become aware of a problem.</li>
+<li>Timestamps.
+For example, creation timestamps, as <a href="https://twitter.com/simonw/status/1384580075329179650">Simon Willison tweeted</a>:
+<blockquote>
+<p>A lesson I re-learn on every project: always have an automatically populated "created_at" column on every single database table. Any time you think "I won't need it here" you're guaranteed to want to use it for debugging something a few weeks later.
+More generally, instead of a boolean flag, e.g. <code>completed</code>, a nullable timestamp of when the state was entered, <code>completed_at</code>, can be much more useful.</p>
+</blockquote>
+</li>
+<li>Generalising from the “logging” and “timestamps” points, collecting a bit more data than you need right now is usually not a problem (unless it is personal or otherwise sensitive data), because you can always throw it away. But if you never collected it, it's gone forever. I have won significantly when I've anticipated the need for auditing which wasn't completely explicit in the requirements, and I've lost significantly when I've gone for data minimalism which lost key information and limited what I could do with the data later.</li>
+<li>A relational database.
+By this I mean, if you need a database at all, you should jump to having a relational one straight away, and default to a relational schema, even if your earliest set of requirements could be served by a “document database” or some basic flat-file system. Most data is relational by nature, and a non-relational database is a very bad default for almost all applications.
+If you choose a relational database like PostgreSQL, and it later turns out a lot of your data is “document like”, you can use its <a href="https://www.postgresql.org/docs/current/datatype-json.html">excellent support for JSON</a>.
+However, if you choose a non-rel DB like MongoDB, even when it seems like you've got a perfect fit in terms of current schema needs, most likely a new, “simple” requirement will cause you a lot of pain, and <a href="http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/">prompt a rewrite in Postgres</a> (see sections “How MongoDB Stores Data” and “Epilogue” in that article).
+I thought <a href="https://lobste.rs/s/63eb9g/when_rewrite#c_7gwj71">a comment on Lobsters</a> I read the other day was insightful here:
+<blockquote>
+<p>I wonder if the reason that “don’t plan, don’t abstract, don’t engineer for the future” is such good advice is that most people are already building on top of highly-abstracted and featureful platforms, which don’t need to be abstracted further?
+We can afford to do YAGNI only when the systems we are working with are malleable and featureful. Relational databases are extremely flexible systems that provide insurance against future requirements changes. For example, my advice in the previous section implicitly depends on the fact that removing data you don't need can be as simple as "DROP COLUMN", which is <a href="https://stackoverflow.com/questions/15699989/dropping-column-in-postgres-on-a-large-dataset">almost free</a> (well, sometimes…).</p>
+</blockquote>
+</li>
+</ul>
+<p>That's my list so far, I'll probably add to it over time. Do you agree? What did I miss?</p>
+<h2 id="links">Links<a aria-hidden="true" class="anchor-heading icon-link" href="#links"></a></h2>
+<ul>
+<li><a href="https://twitter.com/spookylukey/status/1409967250426281984">Discussion of this post on Twitter</a>.</li>
+<li><a href="https://simonwillison.net/2021/Jul/1/pagnis/">Simon Willison's response post on PAGNIs</a> with <a href="https://twitter.com/simonw/status/1410678459756552198">Twitter discussion</a> and <a href="https://lobste.rs/s/nokjr0/pagnis_probably_are_gonna_need_its">Lobsters discussion</a>.</li>
+<li><a href="https://jacobian.org/2021/jul/8/appsec-pagnis/">Jacob Kaplan-Moss's response post on security PAGNIs</a>, and <a href="https://twitter.com/jacobian/status/1413157068375302146">Twitter discussion</a>.</li>
+</ul>
+<h2 id="you-may-also-like-">You may also like: <a href="https://lukeplant.me.uk/blog/posts/yagni-exceptions/#related">§</a><a aria-hidden="true" class="anchor-heading icon-link" href="#you-may-also-like-"></a></h2>
+<ul>
+<li><a href="https://lukeplant.me.uk/blog/posts/life-on-the-diagonal-adventures-in-2d-time/">Life on the diagonal — adventures in 2-D time</a></li>
+<li><a href="https://lukeplant.me.uk/blog/posts/django-pagni-efficient-bulk-properties/">A Django PAGNI: efficient bulk properties</a></li>
+<li><a href="https://lukeplant.me.uk/blog/posts/the-curse-of-scalable-technology/">The curse of scalable technology</a></li>
+<li><a href="https://lukeplant.me.uk/blog/posts/everything-is-an-x-pattern/">Everything is an X</a></li>
+<li><a href="https://lukeplant.me.uk/blog/posts/test-smarter-not-harder/">Test smarter, not harder</a></li>
+<li><a href="https://lukeplant.me.uk/blog/posts/announcement-django-views-the-right-way/">Announcement: Django Views - The Right Way</a></li>
+<li><a href="https://lukeplant.me.uk/blog/posts/you-cant-compare-language-features-only-languages/">You can’t compare language features, only languages</a></li>
+</ul>
