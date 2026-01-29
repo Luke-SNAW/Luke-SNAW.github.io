@@ -2,12 +2,16 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1769399565186
+updated: 1769671213948
 created: 1766965709816
 ---
 
 ## Week 5, 2026
 
+- [No more boring drawings!](https://ralphammer.com/no-more-boring-drawings/) - ~~How~~Why to draw something
+  > Carefully composed drawings can show **our relation to the world**.
+  > It is interesting because we have made a conscious choice of **what is important to us**. And chances are that this is **also interesting for others**.
+- [Thief of $90M in seized U.S.-controlled crypto alleged to be government crypto contractor's son](https://www.web3isgoinggreat.com/single/lick-theft)
 - [The future of software engineering is SRE](https://swizec.com/blog/the-future-of-software-engineering-is-sre/)
   > - Everybody wants to write a greenfield demo. Nobody wants to run a service.
   >   - The first 90% to get a working demo is easy. It's the other 190% that matters.
