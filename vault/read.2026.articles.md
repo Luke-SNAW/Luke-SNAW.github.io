@@ -2,9 +2,16 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1769671213948
+updated: 1770168263318
 created: 1766965709816
 ---
+
+## Week 6, 2026
+
+- [Safe-Now.live](https://safe-now.live/) - Ultra-light emergency info for USA and Canada
+- [Leaked chats expose the daily life of a scam compound's enslaved workforce](https://www.wired.com/story/the-red-bull-leaks/)
+- [Ian's Shoelace Site](https://www.fieggen.com/shoelace/)
+- [Claude Code is suddenly everywhere inside Microsoft](https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad) - Microsoft sells GitHub Copilot to its customers, but it increasingly favors Claude Code internally.
 
 ## Week 5, 2026
 

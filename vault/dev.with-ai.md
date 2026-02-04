@@ -2,13 +2,9 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1764292293518
+updated: 1770167726713
 created: 1688605282146
 ---
-
-2025년도 대부분의 AI는 통계적으로 확률이 높은 그럴듯한 토큰을 뱉는다.
-edge를 확인, 확장은 반대편 영역일 터. 그 영역에 focus를 두도록 명령하면 다시 fractal처럼... 잘 한다고 쳐도
-인간이 그 영역을 인지하고 명령은 내려야겠지.
 
 ## Collections
 
@@ -102,7 +98,6 @@ edge를 확인, 확장은 반대편 영역일 터. 그 영역에 focus를 두도
     - This transition is causing significant short-term pain for industries reliant on traffic monetization, particularly media companies.
   - A new internet business model is emerging, potentially rewarding creators of unique, original content that fills knowledge gaps identified by AI.
 - [It's insulting to read your AI-generated blog post](https://blog.pabloecortez.com/its-insulting-to-read-your-ai-generated-blog-post/)
-
   - Making mistakes and learning from them is a fundamentally human experience.
   - AI-generated content creates a sterile barrier between the writer and the reader.
   - This barrier prevents genuine engagement and connection.
@@ -169,8 +164,20 @@ Today physical world is largely mechanized, we rarely walk, run lift heavy thing
 
 --
 
+## 1
+
 AI를 coding에 사용하는 방법이 사람마다 다름
 
 - 초기 8~90% critical path는 자신이 작성, 나머지 시간걸리는 세부사항은 AI에게
 - 반대로 뼈대를 AI에게 맡기고 디테일+완성은 자신이
 - 문서화, test 작성 등 덜 흥미로운 일들을 AI에게
+
+## 2
+
+2025년도 대부분의 AI는 통계적으로 확률이 높은 그럴듯한 토큰을 뱉는다.
+edge를 확인, 확장은 반대편 영역일 터. 그 영역에 focus를 두도록 명령하면 다시 fractal처럼... 잘 한다고 쳐도
+인간이 그 영역을 인지하고 명령은 내려야겠지.
+
+## 3
+
+code review 를 위해 commit을 더 잘게 쪼개는게 낫나?

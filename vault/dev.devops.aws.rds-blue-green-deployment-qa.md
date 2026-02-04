@@ -1,7 +1,7 @@
 ---
 id: d1taedacxa8xx4bcxvhfhz5
-title: AWS RDS Blue/Green Deployment QA
-desc: ""
+title: Rds Blue Green Deployment Qa
+desc: ''
 updated: 1769661367292
 created: 1769661323926
 ---
