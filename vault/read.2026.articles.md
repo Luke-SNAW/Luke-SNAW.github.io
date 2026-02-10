@@ -2,9 +2,17 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1770168263318
+updated: 1770695701349
 created: 1766965709816
 ---
+
+## Week 7, 2026
+
+- [Why is the sky blue?](https://explainers.blog/posts/why-is-the-sky-blue/) - And the sunset red? But the Martian sky red and sunset blue?
+  - The sky appears blue because blue photons from sunlight are scattered more by Earth's atmosphere than other colors, dispersing them throughout the sky.
+  - The preferential scattering of blue light is due to the resonant frequencies of nitrogen and oxygen molecules in the atmosphere, which are closer to the frequency of blue light.
+  - Violet light scatters even more than blue light, but the sky appears blue rather than violet because human eyes are less sensitive to violet light.
+  - Sunsets appear red because the sunlight travels through more atmosphere, scattering away most of the blue and green light, leaving primarily red light to reach our eyes.
 
 ## Week 6, 2026
 
