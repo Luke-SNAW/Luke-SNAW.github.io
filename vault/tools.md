@@ -113,6 +113,10 @@ Microsoft IME, [날개셋 입력기](https://namu.wiki/w/%EB%82%A0%EA%B0%9C%EC%8
 
 - 윈도우 키보드 설정에서 콜맥 IME를 설정하고 한영 전환은 왼쪽 Alt + Shift를 통해서 하든가 제어판에서 한국어 IME와 콜맥 IME에 전용 단축키를 할당해서 써야 한다. 이 방식대로 하면 단축키가 현재 IME가 무엇이냐에 따라 다르게 작동한다는 문제가 있다. 한국어 IME일 때 단축키를 쓰면 밑바닥 자판인 미국 쿼티 배열대로 동작하고, 콜맥 IME일 때 단축키를 쓰면 콜맥대로 동작한다.
 
+**2026-02**
+https://github.com/ColemakMods/mod-dh/blob/master/klc/colemak_dh_matrix_us.klc 다운 받아 Microsoft Keyboard Layout Creator (MSKLC)에 적용, 빌드 후 빌드 결과물을 날개셋 시스템 계층 고금 시스템 옵션 온영체제 차원의 설정에 드라이버 로드.
+한영전환은 키보드 매크로 기능으로 Left Shift+Space를 한영키에 매핑
+
 ## Etc
 
 - [Definitive App Comparisons from Reddit](https://docs.google.com/spreadsheets/d/1JqyglRJXzxaj8OcQw9jHabxFUdsv9iWJXMPXcL7On0M/edit?gid=469491148#gid=469491148)
