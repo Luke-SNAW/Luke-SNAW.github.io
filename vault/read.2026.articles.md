@@ -2,12 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1770695701349
+updated: 1770869915536
 created: 1766965709816
 ---
 
 ## Week 7, 2026
 
+- [Chrome extensions spying on users' browsing data](https://qcontinuum.substack.com/p/spying-chrome-extensions-287-extensions-495)
 - [Why is the sky blue?](https://explainers.blog/posts/why-is-the-sky-blue/) - And the sunset red? But the Martian sky red and sunset blue?
   - The sky appears blue because blue photons from sunlight are scattered more by Earth's atmosphere than other colors, dispersing them throughout the sky.
   - The preferential scattering of blue light is due to the resonant frequencies of nitrogen and oxygen molecules in the atmosphere, which are closer to the frequency of blue light.
