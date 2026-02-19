@@ -2,9 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1770869915536
+updated: 1771479347906
 created: 1766965709816
 ---
+
+## Week 8, 2026
+
+- [15+ years later, Microsoft morged my diagram](https://nvie.com/posts/15-years-later/)
 
 ## Week 7, 2026
 
