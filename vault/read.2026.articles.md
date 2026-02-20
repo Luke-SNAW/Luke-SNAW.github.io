@@ -2,12 +2,23 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1771479347906
+updated: 1771575978320
 created: 1766965709816
 ---
 
 ## Week 8, 2026
 
+- [Don't Trust the Salt: AI Summarization, Multilingual Safety, and Evaluating LLM Guardrails](https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails)
+  - AI summarization tools, while beneficial, should not be solely relied upon by researchers who need to apply critical thinking and subjective understanding.
+  - The author developed a method called Bilingual Shadow Reasoning to demonstrate how AI model outputs, particularly in multilingual summarization, can be subtly steered by customized policies (system prompts), potentially bypassing safety guardrails.
+  - Customized policies can align LLM outputs with specific political or cultural framings, as shown in an example where Farsi-language policies mirrored the Iranian government's framing of human rights to conceal violations.
+- [Use Protocols, Not Services](https://notnotp.com/notes/use-protocols-not-services/)
+  - > The Internet is almost anonymous and privacy-preserving by design. I mean, unless some administrator actively tries to track you, there is no built-in identity layer.
+  - The debate centers on the trade-offs between open protocols and centralized services, with services often winning due to convenience and rapid feature development, despite potential long-term downsides like enshittification and vendor lock-in. - https://news.ycombinator.com/item?id=47038588
+- [Q: I want to wash my car. The car wash is 50 meters away. Should I walk or drive?](https://mastodon.world/@knowmadd/116072773118828295) - What do you think the LLM output was?
+- [Introducing Markdown for Agents](https://blog.cloudflare.com/markdown-for-agents/)
+  - Converting HTML to markdown reduces token usage by approximately 80%, improving cost and processing efficiency.
+  - Supports real-time HTML→Markdown conversion at the network level based on the Accept: text/markdown header.
 - [15+ years later, Microsoft morged my diagram](https://nvie.com/posts/15-years-later/)
 
 ## Week 7, 2026
