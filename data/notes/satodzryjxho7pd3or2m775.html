@@ -1,0 +1,55 @@
+<h1 id="github-actions---s3---code-deploy">GitHub Actions - S3 - Code Deploy<a aria-hidden="true" class="anchor-heading icon-link" href="#github-actions---s3---code-deploy"></a></h1>
+<h2 id="github">Github<a aria-hidden="true" class="anchor-heading icon-link" href="#github"></a></h2>
+<h3 id="secret-key">Secret key<a aria-hidden="true" class="anchor-heading icon-link" href="#secret-key"></a></h3>
+<ul>
+<li>S3_CODEDEPLOY__AWS_SECRET_ACCESS_KEY</li>
+</ul>
+<p><a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-ec2-configure.html">https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-ec2-configure.html</a></p>
+<h3 id="actions">Actions<a aria-hidden="true" class="anchor-heading icon-link" href="#actions"></a></h3>
+<pre class="language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Make zip file
+  <span class="token key atrule">run</span><span class="token punctuation">:</span> zip <span class="token punctuation">-</span>qq <span class="token punctuation">-</span>r ./$BRANCH.zip ./www<span class="token punctuation">-</span>new ./code<span class="token punctuation">-</span>deploy ./appspec.yml
+  <span class="token key atrule">shell</span><span class="token punctuation">:</span> bash
+</code></pre>
+<h2 id="code-deploy-agent">Code Deploy Agent<a aria-hidden="true" class="anchor-heading icon-link" href="#code-deploy-agent"></a></h2>
+<h3 id="설치"><a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-ubuntu.html">설치</a><a aria-hidden="true" class="anchor-heading icon-link" href="#설치"></a></h3>
+<blockquote>
+<p>wget <a href="https://aws-codedeploy-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/latest/install">https://aws-codedeploy-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/latest/install</a>
+chmod +x ./install</p>
+</blockquote>
+<h3 id="설정">설정<a aria-hidden="true" class="anchor-heading icon-link" href="#설정"></a></h3>
+<blockquote>
+<p>vi /etc/codedeploy-agent/conf/codedeploy.onpremises.yml</p>
+</blockquote>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">aws_access_key_id</span><span class="token punctuation">:</span> AKIASOOTGVZGPVLXFZWT
+<span class="token key atrule">aws_secret_access_key</span><span class="token punctuation">:</span> &#x3C;Key<span class="token punctuation">></span>
+<span class="token key atrule">iam_user_arn</span><span class="token punctuation">:</span> arn<span class="token punctuation">:</span>aws<span class="token punctuation">:</span>iam<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token important">*:user/CodeDeployUser-Test</span>
+<span class="token key atrule">region</span><span class="token punctuation">:</span> ap<span class="token punctuation">-</span>northeast<span class="token punctuation">-</span><span class="token number">1</span>
+</code></pre>
+<h3 id="service-command">Service command<a aria-hidden="true" class="anchor-heading icon-link" href="#service-command"></a></h3>
+<p><a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install.html">https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install.html</a></p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">service</span> codedeploy-agent start
+<span class="token function">sudo</span> <span class="token function">service</span> codedeploy-agent status
+</code></pre>
+<h3 id="code-deploy와-연결aws-cli-설치">Code Deploy와 연결(aws cli 설치)<a aria-hidden="true" class="anchor-heading icon-link" href="#code-deploy와-연결aws-cli-설치"></a></h3>
+<pre class="language-shell"><code class="language-shell">aws deploy register-on-premises-instance --instance-name <span class="token string">"[TEST] GP_WEB"</span> --iam-user-arn arn:aws:iam::*:user/CodeDeployUser-Test --region ap-northeast-1
+
+aws deploy register-on-premises-instance --instance-name GP_Renewal_TestServer --iam-user-arn arn:aws:iam::*:user/CodeDeployUser-Test --region ap-northeast-1
+
+aws deploy add-tags-to-on-premises-instances --instance-names GP_Renewal_TestServer --tags <span class="token assign-left variable">Key</span><span class="token operator">=</span>CodeDeploy,Value<span class="token operator">=</span>Web-Test --region ap-northeast-1
+
+aws deploy remove-tags-from-on-premises-instances --instance-names GP_Renewal_TestServer --tags <span class="token assign-left variable">Key</span><span class="token operator">=</span>Name --region ap-northeast-1
+
+aws deploy list-on-premises-instances --region ap-northeast-1
+</code></pre>
+<hr>
+<h2 id="tags">Tags<a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a></h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">aws (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">github-actions (Private)</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+<li><a href="/notes/26h3tfb1gqg656z1me77tgs">GitHub Actions  Code Deploy  Git Pull</a></li>
+</ul>

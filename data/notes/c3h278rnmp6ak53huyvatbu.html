@@ -1,0 +1,60 @@
+<h1 id="what-is-the-difference-between-ref-toref-and-torefs">What is the difference between ref, toRef and toRefs<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-the-difference-between-ref-toref-and-torefs"></a></h1>
+<blockquote>
+<p><a href="https://stackoverflow.com/a/66585822/5163033">https://stackoverflow.com/a/66585822/5163033</a></p>
+</blockquote>
+<h2 id="vue-3-ref">Vue 3 <code>ref</code><a aria-hidden="true" class="anchor-heading icon-link" href="#vue-3-ref"></a></h2>
+<p>A <a href="https://v3.vuejs.org/api/refs-api.html#ref">ref</a> is a mechanism for reactivity in Vue 3. The idea is to wrap a non-object inside a <code>reactive</code> object:</p>
+<blockquote>
+<p>Takes an inner value and returns a reactive and mutable ref object. The ref object has a single property <code>.value</code> that points to the inner value.</p>
+</blockquote>
+<p><sub><strong>Hmm.. Why?</strong></sub></p>
+<p>Vue 3 relies on JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">proxies</a> to detect changes to your reactive data and implement the reactivity. Proxies are essentially event listeners for objects: any reading or writing on a proxied object triggers the proxy, which can then do something with the values. This is convenient for reactivity since the variable changing will provide a trigger from which Vue can update any dependencies.</p>
+<p>But proxies require objects to work. So Vue provides the <code>ref</code> method to convert your non-object variables into objects and then to grant reactive capabilities through a proxy. (Objects are <a href="https://developer.mozilla.org/en-US/docs/Glossary/Object_reference">reference</a> variables, hence the name <code>ref</code>.)</p>
+<p><sup>(And Vue automatically unwraps your <code>refs</code> in the template, which is an added benefit of <code>ref</code> that you wouldn't get if you wrapped your value variables in an object manually.)</sup></p>
+<h2 id="reactive"><code>reactive</code><a aria-hidden="true" class="anchor-heading icon-link" href="#reactive"></a></h2>
+<p>If your original variable is already an object (or array), a <code>ref</code> wrapping is not needed because it is already a <em>reference</em> type. It only needs Vue's <a href="https://v3.vuejs.org/api/basic-reactivity.html#reactive">reactive</a> functionality (which a <code>ref</code> also has):</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  foo<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  bar<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>But now consider copying a property from the object above to a new variable, for example <code>foo</code> which contains the number <code>1</code>. If you copied this to a new variable, the copy would of course be a regular, non-reactive variable having no connection to the reactive object it was copied from. If <code>foo</code> changed later, the copy would not, meaning the copy is not reactive. This is where <code>toRef</code> is useful.</p>
+<h2 id="toref"><code>toRef</code><a aria-hidden="true" class="anchor-heading icon-link" href="#toref"></a></h2>
+<p><a href="https://v3.vuejs.org/api/refs-api.html#toref"><code>toRef</code></a> converts a single <code>reactive</code> object property to a <code>ref</code> that <strong>maintains its connection with the parent object</strong>:</p>
+<blockquote>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  foo<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  bar<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> fooRef <span class="token operator">=</span> <span class="token function">toRef</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> <span class="token string">"foo"</span><span class="token punctuation">)</span>
+<span class="token comment">/*
+fooRef: Ref&#x3C;number>,
+*/</span>
+</code></pre>
+</blockquote>
+<p>Now if <code>state.foo</code> changes, <code>fooRef.value</code> will change as well. So <code>toRef</code> has enabled copying a value property in such a way that the copy also has a reactive connection to the original parent object.</p>
+<h2 id="torefs"><code>toRefs</code><a aria-hidden="true" class="anchor-heading icon-link" href="#torefs"></a></h2>
+<p><a href="https://v3.vuejs.org/api/refs-api.html#torefs"><code>toRefs</code></a> converts <em>all</em> of the properties, to a plain object with properties that are refs:</p>
+<blockquote>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  foo<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  bar<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> stateAsRefs <span class="token operator">=</span> <span class="token function">toRefs</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span>
+<span class="token comment">/*
+{
+  foo: Ref&#x3C;number>,
+  bar: Ref&#x3C;number>
+}
+*/</span>
+</code></pre>
+</blockquote>
+<p><strong>When would I ever use <code>toRef</code> or <code>toRefs</code>?</strong></p>
+<p>The most likely time would be when importing a reactive object, say from a composable, and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">destructuring</a> it. The act of destructuring will pull the current property value from the object into a new local variable that will not be reactive without <code>toRef</code>. You may notice this when importing and destructuring a <a href="https://pinia.vuejs.org/">Pinia</a> store into your component, for example.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>

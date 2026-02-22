@@ -1,0 +1,42 @@
+<h1 id="presigned-url">Presigned URL<a aria-hidden="true" class="anchor-heading icon-link" href="#presigned-url"></a></h1>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>Error</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>Code</span><span class="token punctuation">></span></span>AccessDenied<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>Code</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>Message</span><span class="token punctuation">></span></span>User: arn:aws:sts::996526550038:assumed-role/~~ is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::~~" because no identity-based policy allows the s3:ListBucket action<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>Message</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>RequestId</span><span class="token punctuation">></span></span>BJWVV83DHW3WVJQ3<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>RequestId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>HostId</span><span class="token punctuation">></span></span>fefjjk63uF4LvbzOjuyuvG6AghObYjY4v2pXv0sOIVPHAlkJXvmON2Fc4JqVlcrtrgRKhsnVHY4v4XKvMzFKckS/m5nRfAdY<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>HostId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>Error</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>-> Lambda role에 permission 추가</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"Version"</span><span class="token operator">:</span> <span class="token string">"2012-10-17"</span><span class="token punctuation">,</span>
+  <span class="token property">"Statement"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Sid"</span><span class="token operator">:</span> <span class="token string">"VisualEditor0"</span><span class="token punctuation">,</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token string">"s3:ListBucket"</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token string">"arn:aws:s3:::~~"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>presigned URL 다운로드 시 fetch 없이 <a href="https://github.com/eligrey/FileSaver.js">file-saver</a>의 saveAs쓰면 HEAD로 요청해서 403 에러 발생. CORS에 HEAD 열어줘도 error</p>
+<blockquote>
+<p><a href="https://github.com/eligrey/FileSaver.js/issues/557#issuecomment-573417689">https://github.com/eligrey/FileSaver.js/issues/557#issuecomment-573417689</a></p>
+</blockquote>
+<h2 id="s3-setting">S3 setting<a aria-hidden="true" class="anchor-heading icon-link" href="#s3-setting"></a></h2>
+<h3 id="block-all-public-access-on">Block all public access on<a aria-hidden="true" class="anchor-heading icon-link" href="#block-all-public-access-on"></a></h3>
+<h3 id="cors">CORS<a aria-hidden="true" class="anchor-heading icon-link" href="#cors"></a></h3>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">"AllowedHeaders"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"AllowedMethods"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"HEAD"</span><span class="token punctuation">,</span> <span class="token string">"GET"</span><span class="token punctuation">,</span> <span class="token string">"POST"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"AllowedOrigins"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"http://localhost:3000"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"ExposeHeaders"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>

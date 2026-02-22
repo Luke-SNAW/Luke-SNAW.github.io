@@ -1,0 +1,176 @@
+<h1 id="google-apps-script">Google Apps Script<a aria-hidden="true" class="anchor-heading icon-link" href="#google-apps-script"></a></h1>
+<h2 id="add-apps-script-on-sheet">Add apps script on sheet<a aria-hidden="true" class="anchor-heading icon-link" href="#add-apps-script-on-sheet"></a></h2>
+<blockquote>
+<p><a href="https://thenewstack.io/how-to-convert-google-spreadsheet-to-json-formatted-text/">https://thenewstack.io/how-to-convert-google-spreadsheet-to-json-formatted-text/</a></p>
+</blockquote>
+<p>You’ve added your data into the spreadsheet, the next step is to create an <a href="https://developers.google.com/apps-script">Apps Script</a>, a Google Cloud  JavaScript tool to integrate and automate tasks. To do this, click <em>Extensions > Apps Script</em>. In the resulting window, paste the following script found in <a href="https://gist.githubusercontent.com/pamelafox/1878143/raw/6c23f71231ce1fa09be2d515f317ffe70e4b19aa/exportjson.js">this Gist</a>.</p>
+<p>After pasting the script, click Untitled Document and then name it something like JSON EXPORT. Next, click the <em>Save</em> button to save your work so far. Once it’s saved, click the Run button (<strong>Figure 1</strong>).</p>
+<p><strong>Figure 1:</strong> The run button is the small right-pointing arrow directly to the left of Debug.</p>
+<p>When you click Run, you’ll be prompted that the script needs permissions to continue (<strong>Figure 2</strong>).</p>
+<p><strong>Figure 2:</strong> Permissions are always an issue.</p>
+<p>Make sure you walk through handing over the proper permissions for the account in question. Curing this process you’ll get a warning that Google hasn’t verified the app. Go ahead and okay that by clicking Advanced and then Go to JSON (unsafe). Finish up the permissions and you’ll be directed back to the Apps Script window.</p>
+<p>If you now go back to the spreadsheet and reload it, you should see a new menu entry, labeled Export JSON (<strong>Figure 3</strong>).</p>
+<p><strong>Figure 3:</strong> Our new menu entry for the conversion to JSON.</p>
+<h2 id="script-of-sheet---i18n-json">Script of Sheet -> i18n JSON<a aria-hidden="true" class="anchor-heading icon-link" href="#script-of-sheet---i18n-json"></a></h2>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/66308153/download-google-sheet-data-as-json-from-browser-through-custom-menu">https://stackoverflow.com/questions/66308153/download-google-sheet-data-as-json-from-browser-through-custom-menu</a><br>
+<a href="https://stackoverflow.com/a/66308417/5163033">https://stackoverflow.com/a/66308417/5163033</a></p>
+</blockquote>
+<h3 id="sheet-data">Sheet data<a aria-hidden="true" class="anchor-heading icon-link" href="#sheet-data"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Key</th><th>ko</th><th>ja</th><th>en</th><th>zh_hant</th></tr></thead><tbody><tr><td>company.desc.offices-seoul</td><td>서울</td><td>ソウル</td><td>Seoul</td><td>首爾</td></tr><tr><td>company.desc.offices-fukuoka</td><td>후쿠오카</td><td>福岡</td><td>Fukuoka</td><td>福岡</td></tr></tbody></table></div>
+<h3 id="library">Library<a aria-hidden="true" class="anchor-heading icon-link" href="#library"></a></h3>
+<h4 id="google-apps-script-side">Google Apps Script side:<a aria-hidden="true" class="anchor-heading icon-link" href="#google-apps-script-side"></a></h4>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Code.gs</span>
+<span class="token keyword">function</span> <span class="token function">onOpen</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token maybe-class-name">SpreadsheetApp</span><span class="token punctuation">.</span><span class="token method function property-access">getUi</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token method function property-access">createMenu</span><span class="token punctuation">(</span><span class="token string">"JSON"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token method function property-access">addItem</span><span class="token punctuation">(</span><span class="token string">"Export"</span><span class="token punctuation">,</span> <span class="token string">"ExportJsonForI18n.download"</span><span class="token punctuation">)</span> <span class="token comment">// html에 노출되는 부분은 library의 namespace가 필요</span>
+    <span class="token punctuation">.</span><span class="token method function property-access">addToUi</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">download</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> html <span class="token operator">=</span> <span class="token maybe-class-name">HtmlService</span><span class="token punctuation">.</span><span class="token method function property-access">createHtmlOutputFromFile</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">)</span>
+  <span class="token maybe-class-name">SpreadsheetApp</span><span class="token punctuation">.</span><span class="token method function property-access">getUi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">showModalDialog</span><span class="token punctuation">(</span>
+    html<span class="token punctuation">,</span>
+    <span class="token string">"Wait for a while -> 10 seconds +"</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">downloadFile</span><span class="token punctuation">(</span><span class="token parameter">language</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> jsonString <span class="token operator">=</span> <span class="token function">generateJsonString</span><span class="token punctuation">(</span>language<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> filename <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>language<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.json</span><span class="token template-punctuation string">`</span></span>
+
+  <span class="token keyword">const</span> blob <span class="token operator">=</span> <span class="token maybe-class-name">Utilities</span><span class="token punctuation">.</span><span class="token method function property-access">newBlob</span><span class="token punctuation">(</span>jsonString<span class="token punctuation">,</span> <span class="token maybe-class-name">MimeType</span><span class="token punctuation">.</span><span class="token constant">PLAIN_TEXT</span><span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+    data<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">data:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token maybe-class-name">MimeType</span><span class="token punctuation">.</span><span class="token constant">PLAIN_TEXT</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;base64,</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token maybe-class-name">Utilities</span><span class="token punctuation">.</span><span class="token method function property-access">base64Encode</span><span class="token punctuation">(</span>
+      blob<span class="token punctuation">.</span><span class="token method function property-access">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    filename<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">generateJsonString</span><span class="token punctuation">(</span><span class="token parameter">language</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> sheets <span class="token operator">=</span> <span class="token maybe-class-name">SpreadsheetApp</span><span class="token punctuation">.</span><span class="token method function property-access">getActiveSpreadsheet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">getSheets</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> sheetsData <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> sheet <span class="token keyword">of</span> sheets<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> rowsData <span class="token operator">=</span> <span class="token function">getRowsData</span><span class="token punctuation">(</span><span class="token punctuation">{</span> sheet<span class="token punctuation">,</span> language <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span>sheetsData<span class="token punctuation">,</span> rowsData<span class="token punctuation">)</span> <span class="token comment">//! 같은 key가 여러 sheet에 있는 경우, 후자의 내용으로 덮어씀</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">stringify</span><span class="token punctuation">(</span>sheetsData<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\",</span><span class="token regex-delimiter">/</span><span class="token regex-flags">gi</span></span><span class="token punctuation">,</span> <span class="token string">'",\n'</span><span class="token punctuation">)</span> <span class="token comment">//! git diff로 관리하기 위해 줄바꿈 추가</span>
+  <span class="token comment">// Utilities.jsonStringify는 key를 정렬시켜도 json 파일에선 제멋대로 나옴</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getRowsData</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> sheet<span class="token punctuation">,</span> language <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>_indexes<span class="token punctuation">,</span> <span class="token spread operator">...</span>values<span class="token punctuation">]</span> <span class="token operator">=</span> sheet<span class="token punctuation">.</span><span class="token method function property-access">getDataRange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">getValues</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> indexes <span class="token operator">=</span> _indexes<span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> i<span class="token punctuation">.</span><span class="token method function property-access">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token constant">INDEX_KEY</span> <span class="token operator">=</span> indexes<span class="token punctuation">.</span><span class="token method function property-access">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> i <span class="token operator">==</span> <span class="token string">"key"</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token constant">INDEX_COLUMN</span> <span class="token operator">=</span> indexes<span class="token punctuation">.</span><span class="token method function property-access">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> i <span class="token operator">==</span> language<span class="token punctuation">)</span>
+
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token constant">INDEX_KEY</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">||</span> <span class="token constant">INDEX_COLUMN</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  values<span class="token punctuation">.</span><span class="token method function property-access">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">raw</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span>obj<span class="token punctuation">[</span>raw<span class="token punctuation">[</span><span class="token constant">INDEX_KEY</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> raw<span class="token punctuation">[</span><span class="token constant">INDEX_COLUMN</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token keyword control-flow">return</span> obj
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="htmljavascript-side">HTML&#x26;Javascript side:<a aria-hidden="true" class="anchor-heading icon-link" href="#htmljavascript-side"></a></h4>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!--index.html--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">function</span> <span class="token function">downloadJsons</span><span class="token punctuation">(</span><span class="token parameter">languages<span class="token punctuation">,</span> indexProcessing</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    google<span class="token punctuation">.</span><span class="token property-access">script</span><span class="token punctuation">.</span><span class="token property-access">run</span>
+      <span class="token punctuation">.</span><span class="token method function property-access">withSuccessHandler</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">,</span> filename <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>data <span class="token operator">&#x26;&#x26;</span> filename<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span>
+          <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+          a<span class="token punctuation">.</span><span class="token property-access">download</span> <span class="token operator">=</span> filename
+          a<span class="token punctuation">.</span><span class="token property-access">href</span> <span class="token operator">=</span> data
+          a<span class="token punctuation">.</span><span class="token method function property-access">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">++</span>indexProcessing <span class="token operator">&#x3C;</span> languages<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span>
+          <span class="token function">downloadJsons</span><span class="token punctuation">(</span>languages<span class="token punctuation">,</span> indexProcessing<span class="token punctuation">)</span>
+        <span class="token keyword control-flow">else</span> google<span class="token punctuation">.</span><span class="token property-access">script</span><span class="token punctuation">.</span><span class="token property-access">host</span><span class="token punctuation">.</span><span class="token method function property-access">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token method function property-access">downloadFile</span><span class="token punctuation">(</span>languages<span class="token punctuation">[</span>indexProcessing<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">downloadJsons</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"ko"</span><span class="token punctuation">,</span> <span class="token string">"ja"</span><span class="token punctuation">,</span> <span class="token string">"en"</span><span class="token punctuation">,</span> <span class="token string">"zh_hant"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="client---use-library">Client - use library<a aria-hidden="true" class="anchor-heading icon-link" href="#client---use-library"></a></h3>
+<h4 id="google-apps-script-side-1">Google Apps Script side:<a aria-hidden="true" class="anchor-heading icon-link" href="#google-apps-script-side-1"></a></h4>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Code.gs</span>
+<span class="token keyword">function</span> <span class="token function">onOpen</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token maybe-class-name">ExportJsonForI18n</span><span class="token punctuation">.</span><span class="token method function property-access">onOpen</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">downloadFile</span><span class="token punctuation">(</span><span class="token parameter">language</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token maybe-class-name">ExportJsonForI18n</span><span class="token punctuation">.</span><span class="token method function property-access">downloadFile</span><span class="token punctuation">(</span>language<span class="token punctuation">)</span> <span class="token comment">// html의 script에서 호출하므로 library의 namespace를 연결시켜줌</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="주의">주의<a aria-hidden="true" class="anchor-heading icon-link" href="#주의"></a></h3>
+<ul>
+<li>Export 실행 후 다운로드까지 10초 이상 소요.
+<ul>
+<li>언어 하나만 export할 때와 4개 export할 때 시간이 x4가 아닌걸로 봐선, script setup이 대부분의 시간을 차지하는 듯</li>
+<li>script fail 시 modal 창이 그대로 유지되므로 30초 지났을 때까지 반응 없다면 Apps Script의 left nav의 실행에서 log를 확인해볼 것 <img src="/assets/images/google__apps-script__log.webp"></li>
+</ul>
+</li>
+<li>같은 key가 여러 sheet에 있는 경우, 후자의 내용으로 덮어씀</li>
+<li>공유 - sheet, script, library가 모두 공유되어야 함</li>
+<li>column명 고정. key, ko, ja, en, zh_hant (대소문자 상관 없음)</li>
+</ul>
+<h2 id="make-as-a-library">Make as a library<a aria-hidden="true" class="anchor-heading icon-link" href="#make-as-a-library"></a></h2>
+<ul>
+<li>프로젝트 하나에만 script를 쓸 거라면 Code-library.gs, index-library.html 내용만 프로젝트에 추가</li>
+<li>라이브러리 프로젝트를 만들어 여러 프로젝트에서 쓸거면,
+<ol>
+<li>Code-library.gs, index-library.html 내용을 프로젝트로 생성 (라이브러리로 사용)</li>
+<li>라이브러리의 Apps Script의 프로젝트 설정 메뉴에서 스크립트 ID를 가져와, client로 쓸 프로젝트에서 편집기 -> 라이브러리에 추가</li>
+<li>Code-client.gs 내용만 client 프로젝트에 추가</li>
+</ol>
+</li>
+</ul>
+<h2 id="etc">Etc<a aria-hidden="true" class="anchor-heading icon-link" href="#etc"></a></h2>
+<ul>
+<li><a href="https://github.com/liddiard/google-sheet-s3">https://github.com/liddiard/google-sheet-s3</a></li>
+</ul>
+<h2 id="form">Form<a aria-hidden="true" class="anchor-heading icon-link" href="#form"></a></h2>
+<ul>
+<li><a href="https://developers.google.com/apps-script/reference/forms/form-response?hl=ko#submit">https://developers.google.com/apps-script/reference/forms/form-response?hl=ko#submit</a></li>
+<li><a href="https://stackoverflow.com/a/25295822/5163033">https://stackoverflow.com/a/25295822/5163033</a></li>
+<li><a href="https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app?hl=ko#fetchurl,-params">https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app?hl=ko#fetchurl,-params</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>

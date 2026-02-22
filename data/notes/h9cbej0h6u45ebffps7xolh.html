@@ -1,0 +1,67 @@
+<h1 id="tailwinds-apply-feature-is-better-than-it-sounds">Tailwind’s @apply Feature is Better Than it Sounds<a aria-hidden="true" class="anchor-heading icon-link" href="#tailwinds-apply-feature-is-better-than-it-sounds"></a></h1>
+<blockquote>
+<p><a href="https://css-tricks.com/tailwinds-apply-feature-is-better-than-it-sounds/">https://css-tricks.com/tailwinds-apply-feature-is-better-than-it-sounds/</a></p>
+</blockquote>
+<h2 id="tailwind-utilities-are-much-better-than-sass-mixins">Tailwind utilities are much better than Sass mixins<a aria-hidden="true" class="anchor-heading icon-link" href="#tailwind-utilities-are-much-better-than-sass-mixins"></a></h2>
+<p>Tailwind’s utilities can be used directly in the HTML, so you don’t have to write a CSS rule for it to work.</p>
+<p>On the contrary, for Sass mixins, you need to create an extra selector to house your @includes before using them in the HTML. That’s one extra step. Many of these extra steps add up to a lot.</p>
+<pre class="language-scss"><code class="language-scss"><span class="token keyword">@mixin</span> <span class="token function">some-mixin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.selector </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">some-mixin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Output */</span>
+<span class="token selector">.selector </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Tailwind’s utilities can also be used with their responsive variants. This unlocks media queries straight in the HTML and can be a superpower for creating responsive layouts.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@utility</span> horizontal</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-direction</span><span class="token punctuation">:</span> row<span class="token punctuation">;</span>
+  <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@utility</span> vertical</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+  <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vertical sm:horizontal<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="tailwinds-utilities-are-a-little-less-powerful-compared-to-sass-mixins">Tailwind’s utilities are a little less powerful compared to Sass mixins<a aria-hidden="true" class="anchor-heading icon-link" href="#tailwinds-utilities-are-a-little-less-powerful-compared-to-sass-mixins"></a></h2>
+<p>Sass mixins are more powerful than Tailwind utilities because:</p>
+<ol>
+<li>They let you use multiple variables.</li>
+<li>They let you use other Sass features like @if and @for loops.</li>
+</ol>
+<h2 id="lets-go-through-another-example">Let’s go through another example<a aria-hidden="true" class="anchor-heading icon-link" href="#lets-go-through-another-example"></a></h2>
+<p>A second example I often like to showcase is the grid-simple utility that lets you create grids with CSS Grid easily.</p>
+<p>We can declare a simple example here:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@utility</span> grid-simple</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span><span class="token variable">--cols</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">minmax</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">fr</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span><span class="token variable">--gap</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">rem</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>By doing this, we have effectively created a reusable CSS grid (and we no longer have to manually declare minmax everywhere).</p>
+<p>After we have defined this utility, we can use Tailwind’s arbitrary properties to adjust the number of columns on the fly.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>grid-simple [--cols:3]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>To make the grid responsive, we can add Tailwind’s responsive variants with arbitrary properties so we only set --cols:3 on a larger breakpoint.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>grid-simple sm:[--cols:3]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>

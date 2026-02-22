@@ -1,0 +1,116 @@
+<h1 id="record-type-in-typescript">Record Type in TypeScript<a aria-hidden="true" class="anchor-heading icon-link" href="#record-type-in-typescript"></a></h1>
+<blockquote>
+<p><a href="https://dmitripavlutin.com/typescript-record/">https://dmitripavlutin.com/typescript-record/</a></p>
+</blockquote>
+<p>The usual way to define a type of an object in TypeScript is using an object type:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">SalaryInterface</span></span> <span class="token punctuation">{</span>
+  annual<span class="token operator">:</span> <span class="token builtin">number</span>
+  bonus<span class="token operator">:</span> <span class="token builtin">number</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> salary<span class="token operator">:</span> <span class="token maybe-class-name">SalaryInterface</span> <span class="token operator">=</span> <span class="token punctuation">{</span> annual<span class="token operator">:</span> <span class="token number">56000</span><span class="token punctuation">,</span> bonus<span class="token operator">:</span> <span class="token number">1200</span> <span class="token punctuation">}</span> <span class="token comment">// OK</span>
+</code></pre>
+<p>or an <a href="https://dmitripavlutin.com/typescript-index-signatures/">index signature</a>:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">NumericObject</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">number</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> salary<span class="token operator">:</span> <span class="token maybe-class-name">NumericObject</span> <span class="token operator">=</span> <span class="token punctuation">{</span> annual<span class="token operator">:</span> <span class="token number">56000</span><span class="token punctuation">,</span> bonus<span class="token operator">:</span> <span class="token number">1200</span> <span class="token punctuation">}</span> <span class="token comment">// OK</span>
+</code></pre>
+<p>These are good ways to define object types.</p>
+<p>But <code>Record&#x3C;K, V></code>, the third approach, has the benefit of being shorter and more readable. Let's see how to use it in your code.</p>
+<h3 id="table-of-contents">Table of Contents<a aria-hidden="true" class="anchor-heading icon-link" href="#table-of-contents"></a></h3>
+<ul>
+<li><a href="https://dmitripavlutin.com/typescript-record/#1-record-type">1. Record type</a></li>
+<li><a href="https://dmitripavlutin.com/typescript-record/#2-record-with-union-key">2. Record with union key</a></li>
+<li><a href="https://dmitripavlutin.com/typescript-record/#3-record-benefits">3. Record benefits</a></li>
+<li><a href="https://dmitripavlutin.com/typescript-record/#4-conclusion">4. Conclusion</a></li>
+</ul>
+<h2 id="1-record-type">1. Record type<a aria-hidden="true" class="anchor-heading icon-link" href="#1-record-type"></a></h2>
+<p><code>Record&#x3C;K, V></code> is a <a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">generic type</a> that represents an object type which keys are <code>K</code> and values are <code>V</code>.</p>
+<p>For example, <code>Record&#x3C;string, number></code> is an object type with string keys and number values:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">NumericRecord</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span>
+
+<span class="token keyword">const</span> salary<span class="token operator">:</span> <span class="token maybe-class-name">NumericRecord</span> <span class="token operator">=</span> <span class="token punctuation">{</span> annual<span class="token operator">:</span> <span class="token number">56000</span><span class="token punctuation">,</span> bonus<span class="token operator">:</span> <span class="token number">1200</span> <span class="token punctuation">}</span> <span class="token comment">// OK</span>
+</code></pre>
+<p><code>Record&#x3C;string, number></code> is permissive regarding the object structure, as long as the keys are strings and values are numbers:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">NumericRecord</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span>
+
+<span class="token keyword">const</span> salary1<span class="token operator">:</span> <span class="token maybe-class-name">NumericRecord</span> <span class="token operator">=</span> <span class="token punctuation">{</span> annual<span class="token operator">:</span> <span class="token number">56000</span> <span class="token punctuation">}</span> <span class="token comment">// OK</span>
+<span class="token keyword">const</span> salary2<span class="token operator">:</span> <span class="token maybe-class-name">NumericRecord</span> <span class="token operator">=</span> <span class="token punctuation">{</span> monthly<span class="token operator">:</span> <span class="token number">8000</span> <span class="token punctuation">}</span> <span class="token comment">// OK</span>
+<span class="token keyword">const</span> salary3<span class="token operator">:</span> <span class="token maybe-class-name">NumericRecord</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment">// OK</span>
+<span class="token keyword">const</span> salary4<span class="token operator">:</span> <span class="token maybe-class-name">NumericRecord</span> <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> bar<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> baz<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">2</span> <span class="token punctuation">}</span> <span class="token comment">// OK</span>
+</code></pre>
+<p>But <code>Record&#x3C;string, number></code> throws a type error if the value of a prop is a string:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">NumericRecord</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span>
+
+<span class="token keyword">const</span> salary2<span class="token operator">:</span> <span class="token maybe-class-name">NumericRecord</span> <span class="token operator">=</span> <span class="token punctuation">{</span> annual<span class="token operator">:</span> <span class="token string">"56K"</span> <span class="token punctuation">}</span> <span class="token comment">// Type error!</span>
+</code></pre>
+<p>There are 2 simple rules to remember regarding the allowed types of the keys and values. In <code>Record&#x3C;K, V></code>:</p>
+<ul>
+<li>the key type <code>K</code> is restricted to <code>number</code>, <code>string</code>, <code>symbol</code>, including their <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types">literals</a></li>
+<li>but there is no restriction on the value type <code>V</code></li>
+</ul>
+<p>Let's see some valid record types:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token constant">T1</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token operator">></span> <span class="token comment">// OK</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token constant">T2</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token comment">// OK</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token constant">T3</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">void</span><span class="token operator">></span> <span class="token comment">// OK</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token constant">T4</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">number</span> <span class="token operator">|</span> <span class="token string">"key1"</span><span class="token punctuation">,</span> <span class="token builtin">boolean</span><span class="token operator">></span> <span class="token comment">// OK</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token constant">T5</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token string">"key1"</span> <span class="token operator">|</span> <span class="token string">"key2"</span><span class="token punctuation">,</span> <span class="token builtin">boolean</span><span class="token operator">></span> <span class="token comment">// OK</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token constant">T6</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">>></span> <span class="token comment">// OK</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token constant">T7</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> payment<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span><span class="token operator">></span> <span class="token comment">// OK</span>
+</code></pre>
+<p>Types like <code>boolean</code>, <code>object</code>, <code>Function</code>, etc. are not accepted as keys:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token constant">T1</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">boolean</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token comment">// Type error!</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token constant">T2</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span>object<span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token comment">// Type error!</span>
+</code></pre>
+<h2 id="2-record-with-union-key">2. Record with union key<a aria-hidden="true" class="anchor-heading icon-link" href="#2-record-with-union-key"></a></h2>
+<p>As seen above, <code>Record&#x3C;string, number></code> permits any key names in the object. But quite often you need to annotate objects with a fixed set of keys.</p>
+<p>The record type accepts a <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types">union type</a> as a key, which is useful to fixate the keys.</p>
+<p>A <a href="https://mariusschulz.com/blog/string-literal-types-in-typescript#string-literal-types-and-union-types">union of string literals</a> is a common way to define the key type:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Keys</span></span> <span class="token operator">=</span> <span class="token string">"key1"</span> <span class="token operator">|</span> <span class="token string">"key2"</span> <span class="token operator">|</span> <span class="token string">"keyN"</span>
+</code></pre>
+<p>For example, <code>Record&#x3C;'annual' | 'bonus', number></code> represents an object which can have only <code>annual</code> and <code>bonus</code> keys:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Salary</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token string">"annual"</span> <span class="token operator">|</span> <span class="token string">"bonus"</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span>
+
+<span class="token keyword">const</span> salary1<span class="token operator">:</span> <span class="token maybe-class-name">Salary</span> <span class="token operator">=</span> <span class="token punctuation">{</span> annual<span class="token operator">:</span> <span class="token number">56000</span><span class="token punctuation">,</span> bonus<span class="token operator">:</span> <span class="token number">1200</span> <span class="token punctuation">}</span> <span class="token comment">// OK</span>
+</code></pre>
+<p>Using less than necessary or keys than aren't in the union is prohibited:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Salary</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token string">"annual"</span> <span class="token operator">|</span> <span class="token string">"bonus"</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span>
+
+<span class="token keyword">const</span> salary1<span class="token operator">:</span> <span class="token maybe-class-name">Salary</span> <span class="token operator">=</span> <span class="token punctuation">{</span> annual<span class="token operator">:</span> <span class="token number">56000</span> <span class="token punctuation">}</span> <span class="token comment">// Type error!</span>
+<span class="token keyword">const</span> salary2<span class="token operator">:</span> <span class="token maybe-class-name">Salary</span> <span class="token operator">=</span> <span class="token punctuation">{</span> bonus<span class="token operator">:</span> <span class="token number">1200</span> <span class="token punctuation">}</span> <span class="token comment">// Type error!</span>
+<span class="token keyword">const</span> salary3<span class="token operator">:</span> <span class="token maybe-class-name">Salary</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment">// Type error!</span>
+<span class="token keyword">const</span> salary4<span class="token operator">:</span> <span class="token maybe-class-name">Salary</span> <span class="token operator">=</span> <span class="token punctuation">{</span> monthly<span class="token operator">:</span> <span class="token number">8000</span> <span class="token punctuation">}</span> <span class="token comment">// Type error!</span>
+</code></pre>
+<p>The record type with union keys is equivalent to the regular object type. The record type has the benefit of not repeating the value type (like the regular object does):</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Salary</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token string">"annual"</span> <span class="token operator">|</span> <span class="token string">"bonus"</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span>
+
+<span class="token comment">// is equivalent to</span>
+
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">SalaryObj</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  annual<span class="token operator">:</span> <span class="token builtin">number</span>
+  bonus<span class="token operator">:</span> <span class="token builtin">number</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="3-record-benefits">3. Record benefits<a aria-hidden="true" class="anchor-heading icon-link" href="#3-record-benefits"></a></h2>
+<p>I prefer record type instead of index signature most of the time. Record syntax is shorter and more readable (altought it's also a matter of taste).</p>
+<p>For example, the record parameter is a bit easier to grasp than the index signature parameter:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">function</span> <span class="token function">logSalary1</span><span class="token punctuation">(</span>salary<span class="token operator">:</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">logSalary2</span><span class="token punctuation">(</span>salary<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Compared to record type, the index signature doesn't accept literals or a union as key type:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Salary</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token string">"annual"</span> <span class="token operator">|</span> <span class="token string">"bonus"</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token comment">// Type error!</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="4-conclusion">4. Conclusion<a aria-hidden="true" class="anchor-heading icon-link" href="#4-conclusion"></a></h2>
+<p><code>Record&#x3C;K, V></code> is an object type with key type <code>K</code> and value type <code>V</code>.</p>
+<p>The key type <code>K</code> can be only <code>number</code>, <code>string</code>, or <code>symbol</code>, including their literals. On the value type <code>V</code> is no restriction.</p>
+<p>To limit the keys to a specific set, you can use a union of string literals <code>Record&#x3C;'key1' | 'key2', V></code> as the key type.</p>
+<p>Check also my post <a href="https://dmitripavlutin.com/typescript-index-signatures/">index signatures</a> to learning more about object types.</p>

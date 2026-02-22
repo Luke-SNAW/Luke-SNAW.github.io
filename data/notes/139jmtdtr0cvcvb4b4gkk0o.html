@@ -1,0 +1,41 @@
+<h1 id="submodule-nuxt">Submodule Nuxt<a aria-hidden="true" class="anchor-heading icon-link" href="#submodule-nuxt"></a></h1>
+<h2 id="quick-setup">Quick Setup<a aria-hidden="true" class="anchor-heading icon-link" href="#quick-setup"></a></h2>
+<h3 id="submodule로-추가">Submodule로 추가<a aria-hidden="true" class="anchor-heading icon-link" href="#submodule로-추가"></a></h3>
+<p>report sub directory로 추가</p>
+<pre class="language-sh"><code class="language-sh">git submodule add https://github.com/genoplan/report-module-2023.git report
+</code></pre>
+<h4 id="submodule-remove">Submodule remove<a aria-hidden="true" class="anchor-heading icon-link" href="#submodule-remove"></a></h4>
+<pre class="language-sh"><code class="language-sh">git submodule deinit -f $module_dir
+rm -rf .git/modules/$module_dir
+git rm -f $module_dir
+</code></pre>
+<h3 id="package-install">Package install<a aria-hidden="true" class="anchor-heading icon-link" href="#package-install"></a></h3>
+<p><a href="/package.json">peerDependencies</a> 참고하여 설치</p>
+<h3 id="nuxt-config에-components-composables-추가">nuxt config에 components, composables 추가<a aria-hidden="true" class="anchor-heading icon-link" href="#nuxt-config에-components-composables-추가"></a></h3>
+<pre class="language-js"><code class="language-js"><span class="token comment">//nuxt.config.ts</span>
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token function">defineNuxtConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  components<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"~/components"</span><span class="token punctuation">,</span> <span class="token string">"~/report/components"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  imports<span class="token operator">:</span> <span class="token punctuation">{</span>
+    dirs<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./report/composables"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="tailwind-setting">Tailwind setting<a aria-hidden="true" class="anchor-heading icon-link" href="#tailwind-setting"></a></h3>
+<pre class="language-js"><code class="language-js"><span class="token comment">// tailwind.config.js</span>
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  content<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./report/components/**/*.{js,vue,ts}"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="build-action">build action<a aria-hidden="true" class="anchor-heading icon-link" href="#build-action"></a></h3>
+<pre class="language-yaml"><code class="language-yaml"><span class="token comment"># build-deploy.yml</span>
+<span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Check out code
+  <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@master
+  <span class="token key atrule">with</span><span class="token punctuation">:</span>
+    <span class="token key atrule">submodules</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">token</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.REPO_READ_WRITE <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token comment"># private repo 일 경우</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>

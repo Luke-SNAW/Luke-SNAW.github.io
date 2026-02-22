@@ -1,0 +1,90 @@
+<h1 id="inverted-triangle-architecture-for-css-itcss">Inverted Triangle Architecture For CSS (ITCSS)<a aria-hidden="true" class="anchor-heading icon-link" href="#inverted-triangle-architecture-for-css-itcss"></a></h1>
+<blockquote>
+<p><a href="https://apiumhub.com/tech-blog-barcelona/inverted-triangle-architecture-for-css-itcss/">https://apiumhub.com/tech-blog-barcelona/inverted-triangle-architecture-for-css-itcss/</a></p>
+</blockquote>
+<p>The concept of modular CSS started to emerge years ago. All of us developers who have worked with CSS have had to deal with the difficulty of making our styles scalable and maintainable when our projects start to grow and, in addition, several people collaborate. That is why numerous methodologies have emerged to make our work easier. These methodologies are not found in any library or technology, they are more of a guide to help organise our CSS.</p>
+<p>The best known are OOCSS (object Oriented CSS), SMACSS (Scalable and Modular Architecture for CSS), BEM (Block, Element, Modifier) and ITCSS (Inverted Triangle CSS).</p>
+<p>The concept of CSS architecture arises with the emergence of CSS preprocessors such as SASS or LESS, which allow us to import different files, use variables and functions among other functionalities. In this article I am going to focus on the ITCSS architecture and the advantages it can offer when implemented in a project.</p>
+<h2 id="what-is-itcss">What is ITCSS?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-itcss"></a></h2>
+<p>It was developed by Harry Robers with the idea of organising our CSS code in an optimal way. Its name comes from Inverted Triangle architecture for CSS because of the way in which the files are organised in layers according to the level of specificity and importance.</p>
+<h4 id="robers-himself-defines-itcss-as-follows">Robers himself defines ITCSS as follows:<a aria-hidden="true" class="anchor-heading icon-link" href="#robers-himself-defines-itcss-as-follows"></a></h4>
+<ul>
+<li>It is a <strong>scalable and manageable architecture</strong>.</li>
+<li>It is a philosophy, <strong>not a library</strong>.</li>
+<li>It is <strong>preprocessor-independent</strong> (although it is really best served by using one).</li>
+<li>It is a <strong>meta framework</strong>, a framework for frameworks. That is, it serves as a base to be used with other frameworks.</li>
+</ul>
+<p>The main objective of its emergence is to help organise the CSS files of our projects and thus solve the problems caused by the cascade and the specificity of the selectors. If we look at the following graph, we can get an idea of how CSS projects that do not follow a correct methodology end up:</p>
+<p><a href="https://cdn-cgbdj.nitrocdn.com/RbczMDpxKIrQLdqnZdHDBvZTsISICJjh/assets/desktop/optimized/rev-924eb12/vSiy5k4IvdOiPRA-Xtss49Il5M9FidzLTs4DCo1xHG4xgjX7TiaouuAZfSsEy545BL0jVNRnFxK1jDRwKjDPWa0YJSY-rTXlGn-NTeU84Dk26jPeWTRkOu49BYMEhWgKdl0RxX1Q">Inverted Triangle architecture for CSS (ITCSS) 1</a></p>
+<p>If we look at all the rules of our project in a single CSS file, the left of the X axis of the graph would be the beginning and the right would be the end. We see how we have rules that are at the beginning prevail over rules that are at the end, while others that are in the middle are the most important. In short: we have a code that is complicated to maintain and where the new rules we add are in direct conflict with the specificity.</p>
+<p>The goal with ITCSS is that, by organising the CSS files in layers, we achieve a bottom-up specificity.</p>
+<p><a href="https://cdn-cgbdj.nitrocdn.com/RbczMDpxKIrQLdqnZdHDBvZTsISICJjh/assets/desktop/optimized/rev-924eb12/oNZDM44OEcrHbQTau-fiOMkHqgXATGWsw-EkdJfP_g1uCzwRepPDRcF_fMh1w3ZjrbVQk7KAyAGTcw4YyuJCq50_Z9HZ19bzQYKDifrvcWcnbJILJ5qVHybvDNiSb18tXHVpTC7I">Inverted Triangle architecture for CSS (ITCSS) 2</a></p>
+<p>It is true that the rules of specificity and cascading are very clear, but when we work on real projects we find that the mix of using id, !important and nesting means that applying a new rule is a problem and our applications end up being unmaintainable.</p>
+<p>Therefore, we find that each piece of CSS needs to be aware of which one precedes it and which one is next. In other words: dependencies are created. In the end, CSS is a giant tree of dependencies.</p>
+<p>To solve all these problems, in summary we need::</p>
+<ul>
+<li>A healthy and accessible environment for many people.</li>
+<li>To be able to control and tame the order of the code and the cascade.</li>
+<li>Create a place for the old and the new to coexist.</li>
+<li>Reduce redundancy.</li>
+<li>End the war on specificity.</li>
+</ul>
+<p>And these are the principles on which ITCSS was born. Now let’s look at an example of how this is achieved.</p>
+<h2 id="structure">Structure<a aria-hidden="true" class="anchor-heading icon-link" href="#structure"></a></h2>
+<p>The code defined in the upper layers has a greater impact than the code defined in the lower layers. Thus the upper layers affect the lower layers, but never the other way around. The lower layers will inherit the styles of their superiors.</p>
+<p><a href="https://cdn-cgbdj.nitrocdn.com/RbczMDpxKIrQLdqnZdHDBvZTsISICJjh/assets/desktop/optimized/rev-924eb12/444COS9a2NkcThrLfpZ1kPQIrNmpx45qKBDTTkuoe1zMv_ARAc7nOpfmLVMHQvHYa_9qrXEU4E1imJLOO2FhoVWFFowURADr6dsj6vc717Aqm_RvVRgeCEIZG4xTW04_itnj5pD9" title="Inverted Triangle architecture for CSS (ITCSS) 3">Manage large CSS projects with ITCSS</a></p>
+<p>– <strong>Settings.</strong> This is where variables are defined when using a preprocessor. It does not generate CSS.</p>
+<pre class="language-css"><code class="language-css">$<span class="token property">main-color</span><span class="token punctuation">:</span> <span class="token hexcode color">#6834cb</span><span class="token punctuation">;</span>
+</code></pre>
+<p>– <strong>Tools.</strong> If preprocessor is used, functions and mixins are defined in this layer. Like the previous one, it does not generate CSS.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@function</span> <span class="token function">sum</span><span class="token punctuation">(</span>$numbers...<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  $<span class="token property">sum</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token atrule"><span class="token rule">@each</span> $number in $numbers</span> <span class="token punctuation">{</span>
+    $<span class="token property">sum</span><span class="token punctuation">:</span> $sum <span class="token operator">+</span> $number<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token atrule"><span class="token rule">@return</span> $sum<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>– <strong>Generic.</strong> This refers to generic code, that which serves to reset or standardise the base styles of browsers. For example a reset css or a normalize would go here.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>– Elements.</strong> Rules affecting HTML tags.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">h1</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> $main-color<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">24</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>– <strong>Objects.</strong> Objects, i.e. those generic classes that are reusable throughout the project. For example the container.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.grid-container</span></span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> auto auto auto auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>– <strong>Components.</strong> Components, unlike objects, are specific parts of the interface. An example of a component would be a search bar or the header of our application. The styles we define for a component will only affect that component.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.search-bar</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> $pearl<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> $light-grey<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">22</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>– Trumps.</strong> This layer, also called <strong>Utilities</strong>, encompasses all those rules that override any other rules defined in the previous layers. It is the only layer where !important is allowed. An example would be to have a class that allows us to hide elements using a display: none.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.d-none</span></span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="structure-within-a-project">Structure within a project<a aria-hidden="true" class="anchor-heading icon-link" href="#structure-within-a-project"></a></h2>
+<p>Let’s assume that we use SASS as a CSS preprocessor to structure our project, so it would look like this:</p>
+<p><a href="https://cdn-cgbdj.nitrocdn.com/RbczMDpxKIrQLdqnZdHDBvZTsISICJjh/assets/desktop/optimized/rev-924eb12/n2ZxeiTQDF15L2gE9jhwy6eAVroJOg_BrL5ZdhIKYEgUR6JC4zogUDErJeD5RtuA0Vx8aUtla3uje5UJAjHJaeMSMxX5r74-F4PSVaeebfUNl2IOkbafeVCPBpwt0fos-aHD-NAX">Inverted Triangle architecture for CSS (ITCSS) 4</a></p>
+<p>– A folder with the imports. This is something I like to use to have better organized the files for each ITCSS layer, especially when several people work, so we can better locate our code and where to add the new files to import. However, if you prefer, you can omit this folder and add the imports directly in the main file.</p>
+<p><a href="https://cdn-cgbdj.nitrocdn.com/RbczMDpxKIrQLdqnZdHDBvZTsISICJjh/assets/desktop/optimized/rev-924eb12/uCpv7dDnDFJuA-ZbymjE2Lgmf8E_ATJllkJirbqj7M0bL1HmA4vMXJJIORr56vHdN_hz-ltguVzChC5YWUrAupPCUIirp6VXsrzGRqLIEKNFHO8pQaW3pClLdCwxdkbDxy2Qs-0D" title="Inverted Triangle architecture for CSS (ITCSS) 5">Inverted Triangle architecture for CSS (ITCSS) 5</a></p>
+<p>– <strong>Main file</strong> with all the imports that will be the one that will end up compiled in a single CSS that our application will use. As we have done the imports by layers in the imports folder, this is much lighter and cleaner and we don’t have to worry about adding any more files here.</p>
+<p><a href="https://cdn-cgbdj.nitrocdn.com/RbczMDpxKIrQLdqnZdHDBvZTsISICJjh/assets/desktop/optimized/rev-924eb12/W3zG6V6q6nL0kV6MrFBgN4_S3K2R9R2dK1kh7lj6tJbkRhexMCGZl2qTUCwbJmc48rvev8Dl8_GEdyEwX4deuKltJ_UCQncJRU86OFPzfAQ0K5ZsqKSWqi3Uyl7Gt5J12soq3Xdp">Inverted Triangle architecture for CSS (ITCSS) 6</a></p>
+<p>The names of files that are only to be used in imported form in another file begin with an underscore to make them easier to distinguish.</p>
+<h2 id="conclusion">Conclusion<a aria-hidden="true" class="anchor-heading icon-link" href="#conclusion"></a></h2>
+<p>And this is how the structure of a project following the ITCSS architecture would look like. It is clear that for a small project made in Vue or React, you may not see much use in its implementation, but for those projects that are large, have several people working on them and need to be scalable, ITCSS offers a fairly consistent framework. It is also very useful if we want to create our own library that will be common to several projects, thus having a unified architecture.</p>
+<p>Finally, I would like to mention again that ITCSS is inclusive with other frameworks, and even BEMIT has emerged, which is the joint use of BEM with ITCSS and enhances the benefits of both. But this is a topic for another article.</p>
+<h4 id="interesting-links">Interesting Links<a aria-hidden="true" class="anchor-heading icon-link" href="#interesting-links"></a></h4>
+<p>Talk by Harry Roberts explaining ITCSS in depth: <a href="https://vimeo.com/114965689">https://vimeo.com/114965689</a></p>

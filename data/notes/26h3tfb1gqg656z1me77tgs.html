@@ -1,0 +1,25 @@
+<h1 id="github-actions--code-deploy--git-pull">GitHub Actions  Code Deploy  Git Pull<a aria-hidden="true" class="anchor-heading icon-link" href="#github-actions--code-deploy--git-pull"></a></h1>
+<h2 id="사용처">사용처<a aria-hidden="true" class="anchor-heading icon-link" href="#사용처"></a></h2>
+<p>build 과정 없이 script만 배포하면 되는 project</p>
+<h2 id="setup---github-actions-code-deploy">Setup - github actions, code deploy<a aria-hidden="true" class="anchor-heading icon-link" href="#setup---github-actions-code-deploy"></a></h2>
+<p><a href="/notes/satodzryjxho7pd3or2m775">GitHub Actions - S3 - Code Deploy</a> 참고</p>
+<h2 id="code-deplay---git-pull">Code deplay - git pull<a aria-hidden="true" class="anchor-heading icon-link" href="#code-deplay---git-pull"></a></h2>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># after-install__test.sh</span>
+
+<span class="token comment">#!/bin/bash</span>
+<span class="token builtin class-name">cd</span> /var/www/html/biz
+<span class="token function">ssh</span> -vT git@github.com <span class="token comment"># https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey#always-use-the-git-user</span>
+<span class="token function">git</span> fetch --prune
+<span class="token function">git</span> checkout origin/test
+<span class="token function">git</span> pull origin <span class="token builtin class-name">test</span>
+</code></pre>
+<h3 id="git-auth-참고-링크">git auth 참고 링크<a aria-hidden="true" class="anchor-heading icon-link" href="#git-auth-참고-링크"></a></h3>
+<ul>
+<li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account</a></li>
+<li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>

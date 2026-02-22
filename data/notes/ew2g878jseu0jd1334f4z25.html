@@ -1,0 +1,54 @@
+<h1 id="the-power-of-currying">The Power of Currying<a aria-hidden="true" class="anchor-heading icon-link" href="#the-power-of-currying"></a></h1>
+<p><a href="https://blog.bitsrc.io/functional-programming-part-3-the-powers-of-currying-213eb69b234b">https://blog.bitsrc.io/functional-programming-part-3-the-powers-of-currying-213eb69b234b</a></p>
+<h2 id="what-is-currying">What is Currying<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-currying"></a></h2>
+<p>A curried function is a <strong>function that keeps returning functions until all its params are fulfilled</strong></p>
+<h2 id="how-currying-works">How Currying Works<a aria-hidden="true" class="anchor-heading icon-link" href="#how-currying-works"></a></h2>
+<h2 id="why-currying">Why Currying<a aria-hidden="true" class="anchor-heading icon-link" href="#why-currying"></a></h2>
+<p>Currying will make our code:</p>
+<ol>
+<li>Cleaner</li>
+<li>Less repetitive params passing and less verbose code</li>
+<li>More composable</li>
+<li>More reusable</li>
+</ol>
+<h2 id="why-currying-makes-our-code-better">Why Currying Makes our Code Better<a aria-hidden="true" class="anchor-heading icon-link" href="#why-currying-makes-our-code-better"></a></h2>
+<h3 id="mainly-some-functions-take-config-data-as-input">Mainly, some functions take “config” data as input<a aria-hidden="true" class="anchor-heading icon-link" href="#mainly-some-functions-take-config-data-as-input"></a></h3>
+<p>If we have functions that take “config” params, we better curry them because these “configs” will probably be repeated over and over again.</p>
+<p>If we have functions that take “config” params, we better curry them because these “configs” will probably be repeated over and over again.
+For example, let’s suppose we have a translator function, that takes a locale and a text to be translated:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">translator</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">locale<span class="token punctuation">,</span> text</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">/*translation*/</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The usage would look like this:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token function">translator</span><span class="token punctuation">(</span><span class="token string">"fr"</span><span class="token punctuation">,</span> <span class="token string">"Hello"</span><span class="token punctuation">)</span>
+<span class="token function">translator</span><span class="token punctuation">(</span><span class="token string">"fr"</span><span class="token punctuation">,</span> <span class="token string">"Goodbye"</span><span class="token punctuation">)</span>
+<span class="token function">translator</span><span class="token punctuation">(</span><span class="token string">"fr"</span><span class="token punctuation">,</span> <span class="token string">"How are you?"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Every time we call translator we <strong>should provide</strong> locale and text. Which is redundant and dirty to provide the locale on every call.
+But instead, let’s curry translator like this:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> translator <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">locale<span class="token punctuation">,</span> text</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">/*translation*/</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> inFrench <span class="token operator">=</span> <span class="token function">translator</span><span class="token punctuation">(</span><span class="token string">"fr"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Now <code>inFrench</code> <strong>has</strong> <code>fr</code> as <code>locale</code> provided to the curried translator function and <strong>waits</strong> for <code>text</code> to be provided. We can use it like this:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token function">inFrench</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span>
+<span class="token function">inFrench</span><span class="token punctuation">(</span><span class="token string">"Goodbye"</span><span class="token punctuation">)</span>
+<span class="token function">inFrench</span><span class="token punctuation">(</span><span class="token string">"How are you?"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Currying did us a great favour indeed, we don’t need to specify the locale each time, instead the curried <code>inFrench</code> <strong>has</strong> <code>locale</code> due to currying.
+After currying -in this specific example. Code is:</p>
+<ol>
+<li>Cleaner</li>
+<li>Less verbose and less redundant
+<strong>Because we separated “config” from actual “data”. Which is quite handy in many areas and use cases.</strong></li>
+</ol>
+<h2 id="why-separate-config-from-data-params">Why separate “config” from “data” params?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-separate-config-from-data-params"></a></h2>
+<p>Many components and functions need the use of some functionalities (<code>translate</code> in our case) but <strong>shouldn’t or can’t know about the “config” part</strong> (<code>locale</code>). Where these components or functions <strong>have the “data” only part</strong> (<code>text</code>). <strong>So these functions will be able to use that function without the need of knowing about the “config” part.</strong></p>
+<p>Thus, that component or function <strong>will be less coupled with the system</strong>, which will make the components more composable and more maintainable.</p>
+<h2 id="when-do-we-apply-this-idea">When do we apply this idea<a aria-hidden="true" class="anchor-heading icon-link" href="#when-do-we-apply-this-idea"></a></h2>
+<h2 id="closure-and-currying-relationship">Closure and Currying Relationship<a aria-hidden="true" class="anchor-heading icon-link" href="#closure-and-currying-relationship"></a></h2>
+<p>A <strong>Closure</strong>: is a function returned by a “parent” function and has access to the parent function’s internal state. (described earlier here)
+<strong>Currying</strong>: will always result a closure. Because each function returned by a curried function will be provided with parents’ internal state.</p>
+<h2 id="more-examples">More Examples<a aria-hidden="true" class="anchor-heading icon-link" href="#more-examples"></a></h2>

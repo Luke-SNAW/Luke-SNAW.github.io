@@ -1,0 +1,485 @@
+<h1 id="avoiding-img-layout-shifts-aspect-ratio-vs-width--height-attributes">Avoiding &#x3C;img> layout shifts: aspect-ratio vs width &#x26; height attributes<a aria-hidden="true" class="anchor-heading icon-link" href="#avoiding-img-layout-shifts-aspect-ratio-vs-width--height-attributes"></a></h1>
+<blockquote>
+<p><a href="https://jakearchibald.com/2022/img-aspect-ratio/">https://jakearchibald.com/2022/img-aspect-ratio/</a></p>
+</blockquote>
+<p>By default, an <code>&#x3C;img></code> takes up zero space until the browser loads enough of the image to know its dimensions:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>demo-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  self<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">figureSource</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+    &#x3C;figure class="full-figure">
+      &#x3C;picture>
+        &#x3C;source type="image/avif" srcset="https://random-server-stuff.glitch.me/slow-redirect?</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&#x26;origin=source&#x26;to=asset-url:./senna.avif">
+        &#x3C;source type="image/webp" srcset="https://random-server-stuff.glitch.me/slow-redirect?</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&#x26;origin=source&#x26;to=asset-url:./senna.webp">
+        &#x3C;img alt="A black cat, looking into the camera, rolling on his back" decoding="async" src="https://random-server-stuff.glitch.me/slow-redirect?</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&#x26;origin=source&#x26;to=asset-url:./senna.jpg" crossorigin>
+      &#x3C;/picture>
+      &#x3C;figcaption>Senna the cat&#x3C;/figcaption>
+    &#x3C;/figure>
+    &#x3C;p>&#x3C;button class="btn">Reset&#x3C;/button>&#x3C;/p>
+  </span><span class="token template-punctuation string">`</span></span>
+
+  self<span class="token punctuation">.</span><span class="token property-access">buttonSource</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+    &#x3C;p>&#x3C;button class="btn">Demo&#x3C;/button>&#x3C;/p>
+  </span><span class="token template-punctuation string">`</span></span>
+
+  <span class="token comment">// Wake the server up for the demo</span>
+  <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"https://random-server-stuff.glitch.me/ping"</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> demoEl <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">".demo-1"</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token string">""</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">toggle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>state <span class="token operator">===</span> <span class="token string">"button"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token method function property-access">figureSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        state <span class="token operator">=</span> <span class="token string">"demo"</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token property-access">buttonSource</span>
+        state <span class="token operator">=</span> <span class="token string">"button"</span>
+      <span class="token punctuation">}</span>
+
+      demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>When you run the demo, you'll see the <code>&#x3C;figcaption></code> immediately. Then, after a few seconds, this paragraph and subsequent page content shifts downwards to make room for the image. This makes the user experience massively frustrating, as content moves out from under the user's eyes/finger/pointer.</p>
+<p>For over a decade, we had to use <a href="https://css-tricks.com/aspect-ratio-boxes/#aa-the-core-concept-padding-in-percentages-is-based-on-width">silly hacks</a> to manually apply an aspect ratio, and then, bloody typical, two better solutions arrived at roughly the same time. They are CSS <code>aspect-ratio</code>, and <code>width</code> &#x26; <code>height</code> presentational hints.</p>
+<p>So, which should you use? First, let's take a look at how the features work, as there's quite a bit of misinformation out there…</p>
+<h1 id="css-aspect-ratio">CSS aspect-ratio<a aria-hidden="true" class="anchor-heading icon-link" href="#css-aspect-ratio"></a></h1>
+<p>If you do this:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.aspect-ratio-demo</span></span> <span class="token punctuation">{</span>
+  <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token number">16</span> <span class="token operator">/</span> <span class="token number">9</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>…you get this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector"><span class="token class">.aspect-ratio-demo</span></span> <span class="token punctuation">{</span>
+    <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token number">16</span> <span class="token operator">/</span> <span class="token number">9</span><span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+    <span class="token property">align-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">69</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color"><span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.3</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>figure</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>full-figure<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aspect-ratio-demo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>16 / 9<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>figure</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>This feature became cross-browser compatible once it landed in Safari 15, late 2021, having arrived in Chrome &#x26; Firefox earlier that year.</p>
+<p>It works on any element, but here's a demo with <code>&#x3C;img></code>:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+  <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token number">16</span> <span class="token operator">/</span> <span class="token number">9</span><span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>demo-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> demoEl <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">".demo-2"</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token string">""</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">toggle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>state <span class="token operator">===</span> <span class="token string">"button"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token method function property-access">figureSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span>demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          aspectRatio<span class="token operator">:</span> <span class="token string">"16 / 9"</span><span class="token punctuation">,</span>
+          width<span class="token operator">:</span> <span class="token string">"100%"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        state <span class="token operator">=</span> <span class="token string">"demo"</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token property-access">buttonSource</span>
+        state <span class="token operator">=</span> <span class="token string">"button"</span>
+      <span class="token punctuation">}</span>
+
+      demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>This time, the image reserves space for its content as soon as it appears in the document, so stuff doesn't shift around once it loads.</p>
+<p>The other solution is…</p>
+<h1 id="width--height-presentational-hints">Width &#x26; height presentational hints<a aria-hidden="true" class="anchor-heading icon-link" href="#width--height-presentational-hints"></a></h1>
+<p>If you set dimensions on your image:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1598<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>899<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>…<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>…<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>And set height to <code>auto</code>:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>…the image will have an aspect ratio applied, even before it loads.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>demo-3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> demoEl <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">".demo-3"</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token string">""</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">toggle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>state <span class="token operator">===</span> <span class="token string">"button"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token method function property-access">figureSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span>demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          width<span class="token operator">:</span> <span class="token string">"1598"</span><span class="token punctuation">,</span>
+          height<span class="token operator">:</span> <span class="token string">"899"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span>demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          height<span class="token operator">:</span> <span class="token string">"auto"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        state <span class="token operator">=</span> <span class="token string">"demo"</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token property-access">buttonSource</span>
+        state <span class="token operator">=</span> <span class="token string">"button"</span>
+      <span class="token punctuation">}</span>
+
+      demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>This landed in Chrome and Firefox back in 2019, and became cross-browser compatible when it landed in Safari 14 a year later. So, this feature has been around a little longer than CSS <code>aspect-ratio</code>.</p>
+<p>In addition to <code>&#x3C;img></code>, this feature also works on <code>&#x3C;video></code> and <code>&#x3C;input type="image"></code>.</p>
+<p>However, there's a bit of misinformation floating around…</p>
+<h2 id="no-this-doesnt-use-attr">No, this doesn't use <code>attr()</code><a aria-hidden="true" class="anchor-heading icon-link" href="#no-this-doesnt-use-attr"></a></h2>
+<p>A lot of articles say this feature works via a user-agent stylesheet like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector"><span class="token class">.code-warning</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode color">#732525</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode color">#fff</span><span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">0.8</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">em</span> <span class="token number">-20</span><span class="token unit">px</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token unit">px</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">530</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector"><span class="token class">.code-warning</span></span> <span class="token punctuation">{</span>
+      <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">-32</span><span class="token unit">px</span><span class="token punctuation">;</span>
+      <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token property">padding-left</span><span class="token punctuation">:</span> <span class="token number">32</span><span class="token unit">px</span><span class="token punctuation">;</span>
+      <span class="token property">padding-right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token selector"><span class="token class">.code-warning</span> <span class="token combinator">+</span> <span class="token class">.code-example</span></span> <span class="token punctuation">{</span>
+    <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>code-warning<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>This isn't how it actually works<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">img<span class="token punctuation">,</span>
+input<span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">type</span><span class="token operator">=</span><span class="token attr-value">"image"</span><span class="token punctuation">]</span></span><span class="token punctuation">,</span>
+video<span class="token punctuation">,</span>
+embed<span class="token punctuation">,</span>
+iframe<span class="token punctuation">,</span>
+marquee<span class="token punctuation">,</span>
+object<span class="token punctuation">,</span>
+table</span> <span class="token punctuation">{</span>
+  <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token function">attr</span><span class="token punctuation">(</span>width<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">attr</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Firstly, this feature doesn't work on <code>embed</code>, <code>iframe</code>, <code>marquee</code>, <code>object</code>, or <code>table</code>. But also, this usage of <code>attr()</code> wouldn't work in practice because it returns a string. To make it work properly, you'd need to cast the attribute to a number, which CSS supports!</p>
+<p class="code-warning">This isn't how it works either</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">img<span class="token punctuation">,</span>
+input<span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">type</span><span class="token operator">=</span><span class="token attr-value">"image"</span><span class="token punctuation">]</span></span><span class="token punctuation">,</span>
+video</span> <span class="token punctuation">{</span>
+  <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token function">attr</span><span class="token punctuation">(</span>width number<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">attr</span><span class="token punctuation">(</span>height number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>But this isn't how it works, because:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>figure</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>full-figure max-figure<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span>
+    <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>No browser supports attr on all properties<span class="token punctuation">"</span></span>
+    <span class="token attr-name">decoding</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>async<span class="token punctuation">"</span></span>
+    <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>asset-url:./attr.png<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>figcaption</span><span class="token punctuation">></span></span>
+    Support for attr() on
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://caniuse.com/css3-attr<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>caniuse.com<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>figcaption</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>figure</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>…no browser supports <code>attr()</code>, aside from very particular cases like <code>content</code> on pseudo-elements. Hopefully that will change one day!</p>
+<h2 id="how-does-it-actually-work">How does it actually work?<a aria-hidden="true" class="anchor-heading icon-link" href="#how-does-it-actually-work"></a></h2>
+<p>Here's what the spec has to say:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>blockquote</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quote<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>
+    The
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>code</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+        <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/embedded-content-other.html#attr-dim-width<span class="token punctuation">"</span></span>
+      <span class="token punctuation">></span></span>
+        width
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>code</span><span class="token punctuation">></span></span>
+    and
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>code</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>attributes-for-embedded-content-and-images:attr-dim-height-3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+        <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/embedded-content-other.html#attr-dim-height<span class="token punctuation">"</span></span>
+      <span class="token punctuation">></span></span>
+        height
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>code</span><span class="token punctuation">></span></span>
+    attributes
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+      <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/rendering.html#map-to-the-aspect-ratio-property-(using-dimension-rules)<span class="token punctuation">"</span></span>
+      <span class="token punctuation">></span></span>map to the aspect-ratio property (using dimension rules)<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+    <span class="token punctuation">></span></span>
+    on
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>code</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+        <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element<span class="token punctuation">"</span></span>
+      <span class="token punctuation">></span></span>
+        img
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>code</span><span class="token punctuation">></span></span>
+    and
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>code</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+        <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/media.html#the-video-element<span class="token punctuation">"</span></span>
+        <span class="token punctuation">></span></span>video<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+      <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>code</span>
+    <span class="token punctuation">></span></span>
+    elements, and
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>code</span>
+      <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+        <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/input.html#the-input-element<span class="token punctuation">"</span></span>
+        <span class="token punctuation">></span></span>input<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+      <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>code</span>
+    <span class="token punctuation">></span></span>
+    elements with a
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>code</span>
+      <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+        <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/input.html#attr-input-type<span class="token punctuation">"</span></span>
+        <span class="token punctuation">></span></span>type<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+      <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>code</span>
+    <span class="token punctuation">></span></span>
+    attribute in the
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+      <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/input.html#image-button-state-(type=image)<span class="token punctuation">"</span></span>
+      <span class="token punctuation">></span></span>Image Button<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+    <span class="token punctuation">></span></span>
+    state.
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token entity named-entity" title="—">&#x26;mdash;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+    <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/rendering.html#attributes-for-embedded-content-and-images<span class="token punctuation">"</span></span>
+    <span class="token punctuation">></span></span>Attributes for embedded content and images - HTML<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+  <span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>blockquote</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>So, it does map to the <code>aspect-ratio</code> property. Specifically:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>blockquote</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quote<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>
+    …the user agent is expected to use the parsed dimensions as a
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+      <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/rendering.html#presentational-hints<span class="token punctuation">"</span></span>
+      <span class="token punctuation">></span></span>presentational hint<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+    <span class="token punctuation">></span></span>
+    for the
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+      <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://drafts.csswg.org/css-sizing-4/#aspect-ratio<span class="token punctuation">"</span></span>
+      <span class="token attr-name">data-x-internal</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">'</span>aspect-ratio<span class="token punctuation">'</span><span class="token punctuation">"</span></span>
+      <span class="token punctuation">></span></span>'aspect-ratio'<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+    <span class="token punctuation">></span></span>
+    property of the form <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>code</span><span class="token punctuation">></span></span>auto <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>var</span><span class="token punctuation">></span></span>w<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>var</span><span class="token punctuation">></span></span> / <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>var</span><span class="token punctuation">></span></span>h<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>var</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>code</span>
+    <span class="token punctuation">></span></span>.
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token entity named-entity" title="—">&#x26;mdash;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+    <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://html.spec.whatwg.org/multipage/rendering.html#map-to-the-aspect-ratio-property-(using-dimension-rules)<span class="token punctuation">"</span></span>
+    <span class="token punctuation">></span></span>Mapping to aspect-ratio - HTML<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+  <span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>blockquote</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>You can think of a "presentational hint" as something a bit like a zero-specificity inline-style that's applied internally.</p>
+<p>This uses a feature of <code>aspect-ratio</code> I didn't mention earlier:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.aspect-ratio-demo</span></span> <span class="token punctuation">{</span>
+  <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> auto <span class="token number">16</span> <span class="token operator">/</span> <span class="token number">9</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The new bit is <code>auto</code>. Here's what the spec says:</p>
+<blockquote class="quote"><p> If both <a href="https://drafts.csswg.org/css-sizing-4/#valdef-aspect-ratio-auto">auto</a> and a <a href="https://drafts.csswg.org/css-values-4/#ratio-value">&#x3C;ratio></a> are specified together, the <a href="https://drafts.csswg.org/css-sizing-4/#preferred-aspect-ratio">preferred aspect ratio</a> is the specified ratio of <span>width / height</span> unless it is a <a href="https://drafts.csswg.org/css-display-3/#replaced-element">replaced element</a> with a <a href="https://drafts.csswg.org/css-images-3/#natural-aspect-ratio">natural aspect ratio</a>, in which case that aspect ratio is used instead.</p>— <a href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio">CSS-sizing level 4</a></blockquote>
+<p>A lot of articles gloss over this, probably because the spec text is a little hard to read, but it adds an important bit of behaviour:</p>
+<p>An <code>&#x3C;img></code> is a "replaced element", but it doesn't have a "natural aspect ratio" until the browser has loaded enough of the image to know its real width &#x26; height. That means the <code>16 / 9</code> bit is ignored once the browser has the real data from the image. This doesn't usually matter, because the result is the same. But, let's say I got the width and height wrong:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>…<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>…<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>The browser will use an presentational hint of <code>aspect-ratio: auto 4 / 3</code>, but the image is actually <code>16 / 9</code>. Here's what happens:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>demo-4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> demoEl <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">".demo-4"</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token string">""</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">toggle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>state <span class="token operator">===</span> <span class="token string">"button"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token method function property-access">figureSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span>demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          width<span class="token operator">:</span> <span class="token string">"4"</span><span class="token punctuation">,</span>
+          height<span class="token operator">:</span> <span class="token string">"3"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span>demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          height<span class="token operator">:</span> <span class="token string">"auto"</span><span class="token punctuation">,</span>
+          width<span class="token operator">:</span> <span class="token string">"100%"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        state <span class="token operator">=</span> <span class="token string">"demo"</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token property-access">buttonSource</span>
+        state <span class="token operator">=</span> <span class="token string">"button"</span>
+      <span class="token punctuation">}</span>
+
+      demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>When the image is added to the page, it takes up the <code>4 / 3</code> area I specified. But once it loads, the <code>auto</code> rule kicks in, and the browser corrects the aspect ratio to <code>16 / 9</code>.</p>
+<p>Compare this to the behaviour of:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+  <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token number">4</span> <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>demo-5<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> demoEl <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">".demo-5"</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token string">""</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">toggle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>state <span class="token operator">===</span> <span class="token string">"button"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token method function property-access">figureSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span>demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          aspectRatio<span class="token operator">:</span> <span class="token string">"4 / 3"</span><span class="token punctuation">,</span>
+          width<span class="token operator">:</span> <span class="token string">"100%"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        state <span class="token operator">=</span> <span class="token string">"demo"</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token property-access">buttonSource</span>
+        state <span class="token operator">=</span> <span class="token string">"button"</span>
+      <span class="token punctuation">}</span>
+
+      demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Without <code>auto</code>, the <code>&#x3C;img></code> remains <code>4 / 3</code>, and the image appears stretched. You can avoid the stretching with <code>object-fit</code>:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+  <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token number">4</span> <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+  <span class="token property">object-fit</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>demo-6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> demoEl <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">".demo-6"</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token string">""</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">toggle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>state <span class="token operator">===</span> <span class="token string">"button"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token method function property-access">figureSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span>demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          aspectRatio<span class="token operator">:</span> <span class="token string">"4 / 3"</span><span class="token punctuation">,</span>
+          width<span class="token operator">:</span> <span class="token string">"100%"</span><span class="token punctuation">,</span>
+          objectFit<span class="token operator">:</span> <span class="token string">"cover"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        state <span class="token operator">=</span> <span class="token string">"demo"</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token property-access">buttonSource</span>
+        state <span class="token operator">=</span> <span class="token string">"button"</span>
+      <span class="token punctuation">}</span>
+
+      demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>In this case, parts of the image are cropped. Oh, one more thing:</p>
+<h2 id="a-slight-issue-in-firefox">A slight issue in Firefox<a aria-hidden="true" class="anchor-heading icon-link" href="#a-slight-issue-in-firefox"></a></h2>
+<p>Responsive images let you provide different images to use at different widths:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>picture</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span>
+    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1000<span class="token punctuation">"</span></span>
+    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>614<span class="token punctuation">"</span></span>
+    <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 800px)<span class="token punctuation">"</span></span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wide-view.jpg<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>547<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zoomed-in.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>…<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>picture</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>In this case, the two images have different aspect ratios. Chrome and Safari use the correct <code>width</code> and <code>height</code> depending on which source is used, but Firefox will always use the dimensions from the <code>&#x3C;img></code>, resulting in a content shift when it realises the calculated aspect-ratio is incorrect.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>demo-7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> demoEl <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">".demo-7"</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token string">""</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">toggle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>state <span class="token operator">===</span> <span class="token string">"button"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token embedded-code html">
+          &#x3C;figure class="full-figure">
+            &#x3C;picture>
+              &#x3C;source media="(min-width: 800px)" width="1000" height="614"
+                  srcset="https://random-server-stuff.glitch.me/slow-redirect?${Math.random()}&#x26;origin=source&#x26;to=asset-url:../../../2015/09/anatomy-of-responsive-images/f1-689.jpg"
+                  srcset="https://random-server-stuff.glitch.me/slow-redirect?${Math.random()}&#x26;origin=source&#x26;to=asset-url:../../../2015/09/anatomy-of-responsive-images/f1-689.jpg 689w,
+                          https://random-server-stuff.glitch.me/slow-redirect?${Math.random()}&#x26;origin=source&#x26;to=asset-url:../../../2015/09/anatomy-of-responsive-images/f1-1378.jpg 1378w,
+                          https://random-server-stuff.glitch.me/slow-redirect?${Math.random()}&#x26;origin=source&#x26;to=asset-url:../../../2015/09/anatomy-of-responsive-images/f1-500.jpg 500w,
+                          https://random-server-stuff.glitch.me/slow-redirect?${Math.random()}&#x26;origin=source&#x26;to=asset-url:../../../2015/09/anatomy-of-responsive-images/f1-1000.jpg 1000w"
+                      sizes="(min-width: 530px) calc(100vw - 96px), 100vw">
+              &#x3C;img style="height:auto" width="800" height="547"
+                      srcset="https://random-server-stuff.glitch.me/slow-redirect?${Math.random()}&#x26;origin=source&#x26;to=asset-url:../../../2015/09/anatomy-of-responsive-images/f1-focused-800.jpg 800w,
+                              https://random-server-stuff.glitch.me/slow-redirect?${Math.random()}&#x26;origin=source&#x26;to=asset-url:../../../2015/09/anatomy-of-responsive-images/f1-focused-1406.jpg 1406w"
+                  alt="F1 car in the gravel"
+                  sizes="(min-width: 1066px) 689px, calc(75vw - 137px)" crossorigin>
+            &#x3C;/picture>
+            &#x3C;figcaption>Romain Grosjean driving the long way around a corner&#x3C;/figcaption>
+          &#x3C;/figure>
+          &#x3C;p>&#x3C;button class="btn">Reset&#x3C;/button>&#x3C;/p>
+        </span><span class="token template-punctuation string">`</span></span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">aspectRatio</span><span class="token punctuation">)</span>
+        state <span class="token operator">=</span> <span class="token string">"demo"</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        demoEl<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> self<span class="token punctuation">.</span><span class="token property-access">buttonSource</span>
+        state <span class="token operator">=</span> <span class="token string">"button"</span>
+      <span class="token punctuation">}</span>
+
+      demoEl<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1694741">Here's the Firefox bug</a> to track this. Hopefully it'll get fixed soon!</p>
+<h1 id="so-which-method-should-we-use">So, which method should we use?<a aria-hidden="true" class="anchor-heading icon-link" href="#so-which-method-should-we-use"></a></h1>
+<p>Ok, until now the article has been a massive side-quest. Now we're at the actual point. And, in my opinion, the answer is… nothing new.</p>
+<p>We've got one solution, <code>aspect-ratio</code>, which is CSS-based. And the other solution, presentational hinting, which uses <code>width</code> and <code>height</code> attributes. The question is very similar to "should this image be a <code>&#x3C;img></code> or a CSS <code>background-image</code>?" and the answer is the same: Is it content or design?</p>
+<p>If I'm adding an image to an article on my blog, that's content. I want the reserved space to be the aspect ratio of the content. If I get the <code>width</code> and <code>height</code> attributes wrong, I'd rather the correct values were used from the content image. Therefore, <code>width</code> and <code>height</code> attributes feel like the best fit. This means I can just author content, I don't need to dip into inline styles.</p>
+<p>If it's a design requirement that the layout of an image is a particular aspect ratio, enforcing that with <code>aspect-ratio</code> in CSS can be appropriate. For example, a hero image that <em>must</em> be <code>16 / 9</code> – if the image isn't quite <code>16 / 9</code> I don't want it messing up my design, I want the design to take priority. Although, if the image isn't actually that aspect ratio, it'll either end up stretched (<code>object-fit: fill</code>), letter-boxed (<code>object-fit: contain</code>), or cropped (<code>object-fit: cover</code>). None of which are ideal.</p>
+<p>You could use <code>aspect-ratio</code> and media queries to make up for the lack of support in Firefox when it comes to <code>&#x3C;picture></code> and art direction. But, I'm hoping that they'll fix that bug sooner rather than later, so we don't need to hack around it.</p>
+<p>And that's it! It took a decade for us to get a real solution to this problem, but now you can avoid layout shifts using <code>width</code> and <code>height</code> attributes, or <code>aspect-ratio</code> in CSS, whichever is most appropriate.</p>

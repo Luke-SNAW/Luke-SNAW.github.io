@@ -1,0 +1,17 @@
+<h1 id="this-pattern-will-make-your-react-hooks-cleaner">This Pattern Will Make Your React Hooks Cleaner<a aria-hidden="true" class="anchor-heading icon-link" href="#this-pattern-will-make-your-react-hooks-cleaner"></a></h1>
+<p><a href="https://betterprogramming.pub/this-pattern-will-make-your-react-hooks-cleaner-ca9deba5d58d">https://betterprogramming.pub/this-pattern-will-make-your-react-hooks-cleaner-ca9deba5d58d</a></p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">customHook</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> isLoading <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">//logic</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">reload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">/*logic*/</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span>isLoading<span class="token punctuation">,</span> reload<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  result<span class="token punctuation">.</span><span class="token property-access">isLoading</span> <span class="token operator">=</span> isLoading<span class="token punctuation">;</span>
+  result<span class="token punctuation">.</span><span class="token property-access">reload</span> <span class="token operator">=</span> reload<span class="token punctuation">;</span>
+  <span class="token keyword control-flow">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>That implementation will give us the ability to use the hook’s return value as:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> isLoading<span class="token punctuation">,</span> reload <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">customHook</span><span class="token punctuation">(</span>configs<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// as object</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>isLoading<span class="token punctuation">,</span> reload<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">customHook</span><span class="token punctuation">(</span>configs<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// as array</span>
+</code></pre>

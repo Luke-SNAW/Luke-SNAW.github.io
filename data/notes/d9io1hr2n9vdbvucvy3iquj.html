@@ -1,0 +1,1548 @@
+<h1 id="articles-i-read-in-2023">Articles I read in 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#articles-i-read-in-2023"></a></h1>
+<h2 id="week-52-2023">Week 52, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-52-2023"></a></h2>
+<ul>
+<li><a href="https://medium.com/@sukheja.varun/stop-using-in-typescript-ed24d3532d9e">Stop using {} in Typescript</a>
+<ul>
+<li><code>Record&#x3C;string, unkown></code></li>
+<li><code>{ [key:string]: unknown }</code></li>
+</ul>
+</li>
+<li><a href="https://developer.chrome.com/blog/css-i18n-features?hl=en">Introducing four new international features in CSS</a>
+<ul>
+<li>From Chrome 119: Japanese phrase line breaking with <code>word-break: auto-phrase</code>.</li>
+<li>Behind a flag from Chrome 120: Inter-script spacing with the <code>text-autospace</code> property.</li>
+<li>Under development: Chinese, Japanese, and Korean (CJK) punctuation kerning with the <code>text-spacing-trim</code> property.</li>
+<li>Consistent minimum font size across languages.</li>
+</ul>
+</li>
+<li><a href="https://medium.com/@rk-tech/micro-frontend-synergy-techniques-for-effective-communication-97df104931ed">Micro Frontend Synergy: Techniques for Effective Communication</a></li>
+<li><a href="https://read.engineerscodex.com/p/how-pinterest-scaled-to-11-million">How Pinterest scaled to 11 million users with only 6 engineers</a>
+<ul>
+<li>Use known, proven technologies. Pinterest’s dive into newer technologies at the time led to issues like data corruption.</li>
+<li>Keep it simple. (A recurring theme!)</li>
+<li>Don’t get too creative. The team settled on an architecture where they could add more of the same nodes to scale.</li>
+<li>Limit your options.</li>
+<li>Sharding databases > clustering. It reduced data transfer across nodes, which was a good thing.</li>
+<li>Have fun! New engineers would contribute code in their first week.</li>
+</ul>
+</li>
+<li><a href="https://ethanzuckerman.com/2023/12/22/how-big-is-youtube/">How Big is YouTube?</a>
+<blockquote>
+<p>He details an experiment where he and others were able to collect over 10,000 truly random YouTube videos using an inefficient "drunk dialing" method to guess video URLs.
+This allowed them to estimate that YouTube contains over 13 billion videos and that 4 billion were added just in 2023.</p>
+</blockquote>
+</li>
+<li><a href="https://trufflesecurity.com/blog/google-oauth-is-broken-sort-of/">Google OAuth is broken (sort of)</a>
+<blockquote>
+<p>It is possible for former employees to retain access to workplace apps like Slack and Zoom after leaving a company by creating a Google account using a plus sign email address derived from their work email. (<a href="/mailto:janedoe+oldjob@company.com">janedoe+oldjob@company.com</a>)</p>
+</blockquote>
+</li>
+<li><a href="https://buttondown.email/hillelwayne/archive/advice-for-new-software-devs-whove-read-all-those/">Advice for new software devs who've read all those other advice essays</a></li>
+</ul>
+<h2 id="week-51-2023">Week 51, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-51-2023"></a></h2>
+<ul>
+<li><a href="https://hackernoon.com/a-quick-guide-on-how-to-create-accessible-buttons-in-html">A Quick Guide on How to Create Accessible Buttons in HTML</a>
+<ul>
+<li>Icon with Text Buttons - <code>aria-hidden=true</code> attribute for the svg icon</li>
+<li>Icon Buttons - <code>aria-label</code> on the button tag</li>
+<li>... the alternatives.</li>
+<li>The size of the target for pointer inputs is at least 44 by 44 CSS pixels.</li>
+</ul>
+</li>
+<li><a href="https://blog.pope.tech/2023/11/27/how-to-use-chromes-accessibility-tree/">How to use Chrome's accessibility tree</a></li>
+<li><a href="https://benmyers.dev/blog/multilingual-web-accessibility/">Lost in Translation: Tips for Multilingual Web Accessibility</a></li>
+<li><a href="https://eng.aurelienpierre.com/2021/10/webp-is-so-great-except-its-not/">WebP is so great… except it’s not</a>
+<blockquote>
+<p>WebP was more prone to bad posterization and artifacts, especially on photos with smooth gradients.<br>
+For similar visual quality on a portrait photo, WebP was actually 30-39% heavier than JPEG.<br>
+WebP is not necessarily better than JPEG for all photographic use cases.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="week-50-2023">Week 50, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-50-2023"></a></h2>
+<ul>
+<li><a href="https://scottjehl.com//posts/using-responsive-video/">How to Use Responsive HTML Video (...and Audio!)</a>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>video</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(min-width: 2000px)<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>large.webm<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/webm<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(min-width: 2000px)<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>large.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/mp4<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(min-width: 1000px)<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>medium.webm<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/webm<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(min-width: 1000px)<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>medium.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/mp4<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>small.webm<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/webm<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>small.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/mp4<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>video</span><span class="token punctuation">></span></span>
+</code></pre>
+</li>
+<li><a href="https://developer.chrome.com/blog/css-wrapped-2023?hl=en">CSS Wrapped: 2023!</a></li>
+<li><a href="https://youtube.com/watch?v=mdoMPWSSsqs">Why it's essential to excel at the things AI excels at</a>
+<ul>
+<li>Learning areas that AI excels in, like coding, English, design and data, will provide more opportunities as these re fields where AI is commonly utilized.</li>
+<li>Relying entirely on external support and outsourcing prevents one from developing self-awareness, confidence and resilience to overcome challenges.</li>
+<li>Gaining expertise in an AI-strong domain allows one to effectively lead AI-assisted innovations and make the most of AI capabilities.</li>
+<li>Information alone is insufficient - one must make connections between concepts internally through understanding.</li>
+<li>Insights emerge from linking disparate ideas, which only occurs through internal reflection not external instruction.</li>
+<li>Wisdom develops from accumulating insights over time through dedicated study.</li>
+<li>Specializing in an AI field builds an expertise level others rely on, while AI supports less skilled roles.</li>
+<li>Psychologically, self-learning builds identity, willpower and problem-solving skills.</li>
+<li>Opportunities arise from innovating where AI supports human strengths, not replacing them.</li>
+<li>Mastery requires climbing from foundations, so comprehensively studying AI domains leads to leadership.</li>
+</ul>
+</li>
+<li><a href="https://osssoftware.org/">Open Source Software</a> alternatives to popular projects.</li>
+</ul>
+<h2 id="week-49-2023">Week 49, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-49-2023"></a></h2>
+<ul>
+<li><a href="https://olano.dev/2023-11-30-code-is-run-more-than-read/">Code is run more than read</a></li>
+<li><a href="https://www.fairphone.com/en/">Fairphone</a></li>
+<li><a href="https://www.dedp.online/">Data Engineering Design Patterns</a></li>
+<li><a href="https://medium.com/source-and-buggy/do-one-thing-and-do-it-well-886b11a5d21">Kernighan and Pike were right: Do one thing, and do it well</a>
+<ul>
+<li>Connection analogy - Applets, Unix Programs, Plugins, Microservices</li>
+</ul>
+</li>
+<li><a href="https://ralphammer.com/dhow-to-get-started/">The Creative Playground</a></li>
+</ul>
+<h2 id="week-48-2023">Week 48, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-48-2023"></a></h2>
+<ul>
+<li><a href="https://tests.caniuse.com/avif">https://tests.caniuse.com/avif</a></li>
+<li><a href="https://dangeng.github.io/visual_anagrams/">Visual Anagrams: Generating Multi-View Optical Illusions with Diffusion Models</a></li>
+<li><a href="https://vuejs.org/guide/scaling-up/ssr.html#hydration-mismatch">Hydration Mismatch</a>
+<ul>
+<li>invalid HTML nesting structure</li>
+<li>randomly generated values</li>
+<li>The server and the client are in different time zones</li>
+</ul>
+</li>
+<li><a href="https://imois.in/games/travle/">Travel by Oisin Carroll</a> - A daily game – get between countries in as few guesses as possible</li>
+<li><a href="https://css-irl.info/preventing-overscroll-bounce-with-css/">Preventing Scroll “Bounce” with CSS</a>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token pseudo-class">:root</span></span> <span class="token punctuation">{</span>
+  <span class="token property">overscroll-behavior</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><a href="https://dl.acm.org/doi/10.1145/1273445.1273458">How to read a paper</a></li>
+<li><a href="https://www.biorxiv.org/content/10.1101/088278v5.full.pdf">Ten simple rules for structuring papers</a></li>
+<li><a href="https://chriscoyier.net/2023/11/27/the-hanging-punctuation-property-in-css/">The <code>hanging-punctuation</code> property in CSS</a></li>
+<li><a href="https://dalle.party/">DALL·E Party</a> - DALL·E ↔ GPT-4 Vision
+<ul>
+<li><a href="https://dalle.party/?party=vCwYT8Em">https://dalle.party/?party=vCwYT8Em</a></li>
+</ul>
+</li>
+<li><a href="https://sqids.org/">Sqids formerly Hashids</a> is an open-source library that lets you generate YouTube-looking IDs from numbers.</li>
+<li><a href="https://bfcm.shopify.com">Shopify live dashboard</a></li>
+<li><a href="https://bfcm.stripe.dev">Stripe live dashboard</a></li>
+<li><a href="https://github.com/vuejs/vue-loader/issues/957#issuecomment-329947476">Vue - scoped style leak</a></li>
+<li><a href="https://phuoc.ng/collection/html-dom/build-an-otp-input-field/">Build an OTP input field</a></li>
+</ul>
+<h2 id="week-47-2023">Week 47, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-47-2023"></a></h2>
+<ul>
+<li><a href="https://www.joshwcomeau.com/css/interactive-guide-to-grid/">An Interactive Guide to CSS Grid</a></li>
+<li><a href="https://opuszine.us/posts/your-websites-urls-can-should-be-beautiful">Your Website’s URLs Can and Should Be Beautiful</a></li>
+<li><a href="https://github.com/jsulpis/realtime-planet-shader">Realtime planet shader in WebGL</a></li>
+<li><a href="https://electronics.stackexchange.com/a/623375">Charging a lithium battery to 80% only?</a>
+<blockquote>
+<p>stay within 30%-80%</p>
+<ul>
+<li><a href="https://batteryuniversity.com/article/bu-808-how-to-prolong-lithium-based-batteries">How to Prolong Lithium-based Batteries</a></li>
+</ul>
+</blockquote>
+</li>
+<li><a href="https://www.zdnet.com/article/former-mozilla-exec-google-has-sabotaged-firefox-for-years/">Former Mozilla exec: Google has sabotaged Firefox for years</a></li>
+<li><a href="https://old.reddit.com/r/youtube/comments/17z8hsz/youtube_has_started_to_artificially_slow_down/">YouTube slows down video load times when using Firefox</a>
+<ul>
+<li><a href="https://www.androidauthority.com/youtube-blames-ad-blockers-slow-load-times-3387523/">YouTube blames ad blockers for slow load times, and it has nothing to do with your browser</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/abi/screenshot-to-code">screenshot-to-code</a> converts a screenshot to HTML/Tailwind CSS. It uses GPT-4 Vision to generate the code and DALL-E 3 to generate similar-looking images.</li>
+<li><a href="https://ittavern.com/url-explained-the-fundamentals/">URL explained - The Fundamentals</a></li>
+</ul>
+<h2 id="week-46-2023">Week 46, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-46-2023"></a></h2>
+<ul>
+<li><a href="https://itnext.io/rest-graphql-or-rpc-a-decision-paralysis-0acaa84b5a27">REST, GraphQL or RPC — A Decision Paralysis</a></li>
+<li><a href="https://stackoverflow.com/a/66311677/5163033">Clicking <code>&#x3C;a></code> element using Enter/Space key is not working even though it is focused (accessibility)</a></li>
+<li><a href="https://peergos.org/posts/blake3">Reasons to prefer blake3 over sha256</a>
+<ul>
+<li><a href="https://github.com/BLAKE3-team/BLAKE3">https://github.com/BLAKE3-team/BLAKE3</a></li>
+</ul>
+</li>
+<li><a href="https://htmx.org/essays/locality-of-behaviour/">Locality of Behaviour (LoB)</a></li>
+<li><a href="https://html-first.com/">HTML First</a>
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=38241304">https://news.ycombinator.com/item?id=38241304</a></p>
+</blockquote>
+</li>
+<li><a href="https://mixedname.com/">Find bilingual baby names</a></li>
+<li><a href="https://www.industrialempathy.com/posts/design-docs-at-google/">Design Docs at Google</a></li>
+<li><a href="https://darekkay.com/blog/debugging-dynamic-content/">Debugging dynamic content in browser dev tools</a></li>
+</ul>
+<h2 id="week-45-2023">Week 45, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-45-2023"></a></h2>
+<ul>
+<li><a href="https://ashleemboyer.com/blog/don-t-use-fixed-css-height-or-width-on-text-containers">Don't Use Fixed CSS height or width on Buttons, Links, or Any Other Text Containers</a>
+<blockquote>
+<p>Despite some web design tools specifying CSS <code>height</code> values for elements like buttons, setting <code>height</code> or <code>max-height</code> can actually put you at risk for failing <a href="https://www.w3.org/TR/WCAG22/#resize-text">WCAG 2.2 Success Criterion 1.4.4 Resize Text</a>.</p>
+</blockquote>
+</li>
+<li><a href="https://www.webaxe.org/strikethrough-html-accessibility/">Strikethrough Accessibility</a></li>
+<li><a href="https://neal.fun/internet-artifacts/">Internet Artifacts</a></li>
+<li><a href="https://two-wrongs.com/expressive-limitations-of-oop.html">The Expressivity Limitations of Object-Oriented Programming</a></li>
+<li><a href="https://monaspace.githubnext.com/">Monaspace</a>
+<pre class="language-shell"><code class="language-shell">system_profiler -json SPFontsDataType <span class="token operator">|</span> <span class="token function">grep</span> <span class="token punctuation">\</span>"family <span class="token operator">|</span> <span class="token function">sort</span> <span class="token operator">|</span> <span class="token function">uniq</span> <span class="token comment"># https://stackoverflow.com/a/67132993/5163033</span>
+</code></pre>
+Or<br>
+In Desktop view, Press “⌘ + Space” to start Spotlight, then type in “font book”</li>
+<li><a href="https://paveldogreat.github.io/WebGL-Fluid-Simulation/">Webgl Fluid Simulation</a></li>
+<li><a href="https://gomakethings.com/dont-disable-buttons/">Don't disable buttons</a> - it breaks accessibility
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=38196458"><code>disabled</code> shouldn't block focus</a></p>
+</blockquote>
+</li>
+<li><a href="https://www.benkuhn.net/hard/">You don’t need to work on hard problems</a>
+<blockquote>
+<p>In the real world the most important problems are vague and have many evaluation dimensions. Author found it rewarding to optimize for speed, cost and other pragmatic factors rather than just difficulty.</p>
+</blockquote>
+</li>
+<li><a href="https://docs.servicestack.net/ormlite/litestream#litestream">Litestream</a></li>
+<li><a href="https://newsletter.systemdesign.one/p/netflix-microservices">Microservices Lessons From Netflix</a></li>
+</ul>
+<h2 id="week-44-2023">Week 44, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-44-2023"></a></h2>
+<ul>
+<li><a href="https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-8/">Speeding up the JavaScript ecosystem - Tailwind CSS</a></li>
+<li><a href="https://garrit.xyz/posts/2023-11-01-tracking-sqlite-database-changes-in-git">Tracking SQLite Database Changes in Git</a>
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=38117779">So it does look like git's delta encoding works with sqlite's blocks.</a></p>
+</blockquote>
+</li>
+<li><a href="https://alexkondov.com/full-stack-tao-start-with-the-domain/">Full-Stack Tao: Start With the Domain</a></li>
+<li><a href="https://github.com/gristlabs/grist-core">grist-core</a> is the evolution of spreadsheets.</li>
+<li><a href="https://www.window-swap.com/">Window-swap</a> – open a new window somewhere in the world
+<ul>
+<li><a href="https://www.earthcam.com/">https://www.earthcam.com/</a></li>
+</ul>
+</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path">Critical rendering path</a></li>
+<li><a href="https://ralphammer.com/immanuel-kant-what-can-we-know/">Immanuel Kant—What can we know?</a></li>
+<li><a href="https://www.asyousow.org/environmental-health/toxic-enforcement/toxic-chocolate#chocolate-tables">Toxins in chocolate</a></li>
+<li><a href="https://www.epicweb.dev/why-you-should-probably-be-using-sqlite#weaknesses">SQLite is not without its shortcomings.</a>
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=38036921">https://news.ycombinator.com/item?id=38036921</a></p>
+</blockquote>
+</li>
+<li><a href="https://fly.io/docs/litefs/">LiteFS - Distributed SQLite</a></li>
+<li><a href="https://turso.tech/">Turso</a> which uses SQLite under the hood and even has a concept called "embedded replicas" for zero latency reads.</li>
+<li><a href="https://terrastruct.com/blog/post/draw-software-architecture-diagrams/">How to draw beautiful software architecture diagrams (part 1)</a></li>
+</ul>
+<h2 id="week-43-2023">Week 43, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-43-2023"></a></h2>
+<ul>
+<li><a href="https://github.com/kysely-org/kysely">Kysely</a> is a type-safe and autocompletion-friendly typescript SQL query builder.</li>
+<li><a href="https://www.youtube.com/watch?v=QM1iUe6IofM">Object-Oriented Programming is Bad</a></li>
+<li><a href="https://ethang.dev/blog/i-hate-nest-js/">I Hate NestJS</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=38003433">starbugs's opinion</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/radix-vue/radix-vue">Radix Vue</a> - Vue port of Radix UI Primitives. An open-source UI component library for building high-quality, accessible design systems and web apps.</li>
+<li><a href="https://www.epicweb.dev/why-i-wont-use-nextjs">I Won't Use Next.js</a> - <a href="https://news.ycombinator.com/item?id=38018217">https://news.ycombinator.com/item?id=38018217</a></li>
+<li><a href="https://salt.security/blog/oh-auth-abusing-oauth-to-take-over-millions-of-accounts">Oh-Auth - Abusing OAuth to take over millions of accounts</a>
+<blockquote>
+<p>Not verifying access tokens as required by OAuth specifications allows an attacker to harvest credentials from a malicious site and hijack accounts on other trusted platforms.</p>
+</blockquote>
+</li>
+<li><a href="https://csswizardry.com/2023/10/the-three-c-concatenate-compress-cache/">The Three Cs: 🤝 Concatenate, 🗜️ Compress, 🗳️ Cache</a></li>
+<li><a href="https://pudding.cool/">The Pudding</a> is a digital publication that is the best internet rabbit hole.</li>
+<li><a href="https://developer.chrome.com/en/blog/hr-in-select/">Select element: now with horizontal rules</a></li>
+<li><a href="https://jsoverson.medium.com/was-rust-worth-it-f43d171fb1b3">Was Rust Worth It?</a>
+<blockquote>
+<p>While Rust allows creating reliable software, its steep learning curve, rigid structure, and issues with async code can present roadblocks.</p>
+</blockquote>
+</li>
+<li><a href="https://github.com/AndrewWalsh/openapi-devtools">Openapi Devtools</a> - Effortlessly discover API behaviour with a Chrome extension that automatically generates OpenAPI specifications in real time for any app or website.</li>
+<li><a href="https://docs.google.com/document/d/1iL0fYmMmariFoSvLd9U5nPVH1uFKC7bvVasUcYq78So/">The OSI Deprogrammer</a></li>
+<li><a href="https://computer.rip/2021-03-27-the-actual-osi-model.html">the actual osi model</a></li>
+<li><a href="https://sindresorhus.com/blog/goodbye-nodejs-buffer">Time to move from Node.js Buffer to Uint8Array</a></li>
+<li><a href="https://tonsky.me/blog/disenchantment/">Software disenchantment</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=37987255">https://news.ycombinator.com/item?id=37987255</a></li>
+</ul>
+</li>
+<li><a href="https://www.akshaykhot.com/base64-encoding-explained/">Base64 Encoding, Explained</a></li>
+<li><a href="https://smartguess.is/blog/your-estimate-is-less-than-that/">Pushing for a lower dev estimate is like negotiating better weather with a meteorologist</a> discusses how stakeholders often push development teams to provide lower estimates than initially given, without valid reasons for why the effort would decrease.
+<ul>
+<li>Estimates cannot be pushed lower without new information.</li>
+<li>With open communication around constraints and tradeoffs, teams can set appropriate expectations and deliver value along the way.</li>
+</ul>
+</li>
+<li><a href="https://zackoverflow.dev/writing/flappy-bird-in-type-level-typescript/">Flappy Bird Implemented in Typescript types</a></li>
+<li><a href="https://www.redblobgames.com/grids/hexagons/">Hexagonal Grids</a> discusses different approaches to representing hexagonal grids in code, including cube, axial, offset, and doubled coordinates.
+<ul>
+<li>Each system has tradeoffs in terms of simplicity for algorithms and storage.</li>
+<li>Axial coordinates are recommended for algorithms as they allow basic math operations.</li>
+<li>Offset coordinates may be better for storage.</li>
+</ul>
+</li>
+</ul>
+<h2 id="week-42-2023">Week 42, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-42-2023"></a></h2>
+<ul>
+<li><a href="https://github.com/nuxt/nuxt/issues/20476">useFetch triggers a request on the client side in nested components (using resolveComponent) #20476</a></li>
+<li><a href="https://better-mobile-inputs.netlify.app/">Build a Better Mobile Input</a>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete">https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete</a></li>
+</ul>
+</li>
+<li><a href="https://css-irl.info/styling-external-links-with-attribute-selectors/">Styling External Links with Attribute Selectors</a>
+<ul>
+<li><code>a[class~='link']</code>, <code>a[href*='css-irl' s]</code></li>
+</ul>
+</li>
+<li><a href="https://csswizardry.com/2023/09/the-ultimate-lqip-lcp-technique/">The Ultimate Low-Quality Image Placeholder Technique</a></li>
+<li><a href="https://www.gabrielgambetta.com/lag-compensation.html">Fast-Paced Multiplayer (Part IV): Lag Compensation</a></li>
+<li><a href="https://www.gabrielgambetta.com/entity-interpolation.html">Fast-Paced Multiplayer (Part III): Entity Interpolation</a></li>
+<li><a href="https://www.stefanjudis.com/today-i-learned/how-to-escape-css-selectors-in-javascript/">How to escape CSS selectors in JavaScript</a> - a handy static method in the <code>CSS</code> JavaScript namespace to help with this exact problem — <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS/escape_static"><code>CSS.escape()</code></a></li>
+<li><a href="https://www.gabrielgambetta.com/client-side-prediction-server-reconciliation.html">Fast-Paced Multiplayer (Part II): Client-Side Prediction and Server Reconciliation</a></li>
+<li><a href="https://ntietz.com/blog/write-more-useless-software/">Write more "useless" software</a> for the joy of computing.</li>
+<li><a href="https://reflect.net/">Reflect</a> - High-performance sync for multiplayer web apps
+<ul>
+<li><a href="https://rocicorp.dev/blog/ready-player-two">Ready Player Two</a> - Transactional Conflict Resolution instead of CRDTs</li>
+</ul>
+</li>
+<li><a href="https://github.com/partykit/partykit/">PartyKit</a> simplifies developing multiplayer applications</li>
+<li><a href="https://www.breck-mckye.com/blog/2023/05/Microfrontends-should-be-your-last-resort/">Microfrontends should be your last resort</a> argues teams should first refactor their code into isolated domains and minimize dependencies before considering microfrontends.</li>
+<li><a href="https://github.com/mendel5/alternative-front-ends/">alternative-front-ends</a> - Overview of alternative open source front-ends for popular internet platforms (e.g. YouTube, Twitter, etc.)</li>
+<li><a href="https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities">Organizing multiple Git identities</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=37904125">You can also filter based on the remote URL!</a></li>
+</ul>
+</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work">Populating the page: how browsers work</a></li>
+<li><a href="https://ruoyusun.com/2023/10/12/one-game-six-platforms.html">One Game, By One Man, On Six Platforms: The Good, The Bad and The Ugly</a></li>
+</ul>
+<h2 id="week-41-2023">Week 41, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-41-2023"></a></h2>
+<ul>
+<li><a href="https://www.sonarsource.com/blog/vulnerable-regular-expressions-javascript/">A comprehensive guide to the dangers of Regular Expressions in JavaScript</a> explains how certain regex patterns can cause exponential backtracking on long strings, leading to regular expression denial of service (ReDoS) vulnerabilities. Two real world examples caused major outages at Stack Overflow and CloudFlare due to unintentionally vulnerable regex use.</li>
+<li><a href="https://thenewstack.io/javascript-hydration-is-a-workaround-not-a-solution/">JavaScript Hydration Is a Workaround, Not a Solution</a>
+<blockquote>
+<p>JavaScript hydration is a technique used to add interactivity to server-rendered HTML pages by attaching event handlers to DOM elements on the client-side.<br>
+However, this process requires recovering the necessary information to rebuild the application state and framework state. The document argues that hydration is an overhead because it duplicates the work already done by the server.</p>
+<p>A better approach called resumability avoids this overhead by serializing and transferring the necessary information from server to client.
+This allows lazy execution of event handlers on the client-side instead of eagerly executing all components.</p>
+</blockquote>
+</li>
+<li><a href="https://thenewstack.io/angular-qwik-creator-on-how-js-frameworks-handle-reactivity/">Angular, Qwik Creator on How JS Frameworks Handle Reactivity</a>
+<blockquote>
+<p>Three approaches: values, signals, and observables.</p>
+<p>Angular and React use values and take a coarse-grained approach, re-rendering everything when data changes.<br>
+Vue is more fine-grained and will skip re-rendering unchanged components.<br>
+Svelte compilers code to be more efficient.<br>
+Qwik downloads only the minimal code needed through signals and resumability, making it highly optimized for start-up performance.<br>
+Solid uses signals to be the most fine-grained, only executing code initially.</p>
+</blockquote>
+</li>
+<li><a href="https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7/">Speeding up the JavaScript ecosystem - The barrel file debacle</a>
+<blockquote>
+<p>The use of barrel files, which only re-export other files, is very common in large JavaScript projects. However, they can significantly slow down development tasks by forcing the rebuilding of the entire module graph for every file.</p>
+</blockquote>
+</li>
+<li><a href="https://www.wired.com/story/opinion-ai-is-an-ideology-not-a-technology/">AI is an Ideology, Not a Technology</a> argues that artificial intelligence is better understood as an ideology rather than just a technology. It promotes a view of autonomous machine intelligence that could replace humans, but this is a mirage since AI relies heavily on human data and contributions. An alternative view is to focus on how people are central to developing AI systems through providing examples, problem-solving and understanding the technology.</li>
+<li><a href="https://without.boats/blog/thread-per-core/">Thread-per-core</a>
+<blockquote>
+<p>The thread-per-core architecture for Rust async programs has been controversial. While it promises better performance and ease of implementation, it may only achieve one, not both. A share-nothing approach keeps data in separate core caches but is complex to implement transactionally.</p>
+<p><a href="https://news.ycombinator.com/item?id=37791635">The debate isn't about thread-per-core work stealing executors, it's whether async/await is a good abstraction for it in Rust. And the more async code I write the more I feel that it's leaky and hard to program against.</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="week-40-2023">Week 40, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-40-2023"></a></h2>
+<ul>
+<li><a href="https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-6/">Speeding up the JavaScript ecosystem - Polyfills gone rogue</a>
+<blockquote>
+<p>Many popular npm packages depend on 6-8x more packages than they need to. Most of these are unnecessary polyfills.</p>
+</blockquote>
+</li>
+<li><a href="https://blog.apnic.net/2023/09/25/why-http-3-is-eating-the-world/">Why HTTP/3 is eating the world</a>
+<blockquote>
+<p>It uses the QUIC protocol, which improves on TCP by more extensively encrypting metadata and enabling faster connection setup. QUIC also enhances performance by eliminating issues like head-of-line blocking and improving network handling. While HTTP/3 was created to work over QUIC, the true innovation was QUIC itself, which updates TCP with security and efficiency improvements. QUIC encryption makes it easier to update features, since middleboxes cannot access metadata. Overall, QUIC and HTTP/3 enhance web performance and security by modernizing core Internet protocols.</p>
+</blockquote>
+</li>
+<li><a href="https://erinkissane.com/meta-in-myanmar-part-i-the-setup">Meta in Myanmar</a> discusses how hate speech and misinformation spread on Facebook contributed to real-world violence against Rohingya Muslims in Myanmar starting in 2012. Activists had warned Facebook for years about this issue but the company was slow to act.</li>
+<li><a href="https://blog.cloudflare.com/announcing-encrypted-client-hello/">Encrypted Client Hello</a></li>
+<li><a href="https://www.redblobgames.com/making-of/draggable/">Draggable objects</a></li>
+<li><a href="https://prdeving.wordpress.com/2023/09/29/mmo-architecture-source-of-truth-dataflows-i-o-bottlenecks-and-how-to-solve-them/">MMO Architecture: Source of truth, Dataflows, I/O bottlenecks and how to solve them</a> discusses architecture challenges for massively multiplayer online (MMO) games. Unlike enterprise systems, the source of truth for an MMO's game world is the in-memory state, not the database, as persisting frequent updates would cause bottlenecks. To address this, the article recommends using a data service with the full state cached in memory.</li>
+<li><a href="https://graz.social/@publicvoit/111147782761723981">Everything authenticated by Microsoft is tainted.</a></li>
+<li><a href="https://noyaml.com/">🚨🚨 That's a lot of YAML 🚨🚨</a>
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=37687365">There are a lot of problems in YAML, but I think the main real problem is trying to put logic inside configuration.</a></p>
+</blockquote>
+</li>
+<li><a href="https://headlineshq.substack.com/p/issue-no-029-live-near-your-friends">Live Near Your Friends</a> - in distance of 5-minute walk
+<ul>
+<li><a href="https://waitbutwhy.com/2015/12/the-tail-end.html">The Tail End</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-39-2023">Week 39, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-39-2023"></a></h2>
+<ul>
+<li><a href="https://twitter.com/8teapi/status/1706520893621784780">Google is picking ChatGPT responses from Quora as correct answer</a></li>
+<li><a href="https://bostonunitygroup.s3.us-east-1.amazonaws.com/index.html">Unity's oldest community announces dissolution</a></li>
+<li><a href="https://www.fieggen.com/shoelace/">Ian's Shoelace Site</a></li>
+</ul>
+<h2 id="week-38-2023">Week 38, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-38-2023"></a></h2>
+<ul>
+<li>
+<p><a href="https://medium.com/aws-tip/understanding-nestjs-architecture-f257d054211d">Understanding NestJS Architecture</a></p>
+</li>
+<li>
+<p><a href="https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/">View Transitions Break Incremental Rendering</a></p>
+</li>
+<li>
+<p><a href="https://github.com/privatenumber/minification-benchmarks">🏃‍♂️🏃‍♀️🏃 JS minification benchmarks</a></p>
+</li>
+<li>
+<p><a href="https://frontendmasters.com/blog/vanilla-javascript-reactivity/">Patterns for Reactivity with Modern Vanilla JavaScript</a></p>
+</li>
+<li>
+<p><a href="https://github.com/skmail/responsive-viewer">Responsive Viewer Chrome extension</a></p>
+</li>
+<li>
+<p><a href="https://css-tricks.com/send-an-http-request-on-page-exit/">Reliably Send an HTTP Request as a User Leaves a Page</a></p>
+</li>
+<li>
+<p><a href="https://www.macarthur.me/posts/priority-hints">Get All That Network Activity Under Control with Priority Hints</a></p>
+</li>
+<li>
+<p><a href="https://wicg.io/">Web Incubator Community Group</a> (WICG) is a community group of the <a href="https://www.w3.org/">World Wide Web Consortium (W3C)</a> that incubates new web platform features.</p>
+</li>
+<li>
+<p><a href="https://andy-bell.co.uk/a-more-modern-css-reset/">A (more) Modern CSS Reset</a></p>
+</li>
+<li>
+<p><a href="http://www.cs.cmu.edu/~wkw/humour/carproblems.txt">Car allergic to vanilla ice cream</a></p>
+</li>
+<li>
+<p><a href="http://web.mit.edu/jemorris/humor/500-miles">We can't send email more than 500 miles</a></p>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=23777700">https://news.ycombinator.com/item?id=23777700</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://svelte.dev/blog/runes">Svelte 5: Runes</a></p>
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=37584877">reactivity and two way data binding creating a spaghetti mess of changes affecting other changes all over the place unless you're really careful is why React was made in the first place</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=37585078">Svelte uses signals as an implementation detail, but in a way that prevents the sorts of headaches you're describing.</a></p>
+</blockquote>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=37589355">MrJohz's opinion among front-end frameworks</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://v0.dev/">https://v0.dev/</a></p>
+</li>
+<li>
+<p><a href="https://nitter.net/OSSInsight/status/1703087927763542305">OSS Game Engines are increasing their stars on GitHub due to Unity's missteps</a></p>
+<ul>
+<li><a href="https://ossinsight.io/collections/game-engine/">OSS Game Engine - Ranking</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad">How Instagram scaled to 14 million users with only 3 engineers</a></p>
+<ul>
+<li>Keep things very simple.</li>
+<li>Don’t re-invent the wheel.</li>
+<li>Use proven, solid technologies when possible.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://csvbase.com/blog/5">My favourite API is a zipfile on the European Central Bank's website</a> - curl, zip, sqlite</p>
+</li>
+<li>
+<p><a href="https://www.ritsumei.ac.jp/~akitaoka/index-e.html">Akiyoshi's illusion pages</a></p>
+</li>
+</ul>
+<h2 id="week-37-2023">Week 37, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-37-2023"></a></h2>
+<ul>
+<li><a href="https://github.com/headllines/hackernews-daily">Hacker News Daily Top 10 posts</a> - You can subscribe by <a href="https://github.com/headllines/hackernews-daily#how-does-it-work">watching this repo</a> or via <a href="https://feeds.pub/feed/http%3A%2F%2Frsshub.app%2Fgithub%2Fissue%2Fheadllines%2Fhackernews-daily">RSS</a>.</li>
+<li><a href="https://ipapi.is/geolocation.html">How to build a IP geolocation database from scratch?</a></li>
+<li><a href="https://github.com/evanw/thumbhash">ThumbHash</a> - A very compact representation of an image placeholder
+<ul>
+<li><a href="https://github.com/ascorbic/unpic-placeholder">unpic/placeholder🖼️</a> is a library for generating low quality image placeholders (LQIP) by extracting the dominant color from image, or by server-side rendering a <a href="https://blurha.sh/">BlurHash</a> value.</li>
+</ul>
+</li>
+<li><a href="https://bricolage.io/some-notes-on-local-first-development/">Some notes on Local-First Development</a>
+<ul>
+<li><a href="https://github.com/vlcn-io/cr-sqlite">cr-sqlite</a> - Convergent, Replicated, SQLite - "It's like Git, for your data."</li>
+</ul>
+</li>
+<li><a href="https://phuoc.ng/collection/this-vs-that/preload-vs-prefetch/">preload vs prefetch</a></li>
+<li><a href="https://timotijhof.net/posts/2023/an-internet-of-php/">An Internet of PHP</a></li>
+</ul>
+<h2 id="week-36-2023">Week 36, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-36-2023"></a></h2>
+<ul>
+<li><a href="https://ionic.io/blog/building-a-native-superapp-with-micro-frontends-and-federated-capacitor">Building a Native Superapp with Micro Frontends and Federated Capacitor</a></li>
+<li><a href="https://www.joshwcomeau.com/react/server-components/">Making Sense of React Server Components</a></li>
+<li><a href="https://benhoyt.com/writings/the-small-web-is-beautiful/">The small web is beautiful</a></li>
+<li><a href="https://world.hey.com/dhh/turbo-8-is-dropping-typescript-70165c01">Turbo 8 is dropping TypeScript</a> - <a href="https://github.com/hotwired/turbo/pull/971">https://github.com/hotwired/turbo/pull/971</a></li>
+<li><a href="https://tidyfirst.substack.com/p/measuring-developer-productivity">Measuring developer productivity? A response to McKinsey</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label">Javascript labeled statement</a></li>
+<li><a href="https://dannorth.net/2023/09/02/the-worst-programmer/">The Worst Programmer I Know</a>
+<blockquote>
+<p>Tim wasn’t delivering software; Tim was delivering a team that was delivering software.</p>
+</blockquote>
+</li>
+<li><a href="https://stingingfly.org/2017/10/24/edit-lousy-writing/">How To Edit Your Own Lousy Writing</a> (<a href="/notes/xuv0h9lxmedepsz2z6vtchq">Vomit Draft</a>)
+<blockquote>
+<p>The article provides advice on how to improve one's writing through effective editing and revising. It states that first drafts are usually poor but that is normal, as editing is the hidden yet vital second half of writing. By learning to read one's own work as a reader would, an author can better see where the writing fails to effectively convey the intended story. It takes many drafts to transform the ideas in one's head into clear writing that evokes the same experience for others. While the process can feel despairing, persisting through multiple revisions is necessary to craft a story that readers can fully understand and engage with. Effective editing focuses first on major structural issues before minor details.</p>
+</blockquote>
+</li>
+<li><a href="https://avestura.dev/blog/explaining-the-postgres-meme">Explaining The Postgres Meme</a>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=JZRWkfXNQOk">SQL iceberg explained</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-35-2023">Week 35, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-35-2023"></a></h2>
+<ul>
+<li><a href="https://christianheilmann.com/2023/08/24/quick-tip-getting-all-links-from-any-web-site-into-a-spreadsheet-using-browser-developer-tools/">Getting all links from any web site into a spreadsheet using browser developer tools</a> - <code>console.table($$('a'),['innerHTML','href'])</code></li>
+<li><a href="https://www.animatedknots.com/">Animated Koots</a></li>
+<li><a href="https://www.marginalia.nu/log/87_absurd_success/">Absurd Success</a>
+<blockquote>
+<p>The author describes making several improvements to their search engine that significantly increased its performance and scalability. They reworked the URL database to use a single SQLite table instead of large MySQL tables, generating unique IDs during indexing rather than relying on database auto-increment. This reduced RAM usage and allowed indexing to continue while the database was updated. They also changed how the reverse index was constructed, building multiple smaller pre-indexes in memory and then merging them, instead of using a large in-memory lexicon. This avoided writing terabytes of random data to disk and allowed indexing disparate datasets together. Overall these changes halved RAM usage and addressed all known scaling issues, improving the system considerably more than expected.</p>
+</blockquote>
+</li>
+<li><a href="https://growth.design/psychology">🧠 The Psychology of Design</a> - 106 Cognitive Biases &#x26; Principles That Affect Your UX <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://windscribe.com/vpnmap">VPN Relationship Map</a> - Find out who owns your data and see all the shady relationships in the VPN industry.</li>
+<li><a href="https://git-scm.com/docs/git-bisect">git bisect</a> - during fix vite plugin error</li>
+<li><a href="https://algoritmos-iii.github.io/assets/bibliografia/programming-as-theory-building.pdf">Programming as Theory Building</a>
+<ul>
+<li><a href="https://www.baldurbjarnason.com/2022/theory-building/">Theory building and why employee churn is lethal to software companies</a></li>
+</ul>
+</li>
+<li><a href="https://old.reddit.com/r/webdev/comments/1613yqj/as_i_get_older_i_just_dont_care_about_new/">As I get older, I just don't care about new technology</a></li>
+</ul>
+<h2 id="week-34-2023">Week 34, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-34-2023"></a></h2>
+<ul>
+<li><a href="https://mough.xyz/312/psa-add-dir-auto-to-your-inputs-and-textareas">PSA: Add dir="auto" to your inputs and textareas.</a></li>
+<li><a href="https://www.timr.co/server-side-rendering-is-a-thiel-truth/">Server-Side Rendering is a Thiel Truth</a></li>
+<li><a href="https://www.unravelled.dev/how-architecture-diagrams-enable-better-conversations/">How architecture diagrams enable better conversations</a>
+<ul>
+<li><a href="https://www.workingsoftware.dev/software-architecture-canvas/">https://www.workingsoftware.dev/software-architecture-canvas/</a></li>
+<li><a href="https://canvas.arc42.org/architecture-communication-canvas">https://canvas.arc42.org/architecture-communication-canvas</a></li>
+<li><a href="https://arc42.org/overview/">https://arc42.org/overview/</a> - <a href="https://arc42.org/download">https://arc42.org/download</a></li>
+<li><a href="https://softwarearchitecturefordevelopers.com/">https://softwarearchitecturefordevelopers.com/</a></li>
+</ul>
+</li>
+<li><a href="https://medium.com/@islizeqiang/understanding-the-difference-between-and-in-css-64c9d36c21af">Understanding the Difference Between : and :: in CSS</a>
+<blockquote>
+<p>:: are used to create additional elements within an element</p>
+</blockquote>
+</li>
+<li><a href="https://pdx.su/blog/2023-07-26-tailwind-and-the-death-of-craftsmanship/">Tailwind, and the death of web craftsmanship</a>
+<blockquote>
+<p>While Tailwind may help with initial development speed, it can reduce craftsmanship and make code harder to work with over time.</p>
+</blockquote>
+</li>
+<li><a href="https://cohost.org/lunasorcery/post/2465593-testing-your-animati">testing your animation refresh rate with css crimes??</a></li>
+</ul>
+<h2 id="week-33-2023">Week 33, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-33-2023"></a></h2>
+<ul>
+<li><a href="https://www.bitecode.dev/p/nobody-ever-paid-me-for-code">Nobody ever paid me for code</a></li>
+<li><a href="https://stackoverflow.com/a/26944812/5163033">When to use "chore" as type of commit message?</a>
+<blockquote>
+<p>"<code>grunt task</code>" means nothing that an external user would see:</p>
+<ul>
+<li>implementation (of an <em>existing feature</em>, which doesn't involve a fix),</li>
+<li>configuration (like the <code>.gitignore</code> or <code>.gitattributes</code>),</li>
+<li>private internal methods...</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="week-32-2023">Week 32, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-32-2023"></a></h2>
+<ul>
+<li><a href="https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/">A Blog Post With Every HTML Element</a>
+<ul>
+<li><code>&#x3C;base></code></li>
+</ul>
+</li>
+<li><a href="https://www.omiod.com/meta-seo-inspector/">meta seo inspector</a> is a Chrome extension useful to inspect in 1 click the meta data usually not visible while browsing</li>
+</ul>
+<h2 id="week-31-2023">Week 31, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-31-2023"></a></h2>
+<ul>
+<li><a href="https://cofense.com/blog/google-amp-the-newest-of-evasive-phishing-tactic/">Google AMP – The Newest of Evasive Phishing Tactic</a>
+<blockquote>
+<p><code>https://www.google.com/amp/s/${phishing URL}</code></p>
+</blockquote>
+</li>
+<li><a href="/notes/ejkb541ebc0tp70n4hy72zw">Building Software Together</a> ch.21~28</li>
+<li><a href="https://praveshkoirala.com/2023/06/13/a-non-mathematical-introduction-to-kalman-filters-for-programmers/">A non-mathematical introduction to Kalman filters for programmers</a></li>
+<li><a href="https://longform.asmartbear.com/problem/">Excuse me, is there a problem?</a></li>
+<li><a href="https://www.amitmerchant.com/run-and-pause-animations-in-css/">Resume and pause animations in CSS</a>
+<ul>
+<li><code>animation-play-state</code> property. - <code>running</code> and <code>paused</code></li>
+</ul>
+</li>
+<li>Software Engineering at Google - ch.16~25</li>
+<li><a href="https://glebbahmutov.com/blog/csp-testing-using-cypress/">CSP Testing Using Cypress</a></li>
+<li><a href="https://ploum.net/2023-08-01-splitting-the-web.html">Splitting the Web</a></li>
+<li><a href="https://zknill.io/posts/edge-database/">So, you want to deploy on the edge?</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=36941299">What is Edge?</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-30-2023">Week 30, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-30-2023"></a></h2>
+<ul>
+<li>Software Engineering at Google - ch.7~15
+<blockquote>
+<p>Code is a liability, not an asset. Code itself doesn’t bring value: it is the functionality that it provides that brings value. That functionality is an asset if it meets a user need: the code that implements this functionality is simply a means to that end.</p>
+</blockquote>
+</li>
+<li><a href="https://blog.yusu.ke/hono-htmx-cloudflare/">Hono + htmx + Cloudflare is a new stack</a></li>
+<li><a href="https://testing.googleblog.com/2014/07/testing-on-toilet-dont-put-logic-in.html">Testing on the Toilet: Don't Put Logic in Tests</a>
+<blockquote>
+<p>Production code computes outputs from inputs while tests specify concrete input/output pairs. Complex test logic should be moved to helper functions with their own tests, leaving test bodies simple.</p>
+</blockquote>
+</li>
+<li><a href="https://beomy.github.io/tech/browser/critical-rendering-path/#%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EC%A7%80%EC%A0%95">[Browser] Critical Rendering Path 최적화</a></li>
+<li><a href="https://github.com/vuejs/rfcs/discussions/503">[Core Team RFC] New SFC macro: defineModel</a></li>
+<li><a href="https://www.evanjones.ca/nanosecond-collisions.html">Nanosecond timestamp collisions are common</a>
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format">https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-29-2023">Week 29, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-29-2023"></a></h2>
+<ul>
+<li>Software Engineering at Google - ch.1~6</li>
+<li><a href="https://vercel.com/blog/how-react-18-improves-application-performance">How React 18 Improves Application Performance</a></li>
+<li><a href="https://beomy.github.io/tech/browser/preload-preconnect-prefetch/">[Browser] 리소스 우선순위 - preload, preconnect, prefetch</a>
+<blockquote>
+<p><code>prefetch</code>를 사용하면 리소스를 미리 캐시 해 두기 때문에 성능이 향상될 것이라고 예상. 하지만 vue-cli3에서 제공하는 prefetch 기능을 사용하면 오히려 첫 렌더링 성능이 저하되는 것으로 확인</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="week-28-2023">Week 28, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-28-2023"></a></h2>
+<ul>
+<li><a href="https://davidwalsh.name/element-closest">JavaScript closest</a>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> link <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"li a"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> list <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token method function property-access">closest</span><span class="token punctuation">(</span><span class="token string">"ul"</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
+<h2 id="week-27-2023">Week 27, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-27-2023"></a></h2>
+<ul>
+<li><a href="https://www.tunetheweb.com/blog/what-does-the-image-decoding-attribute-actually-do/">What does the image decoding attribute actually do?</a>
+<blockquote>
+<p>So does this make a difference as an HTML attribute? probably not that much.</p>
+</blockquote>
+</li>
+<li><a href="https://csswizardry.com/2023/07/in-defence-of-domcontentloaded/">In Defence of DOMContentLoaded</a>
+<blockquote>
+<p>The DOMContentLoaded event fires once all of your deferred JavaScript has finished running.</p>
+</blockquote>
+</li>
+<li><a href="https://stackoverflow.blog/2023/06/26/the-hardest-part-of-building-software-is-not-coding-its-requirements/">The hardest part of building software is not coding, it’s requirements</a> - Why replacing programmers with AI won’t be so easy.</li>
+</ul>
+<h2 id="week-26-2023">Week 26, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-26-2023"></a></h2>
+<ul>
+<li>
+<p><a href="https://github.com/mjmlio/mjml">MJML</a> - the only framework that makes responsive-email easy</p>
+</li>
+<li>
+<p><a href="https://medium.com/codex/ssmpl-a-wishful-thinking-html-replacement-proposal-1e11e8d86bf6">SSMPL : A Wishful Thinking HTML Replacement Proposal</a></p>
+</li>
+<li>
+<p><a href="https://github.com/gajus/slonik">Slonik</a> - A <a href="https://github.com/gajus/slonik#user-content-battle-tested">battle-tested</a> Node.js PostgreSQL client with strict types, detailed logging and assertions.</p>
+</li>
+<li>
+<p><a href="https://gajus.medium.com/stop-using-knex-js-and-earn-30-bf410349856c">Stop using Knex.js</a> - Using SQL query builder is an anti-pattern</p>
+<blockquote>
+<p>Knex.js (and other query builders) was designed to be a building block for ORMs; it does not add value when majority of the query is static.<br>
+I recommend that you use a query builder for those few queries that need to be generated dynamically, and use raw SQL for everything else. It is not one or the other; the two work together.</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://github.com/getlago/lago/wiki/Is-ORM-still-an-%27anti-pattern%27%3F">Is ORM still an 'anti pattern'?</a></p>
+<blockquote>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=36500429">"ORMs make the easy parts slightly easier, but they make the hard parts really hard"</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Sequelize is extremely simpler and writing code with it is a joy compared to hibernate.</li>
+<li>A year ago i had to develop a big Java application without orm (cto’s choice): i didn’t remember how tedious, error prone and slow is development without orm!!! Never do it again!</li>
+<li>I think the best approach is to use orm for common crud tasks and add specific sql queries when things get a little bit complicated.
+<a href="https://news.ycombinator.com/item?id=36503105">andretti1977</a></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><a href="https://apiumhub.com/tech-blog-barcelona/inverted-triangle-architecture-for-css-itcss/">Inverted Triangle Architecture For CSS (ITCSS)</a></p>
+</li>
+<li>
+<p><a href="https://css-tricks.com/css-cascade-layers/">A Complete Guide to CSS Cascade Layers</a></p>
+<blockquote>
+<p><code>@layer reset, default, themes, patterns, layouts, components, utilities;</code></p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://github.com/binpash/try">try</a> lets you run a command and inspect its effects before changing your live system. <code>try</code> uses Linux's <a href="https://docs.kernel.org/userspace-api/unshare.html">namespaces (via <code>unshare</code>)</a> and the <a href="https://docs.kernel.org/filesystems/overlayfs.html">overlayfs</a> union filesystem.</p>
+</li>
+</ul>
+<h2 id="week-25-2023">Week 25, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-25-2023"></a></h2>
+<ul>
+<li><a href="https://floooh.github.io/2018/06/17/handles-vs-pointers.html">Handles are the better pointers</a></li>
+<li><a href="https://clarity.microsoft.com/">Microsoft Clarity - Free Heatmaps &#x26; Session Recordings</a></li>
+<li><a href="https://chriscoyier.net/2023/06/06/modern-css-in-real-life/">Modern CSS in Real Life</a>
+<blockquote>
+<ul>
+<li><code>margin-right</code>: Translated to RTL, spacing problem. use <code>margin-inline-end</code> (or <code>gap</code>).</li>
+<li><code>img</code> alt: With that brief information, perhaps someone might be able to, say, recognize the exact pier in the photo if they had been there before or the like.</li>
+<li>higher layer will win, regardless of specificity.</li>
+<li><code>@import url(~) layer;</code> - my @import of Bootstrap is plunked onto a layer. Note: we don’t even have to name it, and we can use this keyword instead of @layer while importing. - my super weak CSS selector in which I’m trying to override header margin does win</li>
+<li><code>@layer reset, default, themes, patterns, layouts, components, utilities;</code></li>
+</ul>
+</blockquote>
+</li>
+<li><a href="https://shape-of-code.com/2021/01/17/software-effort-estimation-is-mostly-fake-research/">Software effort estimation is mostly fake research</a>
+<blockquote>
+<p>from <a href="https://news.ycombinator.com/item?id=36350632">HK news</a></p>
+<ul>
+<li>It's not fake research. It's actually quite an established science in the 24 years I've been doing it.</li>
+<li>Take your first guess, double it, double it again if the stakeholder is a poser, add 20% per developer less experience than you, subtract 10% for the features you're going to essentially copy paste, add 15% for sick leave (browsing HN) and then double it for every question you have that are unresolved and divide it by the room temperature multiplied by the amount of people with mechanical keyboards.</li>
+<li>That gives you roughly the right estimate for any job, until the next sprint.</li>
+</ul>
+</blockquote>
+</li>
+<li><a href="https://www.joshwcomeau.com/css/ccustom-css-reset/">My Custom CSS Reset</a>
+<ul>
+<li>In MacOS Mojave, released in 2018, Apple disabled subpixel antialiasing across the operating system.</li>
+<li>Confusingly, MacOS browsers like Chrome and Safari still use subpixel antialiasing by default. We need to explicitly turn it off, by setting <code>-webkit-font-smoothing</code> to <code>antialiased</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="week-24-2023">Week 24, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-24-2023"></a></h2>
+<ul>
+<li><a href="https://www.neowin.net/news/edge-sends-images-you-view-online-to-microsoft-here-is-how-to-disable-that/">Edge sends images you view online to Microsoft, here is how to disable that</a></li>
+<li><a href="https://vadimkravcenko.com/shorts/proper-documentation/">The Surprising Power of Documentation</a></li>
+<li><a href="https://cirosantilli.com/cia-2010-covert-communication-websites">CIA 2010 covert communication websites</a></li>
+<li><a href="https://dennisforbes.ca/articles/jpegxl_just_won_the_image_wars.html">Effortlessly Support Next Gen Image Formats</a>
+<ul>
+<li>use the <code>picture</code> element</li>
+</ul>
+</li>
+</ul>
+<h2 id="week-23-2023">Week 23, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-23-2023"></a></h2>
+<ul>
+<li><a href="https://arstechnica.com/information-technology/2023/06/redditor-creates-working-anime-qr-codes-using-stable-diffusion/">Redditor creates working anime QR codes using Stable Diffusion</a></li>
+<li><a href="https://abseil.io/resources/swe-book">Software Engineering at Google</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://simonhearne.com/2021/layout-shifts-webfonts/">How to avoid layout shifts caused by web fonts</a>
+<ul>
+<li>use <code>font-display: optional</code> to prevent layout shifts
+<ul>
+<li>hide text for up to 100ms, then only use the web font if it is available - never swapping</li>
+<li>If font-display: optional is not possible for your design, use f-mods to reduce the impact of font swaps</li>
+</ul>
+</li>
+<li>subset fonts and serve as <code>woff2</code></li>
+<li>use variable fonts or a limited set of weight variations</li>
+<li>preload critical fonts</li>
+<li>host your own fonts on your main domain</li>
+</ul>
+</li>
+<li><a href="https://github.com/ChrisCavs/aimless.js">Aimless.js</a> - The missing JavaScript randomness library.</li>
+<li><a href="https://medium.com/@dbottiau/the-rise-of-the-serverless-monoliths-63d3d2d98164">The Rise of the Serverless Monoliths</a></li>
+<li><a href="https://blog.turso.tech/what-the-heck-is-the-edge-anyway-a159a12f2412">What the heck is the edge anyway?</a></li>
+<li><a href="https://github.com/libsql/libsql">libSQL</a> is a fork of SQLite that is both Open Source, and Open Contributions.</li>
+<li><a href="https://ericwbailey.website/published/display-contents-considered-harmful/"><code>display: contents</code> considered harmful</a></li>
+</ul>
+<h2 id="week-22-2023">Week 22, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-22-2023"></a></h2>
+<ul>
+<li><a href="https://github.com/renzhezhilu/webp2jpg-online">Webp2jpg-online</a> - image conversion and image stitching, pure front-end implementation, fast speed, privacy protection, and offline use,20 languages supported. <a href="https://imagestool.com/webp2jpg-online/">link</a></li>
+<li><a href="https://www.infoq.com/presentations/refactoring-cleaning-code/">Tidy First? Kent Beck on Refactoring</a>
+<ul>
+<li>Software design is an exercise in human relationships between waiters who want new features and changers who want to improve the code structure.</li>
+<li>Change the structure first. Then change the behavior and it'll be so much easier.</li>
+</ul>
+</li>
+<li><a href="https://alexkondov.com/reading-code-chakra-ui/">Reading Code - Chakra UI</a></li>
+<li><a href="https://itnext.io/mastering-the-art-of-efficient-javascript-dom-manipulation-899b5cbf5a3f">Mastering the Art of Efficient JavaScript DOM Manipulation</a>
+<ul>
+<li>Use document fragments</li>
+<li>Use event delegation - <code>event.target.matches</code></li>
+</ul>
+</li>
+<li><a href="https://github.com/loeffel-io/ls-lint">ls-lint</a> - An extremely fast directory and filename linter - Bring some structure to your project filesystem</li>
+</ul>
+<h2 id="week-21-2023">Week 21, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-21-2023"></a></h2>
+<ul>
+<li>
+<p><a href="https://github.com/serverless-stack/sst">SST</a> makes it easy to build modern full-stack applications on AWS.</p>
+<ul>
+<li><a href="https://engineering.udacity.com/deploying-next-js-on-the-edge-with-sst-is-sst-the-game-changer-its-claimed-to-be-1f05a0abc27c">Deploying Next.js on the edge with SST — Is SST the game-changer it’s claimed to be?</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.bbss.dev/posts/react-concurrency/">Understanding React Concurrency</a></p>
+<blockquote>
+<p>The basic premise of React concurrency is to rework the rendering process such that while rendering the next view, the current view is kept responsive.</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://twitter.com/thdxr/status/1661433744970973190">Dealing with cold starts</a></p>
+</li>
+<li>
+<p><a href="https://alexkondov.com/an-ode-to-effects/">An Ode to React Effects</a></p>
+<blockquote>
+<p>Most of the problems with <code>useEffect</code> are rooted in bad software design, not the hook’s API.</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://adrianroselli.com/2023/05/be-careful-using-menu.html">Be Careful Using ‘Menu’</a></p>
+<ul>
+<li><a href="https://adrianroselli.com/2021/07/stop-using-pop-up.html">Stop Using ‘Pop-up’</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://evilmartians.com/chronicles/html-best-practices-for-login-and-signup-forms">11 HTML best practices for login &#x26; sign-up forms</a></p>
+<ul>
+<li><a href="https://www.smashingmagazine.com/2018/06/placeholder-attribute/">Don’t Use The Placeholder Attribute</a>
+<ul>
+<li>Can’t be automatically translated;</li>
+<li>Is oftentimes used in place of a label, locking out assistive technology;</li>
+<li>Can hide important information when content is entered;</li>
+<li>Can be too light-colored to be legible;</li>
+<li>Has limited styling options;</li>
+<li>May look like pre-filled information and be skipped over.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.nytimes.com/wirecutter/blog/what-are-passkeys-and-how-they-can-replace-passwords/">RIP, Passwords. Here’s What’s Coming Next.</a></p>
+</li>
+<li>
+<p><a href="https://youdontneedamodalwindow.dev/">You don't need a modal window</a></p>
+<ul>
+<li><a href="https://marmelab.com/react-admin-demo/#/reviews">https://marmelab.com/react-admin-demo/#/reviews</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://increment.com/software-architecture/primer-on-functional-architecture/">A primer on functional architecture</a></p>
+<blockquote>
+<p>Just because a business workflow involves an entity, such as an “order,” doesn’t mean it has anything in common with other workflows that use that entity. For example, the “pay for an order” workflow and the “delete an order” workflow both involve orders but have completely different business logic. There’s no need for them both to depend on an arbitrary “order” service that lumps a disparate set of functions together.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.michaelnygard.com/blog/2017/12/the-entity-service-antipattern/">The Entity Service Antipattern</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.michaelnygard.com/blog/2018/01/services-by-lifecycle/">Services By Lifecycle</a></p>
+</li>
+<li>
+<p><a href="https://martinfowler.com/bliki/OrmHate.html">OrmHate</a></p>
+<blockquote>
+<p>Essentially the ORM can handle about 80-90% of the mapping problems, but that last chunk always needs careful work by somebody who really understands how a relational database works.<br>
+... A framework that allows me to avoid 80% of that is worthwhile even if it is only 80%.</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://blog.bitsrc.io/creating-seamless-user-experiences-a-comprehensive-guide-to-micro-frontend-architectural-patterns-9118a70386b7">Creating Seamless User Experiences: A Comprehensive Guide to Micro Frontend Architectural Patterns</a></p>
+</li>
+<li>
+<p><a href="https://www.infoq.com/news/2023/05/guardian-push-architecture/">The Guardian Optimizes Mobile Push-Notification Delivery Architecture</a></p>
+</li>
+<li>
+<p><a href="https://news.ycombinator.com/item?id=35988307">Affinity Photo as a Photoshop replacement for many people.</a></p>
+</li>
+<li>
+<p><a href="https://twitter.com/hobdaydesign/status/1655680006901624839">https://twitter.com/hobdaydesign/status/1655680006901624839</a></p>
+</li>
+</ul>
+<h2 id="week-20-2023">Week 20, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-20-2023"></a></h2>
+<ul>
+<li><a href="https://devtoolstips.org/">DevTools Tips</a> - A collection of useful cross-browser DevTools tips</li>
+<li><a href="https://javascript.plainenglish.io/closing-modals-by-pressing-the-back-button-in-vue-js-568589b4503f">Closing Modals By Pressing the Back Button in Vue.js</a></li>
+<li><a href="https://blog.vuejs.org/posts/vue-3-3">Announcing Vue 3.3</a>
+<ul>
+<li><a href="https://blog.vuejs.org/posts/vue-3-3#definemodel">defineModel</a></li>
+<li><a href="https://blog.vuejs.org/posts/vue-3-3#better-getter-support-with-toref-and-tovalue">Better Getter Support with <code>toRef</code> and <code>toValue</code></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-19-2023">Week 19, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-19-2023"></a></h2>
+<ul>
+<li><a href="https://www.androidauthority.com/google-smart-home-3319869/">I'm never investing in Google's smart home ecosystem again</a></li>
+<li><a href="https://github.com/sindresorhus/file-type">file-type</a> is detected by checking the <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files">magic number</a> of the buffer.</li>
+<li><a href="https://quii.dev/HTMX_is_the_Future">HTMX is the Future</a>
+<ul>
+<li><a href="https://htmx.org/essays/when-to-use-hypermedia/">When Should You Use Hypermedia?</a></li>
+</ul>
+</li>
+<li><a href="https://www.infoq.com/news/2023/05/prime-ec2-ecs-saves-costs/">Prime Video Switched from Serverless to EC2 and ECS to Save Costs</a></li>
+<li><a href="https://www.bennadel.com/blog/4458-on-starting-a-side-project-hotwire-vs-angular.htm">On Starting A Side-Project: Hotwire vs. Angular</a></li>
+<li><a href="https://dev.to/mattpocockuk/how-to-cache-nodemodules-in-github-actions-with-yarn-24eh">How to cache node_modules in GitHub Actions with Yarn</a></li>
+<li><a href="https://javascript.plainenglish.io/24-powerful-html-attributes-every-senior-web-engineer-should-master-ad8a4df0776e">24 Powerful HTML Attributes Every Senior Web Engineer Should Master!</a></li>
+<li><a href="https://ui.dev/why-react-renders">The Interactive Guide to Rendering in React</a></li>
+<li><a href="https://www.lloydatkinson.net/posts/2023/favour-typescript-types-over-interfaces/">Favour TypeScript Types Over Interfaces</a></li>
+</ul>
+<h2 id="week-18-2023">Week 18, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-18-2023"></a></h2>
+<ul>
+<li><a href="https://github.com/unjs/changelogen">changelogen</a> - 💅 Beautiful Changelogs using Conventional Commits</li>
+<li><a href="https://blog.bitsrc.io/typescript-advanced-types-for-next-js-examples-and-best-practices-in-2023-a3a3946a353e">TypeScript Advanced Types for Next.js: Examples and Best Practices In 2023</a></li>
+<li><a href="https://dmitripavlutin.com/typescript-record/">Record Type in TypeScript</a></li>
+<li><a href="https://ma.ttias.be/theres-more-than-one-way-to-write-an-ip-address/">There’s more than one way to write an IP address</a></li>
+</ul>
+<h2 id="week-17-2023">Week 17, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-17-2023"></a></h2>
+<ul>
+<li><a href="https://linuxhandbook.com/source-command/">What is Source Command in Linux and How Does it Work?</a></li>
+<li><a href="https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/">Arrow Functions vs Regular Functions in JavaScript – What's the Difference?</a></li>
+<li><a href="https://github.com/picocss/pico">Pico CSS</a> - Minimal CSS Framework for semantic HTML</li>
+<li><a href="https://docs.github.com/en/packages/quickstart">Quickstart for GitHub Packages</a></li>
+<li><a href="https://www.parand.com/a-completely-non-technical-explanation-of-ai.html">A Completely Non-Technical Explanation of AI and Deep Learning</a></li>
+<li><a href="https://natureofcode.com/book/">THE NATURE OF CODE</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://iorilan.medium.com/how-does-jwt-work-is-hs256-the-best-option-6cd9463da7b3">How does JWT work? is HS256 the best option?</a> - look EDDSA</li>
+<li><a href="https://iorilan.medium.com/a-5-years-tech-lead-said-they-shard-a-database-to-scale-but-then-he-failed-to-answer-this-question-8be39115dcb0">A 5 years+ tech lead said they shard a database to scale but then he failed to answer this question</a></li>
+<li><a href="https://itsteknas.medium.com/next-js-13-is-not-ready-for-production-a8a8e50fbebf">Next.js 13 is not ready for production</a></li>
+</ul>
+<h2 id="week-16-2023">Week 16, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-16-2023"></a></h2>
+<ul>
+<li><a href="https://github.com/weebney/tachyon">Tachyon</a> is a byte sized script that makes your website feel blazingly fast. It does this by prerendering pages before a user navigates to them, making page transitions virtually instant.</li>
+<li><a href="https://tidyfirst.substack.com/p/90-of-my-skills-are-now-worth-0">90% of My Skills Are Now Worth $0 ...but the other 10% are worth 1000x</a></li>
+<li><a href="https://www.stefanjudis.com/today-i-learned/the-relative-font-weight-axis-how-variable-fonts-ease-font-weight/">The relative font weight axis — how variable fonts ease font weight transitions</a></li>
+<li><a href="https://fullystacked.net/posts/modern-html-email/">Modern HTML email (tables no longer required)</a></li>
+<li><a href="https://www.caniemail.com/clients/">Can I Email</a></li>
+<li><a href="https://blog.jetbrains.com/space/2023/04/18/space-git-flow/">Introducing the Space Git Flow</a> - Branching Strategies about Git flow, GitHub flow, Trunk-based development, Space Git Flow</li>
+<li><a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=8912179&#x26;memberNo=33582594">Korean as a Concatenative, Stack-Oriented Language</a></li>
+<li><a href="https://enchanting-trader-463.notion.site/Midjourney-AI-Guide-41eca43809dd4d8fa676e648436fc29c">Midjourney AI Guide</a></li>
+<li><a href="https://docs.midjourney.com/docs/permutations">https://docs.midjourney.com/docs/permutations</a></li>
+</ul>
+<h2 id="week-15-2023">Week 15, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-15-2023"></a></h2>
+<ul>
+<li>
+<p><a href="https://blog.bitsrc.io/you-dont-need-another-library-to-compose-micro-frontends-at-run-time-e803077ade67">You Don't Need Another Library to Compose Micro Frontends at Run Time</a></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/API/EventTarget/dispatchEvent">EventTarget.dispatchEvent()</a></p>
+</li>
+<li>
+<p><a href="https://danielcwilson.com/posts/css-shapes-with-trig-functions/">Improving CSS Shapes with Trigonometric Functions</a></p>
+</li>
+<li>
+<p><a href="https://pepelsbey.dev/articles/jumping-html-tags/">Jumping HTML tags. Another reason to validate your markup</a></p>
+</li>
+<li>
+<p><a href="https://www.htmhell.dev/">HTMHell</a> - A collection of bad practices in HTML, copied from real websites.</p>
+</li>
+<li>
+<p><a href="https://www.jetpens.com/blog/The-42-Best-Pens-for-2023-Gel-Ballpoint-Rollerball-and-Fountain-Pens/pt/974">The 42 Best Pens for 2023: Gel, Ballpoint, Rollerball, and Fountain Pens</a></p>
+<ul>
+<li><a href="https://www.jetpens.com/blog/The-Difference-Between-Ballpoint-Gel-and-Rollerball-Pens/pt/167">The Difference Between Ballpoint, Gel, and Rollerball Pens</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/Hexagon/croner">Croner</a> - Cron for JavaScript and TypeScript</p>
+</li>
+<li>
+<p><a href="https://github.com/sail-sg/EditAnything">Edit Anything by Segment-Anything</a></p>
+</li>
+<li>
+<p><a href="https://perell.com/essay/50-ideas-that-changed-my-life/">50 Ideas That Changed My Life</a></p>
+</li>
+<li>
+<p><a href="https://planetscale.com/blog/how-does-database-sharding-work">How does database sharding work?</a></p>
+<blockquote>
+<p>why are you not using a database that does sharding for you?</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://github.com/acaudwell/Gource">Gource</a> is a visualization tool for source control repositories.</p>
+</li>
+<li>
+<p><a href="https://xebia.com/blog/what-happens-when-you-leak-aws-credentials-and-how-aws-minimizes-the-damage/">What happens when you leak AWS credentials and how AWS minimizes the damage</a></p>
+</li>
+</ul>
+<h2 id="week-14-2023">Week 14, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-14-2023"></a></h2>
+<ul>
+<li><a href="https://www.infoq.com/news/2023/04/web-accessibility/">Improving Web Accessibility with Semantic HTML and Testing Techniques and Tools</a></li>
+<li><a href="https://ishadeed.com/article/css-masking/">CSS Masking - Ahmad Shadeed</a></li>
+<li><a href="https://census.dev/blog/an-on-ramp-to-flow">An On-Ramp to Flow</a>
+<blockquote>
+<p>Before stepping away, leave the code in a state where it is Obviously Broken, but Easy to Fix.<br>
+Applying this technique means thinking about how to exit flow in a way that makes it easy to re-enter.</p>
+</blockquote>
+</li>
+<li><a href="https://gomakethings.com/two-way-data-binding-and-reactivity-with-15-lines-of-vanilla-javascript/">Two-way data binding and reactivity with 15 lines of vanilla JavaScript</a>
+<ul>
+<li>Proxy, Event delegate</li>
+</ul>
+</li>
+<li><a href="https://wasp-lang.dev/blog/2023/03/17/new-react-docs-pretend-spas-dont-exist">New React docs pretend SPAs don't exist anymore</a>
+<blockquote>
+<p>The strongly recommended way to start a new React project is to use a framework such as Next.js, while the traditional route of using bundlers like Vite or CRA is fairly strongly discouraged.</p>
+</blockquote>
+</li>
+<li><a href="https://cmte.ieee.org/futuredirections/2023/04/03/ai-wont-steal-your-job-people-leveraging-ai-will/">AI won’t steal your job, people leveraging AI will</a></li>
+<li><a href="https://ersei.net/en/blog/bye-bye-github">Saying Goodbye to GitHub</a>
+<ul>
+<li>bruce511's <a href="https://news.ycombinator.com/item?id=35419257">another opinion</a></li>
+</ul>
+</li>
+<li><a href="https://www.residentcontrarian.com/p/he-who-submits-a-resume-has-already">He who submits a resume has already lost</a></li>
+<li><a href="https://blog.twitter.com/engineering/en_us/topics/open-source/2023/twitter-recommendation-algorithm">Twitter's Recommendation Algorithm</a>
+<ul>
+<li><a href="https://github.com/twitter/the-algorithm">https://github.com/twitter/the-algorithm</a></li>
+</ul>
+</li>
+<li><a href="https://blog.sandworm.dev/one-in-two-new-npm-packages-is-seo-spam-right-now">One In Two New Npm Packages Is SEO Spam Right Now</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens">CSS hyphens</a>
+<ul>
+<li><code>&#x3C;wbr></code>, <code>&#x26;shy;</code> - <a href="https://www.amitmerchant.com/two-ways-to-safely-break-a-long-word-in-html/">Two ways to safely break a long word in HTML</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-13-2023">Week 13, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-13-2023"></a></h2>
+<ul>
+<li><a href="https://dnastacio.medium.com/bash-over-python-39e0eba502f9">Why You Should Use Bash Over Python</a></li>
+<li><a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a> is <strong><a href="https://github.com/svg/svgo">SVGO</a></strong>'s <strong>M</strong>issing <strong>G</strong>UI, aiming to expose the majority, if not all the configuration options of SVGO.</li>
+<li><a href="https://www.developing.dev/p/why-engineers-need-to-write">Why Engineers Need To Write</a>
+<blockquote>
+<p>Writing for a child forces me to keep the words and concepts very, very simple, and to write in a style that builds up usage of the program from first principles. Writing for the grumpy old-timer is a practice in minimizing questions from them, forcing me to do a sort of final pass on the overall design of what I'm writing about, to defend design choices, and to add future improvements to the backlog. Drafting the documentation for semi-finished features that are still in progress has sometimes led me to change the design in order to make writing the docs targeting these two people simpler.<br>
+— <a href="https://news.ycombinator.com/item?id=35307562">albrewer</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="week-12-2023">Week 12, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-12-2023"></a></h2>
+<ul>
+<li>
+<p><a href="https://blog.kagi.com/universal-summarizer">Summarize anything with the Universal Summarizer</a></p>
+</li>
+<li>
+<p><a href="https://about.sourcegraph.com/blog/cheating-is-all-you-need">Cheating is All You Need</a></p>
+<blockquote>
+<p>Software engineering exists as a discipline because you cannot EVER under any circumstances TRUST CODE.</p>
+<ul>
+<li>You get the LLM to draft some code for you that’s 80% complete/correct.</li>
+<li>You tweak the last 20% by hand.</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Someone is hesitant about 5 times as productive because we only need to "check the code is good" for <a href="https://news.ycombinator.com/item?id=35275438">two main reasons</a>.</p>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p><a href="https://github.blog/2023-03-22-github-copilot-x-the-ai-powered-developer-experience/">GitHub Copilot X: The AI-powered developer experience</a></p>
+<ul>
+<li><a href="https://github.com/github-copilot/chat_waitlist_signup/">Copilot X</a></li>
+<li><a href="https://githubnext.com/projects/copilot-for-docs/">Copilot Docs</a></li>
+<li><a href="https://githubnext.com/projects/copilot-for-pull-requests/">Copilot for PRs</a></li>
+<li><a href="https://githubnext.com/projects/copilot-cli/">Copilot CLI</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://commoncog.com/tacit-knowledge-is-a-real-thing/">Why Tacit Knowledge is More Important Than Deliberate Practice</a></p>
+</li>
+<li>
+<p><a href="https://planetscale.com/courses/mysql-for-developers/introduction/course-introduction">MySQL for Developers</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></p>
+</li>
+<li>
+<p><a href="https://www.bitestring.com/posts/2023-03-19-web-fingerprinting-is-worse-than-I-thought.html">Web fingerprinting is worse than I thought</a></p>
+</li>
+<li>
+<p><a href="https://iangmcdowell.com/blog/posts/laying-out-a-book-with-css/">Laying Out a Print Book With CSS</a></p>
+<ul>
+<li><a href="https://pagedjs.org/documentation/">https://pagedjs.org/documentation/</a></li>
+<li><a href="https://www.print-css.rocks/">https://www.print-css.rocks/</a></li>
+<li><a href="https://doc.courtbouillon.org/weasyprint/stable/">https://doc.courtbouillon.org/weasyprint/stable/</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/">How to Use v-model with Form Inputs in Vue</a></p>
+</li>
+<li>
+<p><a href="https://abuseofnotation.github.io/category-theory-illustrated/">Category Theory Illustrated</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></p>
+</li>
+<li>
+<p><a href="https://github.com/turbot/steampipe">Steampipe</a> is the universal interface to APIs. Use SQL to query cloud infrastructure, SaaS, code, logs, and more.</p>
+<ul>
+<li><a href="https://github.com/turbot/steampipe-plugin-googlesheets">https://github.com/turbot/steampipe-plugin-googlesheets</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/0x6b/libgsqlite">libgsqlite</a> - A SQLite extension which loads a Google Sheet as a virtual table.</p>
+</li>
+<li>
+<p><a href="https://theoatmeal.com/comics/design_hell">How A Web Design Goes Straight To Hell</a></p>
+</li>
+<li>
+<p><a href="https://github.com/xenova/transformers.js">Transformers.js</a> - Run 🤗 Transformers in your browser! We currently support <a href="https://huggingface.co/docs/transformers/model_doc/bert">BERT</a>, <a href="https://huggingface.co/docs/transformers/model_doc/albert">ALBERT</a>, <a href="https://huggingface.co/docs/transformers/model_doc/distilbert">DistilBERT</a>, <a href="https://huggingface.co/docs/transformers/model_doc/t5">T5</a>, <a href="https://huggingface.co/docs/transformers/model_doc/t5v1.1">T5v1.1</a>, <a href="https://huggingface.co/docs/transformers/model_doc/flan-t5">FLAN-T5</a>, <a href="https://huggingface.co/docs/transformers/model_doc/gpt2">GPT2</a>, <a href="https://huggingface.co/docs/transformers/model_doc/bart">BART</a>, <a href="https://huggingface.co/docs/transformers/model_doc/codegen">CodeGen</a>, <a href="https://huggingface.co/docs/transformers/model_doc/whisper">Whisper</a>, <a href="https://huggingface.co/docs/transformers/model_doc/clip">CLIP</a>, <a href="https://huggingface.co/docs/transformers/model_doc/vit">Vision Transformer</a>, and <a href="https://huggingface.co/docs/transformers/model_doc/vision-encoder-decoder">VisionEncoderDecoder</a> models, for a variety of tasks including: masked language modelling, text classification, text-to-text generation, translation, summarization, question answering, text generation, automatic speech recognition, image classification, zero-shot image classification, and image-to-text.</p>
+</li>
+<li>
+<p><a href="https://github.com/dbohdan/structured-text-tools">Structured text tools</a> - The following is a list of text-based file formats and command line tools for manipulating each.</p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/a/70263401/5163033">Understanding lazy load and hydration in nuxt</a></p>
+<ul>
+<li><a href="https://twitter.com/MaOberlehner/status/1353747260434227201">It is almost always better to use <code>v-if</code> on the component instance.</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-11-2023">Week 11, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-11-2023"></a></h2>
+<ul>
+<li><a href="https://levelup.gitconnected.com/master-the-art-of-caching-for-system-design-interviews-a-complete-guide-676bb49d194">Master the Art of Caching for System Design Interviews: A Complete Guide</a></li>
+<li><a href="https://github.blog/2023-03-13-highlights-from-git-2-40/">Highlights from Git 2.40</a></li>
+<li><a href="https://medium.com/jaanvi/basics-of-ci-cd-pipeline-5762e0eca44e">Basics of CI/CD Pipeline</a>
+<ol>
+<li>Version control</li>
+<li>Build</li>
+<li>Unit test</li>
+<li>Deploy</li>
+<li>Auto test</li>
+<li>Deploy to production</li>
+<li>Measure &#x26; validate</li>
+</ol>
+</li>
+<li><a href="https://blog.openreplay.com/managing-state-in-vue-with-pinia-orm/">Managing State In Vue With Pinia ORM</a></li>
+</ul>
+<h2 id="week-10-2023">Week 10, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-10-2023"></a></h2>
+<ul>
+<li><a href="https://draft.dev/learn/engineering-blogs">The Best Engineering Blogs</a></li>
+<li><a href="https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/">Everything You Need to Know About the Gap After the List Marker</a></li>
+<li><a href="https://medicalxpress.com/news/2023-02-mushrooms-magnify-memory-boosting-nerve.html">Study finds mushrooms magnify memory by boosting nerve growth</a>
+<blockquote>
+<p>I think it should be everyone's primary focus to sleep well, drink water, get outside, get active, and eat generally decently. I hate to say it, but if you're not eating a good amount of vegetables and fruit, decent protein, sleep, etc, no amount of XYZ will catch up to that detriment.</p>
+<p>— <a href="https://news.ycombinator.com/item?id=35056071">CE02</a></p>
+</blockquote>
+</li>
+<li><a href="https://github.com/lukevella/rallly">rallly</a> - Self-hostable doodle poll alternative. Find the best date for a meeting with your colleagues or friends without the back and forth emails.</li>
+</ul>
+<h2 id="week-9-2023">Week 9, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-9-2023"></a></h2>
+<ul>
+<li><a href="https://fabiensanglard.net/html/index.html">All you may need is HTML</a>
+<ul>
+<li><a href="https://fabiensanglard.net/ilike/index.html">0x10 RULES</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Rich-Harris/devalue">devalue</a> - Gets the job done when JSON.stringify can't</li>
+<li><a href="https://github.com/originjs/vite-plugin-federation">vite-plugin-federation</a> - Module Federation for vite &#x26; rollup</li>
+<li><a href="https://github.com/beautify-web/js-beautify">js-beautify</a> - partly deobfuscate scripts</li>
+<li><a href="https://tympanus.net/codrops/2023/02/22/some-more-on-scroll-typography-animations/">Some More On-Scroll Typography Animations</a></li>
+<li><a href="https://medium.com/@lindblomdev/why-im-sticking-with-vue-in-2023-d67bce7bc2f4">Why I’m sticking with Vue in 2023</a>
+<ul>
+<li>Script setup + composition API produce clean code</li>
+<li>Performance is good</li>
+<li>Best tooling I have used</li>
+</ul>
+</li>
+<li><a href="https://css-irl.info/resizing-with-css/">Resizing with CSS</a></li>
+<li><a href="https://www.digitala11y.com/accessibility-bookmarklets-testing/">48 Accessibility Bookmarklets You Can Use For A11Y Testing</a></li>
+<li><a href="https://github.com/danielroe/fontaine">fontaine</a> - Automatic font fallback based on font metrics</li>
+<li><a href="https://www.talhoffman.com/2021/07/18/firecracker-internals/">Firecracker internals: a deep dive inside the technology powering AWS Lambda</a>
+<ul>
+<li><a href="https://github1s.com/firecracker-microvm/firecracker">https://github1s.com/firecracker-microvm/firecracker</a></li>
+</ul>
+</li>
+<li><a href="https://www.builder.io/blog/vscode-tips">Improve Your VSCode Workflow to the Max</a>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs">GitHub Copilot Labs</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/panva/jose">jose</a> - "JSON Web Almost Everything" - JWA, JWS, JWE, JWT, JWK, JWKS for Node.js, Browser, Cloudflare Workers, Deno, Bun, and other Web-interoperable runtimes.</li>
+<li><a href="https://twitter.com/flaviocopes/status/1627609246014619649">Easy implemented dark mode</a></li>
+<li><a href="https://thenewstack.io/vue-2023/">What to Expect from Vue in 2023 and How it Differs from React</a></li>
+<li><a href="https://two-wrongs.com/unreasonable-effectiveness-of-conditional-probabilities.html">The Unreasonable Effectiveness of Conditional Probabilities</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34900823">https://news.ycombinator.com/item?id=34900823</a></li>
+</ul>
+</li>
+<li><a href="https://www.builder.io/blog/debug-nodejs">Debugging Node.js, The Right Way</a>
+<pre class="language-shell"><code class="language-shell">node server.js --inspect-brk
+</code></pre>
+<ul>
+<li><a href="https://cdn.builder.io/api/v1/image/assets%252FYJIGb4i01jvw0SRdL5Bt%252Ff5dd633650214ff28d620d233299329b?format=webp&#x26;width=2000">chrome dev tools</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-8-2023">Week 8, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-8-2023"></a></h2>
+<ul>
+<li><a href="https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864">test &#x26;&#x26; commit || revert</a></li>
+<li><a href="https://medium.com/@kentbeck_7670/limbo-scaling-software-collaboration-afd4f00db4b">Limbo: Scaling Software Collaboration</a>
+<blockquote>
+<p>Sort commits into “couldn’t possibly cause problems” (you’ll be mostly right) and “might cause problems”. Treat them differently. Rearrange your workflow so you have mostly “couldn’t possibly cause problems” commits.</p>
+</blockquote>
+</li>
+<li><a href="https://oneusefulthing.substack.com/p/my-class-required-ai-heres-what-ive">My class required AI. Here's what I've learned so far.</a></li>
+<li><a href="https://twitter.com/mhevery/status/1626259524930932745"><code>a = 0-x</code> is about 3-10x faster than <code>a = -x</code></a></li>
+<li><a href="https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs/">How to Favicon in 2023: Six files that fit most needs</a></li>
+<li><a href="https://blog.openreplay.com/important-seo-related-tags-in-html-and-how-to-optimize-them/">Important SEO-Related HTML Tags, And How To Optimize Them</a></li>
+<li><a href="https://pointerpointer.com/">https://pointerpointer.com/</a></li>
+<li><a href="https://www.builder.io/blog/inspect-interactions-in-the-browser">How to Inspect Interactions in the Browser</a></li>
+<li><a href="https://www.propelauth.com/post/i-love-building-a-startup-in-rust-i-wouldnt-pick-it-again">I love building a startup in Rust. I wouldn't pick it again.</a>
+<blockquote>
+<p>If you're thinking about building something in Rust, a good question to ask is, "what would I use if Rust didn't exist?" If your answer is something like Go or Node.js, then Rust is probably not the right choice. If your answer is C or C++ or something similar, then Rust is very likely the right choice.
+<a href="https://news.ycombinator.com/item?id=34836164">zeroxfe</a></p>
+</blockquote>
+</li>
+<li><a href="https://jvns.ca/blog/2023/02/16/writing-javascript-without-a-build-system/">Writing Javascript without a build system</a>
+<ul>
+<li>For me, a complicated Javascript build system just doesn’t seem worth it for small 500-line projects</li>
+<li><a href="https://jvns.ca/blog/2021/11/15/esbuild-vue/">if I want a build system, use esbuild</a></li>
+</ul>
+</li>
+<li><a href="https://austingil.com/css-named-colors/">CSS Named Colors: Groups, Palettes, Facts, &#x26; Fun</a></li>
+</ul>
+<h2 id="week-7-2023">Week 7, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-7-2023"></a></h2>
+<ul>
+<li><a href="https://github.com/hyperfiddle/electric">Electric Clojure</a> – a signals DSL for fullstack web UI, with compiler-managed network sync
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34771771">https://news.ycombinator.com/item?id=34771771</a></li>
+</ul>
+</li>
+<li><a href="https://news.ycombinator.com/item?id=34779980">Just 4 pages a day. It really adds up.</a></li>
+<li><a href="https://medium.com/@elliotgraebert/comparing-the-top-eight-managed-kubernetes-providers-2ae39662391b">Comparing the Top Eight Managed Kubernetes Providers</a>
+<ul>
+<li>Best overall: Azure</li>
+<li>Best for startups: Linode</li>
+<li>Best for cost: OVHCloud</li>
+</ul>
+</li>
+<li><a href="https://www.unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html">SQLite the only database you will ever need in most cases</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34813140">https://news.ycombinator.com/item?id=34813140</a></li>
+</ul>
+</li>
+<li><a href="https://erich-friedman.github.io/packing/squinsqu/">Squares in Squares</a></li>
+<li><a href="https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html">What's up with monomorphism?</a></li>
+<li><a href="https://dev.to/oxharris/rethinking-the-modern-web-5cn1">Rethinking the Modern Web</a></li>
+<li><a href="https://www.builder.io/blog/maps">Use Maps More and Objects Less</a></li>
+<li><a href="https://www.thearmchaircritic.org/mansplainings/react-server-components-vs-server-side-rendering">React Server Components vs. Server-Side Rendering</a>
+<ul>
+<li><a href="https://beta.nextjs.org/docs/rendering/fundamentals">https://beta.nextjs.org/docs/rendering/fundamentals</a></li>
+</ul>
+</li>
+<li><a href="https://blog.bitsrc.io/type-vs-interface-in-typescript-cf3c00bc04ae">Type vs Interface in TypeScript</a></li>
+<li><a href="https://cloud.google.com/blog/products/api-management/5-ways-to-implement-rest-api-authentication/?hl=en">Unpacking API Management policies [Part 2]: 5 ways to handle REST API authentication</a></li>
+<li><a href="https://javascriptweekly.com/link/135369/web">useSignal() is the future of web frameworks and is a better abstraction than useState(), which is showing its age.</a></li>
+<li><a href="https://dev.to/trentbrew/using-notion-as-a-headless-cms-with-nuxt-3mk">Using Notion as a Headless CMS with Nuxt</a></li>
+<li><a href="https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-3/">Speeding up the JavaScript ecosystem - eslint</a></li>
+<li><a href="https://github.com/reactjs/reactjs.org/pull/5487#issuecomment-1409720741">Why Create React App exists</a></li>
+<li><a href="https://blog.bitsrc.io/discover-the-magic-of-portals-a-beginners-guide-to-react-s-most-powerful-tool-f6f1965ea305">Discover the Magic of Portals: A Beginner’s Guide to React’s Most Powerful Tool</a>
+<ul>
+<li>Portals allow you to render components outside of their parent component’s tree.</li>
+<li>When should you use portals?
+<ul>
+<li>Modals and dialogs</li>
+<li>Tooltips and popovers</li>
+<li>Overlaying content</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://dmitripavlutin.com/environment-variables-javascript/">Environment Variables in JavaScript: process.env</a></li>
+<li><a href="https://ishadeed.com/article/responsive-design/">The Guide To Responsive Design In 2023 and Beyond</a></li>
+<li><a href="https://www.zachleat.com/web/react-criticism/">A HISTORICAL REFERENCE OF REACT CRITICISM</a></li>
+<li><a href="https://github.com/dabeng/OrgChart">OrgChart</a> - It's a simple and direct organization chart plugin. Anytime you want a tree-like chart, you can turn to OrgChart.</li>
+<li><a href="https://www.builder.io/blog/fast-images">Optimal Images in HTML</a></li>
+<li><a href="https://moritz.pm/posts/chatgpt-bing">I made ChatGPT and Bing AI have a conversation (and they are friends now)</a></li>
+<li><a href="https://www.crunchydata.com/blog/five-tips-for-a-healthier-postgres-database-in-the-new-year">Five Tips For a Healthier Postgres Database in the New Year</a></li>
+<li><a href="https://www.freecodecamp.org/news/how-to-search-files-in-the-linux-terminal/">How to Search Files Effectively in the Linux Terminal</a></li>
+<li>Ask HN: What Happened to Elm?
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34746350">In version 0.19, the core team hardcoded a whitelist into the compiler of which projects are allowed to use native code (which happened to basically be the core team's pet projects). This basically crippled the language beyond usability for everyone else.</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-6-2023">Week 6, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-6-2023"></a></h2>
+<ul>
+<li><a href="https://timbaumann.info/svd-image-compression-demo/">Image Compression with Singular Value Decomposition</a></li>
+<li><a href="https://www.builder.io/blog/numbers-and-dates">A Better Way to Work With Number and Date Inputs in JavaScript</a>
+<ul>
+<li>valueAsNumber, valueAsDate</li>
+</ul>
+</li>
+<li><a href="https://adactio.com/journal/19842">Three attributes for better web forms</a>
+<ul>
+<li>inputmode, enterkeyhint, and autocomplete.</li>
+</ul>
+</li>
+<li><a href="https://javascript.plainenglish.io/understand-the-lexical-scoping-in-javascript-6b85ca94b565">Understand the Lexical Scoping in JavaScript</a></li>
+<li><a href="https://www.freecodecamp.org/news/how-to-use-the-javascript-require-function/">JavaScript Require – How to Use the require() Function in JS</a></li>
+<li><a href="https://www.zhenghao.io/posts/object-vs-map">When You Should Prefer Map Over Object In JavaScript</a></li>
+<li><a href="https://medium.com/@dlyall/the-new-wikipedia-appearance-that-took-a-whole-village-52637b34a00f">The new Wikipedia appearance that took the whole village</a>
+<ul>
+<li><a href="https://lists.wikimedia.org/hyperkitty/list/wikitech-l@lists.wikimedia.org/thread/SOZREBYR36PUNFZXMIUBVAIOQI4N7PDU/">Vue.js has been selected as Wikimedia Foundation's future JavaScript framework</a></li>
+<li><a href="https://phabricator.wikimedia.org/T241180">RFC: Adopt a modern JavaScript framework for use with MediaWiki</a> and <a href="https://phabricator.wikimedia.org/T241180#:~:text=Project%20lead%20of%20Vue.js%20here.">EvanYou comment</a></li>
+</ul>
+</li>
+<li><a href="https://www.scotthyoung.com/blog/2023/01/03/intermediate-plateau/">The Intermediate Plateau: What Causes It? How Can We Move Beyond It?</a></li>
+<li><a href="https://www.codeium.com/">codeium</a> - Free AI-powered code completion for everyone, everywhere</li>
+<li><a href="https://www.techspot.com/news/97535-windows-11-spyware-machine-out-users-control.html">Windows 11: a spyware machine out of users' control?</a></li>
+<li><a href="https://github.com/kyleconroy/sqlc">sqlc</a> - A SQL Compiler</li>
+<li><a href="https://www.buildt.ai/blog/incorrectusage">Use GPT-3 incorrectly: reduce costs 40x and increase speed by 5x</a>
+<ul>
+<li>To reduce costs and increase speed, they developed a technique to generate a moderately sized corpus of completions made by a larger model, and fine-tune a smaller model to do the same task. This can reduce costs by 40x and increase speed by 5x. This is an interesting approach to using GPT-3 to reduce costs and increase speed, and could be useful for other applications.</li>
+<li><a href="https://en.m.wikipedia.org/wiki/Knowledge_distillation">Knowledge distillation</a></li>
+</ul>
+</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=albymor.increment-selection">Increment Selection - vs code extension</a></li>
+<li><a href="https://www.wisdomination.com/screw-motivation-what-you-need-is-discipline/">Screw motivation, what you need is discipline.</a></li>
+<li><a href="https://anthonyhobday.com/sideprojects/saferules/">Visual design rules you can safely follow every time</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34684761">https://news.ycombinator.com/item?id=34684761</a></li>
+</ul>
+</li>
+<li><a href="https://mennohenselmans.com/optimal-program-design/">Optimal program design 2.0</a></li>
+<li><a href="https://github.com/Justineo/vue-clamp"><code>&#x3C;vue-clamp></code></a> - Clamping multiline text with ease.</li>
+<li><a href="https://adrianroselli.com/2023/01/comparing-manual-and-free-automated-wcag-reviews.html">Comparing Manual and Free Automated WCAG Reviews</a></li>
+<li><a href="https://github.com/livialima/linuxupskillchallenge">Introduction to Linux Server Administration!</a>
+<ul>
+<li><a href="https://theleo.zone/posts/linux-upskill/">https://theleo.zone/posts/linux-upskill/</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/M-Izadmehr/deadfile">deadfile</a> - Simple util to find deadcode and unused files in any JavaScript project (ES5, ES6, React, Vue, ...).</li>
+</ul>
+<h2 id="week-5-2023">Week 5, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-5-2023"></a></h2>
+<ul>
+<li><a href="https://github.com/shaunlebron/history-of-lisp-parens">History of Lisp Parentheses</a></li>
+<li><a href="https://dmitripavlutin.com/javascript-closure/">JavaScript Closure: A Simple Explanation</a></li>
+<li><a href="https://www.robinwieruch.de/web-development-trends/">10 Web Development Trends in 2023</a></li>
+<li><a href="https://dmitripavlutin.com/ref-reactive-differences-vue/">5 Must-Know Differences Between ref() and reactive() in Vue</a></li>
+<li><a href="https://lemire.me/blog/2023/01/23/international-domain-names-where-does-https-mesagefactory-ca-lead-you/">International domain names: where does https://meßagefactory.ca lead you?</a> - The result depends on your browser.</li>
+<li><a href="https://www.amitmerchant.com/two-ways-to-safely-break-a-long-word-in-html/">Two ways to safely break a long word in HTML</a>
+<ul>
+<li><code>&#x3C;wbr></code></li>
+<li><code>&#x26;shy;</code></li>
+</ul>
+</li>
+<li><a href="https://blog.bitsrc.io/demystifying-fresh-building-your-own-islands-of-interactivity-4b774cc30393">Demystifying Fresh — Build Your own Islands of Interactivity</a></li>
+<li><a href="https://news.ycombinator.com/item?id=34614533">Netlify lost my trust</a> and replies</li>
+<li><a href="https://svelte.dev/blog/virtual-dom-is-pure-overhead">Virtual DOM is pure overhead</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34615578">comment by former React core team member Pete Hunt</a> and replies</li>
+</ul>
+</li>
+<li><a href="https://nvidia.custhelp.com/app/answers/detail/a_id/5443/~/when-discord-is-open-in-the-background%2C-graphics-card-memory-clocks-will-not">When Discord is open in the background, NVIDIA card will not reach full speed</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34615351">https://news.ycombinator.com/item?id=34615351</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/triggerdotdev/trigger.dev">Trigger.dev</a> is an open-source platform that makes it easy for developers to create event-driven background tasks directly in their code.
+<ul>
+<li><a href="https://pipedream.com/">https://pipedream.com/</a></li>
+<li><a href="https://temporal.io/">https://temporal.io/</a></li>
+<li><a href="https://github.com/windmill-labs/windmill">https://github.com/windmill-labs/windmill</a></li>
+</ul>
+</li>
+<li><a href="https://www.nature.com/articles/s41598-021-02311-1">Weeklong improved colour contrasts sensitivity after single 670 nm exposures associated with enhanced mitochondrial function</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34611077">https://news.ycombinator.com/item?id=34611077</a></li>
+</ul>
+</li>
+<li><a href="https://dbconvert.com/blog/mysql-vs-postgresql/">MySQL vs PostgreSQL in 2023.</a></li>
+<li><a href="https://www.smashingmagazine.com/2023/01/authentication-websites-banking-analogy/">Understanding Authentication In Websites: A Banking Analogy</a></li>
+<li><a href="https://github.com/fathyb/carbonyl">Carbonyl</a> is a Chromium based browser built to run in a terminal. <a href="https://fathy.fr/carbonyl">Read the blog post</a>.</li>
+<li><a href="https://news.ycombinator.com/item?id=34530052">Ask HN: What would be your stack if you are building an MVP today?</a></li>
+<li><a href="https://huyenchip.com/2023/01/24/what-we-look-for-in-a-candidate.html">What we look for in a resume</a></li>
+<li><a href="https://old.reddit.com/r/sysadmin/comments/10kp4ye/lastpass_breach_gets_worse/">LastPass breach gets worse</a></li>
+<li><a href="https://palant.info/2023/01/25/ipinside-koreas-mandatory-spyware/">IPinside: Korea’s mandatory spyware</a>
+<ul>
+<li><a href="https://palant.info/2023/01/02/south-koreas-online-security-dead-end/">South Korea’s online security dead end</a></li>
+<li><a href="https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/">TouchEn nxKey: The keylogging anti-keylogger solution</a></li>
+</ul>
+</li>
+<li><a href="https://palant.info/2023/01/23/bitwarden-design-flaw-server-side-iterations/">Bitwarden design flaw: Server side iterations</a></li>
+<li><a href="https://www.workingsoftware.dev/software-architecture-documentation-the-ultimate-guide/">The Ultimate Guide To Software Architecture Documentation</a>
+<ul>
+<li><a href="https://arc42.org/download">https://arc42.org/download</a></li>
+</ul>
+</li>
+<li><a href="https://tkdodo.eu/blog/why-react-isnt-dying">Why React isn't dying</a></li>
+</ul>
+<h2 id="week-4-2023">Week 4, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-4-2023"></a></h2>
+<ul>
+<li><a href="https://medium.com/javascript-scene/transducers-efficient-data-processing-pipelines-in-javascript-7985330fe73d">Transducers: Efficient Data Processing Pipelines in JavaScript</a></li>
+<li><a href="https://danq.me/2023/01/11/nocode/">The Page With No Code</a>
+<ul>
+<li><a href="https://no-ht.ml/">https://no-ht.ml/</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/openai/openai-cookbook/blob/main/techniques_to_improve_reliability.md">Techniques to improve reliability</a>
+<blockquote>
+<p>Applying this simple trick to the MultiArith math dataset, the authors found <code>Let's think step by step</code> quadrupled the accuracy, from 18% to 79%!</p>
+</blockquote>
+</li>
+<li><a href="https://docs.google.com/spreadsheets/d/11DoQ-Bhvs5mfRwB0Bz6OHwoChhFVK7u_KqlbFgR-ezY/">Interview Questions to ask as a candidate</a></li>
+<li><a href="https://leetcode.com/discuss/career/229177/My-System-Design-Template">Topcat's System Design Template</a></li>
+<li><a href="https://news.ycombinator.com/item?id=34449984">Unable to make a single bit of progress, my goto strategy is similar to what writers call a vomit draft.</a></li>
+<li><a href="https://initialcommit.com/blog/git-sim">Git-Sim: Visually Simulate Git Operations In Your Own Repos</a>
+<ul>
+<li><a href="https://github.com/initialcommit-com/git-sim">https://github.com/initialcommit-com/git-sim</a></li>
+</ul>
+</li>
+<li><a href="https://medium.com/@rivoltafilippo/function-composition-in-large-react-applications-best-practices-and-real-world-examples-805aba8d37b1">Function Composition in Large React Applications: Best Practices and Real-World Examples</a></li>
+</ul>
+<h2 id="week-3-2023">Week 3, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-3-2023"></a></h2>
+<ul>
+<li><a href="https://noted.lol/5-mistakes-to-avoid-when-self-hosting-from-home/">5 Mistakes to Avoid When Self Hosting a Website from Home</a></li>
+<li><a href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a> is a project that patches developer targeted fonts with a high number of glyphs (icons). Specifically to add a high number of extra glyphs from popular 'iconic fonts' such as <a href="https://github.com/FortAwesome/Font-Awesome">Font Awesome</a>, <a href="https://vorillaz.github.io/devicons/">Devicons</a>, <a href="https://github.com/primer/octicons">Octicons</a>, and <a href="https://github.com/ryanoasis/nerd-fonts#glyph-sets">others</a>.</li>
+<li><a href="https://github.com/ai-collection/ai-collection">ai-collection</a> - A List of Awesome Generative AI Applications</li>
+<li><a href="https://www.freecodecamp.org/news/free-certificates/">1000+ Free Developer Certifications</a></li>
+<li><a href="https://medium.com/geekculture/design-doping-my-obsession-with-ai-as-the-ultimate-brainstorming-partner-2ff28de2e34b">Design Doping: My Obsession with AI as the Ultimate Brainstorming Partner</a></li>
+<li><a href="https://dev.to/nasirovelchin/every-software-developer-should-write-a-blog-4622">Every Software Developer should write a blog</a></li>
+<li><a href="https://www.vuemastery.com/blog/api-management-in-nuxt-3-with-typescript">API Management in Nuxt 3 with TypeScript</a></li>
+<li><a href="https://levelup.gitconnected.com/10-advanced-typescript-tips-for-development-2666298d50f">10 Advanced TypeScript Tips for Development</a></li>
+<li><a href="https://notes.andymatuschak.org/Evergreen_notes">Evergreen notes</a></li>
+<li><a href="https://ralphammer.com/how-to-draw-ideas/">How to draw ideas</a>
+<ul>
+<li><a href="https://ralphammer.com/a-quick-beginners-guide-to-drawing/">A quick beginner’s guide to drawing</a></li>
+</ul>
+</li>
+<li><a href="https://ralphammer.com/make-me-think/">Make me think!</a>
+<ul>
+<li><img src="/assets/images/ux/makemethink_3.gif" alt="Users with complexity"> <img src="/assets/images/ux/makemethink_4.gif" alt="From complicated to simple"></li>
+<li><img src="/assets/images/ux/makemethink_6.gif" alt="From simple to too simple"></li>
+</ul>
+</li>
+<li><a href="https://github.com/jcubic/sysend.js">sysend</a> - Web application synchronization between different tabs</li>
+<li><a href="https://sive.rs/shc">Static HTML comments</a></li>
+</ul>
+<h2 id="week-2-2023">Week 2, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-2-2023"></a></h2>
+<ul>
+<li><a href="https://dmitripavlutin.com/props-destructure-vue-composition/">How to Destructure Props in Vue (Composition API)</a></li>
+<li><a href="https://tkdodo.eu/blog/type-safe-react-query">Type-safe React Query</a></li>
+<li><a href="https://github.com/plantuml-stdlib/C4-PlantUML">C4-PlantUML</a> combines the benefits of <a href="https://plantuml.com/">PlantUML</a> and the <a href="https://c4model.com/">C4 model</a> for providing a simple way of describing and communicate software architectures.</li>
+<li><a href="https://betterprogramming.pub/vs-code-shortcuts-to-code-like-youre-playing-a-piano-e5db7b272d1">VS Code Shortcuts To Code Like You’re Playing a Piano</a></li>
+<li><a href="https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/">recommended routine - bodyweightfitness</a>
+<ul>
+<li><a href="https://musclewiki.com/">MuscleWiki</a> - Find exercises that work specific muscles</li>
+</ul>
+</li>
+<li><a href="https://cheatsheetseries.owasp.org/">OWASP Cheat Sheet Series</a> <a class="color-tag" style="--tag-color: #1d5dec;" href="/notes/jqe1umqwl5gqjj4292jqy0f">#bookmark</a>
+<ul>
+<li><a href="https://owasp.org/sitemap/">https://owasp.org/sitemap/</a> - Key Projects</li>
+</ul>
+</li>
+<li><a href="https://risingstars.js.org/2022/en">2022 JavaScript Rising Stars</a></li>
+<li>🤖 <a href="https://github.com/casey/just">just</a> is a handy way to save and run project-specific commands.</li>
+<li><a href="https://www.statlearning.com/">Introduction to Statistical Lebarning</a></li>
+<li><a href="https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/">Do-nothing scripting: the key to gradual automation</a></li>
+<li><a href="https://longform.asmartbear.com/posts/extreme-questions/">Extreme questions to trigger new, better ideas</a>
+<ul>
+<li>10x prices, No customers, No tech support, ...</li>
+</ul>
+</li>
+<li><a href="https://github.com/search?o=desc&#x26;q=stars%3A%3E100000&#x26;s=stars&#x26;type=Repositories">https://github.com/search?o=desc&#x26;q=stars%3A%3E100000&#x26;s=stars&#x26;type=Repositories</a></li>
+<li><a href="https://github.com/sindresorhus/awesome">https://github.com/sindresorhus/awesome</a> - 😎 Awesome lists about all kinds of interesting topics</li>
+<li><a href="https://roadmap.sh/">roadmap.sh</a> - Community driven roadmaps, articles and resources for developers</li>
+<li><a href="https://fishshell.com/">fish</a> - the friendly interactive shell</li>
+<li><a href="https://www.jamesshore.com/v2/projects/testing-without-mocks/testing-without-mocks">Testing Without Mocks: A Pattern Language</a> <a class="color-tag" style="--tag-color: #1d5dec;" href="/notes/jqe1umqwl5gqjj4292jqy0f">#bookmark</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34293631">https://news.ycombinator.com/item?id=34293631</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-1-2023">Week 1, 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#week-1-2023"></a></h2>
+<ul>
+<li><a href="https://component-party.dev/">Component Party</a> - Web component JS frameworks overview by their syntax and features: Svelte, React, Vue 2, Vue 3, Angular, SolidJS, Lit, Ember, Alpine, Qwik
+<ul>
+<li>I like Alpine mostly. But what about component.</li>
+</ul>
+</li>
+<li><a href="https://react-wrap-balancer.vercel.app/">React Wrap Balancer</a> is a simple React Component that makes your titles more readable in different viewport sizes.</li>
+<li><a href="https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/">Lesser-Known And Underused CSS Features In 2022</a>
+<ul>
+<li><a href="https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#currentcolor">currentColor</a></li>
+<li><a href="https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#counters">Counters</a></li>
+<li><a href="https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#scroll-padding">scroll-padding</a></li>
+<li><a href="https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#font-rendering-options">Font Rendering Options</a></li>
+<li><a href="https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#creating-stacking-context-with-isolate">Creating Stacking Context with <code>isolate</code></a></li>
+<li><a href="https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#render-performance-optimization">Render Performance Optimization</a></li>
+</ul>
+</li>
+<li><a href="https://blakey.co/blog/reduce-wsl2-disk-usage">Reduce WSL2 Disk Usage</a></li>
+<li><a href="https://duckdb.org/why_duckdb">DuckDB</a> is an in-process SQL OLAP Database Management System <a href="https://betterprogramming.pub/duckdb-whats-the-hype-about-5d46aaa73196">— What’s the Hype About?</a>
+<ul>
+<li>Processing and storing tabular datasets, e.g. from CSV or Parquet files</li>
+<li>Interactive data analysis, e.g. Joining &#x26; aggregate multiple large tables</li>
+<li>Concurrent large changes, to multiple large tables, e.g. appending rows, adding/removing/updating columns</li>
+<li>Large result set transfer to client</li>
+</ul>
+</li>
+<li><a href="https://terrateam.io/blog/flying-away-from-aws">Flying away from AWS</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34238150">https://news.ycombinator.com/item?id=34238150</a></li>
+</ul>
+</li>
+<li><a href="https://www.smashingmagazine.com/2022/12/deploying-css-logical-properties-on-web-apps/">Deploying CSS Logical Properties On Web Apps</a>
+<pre class="language-css"><code class="language-css"><span class="token property">margin-inline</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token property">margin-block</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token property">inset</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token property">inset-inline</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">%</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
+<li><a href="https://stackoverflow.com/a/30638955/5163033">By default, the aws sync command does not delete files.</a></li>
+<li><a href="https://samcurry.net/web-hackers-vs-the-auto-industry/">Web Hackers vs. The Auto Industry: Critical Vulnerabilities in Ferrari, BMW, Rolls Royce, Porsche, and More</a></li>
+<li><a href="https://news.ycombinator.com/item?id=34230641">HN: Modules, not microservices</a>
+<blockquote>
+<ul>
+<li>I just want to point out that for the second problem (scalability of CPU/memory/io), microservices almost always make things worse.</li>
+<li>I was working at Amazon when they started transitioning from monolith to microservices, and the big win there was locality of data and caching.</li>
+<li>Microservices are less <em>efficient</em>, but are still more <em>scalable</em>.</li>
+<li>I am working on a project that uses a microservice architecture to make the individual components scalable and separate the concerns. However one of the unexpected consequences is that we are now doing a lot of network calls between these microservices, and this has actually become the main speed bottleneck for our program, especially since some of these services are not even in the same data center. We are now attempting to solve this with caches and doing batch requests, but all of this created additional overhead that could have all been avoided by not using microservices.</li>
+</ul>
+</blockquote>
+</li>
+<li><a href="https://github.com/markmead/hyperui">HyperUI</a> is a large collection of free Tailwind CSS components for marketing, ecommerce and application UI 🐳</li>
+<li>Free UI faces for designers, avatars, dummy faces, AI generated people faces | <a href="https://loremfaces.com/">Lorem Faces</a></li>
+<li><a href="https://httpstatusdogs.com/">HTTP Status Dogs</a> - Hypertext Transfer Protocol Response status codes. And dogs.</li>
+<li><a href="https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/">Optimizing images for mobile browsers with a UX mindset</a>
+<ul>
+<li>Formats for the win</li>
+<li>Load responsively - With the HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture"><code>&#x3C;picture> element</code></a>, we can load the image in the right size and format, no matter the device. It ensures the best image-loading experience every time, taking into account a device’s DPR automatically.</li>
+</ul>
+</li>
+<li><a href="https://grantisom.com/2023/01/02/mustread-books-for.html">Books for Software Engineers in 2023</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34225417">https://news.ycombinator.com/item?id=34225417</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/stevenpetryk/mafs">Mafs</a> is a set of opinionated React components for creating math visualizations.</li>
+<li><a href="https://news.ycombinator.com/item?id=34218003">Ask HN: Why did Frontend development explode in complexity?</a></li>
+<li><a href="https://onsclom.bearblog.dev/functional-programming-how-and-why/">Functional Programming - How and Why</a></li>
+<li><a href="https://whatismyviewport.com/">What is my viewport</a> - A simple online tool for quickly finding the dimensions of your current device's viewport!</li>
+<li><a href="https://blog.logrocket.com/top-5-web-apis-performance-based-analysis/">Top 5 Web APIs for performance-based analysis (and how to use them)</a></li>
+<li><a href="https://calendar.perfplanet.com/2022/making-the-web-faster-with-service-workers-and-performance-research/">Making the Web Faster with Service Workers and Performance Research</a>
+<ul>
+<li>Cache dynamic website resources like HTML and APIs which can be plugged into websites via Service Workers
+<ul>
+<li>automatically dealing with personalization in HTML</li>
+<li>keeping caches up-to-date by crowdsourcing cache checks</li>
+<li>caching dynamic resources in the complete web cache hierarchy including browser cache through Bloom filter-based cache coherence algorithms</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://news.ycombinator.com/item?id=34213181">4 minutes run hard enough to push heart rate to 90%, 3 minutes recover, repeat 4 times</a>
+<ul>
+<li><a href="https://www.ntnu.edu/cerg/advice">https://www.ntnu.edu/cerg/advice</a></li>
+<li><a href="https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/">Get running with Couch to 5K</a></li>
+</ul>
+</li>
+<li><a href="https://calendar.perfplanet.com/2022/http-3-prioritization-demystified/">HTTP/3 Prioritization Demystified</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34231934">https://news.ycombinator.com/item?id=34231934</a></li>
+</ul>
+</li>
+<li><a href="https://css-tricks.com/2022-roundup-of-web-research/">2022 Roundup of Web Research</a></li>
+<li><a href="https://codingbeautydev.com/blog/unnecessary-vscode-extensions/">7 Unnecessarvy VSCode Extensions You Should Uninstall Now</a></li>
+<li><a href="https://medium.com/@felixdavid12/top-7-tips-features-in-vue-3-7119cee4a918">Top 7 tips/features in Vue 3</a> 3. Reactive CSS</li>
+<li>The global <strong><code>structuredClone()</code></strong> method creates a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy">deep clone</a> of a given value using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm">structured clone algorithm</a>.</li>
+<li><a href="https://medium.com/@pythonlearn1024/12-css-tricks-you-might-not-know-3054475e861e">12 CSS Tricks You Might Not Know</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/">Luke</a></li>
+</ul>

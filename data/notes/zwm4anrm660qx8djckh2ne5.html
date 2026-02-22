@@ -1,0 +1,79 @@
+<h1 id="pdf">PDF<a aria-hidden="true" class="anchor-heading icon-link" href="#pdf"></a></h1>
+<h2 id="page-footer-자동으로-생성">Page footer 자동으로 생성<a aria-hidden="true" class="anchor-heading icon-link" href="#page-footer-자동으로-생성"></a></h2>
+<p>지원 되지 않는 듯. 수동으로 테이블 사이즈 조절해서 loop 돌려야..
+(Puppeteer에 footer template이 있는 거 같은데... 시도는 안해봄)</p>
+<blockquote>
+<p><a href="https://stackoverflow.com/a/7197225">I believe the correct answer is that HTML 5 and CSS3 have no support for printing page header and footers in print media.</a></p>
+</blockquote>
+<h2 id="how-to-deal-with-page-breaks-when-printing-a-large-html-table"><a href="https://stackoverflow.com/a/1763683/26960115">How to deal with page breaks when printing a large HTML table</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-deal-with-page-breaks-when-printing-a-large-html-table"></a></h2>
+<h2 id="pdf-암호화">PDF 암호화<a aria-hidden="true" class="anchor-heading icon-link" href="#pdf-암호화"></a></h2>
+<p>Puppeteer에선 pdf 암호화를 지원하지 않기 때문에 외부 library를 사용해야 함</p>
+<blockquote>
+<p><a href="https://github.com/puppeteer/puppeteer/issues/6120">https://github.com/puppeteer/puppeteer/issues/6120</a></p>
+</blockquote>
+<p><a href="https://github.com/Sparticuz/node-qpdf2">https://github.com/Sparticuz/node-qpdf2</a></p>
+<blockquote>
+<p><a href="https://stackoverflow.com/a/77189654">https://stackoverflow.com/a/77189654</a></p>
+</blockquote>
+<h2 id="chromium-launch-options">chromium launch options<a aria-hidden="true" class="anchor-heading icon-link" href="#chromium-launch-options"></a></h2>
+<p>참고</p>
+<blockquote>
+<p><a href="https://github.com/alixaxel/chrome-aws-lambda/blob/1395ee60ad1625d08306a4aad8b7b851b73a9a83/source/index.js#L84-L122">https://github.com/alixaxel/chrome-aws-lambda/blob/1395ee60ad1625d08306a4aad8b7b851b73a9a83/source/index.js#L84-L122</a></p>
+</blockquote>
+<pre class="language-js"><code class="language-js"> <span class="token doc-comment comment">/**
+   * Returns a list of recommended additional Chromium flags.
+   */</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">args</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token string">'--autoplay-policy=user-gesture-required'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-background-networking'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-background-timer-throttling'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-backgrounding-occluded-windows'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-breakpad'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-client-side-phishing-detection'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-component-update'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-default-apps'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-dev-shm-usage'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-domain-reliability'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-extensions'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-features=AudioServiceOutOfProcess'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-hang-monitor'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-ipc-flooding-protection'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-notifications'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-offer-store-unmasked-wallet-cards'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-popup-blocking'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-print-preview'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-prompt-on-repost'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-renderer-backgrounding'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-setuid-sandbox'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-speech-api'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disable-sync'</span><span class="token punctuation">,</span>
+      <span class="token string">'--disk-cache-size=33554432'</span><span class="token punctuation">,</span>
+      <span class="token string">'--hide-scrollbars'</span><span class="token punctuation">,</span>
+      <span class="token string">'--ignore-gpu-blacklist'</span><span class="token punctuation">,</span>
+      <span class="token string">'--metrics-recording-only'</span><span class="token punctuation">,</span>
+      <span class="token string">'--mute-audio'</span><span class="token punctuation">,</span>
+      <span class="token string">'--no-default-browser-check'</span><span class="token punctuation">,</span>
+      <span class="token string">'--no-first-run'</span><span class="token punctuation">,</span>
+      <span class="token string">'--no-pings'</span><span class="token punctuation">,</span>
+      <span class="token string">'--no-sandbox'</span><span class="token punctuation">,</span>
+      <span class="token string">'--no-zygote'</span><span class="token punctuation">,</span>
+      <span class="token string">'--password-store=basic'</span><span class="token punctuation">,</span>
+      <span class="token string">'--use-gl=swiftshader'</span><span class="token punctuation">,</span>
+      <span class="token string">'--use-mock-keychain'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">headless</span> <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      result<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token string">'--single-process'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+      result<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token string">'--start-maximized'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword control-flow">return</span> result<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>

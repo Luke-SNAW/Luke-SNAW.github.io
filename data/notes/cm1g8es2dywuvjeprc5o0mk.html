@@ -1,0 +1,30 @@
+<h1 id="no-more-confusion-about-typescripts-type-and-interface">No More Confusion About TypeScript’s Type and Interface<a aria-hidden="true" class="anchor-heading icon-link" href="#no-more-confusion-about-typescripts-type-and-interface"></a></h1>
+<blockquote>
+<p><a href="https://javascript.plainenglish.io/no-more-confusion-about-typescripts-type-and-interface-63c39418ae35">https://javascript.plainenglish.io/no-more-confusion-about-typescripts-type-and-interface-63c39418ae35</a></p>
+</blockquote>
+<p>Type aliases are extended by <code>&#x26;</code>, while interfaces are extended by <code>extends</code>.</p>
+<p>So can an interface extend the type defined by the type alias through extends? The answer is yes. Additionally, type aliases can also extend defined interface types via the <strong>&#x26;</strong> operator.</p>
+<h1 id="differences">Differences<a aria-hidden="true" class="anchor-heading icon-link" href="#differences"></a></h1>
+<ol>
+<li>Type aliases can define aliases for primitive types, union types, or tuple types, while interfaces cannot:</li>
+</ol>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">MyNumber</span></span> <span class="token operator">=</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// primitive type</span>
+<span class="token class-name"><span class="token keyword">type</span></span> <span class="token maybe-class-name">StringOrNumber</span> <span class="token operator">=</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// union type</span>
+<span class="token class-name"><span class="token keyword">type</span></span> <span class="token maybe-class-name">Point</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// tuple type</span>
+</code></pre>
+<ol start="2">
+<li>Interfaces with the same name are automatically merged(Declaration Merging), while type aliases are not:</li>
+</ol>
+<p><strong>When to use <code>type</code></strong></p>
+<ol>
+<li>When defining aliases for primitive types, use <code>type</code></li>
+<li>When defining a tuple type, use <code>type</code></li>
+<li>When defining a function type, use <code>type</code></li>
+<li>When defining union types, use <code>type</code></li>
+<li>When defining the mapped types, use <code>type</code></li>
+</ol>
+<p><strong>When to use <code>interface</code></strong></p>
+<ol>
+<li>When you need to take advantage of the declaration merging feature, use <code>interface</code></li>
+<li>When defining an object type and no need to use type, use <code>interface</code></li>
+</ol>

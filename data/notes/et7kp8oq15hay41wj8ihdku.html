@@ -1,0 +1,96 @@
+<h1 id="process-management-in-nodejs-with-pm2">Process Management in Node.js with PM2<a aria-hidden="true" class="anchor-heading icon-link" href="#process-management-in-nodejs-with-pm2"></a></h1>
+<blockquote>
+<p><a href="https://javascript.plainenglish.io/process-management-in-node-js-with-pm2-ca32d75c94af">https://javascript.plainenglish.io/process-management-in-node-js-with-pm2-ca32d75c94af</a></p>
+</blockquote>
+<p>Node.js is pretty good at handling I/O operations but when it comes to CPU-intensive tasks, it falls apart. You can easily stall the application by running a heavy operation and since Node.js is single-threaded, it’s going to block further requests.</p>
+<p>Now, to handle this, you could spawn child processes in parallel with the main process so that anytime a new request comes in, it would be handled by this new process. The native cluster module in Node.js allows you to <strong><em>manually</em></strong> configure your application to spawn a cluster of child processes. But wouldn't it be better if there’s a package that handles it for you?</p>
+<p>PM2 is a process manager that takes care of everything right from handling multiple processes, and setting up environment-specific deployment strategies, to saving logs to your system. It’s a feature-packed library that is a fan favorite in the Node.js community and this blog post will cover some of those key features. So let’s get started!</p>
+<p>...</p>
+<p>Now typically we would use <code>**node main.js**</code> to run our application but now that we’re using pm2, we can use <code>**pm2 start main.js**</code>.</p>
+<p><img src="https://miro.medium.com/max/1400/1*iMmSV9q_un3VUHo_bPfNeg.png"></p>
+<p>You get this table that shows you details like the name/id, the CPU/memory consumption, and the status of the process that’s running your application. You also get an option to explicitly provide a name for your process using the <code>name</code> flag. If you don’t give it a name explicitly, it’s going to use the name of the file as the name of the process.</p>
+<p>Now in the screenshot, it looks like the application has stopped. Before the table, you’ll see the “DONE” message but after the table, you don’t see anything. But if you open up your browser and go to <a href="http://localhost:3000/light,">http://localhost:3000/light,</a> you’ll see the “Request successful” message that we’re sending back from our API endpoint. So the application is still running. It’s just that pm2 daemonizes it, which essentially means that it’s running the processes in the background, that’s all. You’ll find the log message in a separate log file, which we’ll look at in the later part of this blog post.</p>
+<h2 id="process-management-commands">Process management commands<a aria-hidden="true" class="anchor-heading icon-link" href="#process-management-commands"></a></h2>
+<ul>
+<li>At any given point, you can view the status of your process by typing in <code>pm2 status</code> or <code>pm2 ls</code> or <code>pm2 list</code>.</li>
+<li>You can stop a process by using <code>pm2 stop</code> followed by the name or the id of the process(<code>pm2 stop main</code> or <code>pm2 stop 0</code>). You can also use <code>pm2 stop all</code> to stop all the processes. Once you’ve stopped your process/processes, try to make a request to your application and see if it’s working. P.S It shouldn't.</li>
+<li><code>pm2 delete</code> followed by the name or id of the process is going to delete that process from the list. (<code>pm2 delete main</code> or <code>pm2 delete 0</code>). You can also use <code>pm2 delete all</code> to delete all the processes.</li>
+<li>There are 2 more commands that help you with managing your processes. One’s the <code>restart</code> command and the other one’s the <code>reload</code> command. Both of these commands essentially re-run a process but the difference lies in how they do it.</li>
+<li>A <code>pm2 restart &#x3C;process_name/ID></code> will first kill the process and then start it back again. So there’s some downtime involved when you’re restarting a process.</li>
+<li>A <code>pm2 reload &#x3C;process_name/ID></code>, on the other hand, will create a new process in the background. Only when this new process is created will it kill the older one. This ensures that there’s no downtime when you’re reloading a process. If for some reason reload doesn’t work, it’s ultimately going to fall back to the classic restart after a specific amount of time.</li>
+</ul>
+<h2 id="hot-reload">Hot reload<a aria-hidden="true" class="anchor-heading icon-link" href="#hot-reload"></a></h2>
+<p>When you’re running an application using Node.js, you need to restart your server every time you make a change in your application. <a href="https://www.npmjs.com/package/nodemon">Nodemon</a> is a popular library that restarts the server anytime it detects a change. You can achieve the same thing in pm2 using the <code>watch</code> flag. So while starting any process if you provide the watch flag at the end, it’s going to listen for changes and then automatically restart the server (<code>pm2 start main.js --watch</code>)</p>
+<h2 id="some-other-start-options">Some other start options<a aria-hidden="true" class="anchor-heading icon-link" href="#some-other-start-options"></a></h2>
+<ul>
+<li><strong>max-memory-restart &#x3C;200MB> —</strong> This option will restart the process when it reaches a certain memory limit. You can specify the memory limit in kilobytes (K), Megabytes (M), or Gigabytes (G)</li>
+<li><strong>log <file path=""></file></strong> — Log will specify the file inside which you’re going to store your application logs. Try starting a process but this time, use the log flag with the name of the log file at the end.<br>
+<code>pm2 start main.js --log ./logFile.txt</code><br>
+Now if you make a request to the light endpoint, you’ll see a file auto-generated inside your project folder called logFile.txt. This file will have the log statement at the top.</li>
+<li><strong>restart-delay <delay in="" ms=""></delay></strong> will add a delay between automatic restarts.</li>
+<li><strong>time</strong> flag will add a timestamp for all your logs. Restart your application but this time attach the time flag at the end. <code>pm2 restart 0 --time</code>. Now make a request to the endpoint, and you’ll see the time stamp before the logged message inside the log file.</li>
+<li><strong>no-autorestart</strong> will disable auto restart. This makes sense when you want to execute one-time scripts and don’t want the process manager to restart the script after it’s finished running.</li>
+<li><strong>cron</strong> flag will restart the process based on the cron expression interval that you add. <a href="https://youtu.be/LmDw-nbVLQk?t=350"><strong><em>I have a separate video explaining cron expressions in detail, you can check it out if you want to know more about it.</em></strong></a></li>
+<li><strong>no-daemon</strong> flag will not demonize your pm2 process. So instead of running it in the background, you’ll now see all your logs and events on the console itself just like you would in the case of a typical node execution.</li>
+</ul>
+<p>Now it doesn’t make sense for us to manually add these options on startup or while restarting a process. Instead what we’ll do is add a config file that is going to have all these options so that anytime we start the application, it’s always going to run with those options enabled.</p>
+<h2 id="creating-a-pm2-config-file">Creating a pm2 config file<a aria-hidden="true" class="anchor-heading icon-link" href="#creating-a-pm2-config-file"></a></h2>
+<p>To generate this config file, inside your console type in <code>pm2 init simple</code>. This will create a file called ecosystem.config.js. If you are creating your own configuration file, make sure it ends with <code>.config.js</code> so that PM2 is able to recognize it as a configuration file. Inside the file, copy this code snippet.</p>
+<pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  apps<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    name <span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+    script<span class="token operator">:</span> <span class="token string">"./main.js"</span><span class="token punctuation">,</span>
+    watch<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    ignore_watch <span class="token operator">:</span> <span class="token string">"node_modules"</span><span class="token punctuation">,</span>
+    time<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    out_file <span class="token operator">:</span> <span class="token string">"./scripts.txt"</span><span class="token punctuation">,</span>
+    error_file <span class="token operator">:</span> <span class="token string">"./error.txt"</span><span class="token punctuation">,</span>
+    env<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string">"NODE_ENV"</span><span class="token operator">:</span> <span class="token string">"development"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    env_production<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string">"NODE_ENV"</span><span class="token operator">:</span> <span class="token string">"production"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>\<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>I’ll explain the options that we’ve used over here.</p>
+<ul>
+<li>name: Name of the process</li>
+<li>script: Location of the script to be executed</li>
+<li>watch: To track changes and restart the process</li>
+<li>ignore_watch: Will not track changes for a set of files/folders</li>
+<li>time: Will attach timestamps to the log statements in your log files</li>
+<li>out_file and error_file: Will add respective log statements to these files</li>
+</ul>
+<p>You can also add environment-specific options, like for instance if your environment variable values change between testing and production modes, you can add those variables inside <code>env</code> or <code>env_production</code> respectively.</p>
+<p>We’ll add a couple of extra options later when we switch to cluster mode, but for now, this looks good.</p>
+<p>Now instead of using <code>pm2 start main.js</code>, we can run the config file (<code>pm2 start ecosystem.config.js</code>) and it’ll, in turn, run the script for us. You can add multiple non-Node.js apps inside the apps array and it would still work. PM2 is not just bound to Node.js. You can run a process from a different language like python, for instance, using pm2.</p>
+<p>Now that we know a little bit about pm2, let’s see how it helps with managing multiple processes. In the config file, add 2 extra options, exec_mode, and instances.</p>
+<pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+ apps<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+ name <span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+ script<span class="token operator">:</span> <span class="token string">"./main.js"</span><span class="token punctuation">,</span>
+ watch<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+ ignore_watch <span class="token operator">:</span> <span class="token string">"node_modules"</span><span class="token punctuation">,</span>
+ time<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+ <span class="token operator">**</span>exec_mode<span class="token operator">:</span><span class="token string">"cluster"</span><span class="token punctuation">,</span>
+ instances<span class="token operator">:</span><span class="token string">"max"</span><span class="token punctuation">,</span><span class="token operator">**</span>
+ out_file <span class="token operator">:</span> <span class="token string">"./scripts.txt"</span><span class="token punctuation">,</span>
+ error_file <span class="token operator">:</span> <span class="token string">"./error.txt"</span><span class="token punctuation">,</span>
+ env<span class="token operator">:</span> <span class="token punctuation">{</span>
+ <span class="token string">"NODE_ENV"</span><span class="token operator">:</span> <span class="token string">"development"</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ env_production<span class="token operator">:</span> <span class="token punctuation">{</span>
+ <span class="token string">"NODE_ENV"</span><span class="token operator">:</span> <span class="token string">"production"</span><span class="token punctuation">,</span>
+ <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>When you want to spin up a cluster of processes for your application, you need to set the exec_mode to “cluster”. By default, it’s set to “fork”.</p>
+<p>When setting up a cluster, you need to mention how many process instances you’ll need. You can pass <strong>0/max</strong> which will spin up processes equal to the number of cores in your system. <strong>-1</strong> is going to spin up 1 less than the maximum and if you pass in any other number, it's going to spin up that many processes.</p>
+<p>Now if you run the config file, you’ll see a bunch of processes running simultaneously(8 in my case since I have an 8-core system). You’ll also notice that the mode of execution has changed to “cluster”.</p>
+<p><img src="https://miro.medium.com/max/1400/1*if9u6zqYKquhq12zWwsx1A.png"></p>
+<p>PM2 has an advanced dashboard that lets you monitor your processes. You can run your config file and after that use the <code>pm2 monit</code> command to open up this dashboard.</p>
+<p><img src="https://miro.medium.com/max/1400/1*AOtX7A8hvSSF1z71lTN0nQ.png"></p>
+<p>It gives you a more real-time view of all your processes. You can individually check resource consumption and allocation of each of the processes in your system. There’s also a logs section wherein you can track all your logs in real-time.</p>

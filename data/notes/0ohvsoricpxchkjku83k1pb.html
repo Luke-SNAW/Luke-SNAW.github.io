@@ -1,0 +1,127 @@
+<h1 id="exploring-declarative-shadow-dom">Exploring Declarative Shadow DOM<a aria-hidden="true" class="anchor-heading icon-link" href="#exploring-declarative-shadow-dom"></a></h1>
+<blockquote>
+<p><a href="https://www.wiktorwisniewski.dev/blog/exploring-declarative-shadow-dom">https://www.wiktorwisniewski.dev/blog/exploring-declarative-shadow-dom</a></p>
+</blockquote>
+<p>Shadow DOM is part of Web Component feature, that allows to completely isolate separate DOM tree (shadow tree) and its CSS from the rest of the document. The benefit of that is performance because we are running code that is closer to the native API rather than framework abstraction layer. The second benefit is portability of the given component across multiple projects - even these that use frameworks like React / Angular / Vue under the hood. Side note: it's not supported out of the box. Check <a href="https://custom-elements-everywhere.com/">Custom Elements Everywhere</a> for more details. Simply write once, reuse everywhere or safely distribute your component to third party pages, without worrying about speed.</p>
+<p>Here's the most basic example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> specialDiv <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"shadow-element"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> shadow <span class="token operator">=</span> specialDiv<span class="token punctuation">.</span><span class="token method function property-access">attachShadow</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mode<span class="token operator">:</span> <span class="token string">"open"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> divElement <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">)</span>
+
+divElement<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">"Paragraph contents"</span>
+
+shadow<span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>divElement<span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>shadow-element<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>will become:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>shadow-element<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  #shadow-root (open)
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Paragraph contents<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="pitfalls">Pitfalls<a aria-hidden="true" class="anchor-heading icon-link" href="#pitfalls"></a></h2>
+<p>There are drawbacks that one needs to keep in mind when planning the use of web components:</p>
+<ul>
+<li>Doesn't work in JavaScript-less environments. JS is mandatory even if your component's logic doesn't require it.</li>
+<li>Web Components usually are deferred, which means they will be causing Content Layout Shift</li>
+<li>Rendering ShadowDOM on server is not possible because there are no declarative primitives for it*</li>
+</ul>
+<p>I want to emphasize here that the lack of support for server environments is a big issue. If you are a front-end developer you are probably aware of the (well justified) hype around Server Side Rendering. If you can't use your component on the server, the natural choice is to go with react-like components and not worry about limited use cases. What's the benefit of using components if you can use it only in some projects?</p>
+<h2 id="why-web-components-do-not-work-well-in-server-environment">Why Web Components do not work well in server environment?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-web-components-do-not-work-well-in-server-environment"></a></h2>
+<p>Quick explanation on what is Server Side Rendering:</p>
+<p><em>On each request server is "rendering" HTML and serves it to a client with minimal JavaScript necessery for given document (based on that request). Well in fact it just prepares HTML string. On website load hydration happens and the page is fully interactive (lot's of buzzwords for good old-school style webdev).</em></p>
+<p>Now, the problem is, shadow root is highly dependent on browser environment and javascript initialization. We can't use <code>.attachShadow({mode: 'open' })</code> on the server and we can't write shadowDom declaritively as HTML string. For some APIs you just need a browser. In theory you could spin up a browser instance for build purposes but this strategy has plenty of downsides.</p>
+<h2 id="declarative-shadowdom-to-the-rescue">Declarative ShadowDOM to the rescue!<a aria-hidden="true" class="anchor-heading icon-link" href="#declarative-shadowdom-to-the-rescue"></a></h2>
+<p>It's a game changer not only because it challenges all server environment related problems. Declarative Shadow DOM addresses CLS issue as well and finally - we can benefit from ShadowDOM encapsulation without writing a single line of JavaScript. This is what I have used for my experiments:</p>
+<p>🚀 Click Me<a href="https://gist.github.com/wisniewski94/d28c1e8905c44b8b131c3bc472891e55">Source code at GitHub Gist</a></p>
+<p>The above example is quite easy to accomplish. The overall idea is to have a confetti button that stands as alternative to regular button element. I did not focus on forms and a11y this time as this article tries to aim for DSD only.</p>
+<h3 id="html-markup">HTML Markup<a aria-hidden="true" class="anchor-heading icon-link" href="#html-markup"></a></h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>confetti-button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span> <span class="token attr-name">shadowroot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>open<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+      ...<span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>slot</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>slot</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>canvas</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>confetti<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>canvas</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+  🚀 Click Me
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>confetti-button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">class</span> <span class="token class-name">ConfettiButton</span> <span class="token keyword">extends</span> <span class="token class-name">HTMLElement</span> <span class="token punctuation">{</span>
+    <span class="token spread operator">...</span>
+  <span class="token punctuation">}</span>
+
+  customElements<span class="token punctuation">.</span><span class="token method function property-access">define</span><span class="token punctuation">(</span><span class="token string">'confetti-button'</span><span class="token punctuation">,</span> <span class="token maybe-class-name">ConfettiButton</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Here we have a <code>confetti-button</code> custom element that wraps a template with shadowroot="open". That template is transfered into shadow dom when HTML parser finds it. We also have a canvas element that is used to draw confetti particles. The canvas element is positioned absolutely and covers the button element but using some css magic you can click through it. This way, the button element feels to be on top of the canvas element.</p>
+<p>Button can be disabled as well by adding "disabled" property to it:</p>
+<p>🚀 Click Me</p>
+<h3 id="styling-custom-elements">Styling custom elements<a aria-hidden="true" class="anchor-heading icon-link" href="#styling-custom-elements"></a></h3>
+<p>Just a brief example of most interesting parts:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">button</span> <span class="token punctuation">{</span> ... <span class="token punctuation">}</span>
+<span class="token selector"><span class="token pseudo-class">:host</span><span class="token punctuation">(</span><span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">disabled</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span> button<span class="token pseudo-class">:hover</span></span> <span class="token punctuation">{</span> ... <span class="token punctuation">}</span>
+<span class="token selector"><span class="token pseudo-class">:host</span><span class="token punctuation">(</span><span class="token pseudo-class">:active</span><span class="token punctuation">)</span> button<span class="token pseudo-class">:active</span><span class="token punctuation">,</span> <span class="token pseudo-class">:host</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">disabled</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> button</span> <span class="token punctuation">{</span> ... <span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:host</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">disabled</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> button</span> <span class="token punctuation">{</span>
+  ...
+  <span class="token property">cursor</span><span class="token punctuation">:</span> not-allowed<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">canvas</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span><span class="token number">-50</span><span class="token unit">%</span><span class="token punctuation">,</span> <span class="token number">-50</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">pointer-events</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Template contains style tag with css that is used to style the button element. Note that I am placing large style tag inside web component on purpose. If I included it as a separate file, on slow connection I would risk getting FOUC or CLS. For more advanced styling that could be not the best approach as it comes at cost of larger HTML file, which takes more time to load.</p>
+<p>The rule that I find the most interesting is <code>pointer-events: none;</code> because it makes clicking through canvas possible. Also you might notice that I'm using <code>:host([disabled])</code> selector instead of <code>:host(:disabled)</code>. The second one didn't work.</p>
+<h3 id="js-in-dsd---interesting-parts">JS in DSD - interesting parts<a aria-hidden="true" class="anchor-heading icon-link" href="#js-in-dsd---interesting-parts"></a></h3>
+<p>What's more important are gotchas that eventually you might encounter when working with Custom Elements. There are plenty of them but in terms of DSD, the one that took me quite a while to get over was accessing the shadowRoot. The "bug" that I was struggling with was trying to query shadowRoot inside constructor call:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">ConfettiButton</span> <span class="token keyword">extends</span> <span class="token class-name">HTMLElement</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// DON'T DO THIS, shadowRoot probably is not available yet</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">shadowRoot</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token spread operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>At the point of writing this component I was dead sure that you can do such things in constructor. If you can attach shadowRoot then why not access it, if it was created by DOM parser already, right? Well turns out this is not how it works. The constructor should be used to set up initial state, default values, event listeners and possibly a shadow root. What I have tried to accomplish here was fundamentally wrong and should be deferred to connectedCallback method according to <a href="https://html.spec.whatwg.org/#custom-element-conformance">Custom Elements Comformance</a>.</p>
+<p>Another good point to make is that this custom element depends on its contents (template) so if you do:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> myElement <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">"confetti-button"</span><span class="token punctuation">)</span>
+myElement<span class="token punctuation">.</span><span class="token method function property-access">attachShadow</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mode<span class="token operator">:</span> <span class="token string">"open"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span>myElement<span class="token punctuation">)</span>
+</code></pre>
+<p>Then you will get an error because we are not using template that this custom element needs. It violates the rule of not using dependent elements. You won't be able to <strong>imperatively</strong> create a custom element that way. We could argue, that if you want to use regular element many times, you simply define it multiple times, but you might get a feeling that with element of this size and complexity we are heading in wrong direction. There is a way to store the element for the later use:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>chunk<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>confetti-button</span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>confetti-button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>chunk<span class="token punctuation">.</span><span class="token property-access">content</span><span class="token punctuation">.</span><span class="token method function property-access">cloneNode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>What if you can't use a template? This is where getInnerHTML() method comes in handy. It works similarly to innerHTML property but it returns a string that contains template with open shadowRoot</p>
+<h2 id="maybe-you-dont-need-declarative-shadow-dom-at-all">Maybe you don't need Declarative Shadow DOM at all?<a aria-hidden="true" class="anchor-heading icon-link" href="#maybe-you-dont-need-declarative-shadow-dom-at-all"></a></h2>
+<p>This is a great feature to use and understand but maybe it's not a must-have solution for you right now. Personally I consider it an interesting feature - a subset of great technologies yet to come. Questions and things to consider are:</p>
+<ol>
+<li>Is your custom component visible above the fold?</li>
+<li>If the nature of your component is interactive (e.g. datepicker) then SEO shouldn't be a concern.</li>
+<li>For a small websites and high connection speeds the FOUC &#x26; CLS issue is not as visible as it is in slow devices and large projects.</li>
+<li>You can still have a fallback in the light dom. That should work if component doesn't consume too much CSS.</li>
+</ol>
+<p>Declarative Shadow DOM is available since Chrome 90 and Edge 91 (both running on Chromium so it counts as one). The great news is <a href="https://github.com/WebKit/WebKit/pull/4693">Safari is prototyping.</a> Assuming Mozilla is interested in declarative solutions, it means we are closer to get DSD on all major browsers 👀...</p>
+<p>WebComponents are improving over time thus solving current issues and bringing the perspective of landing newer frameworks and applications. There are already great frameworks built on top of WebComponents that will benefit from this implementation as well (e.g. StencilJS, Lit). Declarative Shadow DOM will finally solve the issue of Server Side Rendering and Web Components. It's one more step towards better specification!</p>
+<p>References:</p>
+<ol>
+<li><a href="https://html.spec.whatwg.org/#custom-element-conformance">https://html.spec.whatwg.org/#custom-element-conformance</a></li>
+<li><a href="https://github.com/whatwg/dom/issues/831">https://github.com/whatwg/dom/issues/831</a></li>
+<li><a href="https://github.com/mfreed7/declarative-shadow-dom/blob/master/README.md">https://github.com/mfreed7/declarative-shadow-dom/blob/master/README.md</a></li>
+<li><a href="https://web.dev/declarative-shadow-dom/">https://web.dev/declarative-shadow-dom/</a></li>
+</ol>

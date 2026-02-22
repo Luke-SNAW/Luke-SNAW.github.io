@@ -1,0 +1,349 @@
+<h1 id="24-powerful-html-attributes-every-senior-web-engineer-should-master">24 Powerful HTML Attributes Every Senior Web Engineer Should Master!<a aria-hidden="true" class="anchor-heading icon-link" href="#24-powerful-html-attributes-every-senior-web-engineer-should-master"></a></h1>
+<blockquote>
+<p><a href="https://javascript.plainenglish.io/24-powerful-html-attributes-every-senior-web-engineer-should-master-ad8a4df0776e">https://javascript.plainenglish.io/24-powerful-html-attributes-every-senior-web-engineer-should-master-ad8a4df0776e</a></p>
+</blockquote>
+<h1 id="1-accept">1. Accept<a aria-hidden="true" class="anchor-heading icon-link" href="#1-accept"></a></h1>
+<p>The Accept attribute is used to specify a list of MIME types that the browser can handle.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">accept</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>.jpg, .png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<blockquote>
+<p><em>Tips:</em></p>
+<p><em>A MIME type is a standard for identifying the type of document,</em></p>
+<p><em>For example, text/html represents an HTML document, image/jpeg represents a JPEG image, and so on.</em></p>
+</blockquote>
+<p>By including the Accept attribute in the HTTP request header, the browser can tell the server which MIME types it can accept in response. Based on this information, the server can choose the most appropriate response type and return it to the browser. The value of the Accept attribute is a comma-separated list of MIME types, wildcards can be used to represent a class of MIME types, for example text/* represents all text types.</p>
+<h1 id="2-autofocus">2. Autofocus<a aria-hidden="true" class="anchor-heading icon-link" href="#2-autofocus"></a></h1>
+<p>The Autofocus property is used to automatically set the focus to the specified element when the page loads.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">autofocus</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<blockquote>
+<p><em>Tips:</em></p>
+<p><em>Autofocus attributes can be applied to various HTML elements such as text boxes, buttons, drop-down lists, and more.</em></p>
+<p><em>In HTML5, the Autofocus attribute can omit the attribute value, indicating that the focus is set to the first element with the Autofocus attribute.</em></p>
+</blockquote>
+<p>When the page is loaded, if there is an element with the Autofocus attribute, the browser will automatically focus the cursor on the element, so that the user can directly interact with the element without manually clicking or using the Tab key to switch focus.</p>
+<h1 id="3-input-mode">3. Input mode<a aria-hidden="true" class="anchor-heading icon-link" href="#3-input-mode"></a></h1>
+<p>The Inputmode attribute is an attribute for specifying the type of content entered in the text box.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">inputmode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>It can help the browser to better optimize the input experience, such as automatically popping up the appropriate virtual keyboard on mobile devices.</p>
+<ul>
+<li>text: The default value, which means input any text.</li>
+<li>none: indicates that no input is required.</li>
+<li>tel: Indicates to enter a telephone number.</li>
+<li>url: Indicates the input URL address.</li>
+<li>email: Indicates to enter an email address.</li>
+<li>numeric: Indicates the input number.</li>
+<li>decimal: Indicates inputting a number with a decimal point.</li>
+<li>search: Indicates to enter a search keyword.</li>
+</ul>
+<p>The level of support for the Inputmode attribute may vary in different browsers.</p>
+<p>Therefore, compatibility testing is required when using the Inputmode property.</p>
+<h1 id="4-pattern">4. Pattern<a aria-hidden="true" class="anchor-heading icon-link" href="#4-pattern"></a></h1>
+<p>The Pattern attribute is a regular expression pattern used to specify the input content in the text box. It can help the browser to verify whether the content entered by the user conforms to the specified format requirements.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[A-Za-z-0-9]+<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>If the content entered by the user does not conform to the regular expression pattern specified by the Pattern attribute, the browser will display a default error message.</p>
+<p><em>Tips:</em></p>
+<ul>
+<li>The value of the Pattern attribute must be a valid regular expression.</li>
+<li>The Pattern property can only be applied to elements that can enter text, such as text boxes, text fields, and password boxes.</li>
+<li>The Pattern attribute will not prevent users from entering illegal characters, but will verify that the input content meets the specified format requirements when submitting the form.</li>
+<li>The error message of the Pattern attribute can be customized using the title attribute.</li>
+</ul>
+<p>The Pattern attribute is usually used together with the required attribute to ensure that the content entered by the user conforms to the specified format requirements and is not empty. For example, you can use the Pattern property to validate user input for zip codes, phone numbers, email addresses, and so on.</p>
+<h1 id="5-required">5. Required<a aria-hidden="true" class="anchor-heading icon-link" href="#5-required"></a></h1>
+<p>The Required attribute is an attribute used to specify whether a form element is required.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">required</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>If a form element has the Required attribute set, then when the form is submitted, if the value of the element is empty, the browser will prevent the form from being submitted and prompt the user to fill in the field.</p>
+<p><em>Tips:</em></p>
+<ul>
+<li>The Required attribute can only be applied to form elements, not to other HTML elements.</li>
+<li>The Required attribute does not verify whether the content entered by the user meets the specified format requirements, only whether the element is empty.</li>
+<li>The Required attribute does not prevent users from submitting spaces or whitespace characters, so some other means of validating user input is required.</li>
+<li>The Required attribute can be used together with the Pattern attribute to verify that the user-entered content conforms to the specified format requirements.</li>
+<li>The Required attribute can be used in conjunction with the Autofocus attribute to ensure that when the user enters the form page, the focus is automatically on the required field.</li>
+</ul>
+<p>The Required attribute is often used with the type attribute of form elements, such as text boxes, drop-down lists, radio boxes, check boxes, and so on.</p>
+<h1 id="6-autocomplete">6. Autocomplete<a aria-hidden="true" class="anchor-heading icon-link" href="#6-autocomplete"></a></h1>
+<p>The Autocomplete attribute is an attribute used to specify whether the form element has auto-complete enabled.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>credit-card-number<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>Autocomplete helps users fill out forms faster and reduces the chance of typing errors.</p>
+<p><em>Tips:</em></p>
+<ul>
+<li>on: The default value, which means that the auto-completion function is enabled.</li>
+<li>off: Indicates that the auto-completion function is disabled.</li>
+<li>name: Indicates that the name attribute of the form element is used as the keyword for automatic completion.</li>
+<li>email: Indicates to use the most recent email address entered by the user as the autocomplete keyword.</li>
+<li>username: Indicates that the user name recently entered by the user is used as the keyword for auto-completion.</li>
+<li>current-password: Indicates that the password recently entered by the user is used as the keyword for auto-complete.</li>
+<li>new-password: Indicates that the new password recently entered by the user is used as the keyword for auto-complete.</li>
+<li>tel: Indicates to use the last phone number entered by the user as the keyword for autocomplete.</li>
+<li>address-level1: Indicates that the country or region name recently entered by the user is used as the keyword for auto-completion.</li>
+<li>address-level2: Indicates that the province or state name recently entered by the user is used as the keyword for auto-completion.</li>
+<li>address-level3: Indicates that the city or region name recently entered by the user is used as the keyword for auto-completion.</li>
+<li>address-level4: Indicates that the most recent street name entered by the user is used as the keyword for auto-completion.</li>
+<li>country: Indicates that the country name recently entered by the user is used as the keyword for auto-complete.</li>
+</ul>
+<p>The degree of support for the Autocomplete attribute may vary in different browsers. Therefore, compatibility testing is required when using the Autocomplete property.</p>
+<h1 id="7-multiple">7. Multiple<a aria-hidden="true" class="anchor-heading icon-link" href="#7-multiple"></a></h1>
+<p>The Multiple attribute is an attribute used to specify whether a form element allows multiple selections.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">multiple</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>The Multiple attribute is typically applied to form elements such as dropdown lists, file uploads, and checkboxes.</p>
+<p><em>Tips:</em></p>
+<ul>
+<li>The Multiple attribute can only be applied to form elements such as drop-down lists, file uploads, and check boxes, and cannot be applied to form elements such as radio boxes and text boxes.</li>
+<li>The value of the Multiple property must be a Boolean value, true or false.</li>
+<li>The default value of the Multiple attribute is false, which means that multiple selections are not allowed.</li>
+<li>When the value of the Multiple attribute is true, the drop-down list will be displayed as a multi-selectable list box, the check box will be displayed as a multi-selectable check box list, and the file upload will allow the user to select multiple files.</li>
+<li>When using the Multiple attribute, it is necessary to process the multi-selected values ​​in the background program, for example, use an array to store the multi-selected values.</li>
+</ul>
+<p>If a form element has the Multiple attribute set, the user can select multiple options, not just a single one.</p>
+<h1 id="8-download">8. Download<a aria-hidden="true" class="anchor-heading icon-link" href="#8-download"></a></h1>
+<p>The Download attribute is an attribute for specifying a file name when a link downloads a file.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>document.pdf<span class="token punctuation">"</span></span> <span class="token attr-name">download</span><span class="token punctuation">></span></span>Download PDF<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>If a link is set with the Download attribute, then when the user clicks the link to download the file, the browser will save the file locally and use the file name specified by the Download attribute to name the file.</p>
+<p><em>Tips:</em></p>
+<ul>
+<li>The value of the Download attribute can be any string, which represents the file name used when downloading the file.</li>
+<li>The Download attribute can only be applied to tags, not to other HTML elements.</li>
+<li>The Download attribute doesn’t change the actual name of the file, it just uses the specified filename when downloading.</li>
+<li>The value of the Download attribute can be dynamically generated, for example using JavaScript to generate the filename.</li>
+<li>When using the Download attribute, you need to ensure that the downloaded file is legal and does not violate the copyright and privacy of others.</li>
+</ul>
+<p>The Download attribute is usually used in tags to download PDF, image, audio, video and other files.</p>
+<h1 id="9-content-editable">9. Content editable<a aria-hidden="true" class="anchor-heading icon-link" href="#9-content-editable"></a></h1>
+<p>The Contenteditable attribute in HTML is an attribute used to specify whether an element is editable.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">contenteditable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Text<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><em>Tips:</em></p>
+<ul>
+<li>The value of the Contenteditable attribute can be true, false or inherit.</li>
+<li>The default value of the Contenteditable property is false, indicating that the element is not editable.</li>
+<li>When the value of the Contenteditable property is true, the element is editable.</li>
+<li>When the value of the Contenteditable attribute is inherit, the editability of the element is inherited from the parent element.</li>
+<li>The Contenteditable attribute does not change the default behavior of the element, eg tags can still jump to other pages.</li>
+<li>When using the Contenteditable attribute, you need to pay attention to security issues to avoid XSS attacks and malicious script injection.</li>
+</ul>
+<p>If an element sets the Contenteditable attribute, then the user can enter text, insert pictures, modify styles, etc. in the element. The Contenteditable attribute is usually applied to, and other elements are used to implement functions such as rich text editors and editable tables.</p>
+<h1 id="10-readonly">10. Readonly<a aria-hidden="true" class="anchor-heading icon-link" href="#10-readonly"></a></h1>
+<p>The Readonly attribute in HTML is an attribute used to specify whether a form element is read-only.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">readonly</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p><em>Tips:</em></p>
+<ul>
+<li>The value of the Readonly attribute must be a Boolean value, true or false.</li>
+<li>The default value of the Readonly attribute is false, indicating that the form element is editable.</li>
+<li>When the value of the Readonly attribute is true, the form element is read-only.</li>
+<li>The Readonly attribute does not prevent users from modifying the value of form elements via JavaScript.</li>
+<li>The Readonly attribute is different from the Disabled attribute, which disables the form element so that it cannot submit data.</li>
+<li>When using the Readonly attribute, it is necessary to process the read-only value in the background program, such as using a hidden field to store the read-only value.</li>
+</ul>
+<p>If a form element has the Readonly attribute set, the user can see the value of the element, but cannot modify the value of the element. The Readonly attribute is usually applied to form elements such as text boxes, drop-down lists, and date pickers to display data or prevent users from modifying data.</p>
+<h1 id="11-hidden">11. Hidden<a aria-hidden="true" class="anchor-heading icon-link" href="#11-hidden"></a></h1>
+<p>The Hidden attribute is an attribute used to specify whether an element is hidden.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span> <span class="token attr-name">hidden</span><span class="token punctuation">></span></span>This text is hidden<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><em>Tips:</em></p>
+<ul>
+<li>The value of the Hidden property must be a Boolean value, either true or false.</li>
+<li>The default value of the Hidden property is false, indicating that the element is not hidden.</li>
+<li>When the value of the Hidden property is true, the element is hidden.</li>
+<li>The Hidden attribute is different from the display:none attribute of CSS. The display:none attribute will completely remove the element from the page, and the element cannot be accessed through JavaScript or other methods.</li>
+<li>When using the Hidden attribute, the hidden value needs to be processed in the background program, such as using a hidden field to store the hidden value.</li>
+</ul>
+<p>If an element has the Hidden attribute set, the element will not be displayed on the page, but it still exists on the page and can be accessed through JavaScript, etc. The Hidden attribute is usually applied to elements such as form elements, buttons, images, etc., to pass data or control page behavior without affecting the page layout.</p>
+<h1 id="12-spellcheck">12. Spellcheck<a aria-hidden="true" class="anchor-heading icon-link" href="#12-spellcheck"></a></h1>
+<p>The Spellcheck attribute in HTML is an attribute used to specify whether to enable spell checking for an element.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span> <span class="token attr-name">contenteditable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">spellcheck</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Myy spellinng is checkd<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><em>Tips:</em></p>
+<ul>
+<li>The value of the Spellcheck property must be a Boolean value, true or false.</li>
+<li>The default value of the Spellcheck attribute is false, indicating that the element does not enable spell checking.</li>
+<li>When the value of the Spellcheck attribute is true, the element enables spell checking.</li>
+<li>The extent of support for the Spellcheck attribute varies by browser, and different browsers may have different spellcheck algorithms and dictionaries.</li>
+<li>When using the Spellcheck attribute, you need to pay attention to security issues to avoid XSS attacks and malicious script injection.</li>
+</ul>
+<p>If an element sets the Spellcheck attribute, then when the user enters text in the element, the browser will automatically check for spelling errors and display a red wavy line under the incorrect word. The Spellcheck attribute is usually applied to elements such as text boxes and text fields to improve the accuracy of user input.</p>
+<h1 id="13-translate">13. Translate<a aria-hidden="true" class="anchor-heading icon-link" href="#13-translate"></a></h1>
+<p>The Translate attribute in HTML is an attribute used to specify whether an element should be translated.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>footer</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span> <span class="token attr-name">translate</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Printing Works, Inc<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>footer</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><em>Tips:</em></p>
+<ul>
+<li>The value of the Translate attribute must be a Boolean value, yes or no.</li>
+<li>The default value of the Translate property is yes, indicating that the element needs to be translated.</li>
+<li>When the value of the Translate attribute is no, the element does not require translation.</li>
+<li>The degree of support for the Translate property varies from browser to browser, and different browsers may have different translation algorithms and dictionaries.</li>
+<li>When using the Translate attribute, you need to pay attention to security issues to avoid XSS attacks and malicious script injection.</li>
+</ul>
+<p>If an element has the Translate attribute set, the browser will decide whether to translate the content of the element according to the value of the attribute. The Translate attribute is usually used in multilingual versions of websites to control which elements need to be translated and which elements do not.</p>
+<h1 id="14-loading">14. Loading<a aria-hidden="true" class="anchor-heading icon-link" href="#14-loading"></a></h1>
+<p>The attribute in HTML <code>loading</code>is a new attribute that can be used to specify the browser's priority when loading resources.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./image.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">loading</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>This attribute can be applied to tags such as <code>&#x3C;img></code>, <code>&#x3C;iframe></code>, <code>&#x3C;script></code>, <code>&#x3C;link></code>and <code>&#x3C;audio></code>.</p>
+<p><em>Tips:</em></p>
+<ul>
+<li><code>lazy</code>: Indicates that the resource should be lazily loaded after the page loads. It's the default value.</li>
+<li><code>eager</code>: Indicates that the resource should be loaded immediately on page load.</li>
+<li><code>auto</code>: Indicates that the browser should decide when to load the resource by itself.</li>
+</ul>
+<p><code>loading</code>Attributes are not supported by all browsers, so a compatibility check is required when using them.</p>
+<h1 id="15-onerror">15. Onerror<a aria-hidden="true" class="anchor-heading icon-link" href="#15-onerror"></a></h1>
+<p><code>onerror</code>is a JavaScript event handler that fires on JavaScript errors.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./image.png<span class="token punctuation">"</span></span>
+  <span class="token special-attr"><span class="token attr-name">onerror</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">onerror</span><span class="token operator">=</span><span class="token keyword null nil">null</span><span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">src</span><span class="token operator">=</span><span class="token string">'image-not-found.png'</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span>
+<span class="token punctuation">/></span></span>
+</code></pre>
+<p><code>onerror</code>Event handlers can be added <code>window</code>to objects to catch JavaScript errors globally.</p>
+<p><em>Tips:</em></p>
+<ul>
+<li><code>message</code>:wrong information.</li>
+<li><code>source</code>: The URL of the script where the error occurred.</li>
+<li><code>lineno</code>: The line number where the error occurred.</li>
+<li><code>colno</code>: The column number where the error occurred.</li>
+<li><code>error</code>: An Error object containing detailed information about the error.</li>
+</ul>
+<p><code>onerror</code>Event handlers can only catch JavaScript errors that are not caught by other error handlers.</p>
+<p>It is best to use try-catch statements in your code to catch and handle JavaScript errors.</p>
+<h1 id="16-poster">16. Poster<a aria-hidden="true" class="anchor-heading icon-link" href="#16-poster"></a></h1>
+<p><code>poster</code>is an attribute of the HTML5 <code>&#x3C;video></code>tag that specifies an image to display before the video loads and before it plays.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>video</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./video.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">poster</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image.png<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>video</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><em>Tips:</em></p>
+<p><code>_poster_</code><em>Attributes only apply to</em> <code>_&#x3C;video>_</code><em>tags, not</em> <code>_&#x3C;audio>_</code><em>labels.</em></p>
+<p>It is commonly used to provide a preview image or thumbnail of a video.</p>
+<h1 id="17-controls">17. Controls<a aria-hidden="true" class="anchor-heading icon-link" href="#17-controls"></a></h1>
+<p><code>controls</code>Is an attribute of the neutral tag in HTML5 <code>&#x3C;video></code>, <code>&#x3C;audio></code>which is used to specify whether to display the controls of the media player.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>audio</span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>track1.mp3<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>audio/mpeg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>audio</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>If <code>controls</code>the property is set to <code>controls</code>, controls are displayed on the media player, such as a play/pause button, volume control, progress bar, etc.</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Controls Example<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>video</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>320<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>240<span class="token punctuation">"</span></span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/mp4<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video.ogg<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/ogg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      Your browser does not support the video tag.
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>video</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>controls</code>Attributes are only available in browsers that support HTML5. If the browser does not support HTML5, the control will not be displayed.</p>
+<h1 id="18-autoplay">18. Autoplay<a aria-hidden="true" class="anchor-heading icon-link" href="#18-autoplay"></a></h1>
+<p><code>autoplay</code>is an attribute of the neutral tag in HTML5 <code>&#x3C;video></code>that <code>&#x3C;audio></code>specifies whether the media should play automatically on page load.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>video</span> <span class="token attr-name">autoplay</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">poster</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image.png<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>video</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>If <code>autoplay</code>the property is set to <code>autoplay</code>, the media will play automatically on page load.</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Autoplay Example<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>video</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>320<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>240<span class="token punctuation">"</span></span> <span class="token attr-name">autoplay</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/mp4<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video.ogg<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/ogg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      Your browser does not support the video tag.
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>video</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Autoplay can negatively impact the user experience, so use <code>autoplay</code>attributes with caution. In some cases, browsers may block autoplay, such as on mobile devices, where the user must first interact with the page to allow autoplay.</p>
+<h1 id="19-loop">19. Loop<a aria-hidden="true" class="anchor-heading icon-link" href="#19-loop"></a></h1>
+<p><code>loop</code>is an attribute of the <code>&#x3C;video></code>neutral <code>&#x3C;audio></code>tag in HTML5 that specifies whether the media should loop after playback ends.</p>
+<p>If <code>loop</code>the property is set to <code>loop</code>, the media will loop after playback finishes.</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Loop Example<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>video</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>320<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>240<span class="token punctuation">"</span></span> <span class="token attr-name">loop</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/mp4<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video.ogg<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/ogg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      Your browser does not support the video tag.
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>video</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Looping can negatively impact the user experience, so use <code>loop</code>attributes with care.</p>
+<h1 id="20-cite">20. Cite<a aria-hidden="true" class="anchor-heading icon-link" href="#20-cite"></a></h1>
+<p><code>cite</code>is a global attribute in HTML that can be used to specify the source of the citation.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>blockquote</span> <span class="token attr-name">cite</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://wikipedia.com/original-source-url<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Some awesome quote<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>blockquote</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>cite</code>The value of the attribute should be a URL pointing to the source of the reference.</p>
+<p><em>Tips:</em></p>
+<p><code>_cite_</code><em>Attributes can be applied to tags such as</em> <code>_&#x3C;blockquote>_</code><em>,</em> <code>_&#x3C;q>_</code><em>,</em> <code>_&#x3C;del>_</code><em>, etc.</em><code>_&#x3C;ins>_</code></p>
+<p>If the source of the referrer is not a URL, <code>cite</code>the value of the property can be set to a string describing the referrer.</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Cite Example<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>blockquote</span> <span class="token attr-name">cite</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.example.com/quote<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      This is a quote from an external source.
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>blockquote</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>q</span> <span class="token attr-name">cite</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.example.com/quote<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      This is a short quote from an external source.
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>q</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>del</span> <span class="token attr-name">cite</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.example.com/deleted<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      This text has been deleted from an external source.
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>del</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>ins</span> <span class="token attr-name">cite</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.example.com/inserted<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      This text has been inserted from an external source.
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>ins</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>cite</code>Attributes do not automatically create links, so if you need to create a link, you need to use <code>&#x3C;a></code>a tag and <code>href</code>set the attribute as <code>cite</code>the value of the attribute.</p>
+<h1 id="21-datetime">21. Datetime<a aria-hidden="true" class="anchor-heading icon-link" href="#21-datetime"></a></h1>
+<p><code>datetime</code>Is an attribute of tags in HTML <code>&#x3C;time></code>, used to specify the date and time.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>
+  My plans for 2021
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>del</span> <span class="token attr-name">datetime</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2021-01-01T18:21<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>creating 6 courses,<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>del</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>ins</span> <span class="token attr-name">datetime</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2021-01-02T14:07<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>writing 12 articles.<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>ins</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>I will evaluate the completion on <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>time</span> <span class="token attr-name">datetime</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2021-12-31<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>time</span><span class="token punctuation">></span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>datetime</code>The value of the attribute should be a valid date and time format, eg <code>YYYY-MM-DDThh:mm:ss</code>.</p>
+<p><code>datetime</code>Attributes do not automatically format dates and times, so you need to use JavaScript or other tools to format dates and times.</p>
+<h1 id="22-async">22. Async<a aria-hidden="true" class="anchor-heading icon-link" href="#22-async"></a></h1>
+<p><code>async</code>is an attribute of the tag in HTML <code>&#x3C;script></code>that specifies whether the script should be loaded asynchronously.</p>
+<p>If <code>async</code>the property is set to <code>async</code>, the script will be loaded asynchronously and will not block parsing and rendering of the page.</p>
+<p>Scripts loaded asynchronously may execute before the rest of the page loads, so use with caution. This can cause errors if the script depends on other parts of the page.</p>
+<h1 id="23-defer">23. Defer<a aria-hidden="true" class="anchor-heading icon-link" href="#23-defer"></a></h1>
+<p><code>defer</code>is an attribute of the tag in HTML <code>&#x3C;script></code>that specifies whether scripts should be lazy-loaded.</p>
+<p>If <code>defer</code>the property is set to <code>defer</code>, the script will delay loading until the page has been parsed before executing it.</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Defer Example<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">defer</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>script.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>This is a paragraph.<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>In the example above, we <code>defer</code>set the property to <code>defer</code>, which will cause the script to be lazy loaded. In this case the script will be executed after the page has been parsed and will not block the page from loading.</p>
+<h1 id="24-draggable">24. Draggable<a aria-hidden="true" class="anchor-heading icon-link" href="#24-draggable"></a></h1>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span> <span class="token attr-name">draggable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">ondragstart</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>drag(event)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Drag me into box<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>Draggable</code>is an attribute in HTML5 that allows users to move elements by dragging them. <code>draggable</code>When an element is set to , the user can drag the element with the mouse or by touching the screen. When dragging an element, a series of events will be triggered, such as <code>dragstart</code>, , <code>drag</code>and <code>dragend</code>, and these events can be used to implement the drag-and-drop function.</p>

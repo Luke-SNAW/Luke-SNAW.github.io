@@ -1,0 +1,6 @@
+<h1 id="silly">Silly<a aria-hidden="true" class="anchor-heading icon-link" href="#silly"></a></h1>
+<h1 id="why-does-javascripts-parseint00000005-print-5"><a href="https://javascript.plainenglish.io/why-is-javascripts-parseint-0-0000005-5-eb9e2432f1b0">Why does JavaScript’s parseInt(0.0000005) print “5”?</a><a aria-hidden="true" class="anchor-heading icon-link" href="#why-does-javascripts-parseint00000005-print-5"></a></h1>
+<pre class="language-javascript"><code class="language-javascript"><span class="token known-class-name class-name">String</span><span class="token punctuation">(</span><span class="token number">0.000005</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => '0.000005'</span>
+<span class="token known-class-name class-name">String</span><span class="token punctuation">(</span><span class="token number">0.0000005</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => '5e-7' pay attention here</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"5e-7"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5</span>
+</code></pre>
