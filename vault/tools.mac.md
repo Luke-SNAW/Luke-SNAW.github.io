@@ -2,7 +2,7 @@
 id: 6en2z3q3u4pnrn5todipo0s
 title: Mac tools
 desc: ""
-updated: 1761103755031
+updated: 1771811059570
 created: 1652405135977
 ---
 
@@ -37,3 +37,5 @@ created: 1652405135977
 - [Itsycal for Mac](https://www.mowglii.com/itsycal/) is a tiny menu bar calendar.
 - [Hidden Bar](https://github.com/dwarvesf/hidden) lets you hide menu bar items to give your Mac a cleaner look.
 - [RunCat](https://kyome.io/runcat/index.html?lang=en) - The cat tells you the CPU usage of Mac by running speed.
+- [ShowyEdge](https://github.com/pqrs-org/ShowyEdge) - A visible indicator of the current input source for macOS.
+- [Input Source Pro](https://github.com/runjuu/InputSourcePro) - Switch and track your input sources with ease ✨
