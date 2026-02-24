@@ -2,9 +2,11 @@
 id: xmuyuvqj3gsa8ollhqqim84
 title: 근막이 뭉쳤을 때 마사지·압박으로 호전되는 이유
 desc: ""
-updated: 1771808155520
+updated: 1771897838021
 created: 1771808102028
 ---
+
+from claude opus 4.6
 
 # 근막이 뭉쳤을 때 마사지·압박으로 호전되는 이유
 
