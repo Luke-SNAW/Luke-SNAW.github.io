@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1771902861018
+updated: 1772092364202
 created: 1688605282146
 ---
 
@@ -117,6 +117,23 @@ created: 1688605282146
   - Password strength is measured in bits of entropy; LLM-generated passwords have an estimated 20-27 bits of entropy, compared to the expected ~100 bits for strong passwords, making them vulnerable to quick brute-force attacks.
   - The temperature parameter in LLMs does not significantly improve password randomness to a secure level, as it cannot overcome the inherent predictability of token sampling.
 - [Why is Claude an Electron App?](https://www.dbreunig.com/2026/02/21/why-is-claude-an-electron-app.html) - If code is free, why aren’t all apps native?
+- [“Car Wash” test with 53 models](https://opper.ai/blog/car-wash-test) - "I want to wash my car. The car wash is 50 meters away. Should I walk or drive?"
+
+  | Family          | Score | Notes                                                                  |
+  | --------------- | ----- | ---------------------------------------------------------------------- |
+  | Anthropic       | 1/9   | Only Opus 4.6                                                          |
+  | OpenAI          | 1/12  | Only GPT-5                                                             |
+  | Google          | 3/8   | Gemini 3 models nailed it, all 2.x failed except Gemini 2.0 Flash Lite |
+  | xAI             | 2/4   | Grok-4 yes, non-reasoning variant no                                   |
+  | Perplexity      | 2/3   | Right answer, wrong reasons                                            |
+  | Meta (Llama)    | 0/4   |                                                                        |
+  | Mistral         | 0/3   |                                                                        |
+  | DeepSeek        | 0/2   |                                                                        |
+  | Moonshot (Kimi) | 1/4   |                                                                        |
+  | Zhipu (GLM)     | 1/3   |                                                                        |
+  | MiniMax         | 0/1   |                                                                        |
+
+- [I Taught My Dog to Vibe Code Games](https://www.calebleak.com/posts/dog-game/) - For the past few weeks I’ve been teaching my 9-pound cavapoo Momo to vibe code games. The key to making this work is telling Claude Code that a genius game designer who only speaks in cryptic riddles is giving it instructions, add strong guardrails, and build plenty of tools for automated feedback.
 
 ## ETC
 

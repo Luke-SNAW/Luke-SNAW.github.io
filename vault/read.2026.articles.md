@@ -2,12 +2,29 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1771920837717
+updated: 1772092352955
 created: 1766965709816
 ---
 
 ## Week 9, 2026
 
+- [“Car Wash” test with 53 models](https://opper.ai/blog/car-wash-test) - "I want to wash my car. The car wash is 50 meters away. Should I walk or drive?"
+
+  | Family          | Score | Notes                                                                  |
+  | --------------- | ----- | ---------------------------------------------------------------------- |
+  | Anthropic       | 1/9   | Only Opus 4.6                                                          |
+  | OpenAI          | 1/12  | Only GPT-5                                                             |
+  | Google          | 3/8   | Gemini 3 models nailed it, all 2.x failed except Gemini 2.0 Flash Lite |
+  | xAI             | 2/4   | Grok-4 yes, non-reasoning variant no                                   |
+  | Perplexity      | 2/3   | Right answer, wrong reasons                                            |
+  | Meta (Llama)    | 0/4   |                                                                        |
+  | Mistral         | 0/3   |                                                                        |
+  | DeepSeek        | 0/2   |                                                                        |
+  | Moonshot (Kimi) | 1/4   |                                                                        |
+  | Zhipu (GLM)     | 1/3   |                                                                        |
+  | MiniMax         | 0/1   |                                                                        |
+
+- [I Taught My Dog to Vibe Code Games](https://www.calebleak.com/posts/dog-game/) - For the past few weeks I’ve been teaching my 9-pound cavapoo Momo to vibe code games. The key to making this work is telling Claude Code that a genius game designer who only speaks in cryptic riddles is giving it instructions, add strong guardrails, and build plenty of tools for automated feedback.
 - [Taste for Makers](https://paulgraham.com/taste.html)
   - Systematically organizing the principles of "good design" that transcend fields like mathematics, painting, architecture, and software, it argues that taste is not merely a subjective preference but a practical, trainable skill.
   - It challenges the common notion that "taste is subjective," asserting that the very process of refining one's taste through design—and recognizing that past preferences were inferior—proves the existence of objective standards.
