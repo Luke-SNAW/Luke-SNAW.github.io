@@ -2,12 +2,18 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1772092352955
+updated: 1772177411429
 created: 1766965709816
 ---
 
 ## Week 9, 2026
 
+- [Stop Using /init for AGENTS.md](https://addyosmani.com/blog/agents-md/)
+  > TL;DR: A good mental model is to treat AGENTS.md as a living list of codebase smells you haven’t fixed yet, not a permanent configuration. Auto-generated AGENTS.md files hurt agent performance and inflate costs by 20%+ because they duplicate what agents can already discover. Human-written files help only when they contain non-discoverable information - tooling gotchas, non-obvious conventions, landmines. Every other line is noise.
+- [Google API Keys Weren't Secrets. But then Gemini Changed the Rules.](https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules)
+  - **Google API keys**, previously considered non-secret and safe for public embedding (e.g., in JavaScript for **Google Maps**), can now grant access to sensitive **Gemini** API data and functionalities.
+  - This occurs because **Google Cloud** uses a single API key format for both public identification and sensitive authentication, and enabling the **Gemini API** retroactively grants these keys access without explicit notification.
+  - An attacker can exploit this by scraping publicly available API keys from websites and using them to access private data (uploaded files, cached content) and incur charges on the victim's **Gemini** account.
 - [“Car Wash” test with 53 models](https://opper.ai/blog/car-wash-test) - "I want to wash my car. The car wash is 50 meters away. Should I walk or drive?"
 
   | Family          | Score | Notes                                                                  |
