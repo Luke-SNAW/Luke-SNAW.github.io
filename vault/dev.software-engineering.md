@@ -2,7 +2,7 @@
 id: j0N1aVKxe96dktmyADG9U
 title: Software Engineering
 desc: ""
-updated: 1772604474241
+updated: 1772682875317
 created: 1645514209965
 ---
 
@@ -73,6 +73,8 @@ created: 1645514209965
   > _“Simplicity is a great virtue, but it requires hard work to achieve and education to appreciate. And to make matters worse, complexity sells better.”_ — Edsger Dijkstra
   >
   > The issue isn’t complexity itself. It’s unearned complexity. There’s a difference between “we’re hitting database limits and need to shard” and “we might hit database limits in three years, so let’s shard now.
+  - https://www.danielsen.com/jokes/objecttoaster.txt
+    - A king presented two advisors with a metal box featuring two slots, a knob, and a lever, asking them to identify it and design an embedded computer for it. The first advisor, an Electrical Engineer, identified the object as a toaster and proposed a simple four-bit micro-controller design. This design would read the darkness knob to select a timer value, heat the elements, and pop up the toast. The second advisor, a software developer, argued that the device was a "breakfast food cooker" with future potential for cooking various items like waffles, sausage, and eggs. He proposed an object-oriented solution with class specialization, multiple inheritance for complex items like ham and cheese omelettes, concurrent processing, and a graphical user interface booting UNIX. This complex design required a powerful hardware platform. The king, deeming the software developer's approach impractical, had him beheaded.
 
 ## Modeling
 

@@ -2,7 +2,7 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1772604508582
+updated: 1772682845913
 created: 1766965709816
 ---
 
@@ -12,6 +12,8 @@ created: 1766965709816
   > _“Simplicity is a great virtue, but it requires hard work to achieve and education to appreciate. And to make matters worse, complexity sells better.”_ — Edsger Dijkstra
   >
   > The issue isn’t complexity itself. It’s unearned complexity. There’s a difference between “we’re hitting database limits and need to shard” and “we might hit database limits in three years, so let’s shard now.
+  - https://www.danielsen.com/jokes/objecttoaster.txt
+    - A king presented two advisors with a metal box featuring two slots, a knob, and a lever, asking them to identify it and design an embedded computer for it. The first advisor, an Electrical Engineer, identified the object as a toaster and proposed a simple four-bit micro-controller design. This design would read the darkness knob to select a timer value, heat the elements, and pop up the toast. The second advisor, a software developer, argued that the device was a "breakfast food cooker" with future potential for cooking various items like waffles, sausage, and eggs. He proposed an object-oriented solution with class specialization, multiple inheritance for complex items like ham and cheese omelettes, concurrent processing, and a graphical user interface booting UNIX. This complex design required a powerful hardware platform. The king, deeming the software developer's approach impractical, had him beheaded.
 - [It's 2026 and Google Search Is Totally Broken](https://x.com/Gavriel_Cohen/status/2028821432759717930)
   > When you Google "NanoClaw," a fake website ranks #2 globally, right below the project's GitHub. My actual website doesn't show up. Not on page one. Not on page two. Not on page five.
 - I'm struggling to think of any online services for which I'd be willing to verify my identity or age
