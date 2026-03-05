@@ -1,0 +1,58 @@
+<h1 id="github-action---release-info">Github action - Release Info<a aria-hidden="true" class="anchor-heading icon-link" href="#github-action---release-info"></a></h1>
+<pre class="language-yml"><code class="language-yml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Release Info
+<span class="token key atrule">env</span><span class="token punctuation">:</span>
+  <span class="token key atrule">SLACK_CHANNEL_ID</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> SLACK_CHANNEL_ID <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token key atrule">SLACK_BOT_TOKEN</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.SLACK_NOTIFICATIONS_BOT_TOKEN <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token comment"># https://api.slack.com/reference/messaging/payload</span>
+  <span class="token comment"># https://docs.github.com/ko/rest/actions/workflow-runs?apiVersion=2022-11-28</span>
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">release</span><span class="token punctuation">:</span>
+    <span class="token key atrule">types</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>created<span class="token punctuation">,</span> edited<span class="token punctuation">]</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">publish</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+    <span class="token key atrule">timeout-minutes</span><span class="token punctuation">:</span> <span class="token number">2</span>
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Notify release
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> slackapi/slack<span class="token punctuation">-</span>github<span class="token punctuation">-</span>action@v1
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">channel-id</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span>env.SLACK_CHANNEL_ID<span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">payload</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "📖 Release [Project] ${{ github.event.release.name }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": ${{ toJSON(github.event.release.body) }}
+                  }
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "📖 Release link"
+                      },
+                      "url": "${{ github.event.release.html_url }}"
+                    }
+                  ]
+                }
+              ]
+            }</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In</a></li>
+</ul>
