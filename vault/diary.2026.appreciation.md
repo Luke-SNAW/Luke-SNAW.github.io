@@ -2,7 +2,7 @@
 id: zwlefthttghdbct6emfhxoi
 title: Appreciation 2026
 desc: ""
-updated: 1769581430469
+updated: 1772975613761
 created: 1768896622299
 ---
 
@@ -56,3 +56,16 @@ created: 1768896622299
 주변 풍경을 보니 감성이 차오른다. 휴일에 아무 버스나 잡아 타 정신 산책이나 할까?
 앞 의자를 멍하니 바라봄. 사춘기 이전의 버릇. 그러고보니 명상과 비슷한 상태네.
 햇빛 비칠 때와 아닐 때 바라보기의 감성이 달라짐. 인간심리에도 태양의 존재감은 상당하다. - 2026-01-27
+
+## 2026-02-08
+
+테마, 생략, 추상화 - 사진과 그림이 다른 점으로 느껴지는 것들. 작가가 테마를 골라 전하고 싶은 면을 강조하고 그 외의 면을 축소, 생략. 또는 추상화로 나타냄이 예술, taste[^taste]로 느껴진다.
+
+[^taste]: [Taste for Makers](https://paulgraham.com/taste.html)
+
+**진퇴**:
+마그넷 누드화. 가까이서 큰 그림으로 봤을 때는 그러려니 했지만 작은 마그넷으로 보니 격차가 감흥을 일으킨다.
+이와 같은 감흥으로 구입한 마그넷이 2개 더 있음.
+
+- Henri-Edmond: Landscape with Stars
+- Vincent van Gogh: The Flowering Orchard
