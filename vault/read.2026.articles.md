@@ -2,9 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1772682845913
+updated: 1773042308748
 created: 1766965709816
 ---
+
+## Week 11, 2026
+
+- [How to prepare for the next decade](https://thewakeupcallnewsletter.substack.com/p/how-to-prepare-for-the-next-decade) - A guide to preparing for the most destabilizing chapter in human history
+  - The long-term decision-making process is interesting.
 
 ## Week 10, 2026
 

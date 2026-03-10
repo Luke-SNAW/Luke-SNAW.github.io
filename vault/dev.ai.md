@@ -1,8 +1,8 @@
 ---
 id: 0yknotw2i3rxs1hc9y7kn5n
 title: AI
-desc: ''
-updated: 1755559044394
+desc: ""
+updated: 1773124998069
 created: 1649903318189
 ---
 
@@ -19,8 +19,7 @@ created: 1649903318189
 - [Novel Universal Bypass for All Major LLMs](https://hiddenlayer.com/innovation-hub/novel-universal-bypass-for-all-major-llms/)
 - [The Big LLM Architecture Comparison](https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison) - From DeepSeek-V3 to Kimi K2: A Look At Modern LLM Architecture Design
 - [LLM Embeddings Explained: A Visual and Intuitive Guide](https://huggingface.co/spaces/hesamation/primer-llm-embedding)
-
-
+- [모두의 AI](https://mdooai.com/ko) - 기초 수학, 기초 딥러닝, 기초 머신러닝
 
 ## [Why it's essential to excel at the things AI excels at](https://youtube.com/watch?v=mdoMPWSSsqs)
 
