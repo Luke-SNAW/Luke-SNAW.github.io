@@ -2,9 +2,18 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1768968719486
+updated: 1773214980589
 created: 1669264809793
 ---
+
+## Week 11, 2026 - prisma migrate dev shadow DB issue (MySQL 8.0.29+ RENAME INDEX)
+
+`prisma migrate dev`가 shadow DB에서 기존 마이그레이션(`sync_schema_changes`)의 `RENAME INDEX` 실패로 동작하지 않아, 마이그레이션 폴더를 직접 생성하고 `prisma migrate deploy`로 적용
+
+- 원인: MySQL 8.0.29+에서 `foreign_key_checks=OFF` 상태일 때 `DROP FOREIGN KEY` 시 자동 생성 인덱스도 함께 삭제되어, 이후 `RENAME INDEX`가 존재하지 않는 인덱스를 참조
+- Prisma의 알려진 미해결 이슈로, shadow DB가 마이그레이션을 처음부터 재생할 때 MySQL의 암묵적 인덱스 관리(FK에 의한 자동 생성/삭제)와 맞물려 실제 DB와 인덱스 상태가 달라지는 것이 근본 원인. 자동 수정 계획 없음
+- 관련 이슈: [#27219](https://github.com/prisma/prisma/issues/27219), [#27892](https://github.com/prisma/prisma/issues/27892)
+- 대응: `prisma migrate diff --from-url "$DATABASE_URL" --to-schema-datamodel prisma/schema.prisma --script`로 SQL 생성 후 마이그레이션 폴더 수동 생성, `prisma migrate deploy`로 적용
 
 ## Week 4, 2026 - Prisma upgrade 5 -> 6 - CORS 에러
 

@@ -2,13 +2,18 @@
 id: vti7us7fksaxnm7x9wjwl6v
 title: Sleep
 desc: ""
-updated: 1737077559156
+updated: 1773215200380
 created: 1674863142489
 tags: [shut-off, draft]
 published: false
 ---
 
 - [Norepinephrine-mediated slow vasomotion drives glymphatic clearance during sleep](<https://www.cell.com/cell/abstract/S0092-8674(24)01343-6>)
+
+## 2026-02-09
+
+기사 읽기에 집중하려고 눈을 반개하니 점점 감는 쪽이 편해지고 이윽고 졸림. 입면 시 써먹을 수 있나?
+눈 감고 명상은 안졸린데, 희한하네
 
 ## 2024/10
 
