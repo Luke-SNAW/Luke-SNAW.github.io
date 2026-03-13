@@ -2,12 +2,16 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1773042308748
+updated: 1773381073895
 created: 1766965709816
 ---
 
 ## Week 11, 2026
 
+- [Willingness to look stupid is a genuine moat in creative work](https://sharif.io/looking-stupid)
+  > when Aadil said "Let's just say a bunch of bad ideas," he changed the frame entirely. We were now playing a game where the only way to lose was by saying nothing at all.
+- [Shall i implement it? - No ...](https://gist.github.com/bretonium/291f4388e2de89a43b25c135b44e41f0)
+- [MALUS](https://malus.sh/) - Our proprietary AI robots independently recreate any open source project from scratch. The result? **Legally distinct code** with corporate-friendly licensing
 - [How to prepare for the next decade](https://thewakeupcallnewsletter.substack.com/p/how-to-prepare-for-the-next-decade) - A guide to preparing for the most destabilizing chapter in human history
   - The long-term decision-making process is interesting.
 

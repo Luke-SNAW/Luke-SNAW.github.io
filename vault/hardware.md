@@ -2,12 +2,14 @@
 id: GR5x8HnNFEN6fU2UBSEIK
 title: Hardware
 desc: ""
-updated: 1756255193887
+updated: 1773390903731
 created: 1645404426038
 published: false
 ---
 
 ## Sound
+
+WH-1000XM3 노캔 기능을 잘 때 소음차단으로 잘 써먹고 있다. 별 기대 안했는데
 
 ### WH-1000XM3 Pairing
 
