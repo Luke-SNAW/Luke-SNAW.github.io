@@ -1,0 +1,175 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><link rel="icon" href="/favicon.ico"/><title>Rds Blue Green Deployment Qa</title><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="description" content="Personal knowledge space"/><meta property="og:title" content="Rds Blue Green Deployment Qa"/><meta property="og:description" content="Personal knowledge space"/><meta property="og:url" content="https://luke-snaw.github.io//notes/d1taedacxa8xx4bcxvhfhz5/"/><meta property="og:type" content="article"/><meta property="article:published_time" content="1/29/2026"/><meta property="article:modified_time" content="1/29/2026"/><link rel="canonical" href="https://luke-snaw.github.io//notes/d1taedacxa8xx4bcxvhfhz5/"/><meta name="next-head-count" content="14"/><link rel="preload" href="/_next/static/css/8e7b7e4bce421c0a.css" as="style"/><link rel="stylesheet" href="/_next/static/css/8e7b7e4bce421c0a.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-3d209faeb64f2f97.js" defer=""></script><script src="/_next/static/chunks/framework-28c999baf2863c3d.js" defer=""></script><script src="/_next/static/chunks/main-104451f3d1a5c4bc.js" defer=""></script><script src="/_next/static/chunks/pages/_app-9d8e0603730b15a3.js" defer=""></script><script src="/_next/static/chunks/935-4dee79e80b8641c6.js" defer=""></script><script src="/_next/static/chunks/6-50972def09142ee2.js" defer=""></script><script src="/_next/static/chunks/pages/notes/%5Bid%5D-78d472fa3b924116.js" defer=""></script><script src="/_next/static/b30e_7u_ygEA3_6cd48IB/_buildManifest.js" defer=""></script><script src="/_next/static/b30e_7u_ygEA3_6cd48IB/_ssgManifest.js" defer=""></script></head><body><div id="__next" data-reactroot=""><section class="ant-layout" style="width:100%;min-height:100%"><header class="ant-layout-header" style="position:fixed;isolation:isolate;z-index:1;width:100%;border-bottom:1px solid #d4dadf;height:64px;padding:0 24px 0 2px"><div class="ant-row ant-row-center" style="max-width:992px;justify-content:space-between;margin:0 auto"><div style="display:flex" class="ant-col ant-col-xs-20 ant-col-sm-4"></div><div class="ant-col gutter-row ant-col-xs-0 ant-col-sm-20 ant-col-md-20 ant-col-lg-19"><div class="ant-select ant-select-lg ant-select-auto-complete ant-select-single ant-select-allow-clear ant-select-show-search" style="width:100%"><div class="ant-select-selector"><span class="ant-select-selection-search"><input type="search" autoComplete="off" class="ant-select-selection-search-input" role="combobox" aria-haspopup="listbox" aria-owns="undefined_list" aria-autocomplete="list" aria-controls="undefined_list" aria-activedescendant="undefined_list_0" value=""/></span><span class="ant-select-selection-placeholder">For full text search please use the &#x27;?&#x27; prefix. e.g. ? Onboarding</span></div></div></div><div style="display:none;align-items:center;justify-content:center" class="ant-col ant-col-xs-4 ant-col-sm-4 ant-col-md-0 ant-col-lg-0"><span role="img" aria-label="menu" style="font-size:24px" tabindex="-1" class="anticon anticon-menu"><svg viewBox="64 64 896 896" focusable="false" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path></svg></span></div></div></header><section class="ant-layout" style="margin-top:64px;display:flex;flex-direction:row"><div class="site-layout-sidebar" style="flex:0 0 auto;width:calc(max((100% - 992px) / 2, 0px) + 200px);min-width:200px;padding-left:calc((100% - 992px) / 2)"><aside class="ant-layout-sider ant-layout-sider-dark" style="position:fixed;overflow:auto;height:calc(100vh - 64px);background-color:transparent;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"><div class="ant-layout-sider-children"></div></aside></div><main class="ant-layout-content side-layout-main" style="max-width:1200px;min-width:0;display:block"><div style="padding:0 24px"><div class="main-content" role="main"><div class="ant-row"><div class="ant-col ant-col-24"><div class="ant-row" style="margin-left:-10px;margin-right:-10px"><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-24 ant-col-md-18"><div><h1 id="rds-blue-green-deployment-qa">Rds Blue Green Deployment Qa<a aria-hidden="true" class="anchor-heading icon-link" href="#rds-blue-green-deployment-qa"></a></h1>
+<p>Claude Opus 4.5 문답</p>
+<h1 id="aws-rds-bluegreen-배포-qa">AWS RDS Blue/Green 배포 Q&#x26;A<a aria-hidden="true" class="anchor-heading icon-link" href="#aws-rds-bluegreen-배포-qa"></a></h1>
+<h2 id="1-blue-환경의-변경사항이-green에-자동-반영되는가">1. Blue 환경의 변경사항이 Green에 자동 반영되는가?<a aria-hidden="true" class="anchor-heading icon-link" href="#1-blue-환경의-변경사항이-green에-자동-반영되는가"></a></h2>
+<p><strong>네, 자동으로 복제됩니다.</strong></p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>자동 복제 여부</th></tr></thead><tbody><tr><td>데이터 변경 (INSERT/UPDATE/DELETE)</td><td>✅ 자동 복제 (논리적 복제)</td></tr><tr><td>스키마 변경 (DDL)</td><td>⚠️ 복제되지만 주의 필요</td></tr><tr><td>파라미터 그룹 변경</td><td>❌ 별도 적용 필요</td></tr><tr><td>DB 엔진 버전</td><td>❌ Green에서 별도 설정</td></tr></tbody></table></div>
+<p><strong>주의사항:</strong></p>
+<ul>
+<li>Green 환경은 생성 시점부터 Blue의 변경사항을 <strong>논리적 복제(Logical Replication)</strong>로 동기화</li>
+<li>DDL 변경(테이블 구조 변경 등)은 복제 지연이나 오류를 일으킬 수 있음</li>
+<li>Switchover 전까지 Green은 <strong>읽기 전용</strong></li>
+<li>Switchover 시 약 1분 미만의 다운타임 발생</li>
+</ul>
+<hr>
+<h2 id="2-switchover-후-엔드포인트는-어떻게-전환되는가">2. Switchover 후 엔드포인트는 어떻게 전환되는가?<a aria-hidden="true" class="anchor-heading icon-link" href="#2-switchover-후-엔드포인트는-어떻게-전환되는가"></a></h2>
+<p><strong>기존 엔드포인트로 접근하면 자동으로 새 Blue(이전 Green)에 연결됩니다.</strong></p>
+<p><strong>Switchover 전:</strong>
+| 환경 | 인스턴스 ID | 엔드포인트 |
+|------|------------|-----------|
+| Blue (현재 운영) | <code>partners-product</code> | <code>partners-product.xxx.rds.amazonaws.com</code> |
+| Green (대기) | <code>partners-product-green-1ngi7u</code> | <code>partners-product-green-1ngi7u.xxx.rds.amazonaws.com</code> |</p>
+<p><strong>Switchover 후:</strong>
+| 환경 | 인스턴스 ID | 엔드포인트 |
+|------|------------|-----------|
+| 새 Blue (운영) | <code>partners-product</code> | <code>partners-product.xxx.rds.amazonaws.com</code> ← Green이 승격 |
+| 이전 Blue | <code>partners-product-old1</code> | <code>partners-product-old1.xxx.rds.amazonaws.com</code> |</p>
+<p><strong>핵심 포인트:</strong></p>
+<ul>
+<li>애플리케이션의 <code>DATABASE_URL</code>을 변경할 필요 없음</li>
+<li>이전 Blue 인스턴스는 <code>-old</code> 접미사가 붙은 새 이름으로 변경되어 유지됨</li>
+</ul>
+<hr>
+<h2 id="3-switchover-중-데이터-조작은-어떻게-처리되는가">3. Switchover 중 데이터 조작은 어떻게 처리되는가?<a aria-hidden="true" class="anchor-heading icon-link" href="#3-switchover-중-데이터-조작은-어떻게-처리되는가"></a></h2>
+<p><strong>Switchover 중 쓰기 작업은 차단(block)됩니다. 따로 저장 후 나중에 적용되지 않습니다.</strong></p>
+<p><strong>Switchover 과정:</strong></p>
+<ol>
+<li><strong>쓰기 차단</strong> - Blue 환경의 쓰기 작업 중단</li>
+<li><strong>복제 완료 대기</strong> - Green이 Blue의 모든 변경사항을 따라잡을 때까지 대기</li>
+<li><strong>엔드포인트 전환</strong> - DNS 전환</li>
+<li><strong>쓰기 재개</strong> - 새 Blue(이전 Green)에서 쓰기 허용</li>
+</ol>
+<p><strong>쓰기 요청 처리 방식:</strong></p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>상황</th><th>결과</th></tr></thead><tbody><tr><td>Switchover 중 INSERT/UPDATE/DELETE</td><td>연결 대기 또는 타임아웃 에러</td></tr><tr><td>Switchover 중 SELECT</td><td>짧은 지연 후 성공 가능</td></tr><tr><td>Switchover 완료 후</td><td>정상 처리</td></tr></tbody></table></div>
+<p>실패한 트랜잭션은 애플리케이션에서 재시도해야 합니다.</p>
+<p><strong>애플리케이션 권장 사항:</strong></p>
+<ul>
+<li>DB 연결에 재시도 로직 구현</li>
+<li>타임아웃 설정 적절히 조정</li>
+<li>Switchover는 트래픽이 적은 시간대에 수행</li>
+</ul>
+<hr>
+<h2 id="4-switchover-후-롤백이-가능한가">4. Switchover 후 롤백이 가능한가?<a aria-hidden="true" class="anchor-heading icon-link" href="#4-switchover-후-롤백이-가능한가"></a></h2>
+<p><strong>자동 롤백 기능은 없습니다.</strong> 하지만 수동으로 되돌릴 수 있습니다.</p>
+<p><strong>Switchover 후 상황:</strong></p>
+<ul>
+<li>이전 Blue 인스턴스(<code>partners-product-old1</code>)가 그대로 유지됨</li>
+<li>이 인스턴스는 삭제하지 않는 한 계속 존재</li>
+</ul>
+<p><strong>수동 롤백 방법:</strong></p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>방법</th><th>설명</th><th>주의사항</th></tr></thead><tbody><tr><td>인스턴스 이름 변경</td><td>이전 Blue의 이름을 원래대로 복원</td><td>Switchover 이후 새 데이터 유실</td></tr><tr><td>새 Blue/Green 배포</td><td>이전 Blue를 소스로 새 배포 생성</td><td>시간 소요</td></tr></tbody></table></div>
+<p><strong>핵심 문제점:</strong></p>
+<pre><code>Switchover 후 새 Blue에 쓰인 데이터는 이전 Blue에 없음
+→ 롤백 시 Switchover 이후의 데이터 유실
+</code></pre>
+<p><strong>권장 사항:</strong></p>
+<ol>
+<li>Switchover 전 스냅샷 생성</li>
+<li>이전 Blue 인스턴스 즉시 삭제하지 않기 (검증 기간 확보)</li>
+<li>충분한 테스트 후 Switchover 진행</li>
+<li>문제 발생 시 빠른 판단 필요 (새 데이터가 쌓이기 전에 결정)</li>
+</ol>
+<hr>
+<h2 id="5-switchover-후-새-blue의-데이터가-이전-blue에-복제되는가">5. Switchover 후 새 Blue의 데이터가 이전 Blue에 복제되는가?<a aria-hidden="true" class="anchor-heading icon-link" href="#5-switchover-후-새-blue의-데이터가-이전-blue에-복제되는가"></a></h2>
+<p><strong>복제되지 않습니다.</strong></p>
+<p>Switchover 완료 후 Blue/Green 배포는 <strong>종료</strong>됩니다.</p>
+<p><strong>Switchover 후 상태:</strong></p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>인스턴스</th><th>상태</th><th>복제</th></tr></thead><tbody><tr><td>새 Blue (<code>partners-product</code>)</td><td>독립 운영</td><td>❌ 복제 없음</td></tr><tr><td>이전 Blue (<code>partners-product-old1</code>)</td><td>독립 인스턴스로 유지</td><td>❌ 복제 없음</td></tr></tbody></table></div>
+<p><strong>Blue/Green 배포 생명주기:</strong></p>
+<pre><code>생성 → Blue에서 Green으로 복제 → Switchover → 배포 종료
+                                              ↓
+                                    두 인스턴스는 완전히 분리됨
+</code></pre>
+<p><strong>따라서:</strong></p>
+<ul>
+<li>Switchover 후 이전 Blue는 그 시점의 스냅샷 상태로 고정</li>
+<li>롤백용으로 보관하려면 직접 유지해야 함</li>
+<li>더 이상 필요 없으면 수동으로 삭제</li>
+</ul>
+<p>이것이 롤백 시 "Switchover 이후 데이터 유실" 문제가 발생하는 이유입니다.</p></div></div><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-0 ant-col-md-6"><div><div class=""><div class="ant-anchor-wrapper dendron-toc" style="max-height:calc(100vh - 64px);z-index:1"><div class="ant-anchor"><div class="ant-anchor-ink"><span class="ant-anchor-ink-ball"></span></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#aws-rds-bluegreen-배포-qa" title="AWS RDS Blue/Green 배포 Q&amp;A">AWS RDS Blue/Green 배포 Q&amp;A</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#1-blue-환경의-변경사항이-green에-자동-반영되는가" title="1. Blue 환경의 변경사항이 Green에 자동 반영되는가?">1. Blue 환경의 변경사항이 Green에 자동 반영되는가?</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#2-switchover-후-엔드포인트는-어떻게-전환되는가" title="2. Switchover 후 엔드포인트는 어떻게 전환되는가?">2. Switchover 후 엔드포인트는 어떻게 전환되는가?</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#3-switchover-중-데이터-조작은-어떻게-처리되는가" title="3. Switchover 중 데이터 조작은 어떻게 처리되는가?">3. Switchover 중 데이터 조작은 어떻게 처리되는가?</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#4-switchover-후-롤백이-가능한가" title="4. Switchover 후 롤백이 가능한가?">4. Switchover 후 롤백이 가능한가?</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#5-switchover-후-새-blue의-데이터가-이전-blue에-복제되는가" title="5. Switchover 후 새 Blue의 데이터가 이전 Blue에 복제되는가?">5. Switchover 후 새 Blue의 데이터가 이전 Blue에 복제되는가?</a></div></div></div></div></div></div></div></div></div></div></div><div class="ant-divider ant-divider-horizontal" role="separator"></div><footer class="ant-layout-footer" style="padding:0 24px 24px"></footer></main></section></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"note":{"id":"d1taedacxa8xx4bcxvhfhz5","title":"Rds Blue Green Deployment Qa","desc":"","updated":1769661367292,"created":1769661323926,"custom":{},"fname":"dev.devops.aws.rds-blue-green-deployment-qa","type":"note","vault":{"fsPath":"vault"},"contentHash":"3000d539d801b1b32b4c5b69c3d08618","links":[],"anchors":{"aws-rds-bluegreen-배포-qa":{"type":"header","text":"AWS RDS Blue/Green 배포 Q\u0026A","value":"aws-rds-bluegreen-배포-qa","line":10,"column":0,"depth":1},"1-blue-환경의-변경사항이-green에-자동-반영되는가":{"type":"header","text":"1. Blue 환경의 변경사항이 Green에 자동 반영되는가?","value":"1-blue-환경의-변경사항이-green에-자동-반영되는가","line":12,"column":0,"depth":2},"2-switchover-후-엔드포인트는-어떻게-전환되는가":{"type":"header","text":"2. Switchover 후 엔드포인트는 어떻게 전환되는가?","value":"2-switchover-후-엔드포인트는-어떻게-전환되는가","line":32,"column":0,"depth":2},"3-switchover-중-데이터-조작은-어떻게-처리되는가":{"type":"header","text":"3. Switchover 중 데이터 조작은 어떻게 처리되는가?","value":"3-switchover-중-데이터-조작은-어떻게-처리되는가","line":55,"column":0,"depth":2},"4-switchover-후-롤백이-가능한가":{"type":"header","text":"4. Switchover 후 롤백이 가능한가?","value":"4-switchover-후-롤백이-가능한가","line":84,"column":0,"depth":2},"5-switchover-후-새-blue의-데이터가-이전-blue에-복제되는가":{"type":"header","text":"5. Switchover 후 새 Blue의 데이터가 이전 Blue에 복제되는가?","value":"5-switchover-후-새-blue의-데이터가-이전-blue에-복제되는가","line":116,"column":0,"depth":2}},"children":[],"parent":"7mujc4bw6yz1nfbf03gmqc8","data":{}},"body":"\u003ch1 id=\"rds-blue-green-deployment-qa\"\u003eRds Blue Green Deployment Qa\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#rds-blue-green-deployment-qa\"\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eClaude Opus 4.5 문답\u003c/p\u003e\n\u003ch1 id=\"aws-rds-bluegreen-배포-qa\"\u003eAWS RDS Blue/Green 배포 Q\u0026#x26;A\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#aws-rds-bluegreen-배포-qa\"\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003ch2 id=\"1-blue-환경의-변경사항이-green에-자동-반영되는가\"\u003e1. Blue 환경의 변경사항이 Green에 자동 반영되는가?\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#1-blue-환경의-변경사항이-green에-자동-반영되는가\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003e네, 자동으로 복제됩니다.\u003c/strong\u003e\u003c/p\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e항목\u003c/th\u003e\u003cth\u003e자동 복제 여부\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e데이터 변경 (INSERT/UPDATE/DELETE)\u003c/td\u003e\u003ctd\u003e✅ 자동 복제 (논리적 복제)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e스키마 변경 (DDL)\u003c/td\u003e\u003ctd\u003e⚠️ 복제되지만 주의 필요\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e파라미터 그룹 변경\u003c/td\u003e\u003ctd\u003e❌ 별도 적용 필요\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eDB 엔진 버전\u003c/td\u003e\u003ctd\u003e❌ Green에서 별도 설정\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003cp\u003e\u003cstrong\u003e주의사항:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eGreen 환경은 생성 시점부터 Blue의 변경사항을 \u003cstrong\u003e논리적 복제(Logical Replication)\u003c/strong\u003e로 동기화\u003c/li\u003e\n\u003cli\u003eDDL 변경(테이블 구조 변경 등)은 복제 지연이나 오류를 일으킬 수 있음\u003c/li\u003e\n\u003cli\u003eSwitchover 전까지 Green은 \u003cstrong\u003e읽기 전용\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eSwitchover 시 약 1분 미만의 다운타임 발생\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2 id=\"2-switchover-후-엔드포인트는-어떻게-전환되는가\"\u003e2. Switchover 후 엔드포인트는 어떻게 전환되는가?\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#2-switchover-후-엔드포인트는-어떻게-전환되는가\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003e기존 엔드포인트로 접근하면 자동으로 새 Blue(이전 Green)에 연결됩니다.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSwitchover 전:\u003c/strong\u003e\n| 환경 | 인스턴스 ID | 엔드포인트 |\n|------|------------|-----------|\n| Blue (현재 운영) | \u003ccode\u003epartners-product\u003c/code\u003e | \u003ccode\u003epartners-product.xxx.rds.amazonaws.com\u003c/code\u003e |\n| Green (대기) | \u003ccode\u003epartners-product-green-1ngi7u\u003c/code\u003e | \u003ccode\u003epartners-product-green-1ngi7u.xxx.rds.amazonaws.com\u003c/code\u003e |\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSwitchover 후:\u003c/strong\u003e\n| 환경 | 인스턴스 ID | 엔드포인트 |\n|------|------------|-----------|\n| 새 Blue (운영) | \u003ccode\u003epartners-product\u003c/code\u003e | \u003ccode\u003epartners-product.xxx.rds.amazonaws.com\u003c/code\u003e ← Green이 승격 |\n| 이전 Blue | \u003ccode\u003epartners-product-old1\u003c/code\u003e | \u003ccode\u003epartners-product-old1.xxx.rds.amazonaws.com\u003c/code\u003e |\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e핵심 포인트:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e애플리케이션의 \u003ccode\u003eDATABASE_URL\u003c/code\u003e을 변경할 필요 없음\u003c/li\u003e\n\u003cli\u003e이전 Blue 인스턴스는 \u003ccode\u003e-old\u003c/code\u003e 접미사가 붙은 새 이름으로 변경되어 유지됨\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2 id=\"3-switchover-중-데이터-조작은-어떻게-처리되는가\"\u003e3. Switchover 중 데이터 조작은 어떻게 처리되는가?\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#3-switchover-중-데이터-조작은-어떻게-처리되는가\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eSwitchover 중 쓰기 작업은 차단(block)됩니다. 따로 저장 후 나중에 적용되지 않습니다.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSwitchover 과정:\u003c/strong\u003e\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003e쓰기 차단\u003c/strong\u003e - Blue 환경의 쓰기 작업 중단\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e복제 완료 대기\u003c/strong\u003e - Green이 Blue의 모든 변경사항을 따라잡을 때까지 대기\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e엔드포인트 전환\u003c/strong\u003e - DNS 전환\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e쓰기 재개\u003c/strong\u003e - 새 Blue(이전 Green)에서 쓰기 허용\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cstrong\u003e쓰기 요청 처리 방식:\u003c/strong\u003e\u003c/p\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e상황\u003c/th\u003e\u003cth\u003e결과\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eSwitchover 중 INSERT/UPDATE/DELETE\u003c/td\u003e\u003ctd\u003e연결 대기 또는 타임아웃 에러\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eSwitchover 중 SELECT\u003c/td\u003e\u003ctd\u003e짧은 지연 후 성공 가능\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eSwitchover 완료 후\u003c/td\u003e\u003ctd\u003e정상 처리\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003cp\u003e실패한 트랜잭션은 애플리케이션에서 재시도해야 합니다.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e애플리케이션 권장 사항:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDB 연결에 재시도 로직 구현\u003c/li\u003e\n\u003cli\u003e타임아웃 설정 적절히 조정\u003c/li\u003e\n\u003cli\u003eSwitchover는 트래픽이 적은 시간대에 수행\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2 id=\"4-switchover-후-롤백이-가능한가\"\u003e4. Switchover 후 롤백이 가능한가?\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#4-switchover-후-롤백이-가능한가\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003e자동 롤백 기능은 없습니다.\u003c/strong\u003e 하지만 수동으로 되돌릴 수 있습니다.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSwitchover 후 상황:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e이전 Blue 인스턴스(\u003ccode\u003epartners-product-old1\u003c/code\u003e)가 그대로 유지됨\u003c/li\u003e\n\u003cli\u003e이 인스턴스는 삭제하지 않는 한 계속 존재\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e수동 롤백 방법:\u003c/strong\u003e\u003c/p\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e방법\u003c/th\u003e\u003cth\u003e설명\u003c/th\u003e\u003cth\u003e주의사항\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e인스턴스 이름 변경\u003c/td\u003e\u003ctd\u003e이전 Blue의 이름을 원래대로 복원\u003c/td\u003e\u003ctd\u003eSwitchover 이후 새 데이터 유실\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e새 Blue/Green 배포\u003c/td\u003e\u003ctd\u003e이전 Blue를 소스로 새 배포 생성\u003c/td\u003e\u003ctd\u003e시간 소요\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003cp\u003e\u003cstrong\u003e핵심 문제점:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eSwitchover 후 새 Blue에 쓰인 데이터는 이전 Blue에 없음\n→ 롤백 시 Switchover 이후의 데이터 유실\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e권장 사항:\u003c/strong\u003e\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eSwitchover 전 스냅샷 생성\u003c/li\u003e\n\u003cli\u003e이전 Blue 인스턴스 즉시 삭제하지 않기 (검증 기간 확보)\u003c/li\u003e\n\u003cli\u003e충분한 테스트 후 Switchover 진행\u003c/li\u003e\n\u003cli\u003e문제 발생 시 빠른 판단 필요 (새 데이터가 쌓이기 전에 결정)\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2 id=\"5-switchover-후-새-blue의-데이터가-이전-blue에-복제되는가\"\u003e5. Switchover 후 새 Blue의 데이터가 이전 Blue에 복제되는가?\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#5-switchover-후-새-blue의-데이터가-이전-blue에-복제되는가\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003e복제되지 않습니다.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eSwitchover 완료 후 Blue/Green 배포는 \u003cstrong\u003e종료\u003c/strong\u003e됩니다.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSwitchover 후 상태:\u003c/strong\u003e\u003c/p\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e인스턴스\u003c/th\u003e\u003cth\u003e상태\u003c/th\u003e\u003cth\u003e복제\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e새 Blue (\u003ccode\u003epartners-product\u003c/code\u003e)\u003c/td\u003e\u003ctd\u003e독립 운영\u003c/td\u003e\u003ctd\u003e❌ 복제 없음\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e이전 Blue (\u003ccode\u003epartners-product-old1\u003c/code\u003e)\u003c/td\u003e\u003ctd\u003e독립 인스턴스로 유지\u003c/td\u003e\u003ctd\u003e❌ 복제 없음\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003cp\u003e\u003cstrong\u003eBlue/Green 배포 생명주기:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e생성 → Blue에서 Green으로 복제 → Switchover → 배포 종료\n                                              ↓\n                                    두 인스턴스는 완전히 분리됨\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e따라서:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSwitchover 후 이전 Blue는 그 시점의 스냅샷 상태로 고정\u003c/li\u003e\n\u003cli\u003e롤백용으로 보관하려면 직접 유지해야 함\u003c/li\u003e\n\u003cli\u003e더 이상 필요 없으면 수동으로 삭제\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e이것이 롤백 시 \"Switchover 이후 데이터 유실\" 문제가 발생하는 이유입니다.\u003c/p\u003e","noteIndex":{"id":"Iy0MoL0KnL55Br3AfTS2C","title":"Luke","desc":"","updated":1766965759366,"created":1644449449778,"custom":{"nav_order":0,"permalink":"/"},"fname":"root","type":"note","vault":{"fsPath":"vault"},"contentHash":"a724de3efd251cf89fe82a5860d9008b","links":[{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"life-tips","position":{"start":{"line":43,"column":5,"offset":2710},"end":{"line":43,"column":29,"offset":2734},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"life-tips","anchorHeader":"wodenokoto"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2026.articles","alias":"What I read in 2026","position":{"start":{"line":72,"column":3,"offset":4440},"end":{"line":72,"column":45,"offset":4482},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2026.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2025.articles","alias":"2025","position":{"start":{"line":73,"column":5,"offset":4487},"end":{"line":73,"column":32,"offset":4514},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2025.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2024.articles","alias":"2024","position":{"start":{"line":74,"column":5,"offset":4519},"end":{"line":74,"column":32,"offset":4546},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2024.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2023.articles","alias":"2023","position":{"start":{"line":75,"column":5,"offset":4551},"end":{"line":75,"column":32,"offset":4578},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2023.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2022.articles","alias":"2022","position":{"start":{"line":76,"column":5,"offset":4583},"end":{"line":76,"column":32,"offset":4610},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2022.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"journal.what-i-struggled-brag-in","position":{"start":{"line":82,"column":3,"offset":4746},"end":{"line":82,"column":39,"offset":4782},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"journal.what-i-struggled-brag-in"}}],"anchors":{"what-i-read-in-past":{"type":"header","text":"What I read in past","value":"what-i-read-in-past","line":76,"column":0,"depth":2}},"children":["zd4mq442jike0pr0wba1u3m","6hzeqsofq67gdk88flxlkhp","778ijii93yu5uwnrwmn5zi4","g1fngdjl25nes6fs3lip602","ZbdkdApFqLdks4Moq92R9","uoc5hhki3o4py15cesddu8q","9qf7j06jtdkm6rnx9ymvwb0","5zn10cvj7ajy2gh2is5nqmg","4qo9ma0z0yu1czns6pxl7y5","ok0e729ho7o09xetujkxc0m","GR5x8HnNFEN6fU2UBSEIK","yirtnlj8q24yutcf3ss1xqy","eq0wc6t7wl2wv221yb68ro4","7x2fnv4j6gxts08qk0jguny","ettkt3iClONnxpbGwBVLl","7l4knev6v613tbuoskvmbdg","hvh5bud6yp7dc89tuh95tr9","4fvoqrplw0cweo554usbjos","f8qsfql0a9v8thpeo82udfa","1swsbrhqi9jk41v9eodyi5q","SQqYupi6EFddTerBA8RRD","hjNeNc1F2JUh0lTWanH4h","qf0l4wbrc9jgooyzexmbq5v","9gy99p3hryoyeg0qbqkugxn","6oroy7h8vdsr0z9793ec2cn","yalrihgypp839w67o9zbek3","98hgj8hqvo04ihqzrjawm33","9z5e0wq269z6sz6uk1xhbyd","zpr3m50u734w0hnv55fcul3","tcy3fc7ll5t1cvlpg0oguzb","c8ns58kv6c80mvnmyhtg0b4"],"parent":null,"data":{},"body":"\nHi there 👋. I'm a Front-end developer.\n\n---\n\n- 현실은 인간의 연산으로 완전히 파악할 수 없는 복잡계. 주어진 상황과 능력으로 할 수 있는 최선의 적응은 단순함과 꾸준함.\n\n  - 파산을 면하는 선에서 여러가지를 해보고 자신에게 맞는 걸 위주로 꾸준히. 그를 위해 단순, 편안, 쾌적함이 필요.\n\n- 🥱 -\u003e 🤔💡🌱 - [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming)\n  - boredom -\u003e easy fun -\u003e art -\u003e profit?\n\n\u003e I've often described my motivation for building software to others using imagery: I like to go find a secluded beach, build a large, magnificent sand castle, and then walk away. Will anyone notice? Probably not. Will the waves eventually destroy it? Yep. Did I still get immense satisfaction? Absolutely. - [aliasxneo](https://news.ycombinator.com/item?id=41497113)\n\n\u003e We love to see the process, not just the result. The imperfections in your work can be beautiful if they show your struggle for perfection, not a lack of care. - [ralphammer](https://ralphammer.com/is-perfection-boring/)\n\n\u003e Simplicity, even if it sacrifices some ideal functionality has better survival characteristics than the-right-thing. - [The Rise of Worse is Better](https://www.dreamsongs.com/RiseOfWorseIsBetter.html)\n\n\u003e [Roberto Blake was talking about making 100 crappy videos](https://www.youtube.com/watch?v=OnUBaQ1Sp_E) to get better over time. Putting in the reps and improving a little bit each time.\n\u003e\n\u003e Putting in the work without expecting any external reward at first (eg views, followers, likes, etc) will pay off in the long run. - [100 Scrappy Things](https://www.florin-pop.com/blog/100-scrappy-things/)\n\n\u003e Make the difficult habitual, the habitual easy, and the easy beautiful. - [Constantin S. Stanislavski](https://www.goodreads.com/quotes/7102271-make-the-difficult-habitual-the-habitual-easy-and-the-easy)\n\n\u003e A good match is a **structured** dance, where players aim to **score** while they are following well-defined **rules**. This **freedom within a structure** is what makes it fun. - [ralphammer](https://ralphammer.com/how-to-get-started/)\n\n- [Pivot Points](https://longform.asmartbear.com/pivot-points/)\n\n  - non-judgmental aspects of personality that can be strengths in some contexts and weaknesses in others\n  - Pivot Points are fixed in the short term\n\n- [Hedged Bets](https://longform.asmartbear.com/predict-the-future/#hedged-bets)\n  - trading slightly less maximum upside for predictable, net-positive outcomes.\n\n\u003e “Motivation often comes after starting, not before. Action produces momentum.”\n\u003e [When you start a new habit, it should take less than two minutes to do.](https://jamesclear.com/how-to-stop-procrastinating)\n\u003e\n\u003e - James Clear\n\n\u003e Focus is more about **not** keeping busy when you need to wait for something.  \n\u003e Eat the boredom for a minute.\n\u003e\n\u003e - [[life-tips#wodenokoto]]\n\n\u003e [4 minutes run hard enough to push heart rate to 90%, 3 minutes recover, repeat 4 times](https://news.ycombinator.com/item?id=34213181)\n\u003e\n\u003e - https://www.ntnu.edu/cerg/advice\n\u003e - [Get running with Couch to 5K](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/)\n\n\u003e [recommended routine - bodyweightfitness](https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/) - I Don't Have This Much Time!\n\u003e\n\u003e - Don't workout at all (saves anywhere from 20 to 60 minutes, but really, really, really, really, really, really, really, really, really not recommended)\n\n\u003e 도무지 읽히지 않는 책 앞에서 내가 택한 방법은 펼쳐진 페이지 앞에서 멍때리기이다. 다르게 표현하면 이렇다. 펼쳐진 두 페이지 앞에서 오래 머물기.\n\u003e\n\u003e 책을 펼쳐놓는 것으로 충분하다. 읽지 못해도 좋다. 매일 정해진 진도를 나가야 하는 학교 수업이 아니니까. 하지만 읽지 않아도 괜찮다고 해서 펼쳐두지조차 않으면 곤란하다. 가능한 한 자주 책을 펼쳐두도록 하자. 전혀 읽지 않고 멍하니 바라보고 있다가 다시 덮게 되더라도\n\u003e\n\u003e - 막막한 독서. 시로군. P.10~13\n\n\u003e I think it should be everyone's primary focus to sleep well, drink water, get outside, get active, and eat generally decently. I hate to say it, but if you're not eating a good amount of vegetables and fruit, decent protein, sleep, etc, no amount of XYZ will catch up to that detriment. - [CE02](https://news.ycombinator.com/item?id=35056071)\n\n\u003e My real battle is doing good versus doing nothing. - [Deirdre Sullivan](https://www.npr.org/2005/08/08/4785079/always-go-to-the-funeral)\n\n[Kind Engineering](https://kind.engineering/) - How To Engineer Kindness\n\n\u003e Sometimes magic is just someone spending more time on something than anyone else might reasonably expect. - [Teller](https://www.goodreads.com/quotes/6641527-sometimes-magic-is-just-someone-spending-more-time-on-something)\n\n---\n\n## What I read in past\n\n- [[What I read in 2026|read.2026.articles]]\n  - [[2025|read.2025.articles]]\n  - [[2024|read.2024.articles]]\n  - [[2023|read.2023.articles]]\n  - [[2022|read.2022.articles]]\n- 📝 [Gists](https://gist.github.com/Luke-SNAW)\n- 📜 [Journals](https://luke-snaw.github.io/Luke-SNAW__netlify-CMS.github.io/)\n\n---\n\n- [[journal.what-i-struggled-brag-in]]\n"},"collectionChildren":null,"customHeadContent":null,"config":{"version":5,"dev":{"enablePreviewV2":true},"commands":{"lookup":{"note":{"selectionMode":"extract","confirmVaultOnCreate":true,"vaultSelectionModeOnCreate":"smart","leaveTrace":false,"bubbleUpCreateNew":true,"fuzzThreshold":0.2}},"randomNote":{},"insertNoteLink":{"aliasMode":"none","enableMultiSelect":false},"insertNoteIndex":{"enableMarker":false},"copyNoteLink":{"aliasMode":"title"},"templateHierarchy":"template"},"workspace":{"vaults":[{"fsPath":"vault"}],"journal":{"dailyDomain":"daily","name":"journal","dateFormat":"y.MM.dd","addBehavior":"childOfDomain"},"scratch":{"name":"scratch","dateFormat":"y.MM.dd.HHmmss","addBehavior":"asOwnDomain"},"task":{"name":"","dateFormat":"","addBehavior":"childOfCurrent","statusSymbols":{"":" ","wip":"w","done":"x","assigned":"a","moved":"m","blocked":"b","delegated":"l","dropped":"d","pending":"y"},"prioritySymbols":{"H":"high","M":"medium","L":"low"},"todoIntegration":false,"createTaskSelectionType":"selection2link","taskCompleteStatus":["done","x"]},"graph":{"zoomSpeed":1,"createStub":false},"enableAutoCreateOnDefinition":false,"enableXVaultWikiLink":false,"enableRemoteVaultInit":true,"enableUserTags":false,"enableHashTags":true,"workspaceVaultSyncMode":"noCommit","enableAutoFoldFrontmatter":false,"enableEditorDecorations":true,"maxPreviewsCached":10,"maxNoteLength":204800,"dendronVersion":"0.115.0","enableFullHierarchyNoteTitle":false,"enablePersistentHistory":false},"preview":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enablePrettyRefs":true,"enableKatex":true,"automaticallyShowPreview":false,"enableFrontmatterTags":true,"enableHashesForFMTags":false},"publishing":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enablePrettyRefs":true,"enableKatex":true,"copyAssets":true,"siteHierarchies":["root"],"writeStubs":false,"siteRootDir":"docs","seo":{"title":"Luke SNAW","description":"Personal knowledge space"},"github":{"enableEditLink":false,"editLinkText":"Edit this page on GitHub","editBranch":"main","editViewMode":"tree"},"enableSiteLastModified":true,"enableFrontmatterTags":true,"enableHashesForFMTags":false,"enableRandomlyColoredTags":true,"enableTaskNotes":true,"enablePrettyLinks":true,"searchMode":"lookup","siteUrl":"https://luke-snaw.github.io/","duplicateNoteBehavior":{"action":"useVault","payload":["vault"]},"siteFaviconPath":"favicon.ico","siteIndex":"root"}}},"__N_SSG":true},"page":"/notes/[id]","query":{"id":"d1taedacxa8xx4bcxvhfhz5"},"buildId":"b30e_7u_ygEA3_6cd48IB","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
