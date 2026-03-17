@@ -2,9 +2,21 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1773381073895
+updated: 1773731019241
 created: 1766965709816
 ---
+
+## Week 12, 2026
+
+- [Stop Sloppypasta](https://stopsloppypasta.ai/en/)
+  - Simple guidelines to do better
+    1. Read.
+    2. Verify.
+    3. Distill.
+    4. Disclose - Share how AI helped.
+    5. Share only when requested.
+    6. Share as a link.
+- [The 49MB web page](https://thatshubham.com/blog/news-audit) criticizes **modern news websites** for their **hostile user experience**, characterized by **excessive data loading** (49MB for the New York Times), **intrusive ads**, **tracking scripts**, and **user-unfriendly design patterns** that prioritize monetization over reader engagement
 
 ## Week 11, 2026
 

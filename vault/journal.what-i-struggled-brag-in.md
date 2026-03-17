@@ -2,9 +2,21 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled 🧗/📣 brag In"
 desc: ""
-updated: 1773276453951
+updated: 1773726565691
 created: 1669264809793
 ---
+
+## Week 12, 2026 - pnpm v10 build script approve
+
+**pnpm v10 lifecycle script 차단**: pnpm v10부터 보안상 postinstall 스크립트를 기본 차단한다. `@prisma/client`는 postinstall에서 client를 셋업하는데 이게 차단되어 `prisma generate`가 모듈을 찾지 못한다. 2024년 Rspack supply chain attack(postinstall로 크립토마이닝 악성코드 배포)이 직접적 계기다. ([참고](https://socket.dev/blog/pnpm-10-0-0-blocks-lifecycle-scripts-by-default))
+
+로컬에서 `pnpm approve-builds`를 실행하여 빌드 스크립트가 필요한 패키지를 승인한다:
+
+```bash
+pnpm approve-builds
+```
+
+`pnpm-workspace.yaml`에 `onlyBuiltDependencies` 설정이 추가
 
 ## Week 11, 2026 - prisma migrate dev shadow DB issue (MySQL RENAME INDEX)
 
