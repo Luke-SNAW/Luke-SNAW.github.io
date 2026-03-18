@@ -2,12 +2,23 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1773731019241
+updated: 1773800498161
 created: 1766965709816
 ---
 
 ## Week 12, 2026
 
+- [If you thought code writing speed was your problem you have bigger problems](https://andrewmurphy.io/blog/if-you-thought-the-speed-of-writing-code-was-your-problem-you-have-bigger-problems)
+  - optimizing non-bottleneck steps actually worsens the system, leading to increased inventory and slower overall delivery
+- [Kagi Translate now supports LinkedIn Speak as an output language](https://translate.kagi.com/?from=en&to=LinkedIn+speak)
+  > Input: I am starting a new job at Google next Monday. I will work as a contractor cleaning toilets.
+  >
+  > Output: I’m thrilled to announce that I’m starting a new chapter at Google this coming Monday! I’ll be joining the team as a specialized Environmental Maintenance Contractor, dedicated to optimizing facility hygiene and ensuring a world-class onsite experience. Grateful for this opportunity to contribute to such an innovative ecosystem! `#NewBeginnings #GoogleLife #FacilitiesManagement #CareerUpdate` - [HN](https://news.ycombinator.com/item?id=47408858)
+  - > And in the reverse direction: “I'm starting a job as a janitor at Google on Monday.” Not bad. - [HN](https://news.ycombinator.com/item?id=47409366)
+- [‘Pokémon Go’ players unknowingly trained delivery robots with 30 billion images](https://www.popsci.com/technology/pokemon-go-delivery-robots-crowdsourcing/) - The massive crowdsourcing effort could use real-world to help robots deliver pizza.
+- [Why I love FreeBSD](https://it-notes.dragas.net/2026/03/16/why-i-love-freebsd/)
+  - Unlike Linux, which only provides the kernel, FreeBSD manages the kernel + base userland + documentation as a single integrated project. This results in high consistency and stability.
+  - FreeBSD's philosophy of evolution over revolution, focusing on stability and predictability, has made it a reliable choice for servers and critical workloads.
 - [Stop Sloppypasta](https://stopsloppypasta.ai/en/)
   - Simple guidelines to do better
     1. Read.
