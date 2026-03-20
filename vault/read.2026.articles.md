@@ -2,12 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1773800498161
+updated: 1773968329297
 created: 1766965709816
 ---
 
 ## Week 12, 2026
 
+- [Rob Pike's 5 Rules of Programming](https://www.cs.unc.edu/~stotts/COMP590-059-f24/robsrules.html)
+  - https://news.ycombinator.com/item?id=47423647
 - [If you thought code writing speed was your problem you have bigger problems](https://andrewmurphy.io/blog/if-you-thought-the-speed-of-writing-code-was-your-problem-you-have-bigger-problems)
   - optimizing non-bottleneck steps actually worsens the system, leading to increased inventory and slower overall delivery
 - [Kagi Translate now supports LinkedIn Speak as an output language](https://translate.kagi.com/?from=en&to=LinkedIn+speak)

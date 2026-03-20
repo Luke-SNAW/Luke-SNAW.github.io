@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1772177440693
+updated: 1773968318774
 created: 1688605282146
 ---
 
@@ -136,6 +136,14 @@ created: 1688605282146
 - [I Taught My Dog to Vibe Code Games](https://www.calebleak.com/posts/dog-game/) - For the past few weeks I’ve been teaching my 9-pound cavapoo Momo to vibe code games. The key to making this work is telling Claude Code that a genius game designer who only speaks in cryptic riddles is giving it instructions, add strong guardrails, and build plenty of tools for automated feedback.
 - [Stop Using /init for AGENTS.md](https://addyosmani.com/blog/agents-md/)
   > TL;DR: A good mental model is to treat AGENTS.md as a living list of codebase smells you haven’t fixed yet, not a permanent configuration. Auto-generated AGENTS.md files hurt agent performance and inflate costs by 20%+ because they duplicate what agents can already discover. Human-written files help only when they contain non-discoverable information - tooling gotchas, non-obvious conventions, landmines. Every other line is noise.
+- [Stop Sloppypasta](https://stopsloppypasta.ai/en/)
+  - Simple guidelines to do better
+    1. Read.
+    2. Verify.
+    3. Distill.
+    4. Disclose - Share how AI helped.
+    5. Share only when requested.
+    6. Share as a link.
 
 ## ETC
 
@@ -205,3 +213,12 @@ edge를 확인, 확장은 반대편 영역일 터. 그 영역에 focus를 두도
 ## 3
 
 code review 를 위해 commit을 더 잘게 쪼개는게 낫나?
+
+- [Stop Sloppypasta](https://stopsloppypasta.ai/en/)
+  - Simple guidelines to do better
+    1. Read.
+    2. Verify.
+    3. Distill.
+    4. Disclose - Share how AI helped.
+    5. Share only when requested.
+    6. Share as a link.
