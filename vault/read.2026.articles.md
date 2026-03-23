@@ -2,9 +2,20 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1773968329297
+updated: 1774250480909
 created: 1766965709816
 ---
+
+## Week 13, 2026
+
+- [The End of Coding: Andrej Karpathy on Agents, AutoResearch, and the Loopy Era of AI](https://www.youtube.com/watch?v=kwSVtQ7dziU)
+  - The End of Apps and an Agent-First World
+    - Apps for smart home devices make no sense; they should **only expose APIs** and be structured for agents to call directly
+    - Since LLMs can drive tools and perform complex tasks by calling the right ones, custom-built apps are currently being **overproduced**
+    - Since customers are no longer humans but **agents acting on behalf of humans**, the entire industry needs to be restructured accordingly
+    - While "vibe coding" is currently necessary, in 1-3 years, open-source models and others will be able to **easily convert non-technical intent**, and technical barriers are expected to disappear
+- [The Future of SaaS Is Agentic](https://akashyap.ai/the-future-of-saas-is-agentic/)
+  > Agentic SaaS shifts that burden to software that can act on behalf of users. That changes both the interface and the architecture: the UI remains, but becomes a layer for intent, supervision, and review, while the product itself evolves into a system of stateful processes that can plan, execute, and adapt over time. The winners will not be the products with the most AI features, but the ones that **remove the most friction and make software feel less like a tool to operate and more like a system that works for you**.
 
 ## Week 12, 2026
 

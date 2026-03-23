@@ -1,7 +1,7 @@
 ---
 id: 88st12x3pi51cvyokddzd91
-title: 'If You Thought the Speed of Writing Code Was Your Problem You Have Bigger Problems
-desc: ''
+title: If You Thought the Speed of Writing Code Was Your Problem You Have Bigger Problems
+desc: ""
 updated: 1773800660881
 created: 1773800490870
 ---
