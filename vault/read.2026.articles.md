@@ -2,12 +2,20 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1774250480909
+updated: 1774325003209
 created: 1766965709816
 ---
 
 ## Week 13, 2026
 
+- [GitHub appears to be struggling with measly three nines availability](https://www.theregister.com/2026/02/10/github_outages/)
+  - > From GitHub CTO in 2025 when they announced they're moving everything to Azure instead of letting GitHub's infrastructure remain independent:
+  - > > For us, availability is job #1, and this migration ensures GitHub remains the fast, reliable platform developers depend on
+  - [The Missing GitHub Status Page](https://mrshu.github.io/github-statuses/)
+    - Last 90 days uptime. Last updated Mar 22, 2026
+    - 87 incidents in last 90 days
+    - 90.21% uptime (GitHub Platform)-
+    - > Note that it gets 90% largely off Copilot going down and Actions not working. Actual git has 98.98%, which is still just one 9 but a lot better.
 - [The End of Coding: Andrej Karpathy on Agents, AutoResearch, and the Loopy Era of AI](https://www.youtube.com/watch?v=kwSVtQ7dziU)
   - The End of Apps and an Agent-First World
     - Apps for smart home devices make no sense; they should **only expose APIs** and be structured for agents to call directly
