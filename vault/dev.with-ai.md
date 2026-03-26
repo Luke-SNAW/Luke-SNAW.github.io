@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1773968318774
+updated: 1774500518711
 created: 1688605282146
 ---
 
@@ -194,6 +194,10 @@ These "chats" only take 10-30 minutes and have already led me to learn a bunch o
 
 Today physical world is largely mechanized, we rarely walk, run lift heavy things for survival. So we grow fat and weak unless we exercise. Tomorrow vast majority of us will never think, create, investigate for earning a living. So we will get dumb and dumber over time. A small minority of us will keep polishing their intellect but will never be smarter than machines just like the best athletes of today can't outrun machines.
 
+### [badlibrarian](https://news.ycombinator.com/item?id=47519588)
+
+결국 중요한 건 “무엇을 만들고 있는가”와 “그 도구가 실제로 도움이 되는가”임
+도구를 현명하게 쓰고, 팀이 실제로 만들고 있는 복잡한 현실을 이해할 만큼의 속도로 일해야 함
 --
 
 ## 1
