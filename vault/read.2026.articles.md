@@ -2,12 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1774499585462
+updated: 1774575148293
 created: 1766965709816
 ---
 
 ## Week 13, 2026
 
+- [Forgejo](https://forgejo.org/) - Self-hosted alternative to GitHub
+- [Why So Many Control Rooms Were Seafoam Green](https://bethmathews.substack.com/p/why-so-many-control-rooms-were-seafoam) - The Color Theory Behind Industrial Seafoam Green
 - [TurboQuant: Redefining AI efficiency with extreme compression](https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/) - a set of advanced quantization algorithms designed for extreme compression of **large language models** and **vector search engines**.
 - [Apple randomly closes bug reports unless you “verify” the bug remains unfixed](https://lapcatsoftware.com/articles/2026/3/11.html)
 - [Updates to GitHub Copilot interaction data usage policy](https://github.blog/news-insights/company-news/updates-to-github-copilot-interaction-data-usage-policy/) - Interaction data—specifically inputs, outputs, code snippets, and associated context—from Copilot Free, Pro, and Pro+ users will be used to train and improve our AI models unless they opt out.

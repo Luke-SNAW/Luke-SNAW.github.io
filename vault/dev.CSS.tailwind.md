@@ -1,8 +1,8 @@
 ---
 id: t551a82h3taujz7zlf5c8pm
 title: Tailwind
-desc: ''
-updated: 1765418251878
+desc: ""
+updated: 1774585257704
 created: 1672120075569
 ---
 
@@ -36,3 +36,7 @@ exports.cssLoaders = function (options) {
 ```
 
 ## [tints.dev](https://www.tints.dev/) - Palette Generator + API for Tailwind CSS
+
+## [tailwindcss-typography](https://github.com/tailwindlabs/tailwindcss-typography)
+
+감싸는 div 하나에 prose만 붙이면 하위의 h1~h6, p, a, strong, blockquote, table, ul, ol, code 등에 자동으로 타이포그래피 스타일이 적용

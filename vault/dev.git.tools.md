@@ -2,7 +2,7 @@
 id: y62z9jcqo7xsqxspmots8j8
 title: Git Tools
 desc: ""
-updated: 1683595984153
+updated: 1774575161119
 created: 1646005847782
 ---
 
@@ -16,3 +16,4 @@ created: 1646005847782
 - [changelogen](https://github.com/unjs/changelogen) - 💅 Beautiful Changelogs using Conventional Commits
 - [Git Large File Storage](https://git-lfs.com/)
 - [git-credential-manager](https://github.com/git-ecosystem/git-credential-manager) - brew installable
+- [Forgejo](https://forgejo.org/) - Self-hosted alternative to GitHub
