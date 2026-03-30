@@ -1,10 +1,28 @@
 ---
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
-desc: ""
-updated: 1774575148293
+desc: ''
+updated: 1774859528269
 created: 1766965709816
 ---
+
+## Week 14, 2026
+
+
+
+- [Nitrile and latex gloves may cause overestimation of microplastics, U-M study reveals](https://news.umich.edu/nitrile-and-latex-gloves-may-cause-overestimation-of-microplastics-u-m-study-reveals/) - Residue from nitrile or latex gloves may unintentionally contaminate lab equipment scientists use to measure microplastics in air, water and other samples with non-plastic particles called stearates. Stearates, a kind of salt, are chemically similar at the structural level to microplastics. They also look similar visually.
+- [LinkedIn uses 2.4 GB RAM across two tabs](https://ibb.co/fYQVfMWp) [#2](https://ibb.co/MyTNnrGQ)
+- [Don’t Design for Average Users](https://www.uxtigers.com/post/p50-vs-p95)
+  > The average user is a terrible design target for digital products. High-end “Whale” users in the 95th or 99th percentile of usage volume (P95 or P99) have different needs and often generate dramatically more business value than the masses of low-end users that hit the P50 median usage metrics. The P95/P50 ratio ranges from 3 to 100 (or higher), depending on domain characteristics, leading to different recommended design strategies.
+- [The Cognitive Dark Forest](https://ryelang.org/blog/posts/cognitive-dark-forest/)
+  > You use prompts to generate code, you use them to explore ideas, to brainstorm, you use it instead of everyday search. And every prompt flows through centralized AI platform. Every prompt is a signal - reveals intent.
+  >
+  > The platform doesn’t need to read your prompt. It doesn’t spy on you specifically. It isn’t surveillance. It’s just statistics.
+  >
+  > It’s a gradient in idea space. A demand curve made of human interests. The platform doesn’t need to bother with individual prompts - it just needs to see where the questions cluster. A map of where the world is moving. And you are just input data.
+  >
+  > The platform will know your idea _is pregnant_ far before you will.
+- [ChatGPT won't let you type until Cloudflare reads your React state](https://www.buchodi.com/chatgpt-wont-let-you-type-until-cloudflare-reads-your-react-state-i-decrypted-the-program-that-does-it/)
 
 ## Week 13, 2026
 

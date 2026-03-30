@@ -2,12 +2,15 @@
 id: hygjiuqdwh7wqbydrzpct91
 title: Chitchat
 desc: ""
-updated: 1774328504056
+updated: 1774859535639
 created: 1773642824269
 ---
 
 ## 2026
 
+- [Alzheimer’s disease mortality among taxi and ambulance drivers: population based cross sectional study](https://www.bmj.com/content/387/bmj-2024-082194)
+  - The rate of fatality for Alzheimer’s among ambulance and taxi drivers is 3x lower than the general population. This is not observed in other transportation-related careers.
+  - The connection is believed to be the spatial reasoning involved in routing. No causative link is suggested. - [HN](https://news.ycombinator.com/item?id=47559685)- [니트릴·라텍스 장갑이 미세플라스틱 과대추정 유발 가능성](https://news.hada.io/topic?id=27991)
 - [iPhone 17 Pro Demonstrated Running a 400B LLM](https://xcancel.com/anemll/status/2035901335984611412) - Running 400B model on iPhone! 0.6 t/s
   - Looks like it's Qwen3.5-397B-A17B so 17B active. [https://github.com/Anemll/flash-moe/tree/iOS-App](https://github.com/Anemll/flash-moe/tree/iOS-App)
   - **iPhone 17 Pro**에서 **4000억 파라미터 규모의 LLM**을 구동, 속도는 **초당 0.6토큰** 수준
@@ -28,3 +31,7 @@ created: 1773642824269
     - 87 incidents in last 90 days
     - 90.21% uptime (GitHub Platform)-
     - > Note that it gets 90% largely off Copilot going down and Actions not working. Actual git has 98.98%, which is still just one 9 but a lot better.
+
+- [Alzheimer’s disease mortality among taxi and ambulance drivers: population based cross sectional study](https://www.bmj.com/content/387/bmj-2024-082194)
+  - The rate of fatality for Alzheimer’s among ambulance and taxi drivers is 3x lower than the general population. This is not observed in other transportation-related careers.
+  - The connection is believed to be the spatial reasoning involved in routing. No causative link is suggested. - [HN](https://news.ycombinator.com/item?id=47559685)
