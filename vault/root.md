@@ -86,4 +86,4 @@ Hi there 👋. I'm a Front-end developer.
 
 ---
 
-- [[journal.what-i-struggled-brag-in]]
+- [[journal.what-i-struggled-brag-til-in]]

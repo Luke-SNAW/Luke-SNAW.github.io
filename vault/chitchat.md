@@ -2,12 +2,15 @@
 id: hygjiuqdwh7wqbydrzpct91
 title: Chitchat
 desc: ""
-updated: 1774859535639
+updated: 1774929692550
 created: 1773642824269
 ---
 
 ## 2026
 
+- [Copilot edited an ad into my PR](https://notes.zachmanson.com/copilot-edited-an-ad-into-my-pr/) - Copilot edited my PR description to include and ad for itself and Raycast.
+  - https://news.ycombinator.com/item?id=47573233
+  - 문제는 Copilot이 사람이 만든 PR을 사후 수정해서 광고를 넣는다는 점임. 작성자 동의 없이
 - [Alzheimer’s disease mortality among taxi and ambulance drivers: population based cross sectional study](https://www.bmj.com/content/387/bmj-2024-082194)
   - The rate of fatality for Alzheimer’s among ambulance and taxi drivers is 3x lower than the general population. This is not observed in other transportation-related careers.
   - The connection is believed to be the spatial reasoning involved in routing. No causative link is suggested. - [HN](https://news.ycombinator.com/item?id=47559685)- [니트릴·라텍스 장갑이 미세플라스틱 과대추정 유발 가능성](https://news.hada.io/topic?id=27991)
@@ -31,7 +34,3 @@ created: 1773642824269
     - 87 incidents in last 90 days
     - 90.21% uptime (GitHub Platform)-
     - > Note that it gets 90% largely off Copilot going down and Actions not working. Actual git has 98.98%, which is still just one 9 but a lot better.
-
-- [Alzheimer’s disease mortality among taxi and ambulance drivers: population based cross sectional study](https://www.bmj.com/content/387/bmj-2024-082194)
-  - The rate of fatality for Alzheimer’s among ambulance and taxi drivers is 3x lower than the general population. This is not observed in other transportation-related careers.
-  - The connection is believed to be the spatial reasoning involved in routing. No causative link is suggested. - [HN](https://news.ycombinator.com/item?id=47559685)

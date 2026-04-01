@@ -1,15 +1,19 @@
 ---
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
-desc: ''
-updated: 1774859528269
+desc: ""
+updated: 1774929667199
 created: 1766965709816
 ---
 
 ## Week 14, 2026
 
-
-
+- [Copilot edited an ad into my PR](https://notes.zachmanson.com/copilot-edited-an-ad-into-my-pr/) - Copilot edited my PR description to include and ad for itself and Raycast.
+  - https://news.ycombinator.com/item?id=47573233
+  - 문제는 Copilot이 사람이 만든 PR을 사후 수정해서 광고를 넣는다는 점임. 작성자 동의 없이
+- [Alzheimer’s disease mortality among taxi and ambulance drivers: population based cross sectional study](https://www.bmj.com/content/387/bmj-2024-082194)
+  - The rate of fatality for Alzheimer’s among ambulance and taxi drivers is 3x lower than the general population. This is not observed in other transportation-related careers.
+  - The connection is believed to be the spatial reasoning involved in routing. No causative link is suggested. - [HN](https://news.ycombinator.com/item?id=47559685)
 - [Nitrile and latex gloves may cause overestimation of microplastics, U-M study reveals](https://news.umich.edu/nitrile-and-latex-gloves-may-cause-overestimation-of-microplastics-u-m-study-reveals/) - Residue from nitrile or latex gloves may unintentionally contaminate lab equipment scientists use to measure microplastics in air, water and other samples with non-plastic particles called stearates. Stearates, a kind of salt, are chemically similar at the structural level to microplastics. They also look similar visually.
 - [LinkedIn uses 2.4 GB RAM across two tabs](https://ibb.co/fYQVfMWp) [#2](https://ibb.co/MyTNnrGQ)
 - [Don’t Design for Average Users](https://www.uxtigers.com/post/p50-vs-p95)

@@ -1,7 +1,7 @@
 ---
 id: y96Q2Fyzh0EQb9j3xGKjX
 title: GitHub tools
-desc: ""
+desc: ''
 updated: 1751594575282
 created: 1644887290931
 ---
@@ -18,7 +18,7 @@ created: 1644887290931
 - [github1s](https://github.com/conwnet/github1s) - One second to read GitHub code with VS Code.
 - [act](https://github.com/nektos/act) - Run your GitHub Actions locally 🚀
 - https://github.com/search?o=desc&q=stars%3A%3E100000&s=stars&type=Repositories
-- [[vue, vite, tailwind로 공통 component package 만들기 (github private package)|journal.what-i-struggled-brag-in#week-17-2023---github-private-package]]
+- [[vue, vite, tailwind로 공통 component package 만들기 (github private package)|journal.what-i-struggled-brag-til-in#week-17-2023---github-private-package]]
 
 ## Criticism
 
