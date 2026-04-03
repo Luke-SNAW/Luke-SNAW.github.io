@@ -2,12 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1774929667199
+updated: 1775023773147
 created: 1766965709816
 ---
 
 ## Week 14, 2026
 
+- [Microsoft: Copilot is for entertainment purposes only](https://www.microsoft.com/en-us/microsoft-copilot/for-individuals/termsofuse)
 - [Copilot edited an ad into my PR](https://notes.zachmanson.com/copilot-edited-an-ad-into-my-pr/) - Copilot edited my PR description to include and ad for itself and Raycast.
   - https://news.ycombinator.com/item?id=47573233
   - 문제는 Copilot이 사람이 만든 PR을 사후 수정해서 광고를 넣는다는 점임. 작성자 동의 없이
@@ -45,6 +46,7 @@ created: 1766965709816
     - 87 incidents in last 90 days
     - 90.21% uptime (GitHub Platform)-
     - > Note that it gets 90% largely off Copilot going down and Actions not working. Actual git has 98.98%, which is still just one 9 but a lot better.
+  - [GitHub's Historic Uptime](https://damrnelson.github.io/github-historical-uptime/)
 - [The End of Coding: Andrej Karpathy on Agents, AutoResearch, and the Loopy Era of AI](https://www.youtube.com/watch?v=kwSVtQ7dziU)
   - The End of Apps and an Agent-First World
     - Apps for smart home devices make no sense; they should **only expose APIs** and be structured for agents to call directly

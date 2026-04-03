@@ -2,7 +2,7 @@
 id: hygjiuqdwh7wqbydrzpct91
 title: Chitchat
 desc: ""
-updated: 1774929692550
+updated: 1775023778226
 created: 1773642824269
 ---
 
@@ -34,3 +34,4 @@ created: 1773642824269
     - 87 incidents in last 90 days
     - 90.21% uptime (GitHub Platform)-
     - > Note that it gets 90% largely off Copilot going down and Actions not working. Actual git has 98.98%, which is still just one 9 but a lot better.
+  - [GitHub's Historic Uptime](https://damrnelson.github.io/github-historical-uptime/)
