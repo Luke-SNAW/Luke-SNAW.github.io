@@ -2,9 +2,19 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1775023773147
+updated: 1775608120605
 created: 1766965709816
 ---
+
+## Week 15, 2026
+
+- [The April Cools' Club](https://www.aprilcools.club/)
+- [Issue: Claude Code is unusable for complex engineering tasks with Feb updates](https://github.com/anthropics/claude-code/issues/42796)
+  - [HN](https://news.ycombinator.com/item?id=47660925)
+- [Employers use your personal data to figure out the lowest salary you'll accept](https://www.marketwatch.com/story/employers-are-using-your-personal-data-to-figure-out-the-lowest-salary-youll-accept-c2b968fb)
+  - [HN](https://news.ycombinator.com/item?id=47655466)
+- [How many products does Microsoft have named 'Copilot'? I mapped every one](https://teybannerman.com/strategy/2026/03/31/how-many-microsoft-copilot-are-there.html)
+  > Update: Since this was published, the lovely internet community has let me know we were missing two Copilots: Gaming Copilot and Microsoft Dragon Copilot (🤦‍♀️). This brings the total to 80. The chart has been updated and I'll continue to update it as Microsoft continues to Copilot.
 
 ## Week 14, 2026
 
