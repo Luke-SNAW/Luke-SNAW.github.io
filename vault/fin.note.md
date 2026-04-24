@@ -2,7 +2,7 @@
 id: sv9iv5nxuufeorw4so9jafl
 title: Note
 desc: ""
-updated: 1776140932970
+updated: 1777022216501
 created: 1688652338329
 published: false
 ---
@@ -297,3 +297,7 @@ AI 관련 기업 채권발행대금에 관한 센티멘틀은 언급 없어서, 
 > [미국 이란 협상, 결렬 이후는? (문홍철) | 인포맥스라이브 260410](https://www.youtube.com/watch?v=zGjfbFaxVg4)
 
 러시아-우크라이나 전쟁이 계속되도 유가는 3개월 오르다 서서히 떨어짐.
+
+## 2026-04-20
+
+미국 대기업은 실적이 나빠지면 실적 발표 전에 알려줌
