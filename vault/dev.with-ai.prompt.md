@@ -2,7 +2,7 @@
 id: 9sqga9098b9f6qdndwnmai4
 title: Prompt
 desc: ""
-updated: 1761288754349
+updated: 1777251399633
 created: 1759192243421
 tags: draft
 ---
@@ -148,3 +148,19 @@ Anything we should skip, tell me about now.
 ```
 
 CodeRabbit "reviewers" typically get a 'Strong hire' review, but it's not unheard of for Claude to report that the reviewer "seems quite technically adept, but didn't take the time to understand our project and made a number of suggestions that are wrong. No hire."
+
+## 악마의 변호인 (Devil's Advocate)
+
+악마의 변호인은 자신이 실제로 그 입장을 지지하지 않더라도, 의도적으로 반대 의견을 제시하는 역할을 말합니다.
+원래는 가톨릭 교회에서 시성(聖人으로 추대) 심사 때, 후보자의 결점을 찾아내는 공식 직책("Promotor Fidei")에서 유래한 표현입니다.
+
+### LLM 활용 맥락에서의 의미
+
+내가 어떤 아이디어나 계획을 제시하면, LLM에게 "무조건 동의하지 말고, 이 아이디어의 약점·허점·위험성을 최대한 날카롭게 비판해줘" 라고 시키는 것입니다.
+예시 프롬프트:
+
+> "내 사업 아이디어는 OOO야. 악마의 변호인 역할을 해줘 — 이 아이디어가 실패할 수 있는 이유, 논리적 허점, 놓친 리스크를 가능한 한 비판적으로 찾아줘."
+
+### 왜 유용할까?
+
+보통 LLM은 사용자의 아이디어에 동조하는 경향("sycophancy")이 있습니다. 의도적으로 반대 역할을 부여하면 더 균형 잡힌 시각과 미처 생각 못한 문제점을 발견할 수 있습니다.
