@@ -2,12 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1777280819394
+updated: 1777523689351
 created: 1766965709816
 ---
 
 ## Week 18, 2026
 
+- HERMES.md in commit messages causes requests to route to extra usage billing
+  > [However, I need to let you know that we are unable to issue compensation for degraded service or _technical errors_ that result in incorrect billing routing.](https://github.com/anthropics/claude-code/issues/53262#issuecomment-4319753593)
 - [Cognitive load is what matters](https://github.com/zakirullin/cognitive-load)
 - [GoDaddy Gave a Domain to a Stranger Without Any Documentation](https://anchor.host/godaddy-gave-a-domain-to-a-stranger-without-any-documentation/)
   - [Controversies surrounding GoDaddy](https://en.wikipedia.org/wiki/Controversies_surrounding_GoDaddy)
