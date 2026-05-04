@@ -2,9 +2,19 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1777523689351
+updated: 1777883621795
 created: 1766965709816
 ---
+
+## Week 19, 2026
+
+- [Learnings from conducting ~1,000 interviews at Amazon](https://newsletter.pragmaticengineer.com/p/learnings-from-conducting-1000-interviews) shares key learnings about **behavioral interviews**, emphasizing that **how candidates present themselves** and their **fit** with the role and company are crucial for securing an offer, often outweighing technical skills alone.
+- [LinkedIn is searching your browser extensions](https://browsergate.eu/)
+- [VS Code inserting 'Co-Authored-by Copilot' into commits regardless of usage](https://github.com/microsoft/vscode/pull/310226)
+- [Inverse Sapir-Whorf and programming languages](https://lukeplant.me.uk/blog/posts/inverse-sapir-whorf-and-programming-languages/)
+  > The [Sapir-Whorf hypothesis](https://en.wikipedia.org/wiki/Linguistic_relativity), in its simplest form, is the idea that the language you speak influences the thoughts you think. This post is about a twist on this idea, that I’m calling “Inverse Sapir-Whorf” (for want of a better term), and how we see it in computer programming languages.
+  >
+  > gendered pronouns and nouns - In English, in normal speech you are going to use “he” or “she” when referring to a specific person. “Singular they” does exist, but it’s very unnatural if you are talking about a specific person of known or assumed sex.
 
 ## Week 18, 2026
 
