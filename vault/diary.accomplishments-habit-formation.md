@@ -2,11 +2,18 @@
 id: j71mrhhqz6x9o90gwj5lmks
 title: Accomplishments Habit Formation
 desc: ""
-updated: 1750920317865
+updated: 1778039666472
 created: 1748831002093
 ---
 
 # 성취 - 습관형성
+
+## 2026
+
+- 저글링 04
+  - semi 명상 정도로 mode 전환이 됨. 평소 행동, 사고 패턴과는 판이.
+- 조깅 04
+  - 10km/h로 2km+
 
 ## 2025
 

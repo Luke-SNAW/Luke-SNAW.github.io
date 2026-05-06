@@ -2,12 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1777883621795
+updated: 1778039000229
 created: 1766965709816
 ---
 
 ## Week 19, 2026
 
+- [Talking to 35 Strangers at the Gym](https://thienantran.com/talking-to-35-strangers-at-the-gym/) details an experiment where the author, feeling lonely after college, decided to talk to 35 strangers at the gym over a month to make friends. Despite initial fear and awkwardness, the author found that most people were receptive, leading to new connections and a more resilient mindset.
+- [Google Chrome silently installs a 4 GB AI model on your device without consent](https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/)
 - [Learnings from conducting ~1,000 interviews at Amazon](https://newsletter.pragmaticengineer.com/p/learnings-from-conducting-1000-interviews) shares key learnings about **behavioral interviews**, emphasizing that **how candidates present themselves** and their **fit** with the role and company are crucial for securing an offer, often outweighing technical skills alone.
 - [LinkedIn is searching your browser extensions](https://browsergate.eu/)
 - [VS Code inserting 'Co-Authored-by Copilot' into commits regardless of usage](https://github.com/microsoft/vscode/pull/310226)

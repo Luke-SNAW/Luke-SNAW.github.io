@@ -2,7 +2,7 @@
 id: NXAefr1pIXFjCcemglCJM
 title: Security
 desc: ""
-updated: 1749787846079
+updated: 1778029695858
 created: 1644825680750
 ---
 
@@ -60,3 +60,9 @@ Overall, the article effectively raises awareness of the ReDoS threat within see
 ## AI
 
 - [Hacking Gemini's Memory with Prompt Injection and Delayed Tool Invocation](https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/)
+
+## Memo
+
+- Since it's not been clearly stated: One attack vector might be that I step out to the bathroom for 5 minutes without locking computer, and evil hacker just dumps all my passwords before I come back.  
+  I think it's worthwhile considering this. There's a reason why password managers ask for a master password or passkey after 10 minutes. Since I thought Chrome relied on an encrypted enclave, it isn't quite feasible to extract passwords easily even with root access.  
+  Yes, you shouldn't leave your computer unattended. But that doesn't mean designing products that make exploiting the inevitable slipup fatal. - [Microsoft Edge stores all passwords in memory in clear text, even when unused](https://news.ycombinator.com/item?id=48015935)
