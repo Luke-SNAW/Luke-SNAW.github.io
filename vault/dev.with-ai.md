@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1774500518711
+updated: 1778550490150
 created: 1688605282146
 ---
 
@@ -144,6 +144,11 @@ created: 1688605282146
     4. Disclose - Share how AI helped.
     5. Share only when requested.
     6. Share as a link.
+
+- [Lorem Ipsum Makes LLMs Smarter. No, Seriously.](https://dev.to/ww-w-ai/lorem-ipsum-makes-llms-smarter-no-seriously-1j8l)
+  - LoPE는 RL 훈련 시 프롬프트 앞에 Lorem ipsum dolor sit amet ... 을 삽입하는 기법. 어려운 문제에서 모든 샘플이 실패하면 학습 신호가 0이 되는 "zero-advantage" 문제를 해결
+  - 라틴어 기반의 "언어처럼 보이지만 무의미한 텍스트"가 효과적인 이유와 모델의 기본 추론 궤도를 교란해 탐색 다양성을 확보하는 메커니즘이 흥미롭다.
+  - [Nonsense Helps](https://arxiv.org/abs/2605.05566): Prompt Space Perturbation Broadens Reasoning Exploration
 
 ## ETC
 

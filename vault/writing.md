@@ -2,7 +2,7 @@
 id: qf0l4wbrc9jgooyzexmbq5v
 title: Writing
 desc: ""
-updated: 1766120653691
+updated: 1778578135454
 created: 1674003802450
 ---
 
@@ -29,3 +29,9 @@ created: 1674003802450
   - Academic writing should aim to change how readers see the world, rather than simply conveying the writer's own ideas or demonstrating understanding.
   - Effective academic writing involves understanding and using the 'code' of a specific community of readers to communicate value and persuade them.
   - Academic conversations are dynamic and evolving, with knowledge being constructed and deconstructed by communities, rather than being a static accumulation of facts.
+
+## 발표를 잘 할 수 있을 거라 생각
+
+차라리 대본을 쓰고 그대로 읽는 쪽이 나은 수준. 엉성하게 한 번 훑어보고 대충 얼기설기 꿰메어 말하면 되겠지라고 생각하지만 막상 발표 때엔 근거가 부족, 논리가 약하다 생각되어 얼버무리고 두루뭉술 넘길 때가 많음.
+평가기준이 준비할 때와 실제 말할 때가 상당히 차이남.
+글쓰기가 정석적인 해결책으로 보임. 말하기도 효과가 있으려나? - 2026-03-20
