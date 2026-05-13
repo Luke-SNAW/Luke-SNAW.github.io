@@ -2,12 +2,15 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1778556958474
+updated: 1778638299557
 created: 1766965709816
 ---
 
 ## Week 20, 2026
 
+- [Why senior developers fail to communicate their expertise](https://www.nair.sh/guides-and-opinions/communicating-your-expertise/why-senior-developers-fail-to-communicate-their-expertise)
+  > a fiction writer rushes to complete a first draft (often called a vomit draft) and later extracts what’s working and gets rid of what’s not. There’s an editing process after the first initial rapid write. The editor’s job is to take the bits that are working well and shape it all into a cohesive whole.  
+  > What if we had one system just for speed? Everyone focused on bringing things to life could work here. AI agents, our own generated and unreviewed code, junior devs, marketing etc.
 - [You Need AI That Reduces Maintenance Costs](https://www.jamesshore.com/v2/blog/2026/you-need-ai-that-reduces-your-maintenance-costs)
   > You write code twice as quick now? Better hope you’ve halved your maintenance costs. Three times as productive? One third the maintenance costs. Otherwise, you’re screwed.
 - [Lorem Ipsum Makes LLMs Smarter. No, Seriously.](https://dev.to/ww-w-ai/lorem-ipsum-makes-llms-smarter-no-seriously-1j8l)
