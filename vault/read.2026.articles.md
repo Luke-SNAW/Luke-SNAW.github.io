@@ -2,11 +2,23 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1778638299557
+updated: 1778737012374
 created: 1766965709816
 ---
 
 ## Week 20, 2026
+
+- [Better Browser Caching with No-Vary-Search](https://csswizardry.com/2026/05/better-browser-caching-with-no-vary-search/)  
+  Imagine a landing page that is heavily used in campaigns, ads, email, and social posts:
+  - `/offer?utm_source=google`
+  - `/offer?utm_source=chatgpt`
+  - `/offer?utm_source=linkedin`
+
+  If those all return the same page, you can tell the cache to ignore `utm_source`:
+
+  ```
+  No-Vary-Search: params=("utm_source")
+  ```
 
 - [Why senior developers fail to communicate their expertise](https://www.nair.sh/guides-and-opinions/communicating-your-expertise/why-senior-developers-fail-to-communicate-their-expertise)
   > a fiction writer rushes to complete a first draft (often called a vomit draft) and later extracts what’s working and gets rid of what’s not. There’s an editing process after the first initial rapid write. The editor’s job is to take the bits that are working well and shape it all into a cohesive whole.  

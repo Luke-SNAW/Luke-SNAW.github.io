@@ -2,7 +2,7 @@
 id: J5O6LCmOghKhFwQFKeoow
 title: HTML
 desc: ""
-updated: 1768189085829
+updated: 1778737023725
 created: 1644885695231
 ---
 
@@ -73,6 +73,17 @@ created: 1644885695231
 - [Use "translate" to turn off element translations](https://www.stefanjudis.com/today-i-learned/non-translatable-html-elements/)
   - `translate="no"` attribute
 - [Why You Should Choose HTML5 article Over section](https://www.smashingmagazine.com/2020/01/html5-article-section/)
+- [Better Browser Caching with No-Vary-Search](https://csswizardry.com/2026/05/better-browser-caching-with-no-vary-search/)  
+  Imagine a landing page that is heavily used in campaigns, ads, email, and social posts:
+  - `/offer?utm_source=google`
+  - `/offer?utm_source=chatgpt`
+  - `/offer?utm_source=linkedin`
+
+  If those all return the same page, you can tell the cache to ignore `utm_source`:
+
+  ```
+  No-Vary-Search: params=("utm_source")
+  ```
 
 ## `<a download>` 동작 규칙
 
