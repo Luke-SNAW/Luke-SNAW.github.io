@@ -2,9 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1778737012374
+updated: 1779075358622
 created: 1766965709816
 ---
+
+## Week 21, 2026
+
+- [Ascetic Computing](https://ratfactor.com/ascetic-computing) is a philosophy of **simplicity** and **focus** that prioritizes personal standards and deliberate tool usage over the constant pursuit of new technology. By embracing **self-imposed constraints** and reliable, long-lasting software, users can achieve greater creative freedom and avoid the distractions of modern digital life.
 
 ## Week 20, 2026
 
