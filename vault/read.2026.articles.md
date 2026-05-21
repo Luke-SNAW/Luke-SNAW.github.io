@@ -2,12 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1779163507379
+updated: 1779336109596
 created: 1766965709816
 ---
 
 ## Week 21, 2026
 
+- [Apparently Google hates us now](https://xcancel.com/pokemoncentral/status/2057123807404638250) - the recent deindexing of the Italian fan wiki Pokémon Central by Google
+  - Many participants suggest that Google has become indifferent to site owners, often leaving them with no clear recourse or explanation for sudden visibility losses. - [HN](https://news.ycombinator.com/item?id=48210263)
 - [Ascetic Computing](https://ratfactor.com/ascetic-computing) is a philosophy of **simplicity** and **focus** that prioritizes personal standards and deliberate tool usage over the constant pursuit of new technology. By embracing **self-imposed constraints** and reliable, long-lasting software, users can achieve greater creative freedom and avoid the distractions of modern digital life.
 
 ## Week 20, 2026
