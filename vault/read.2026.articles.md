@@ -2,9 +2,16 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1779336109596
+updated: 1779955397283
 created: 1766965709816
 ---
+
+## Week 22, 2026
+
+- [How Shamir's Secret Sharing Works](https://ente.com/blog/how-shamirs-secret-sharing-works/) - **Shamir's Secret Sharing** is a cryptographic method that splits a **secret** into multiple pieces using **polynomials**, ensuring only a specific threshold of shares can reconstruct the original value. By hiding the secret at the vertical axis intercept, the scheme guarantees that any number of shares below the threshold reveals **zero information** about the secret.
+- [How Private Equity Bought America’s Essential Services](https://rubbishtalk.com/economy/how-private-equity-bought-americas-essential-services/)
+  > When a fire truck fails to deploy in a burning building and four people die, the cause isn’t just mechanical failure. It’s a business model.  
+  > The Business Model: Brilliant for Investors, Brutal for Everyone Else
 
 ## Week 21, 2026
 
