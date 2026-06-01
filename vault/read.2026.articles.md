@@ -2,9 +2,15 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1780017321194
+updated: 1780286140361
 created: 1766965709816
 ---
+
+## Week 23, 2026
+
+- [We replaced Redis with MySQL for inventory reservations—and it scaled](https://shopify.engineering/scaling-inventory-reservations) - How we used SKIP LOCKED, composite primary keys, and connection visibility to hit our scale targets.
+- [Please Use AI](https://shawnsmucker.substack.com/p/please-use-ai)
+  > the beauty of life is found in all of these subtle imperfections
 
 ## Week 22, 2026
 

@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1778638339927
+updated: 1780291199438
 created: 1688605282146
 ---
 
@@ -207,7 +207,14 @@ Today physical world is largely mechanized, we rarely walk, run lift heavy thing
 
 결국 중요한 건 “무엇을 만들고 있는가”와 “그 도구가 실제로 도움이 되는가”임
 도구를 현명하게 쓰고, 팀이 실제로 만들고 있는 복잡한 현실을 이해할 만큼의 속도로 일해야 함
---
+
+## [ryandrake](https://news.ycombinator.com/item?id=48316201)
+
+> A general pattern for LLMs is that they look really good at things you are bad at.
+
+This is true for coding, too, which I think, to a large degree, might explain the polarized differences in opinions on HN about the quality of LLM-produced code. You have the 1. "AI produces code better than I could possibly write, one shots things it would take me days to do, and has made me 10X more productive!" camp, and you have the 2. "AI constantly produces poor code needing rework, makes mistakes, has to be babysat, and ultimately costs me time!" camp, with a spectrum in between those. How could the output of the same product be seen so differently? Well, I have bad news for camp 1...
+
+---
 
 ## 1
 
