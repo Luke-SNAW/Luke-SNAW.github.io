@@ -2,12 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1780371823071
+updated: 1780560556060
 created: 1766965709816
 ---
 
 ## Week 23, 2026
 
+- [CSS vs. JavaScript](https://www.joshwcomeau.com/animation/css-vs-javascript/) - Exploring the performance implications of different animation strategies
+  - exploring how **CSS animations run on a separate thread, making them more performant than JavaScript-based animations** that compete for the main thread. While libraries like Motion leverage the Web Animations API to maintain performance, developers should prioritize native CSS transitions and keyframes to avoid unnecessary bundle bloat and layout recalculations.
 - [Hackers Used Meta’s AI Support Bot to Seize Instagram Accounts](https://krebsonsecurity.com/2026/06/hackers-used-metas-ai-support-bot-to-seize-instagram-accounts/)
   - [The Newest Instagram "Exploit" is the Goofiest I've Seen](https://www.0xsid.com/blog/meta-account-takeover-fiasco) explains that attackers bypassed Instagram's security by manipulating the support AI to redirect verification codes to unauthorized email addresses.
 - [We replaced Redis with MySQL for inventory reservations—and it scaled](https://shopify.engineering/scaling-inventory-reservations) - How we used SKIP LOCKED, composite primary keys, and connection visibility to hit our scale targets.

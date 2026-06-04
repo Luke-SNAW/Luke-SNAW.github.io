@@ -2,7 +2,7 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1779353539859
+updated: 1780561250986
 created: 1779352821282
 ---
 
@@ -27,3 +27,7 @@ created: 1779352821282
 2026-05-13
 
 실력 증가가 보이니 자발적으로 더 하게 됨. 이전에도 억지로 하진 않았지만 순풍을 받는 배처럼 더 나아감
+
+## Accomplish
+
+- 3개 cascade 100개 달성 - 2026/05
