@@ -1,8 +1,8 @@
 ---
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
-desc: ''
-updated: 1766965759366
+desc: ""
+updated: 1780643642243
 created: 1644449449778
 ---
 
@@ -10,8 +10,9 @@ Hi there 👋. I'm a Front-end developer.
 
 ---
 
-- 현실은 인간의 연산으로 완전히 파악할 수 없는 복잡계. 주어진 상황과 능력으로 할 수 있는 최선의 적응은 단순함과 꾸준함.
+- 잠자리에서 자야한다는 강박관념 대신 아늑함을 즐김. 공. #draft
 
+- 현실은 인간의 연산으로 완전히 파악할 수 없는 복잡계. 주어진 상황과 능력으로 할 수 있는 최선의 적응은 단순함과 꾸준함.
   - 파산을 면하는 선에서 여러가지를 해보고 자신에게 맞는 걸 위주로 꾸준히. 그를 위해 단순, 편안, 쾌적함이 필요.
 
 - 🥱 -> 🤔💡🌱 - [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming)
@@ -32,7 +33,6 @@ Hi there 👋. I'm a Front-end developer.
 > A good match is a **structured** dance, where players aim to **score** while they are following well-defined **rules**. This **freedom within a structure** is what makes it fun. - [ralphammer](https://ralphammer.com/how-to-get-started/)
 
 - [Pivot Points](https://longform.asmartbear.com/pivot-points/)
-
   - non-judgmental aspects of personality that can be strengths in some contexts and weaknesses in others
   - Pivot Points are fixed in the short term
 

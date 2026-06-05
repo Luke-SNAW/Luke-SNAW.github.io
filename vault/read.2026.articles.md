@@ -2,12 +2,17 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1780560556060
+updated: 1780632527269
 created: 1766965709816
 ---
 
 ## Week 23, 2026
 
+- [The Desperation of NYTimes](https://rozumem.xyz/posts/16) criticizes the publication for forcing **onboarding marketing emails** on new subscribers without an **opt-out option**.
+- [When AI builds itself](https://www.anthropic.com/institute/recursive-self-improvement) - Our progress toward recursive self-improvement, and its implications.
+  > Okay, so anthropic has amazing AI which supposedly writes most of their code and can continuously improve... meanwhile **they have outages on a regular basis**, and any kind of long-running work will now consistently hit 'API Error: Server is temporarily limiting requests'. - [HN](https://news.ycombinator.com/item?id=48402393)  
+  > They can't even improve Claude Code, which eats 1GB+ of RAM. Meanwhile, my editor only consumes 80MB of RAM. - [HN](https://news.ycombinator.com/item?id=48403655)  
+  > It really bothers me that most of the TUI harnesses are using 100% CPU quite a lot just printing stuff to terminal. Seems ridiculous. - [HN](https://news.ycombinator.com/item?id=48406168)
 - [CSS vs. JavaScript](https://www.joshwcomeau.com/animation/css-vs-javascript/) - Exploring the performance implications of different animation strategies
   - exploring how **CSS animations run on a separate thread, making them more performant than JavaScript-based animations** that compete for the main thread. While libraries like Motion leverage the Web Animations API to maintain performance, developers should prioritize native CSS transitions and keyframes to avoid unnecessary bundle bloat and layout recalculations.
 - [Hackers Used Meta’s AI Support Bot to Seize Instagram Accounts](https://krebsonsecurity.com/2026/06/hackers-used-metas-ai-support-bot-to-seize-instagram-accounts/)
