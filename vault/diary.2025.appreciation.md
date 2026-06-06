@@ -2,7 +2,7 @@
 id: 3ap5cenp5mffzel6xcbn4y0
 title: Appreciation 2025
 desc: ""
-updated: 1769415487400
+updated: 1780730248505
 created: 1765590801715
 published: false
 ---
@@ -13,7 +13,7 @@ published: false
 
 ## 2025-08-27 #R5C
 
-마이아트뮤지엄 - 나폴리
+마이아트뮤지엄 - 나폴리  
 교수님 인사
 
 ## Seoul in traces - [urban sketch](https://urbansketchers.org/what-is-urban-sketch/) #test

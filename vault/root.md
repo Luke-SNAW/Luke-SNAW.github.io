@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1780643642243
+updated: 1780728076222
 created: 1644449449778
 ---
 
@@ -10,7 +10,7 @@ Hi there 👋. I'm a Front-end developer.
 
 ---
 
-- 잠자리에서 자야한다는 강박관념 대신 아늑함을 즐김. 공. #draft
+- [아늑함을 즐김](https://www.youtube.com/watch?v=Gcd0uIZwUSI) 空
 
 - 현실은 인간의 연산으로 완전히 파악할 수 없는 복잡계. 주어진 상황과 능력으로 할 수 있는 최선의 적응은 단순함과 꾸준함.
   - 파산을 면하는 선에서 여러가지를 해보고 자신에게 맞는 걸 위주로 꾸준히. 그를 위해 단순, 편안, 쾌적함이 필요.
