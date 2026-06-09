@@ -2,9 +2,11 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled \U0001F9D7/\U0001F4E3 brag In / TIL"
 desc: ""
-updated: 1775005281875
+updated: 1780985755951
 created: 1669264809793
 ---
+
+## Week 24, 2026 - [[journal.what-i-struggled-brag-til-in.router-link-pointer-events-none-cordova]]
 
 ## Week 14, 2026 - [[Astro Image optimization, cache bust|dev.web.astro-image-sharp-cache-bust]]
 
