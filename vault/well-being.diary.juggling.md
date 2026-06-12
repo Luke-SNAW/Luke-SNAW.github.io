@@ -2,7 +2,7 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1780997361511
+updated: 1781254999860
 created: 1779352821282
 ---
 
@@ -39,3 +39,9 @@ created: 1779352821282
 
 소뇌에 관해 위키에서 알려주길, 좌우대칭을 제공하지 않기 때문에 오른손, 왼손 숙련도는 따로 놀며 따로 단련해야 한다고 한다.
 오늘 오른쪽 half shower qualified를 성공해서 왼손 해보려니까 outside 던지려는 시도조차 안되서 웃음이 남 - 2026-06-09
+
+## 2026-06-12
+
+ralph가 말했듯, struggle이 중요하다. 저글링하며 궤적이 어그러지지 않는 궁리도 가치 있지만, 어그러졌을 때 완화하려는 노력, 대처에 신경쏟는 행동이 재미있다.
+
+> We love to see the process, not just the result. The imperfections in your work can be beautiful if they show your struggle for perfection, not a lack of care. - [ralphammer](https://ralphammer.com/is-perfection-boring/)
