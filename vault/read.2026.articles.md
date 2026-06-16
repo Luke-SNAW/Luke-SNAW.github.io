@@ -2,9 +2,16 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1780986359414
+updated: 1781600635649
 created: 1766965709816
 ---
+
+## Week 25, 2026
+
+- [A backdoor in a LinkedIn job offer](https://roman.pt/posts/linkedin-backdoor/)
+  > I reported the repo to GitHub and the recruiter to LinkedIn. So far nothing has changed and the code is still up.
+  >
+  > - [6 months as the CEO of LinkedIn!](https://chrisduffycomedy.com/blog/2016/11/2/6-months-as-the-ceo-of-linkedin)
 
 ## Week 24, 2026
 

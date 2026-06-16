@@ -2,9 +2,11 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled \U0001F9D7/\U0001F4E3 brag In / TIL"
 desc: ""
-updated: 1780985755951
+updated: 1781581943764
 created: 1669264809793
 ---
+
+## Week 25, 2026 - [[MacBook Pro 외부 모니터 인식 문제 해결 정리|dev.macos.trouble-shooting.macbook-pro-external-monitor-gpuswitch-fix#macbook-pro-외부-모니터-인식-문제-해결-정리]]
 
 ## Week 24, 2026 - [[journal.what-i-struggled-brag-til-in.router-link-pointer-events-none-cordova]]
 
