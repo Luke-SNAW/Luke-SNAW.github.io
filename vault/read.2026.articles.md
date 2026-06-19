@@ -2,12 +2,32 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1781600635649
+updated: 1781860178952
 created: 1766965709816
 ---
 
 ## Week 25, 2026
 
+- [Nobody clicks your share buttons](https://ankursethi.com/blog/nobody-clicks-your-share-buttons/)
+  > - The UK government ran one of the most thorough studies on this. When GOV.UK added social sharing buttons, they [tracked usage for 10 weeks](https://insidegovuk.blog.gov.uk/2014/02/20/gov-uk-social-sharing-buttons-the-first-10-weeks/) across 6.8 million pageviews. The share buttons got clicked 14,078 times. That’s a 0.21% usage rate.
+  > - Moovweb found the same thing when they [analyzed 61 million mobile sessions](https://www.localrobot.com/do-people-actually-click-social-sharing-buttons/). Only 0.2% of mobile users interacted with social sharing at all.
+  > - Luke Wroblewski, the interaction designer and author, [crowdsourced data from his readers](https://blogs.ed.ac.uk/website-communications/social-share-buttons/) and landed on an average of 0.25% across 18 million pageviews.
+  >
+  >   What do people do instead? They copy and paste URLs or use the share button in their browser.
+- [the last quiet thing](https://www.terrygodier.com/the-last-quiet-thing/) argues that modern technology has shifted from finished products to dependent systems that require constant **unpaid maintenance** and labor. This exhaustion is not a personal failure, but a direct result of an industry that designs devices to perpetually demand the user's **attention and management**.
+- [I Fired Google](https://www.theartofdoingstuff.com/i-fired-google/)
+  > One of the most irritating developments of modern life is the way companies keep improving things that were already working. Nobody asked for New Coke.
+- [Bubbles](https://bubbles.town/) - 5033 independent, personal blogs. One front page. Ranked by votes and freshness, shaped by you.
+- [Yes, Buy Them a Coffee: Support and Mutual Aid on the IndieWeb](https://brennan.day/yes-buy-them-a-coffee-support-and-mutual-aid-on-the-indieweb/)
+  > The next time you read something on a personal site that matters to you, and you see a small link at the bottom, I want you to consider: what kind of internet are you building with your dollar? What kind of world?  
+  > Buy them a coffee. Or don't. If you can't, if you won't, that's fine.
+- [Why I email complete strangers](https://www.goodinternetmagazine.com/why-i-email-complete-strangers/) - By embracing **genuine curiosity** and respecting personal rhythms, individuals can overcome the fear of rejection to build **authentic relationships** beyond social media algorithms.
+- [Apple’s weird anti-nausea dots cured my car sickness](https://www.theverge.com/tech/942854/apple-vehicle-motion-cues-review-really-work)
+  - https://support.apple.com/en-gb/guide/iphone/iph55564cb22/ios
+  - https://f-droid.org/en/packages/dev.davidv.motionsickness/
+- [Feds freaked over Fable 5 after 'fix this code', not jailbreak, say researchers](https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827)
+  > Like it basically jail broke the "no security vul guard rails" not in any clever way but just by fixing them, producing exploit code just by writing test cases making sure it's fixed. So you just need to look at the code & tests as a human to get vulnerabilities and exploits(components).  
+  > What makes this so beautiful IMHO is that it's a trivial jail break, but also a close to unfixable. At least not without making the model close to useless for normal development (it refuses to fix bugs/write code) or making it a major liability (it silently pretends it didn't see bugs and silently avoids fixing it, which for a human would count as intentional sabotage and might involve criminal liability). - [HN](https://news.ycombinator.com/item?id=48553494)
 - [A backdoor in a LinkedIn job offer](https://roman.pt/posts/linkedin-backdoor/)
   > I reported the repo to GitHub and the recruiter to LinkedIn. So far nothing has changed and the code is still up.
   >
