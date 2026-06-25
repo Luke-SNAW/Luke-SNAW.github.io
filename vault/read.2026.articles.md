@@ -2,9 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1781860178952
+updated: 1782350868525
 created: 1766965709816
 ---
+
+## Week 26, 2026
+
+- [The 100,000 whys of AI](https://lcamtuf.substack.com/p/the-100000-whys-of-ai)
+  > The similarities in the collage go far beyond the choice of titles: for example, all the covers in the top row feature a roaring dinosaur in the top left corner of the design. There are many other clusters in the data, too. Look for a recurring red-and-white cartoon rocket, a golden retriever, a lion, and so forth. The similarities extend even to author names: Ethan Bright, Nolan Bright, Pamela Bright, Daniel Bright, Thomas Bright, Andrew W. Bright, Mayan Bright, Mary Bright, Levi Bright — the Brights must be a big and exceptionally talented family.
 
 ## Week 25, 2026
 
