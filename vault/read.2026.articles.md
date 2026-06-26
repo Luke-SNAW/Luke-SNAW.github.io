@@ -2,14 +2,16 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1782350868525
+updated: 1782464669584
 created: 1766965709816
 ---
 
 ## Week 26, 2026
 
+- [Become a Good Photographer, Part Six: Don’t Learn From Teachers](https://photoni.st/index.php/2026/06/19/become-a-good-photographer-part-six-dont-learn-from-teachers/) - To improve as a photographer, you should **stop following generic tutorials** designed for engagement and instead **study the personal processes** of experienced photographers. By analyzing how others connect **intention to execution**, you develop the **critical discernment** necessary to define your own artistic path.
 - [The 100,000 whys of AI](https://lcamtuf.substack.com/p/the-100000-whys-of-ai)
   > The similarities in the collage go far beyond the choice of titles: for example, all the covers in the top row feature a roaring dinosaur in the top left corner of the design. There are many other clusters in the data, too. Look for a recurring red-and-white cartoon rocket, a golden retriever, a lion, and so forth. The similarities extend even to author names: Ethan Bright, Nolan Bright, Pamela Bright, Daniel Bright, Thomas Bright, Andrew W. Bright, Mayan Bright, Mary Bright, Levi Bright — the Brights must be a big and exceptionally talented family.
+  - [AI children's books, body horror edition](https://lcamtuf.substack.com/p/ai-childrens-books-body-horror-edition) discusses the disturbing prevalence of low-quality, AI-generated imagery in bestselling children's encyclopedias. The author highlights how these books rely on misleading marketing and synthetic content, potentially negatively impacting young readers.
 
 ## Week 25, 2026
 

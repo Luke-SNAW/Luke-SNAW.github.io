@@ -2,7 +2,7 @@
 id: qf0l4wbrc9jgooyzexmbq5v
 title: Writing
 desc: ""
-updated: 1780563710116
+updated: 1782448750027
 created: 1674003802450
 ---
 
@@ -29,6 +29,8 @@ created: 1674003802450
   - Academic writing should aim to change how readers see the world, rather than simply conveying the writer's own ideas or demonstrating understanding.
   - Effective academic writing involves understanding and using the 'code' of a specific community of readers to communicate value and persuade them.
   - Academic conversations are dynamic and evolving, with knowledge being constructed and deconstructed by communities, rather than being a static accumulation of facts.
+
+> I used to struggle w needing to be “creative” or “original” in my work. At some point I had a breakthrough that really helped me: I cannot repeat an idea, no matter how basic or common, without imparting some of my worldview into it. - [Emmett Shear](https://x.com/eshear/status/1539393474612498434)
 
 ## 발표를 잘 할 수 있을 거라 생각
 
