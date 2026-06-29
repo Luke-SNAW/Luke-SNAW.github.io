@@ -2,7 +2,7 @@
 id: SQqYupi6EFddTerBA8RRD
 title: Tools
 desc: ""
-updated: 1750640319773
+updated: 1782724714967
 created: 1644799670081
 ---
 
@@ -38,6 +38,11 @@ created: 1644799670081
 - [resume.io](https://resume.io/) - ONLINE RESUME BUILDER
 - [Slidev](https://github.com/slidevjs/slidev) - Presentation Slides for Developers
 - [Edit PDFs for free with Firefox PDF Editor](https://www.mozilla.org/en-GB/firefox/features/pdf-editor/)
+
+### Note
+
+서서 메모. 휴대폰은 오타가 문제고, 메모용 클립보드는 조금 불편한 정도인데 가방에서 꺼내 적기엔 좀 본격적인 양을 적어야 메리트가 있을 듯.
+작은 노트는 펼쳤을 때 좌우 쏠림과 받침판이 없어 더 불편 - 2026-06-18
 
 ## Network
 

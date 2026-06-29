@@ -2,7 +2,7 @@
 id: 6en2z3q3u4pnrn5todipo0s
 title: Mac tools
 desc: ""
-updated: 1771811059570
+updated: 1782699059615
 created: 1652405135977
 ---
 
@@ -39,3 +39,86 @@ created: 1652405135977
 - [RunCat](https://kyome.io/runcat/index.html?lang=en) - The cat tells you the CPU usage of Mac by running speed.
 - [ShowyEdge](https://github.com/pqrs-org/ShowyEdge) - A visible indicator of the current input source for macOS.
 - [Input Source Pro](https://github.com/runjuu/InputSourcePro) - Switch and track your input sources with ease ✨
+
+## Karabiner-Elements
+
+### Home, End key binding
+
+```json
+{
+  "description": "End를 줄 끝(Cmd+Right)으로, Home을 줄 처음(Cmd+Left)으로 매핑 (Shift 선택 포함)",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "end",
+        "modifiers": {
+          "mandatory": [],
+          "optional": ["any"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["left_command"]
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "from": {
+        "key_code": "home",
+        "modifiers": {
+          "mandatory": [],
+          "optional": ["any"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["left_command"]
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "from": {
+        "key_code": "end",
+        "modifiers": {
+          "mandatory": ["shift"],
+          "optional": ["any"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "right_arrow",
+          "modifiers": ["left_command", "left_shift"]
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "from": {
+        "key_code": "home",
+        "modifiers": {
+          "mandatory": ["shift"],
+          "optional": ["any"]
+        }
+      },
+      "to": [
+        {
+          "key_code": "left_arrow",
+          "modifiers": ["left_command", "left_shift"]
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}
+```
+
+적용 방법
+
+1. Karabiner-Elements 앱 실행 → Complex Modifications 탭
+2. Add rule → Add your own rule...
+3. 위 JSON 전체를 붙여넣기
+4. 저장 후 활성화
