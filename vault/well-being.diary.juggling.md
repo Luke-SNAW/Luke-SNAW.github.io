@@ -2,11 +2,11 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1781860507423
+updated: 1782809627906
 created: 1779352821282
 ---
 
-## Accomplish
+## Accomplishment
 
 - 3개 cascade 100개 달성 - 2026-05
 - 오른쪽 half shower qualified - 2026-06-09

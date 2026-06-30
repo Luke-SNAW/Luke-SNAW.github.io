@@ -2,7 +2,7 @@
 id: j71mrhhqz6x9o90gwj5lmks
 title: Accomplishments Habit Formation
 desc: ""
-updated: 1778039666472
+updated: 1782809732839
 created: 1748831002093
 ---
 
@@ -10,6 +10,7 @@ created: 1748831002093
 
 ## 2026
 
+- 손글씨 노트 첫 권 2025-08-12~2026-06-21
 - 저글링 04
   - semi 명상 정도로 mode 전환이 됨. 평소 행동, 사고 패턴과는 판이.
 - 조깅 04

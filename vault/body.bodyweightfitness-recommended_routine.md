@@ -1,8 +1,8 @@
 ---
 id: smvvuk92pf7i5f6hmviazba
 title: Recommended Routine - Reddit's Bodyweight Fitness Community
-desc: ''
-updated: 1673480340861
+desc: ""
+updated: 1782808843026
 created: 1673480229950
 ---
 
@@ -32,7 +32,7 @@ created: 1673480229950
 
 - Do this 3x a week, with at least one rest day (or [skill day](https://www.reddit.com/r/bodyweightfitness/wiki/kb/skillday)) in between workout days.
 - So you could do it Monday, Wednesday, Friday. Or Tuesday, Thursday, Saturday. Or Wednesday, Friday, Sunday. Whatever fits your schedule.
-- Don't purposely split the workout into separate days. It's meant to be a full body workout. Here's [why](https://www.reddit.com/r/bodyweightfitness/comments/6talge/split_routines_tend_to_be_suboptimal_for_beginners/).
+- Don't purposely split the workout into separate days. It's meant to be a full body workout. Here's [why](https://www.reddit.com/r/bodyweightfitness/comments/6talge/split_routines_tend_to_be_suboptimal_for_beginners/). - 그냥 빈도 이야기
 
 ## How Progressions Work
 
