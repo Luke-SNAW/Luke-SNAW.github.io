@@ -2,7 +2,7 @@
 id: 11mwqp7dopfd6d5qiop2qok
 title: Jogging
 desc: ""
-updated: 1782722008922
+updated: 1782981973306
 created: 1761090752183
 ---
 
@@ -360,7 +360,18 @@ created: 1761090752183
 
 번개가 보이고 빗방울이 얼굴에 닿아 날씨 염려로 일찍 아파트 근처에 이동하니 빗방울 굵어짐. 운이 좋군. - 2026-06-14
 
+## 2026-06-19
+
+조깅 뛰면 좋은 일정이지만 뛰기 싫다. 이전 기록을 고려하면 해결방법은 실제로 뛰기다.
+난이도 낮추든 뭐든, 뛰기 시작하면 마음상태가 달라질 것. (실제로는 뛸 시간에 비가와서 다음 날에 뜀)
+
 ## 2026-06-24
 
 1~2km 구간에서 속도내기 시작, 11km/h 이상으로 달리니 심폐지구력 떨어짐. 당장 그만 두고 싶었지만 1km 추가로 천천히 달리고 끝냄.
 3km 정도 달렸는데 페이스 조절 조금 더 해서 4km은 달리자
+
+## Forgot My Earphones, Found My Posture
+
+Today's jogging is quite boring. 'Cause I forgot to take my earbuds when I got off work.
+
+It feels different stepping on the ground while being conscious of my one-leg deadlift posture. I'll test this method to make sure I have better posture during jogging. - 2026-07-01

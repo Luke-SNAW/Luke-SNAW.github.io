@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1781255217833
+updated: 1782983518308
 created: 1644449449778
 ---
 
@@ -12,6 +12,8 @@ Hi there 👋. I'm a Front-end developer.
 
 - [아늑함을 즐김](https://www.youtube.com/watch?v=Gcd0uIZwUSI) 空
 
+> We love to see the process, not just the result. The imperfections in your work can be beautiful if they show **your struggle** for perfection, not a lack of care. - [ralphammer](https://ralphammer.com/is-perfection-boring/)
+
 - 현실은 인간의 연산으로 완전히 파악할 수 없는 복잡계. 주어진 상황과 능력으로 할 수 있는 최선의 적응은 단순함과 꾸준함.
   - 파산을 면하는 선에서 여러가지를 해보고 자신에게 맞는 걸 위주로 꾸준히. 그를 위해 단순, 편안, 쾌적함이 필요.
 
@@ -19,8 +21,6 @@ Hi there 👋. I'm a Front-end developer.
   - boredom -> easy fun -> art -> profit?
 
 > I've often described my motivation for building software to others using imagery: I like to go find a secluded beach, build a large, magnificent sand castle, and then walk away. Will anyone notice? Probably not. Will the waves eventually destroy it? Yep. Did I still get immense satisfaction? Absolutely. - [aliasxneo](https://news.ycombinator.com/item?id=41497113)
-
-> We love to see the process, not just the result. The imperfections in your work can be beautiful if they show your struggle for perfection, not a lack of care. - [ralphammer](https://ralphammer.com/is-perfection-boring/)
 
 > The texture, the juiciness, the complexity of the flavor, the imperfections, the joy of finding a particularly good one, the cosmic horror of eating a wormy one, the nostalgia of having your grandma's strawberry jam with dozens of individually unique strawberries in it. - [Dopamine Fracking](https://igerman.cc/blog/dopamine-fracking/)
 

@@ -2,9 +2,16 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1782464669584
+updated: 1782970810237
 created: 1766965709816
 ---
+
+## Week 27, 2026
+
+- [Physical disc production ending in Jan 2028 for new games on PlayStation](https://blog.playstation.com/2026/07/01/physical-disc-production-ending-in-january-2028-for-new-games-releasing-on-playstation-consoles/)
+  > Great buildup on Sony's side to gain trust in this move in the gaming community ahead of this announcement when just this week they again pulled hundreds of "purchased" movies from customer's libraries without refund, reminding everyone that digital content is rented, not owned. https://arstechnica.com/gadgets/2026/06/sony-erases-digital-content-from-libraries-were-reminded-we-dont-own-what-we-buy/ - [HN](https://news.ycombinator.com/item?id=48751390)
+  >
+  > Sony also used to mock digital only approaches. -https://www.youtube.com/watch?v=kWSIFh8ICaA
 
 ## Week 26, 2026
 

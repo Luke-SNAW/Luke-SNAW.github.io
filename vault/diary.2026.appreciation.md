@@ -2,7 +2,7 @@
 id: zwlefthttghdbct6emfhxoi
 title: Appreciation 2026
 desc: ""
-updated: 1782811269495
+updated: 1782969558165
 created: 1768896622299
 ---
 
@@ -174,3 +174,14 @@ created: 1768896622299
 
 근력 운동할 때 횟수 자꾸 까먹어서 대처방법 물었더니 이것 저것 소개해주다, 까먹었을 때 처음부터 다시 세는 방법을 알려주며 수행횟수 늘어나 이득이라는 말을 웃는 이모지 넣어서 함. 이놈이?
 전문을 붙여넣으려고 질문을 다시했지만 진지한 답변이 나옴. - 2026-06-30
+
+## 영어 글쓰기
+
+[[Forgot My Earphones, Found My Posture|well-being.diary.jogging#forgot-my-earphones-found-my-posture]] 부터 시작.
+draft 쓰고, kagi proof read로 검토하고, sonnet으로 검토·해설 부탁. 제목은 sonnet이 지음.
+영어 글쓰기 struggle이 재밌다. - 2026-07-02
+
+## 2026-07-02
+
+It's also boring without earbuds on the way to work.
+I never thought not being able to listen to whatever I want would bore me this much.
