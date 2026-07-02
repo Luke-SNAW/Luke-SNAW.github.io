@@ -1,0 +1,26 @@
+<h1 id="when-does-react-render-your-component">When Does React Render Your Component?<a aria-hidden="true" class="anchor-heading icon-link" href="#when-does-react-render-your-component"></a></h1>
+<p><a href="https://www.zhenghao.io/posts/react-rerender">https://www.zhenghao.io/posts/react-rerender</a></p>
+<h1 id="tldr">Tl;dr<a aria-hidden="true" class="anchor-heading icon-link" href="#tldr"></a></h1>
+<ul>
+<li>React (re)renders your component when:
+<ul>
+<li>there is a state update scheduled by your component
+<ul>
+<li>including updates scheduled by custom hooks your component consumes</li>
+</ul>
+</li>
+<li>the parent component got rendered and your component doesn’t meet the criteria for bailing out on re-rendering, where all these four conditions have to be satisfied at the same time:
+<ul>
+<li>Your component has been rendered before i.e. it already mounted</li>
+<li>No props (referentially) changed</li>
+<li>No any context value consumed by your component changed</li>
+<li>Your component itself didn’t schedule an update</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>You probably shouldn’t need to worry about seemingly unnecessary re-renders until it becomes a performance issue. Check out the flow chart I made for solutions you can adopt when a performance issue occurs.</li>
+</ul>
+<blockquote>
+<p>Disclaimer: I haven't used React's concurrent mode so some parts of this post might not be applicable in concurrent React.</p>
+</blockquote>

@@ -1,0 +1,62 @@
+<h1 id="git-global-setting">Git global setting<a aria-hidden="true" class="anchor-heading icon-link" href="#git-global-setting"></a></h1>
+<h2 id="global-git-config-list">Global git config list<a aria-hidden="true" class="anchor-heading icon-link" href="#global-git-config-list"></a></h2>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config --list
+<span class="token function">git</span> config --list --show-origin
+</code></pre>
+<h2 id="alias">Alias<a aria-hidden="true" class="anchor-heading icon-link" href="#alias"></a></h2>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config --global alias.cp cherry-pick
+<span class="token function">git</span> config --global alias.cm commit
+<span class="token function">git</span> config --global alias.cman <span class="token string">'commit --amend --no-edit'</span>
+<span class="token function">git</span> config --global alias.co checkout
+<span class="token function">git</span> config --global alias.rb rebase
+<span class="token function">git</span> config --global alias.mg merge
+<span class="token function">git</span> config --global alias.rba <span class="token string">'rebase --abort'</span>
+<span class="token function">git</span> config --global alias.rbc <span class="token string">'rebase --continue'</span>
+<span class="token function">git</span> config --global alias.rbi <span class="token string">'rebase -i'</span>
+<span class="token function">git</span> config --global alias.rbm <span class="token string">'rebase main'</span>
+<span class="token function">git</span> config --global alias.rbim <span class="token string">'rebase -i main'</span>
+<span class="token function">git</span> config --global alias.plrm <span class="token string">'pull --rebase origin main'</span>
+<span class="token function">git</span> config --global alias.rs restore
+<span class="token function">git</span> config --global alias.pl pull
+<span class="token function">git</span> config --global alias.ps push
+<span class="token function">git</span> config --global alias.df <span class="token function">diff</span>
+<span class="token function">git</span> config --global alias.st status
+<span class="token function">git</span> config --global alias.lg log <span class="token string">"--graph --abbrev-commit --decorate --format=format:'%C(cyan)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(yellow)%d%C(reset)' --all"</span>
+<span class="token function">git</span> config --global alias.ad <span class="token function">add</span>
+<span class="token function">git</span> config --global alias.tg <span class="token string">'tag -n'</span>
+<span class="token function">git</span> config --global alias.br branch
+<span class="token function">git</span> config core.fsmonitor <span class="token boolean">true</span> <span class="token comment"># Git 2.37 Brings Built-in File Monitor, Improved Pruning, and More. from https://www.infoq.com/news/2022/06/git-2-37-released/</span>
+</code></pre>
+<h3 id="unset">Unset<a aria-hidden="true" class="anchor-heading icon-link" href="#unset"></a></h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config --global --unset alias.trololo
+<span class="token comment"># warning: alias.trololo has multiple values</span>
+<span class="token function">git</span> config --global --unset-all alias.trololo
+</code></pre>
+<h2 id="rebase">Rebase<a aria-hidden="true" class="anchor-heading icon-link" href="#rebase"></a></h2>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config --global rebase.autosquash <span class="token boolean">true</span>
+<span class="token function">git</span> config --global merge.conflictstyle <span class="token function">diff3</span>
+<span class="token function">git</span> config --global rerere.enabled <span class="token boolean">true</span>
+<span class="token function">git</span> config --global pull.rebase <span class="token boolean">true</span>
+</code></pre>
+<h2 id="template">Template<a aria-hidden="true" class="anchor-heading icon-link" href="#template"></a></h2>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config --global commit.template ~/.gitmessage
+</code></pre>
+<h2 id="carriage-return"><a href="https://lostechies.com/keithdahlby/2011/04/06/windows-git-tip-hide-carriage-return-in-diff/">Carriage Return</a><a aria-hidden="true" class="anchor-heading icon-link" href="#carriage-return"></a></h2>
+<ol>
+<li>Checkout Windows-style, commit Unix-style (core.autocrlf = true)</li>
+<li>Checkout as-is, commit Unix-style (core.autocrlf = input)</li>
+<li>Checkout as-is, commit as-is (core.autocrlf = false)</li>
+</ol>
+<p>The first option is the default, which I find rather unfortunate—I don’t consider line ending manipulation to be the responsibility of my VCS. Instead, I prefer to keep <code>core.autocrlf</code> set to <code>false</code> and let my text editors deal with line endings. (If you like having <code>core.autocrlf</code> set to <code>true</code> or <code>input</code>, I’d love to hear why.)</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config --global core.autocrlf <span class="token boolean">false</span>
+</code></pre>
+<p>One downside of turning off <code>autocrlf</code> is that the output of <code>git diff</code> highlights CR characters (indicated by <code>^M</code>) as whitespace errors. To turn off this “error”, you can use the <code>core.whitespace</code> setting:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config --global core.whitespace cr-at-eol
+</code></pre>
+<p>If your <code>core.whitespace</code> is already set, you should add <code>cr-at-eol</code> to the end of the comma-delimited list instead.</p>
+<h2 id="etc">Etc<a aria-hidden="true" class="anchor-heading icon-link" href="#etc"></a></h2>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config --global init.defaultBranch main
+<span class="token comment"># Global ignore</span>
+<span class="token builtin class-name">echo</span> .DS_Store <span class="token operator">>></span> ~/.gitignore_global
+<span class="token function">git</span> config --global core.excludesfile ~/.gitignore_global
+</code></pre>

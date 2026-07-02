@@ -1,0 +1,317 @@
+<h1 id="efficient-pagination-using-deferred-joins">Efficient Pagination Using Deferred Joins<a aria-hidden="true" class="anchor-heading icon-link" href="#efficient-pagination-using-deferred-joins"></a></h1>
+<blockquote>
+<p><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins">https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins</a></p>
+</blockquote>
+<p>Paginating records across large datasets in a web application seems like an easy problem that can actually be pretty tough to scale. The two main pagination strategies are offset/limit and cursors.</p>
+<p>We'll first take a look at the two methods and then a slight modification that can make offset/limit extremely performant.</p>
+<blockquote>
+<p>I want to hear your feedback on the method I'm proposing in this article, please tweet at me! <a href="https://twitter.com/aarondfrancis">twitter.com/aarondfrancis</a>. I'll be adding them to the <a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#results">results</a> section at the bottom of this page.</p>
+</blockquote>
+<h2 id="offset--limit-pagination"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#offset--limit-pagination" title="Permalink">#</a>Offset / Limit Pagination<a aria-hidden="true" class="anchor-heading icon-link" href="#offset--limit-pagination"></a></h2>
+<p>The offset/limit approach is by far the most common, and works by skipping a certain number of records (pages) and limiting the results to one page.</p>
+<p>As an example, imagine your application is configured to show 15 records per page. Your SQL would look like this:</p>
+<pre class="language-sql"><code class="language-sql"><span class="token comment">-- Page 1</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">order</span> <span class="token keyword">by</span> created_at <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">15</span> <span class="token keyword">offset</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Page 2</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">order</span> <span class="token keyword">by</span> created_at <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">15</span> <span class="token keyword">offset</span> <span class="token number">15</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Page 3</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">order</span> <span class="token keyword">by</span> created_at <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">15</span> <span class="token keyword">offset</span> <span class="token number">30</span><span class="token punctuation">;</span>
+</code></pre>
+<p>This is the most common because it's extremely straightforward, easy to reason about, and almost every framework supports it.</p>
+<p>In addition to being easy to implement, it also has the nice advantage that pages are directly addressable. For example, if you want to navigate <em>directly</em> to page 20, you can do that because that offset is calculable very easily.</p>
+<p>There is a major drawback though, and it lurks in the way that databases handle offsets. <code>Offset</code> tells the database to discard the first <code>N</code> results that are returned from a query. The database still has to fetch those rows from disk though.</p>
+<p>This doesn't matter much if you're discarding 100 rows, but if you're discarding 100,000 rows the database is doing <strong>a lot</strong> of work just to throw away the results.</p>
+<p>In practice, this means that the first page will load quickly and every page after that will get slower and slower, until you reach a point where the web requests may simply time out.</p>
+<h2 id="cursor-based-pagination"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#cursor-based-pagination" title="Permalink">#</a>Cursor Based Pagination<a aria-hidden="true" class="anchor-heading icon-link" href="#cursor-based-pagination"></a></h2>
+<p>Cursor based pagination covers some shortfalls of offset/limit while introducing a few of its own.</p>
+<p>Cursor based pagination works by storing some state about the last record presented to the user and then basing the next query off of that state.</p>
+<p>So instead of fetching <em>all</em> the records in order and discarding the first <code>N</code>, it fetches <em>only</em> the records after the last position <code>N</code>.</p>
+<p>If sorted by ID, the SQL might look something like this:</p>
+<pre class="language-sql"><code class="language-sql"><span class="token comment">-- Page 1</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id <span class="token operator">></span> <span class="token number">0</span> <span class="token keyword">order</span> <span class="token keyword">by</span> id <span class="token keyword">limit</span> <span class="token number">15</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Page 2 (Assuming the max ID from page one was 24.)</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id <span class="token operator">></span> <span class="token number">24</span> <span class="token keyword">order</span> <span class="token keyword">by</span> id <span class="token keyword">limit</span> <span class="token number">15</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- Page 3 (Assuming the max ID from page two was 72.)</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id <span class="token operator">></span> <span class="token number">72</span> <span class="token keyword">order</span> <span class="token keyword">by</span> id <span class="token keyword">limit</span> <span class="token number">15</span><span class="token punctuation">;</span>
+</code></pre>
+<p>You can probably already see the benefits. Because we know the last ID that we showed the user, we know the next page is going to start with an ID that is higher. We don't even have to inspect rows where the ID is lower, because we know with 100% certainty that those don't need to be shown.</p>
+<p>In the example above, I specifically showed that the IDs may not be sequential, i.e. there may be missing records. This makes it impossible <em>calculate</em> what records will show up on a certain page, you have to keep track of what the last record on the page before it was.</p>
+<p>Unlike offset / limit pagination, pages are not directly addressable when using cursor pagination, you can only navigate to "next" or "previous" pages.</p>
+<p>Cursor pagination does have the benefit of being speedy across any number of pages though. It's also great for infinite scrolling, where pages don't need to be directly addressable in the first place.</p>
+<p>The Laravel docs have some good context on the tradeoffs between offset and cursors: <a href="https://laravel.com/docs/8.x/pagination#cursor-vs-offset-pagination">https://laravel.com/docs/pagination#cursor-vs-offset-pagination</a></p>
+<p>With all of that in mind, let's take a look at an offset / limit optimization that can make it performant enough to use across thousands of pages.</p>
+<h2 id="offset--limit-with-deferred-joins"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#offset--limit-with-deferred-joins" title="Permalink">#</a>Offset / Limit with Deferred Joins<a aria-hidden="true" class="anchor-heading icon-link" href="#offset--limit-with-deferred-joins"></a></h2>
+<p>A deferred join is a technique that defers access to requested columns until <em>after</em> the offset and limit have been applied.</p>
+<p>Using this technique we create an inner query that can be optimized with specific indexes for maximum speed and then join the results back to the same table to fetch the full rows.</p>
+<p>It looks something like this:</p>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> contacts          <span class="token comment">-- The full data that you want to show your users.</span>
+    <span class="token keyword">inner</span> <span class="token keyword">join</span> <span class="token punctuation">(</span>                <span class="token comment">-- The "deferred join."</span>
+        <span class="token keyword">select</span> id <span class="token keyword">from</span> contacts <span class="token comment">-- The pagination using a fast index.</span>
+            <span class="token keyword">order</span> <span class="token keyword">by</span> id
+            <span class="token keyword">limit</span> <span class="token number">15</span> <span class="token keyword">offset</span> <span class="token number">150000</span>
+    <span class="token punctuation">)</span> <span class="token keyword">as</span> tmp <span class="token keyword">using</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token keyword">order</span> <span class="token keyword">by</span> id                     <span class="token comment">-- Order the single resulting page as well.</span>
+</code></pre>
+<p>The benefits can vary pretty wildly based on your dataset, but this method allows the database to examine as little data as possible satisfy the user's intent.</p>
+<p>The "expensive" <code>select *</code> part of the query is <em>only</em> run on the 15 rows that match the inner query. The selection of all the data has been deferred, hence the name deferred join.</p>
+<p>It's unlikely that this method will ever perform <em>worse</em> than traditional offset / limit, although it is possible, so be sure to test on your data!</p>
+<h2 id="a-laravel-implementation"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#a-laravel-implementation" title="Permalink">#</a>A Laravel Implementation<a aria-hidden="true" class="anchor-heading icon-link" href="#a-laravel-implementation"></a></h2>
+<p>How do we bring this to our favorite web frameworks like Laravel and Rails?</p>
+<p>Let's look at Laravel specifically, because I don't know Rails.</p>
+<p>(This is available as a package at <a href="https://github.com/hammerstonedev/fast-paginate">github.com/hammerstonedev/fast-paginate</a>)</p>
+<p>Thanks to Laravel's macroable trait, we can extend the Eloquent Query Builder to add a new method called <code>fastPaginate</code>. We'll mimic the signature of the regular <code>paginate</code> for consistency:</p>
+<pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&#x3C;?php</span>
+<span class="token comment">// Mimic the standard `paginate` signature.</span>
+<span class="token scope">Builder<span class="token punctuation">::</span></span><span class="token function">macro</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'fastPaginate'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$perPage</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">,</span> <span class="token variable">$columns</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'*'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$pageName</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'page'</span><span class="token punctuation">,</span> <span class="token variable">$page</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Add our new pagination logic here.</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Now you can use it on all your model queries.</span>
+<span class="token scope">Contact<span class="token punctuation">::</span></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">fastPaginate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token delimiter important">?></span></span>
+</code></pre>
+<p>We're going to try to do <em>as little custom work as possible</em> and leave most of it up to Laravel.</p>
+<p>Here's what we're going to do:</p>
+<ul>
+<li>reset the <code>select</code> on the query to only select the primary key</li>
+<li>run that modified query through the regular pagination process</li>
+<li>take the resulting keys and run a second query to get full rows</li>
+<li>combine the new records with the old paginator</li>
+</ul>
+<p>This should give us all the benefits of Laravel's <code>LengthAwarePaginator</code> <em>and</em> deferred joins!</p>
+<p>Here's a basic representation (note that the package is more complex, and covers more edge cases!):</p>
+<pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&#x3C;?php</span>
+<span class="token scope">Builder<span class="token punctuation">::</span></span><span class="token function">macro</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'fastPaginate'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$perPage</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">,</span> <span class="token variable">$columns</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'*'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$pageName</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'page'</span><span class="token punctuation">,</span> <span class="token variable">$page</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$model</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-></span><span class="token function">newModelInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$key</span> <span class="token operator">=</span> <span class="token variable">$model</span><span class="token operator">-></span><span class="token function">getKeyName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$table</span> <span class="token operator">=</span> <span class="token variable">$model</span><span class="token operator">-></span><span class="token function">getTable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$paginator</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-></span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment">// We don't need them for this query, they'll remain</span>
+        <span class="token comment">// on the query that actually gets the records.</span>
+        <span class="token operator">-></span><span class="token function">setEagerLoads</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment">// Only select the primary key, we'll get the full</span>
+        <span class="token comment">// records in a second query below.</span>
+        <span class="token operator">-></span><span class="token function">paginate</span><span class="token punctuation">(</span><span class="token variable">$perPage</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string double-quoted-string">"<span class="token interpolation"><span class="token variable">$table</span></span>.<span class="token interpolation"><span class="token variable">$key</span></span>"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$pageName</span><span class="token punctuation">,</span> <span class="token variable">$page</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Add our values in directly using "raw," instead of adding new bindings.</span>
+    <span class="token comment">// This is basically the `whereIntegerInRaw` that Laravel uses in some</span>
+    <span class="token comment">// places, but we're not guaranteed the primary keys are integers, so</span>
+    <span class="token comment">// we can't use that. We're sure that these values are safe because</span>
+    <span class="token comment">// they came directly from the database in the first place.</span>
+    <span class="token this">$this</span><span class="token operator">-></span><span class="token property">query</span><span class="token operator">-></span><span class="token property">wheres</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string single-quoted-string">'type'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'InRaw'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'column'</span> <span class="token operator">=></span> <span class="token string double-quoted-string">"<span class="token interpolation"><span class="token variable">$table</span></span>.<span class="token interpolation"><span class="token variable">$key</span></span>"</span><span class="token punctuation">,</span>
+        <span class="token comment">// Get the key values from the records on the *current* page, without mutating them.</span>
+        <span class="token string single-quoted-string">'values'</span>  <span class="token operator">=></span> <span class="token variable">$paginator</span><span class="token operator">-></span><span class="token function">getCollection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token property">map</span><span class="token operator">-></span><span class="token function">getRawOriginal</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'boolean'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'and'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// simplePaginate increments by one to see if there's another page. We'll</span>
+    <span class="token comment">// decrement to counteract that since it's unnecessary in our situation.</span>
+    <span class="token variable">$page</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-></span><span class="token function">simplePaginate</span><span class="token punctuation">(</span><span class="token variable">$paginator</span><span class="token operator">-></span><span class="token function">perPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$columns</span><span class="token punctuation">,</span> <span class="token variable">$pageName</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Create a new paginator so that we can put our full records in,</span>
+    <span class="token comment">// not the ones that we modified to select only the primary key.</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">LengthAwarePaginator</span><span class="token punctuation">(</span>
+        <span class="token variable">$page</span><span class="token operator">-></span><span class="token function">items</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token variable">$paginator</span><span class="token operator">-></span><span class="token function">total</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token variable">$paginator</span><span class="token operator">-></span><span class="token function">perPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token variable">$paginator</span><span class="token operator">-></span><span class="token function">currentPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token variable">$paginator</span><span class="token operator">-></span><span class="token function">getOptions</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token scope">Relation<span class="token punctuation">::</span></span><span class="token function">macro</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'fastPaginate'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$perPage</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">,</span> <span class="token variable">$columns</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'*'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$pageName</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'page'</span><span class="token punctuation">,</span> <span class="token variable">$page</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token this">$this</span> <span class="token keyword">instanceof</span> <span class="token class-name">HasManyThrough</span> <span class="token operator">||</span> <span class="token this">$this</span> <span class="token keyword">instanceof</span> <span class="token class-name">BelongsToMany</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-></span><span class="token property">query</span><span class="token operator">-></span><span class="token function">addSelect</span><span class="token punctuation">(</span><span class="token this">$this</span><span class="token operator">-></span><span class="token function">shouldSelect</span><span class="token punctuation">(</span><span class="token variable">$columns</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token function">tap</span><span class="token punctuation">(</span><span class="token this">$this</span><span class="token operator">-></span><span class="token property">query</span><span class="token operator">-></span><span class="token function">fastPaginate</span><span class="token punctuation">(</span><span class="token variable">$perPage</span><span class="token punctuation">,</span> <span class="token variable">$columns</span><span class="token punctuation">,</span> <span class="token variable">$pageName</span><span class="token punctuation">,</span> <span class="token variable">$page</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$paginator</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token this">$this</span> <span class="token keyword">instanceof</span> <span class="token class-name">BelongsToMany</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token this">$this</span><span class="token operator">-></span><span class="token function">hydratePivotRelation</span><span class="token punctuation">(</span><span class="token variable">$paginator</span><span class="token operator">-></span><span class="token function">items</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?></span></span>
+</code></pre>
+<p>You'll notice that we're actually not using a <code>join</code> here, but rather a <code>where in</code>. This is primarily because Laravel's paginator has already run the query, so we can just use the keys that were returned. We don't need to run the query again, so we don't. (We also have to add a macro to the Relation class, to mimic how Laravel works under the hood. Read more <a href="https://github.com/hammerstonedev/fast-paginate/pull/1">here</a>.)</p>
+<blockquote>
+<p>The Laravel code above works with integer and string primary keys, but it will not work with composite primary keys. That should be possible, but I haven't done it yet. I've tested this on several queries, but there are absolutely edge cases I haven't considered. Test it in your apps and please report any issues!</p>
+</blockquote>
+<p>We're not quite done yet though...</p>
+<h2 id="deferred-joins-and-covering-indexes"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#deferred-joins-and-covering-indexes" title="Permalink">#</a>Deferred Joins and Covering Indexes<a aria-hidden="true" class="anchor-heading icon-link" href="#deferred-joins-and-covering-indexes"></a></h2>
+<p>The main benefit of using deferred joins is reducing the amount of data that the database has to retrieve and then throw away. We can take this even further by helping the database get the data it needs <em>without ever fetching the underlying rows</em>.</p>
+<p>The way to do that is called a "<strong>covering index</strong>," and it's the ultimate solution to ensure speedy offset / limit pagination.</p>
+<p>A covering index is an index where all required fields for the query are contained in the index itself. When all parts of a query can be "covered" by an index, the database does not have to read the row at all, it can get everything it needs from the index.</p>
+<p>Note that covering indexes aren't created in any special way. It only refers to the <em>situation</em> where a single index satisfies everything required by a query. A covering index on one query is likely not a covering index on another query.</p>
+<p>In the next few examples we'll use this basic table, which I've filled with ~10 million rows:</p>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>contacts<span class="token punctuation">`</span> <span class="token punctuation">(</span>
+  <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">bigint</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>email<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>created_at<span class="token punctuation">`</span> <span class="token keyword">timestamp</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>updated_at<span class="token punctuation">`</span> <span class="token keyword">timestamp</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">UNIQUE</span> <span class="token keyword">KEY</span> <span class="token punctuation">`</span>users_email_unique<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>email<span class="token punctuation">`</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p>Let's take a look at a simple query that selects only a column that is indexed. In this case we'll select <code>email</code> from the <code>contacts</code> table.</p>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">select</span> email <span class="token keyword">from</span> contacts <span class="token keyword">limit</span> <span class="token number">10</span><span class="token punctuation">;</span>
+</code></pre>
+<p>In this case, the database will not have to read the underlying row at all. In MySQL, we can verify that by running an <code>explain</code> and looking at the <code>extra</code> column:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token property">"select_type"</span><span class="token operator">:</span> <span class="token string">"SIMPLE"</span><span class="token punctuation">,</span>
+  <span class="token property">"table"</span><span class="token operator">:</span> <span class="token string">"contacts"</span><span class="token punctuation">,</span>
+  <span class="token property">"partitions"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span>
+  <span class="token property">"possible_keys"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"users_email_unique"</span><span class="token punctuation">,</span>
+  <span class="token property">"key_len"</span><span class="token operator">:</span> <span class="token string">"1022"</span><span class="token punctuation">,</span>
+  <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"rows"</span><span class="token operator">:</span> <span class="token number">10690173</span><span class="token punctuation">,</span>
+  <span class="token property">"filtered"</span><span class="token operator">:</span> <span class="token number">100.0</span><span class="token punctuation">,</span>
+  <span class="token property">"Extra"</span><span class="token operator">:</span> <span class="token string">"Using index"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Code highlighting powered by <a href="https://torchlight.dev/?ref=aaronfrancis.com">torchlight.dev</a> (A service I created!)</p>
+<p>The <code>extra: using index</code> tells us that MySQL was able to satisfy the entire query using the index only, without looking at the underlying rows.</p>
+<p>If we try <code>select name from contacts limit 10</code>, we would expect MySQL to have to go to the row to get the data since <code>name</code> is not indexed. That's exactly what happens, shown by the following explain:</p>
+<pre class="language-sql"><code class="language-sql">{
+    <span class="token string">"id"</span>: <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">"select_type"</span>: <span class="token string">"SIMPLE"</span><span class="token punctuation">,</span>
+    <span class="token string">"table"</span>: <span class="token string">"contacts"</span><span class="token punctuation">,</span>
+    <span class="token string">"partitions"</span>: <span class="token boolean">null</span><span class="token punctuation">,</span>
+    <span class="token string">"type"</span>: <span class="token string">"ALL"</span><span class="token punctuation">,</span>
+    <span class="token string">"possible_keys"</span>: <span class="token boolean">null</span><span class="token punctuation">,</span>
+    <span class="token string">"key"</span>: <span class="token boolean">null</span><span class="token punctuation">,</span>
+    <span class="token string">"key_len"</span>: <span class="token boolean">null</span><span class="token punctuation">,</span>
+    <span class="token string">"ref"</span>: <span class="token boolean">null</span><span class="token punctuation">,</span>
+    <span class="token string">"rows"</span>: <span class="token number">10690173</span><span class="token punctuation">,</span>
+    <span class="token string">"filtered"</span>: <span class="token number">100.00</span><span class="token punctuation">,</span>
+    <span class="token string">"Extra"</span>: <span class="token boolean">null</span>
+}
+</code></pre>
+<p>The <code>extra</code> no longer says <code>using index</code>, so we did not use a covering index.</p>
+<p>In the case of a covering index used for pagination, you have to be careful to <em>only</em> use the columns that are available in your index, otherwise you may force the database to read the rows.</p>
+<p>Assuming you have 15 records per page and your user wants to view page 10,001, your inner query would end up looking like this:</p>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">select</span> id <span class="token keyword">from</span> contacts <span class="token keyword">order</span> <span class="token keyword">by</span> id <span class="token keyword">limit</span> <span class="token number">15</span> <span class="token keyword">OFFSET</span> <span class="token number">150000</span>
+</code></pre>
+<p>And the <code>explain</code>, again, shows the use of a covered index</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token property">"select_type"</span><span class="token operator">:</span> <span class="token string">"SIMPLE"</span><span class="token punctuation">,</span>
+  <span class="token property">"table"</span><span class="token operator">:</span> <span class="token string">"contacts"</span><span class="token punctuation">,</span>
+  <span class="token property">"partitions"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span>
+  <span class="token property">"possible_keys"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"PRIMARY"</span><span class="token punctuation">,</span>
+  <span class="token property">"key_len"</span><span class="token operator">:</span> <span class="token string">"8"</span><span class="token punctuation">,</span>
+  <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"rows"</span><span class="token operator">:</span> <span class="token number">150015</span><span class="token punctuation">,</span>
+  <span class="token property">"filtered"</span><span class="token operator">:</span> <span class="token number">100.0</span><span class="token punctuation">,</span>
+  <span class="token property">"Extra"</span><span class="token operator">:</span> <span class="token string">"Using index"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>MySQL is able to perform this query looking at the index alone. It does not simply skip the first 150,000 rows, there's no way around that with offset, but it does not have to <em>read</em> 150,000 rows. (Only cursor pagination lets you skip rows altogether.)</p>
+<p>Even when using covering indexes and deferred joins, the results will slow down as you reach later pages, although it should be minimal compared to traditional offset / limit. You can easily go thousands of pages deep using these methods.</p>
+<h2 id="better-covering-indexes"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#better-covering-indexes" title="Permalink">#</a>Better Covering Indexes<a aria-hidden="true" class="anchor-heading icon-link" href="#better-covering-indexes"></a></h2>
+<p>A lot of the benefit here depends on having good covering indexes, so let's talk about that for a bit. Everything depends on your data and the usage patterns of your users, but there are a few things you can do to ensure the highest hit-rate on your queries.</p>
+<p>This is going to primarily speak to MySQL, as that's where I have experience. Things are likely to be different in other databases.</p>
+<h3 id="multi-column-indexes"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#multi-column-indexes" title="Permalink">#</a>Multi-Column Indexes<a aria-hidden="true" class="anchor-heading icon-link" href="#multi-column-indexes"></a></h3>
+<p>Most developers are accustomed to adding indexes to single columns, but there's nothing stopping you from adding indexes to multiple columns. In fact, if you're aiming to create a covering index for an expensive pagination query, you're almost certainly going to need a multi-column index.</p>
+<p>When you're trying to optimize an index for pagination, be sure to put the <code>order by</code> column at the very end. If your users are going to be ordering by <code>updated_at</code>, that should be the last column in your composite index.</p>
+<p>Look at the following index that includes three columns:</p>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> contacts <span class="token keyword">add</span> <span class="token keyword">index</span> <span class="token punctuation">`</span>composite<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">`</span>is_deleted<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token punctuation">`</span>is_archived<span class="token punctuation">`</span><span class="token punctuation">,</span> <span class="token punctuation">`</span>updated_at<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Or done in Laravel:</p>
+<pre class="language-php"><code class="language-php"><span class="token variable">$table</span><span class="token operator">-></span><span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'is_deleted'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_archived'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'updated_at'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'composite'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>In MySQL, <strong>composite indexes are accessed left to right, and MySQL stops using an index if a column is missing, or after the first range condition.</strong></p>
+<p>MySQL will be able to use this index in the following scenarios:</p>
+<ul>
+<li>You query against <code>is_deleted</code></li>
+<li>You query against <code>is_deleted</code> and <code>is_archived</code></li>
+<li>You query against <code>is_deleted</code> and <code>is_archived</code> and <code>updated_at</code></li>
+<li>You query against <code>is_deleted</code> and <code>is_archived</code> and order by <code>updated_at</code></li>
+</ul>
+<p>If you skip <code>is_archived</code>, MySQL won't be able to access <code>updated_at</code> and will have to resort to sorting without that index or not use that index at all, so make sure you plan accordingly.</p>
+<h3 id="the-primary-key-is-always-there"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#the-primary-key-is-always-there" title="Permalink">#</a>The Primary Key is Always There<a aria-hidden="true" class="anchor-heading icon-link" href="#the-primary-key-is-always-there"></a></h3>
+<p>In the case of MySQL's InnoDB, <strong>all indexes have the primary key appended</strong>. That means that an index on <code>(email)</code> is actually an index on <code>(email, id)</code>, which is pretty important when it comes to covering indexes and deferred joins.</p>
+<p>The query <code>select email from contacts order by id</code> is completely covered by a single index on <code>email</code>, because InnoDB appends <code>id</code> to that index!</p>
+<p>Using our composite example from above, you can see where this is beneficial:</p>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">select</span>
+  id                   <span class="token comment">-- implicitly in the index</span>
+<span class="token keyword">from</span>
+  contacts
+<span class="token keyword">where</span>
+  is_deleted <span class="token operator">=</span> <span class="token number">0</span>       <span class="token comment">-- explicitly in the index</span>
+  <span class="token operator">and</span> is_archived <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment">-- explicitly in the index</span>
+<span class="token keyword">order</span> <span class="token keyword">by</span>
+  updated_at <span class="token keyword">desc</span>      <span class="token comment">-- explicitly in the index</span>
+</code></pre>
+<p>Because the composite index covers <code>is_deleted</code>, <code>is_archived</code>, <code>updated_at</code>, and (by function of InnoDB) <code>id</code>, this entire query can be satisfied by index alone.</p>
+<h3 id="descending-indexes"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#descending-indexes" title="Permalink">#</a>Descending Indexes<a aria-hidden="true" class="anchor-heading icon-link" href="#descending-indexes"></a></h3>
+<p>Most of the time, users are looking for the "newest" items, i.e. the most recently updated or created items, which can be satisfied by ordering by <code>updated_at DESC</code>.</p>
+<p>If you know that your users are going to be primarily sorting their results in descending order, it might make sense to specifically make your index a descending index.</p>
+<blockquote>
+<p>MySQL 8 is the first MySQL version to support descending indexes.</p>
+</blockquote>
+<p>If you see <code>Backward index scan</code> in the <code>Extra</code> section of your explain, you might be able to configure a better index.</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token property">"select_type"</span><span class="token operator">:</span> <span class="token string">"SIMPLE"</span><span class="token punctuation">,</span>
+  <span class="token property">"table"</span><span class="token operator">:</span> <span class="token string">"contacts"</span><span class="token punctuation">,</span>
+  <span class="token property">"partitions"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span>
+  <span class="token property">"possible_keys"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"users_email_unique"</span><span class="token punctuation">,</span>
+  <span class="token property">"key_len"</span><span class="token operator">:</span> <span class="token string">"1022"</span><span class="token punctuation">,</span>
+  <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"rows"</span><span class="token operator">:</span> <span class="token number">10690173</span><span class="token punctuation">,</span>
+  <span class="token property">"filtered"</span><span class="token operator">:</span> <span class="token number">100.0</span><span class="token punctuation">,</span>
+  <span class="token property">"Extra"</span><span class="token operator">:</span> <span class="token string">"Backward index scan; Using index"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>To declare an index as descending, you can just add <code>DESC</code> to your index statement. To do it in Laravel, you'll need to reach for the <code>DB::raw()</code> method:</p>
+<pre class="language-php"><code class="language-php"><span class="token variable">$table</span><span class="token operator">-></span><span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'is_deleted'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_archived'</span><span class="token punctuation">,</span> <span class="token scope">DB<span class="token punctuation">::</span></span><span class="token function">raw</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'`updated_at` DESC'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'composite'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Forward index scans are <a href="https://dev.mysql.com/blog-archive/mysql-8-0-labs-descending-indexes-in-mysql/">~15% faster than backward scans</a>, so you'll want to add the index in the order that you think your users will use most often, and take the penalty for the minority use case.</p>
+<h2 id="nothing-new-under-the-sun"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#nothing-new-under-the-sun" title="Permalink">#</a>Nothing New Under the Sun<a aria-hidden="true" class="anchor-heading icon-link" href="#nothing-new-under-the-sun"></a></h2>
+<p>This method of using offset / limit pagination with deferred joins and covering indexes isn't a silver bullet.</p>
+<p>Deferred joins alone can probably get you a nice boost in speed, but it takes some extra thought to design the right indexes to get you the maximum benefit.</p>
+<p>An argument could be made that deferred joins should be the default offset / limit method in frameworks, and any time a covering index hits it's just a bonus. I haven't tested in enough production environments to strongly advocate for that yet.</p>
+<p>Finally, before you shower me with applause and accolades, please understand that this is not an original concept! The basic idea is outlined in a book called "<a href="https://amzn.to/3fwWavn">High Performance MySQL, 3rd Edition</a>." (There is also a <a href="https://amzn.to/3qxmHyW">4th edition</a> now.)</p>
+<p>I read this book a while ago and kind of forgot about this little method. Then, a few days ago, I was helping a friend optimize their Laravel + MySQL app and we ran into this exact problem, where page 1 worked fine and page 3,231 never loaded.</p>
+<p>I remembered some obscure thing I had read, so I went back to the book to look it up and figured out how to implement it in Laravel, against their dataset.</p>
+<p>I love reading physical technical books for this reason. I had highlighted that part as potentially interesting, not knowing when I'd really need it, but I was aware vaguely that some solution existed. Then when it was time to use it I could just go look it up!</p>
+<p>I highly recommend that MySQL book, by the way.</p>
+<p>If you need help optimizing your Laravel and MySQL applications, please reach out to me <a href="https://twitter.com/aarondfrancis">on Twitter</a>. I'm available for day-long performance engagements. I'm also working on a MySQL video course, which you can sign up for below!</p>
+<p>window.Reform=window.Reform||function(){(Reform.q=Reform.q||[]).push(arguments)}; Reform('init', { url: '<a href="https://forms.reform.app/uVXl5x/mysql-early-access&#x27;">https://forms.reform.app/uVXl5x/mysql-early-access'</a>, target: '#my-reform', background: 'transparent', })</p>
+<h2 id="results"><a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins#results">Results</a><a aria-hidden="true" class="anchor-heading icon-link" href="#results"></a></h2>
+<p>I'll be adding some results here as they come in.</p>
+<ul>
+<li>
+<p>28 seconds → 2 seconds</p>
+</li>
+<li>
+<p>7.5x improvement</p>
+</li>
+<li>
+<p>1100ms --> 100ms</p>
+</li>
+<li>
+<p>20s --> 2s</p>
+</li>
+<li>
+<p>10x improvement</p>
+</li>
+<li>
+<p>"Very helpful"</p>
+</li>
+</ul>

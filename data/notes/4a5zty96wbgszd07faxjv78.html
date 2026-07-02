@@ -1,0 +1,60 @@
+<h1 id="git">Git<a aria-hidden="true" class="anchor-heading icon-link" href="#git"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://blog.jetbrains.com/space/2023/04/18/space-git-flow/">Introducing the Space Git Flow</a> - Branching Strategies about Git flow, GitHub flow, Trunk-based development, Space Git Flow</li>
+<li><a href="https://stackoverflow.com/a/26944812/5163033">When to use "chore" as type of commit message?</a>
+<blockquote>
+<p>"<code>grunt task</code>" means nothing that an external user would see:</p>
+<ul>
+<li>implementation (of an <em>existing feature</em>, which doesn't involve a fix),</li>
+<li>configuration (like the <code>.gitignore</code> or <code>.gitattributes</code>),</li>
+<li>private internal methods...</li>
+</ul>
+</blockquote>
+</li>
+<li><a href="https://jvns.ca/blog/2023/11/01/confusing-git-terminology/">Confusing git terminology</a></li>
+<li><a href="https://gist.github.com/thoughtpolice/9c45287550a56b2047c6311fbadebed2">Why some of us like "interdiff" code review</a></li>
+</ul>
+<h2 id="how-to-write-useful-commit-messages"><a href="https://dev.to/jacobherrington/how-to-write-useful-commit-messages-my-commit-message-template-20n9">How to Write Useful Commit Messages</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-write-useful-commit-messages"></a></h2>
+<ul>
+<li>This commit will <code>What</code></li>
+<li><code>Why</code></li>
+</ul>
+<h2 id="how-do-i-commit-case-sensitive-only-filename-changes-in-git"><a href="https://stackoverflow.com/a/20907647/5163033">How do I commit case-sensitive only filename changes in Git?</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-do-i-commit-case-sensitive-only-filename-changes-in-git"></a></h2>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> <span class="token function">mv</span> -f yOuRfIlEnAmE yourfilename
+</code></pre>
+<h2 id="commit-with-offered-message-editing"><a href="https://stackoverflow.com/questions/41181942/git-commit-with-template-message">Commit with offered message editing</a><a aria-hidden="true" class="anchor-heading icon-link" href="#commit-with-offered-message-editing"></a></h2>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> commit -em <span class="token string">"some string"</span>
+</code></pre>
+<p>would open the text editor with "some string" that could be edited.</p>
+<h2 id="git-commit---fixupamendreword"><a href="https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt">git commit --fixup=[(amend|reword):]<commit></commit></a><a aria-hidden="true" class="anchor-heading icon-link" href="#git-commit---fixupamendreword"></a></h2>
+<h2 id="tracking-sqlite-database-changes-in-git"><a href="https://garrit.xyz/posts/2023-11-01-tracking-sqlite-database-changes-in-git">Tracking SQLite Database Changes in Git</a><a aria-hidden="true" class="anchor-heading icon-link" href="#tracking-sqlite-database-changes-in-git"></a></h2>
+<p>First, add a diff type called "sqlite3" to your config. The simplest way is to just run these commands:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config diff.sqlite3.binary <span class="token boolean">true</span>
+<span class="token function">git</span> config diff.sqlite3.textconv <span class="token string">"echo .dump | sqlite3"</span>
+</code></pre>
+<p>Alternatively, you can add this snippet to your <code>~/.gitconfig</code> or <code>.git/config</code> in your repository:</p>
+<pre class="language-gitconfig"><code class="language-gitconfig">[diff "sqlite3"]
+        binary = true
+        textconv = "echo .dump | sqlite3"
+</code></pre>
+<p>Next, create a file called <code>.gitattributes</code> if it's not already present and add this line:</p>
+<pre class="language-gitattributes"><code class="language-gitattributes">*.sqlite diff=sqlite3
+</code></pre>
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=38117779">So it does look like git's delta encoding works with sqlite's blocks.</a></p>
+</blockquote>
+<h2 id="구현-후-soft-reset으로-정리-test-private">구현 후 soft reset으로 정리? <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#test (Private)</a><a aria-hidden="true" class="anchor-heading icon-link" href="#구현-후-soft-reset으로-정리-test-private"></a></h2>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/flxrnqq70hujy04l6g64vwh">6 Best Practices to Manage Pull Request Creation and Feedback</a></li>
+<li><a href="/notes/989qwa1a1itktzuar413ocg">A Better Model for Stacked (GitHub) Pull Requests</a></li>
+<li><a href="/notes/nejz8v61m5gbyeyjhtl15gz">Git Rebase... with Merges?</a></li>
+<li><a href="/notes/y62z9jcqo7xsqxspmots8j8">Git Tools</a></li>
+<li><a href="/notes/w75ep21zwuxb5rv7323rinz">Git commands nobody has told you</a></li>
+<li><a href="/notes/l29gxghljchn5f6o27ma72d">Git global setting</a></li>
+<li><a href="/notes/9jw95nflicet5esk5dwompp">Organizing multiple Git identities</a></li>
+<li><a href="/notes/139jmtdtr0cvcvb4b4gkk0o">Submodule Nuxt</a></li>
+<li><a href="/notes/npg73o89u51mfv0matorgku">Temp branch 운영</a></li>
+</ol>

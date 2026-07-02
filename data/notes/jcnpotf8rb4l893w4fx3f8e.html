@@ -1,0 +1,63 @@
+<h1 id="target_blank-implies-relnoopener">Target=_blank implies rel=noopener<a aria-hidden="true" class="anchor-heading icon-link" href="#target_blank-implies-relnoopener"></a></h1>
+<blockquote>
+<p><a href="https://www.stefanjudis.com/today-i-learned/target-blank-implies-rel-noopener/">https://www.stefanjudis.com/today-i-learned/target-blank-implies-rel-noopener/</a></p>
+</blockquote>
+<p>If you want to be a good web citizen, you might be aware of the <code>target="_blank"</code> security issue.</p>
+<p>In the old days, when you linked to a site and wanted to open a new tab with <code>target="_blank"</code>, the target site could access your site via <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>window.opener</code></a>. This means in short:</p>
+<blockquote>
+<p>If window A opens window B, <code>B.opener</code> returns A.</p>
+</blockquote>
+<p>If you haven't heard of this behavior, it's pretty wild because it implies that target pages could check if <code>window.opener</code> is accessible and if so change the location of your site with trivial JavaScript. This is also known as "reverse tab nabbing".</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">opener</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">opener</span><span class="token punctuation">.</span><span class="token property-access">location</span> <span class="token operator">=</span> <span class="token string">"https://you-re-hacked.com"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Ooooff... And while it's unlikely, someone could now use XSS to inject <code>target="_blank"</code> links into your site and, when someone clicks on them, change the URL of the original site (which is now in the background) to a malicious copy to fish credentials.</p>
+<p>To prevent this, you could use <code>rel="noopener"</code>.</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- old school way to turn off `window.opener` --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>some-site.com<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>noopener<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> Some site <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>But guess what? Because this behavior seemed so off, browsers changed it. In 2024, whenever you use <code>target="_blank"</code> <code>rel="noopener"</code> is implicit. Yay!</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>some-site.com<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>noopener<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> some site <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&#x3C;!-- is the same as --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>some-site.com<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> some site <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>But is this new stuff? Nope.</p>
+<p>MDN Compat Data (<a href="https://raw.githubusercontent.com/mdn/browser-compat-data/main/html/elements/a.json">source</a>)</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>chrome</th><th>chrome_android</th><th>edge</th><th>firefox</th><th>firefox_android</th><th>safari</th><th>safari_ios</th><th>samsunginternet_android</th><th>webview_android</th></tr></thead><tbody><tr><td>88</td><td>88</td><td>88</td><td>79</td><td>79</td><td>12.1</td><td>12.1</td><td>15.0</td><td>Nei</td></tr></tbody></table></div>
+<ul>
+<li><a href="https://chromestatus.com/feature/6140064063029248">Chromium shipped it <strong>end of 2020</strong></a>.</li>
+<li><a href="https://webkit.org/blog/8475/release-notes-for-safari-technology-preview-68/">Safari shipped it <strong>end of 2018</strong></a>.</li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1522083">Firefox shipped it <strong>mid 2020</strong></a>.</li>
+</ul>
+<p>Yet, the internet is full of <code>rel="noopener"</code> advice, so the legendary <code>target="_blank"</code> issue continues to live on.</p>
+<p>Let's see if this post will help make it disappear.</p>

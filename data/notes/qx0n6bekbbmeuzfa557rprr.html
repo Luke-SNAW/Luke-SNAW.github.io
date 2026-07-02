@@ -1,0 +1,190 @@
+<h1 id="anchor-links-and-how-to-make-them-awesome">Anchor Links and How to Make Them Awesome<a aria-hidden="true" class="anchor-heading icon-link" href="#anchor-links-and-how-to-make-them-awesome"></a></h1>
+<blockquote>
+<p><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/">https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/</a></p>
+</blockquote>
+<p>Anchor links (also called jump links) are an easy way to provide in-page navigation. For example, a table of contents could use anchor links to take readers straight to various sections in a page.</p>
+<p>They’re super easy to set up, but sprinkle a little CSS on top and you can really make them shine. Let’s start with the basics and build from there.</p>
+<h2 id="a-humble-anchor-link"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#a-humble-anchor-link">A Humble Anchor Link</a><a aria-hidden="true" class="anchor-heading icon-link" href="#a-humble-anchor-link"></a></h2>
+<p>To create a page anchor, give an element an <code>id</code>. That’s it. You can use all sorts of elements as page anchors, though it’s pretty common to use headings.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-anchor<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Page anchor<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Now you can link to the page anchor by using <code>#</code> with the <code>id</code> as an <code>href</code>.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#my-anchor<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Jump to the page anchor<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>There are two special values you can use as the <code>href</code> of an anchor link: <code>#top</code> or simply <code>#</code>. They both do the same thing, taking you to the very top of the page. No need to create a page anchor for these.</p>
+<p>Let’s see these anchor links in action.</p>
+<blockquote>
+<p><strong>Demo</strong><a href="https://codersblock.com/assets/demos/anchor-links/basic">Anchor Link: Basic</a></p>
+</blockquote>
+<p>Notice in the demo how clicking an anchor link adds a hash (like <code>#my-anchor</code>) to the page’s URL in the address bar — which can be copied and used to link directly to a page anchor, <a href="https://codersblock.com/assets/demos/anchor-links/basic#my-anchor">like this</a>.</p>
+<p>Now let’s see what adding a little CSS can do.</p>
+<h2 id="adding-smooth-scrolling"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#adding-smooth-scrolling">Adding Smooth Scrolling</a><a aria-hidden="true" class="anchor-heading icon-link" href="#adding-smooth-scrolling"></a></h2>
+<p>In the previous demo, the jump to the page anchor is instant, which can be a little disorienting. Fortunately, we can enable smooth scrolling with just CSS.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-behavior</span><span class="token punctuation">:</span> smooth<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Now give those anchor links another go.</p>
+<blockquote>
+<p><strong>Demo</strong><a href="https://codersblock.com/assets/demos/anchor-links/smooth">Anchor Link: Smooth</a></p>
+</blockquote>
+<h2 id="adding-scroll-margin"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#adding-scroll-margin">Adding Scroll Margin</a><a aria-hidden="true" class="anchor-heading icon-link" href="#adding-scroll-margin"></a></h2>
+<p>Our anchor links so far have scrolled the page anchor to the very top edge of the viewport. Wouldn’t it be nice if there was a little breathing room there? We can make that happen by setting <code>scroll-margin-top</code> on the page anchor.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">h1</span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-margin-top</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This will leave <code>40px</code> of space between the top of the viewport and the page anchor. Check it out.</p>
+<blockquote>
+<p><strong>Demo</strong><a href="https://codersblock.com/assets/demos/anchor-links/smooth-and-margin">Anchor Link: Smooth + Margin</a></p>
+</blockquote>
+<p>This trick is super useful when you have a sticky header, to push page anchors down a bit so they aren’t positioned behind it.</p>
+<h2 id="adding-targeted-page-anchor-styles"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#adding-targeted-page-anchor-styles">Adding Targeted Page Anchor Styles</a><a aria-hidden="true" class="anchor-heading icon-link" href="#adding-targeted-page-anchor-styles"></a></h2>
+<p>You can use the CSS <code>:target</code> pseudo-class to add styling to a page anchor when jumping to it.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">h1<span class="token pseudo-class">:target</span></span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode color">#71a819</span><span class="token punctuation">;</span> <span class="token comment">/* green */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In this demo, clicking “Jump to the page anchor” enables the CSS above, making the page anchor text green. Clicking “Jump back to top” causes the <code>&#x3C;h1></code> to no longer be targeted, so the text will no longer be green.</p>
+<blockquote>
+<p><strong>Demo</strong><a href="https://codersblock.com/assets/demos/anchor-links/smooth-and-margin-and-styling">Anchor Link: Smooth + Margin + Styling</a></p>
+</blockquote>
+<h2 id="fancier-target-styling"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#fancier-target-styling">Fancier Target Styling</a><a aria-hidden="true" class="anchor-heading icon-link" href="#fancier-target-styling"></a></h2>
+<p>We can do more complex things with <code>:target</code> than just changing text color. Here’s a demo that highlights areas of content and animates a “Back to top” link into view.</p>
+<blockquote>
+<p><strong>Demo</strong><a href="https://codersblock.com/assets/demos/anchor-links/fancier-styling">Anchor Link: Fancier Styling</a></p>
+</blockquote>
+<p>Here’s the (abbreviated) HTML to show how things are set up.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>nav</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#kiwis<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Kiwis<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#limes<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Limes<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#pears<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Pears<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>nav</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>article</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>kiwis<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Kiwis<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token comment">&#x3C;!-- blurb about kiwis --></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>article</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&#x3C;!-- more article elements here --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>back-to-top<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#top<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Back to top<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>The article highlighting is accomplished with this CSS.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* border is initially transparent */</span>
+<span class="token selector">article</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token unit">px</span> solid <span class="token color">transparent</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* border turns green for an article when the targeted h1 is within */</span>
+<span class="token selector">article<span class="token pseudo-class">:has</span><span class="token punctuation">(</span>h1<span class="token pseudo-class">:target</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode color">#71a819</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>And here’s the CSS to show/hide the “Back to top” link.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.back-to-top</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* position link to be fixed in top right corner */</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/* link is initially faded out and shifted off right edge of viewport */</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token property">translate</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token unit">%</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/* half a second transition duration */</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> all <span class="token number">0.5</span><span class="token unit">s</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* when body has a targeted h1 within, fade link in and shift into view */</span>
+<span class="token selector">body<span class="token pseudo-class">:has</span><span class="token punctuation">(</span>h1<span class="token pseudo-class">:target</span><span class="token punctuation">)</span> <span class="token class">.back-to-top</span></span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token property">translate</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="nested-scrolling"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#nested-scrolling">Nested Scrolling</a><a aria-hidden="true" class="anchor-heading icon-link" href="#nested-scrolling"></a></h2>
+<p>All the examples so far had a single scroll container: the page itself. However, it’s possible to have nested scroll containers — for example, a scrollable <code>&#x3C;div></code> in the page. If you put a page anchor within a nested scroll container, anchor links pointing to it will scroll all necessary containers to bring the target into view. Neat!</p>
+<p>Here’s a demo. Note that the scroll positions feel a bit off — <code>scroll-margin</code> hasn’t been added. We’ll talk about why next.</p>
+<blockquote>
+<p><strong>Demo</strong><a href="https://codersblock.com/assets/demos/anchor-links/nested-scroll-without-padding">Nested Scroll Anchor Link: Without Padding</a></p>
+</blockquote>
+<h2 id="scroll-margin-vs-scroll-padding"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#scroll-margin-vs-scroll-padding">Scroll Margin vs. Scroll Padding</a><a aria-hidden="true" class="anchor-heading icon-link" href="#scroll-margin-vs-scroll-padding"></a></h2>
+<p>Now let’s fix those scroll positions. We’ve used <code>scroll-margin-top</code> before, but in Chrome and Edge, it won’t work here. The scroll margin won’t extend outside of the nested scroll container.</p>
+<p>Fortunately, there’s another way to handle this. Instead of <code>scroll-margin</code>, we can use <code>scroll-padding</code>. They both give similar results, but the difference is:</p>
+<ul>
+<li><code>scroll-margin</code> is used on the page anchor.</li>
+<li><code>scroll-padding</code> is used on the scroll container.</li>
+</ul>
+<p>Let’s update that demo with some <code>scroll-padding</code>.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-padding-top</span><span class="token punctuation">:</span> <span class="token number">130</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.slide-container</span></span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-padding-inline</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This adds some generous top scroll padding to the page so the buttons stay in view. It also adds some inline (left and right) scroll padding to the scrollable <code>&#x3C;div></code> so each slide is nicely centered in the scroll container.</p>
+<blockquote>
+<p><strong>Demo</strong><a href="https://codersblock.com/assets/demos/anchor-links/nested-scroll-with-padding">Nested Scroll Anchor Link: With Padding</a></p>
+</blockquote>
+<h2 id="scroll-into-view-with-javascript"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#scroll-into-view-with-javascript">Scroll Into View with JavaScript</a><a aria-hidden="true" class="anchor-heading icon-link" href="#scroll-into-view-with-javascript"></a></h2>
+<p>You can also use JavaScript to scroll to a page anchor by calling <code>scrollIntoView()</code>. At its simplest, it looks something like this.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> anchor <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"my-anchor"</span><span class="token punctuation">)</span>
+anchor<span class="token punctuation">.</span><span class="token method function property-access">scrollIntoView</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Actually, you don’t even need a page anchor with an <code>id</code> on it. You can use <code>scrollIntoView()</code> to scroll to any element.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">".whatever"</span><span class="token punctuation">)</span>
+element<span class="token punctuation">.</span><span class="token method function property-access">scrollIntoView</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>In either case, the scrolling will be the same as we’ve seen so far, but with some caveats.</p>
+<ol>
+<li>The page’s URL in the address bar won’t be updated with a hash.</li>
+<li>The element that is scrolled to is not considered targeted, so the CSS <code>:target</code> pseudo-class won’t work.</li>
+<li>In Chrome, Firefox, and Edge, when <code>scrollIntoView()</code> is used inside an iframe, it can “break out” and also affect the scroll position of the parent page.</li>
+</ol>
+<p>If these are showstoppers for you, and you really need to use JavaScript, there is a workaround.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">location</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span><span class="token string">"#my-anchor"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>This will behave as if an anchor link to <code>#my-anchor</code> was clicked.</p>
+<h2 id="scrollintoview-options"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#scrollintoview-options">ScrollIntoView() Options</a><a aria-hidden="true" class="anchor-heading icon-link" href="#scrollintoview-options"></a></h2>
+<p>Let’s talk more about <code>scrollIntoView()</code>. You can fine-tune how it scrolls by providing an (optional) object parameter. Here’s what it looks like with default values.</p>
+<pre class="language-javascript"><code class="language-javascript">element<span class="token punctuation">.</span><span class="token method function property-access">scrollIntoView</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  behavior<span class="token operator">:</span> <span class="token string">"auto"</span><span class="token punctuation">,</span>
+  block<span class="token operator">:</span> <span class="token string">"start"</span><span class="token punctuation">,</span>
+  inline<span class="token operator">:</span> <span class="token string">"nearest"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The <code>behavior</code> property determines whether scrolling is instant or smooth.</p>
+<ul>
+<li><code>'auto'</code> - Uses the value of <code>scroll-behavior</code> in CSS.</li>
+<li><code>'instant'</code> - Jumps instantly to the element.</li>
+<li><code>'smooth'</code> - Scrolls smoothly to the element.</li>
+</ul>
+<p>The <code>block</code> property determines the vertical scroll alignment.</p>
+<ul>
+<li><code>'start'</code> - Scrolls the top of the element to the top of the scroll container.</li>
+<li><code>'center'</code> - Scrolls the center of the element to the center of the scroll container.</li>
+<li><code>'end'</code> - Scrolls the bottom of the element to the bottom of the scroll container.</li>
+<li><code>'nearest'</code> - Scrolls just enough to make the element fully visible within the scroll container — or if the element is taller than the scroll container, scrolls just enough so that the element fills the scroll container. If the element is already within or completely filling the scroll container, nothing happens.</li>
+</ul>
+<p>The <code>inline</code> property has similar logic, but for horizontal scroll alignment.</p>
+<ul>
+<li><code>'start'</code> - Scrolls the left of the element to the left of the scroll container.</li>
+<li><code>'center'</code> - Scrolls the center of the element to the center of the scroll container.</li>
+<li><code>'end'</code> - Scrolls the right of the element to the right of the scroll container.</li>
+<li><code>'nearest'</code> - Scrolls just enough to make the element fully visible within the scroll container — or if the element is wider than the scroll container, scrolls just enough so that the element fills the scroll container. If the element is already within or completely filling the scroll container, nothing happens.</li>
+</ul>
+<p>There can be situations where the scroll alignment you ask for cannot be achieved — usually when an element is at the edge of a scroll container and there’s not enough scroll space to do it. Your browser will still scroll as close as it can.</p>
+<p>Alright, that was a lot of words. It’s probably easier to see for yourself, so here’s a scrolling playground to test things out.</p>
+<blockquote>
+<p><strong>Demo</strong><a href="https://codersblock.com/assets/demos/anchor-links/scroll-into-view-playground">ScrollIntoView() Playground</a></p>
+</blockquote>
+<h2 id="behind-the-scenes-notes"><a href="https://codersblock.com/blog/anchor-links-and-how-to-make-them-awesome/#behind-the-scenes-notes">Behind-the-Scenes Notes</a><a aria-hidden="true" class="anchor-heading icon-link" href="#behind-the-scenes-notes"></a></h2>
+<p>I’ll end with some technical notes from making this article. There were some quirky things I had to deal with that I want to share.</p>
+<p>I usually embed Codepen demos right into my articles, using <code>&#x3C;iframe></code>. As you can see, I didn’t do that this time, for two reasons.</p>
+<ol>
+<li>Clicked anchor links counts as navigation, which go into your browser’s history. This is true even when those links are inside an <code>&#x3C;iframe></code>. So if you clicked a couple anchor links in embedded demos, then tried to hit the back button on your browser, you’d still be on this blog page.</li>
+<li>This was briefly mentioned earlier, but using <code>scrollIntoView()</code> in an <code>&#x3C;iframe></code> will affect the scroll position of the parent page. There is no sandbox option to fix this. Especially with the last “playground” demo, it was super weird playing with an embedded demo and having the entire page move around. In my testing, Safari was the only browser to not do this.</li>
+</ol>
+<p>Another note, when I was researching <code>scroll-margin</code> and <code>scroll-padding</code>, I saw a lot of sources that confusingly only talked about their relevance to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap">scroll snapping</a>, to the point that I wondered if using them for page anchors was an unintentional hack. This is not the case, as I discovered that the CSS scroll snap spec itself was <a href="https://www.w3.org/TR/css-scroll-snap-1/#change-2019-clarify-nonsnapping">amended to address this confusion specifically</a>.</p>
