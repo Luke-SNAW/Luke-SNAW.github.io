@@ -2,7 +2,7 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1782970810237
+updated: 1783070124498
 created: 1766965709816
 ---
 
