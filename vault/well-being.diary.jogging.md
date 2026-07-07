@@ -2,7 +2,7 @@
 id: 11mwqp7dopfd6d5qiop2qok
 title: Jogging
 desc: ""
-updated: 1783340590858
+updated: 1783417122926
 created: 1761090752183
 ---
 
@@ -379,3 +379,11 @@ created: 1761090752183
 Today's jogging is quite boring. 'Cause I forgot to take my earbuds when I got off work.
 
 It feels different stepping on the ground while being conscious of my one-leg deadlift posture. I'll test this method to make sure I have better posture during jogging. - 2026-07-01
+
+## 2026-07-06
+
+이틀 만에 조깅. 오른 무릎이 살짝 불편했으나 계속 달리니 괜찮아짐.
+하늘보며 뛰었더니 무릎이 평소보다 편한 느낌. 아마 가슴이 덩달아 열리고 앞으로 나아가기보다 줄넘기처럼 중심 가까이 착지하며 통통 뛰는 방향으로 힘이 편중되어서가 아닐까 함.
+당기기 운동해서 그런지 가슴을 열어서 그런지 몰라도 오른어깨 쇄골 끝 삼각근 이어진 부분이 계속 아픔. 어깨를 의식적으로 넓하고 달리니 조금 낫다.
+어깨를 포함하여 살짝 힘들었지만 marginal struggle은 미덕임을 되새기며 4km 달림.
+기분 탓인지 달리고 난 후 평소보다 무릎이 단단해진 느낌. 평소에는 바로 샤워하며 서있기가 살짝 부담됐는데 오늘은 약간 안정감까지 느껴짐.

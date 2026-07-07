@@ -2,9 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1783070124498
+updated: 1783388946522
 created: 1766965709816
 ---
+
+## Week 28, 2026
+
+- [What ORMs have taught me: just learn SQL](https://wozniak.ca/blog/2014/08/03/1/index.html) - Object-Relational Mapping (ORM) tools often become a hindrance, as they struggle with attribute creep, inefficient queries, and complex transaction management.
+- [Holes](https://xkcd.com/3266/large/) - https://www.explainxkcd.com/wiki/index.php/3266:_Holes
 
 ## Week 27, 2026
 
