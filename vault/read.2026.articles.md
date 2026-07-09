@@ -2,12 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1783388946522
+updated: 1783562725827
 created: 1766965709816
 ---
 
 ## Week 28, 2026
 
+- [Obfuscated, self-evaluating bash script by CDN Akamai being supplied to consumers via retail stores](https://tris.sherliker.net/blog/obfuscated-self-evaluating-bash-script-by-cdn-akamai-being-supplied-to-consumers-via-retail-stores/)
 - [What ORMs have taught me: just learn SQL](https://wozniak.ca/blog/2014/08/03/1/index.html) - Object-Relational Mapping (ORM) tools often become a hindrance, as they struggle with attribute creep, inefficient queries, and complex transaction management.
 - [Holes](https://xkcd.com/3266/large/) - https://www.explainxkcd.com/wiki/index.php/3266:_Holes
 
