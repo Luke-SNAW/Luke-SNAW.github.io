@@ -2,9 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1783562725827
+updated: 1783927790347
 created: 1766965709816
 ---
+
+## Week 29, 2026
+
+- [How doctors die. It’s not like the rest of us, but it should be](https://archive.cancerworld.net/featured/how-doctors-die/) - exploring why medical professionals choose minimal, comfort-focused care for themselves instead of the aggressive, futile treatments often administered to patients. By understanding the limitations of modern medicine and the realities of end-of-life suffering, doctors **prioritize death with dignity over prolonged, painful interventions**.
 
 ## Week 28, 2026
 
