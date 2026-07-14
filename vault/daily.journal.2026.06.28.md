@@ -2,10 +2,11 @@
 id: fr7ojj2kecc7uoxp7qwuajv
 title: "2026-06-28"
 desc: ""
-updated: 1783577882122
+updated: 1783990829402
 created: 1783577869526
 traitIds:
   - journalNote
+published: false
 ---
 
 ## 업무 시간에 커피 연이어 2잔은 안 쉬게 됨 #mental #coffee

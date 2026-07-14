@@ -2,10 +2,11 @@
 id: orkfv80j216hyba87peye5n
 title: "2026-05-15"
 desc: ""
-updated: 1783589169190
+updated: 1783990818143
 created: 1783589162683
 traitIds:
   - journalNote
+published: false
 ---
 
 ## -10% 정도는 언제든 감당할 risk #fin

@@ -2,10 +2,11 @@
 id: fgptepjpiiz193d5a6bnthd
 title: "2026-06-04"
 desc: ""
-updated: 1783579488301
+updated: 1783990816449
 created: 1783579479627
 traitIds:
   - journalNote
+published: false
 ---
 
 ## 명상 외 다른 활동으로 시작하면 이득? #meditation

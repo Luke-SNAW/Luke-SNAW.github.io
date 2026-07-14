@@ -2,10 +2,11 @@
 id: oiq80spemaczrfukuph72tl
 title: "2026-06-02"
 desc: ""
-updated: 1783589122196
+updated: 1783990800439
 created: 1783589118209
 traitIds:
   - journalNote
+published: false
 ---
 
 ## #fin

@@ -2,10 +2,11 @@
 id: 7v19njqbq6f8xluc5y1anf2
 title: "2026-06-09"
 desc: ""
-updated: 1783589092759
+updated: 1783990845042
 created: 1783589081682
 traitIds:
   - journalNote
+published: false
 ---
 
 ## #fin
