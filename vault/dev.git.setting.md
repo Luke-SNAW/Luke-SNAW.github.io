@@ -2,7 +2,7 @@
 id: l29gxghljchn5f6o27ma72d
 title: Git global setting
 desc: ""
-updated: 1716339135353
+updated: 1783992205347
 created: 1655167183618
 ---
 
@@ -82,6 +82,16 @@ git config --global core.whitespace cr-at-eol
 ```
 
 If your `core.whitespace` is already set, you should add `cr-at-eol` to the end of the comma-delimited list instead.
+
+## 한글 파일명이 깨져 보이는 걸 막고 싶다면
+
+`git status`, `ls` (일부 로케일/터미널), 또는 특정 도구가 non-ASCII 문자를 안전하게 못 다뤄서 raw byte를 octal escape로 표시할 때 유니코드 이스케이프가 아니라 UTF-8 바이트를 8진수(octal)로 표현 (git의 기본 `core.quotepath` 설정 때문에 흔히 발생)
+
+```shell
+git config --global core.quotepath false
+```
+
+이렇게 설정하면 `git status` 등에서 한글 파일명이 이스케이프 없이 그대로 보입니다.
 
 ## Etc
 
