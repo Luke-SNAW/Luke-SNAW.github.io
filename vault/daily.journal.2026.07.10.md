@@ -2,7 +2,7 @@
 id: doi43brqlc6g0itoortgax1
 title: "2026-07-10"
 desc: ""
-updated: 1783991956970
+updated: 1784191679464
 created: 1783658891804
 traitIds:
   - journalNote
@@ -27,7 +27,9 @@ published: false
 
 Vue2 -> Vue3 마이그레이션 중 수 많은 에러 중에 하나. 없는 DOM 조작 code에서 error가 발생하여 해당 DOM이 언제 삭제됐는지 git log를 파보니... 원래 없는 DOM 이었음. 8년 전, 이전 project에서 통으로 copy 해온 code 중에 하나였음. 이번 마이그레이션 작업 중에 jQuery 제거도 포함되어 있어 `$(#id).show()` 가 에러를 뱉지 않다가 vanilla JS에서 에러를 뱉어낸 게 계기.
 
-## 스케치 그리기 #drawing
+## 스케치 그리기
+
+#drawing
 
 야구모자 스케치를 보니 묘한 감흥이 인다. 예전 반가사유상을 그린 그림에서는 못 느낀 감정.
 선이 단순하고, 어긋나거나 흔들린 선도 손그림 매력으로 인식하는 듯.
