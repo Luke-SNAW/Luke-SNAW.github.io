@@ -2,7 +2,7 @@
 id: oqpl2t641xkez3kriwf9p9a
 title: "2026-07-18"
 desc: ""
-updated: 1784385023533
+updated: 1784623308624
 created: 1784382781711
 traitIds:
   - journalNote
@@ -11,11 +11,10 @@ published: false
 
 ## 휴일 외출
 
-#mental
-
 이발 겸 점심 먹으러 바깥에 나옴. 너무 좋음. 날씨도 좋고 분위기 환기도 되고.
 근데 일 없으면 귀찮아서 안나옴.
 오늘도 나오기 전 면도가 귀찮았음. 외출하기 위한 면도니 그런 듯. 다른 동기가 있을까?
+#mental
 
 ## 10일 휴식 후 조깅
 
@@ -29,3 +28,4 @@ I don't know if the same effect applies to aerobic exercise, but the fact is I n
 뛰기 시작하자마자 무릎 상태가 안좋은게 느껴짐. 통증 1점 정도? 어제 하체 운동 때문인가? 어차피 슬슬하기로 했으니 천천히 달리기 시작. 통증은 1km 되기 전에 사라짐.
 
 조깅의 의의 중 하나는 항상성 낮추기지만 지난 1주일+는 주식 때문에 멘탈이 안좋았다. 그냥 뛰는 산책 수준의 회복 달리기, 슬로우 조깅을 하는 쪽이 나았을 듯.
+#jogging

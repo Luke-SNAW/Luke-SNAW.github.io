@@ -2,7 +2,7 @@
 id: fqz0trhpofpa4ms3jzf6avf
 title: "2026-07-15"
 desc: ""
-updated: 1784294476833
+updated: 1784623376402
 created: 1784110922354
 traitIds:
   - journalNote
@@ -19,8 +19,6 @@ published: false
 
 ## 넘친다.
 
-#overload #draft
-
 바라는 수준을 충족하려면 너무 품이 많이 든다.
 손글쓰기 좀 흘려야 할 듯. 쓸 게 너무 많은데 손글쓰고 옮기고 퇴고하고 토나올거 같음.
 
@@ -29,3 +27,4 @@ published: false
 스텔라블레이드 함.
 좀 나아짐.
 준수한 생활 유지하는 것만으로 압도되는 경험을 계속 반복함. 시계열로 나누자. 이 결론도 반복되긴 함. 그냥 스트레스 관리를 어떻게 해야할 듯.
+#overload #draft

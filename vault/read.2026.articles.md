@@ -2,9 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1783927790347
+updated: 1784534711383
 created: 1766965709816
 ---
+
+## Week 30, 2026
+
+- [LG monitors silently install software through Windows Update without consent](https://videocardz.com/newz/lg-monitors-silently-install-software-through-windows-update-without-user-consent)
 
 ## Week 29, 2026
 
