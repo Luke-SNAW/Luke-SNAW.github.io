@@ -1,0 +1,144 @@
+<h1 id="typescript-advanced-types-for-nextjs-examples-and-best-practices-in-2023">TypeScript Advanced Types for Next.js: Examples and Best Practices In 2023<a aria-hidden="true" class="anchor-heading icon-link" href="#typescript-advanced-types-for-nextjs-examples-and-best-practices-in-2023"></a></h1>
+<blockquote>
+<p><a href="https://blog.bitsrc.io/typescript-advanced-types-for-next-js-examples-and-best-practices-in-2023-a3a3946a353e">https://blog.bitsrc.io/typescript-advanced-types-for-next-js-examples-and-best-practices-in-2023-a3a3946a353e</a></p>
+</blockquote>
+<h2 id="deep-partial">Deep Partial<a aria-hidden="true" class="anchor-heading icon-link" href="#deep-partial"></a></h2>
+<p>Sometimes, you may want to make only some properties of an object optional, without affecting the type of the object itself. You can create a DeepPartial utility that makes all properties of an object and nested objects optional. This can be useful when working with complex data models.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">DeepPartial</span><span class="token operator">&#x3C;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span><span class="token constant">P</span> <span class="token keyword">in</span> <span class="token keyword">keyof</span> <span class="token constant">T</span><span class="token punctuation">]</span><span class="token operator">?</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token constant">P</span><span class="token punctuation">]</span> <span class="token keyword">extends</span> <span class="token class-name">object</span> <span class="token operator">?</span> <span class="token maybe-class-name">DeepPartial</span><span class="token operator">&#x3C;</span><span class="token constant">T</span><span class="token punctuation">[</span><span class="token constant">P</span><span class="token punctuation">]</span><span class="token operator">></span> <span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token constant">P</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="how-to-use-deep-partial">How to Use Deep Partial<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-use-deep-partial"></a></h2>
+<p>Here’s an example of how you could use DeepPartial in a Next.js project:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">User</span></span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+  address<span class="token operator">:</span> <span class="token punctuation">{</span>
+    street<span class="token operator">:</span> <span class="token builtin">string</span>
+    city<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">DeepPartialUser</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">DeepPartial</span><span class="token operator">&#x3C;</span><span class="token maybe-class-name">User</span><span class="token operator">></span>
+
+<span class="token comment">// The DeepPartialUser type is equivalent to:</span>
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">PartialUser</span></span> <span class="token punctuation">{</span>
+  name<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>
+  address<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    street<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>
+    city<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> user<span class="token operator">:</span> <span class="token maybe-class-name">DeepPartialUser</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  address<span class="token operator">:</span> <span class="token punctuation">{</span>
+    street<span class="token operator">:</span> <span class="token string">"123 Main St."</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="optional-props">Optional Props<a aria-hidden="true" class="anchor-heading icon-link" href="#optional-props"></a></h2>
+<p>You can create an OptionalProps utility that makes some properties of a component’s props optional, while keeping the rest of the properties required. This can be useful when you have a large props interface with some optional and some required properties.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">OptionalProps</span><span class="token operator">&#x3C;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">K</span> <span class="token keyword">extends</span> <span class="token keyword">keyof</span> <span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Omit</span><span class="token operator">&#x3C;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">K</span><span class="token operator">></span> <span class="token operator">&#x26;</span> <span class="token maybe-class-name">Partial</span><span class="token operator">&#x3C;</span><span class="token maybe-class-name">Pick</span><span class="token operator">&#x3C;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">K</span><span class="token operator">>></span>
+</code></pre>
+<h2 id="how-to-use-optional-props">How to Use Optional Props<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-use-optional-props"></a></h2>
+<p>Here’s an example of how you could use OptionalProps in a Next.js project:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">ButtonProps</span></span> <span class="token punctuation">{</span>
+  text<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token function-variable function">onClick</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">void</span>
+  disabled<span class="token operator">:</span> <span class="token builtin">boolean</span>
+  size<span class="token operator">:</span> <span class="token string">"small"</span> <span class="token operator">|</span> <span class="token string">"medium"</span> <span class="token operator">|</span> <span class="token string">"large"</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">OptionalButtonProps</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">OptionalProps</span><span class="token operator">&#x3C;</span><span class="token maybe-class-name">ButtonProps</span><span class="token punctuation">,</span> <span class="token string">"size"</span> <span class="token operator">|</span> <span class="token string">"disabled"</span><span class="token operator">></span>
+
+<span class="token comment">// The OptionalButtonProps type is equivalent to:</span>
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">ButtonPropsOptional</span></span> <span class="token punctuation">{</span>
+  text<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token function-variable function">onClick</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">void</span>
+  size<span class="token operator">?</span><span class="token operator">:</span> <span class="token string">"small"</span> <span class="token operator">|</span> <span class="token string">"medium"</span> <span class="token operator">|</span> <span class="token string">"large"</span>
+  disabled<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Button</span></span><span class="token punctuation">(</span>props<span class="token operator">:</span> <span class="token maybe-class-name">OptionalButtonProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">;</span><span class="token operator">&#x3C;</span><span class="token maybe-class-name">Button</span> text<span class="token operator">=</span><span class="token string">"Click me"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Button clicked"</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+</code></pre>
+<h2 id="merge-types">Merge Types<a aria-hidden="true" class="anchor-heading icon-link" href="#merge-types"></a></h2>
+<p>Sometimes, you may want to merge two or more types together to create a new type. You can create a MergeTypes utility that takes multiple types as arguments and returns a new type that merges all the properties of the input types.</p>
+<p>type MergeTypes&#x3C;T extends object[]> = T[number];</p>
+<h2 id="how-to-use-merge-types">How to Use Merge Types<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-use-merge-types"></a></h2>
+<p>Here’s an example of how you could use MergeTypes in a Next.js project:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">User</span></span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+  email<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">Address</span></span> <span class="token punctuation">{</span>
+  street<span class="token operator">:</span> <span class="token builtin">string</span>
+  city<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">UserInfo</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">MergeTypes</span><span class="token operator">&#x3C;</span><span class="token punctuation">[</span><span class="token maybe-class-name">User</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Address</span><span class="token punctuation">]</span><span class="token operator">></span>
+
+<span class="token comment">// The UserInfo type is equivalent to:</span>
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">UserInfoMerged</span></span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+  email<span class="token operator">:</span> <span class="token builtin">string</span>
+  street<span class="token operator">:</span> <span class="token builtin">string</span>
+  city<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> user<span class="token operator">:</span> <span class="token maybe-class-name">UserInfo</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">"John Doe"</span><span class="token punctuation">,</span>
+  email<span class="token operator">:</span> <span class="token string">"john.doe@example.com"</span><span class="token punctuation">,</span>
+  street<span class="token operator">:</span> <span class="token string">"123 Main St."</span><span class="token punctuation">,</span>
+  city<span class="token operator">:</span> <span class="token string">"New York"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="promise-type">Promise Type<a aria-hidden="true" class="anchor-heading icon-link" href="#promise-type"></a></h2>
+<p>You can create a PromiseType utility that extracts the resolved type of a Promise. This can be useful when working with asynchronous code that returns promises.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">PromiseType</span><span class="token operator">&#x3C;</span><span class="token constant">T</span> <span class="token keyword">extends</span> <span class="token known-class-name class-name">Promise</span><span class="token operator">&#x3C;</span><span class="token builtin">any</span><span class="token operator">>></span></span> <span class="token operator">=</span> <span class="token constant">T</span> <span class="token keyword">extends</span> <span class="token class-name"><span class="token known-class-name class-name">Promise</span><span class="token operator">&#x3C;</span><span class="token keyword">infer</span> <span class="token constant">U</span><span class="token operator">></span></span>
+  <span class="token operator">?</span> <span class="token constant">U</span>
+  <span class="token operator">:</span> <span class="token builtin">never</span>
+</code></pre>
+<h2 id="how-to-use-promise-type">How to Use Promise Type<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-use-promise-type"></a></h2>
+<p>Here’s an example of how you could use PromiseType in a Next.js project:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchUserData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token known-class-name class-name">Promise</span><span class="token operator">&#x3C;</span><span class="token maybe-class-name">User</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment">// fetch user data from API</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">UserPromise</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">PromiseType</span><span class="token operator">&#x3C;</span><span class="token keyword">typeof</span> fetchUserData<span class="token operator">></span>
+
+<span class="token comment">// The UserPromise type is equivalent to:</span>
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">User</span></span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+  email<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token known-class-name class-name">Promise</span><span class="token operator">&#x3C;</span><span class="token maybe-class-name">UserPromise</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetchUserData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword control-flow">return</span> user
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="readonly-props">Readonly Props<a aria-hidden="true" class="anchor-heading icon-link" href="#readonly-props"></a></h2>
+<p>You can create a ReadonlyProps utility that makes all properties of a component’s props readonly. This can be useful when you want to prevent the props from being modified by the component.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">ReadonlyProps</span><span class="token operator">&#x3C;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token keyword">readonly</span> <span class="token punctuation">[</span><span class="token constant">P</span> <span class="token keyword">in</span> <span class="token keyword">keyof</span> <span class="token constant">T</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token constant">P</span><span class="token punctuation">]</span> <span class="token punctuation">}</span>
+</code></pre>
+<h2 id="how-to-use-readonly-props">How to Use Readonly Props<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-use-readonly-props"></a></h2>
+<p>Here’s an example of how you could use ReadonlyProps in a Next.js project:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">ButtonProps</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">readonly</span> text<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token keyword">readonly</span> <span class="token function-variable function">onClick</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">void</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Button</span></span><span class="token punctuation">(</span>props<span class="token operator">:</span> <span class="token maybe-class-name">ReadonlyProps</span><span class="token operator">&#x3C;</span><span class="token maybe-class-name">ButtonProps</span><span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">;</span><span class="token operator">&#x3C;</span><span class="token maybe-class-name">Button</span> text<span class="token operator">=</span><span class="token string">"Click me"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Button clicked"</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+<span class="token comment">// This would be a compile-time error:</span>
+<span class="token comment">// &#x3C;Button text="Click me" onClick={() => console.log("Button clicked")} /></span>
+<span class="token comment">// ^-- error: Cannot assign to 'text' because it is a read-only property.</span>
+</code></pre>

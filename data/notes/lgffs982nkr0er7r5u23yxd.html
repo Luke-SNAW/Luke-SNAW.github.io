@@ -1,0 +1,858 @@
+<h1 id="a-complete-guide-to-css-cascade-layers">A Complete Guide to CSS Cascade Layers<a aria-hidden="true" class="anchor-heading icon-link" href="#a-complete-guide-to-css-cascade-layers"></a></h1>
+<blockquote>
+<p><a href="https://css-tricks.com/css-cascade-layers/">https://css-tricks.com/css-cascade-layers/</a></p>
+</blockquote>
+<p>This is your complete guide to CSS cascade layers, a CSS feature that allows us to define explicit contained layers of specificity, so that we have full control over which styles take priority in a project without relying on specificity hacks or <code>!important</code>. This guide is intended to help you fully understand what cascade layers are for, how and why you might choose to use them, the current levels of support, and the syntax of how you use them.</p>
+<h2 id="table-of-contents"><a href="https://css-tricks.com/css-cascade-layers/#aa-table-of-contents"></a>Table of Contents<a aria-hidden="true" class="anchor-heading icon-link" href="#table-of-contents"></a></h2>
+<ul>
+<li><a href="https://css-tricks.com/css-cascade-layers/#quick-example">Quick example</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#introduction-what-are-cascade-layers">Introduction: what are cascade layers?</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#where-do-layers-fit-in-the-cascade">Where do layers fit in the cascade?</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#important-origins-context-and-layers-are-reversed">!important origins, context, and layers are reversed!</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#establishing-a-layer-order">Establishing a layer order</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#syntax-working-with-cascade-layers">Syntax: Working with cascade layers</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#use-cases-when-would-i-want-to-use-cascade-layers">Use cases: When would I want to use cascade layers?</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#test-your-knowledge-which-style-wins">Test your knowledge: Which style wins?</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#debugging-layer-conflicts-in-browser-developer-tools">Debugging layer conflicts in browser developer tools</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#browser-support-and-fallbacks">Browser support and fallbacks</a></li>
+<li><a href="https://css-tricks.com/css-cascade-layers/#more-resources">More resources</a></li>
+</ul>
+<h3 id="quick-example"><a href="https://css-tricks.com/css-cascade-layers/#aa-quick-example"></a>Quick example<a aria-hidden="true" class="anchor-heading icon-link" href="#quick-example"></a></h3>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* establish a layer order up-front, from lowest to highest priority */</span>
+<span class="token atrule"><span class="token rule">@layer</span> reset<span class="token punctuation">,</span> defaults<span class="token punctuation">,</span> patterns<span class="token punctuation">,</span> components<span class="token punctuation">,</span> utilities<span class="token punctuation">,</span> overrides<span class="token punctuation">;</span></span>
+
+<span class="token comment">/* import stylesheets into a layer (dot syntax represents nesting) */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"framework.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>components.framework<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+
+<span class="token comment">/* add styles to layers */</span>
+<span class="token atrule"><span class="token rule">@layer</span> utilities</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* high layer priority, despite low specificity */</span>
+  <span class="token selector"><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">data-color</span><span class="token operator">=</span><span class="token attr-value">"brand"</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span><span class="token variable">--brand</span><span class="token punctuation">,</span> rebeccapurple<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@layer</span> defaults</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* higher specificity, but lower layer priority */</span>
+  <span class="token selector">a<span class="token pseudo-class">:any-link</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">maroon</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* un-layered styles have the highest priority */</span>
+<span class="token selector">a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">mediumvioletred</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="introduction-what-are-cascade-layers"><a href="https://css-tricks.com/css-cascade-layers/#aa-introduction-what-are-cascade-layers"></a>Introduction: what are cascade layers?<a aria-hidden="true" class="anchor-heading icon-link" href="#introduction-what-are-cascade-layers"></a></h3>
+<p>CSS Cascade Layers are intended to solve tricky problems in CSS. Let’s take a look at <strong>the main problem</strong> and how cascade layers aim to solve it.</p>
+<h4 id="problem-specificity-conflicts-escalate"><a href="https://css-tricks.com/css-cascade-layers/#aa-problem-specificity-conflicts-escalate"></a>Problem: Specificity conflicts escalate<a aria-hidden="true" class="anchor-heading icon-link" href="#problem-specificity-conflicts-escalate"></a></h4>
+<p>Many of us have been in situations where we want to override styles from elsewhere in our code (or a third-party tool), due to conflicting selectors. And over the years, authors have developed a number of “methodologies” and “best practices” to avoid these situations — such as “only using a single class” for all selectors. These rules are usually more about avoiding the cascade, rather than <a href="https://css-tricks.com/dont-fight-the-cascade-control-it/">putting it to use</a>.</p>
+<p>Managing cascade conflicts and selector specificity has often been considered one of the harder — or at least more confusing — aspects of CSS. That may be partly because few other languages rely on a cascade as their central feature, but it’s also true that the original cascade relies heavily on <em>heuristics</em> (an educated-guess or assumption built into the code) rather than providing direct and explicit control to web authors.</p>
+<p>Selector specificity, for example — our primary interaction with the cascade — is based on the assumption that more narrowly targeted styles (like IDs that are only used once) are likely more important than more generic and reusable styles (like classes and attributes). That is to say: how <em>specific</em> the selector is. That’s a good guess, but it’s not a totally reliable rule, and that causes some issues:</p>
+<ul>
+<li>It combines the act of <em>selecting elements</em>, with the act of <em>prioritizing rule-sets</em>.</li>
+<li>The simplest way to ‘fix’ a conflict with specificity is to escalate the problem by adding otherwise unnecessary selectors, or (gasp) <a href="https://css-tricks.com/when-using-important-is-the-right-choice/">throwing the</a> <a href="https://css-tricks.com/when-using-important-is-the-right-choice/"><code>!important</code> hand-grenade</a>.</li>
+</ul>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.overly</span><span class="token id">#powerful</span> <span class="token class">.framework</span><span class="token class">.widget</span></span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">maroon</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.my-single_class</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* add some IDs to this ??? */</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> rebeccapurple<span class="token punctuation">;</span> <span class="token comment">/* add !important ??? */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="solution-cascade-layers-provide-control"><a href="https://css-tricks.com/css-cascade-layers/#aa-solution-cascade-layers-provide-control"></a>Solution: cascade layers provide control<a aria-hidden="true" class="anchor-heading icon-link" href="#solution-cascade-layers-provide-control"></a></h4>
+<p>Cascade layers give CSS authors more direct control over the cascade so we can build more intentionally cascading systems without relying as much on heuristic assumptions that are tied to selection.</p>
+<p>Using the <code>@layer</code> at-rule and layered <code>@import</code>s, we can establish our own <em>layers of the cascade</em> — building from low-priority styles like resets and defaults, through themes, frameworks, and design systems, up to highest-priority styles, like components, utilities, and overrides. Specificity is still applied to conflicts <em>within each layer</em>, but conflicts between layers are always resolved by using the higher-priority layer styles.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> framework</span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token class">.overly</span><span class="token id">#powerful</span> <span class="token class">.framework</span><span class="token class">.widget</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">maroon</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@layer</span> site</span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token class">.my-single_class</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> rebeccapurple<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>These layers are ordered and grouped so that they don’t escalate in the same way that specificity and importance can. Cascade layers aren’t cumulative like selectors. Adding <em>more layers</em> doesn’t make something <em>more important</em>. They’re also not binary like importance — suddenly jumping to the top of a stack — or numbered like <code>z-index</code>, where we have to guess a big number (<code>z-index:</code> <code>9999999</code>?). In fact, by default, layered styles are <em>less important</em> than un-layered styles.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> defaults</span> <span class="token punctuation">{</span>
+  <span class="token selector">a<span class="token pseudo-class">:any-link</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">maroon</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* un-layered styles have the highest priority */</span>
+<span class="token selector">a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">mediumvioletred</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="where-do-layers-fit-in-the-cascade"><a href="https://css-tricks.com/css-cascade-layers/#aa-where-do-layers-fit-in-the-cascade"></a>Where do layers fit in the cascade?<a aria-hidden="true" class="anchor-heading icon-link" href="#where-do-layers-fit-in-the-cascade"></a></h3>
+<p>The cascade is a series of steps (an algorithm) for resolving conflicts between styles.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token variable">--button</span><span class="token punctuation">:</span> <span class="token color">teal</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">button</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> rebeccapurple <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.warning</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">maroon</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>warning<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span><span class="token variable">--button</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+  what color background?
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>With the addition of cascade layers, those steps are:</p>
+<p><a href="https://css-tricks.com/wp-content/uploads/2022/02/layers-tall-outlines2.svg">Illustration of the various specificity levels of the CSS cascade and where CSS Cascade Layers fit in it.</a></p>
+<p><em>Selector specificity</em> is only one small part of the cascade, but it’s also the step we interact with most, and is often used to refer more generally to overall <em>cascade priority</em>. People might say that the <code>!important</code> flag or the <code>style</code> attribute “adds specificity” — a quick way of expressing that the style becomes higher priority in the cascade. Since cascade layers have been added directly above specificity, it’s reasonable to think about them in a similar way: one step more powerful than ID selectors.</p>
+<p>However, CSS Cascade Layers also make it more essential that we fully understand the role of <code>!important</code> in the cascade — not just as a tool for “increasing specificity” but as a system for balancing concerns.</p>
+<h3 id="important-origins-context-and-layers-are-reversed"><a href="https://css-tricks.com/css-cascade-layers/#aa-important-origins-context-and-layers-are-reversed"></a><code>!important</code> origins, context, and layers are reversed!<a aria-hidden="true" class="anchor-heading icon-link" href="#important-origins-context-and-layers-are-reversed"></a></h3>
+<p>As web authors, we often think of <code>!important</code> as a way of increasing specificity, to override inline styles or highly specific selectors. That works OK in most cases (if you’re OK with the escalation) but it leaves out the primary purpose of <em>importance</em> as a feature in the overall cascade.</p>
+<p>Importance isn’t there to simply increase power — but to balance the power between various competing concerns.</p>
+<h4 id="important-origins"><a href="https://css-tricks.com/css-cascade-layers/#aa-important-origins"></a>Important origins<a aria-hidden="true" class="anchor-heading icon-link" href="#important-origins"></a></h4>
+<p>It all starts with origins, where a style comes from in the web ecosystem. There are three basic origins in CSS:</p>
+<ul>
+<li>The <strong>browser</strong> (or user agent)</li>
+<li>The <strong>user</strong> (often via browser preferences)</li>
+<li>Web <strong>authors</strong> (that’s us!)</li>
+</ul>
+<p>Browsers provide readable defaults for all the elements, and then users set their preferences, and then we (authors) provide the intended design for our web pages. So, by default, browsers have the lowest priority, user preferences override the browser defaults, and we’re able to override everyone.</p>
+<p>But the creators of CSS were very clear that we should not actually have the final word:</p>
+<blockquote>
+<p>If conflicts arise <strong>the user should have the last word</strong>, but one should also allow the author to attach style hints.</p>
+<p>— Håkon Lie (emphasis added)</p>
+</blockquote>
+<p>So <em>importance</em> provides a way for the browser and users to re-claim their priority when it matters most. When the <code>!important</code> flag is added to a style, three new layers are created — and the order is reversed!</p>
+<ol>
+<li><code>!important</code> browser styles (most powerful)</li>
+<li><code>!important</code> user preferences</li>
+<li><code>!important</code> author styles</li>
+<li>normal author styles</li>
+<li>normal user preferences</li>
+<li>normal browser styles (least powerful)</li>
+</ol>
+<p>For us, adding <code>!important</code> doesn’t change much — our important styles are pretty close to our normal styles — but for the browser and user it’s a very powerful tool for regaining control. Browser default style sheets include a number of important styles that it would be impossible for us to override, such as:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">iframe<span class="token pseudo-class">:fullscreen</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* iframes in full-screen mode don't show a border. */</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> unset <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>While most of the popular browsers have made it difficult to upload actual user stylesheets, they all offer user preferences: a graphic interface for establishing specific user styles. In that interface, there is always a checkbox available for users to choose if a site is allowed to override their preferences or not. This is the same as setting <code>!important</code> in a user stylesheet:</p>
+<p><a href="https://i0.wp.com/css-tricks.com/wp-content/uploads/2022/02/s_7269BD7CFF110C0C4578DCFE42CFC0B66C7F29AA3E50D4ABC024C679BD62AAD8_1643829199568_ScreenShot2022-02-02at12.11.33PM.jpg?resize=1320%2C996&#x26;ssl=1">Screenshot of user font preferences.</a></p>
+<h4 id="important-context"><a href="https://css-tricks.com/css-cascade-layers/#aa-important-context"></a>Important context<a aria-hidden="true" class="anchor-heading icon-link" href="#important-context"></a></h4>
+<p>The same basic logic is applied to <em>context</em> in the cascade. By default, styles from the host document (light DOM) override styles from an embedded context (shadow DOM). However, adding <code>!important</code> reverses the order:</p>
+<ol>
+<li><code>!important</code> shadow context (most powerful)</li>
+<li><code>!important</code> host context</li>
+<li>normal host context</li>
+<li>normal shadow context (least powerful)</li>
+</ol>
+<p>Important styles that come from inside a shadow context override important styles defined by the host document. Here’s an <code>odd-bird</code> <a href="https://css-tricks.com/an-introduction-to-web-components/">custom element</a> with some styles written in the element template (shadow DOM), and some styles in the host page (light DOM) stylesheet:</p>
+<p>CodePen Embed Fallback</p>
+<p>Both <code>color</code> declarations have normal importance, and so the host page <code>mediumvioletred</code> takes priority. But the <code>font-family</code> declarations are flagged <code>!important</code>, giving advantage to the shadow-context, where <code>fantasy</code> is defined.</p>
+<h4 id="important-layers"><a href="https://css-tricks.com/css-cascade-layers/#aa-important-layers"></a>Important layers<a aria-hidden="true" class="anchor-heading icon-link" href="#important-layers"></a></h4>
+<p>Cascade layers work the same way as both origins and context, with the important layers in reverse-order. The only difference is that layers make that behavior much more noticeable.</p>
+<p>Once we start using cascade layers, we will need to be much more cautious and intentional about how we use <code>!important</code>. It’s no longer a quick way to jump to the top of the priorities — but an integrated part of our cascade layering; a way for lower layers to <em>insist</em> that some of their styles are essential.</p>
+<p>Since cascade layers are customizable, there’s no pre-defined order. But we can imagine starting with three layers:</p>
+<ol>
+<li>utilities (most powerful)</li>
+<li>components</li>
+<li>defaults (least powerful)</li>
+</ol>
+<p>When styles in those layers are marked as important, they would generate three new, reversed important layers:</p>
+<ol>
+<li><code>!important</code> defaults (most powerful)</li>
+<li><code>!important</code> components</li>
+<li><code>!important</code> utilities</li>
+<li>normal utilities</li>
+<li>normal components</li>
+<li>normal defaults (least powerful)</li>
+</ol>
+<p>In this example, the color is defined by all three normal layers, and the <code>utilities</code> layer wins the conflict, applying the <code>maroon</code> color, as the <code>utilities</code> layer has a higher priority in <code>@layers</code>. But notice that the <code>text-decoration</code> property is marked <code>!important</code> in both the <code>defaults</code> and <code>components</code> layers, where important <code>defaults</code> take priority, applying the underline declared by <code>defaults</code>:</p>
+<p>CodePen Embed Fallback</p>
+<h3 id="establishing-a-layer-order"><a href="https://css-tricks.com/css-cascade-layers/#aa-establishing-a-layer-order"></a>Establishing a layer order<a aria-hidden="true" class="anchor-heading icon-link" href="#establishing-a-layer-order"></a></h3>
+<p>We can create any number of layers and name them or group them in various ways. But the most important thing to do is to make sure our layers are applied in the right order of priority.</p>
+<p>A single layer can be used multiple times throughout the codebase — cascade layers stack in the order they <em>first appear</em>. The first layer encountered sits at the bottom (least powerful), and the last layer at the top (most powerful). But then, above that, <strong>un-layered styles have the highest priority</strong>:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> layer-1</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> layer-2</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">orange</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> layer-3</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">yellow</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* un-layered */</span>
+<span class="token selector">a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">green</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol>
+<li>un-layered styles (most powerful)</li>
+<li>layer-3</li>
+<li>layer-2</li>
+<li>layer-1 (least powerful)</li>
+</ol>
+<p>Then, as discussed above, any important styles are applied in a reverse order:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> layer-1</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> layer-2</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">orange</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> layer-3</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">yellow</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* un-layered */</span>
+<span class="token selector">a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">green</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol>
+<li><code>!important</code> layer-1 (most powerful)</li>
+<li><code>!important</code> layer-2</li>
+<li><code>!important</code> layer-3</li>
+<li><code>!important</code> un-layered styles</li>
+<li>normal un-layered styles</li>
+<li>normal layer-3</li>
+<li>normal layer-2</li>
+<li>normal layer-1 (least powerful)</li>
+</ol>
+<p>Layers can also be grouped, allowing us to do more complicated sorting of top-level and nested layers:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> layer-1</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> layer-2</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">orange</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> layer-3</span> <span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@layer</span> sub-layer-1</span> <span class="token punctuation">{</span>
+    <span class="token selector">a</span> <span class="token punctuation">{</span>
+      <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">yellow</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token atrule"><span class="token rule">@layer</span> sub-layer-2</span> <span class="token punctuation">{</span>
+    <span class="token selector">a</span> <span class="token punctuation">{</span>
+      <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">green</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">/* un-nested */</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* un-layered */</span>
+<span class="token selector">a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">indigo</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol>
+<li>un-layered styles (most powerful)</li>
+<li>layer-3
+<ol>
+<li>layer-3 un-nested</li>
+<li>layer-3 sub-layer-2</li>
+<li>layer-3 sub-layer-1</li>
+</ol>
+</li>
+<li>layer-2</li>
+<li>layer-1 (least powerful)</li>
+</ol>
+<p>Grouped layers always stay together in the final layer order (for example, sub-layers of layer-3 will all be next to each other), but this otherwise behaves the same as if the list was “flattened” — turning this into a single six-item list. When reversing <code>!important</code> layer order, the entire list flattened is reversed.</p>
+<p>But layers don’t have to be defined once in a single location. We give them names so that layers can be defined in one place (to establish layer order), and then we can append styles to them from anywhere:</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* describe the layer in one place */</span>
+<span class="token atrule"><span class="token rule">@layer</span> my-layer<span class="token punctuation">;</span></span>
+
+<span class="token comment">/* append styles to it from anywhere */</span>
+<span class="token atrule"><span class="token rule">@layer</span> my-layer</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>We can even define a whole ordered list of layers in a single declaration:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> one<span class="token punctuation">,</span> two<span class="token punctuation">,</span> three<span class="token punctuation">,</span> four<span class="token punctuation">,</span> five<span class="token punctuation">,</span> etc<span class="token punctuation">;</span></span>
+</code></pre>
+<p>This makes it possible for the author of a site to have final say over the layer order. By providing a layer order up-front, before any third party code is imported, the order can be established and rearranged in one place without worrying about how layers are used in any third-party tool.</p>
+<h3 id="syntax-working-with-cascade-layers"><a href="https://css-tricks.com/css-cascade-layers/#aa-syntax-working-with-cascade-layers"></a>Syntax: Working with cascade layers<a aria-hidden="true" class="anchor-heading icon-link" href="#syntax-working-with-cascade-layers"></a></h3>
+<p>Let’s take a look at the syntax!</p>
+<h4 id="order-setting-layer-statements"><a href="https://css-tricks.com/css-cascade-layers/#aa-order-setting-layer-statements"></a>Order-setting <code>@layer</code> statements<a aria-hidden="true" class="anchor-heading icon-link" href="#order-setting-layer-statements"></a></h4>
+<p>Since layers are stacked in the order they are defined, it’s important that we have a tool for establishing that order all in one place!</p>
+<p>We can use <code>@layer</code> statements to do that. The syntax is:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> &#x3C;layer-name>#<span class="token punctuation">;</span></span>
+</code></pre>
+<p>That hash (<code>#</code>) means we can add as many layer names as we want in a comma-separated list:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> reset<span class="token punctuation">,</span> defaults<span class="token punctuation">,</span> framework<span class="token punctuation">,</span> components<span class="token punctuation">,</span> utilities<span class="token punctuation">;</span></span>
+</code></pre>
+<p>That will establish the layer order:</p>
+<ol>
+<li>un-layered styles (most powerful)</li>
+<li>utilities</li>
+<li>components</li>
+<li>framework</li>
+<li>defaults</li>
+<li>reset (least powerful)</li>
+</ol>
+<p>We can do this as many times as we want, but remember: what matters is the order each name <em>first appears</em>. So this will have the same result:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> reset<span class="token punctuation">,</span> defaults<span class="token punctuation">,</span> framework<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@layer</span> components<span class="token punctuation">,</span> defaults<span class="token punctuation">,</span> framework<span class="token punctuation">,</span> reset<span class="token punctuation">,</span> utilities<span class="token punctuation">;</span></span>
+</code></pre>
+<p>The ordering logic will ignore the order of <code>reset</code>, <code>defaults</code>, and <code>framework</code> in the second <code>@layer</code> rule because those layers have already been established. This <code>@layer</code> list syntax doesn’t add any special magic to the layer ordering logic: layers are stacked based on <em>the order in which the layers first appear in your code</em>. In this case, <code>reset</code> appears first in the first <code>@layer</code> list. Any <code>@layer</code> statement that comes later can only append layer names to the list, <em>but can’t move layers that already exist</em>. This ensures that you can always control the final overall layer order from one location — at the very start of your styles.</p>
+<p>These layer-ordering statements are allowed at the top of a stylesheet, before the <code>@import</code> rule (but not between imports). We highly recommend using this feature to establish all your layers up-front in a single place so you always know where to look or make changes.</p>
+<h4 id="block-layer-rules"><a href="https://css-tricks.com/css-cascade-layers/#aa-block-layer-rules"></a>Block <code>@layer</code> rules<a aria-hidden="true" class="anchor-heading icon-link" href="#block-layer-rules"></a></h4>
+<p>The block version of the <code>@layer</code> rule only takes a single layer name, but then allows you to add styles to that layer:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> &#x3C;layer-name></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* styles added to the layer */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>You can put most things inside an <code>@layer</code> block — media queries, selectors and styles, support queries, etc. The only things you can’t put inside a layer block are things like charset, imports, and namespaces. But don’t worry, there is a syntax for importing styles into a layer.</p>
+<p>If the layer name hasn’t been established before, this layer rule will add it to the layer order. But if the name has been established, this allows you to add styles to existing layers from anywhere in the document — without changing the priority of each layer.</p>
+<p>If we’ve established our layer-order up-front with the layer statement rule, we no longer need to worry about the order of these layer blocks:</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* establish the order up-front */</span>
+<span class="token atrule"><span class="token rule">@layer</span> defaults<span class="token punctuation">,</span> components<span class="token punctuation">,</span> utilities<span class="token punctuation">;</span></span>
+
+<span class="token comment">/* add styles to layers in any order */</span>
+<span class="token atrule"><span class="token rule">@layer</span> utilities</span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">hidden</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* utilities will override defaults, based on established order */</span>
+<span class="token atrule"><span class="token rule">@layer</span> defaults</span> <span class="token punctuation">{</span>
+  <span class="token selector">*</span> <span class="token punctuation">{</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">img</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="grouping-nested-layers"><a href="https://css-tricks.com/css-cascade-layers/#aa-grouping-nested-layers"></a>Grouping (nested) layers<a aria-hidden="true" class="anchor-heading icon-link" href="#grouping-nested-layers"></a></h4>
+<p>Layers can be grouped, by nesting layer rules:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> one</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* sorting the sub-layers */</span>
+  <span class="token atrule"><span class="token rule">@layer</span> two<span class="token punctuation">,</span> three<span class="token punctuation">;</span></span>
+
+  <span class="token comment">/* styles ... */</span>
+  <span class="token atrule"><span class="token rule">@layer</span> three</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* styles ... */</span>
+  <span class="token punctuation">}</span>
+  <span class="token atrule"><span class="token rule">@layer</span> two</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* styles ... */</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This generates grouped layers that can be represented by joining the parent and child names with a period. That means the resulting sub-layers can also be accessed directly from outside the group:</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* sorting nested layers directly */</span>
+<span class="token atrule"><span class="token rule">@layer</span> one.two<span class="token punctuation">,</span> one.three<span class="token punctuation">;</span></span>
+
+<span class="token comment">/* adding to nested layers directly */</span>
+<span class="token atrule"><span class="token rule">@layer</span> one.three</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> one.two</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The rules of layer-ordering apply at each level of nesting. Any styles that are not further nested are considered “un-layered” in that context, and have priority over further nested styles:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> defaults</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* un-layered defaults (higher priority) */</span>
+  <span class="token selector"><span class="token pseudo-class">:any-link</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> rebeccapurple<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/* layered defaults (lower priority) */</span>
+  <span class="token atrule"><span class="token rule">@layer</span> reset</span> <span class="token punctuation">{</span>
+    <span class="token selector">a<span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">href</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+      <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Grouped layers are also contained within their parent, so that the layer order does not intermix across groups. In this example, the top level layers are sorted first, and then the layers are sorted within each group:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> reset.type<span class="token punctuation">,</span> default.type<span class="token punctuation">,</span> reset.media<span class="token punctuation">,</span> default.media<span class="token punctuation">;</span></span>
+</code></pre>
+<p>Resulting in a layer order of:</p>
+<ul>
+<li><em>un-layered</em> (most powerful)</li>
+<li>default group
+<ul>
+<li>default <em>un-layered</em></li>
+<li>default.media</li>
+<li>default.type</li>
+</ul>
+</li>
+<li>reset group
+<ul>
+<li>reset <em>un-layered</em></li>
+<li>reset.media</li>
+<li>reset.type</li>
+</ul>
+</li>
+</ul>
+<p>Note that layer names are also scoped so that they don’t interact or conflict with similarly-named layers outside their nested context. Both groups can have distinct <code>media</code> sub-layers.</p>
+<p>This grouping becomes especially important when using <code>@import</code> or <code>&#x3C;link></code> to layer entire stylesheets. A third-party tool, like <a href="https://getbootstrap.com/">Bootstrap</a>, could use layers internally — but we can nest those layers into a shared <code>bootstrap</code> layer-group on import, to avoid potential layer-naming conflicts.</p>
+<h4 id="layering-entire-stylesheets-with-import-or-link"><a href="https://css-tricks.com/css-cascade-layers/#aa-layering-entire-stylesheets-with-import-or-link"></a>Layering entire stylesheets with <code>@import</code> or <code>&#x3C;link></code><a aria-hidden="true" class="anchor-heading icon-link" href="#layering-entire-stylesheets-with-import-or-link"></a></h4>
+<p>Entire stylesheets can be added to a layer using the new <code>layer()</code> function syntax with <code>@import</code> rules:</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* styles imported into to the &#x3C;layer-name> layer */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"example.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>&#x3C;layer-name><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+</code></pre>
+<p>There is also a proposal to add a <code>layer</code> attribute in the HTML <code>&#x3C;link></code> element — although this is still under development, and <a href="https://css.oddbird.net/layers/guide/#assigning-layers-in-html-with-the-link-tag">not yet supported anywhere</a>. This can be used to import third-party tools or component libraries, while grouping any internal layers together under a single layer name — or as a way of organizing layers into distinct files.</p>
+<h4 id="anonymous-un-named-layers"><a href="https://css-tricks.com/css-cascade-layers/#aa-anonymous-un-named-layers"></a>Anonymous (un-named) layers<a aria-hidden="true" class="anchor-heading icon-link" href="#anonymous-un-named-layers"></a></h4>
+<p>Layer names are helpful as they allow us to access the same layer from multiple places for sorting or combining layer blocks — but they are not required.</p>
+<p>It’s possible to create <em>anonymous</em> (un-named) layers using the block layer rule:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Or using the import syntax, with a <code>layer</code> keyword in place of the <code>layer()</code> function:</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* styles imported into to a new anonymous layer */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"../example.css"</span><span class="token punctuation">)</span></span> layer<span class="token punctuation">;</span></span>
+</code></pre>
+<p>Each anonymous layer is unique, and added to the layer order where it is encountered. Anonymous layers can’t be referenced from other layer rules for sorting or appending more styles.</p>
+<p>These should probably be used sparingly, but there might be a few use cases:</p>
+<ul>
+<li>Projects could ensure that all styles for a given layer are required to be located in a single place.</li>
+<li>Third-party tools could “hide” their internal layering inside anonymous layers so that they don’t become part of the tool’s public API.</li>
+</ul>
+<h4 id="reverting-values-to-the-previous-layer"><a href="https://css-tricks.com/css-cascade-layers/#aa-reverting-values-to-the-previous-layer"></a>Reverting values to the previous layer<a aria-hidden="true" class="anchor-heading icon-link" href="#reverting-values-to-the-previous-layer"></a></h4>
+<p>There are several ways that we can use to “revert” a style in the cascade to a previous value, defined by a lower priority origin or layer. That includes a number of existing global CSS values, and a new <code>revert-layer</code> keyword that will also be global (works on any property).</p>
+<h5 id="context-existing-global-cascade-keywords"><a href="https://css-tricks.com/css-cascade-layers/#aa-context-existing-global-cascade-keywords"></a>Context: Existing global cascade keywords*<a aria-hidden="true" class="anchor-heading icon-link" href="#context-existing-global-cascade-keywords"></a></h5>
+<p>CSS has several <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/all#values">global keywords</a> which can be used on any property to help roll-back the cascade in various ways.</p>
+<ul>
+<li><code>**initial**</code> sets a property to the <em>specified</em> value before any styles (including browser defaults) are applied. This can be surprising as we often think of browser styles as the initial value — but, for example, the <code>initial</code> value of <code>display</code> is <code>inline</code>, no matter what element we use it on.</li>
+<li><code>**inherit**</code> sets the property to apply a value from its parent element. This is the default for inherited properties, but can still be used to remove a previous value.</li>
+<li><code>**unset**</code> acts as though simply removing all previous values — so that inherited properties once again <code>inherit</code>, while non-inherited properties return to their <code>initial</code> value.</li>
+<li><code>**revert**</code> only removes values that we’ve applied in the author origin (i.e. the site styles). This is what we want in most cases, since it allows the browser and user styles to remain intact.</li>
+</ul>
+<h5 id="new-the-revert-layer-keyword"><a href="https://css-tricks.com/css-cascade-layers/#aa-new-the-revert-layer-keyword"></a>New: the <code>revert-layer</code> keyword<a aria-hidden="true" class="anchor-heading icon-link" href="#new-the-revert-layer-keyword"></a></h5>
+<p>Cascade layers add a new global <code>revert-layer</code> keyword. It works the same as <code>revert</code>, but only removes values that we’ve applied in the current cascade layer. We can use that to roll back the cascade, and use whatever value was defined in the previous layers.</p>
+<p>In this example, the <code>no-theme</code> class removes any values set in the <code>theme</code> layer.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> default</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">maroon</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@layer</span> theme</span> <span class="token punctuation">{</span>
+  <span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span><span class="token variable">--brand-primary</span><span class="token punctuation">,</span> <span class="token color">purple</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token selector"><span class="token class">.no-theme</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> revert-layer<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>So a link tag with the <code>.no-theme</code> class will roll back to use the value set in the <code>default</code> layer. When <code>revert-layer</code> is used in un-layered styles, it behaves the same as <code>revert</code> — rolling back to the previous origin.</p>
+<h5 id="reverting-important-layers"><a href="https://css-tricks.com/css-cascade-layers/#aa-reverting-important-layers"></a>Reverting important layers<a aria-hidden="true" class="anchor-heading icon-link" href="#reverting-important-layers"></a></h5>
+<p>Things get interesting if we add <code>!important</code> to the <code>revert-layer</code> keyword. Because each layer has two distinct “normal” and “important” <a href="https://css.oddbird.net/layers/guide/#important-layers">positions in the cascade</a>, this doesn’t simply change the priority of the declaration — it changes what layers are reverted.</p>
+<p>Let’s assume we have three layers defined, in a layer stack that looks like this:</p>
+<ol>
+<li>utilities (most powerful)</li>
+<li>components</li>
+<li>defaults (least powerful)</li>
+</ol>
+<p>We can flesh that out to include not just normal and important positions of each layer, but also un-layered styles, and animations:</p>
+<ol>
+<li><code>!important</code> defaults (most powerful)</li>
+<li><code>!important</code> components</li>
+<li><code>!important</code> utilities</li>
+<li><code>!important</code> un-layered styles</li>
+<li>CSS animations</li>
+<li>normal un-layered styles</li>
+<li>normal utilities</li>
+<li>normal components</li>
+<li>normal defaults (least powerful)</li>
+</ol>
+<p>Now, when we use <code>revert-layer</code> in a normal layer (let’s use <code>utilities</code>) the result is fairly direct. We revert <em>only that layer</em>, while everything else applies normally:</p>
+<ol>
+<li>✅ <code>!important</code> defaults (most powerful)</li>
+<li>✅ <code>!important</code> components</li>
+<li>✅ <code>!important</code> utilities</li>
+<li>✅ <code>!important</code> un-layered styles</li>
+<li>✅ CSS animations</li>
+<li>✅ normal un-layered styles</li>
+<li>❌ normal utilities</li>
+<li>✅ normal components</li>
+<li>✅ normal defaults (least powerful)</li>
+</ol>
+<p>But when we move that <code>revert-layer</code> into the important position, we revert both the normal and important versions <em>along with everything in-between</em>:</p>
+<ol>
+<li>✅ <code>!important</code> defaults (most powerful)</li>
+<li>✅ <code>!important</code> components</li>
+<li>❌ <code>!important</code> utilities</li>
+<li>❌ <code>!important</code> un-layered styles</li>
+<li>❌ CSS animations</li>
+<li>❌ normal un-layered styles</li>
+<li>❌ normal utilities</li>
+<li>✅ normal components</li>
+<li>✅ normal defaults (least powerful)</li>
+</ol>
+<h3 id="use-cases-when-would-i-want-to-use-cascade-layers"><a href="https://css-tricks.com/css-cascade-layers/#aa-use-cases-when-would-i-want-to-use-cascade-layers"></a>Use cases: When would I want to use cascade layers?<a aria-hidden="true" class="anchor-heading icon-link" href="#use-cases-when-would-i-want-to-use-cascade-layers"></a></h3>
+<p>So what sort of situations might we find ourselves using cascade layers? Here are several examples of when cascade layers make a lot of sense, as well as others where they <em>do not</em> make a lot sense.</p>
+<h4 id="less-intrusive-resets-and-defaults"><a href="https://css-tricks.com/css-cascade-layers/#aa-less-intrusive-resets-and-defaults"></a>Less intrusive resets and defaults<a aria-hidden="true" class="anchor-heading icon-link" href="#less-intrusive-resets-and-defaults"></a></h4>
+<p>One of the clearest initial use cases would be to make low-priority defaults that are easy to override.</p>
+<p>Some resets have been doing this already by applying the <code>:where()</code> pseudo-class around each selector. <code>:where()</code> removes all specificity from the selectors it is applied to, which has the basic impact desired, but also some downsides:</p>
+<ul>
+<li>It has to be applied to each selector individually</li>
+<li>Conflicts inside the reset have to be resolved without specificity</li>
+</ul>
+<p>Layers allow us to more simply wrap the entire reset stylesheet, either using the block <code>@layer</code> rule:</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* reset.css */</span>
+<span class="token atrule"><span class="token rule">@layer</span> reset</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* all reset styles in here */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Or when you import the reset:</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* reset.css */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>reset.css<span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>reset<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+</code></pre>
+<p>Or both! Layers can be nested without changing their priority. This way, you can use a third-party reset, and ensure it gets added to the layer you want whether or not the reset stylesheet itself is written using layers internally.</p>
+<p>Since layered styles have a lower priority than default “un-layered” styles, this is a good way to start using cascade layers without re-writing your entire CSS codebase.</p>
+<p>The reset selectors still have specificity information to help resolve internal conflicts, without wrapping each individual selector — but you also get the desired outcome of a reset stylesheet that is easy to override.</p>
+<h4 id="managing-a-complex-css-architecture"><a href="https://css-tricks.com/css-cascade-layers/#aa-managing-a-complex-css-architecture"></a>Managing a complex CSS architecture<a aria-hidden="true" class="anchor-heading icon-link" href="#managing-a-complex-css-architecture"></a></h4>
+<p>As projects become larger and more complex, it can be useful to define clearer boundaries for naming and organizing CSS code. But the more CSS we have, the more potential we have for conflicts — especially from different parts of a system like a “theme” or a “component library” or a set of “utility classes.”</p>
+<p>Not only do we want these organized by function, but it can also be useful to organize them based on what parts of the system take priority in the case of a conflict. <a href="https://csswizardry.com/2018/11/itcss-and-skillshare/">Harry Robert’s Inverted Triangle CSS</a> does a good job visualizing what those layers might contain.</p>
+<p><a href="https://paper-attachments.dropbox.com/s_B537A5BED99F493B05AC662831B02D71D0E588F0E159BD62B299D5F9F4173CB4_1644605716738_itcss-layers2.svg">itcss-layers2</a></p>
+<p>In fact, the initial pitch for adding layers to the CSS cascade used the ITCSS methodology as a primary example, and a guide for developing the feature.</p>
+<p>There is no particular technique required for this, but it’s likely helpful to restrict projects to a pre-defined set of top-level layers and then extend that set with nested layers as appropriate.</p>
+<p>For example:</p>
+<ol>
+<li><strong>low level reset</strong> and normalization styles</li>
+<li><strong>element defaults</strong>, for basic typography and legibility</li>
+<li><strong>themes</strong>, like light and dark modes</li>
+<li><strong>re-usable patterns</strong> that might appear across multiple components</li>
+<li><strong>layouts</strong> and larger page structures</li>
+<li>individual <strong>components</strong></li>
+<li><strong>overrides</strong> and <strong>utilities</strong></li>
+</ol>
+<p>We can create that top-level layer stack at the very start of our CSS, with a single layer statement:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> reset<span class="token punctuation">,</span>
+  default<span class="token punctuation">,</span>
+  themes<span class="token punctuation">,</span>
+  patterns<span class="token punctuation">,</span>
+  layouts<span class="token punctuation">,</span>
+  components<span class="token punctuation">,</span>
+  utilities<span class="token punctuation">;</span></span>
+</code></pre>
+<p>The exact layers needed, and how you name those layers, might change from one project to the next.</p>
+<p>From there, we create even more detailed layer breakdowns. Maybe our components themselves have defaults, structures, themes, and utilities internally.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> components</span> <span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@layer</span> defaults<span class="token punctuation">,</span> structures<span class="token punctuation">,</span> themes<span class="token punctuation">,</span> utilities<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Without changing the top-level structure, we now have a way to further layer the styles within each component.</p>
+<h4 id="using-third-party-tools-and-frameworks"><a href="https://css-tricks.com/css-cascade-layers/#aa-using-third-party-tools-and-frameworks"></a>Using third-party tools and frameworks<a aria-hidden="true" class="anchor-heading icon-link" href="#using-third-party-tools-and-frameworks"></a></h4>
+<p>Integrating third-party CSS with a project is one of the most common places to run into cascade issues. Whether we’re using a shared reset like Normalizer or CSS Remedy, a generic design system like Material Design, a framework like Bootstrap, or a utility toolkit like Tailwind — we can’t always control the selector specificity or importance of all the CSS being used on our sites. Sometimes, this even extends to internal libraries, design systems, and tools managed elsewhere in an organization.</p>
+<p>As a result, we often have to structure our internal CSS around the third-party code, or escalate conflicts when they come up — with artificially high specificity or <code>!important</code> flags. And then we have to maintain those hacks over time, adapting to upstream changes.</p>
+<p>Cascade layers give us a way to slot third-party code into the cascade of any project exactly where we want it to live — no matter how selectors are written internally. Depending on the type of library we’re using, we might do that in various ways. Let’s start with a basic layer-stack, working our way up from resets to utilities:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> reset<span class="token punctuation">,</span> type<span class="token punctuation">,</span> theme<span class="token punctuation">,</span> components<span class="token punctuation">,</span> utilities<span class="token punctuation">;</span></span>
+</code></pre>
+<p>And then we can incorporate some tools…</p>
+<h5 id="using-a-reset"><a href="https://css-tricks.com/css-cascade-layers/#aa-using-a-reset"></a>Using a reset<a aria-hidden="true" class="anchor-heading icon-link" href="#using-a-reset"></a></h5>
+<p>If we’re using a tool like <a href="https://css-tricks.com/css-remedy/">CSS Remedy</a>, we might also have some reset styles of our own that we want to include. Let’s import CSS Remedy into a sub-layer of <code>reset</code>:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"remedy.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>reset.remedy<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+</code></pre>
+<p>Now we can add our own reset styles to the <code>reset</code> layer, without any further nesting (unless we want it). Since styles directly in <code>reset</code> will override any further nested styles, we can be sure our styles will always take priority over CSS Remedy if there’s a conflict — no matter what changes in a new release:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"remedy.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>reset.remedy<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+
+<span class="token atrule"><span class="token rule">@layer</span> reset</span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token pseudo-class">:is</span><span class="token punctuation">(</span>ol<span class="token punctuation">,</span> ul<span class="token punctuation">)</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">role</span><span class="token operator">=</span><span class="token attr-value">"list"</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+    <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">padding-inline-start</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>And since the <code>reset</code> layer is at the bottom of the stack, the rest of the CSS in our system will override both Remedy, and our own local reset additions.</p>
+<h5 id="using-utility-classes"><a href="https://css-tricks.com/css-cascade-layers/#aa-using-utility-classes"></a>Using utility classes<a aria-hidden="true" class="anchor-heading icon-link" href="#using-utility-classes"></a></h5>
+<p>At the other end of our stack, “utility classes” in CSS can be a useful way to reproduce common patterns (like additional context for screen readers) in a broadly-applicable way. Utilities tend to break the specificity heuristic, since we want them defined broadly (resulting in a low specificity), but we also generally want them to “win” conflicts.</p>
+<p>By having a <code>utilities</code> layer at the top of our layer stack, we can make that possible. We can use that in a similar way to the reset example, both loading external utilities into a sub-layer, and providing our own:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"tailwind.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>utilities.tailwind<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+
+<span class="token atrule"><span class="token rule">@layer</span> utilities</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* from https://kittygiraudel.com/snippets/sr-only-class/ */</span>
+  <span class="token comment">/* but with !important removed from the properties */</span>
+  <span class="token selector"><span class="token class">.sr-only</span></span> <span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">clip</span><span class="token punctuation">:</span> <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">-webkit-clip-path</span><span class="token punctuation">:</span> <span class="token function">inset</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">inset</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">-1</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h5 id="using-design-systems-and-component-libraries"><a href="https://css-tricks.com/css-cascade-layers/#aa-using-design-systems-and-component-libraries"></a>Using design systems and component libraries<a aria-hidden="true" class="anchor-heading icon-link" href="#using-design-systems-and-component-libraries"></a></h5>
+<p>There are a lot of CSS tools that fall somewhere in the middle of our layer stack — combining typography defaults, themes, components, and other aspects of a system.</p>
+<p>Depending on the particular tool, we might do something similar to the reset and utility examples above — but there are a few other options. A highly integrated tool might deserve a top-level layer:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> reset<span class="token punctuation">,</span> bootstrap<span class="token punctuation">,</span> utilities<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"bootstrap.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>bootstrap<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+</code></pre>
+<p>If these tools start to provide layers as part of their public API, we could also break it down into parts — allowing us to intersperse our code with the library:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"bootstrap/reset.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>reset.bootstrap<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"bootstrap/theme.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>theme.bootstrap<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"bootstrap/components.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>components.bootstrap<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+
+<span class="token atrule"><span class="token rule">@layer</span> theme.local</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* styles here will override theme.bootstrap */</span>
+  <span class="token comment">/* but not interfere with styles from components.bootstrap */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="using-layers-with-existing-un-layered-important-filled-frameworks"><a href="https://css-tricks.com/css-cascade-layers/#aa-using-layers-with-existing-un-layered-important-filled-frameworks"></a>Using layers with existing (un-layered, !important-filled) frameworks<a aria-hidden="true" class="anchor-heading icon-link" href="#using-layers-with-existing-un-layered-important-filled-frameworks"></a></h4>
+<p>As with any major language change, there’s going to be an adjustment period when CSS Cascade Layers become widely adopted. What happens if your team is ready to start using layers next month, but your favorite framework decides to wait another three years before they switch over to layered styles? Many frameworks will likely still use <code>!important</code> more often than we’d like! With <code>!important</code> layers reversed, that’s not ideal.</p>
+<p>Still, layers can still help us solve the problem. We just have to get clever about it. We decide what layers we want for our project, and that means we can add layers above <em>and</em> also below the framework layers we create.</p>
+<p>For now, though, we can use a lower layer to override <code>!important</code> styles from the framework, and a higher layer to override normal styles. Something like this:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> framework.important<span class="token punctuation">,</span> framework.bootstrap<span class="token punctuation">,</span> framework.local<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"bootstrap.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>framework.bootstrap<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+
+<span class="token atrule"><span class="token rule">@layer</span> framework.local</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* most of our normal framework overrides can live here */</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@layer</span> framework.important</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* add !important styles in a lower layer */</span>
+  <span class="token comment">/* to override any !important framework styles */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>It still feels like a bit of a hack, but it helps move us in the right direction — towards a more structured cascade. Hopefully it’s a temporary fix.</p>
+<h4 id="designing-a-css-tool-or-framework"><a href="https://css-tricks.com/css-cascade-layers/#aa-designing-a-css-tool-or-framework"></a>Designing a CSS tool or framework<a aria-hidden="true" class="anchor-heading icon-link" href="#designing-a-css-tool-or-framework"></a></h4>
+<p>For anyone maintaining a CSS library, cascade layers can help with internal organization, and even become part of the developer API. By naming internal layers of a library, we can allow users of our framework to hook into those layers when customizing or overriding our provided styles.</p>
+<p>For example, Bootstrap could expose layers for their “reboot,” “grid,” and “utilities” — likely stacked in that order. Now a user can decide if they want to load those Bootstrap layers into different local layers:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>bootstrap/reboot.css<span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>reset<span class="token punctuation">)</span><span class="token punctuation">;</span></span> <span class="token comment">/* reboot » reset.reboot */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>bootstrap/grid.css<span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>layout<span class="token punctuation">)</span><span class="token punctuation">;</span></span> <span class="token comment">/* grid » layout.grid */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>bootstrap/utils.css<span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>override<span class="token punctuation">)</span><span class="token punctuation">;</span></span> <span class="token comment">/* utils » override.utils */</span>
+</code></pre>
+<p>Or the user might load them into a Bootstrap layer, with local layers interspersed:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> bs.reboot<span class="token punctuation">,</span> bs.grid<span class="token punctuation">,</span> bs.grid-overrides<span class="token punctuation">,</span> bs.utils<span class="token punctuation">,</span> bs.util-overrides<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"bootstrap-all.css"</span><span class="token punctuation">)</span></span> <span class="token function">layer</span><span class="token punctuation">(</span>bs<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+</code></pre>
+<p>It’s also possible to hide internal layering from users, when desired, by grouping any private/internal layers inside an anonymous (un-named) layer. Anonymous layers will get added to the layer order where they are encountered, but will not be exposed to users re-arranging or appending styles.</p>
+<h4 id="i-just-want-this-one-property-to-be-more-important"><a href="https://css-tricks.com/css-cascade-layers/#aa-i-just-want-this-one-property-to-be-more-important"></a>I just want this one property to be more <code>!important</code><a aria-hidden="true" class="anchor-heading icon-link" href="#i-just-want-this-one-property-to-be-more-important"></a></h4>
+<p>Counter to some expectations, layers don’t make it easy to quickly escalate a particular style so that it overrides another.</p>
+<p>If the majority of our styles are un-layered, then any new layer will be <em>de-prioritized</em> in relation to the default. We could do that to individual style blocks, but it would quickly become difficult to track.</p>
+<p>Layers are intended to be more foundational, not style-by-style, but establishing consistent patterns across a project. Ideally, if we’ve set that up right, we get the correct result by moving our style to the appropriate (and pre-defined) layer.</p>
+<p>If the majority of our styles already fall into well-defined layers, we can always consider adding a new highest-power layer at the top of a given stack, or using un-layered styles to override the layers. We might even consider having a <code>debug</code> layer at the top of the stack, for doing exploratory work outside of production.</p>
+<p>But adding new layers on-the-fly can defeat the organizational utility of this feature, and should be used carefully. It’s best to ask: <em>Why should this style override the other?</em></p>
+<p>If the answer has to do with one <em>type of style</em> always overriding another type, layers are probably the right solution. That might be because we’re overriding styles that come from a place we don’t control, or because we’re writing a utility, and it should move into our <code>utilities</code> layer. If the answer has to do with more targeted styles overriding less targeted styles, we might consider making the selectors reflect that specificity.</p>
+<p>Or, on rare occasions, we might even have styles that really are <em>important</em> — the feature simply doesn’t work if you override this particular style. We might say adding <code>display: none</code> to the <code>[hidden]</code> attribute belongs in our lowest-priority reset, but should still be hard to override. In that case, <code>!important</code> really is the right tool for the job:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> reset</span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">hidden</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="scoping-and-name-spacing-styles-nope"><a href="https://css-tricks.com/css-cascade-layers/#aa-scoping-and-name-spacing-styles-nope"></a>Scoping and name-spacing styles? Nope!<a aria-hidden="true" class="anchor-heading icon-link" href="#scoping-and-name-spacing-styles-nope"></a></h4>
+<p>Cascade layers are clearly an organizational tool, and one that ‘captures’ the impact of selectors, especially when they conflict. So it can be tempting at first glance to see them as a solution for managing scope or name-spacing.</p>
+<p>A common first-instinct is to create a layer for each component in a project — hoping that will ensure (for example) that <code>.post-title</code> is only applied inside a <code>.post</code>.</p>
+<p>But cascade conflicts are not the same as naming conflicts, and layers aren’t particularly well designed for this type of scoped organization. Cascade layers don’t constrain how selectors match or apply to the HTML, only how they cascade together. So unless we can be sure that component X <em>always</em> override component Y, individual component layers won’t help much. Instead, we’ll need to keep an eye on the <a href="https://www.w3.org/TR/css-cascade-6/">proposed <code>@scope</code> spec</a> that is being developed.</p>
+<p>It can be useful to think of layers and component-scopes instead as overlapping concerns:</p>
+<p><a href="https://i0.wp.com/css-tricks.com/wp-content/uploads/2022/02/layers-scope-01.png?resize=1024%2C711&#x26;ssl=1">An illustration showing how CSS Cascade Layers can be organized by scope, such as buttons, cards, and login layers that fall into component, theme, and default scopes.</a></p>
+<p>Scopes describe <em>what</em> we are styling, while layers describe <em>why</em> we are styling. We can also think of layers as representing <em>where the style comes from</em>, while scopes represent <em>what the style will attach to</em>.</p>
+<h3 id="test-your-knowledge-which-style-wins"><a href="https://css-tricks.com/css-cascade-layers/#aa-test-your-knowledge-which-style-wins"></a>Test your knowledge: Which style wins?<a aria-hidden="true" class="anchor-heading icon-link" href="#test-your-knowledge-which-style-wins"></a></h3>
+<p>For each situation, assume this paragraph:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>intro<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello, World!<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+</code></pre>
+<h4 id="question-1"><a href="https://css-tricks.com/css-cascade-layers/#aa-question-1"></a>Question 1<a aria-hidden="true" class="anchor-heading icon-link" href="#question-1"></a></h4>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> ultra-high-priority</span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token id">#intro</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">green</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>What color is the paragraph?</p>
+<p>Despite the layer having a name that <em>sounds pretty important</em>, un-layered styles have a higher priority in the cascade. So the paragraph will be <code>green</code>.</p>
+<h4 id="question-2"><a href="https://css-tricks.com/css-cascade-layers/#aa-question-2"></a>Question 2<a aria-hidden="true" class="anchor-heading icon-link" href="#question-2"></a></h4>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> ren<span class="token punctuation">,</span> stimpy<span class="token punctuation">;</span></span>
+
+<span class="token atrule"><span class="token rule">@layer</span> ren</span> <span class="token punctuation">{</span>
+  <span class="token selector">p</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">green</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@layer</span> stimpy</span> <span class="token punctuation">{</span>
+  <span class="token selector">p</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">blue</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>What color is the paragraph?</p>
+<p>Our normal layer order is established at the start — <code>ren</code> at the bottom, then <code>stimpy</code>, then (as always) un-layered styles at the top. But these styles aren’t all <code>normal</code>, some of them are important. Right away, we can filter down to just the <code>!important</code> styles, and ignore the unimportant <code>green</code>. Remember that ‘origins and importance’ are the first step of the cascade, before we even take layering into account.</p>
+<p>That leaves us with two important styles, both in layers. Since our important layers are reversed, <code>ren</code> moves to the top, and <code>stimpy</code> to the bottom. The paragraph will be <code>red</code>.</p>
+<h4 id="question-3"><a href="https://css-tricks.com/css-cascade-layers/#aa-question-3"></a>Question 3<a aria-hidden="true" class="anchor-heading icon-link" href="#question-3"></a></h4>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> Montagues<span class="token punctuation">,</span> Capulets<span class="token punctuation">,</span> Verona<span class="token punctuation">;</span></span>
+
+<span class="token atrule"><span class="token rule">@layer</span> Montagues.Romeo</span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token id">#intro</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> Montagues.Benvolio</span> <span class="token punctuation">{</span>
+  <span class="token selector">p</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">orange</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@layer</span> Capulets.Juliet</span> <span class="token punctuation">{</span>
+  <span class="token selector">p</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">yellow</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> Verona</span> <span class="token punctuation">{</span>
+  <span class="token selector">*</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@layer</span> Capulets.Tybalt</span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token id">#intro</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">green</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>What color is the paragraph?</p>
+<p>All our styles are in the same origin and context, none are marked as important, and none of them are inline styles. We do have a broad range of selectors here, from a highly specific ID <code>#intro</code> to a zero specificity universal <code>*</code> selector. But layers are resolved before we take specificity into account, so we can ignore the selectors for now.</p>
+<p>The primary layer order is established up front, and then sub-layers are added internally. But sub-layers are sorted along with their parent layer — meaning all the <code>Montagues</code> will have lowest priority, followed by all the <code>Capulets</code>, and then <code>Verona</code> has final say in the layer order. So we can immediately filter down to just the <code>Verona</code> styles, which take precedence. Even though the <code>*</code> selector has zero specificity, it will win.</p>
+<p>Be careful about putting universal selectors in powerful layers!</p>
+<h3 id="debugging-layer-conflicts-in-browser-developer-tools"><a href="https://css-tricks.com/css-cascade-layers/#aa-debugging-layer-conflicts-in-browser-developer-tools"></a>Debugging layer conflicts in browser developer tools<a aria-hidden="true" class="anchor-heading icon-link" href="#debugging-layer-conflicts-in-browser-developer-tools"></a></h3>
+<p>Chrome, Safari, Firefox, and Edge browsers all have developer tools that allow you to inspect the styles being applied to a given element on the page. The styles panel of this element inspector will show applied selectors, sorted by their cascade priority (highest priority at the top), and then inherited styles below. Styles that are not being applied for any reason will generally be grayed out, or even crossed out — sometimes with additional information about <em>why</em> the style is not applied. This is the first place to look when debugging any aspect of the cascade, including layer conflicts.</p>
+<p>Safari Technology Preview and Firefox Nightly already show (and sort) cascade layers in this panel. This tooling is expected to role out in the stable versions at the same time as cascade layers. The layer of each selector is listed directly above the selector itself:</p>
+<p><a href="https://i0.wp.com/css-tricks.com/wp-content/uploads/2022/02/s_7269BD7CFF110C0C4578DCFE42CFC0B66C7F29AA3E50D4ABC024C679BD62AAD8_1643914232341_ScreenShot2022-02-03at11.35.41AM.jpg?resize=1040%2C770&#x26;ssl=1">Showing CSS Cascade Layers in Safari DevTools.</a></p>
+<p><a href="https://i0.wp.com/css-tricks.com/wp-content/uploads/2022/02/s_7269BD7CFF110C0C4578DCFE42CFC0B66C7F29AA3E50D4ABC024C679BD62AAD8_1643914232366_ScreenShot2022-02-03at11.39.41AM.jpg?resize=1338%2C608&#x26;ssl=1">Showing CSS Cascade Layers in FireFox DevTools.</a></p>
+<p>Chrome/Edge are working on similar tools and expect to have them available in Canary (nightly) releases by the time cascade layers land in the stable release. We’ll make updates here as those tools change and improve.</p>
+<h3 id="browser-support-and-fallbacks"><a href="https://css-tricks.com/css-cascade-layers/#aa-browser-support-and-fallbacks"></a>Browser support and fallbacks<a aria-hidden="true" class="anchor-heading icon-link" href="#browser-support-and-fallbacks"></a></h3>
+<p>This browser support data is from <a href="http://caniuse.com/#feat=css-cascade-layers">Caniuse</a>, which has more detail. A number indicates that browser supports the feature at that version and up.</p>
+<h4 id="desktop">Desktop<a aria-hidden="true" class="anchor-heading icon-link" href="#desktop"></a></h4>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Chrome</th><th>Firefox</th><th>IE</th><th>Edge</th><th>Safari</th></tr></thead><tbody><tr><td>99</td><td>97</td><td>No</td><td>99</td><td>15.4</td></tr></tbody></table></div>
+<h4 id="mobile--tablet">Mobile / Tablet<a aria-hidden="true" class="anchor-heading icon-link" href="#mobile--tablet"></a></h4>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Android Chrome</th><th>Android Firefox</th><th>Android</th><th>iOS Safari</th></tr></thead><tbody><tr><td>114</td><td>113</td><td>114</td><td>15.4</td></tr></tbody></table></div>
+<p>Since layers are intended as foundational building blocks of an entire CSS architecture, it is difficult to imagine building manual fallbacks in the same way you might for other CSS features. The fallbacks would likely involve duplicating large sections of code, with different selectors to manage cascade layering — or providing a much simpler fallback stylesheet.</p>
+<h4 id="query-feature-support-using-supports"><a href="https://css-tricks.com/css-cascade-layers/#aa-query-feature-support-using-supports"></a>Query feature support using <code>@supports</code><a aria-hidden="true" class="anchor-heading icon-link" href="#query-feature-support-using-supports"></a></h4>
+<p>There is a <a href="https://css-tricks.com/how-supports-works/"><code>@supports</code> feature in CSS</a> that will allow authors to test for support of <code>@layer</code> and other at-rules:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@supports</span> <span class="token function">at-rule</span><span class="token punctuation">(</span>@layer<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* code applied for browsers with layer support */</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@supports</span> <span class="token keyword">not</span> <span class="token function">at-rule</span><span class="token punctuation">(</span>@layer<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* fallback applied for browsers without layer support */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>However, it’s also not clear when this query itself will be supported in browsers.</p>
+<h4 id="assigning-layers-in-html-with-the-link-tag"><a href="https://css-tricks.com/css-cascade-layers/#aa-assigning-layers-in-html-with-the-link-tag"></a>Assigning layers in HTML with the <code>&#x3C;link></code> tag<a aria-hidden="true" class="anchor-heading icon-link" href="#assigning-layers-in-html-with-the-link-tag"></a></h4>
+<p>There is no official specification yet for a syntax to layer entire stylesheets from the html <code>&#x3C;link></code> tag, but there is a <a href="https://github.com/whatwg/html/issues/7540">proposal being developed</a>. That proposal includes a new <code>layer</code> attribute which can be used to assign the styles to a named or anonymous layer:</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- styles imported into to the &#x3C;layer-name> layer --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example.css<span class="token punctuation">"</span></span> <span class="token attr-name">layer</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&#x3C;layer-name><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+<span class="token comment">&#x3C;!-- styles imported into to a new anonymous layer --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example.css<span class="token punctuation">"</span></span> <span class="token attr-name">layer</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>However, old browsers without support for the <code>layer</code> attribute will ignore it completely, and continue to load the stylesheet without any layering. The results could be pretty unexpected. So the proposal also extends the existing <code>media</code> attribute, so that it allows feature support queries in a <code>support()</code> function.</p>
+<p>That would allow us to make layered links conditional, based on support for layering:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span>
+  <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
+  <span class="token attr-name">layer</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bootstrap<span class="token punctuation">"</span></span>
+  <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>supports(at-rule(@layer))<span class="token punctuation">"</span></span>
+  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bootstrap.css<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre>
+<h4 id="potential-polyfills-and-workarounds"><a href="https://css-tricks.com/css-cascade-layers/#aa-potential-polyfills-and-workarounds"></a>Potential polyfills and workarounds<a aria-hidden="true" class="anchor-heading icon-link" href="#potential-polyfills-and-workarounds"></a></h4>
+<p>The major browsers have all moved to an <a href="https://css-tricks.com/evergreen-does-not-mean-immediately-available/">“evergreen” model</a> with updates pushed to users on a fairly short release cycle. Even Safari regularly releases new features in “patch” updates between their more rare-seeming major versions.</p>
+<p>That means we can expect browser support for these features to ramp up very quickly. For many of us, it may be reasonable to start using layers in only a few months, without much concern for old browsers.</p>
+<p>For others, it may take longer to feel comfortable with the native browser support. There are many other ways to <a href="https://css-tricks.com/dont-fight-the-cascade-control-it/">manage the cascade</a>, using selectors, <a href="https://css-tricks.com/using-custom-property-stacks-to-tame-the-cascade/">custom properties</a>, and other tools. It’s also theoretically possible to mimic (or polyfill) the basic behavior. There are people working on that polyfill, but it’s not clear when that will be ready either.</p>
+<h3 id="more-resources"><a href="https://css-tricks.com/css-cascade-layers/#aa-more-resources"></a>More resources<a aria-hidden="true" class="anchor-heading icon-link" href="#more-resources"></a></h3>
+<p>CSS Cascade Layers is still evolving but there is already a lot of resources, including documentation, articles, videos, and demos to help you get even more familiar with layers and how they work.</p>
+<h4 id="reference"><a href="https://css-tricks.com/css-cascade-layers/#aa-reference"></a>Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#reference"></a></h4>
+<ul>
+<li><a href="https://www.w3.org/TR/css-cascade-5/#layering">Cascading &#x26; Inheritance Level 5 Specification</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer">MDN Documentation</a></li>
+</ul>
+<h4 id="articles"><a href="https://css-tricks.com/css-cascade-layers/#aa-articles"></a>Articles<a aria-hidden="true" class="anchor-heading icon-link" href="#articles"></a></h4>
+<ul>
+<li><a href="https://www.bram.us/2021/09/15/the-future-of-css-cascade-layers-css-at-layer/">The Future of CSS: Cascade Layers (CSS <code>@layer</code>)</a> by Bramus Van Damme</li>
+<li><a href="https://www.smashingmagazine.com/2022/01/introduction-css-cascade-layers/">Getting Started With CSS Cascade Layers</a> by Stephanie Eckles, <em>Smashing Magazine</em></li>
+<li><a href="https://developer.chrome.com/blog/cascade-layers/">Cascade layers are coming to your browser</a> by Una Kravets, <em>Chrome Developers</em></li>
+</ul>
+<h4 id="videos"><a href="https://css-tricks.com/css-cascade-layers/#aa-videos"></a>Videos<a aria-hidden="true" class="anchor-heading icon-link" href="#videos"></a></h4>
+<ul>
+<li><a href="https://youtu.be/dS123IXPcJ0">How does CSS !important actually work?</a> by Una Kravets</li>
+<li><a href="https://youtu.be/ilrPpSQJb3U">An overview of the new @layer and layer() CSS primitives</a> by Una Kravets</li>
+<li><a href="https://www.youtube.com/watch?v=2wSckPwaC_A">CSS Revert &#x26; Revert-Layer Keywords</a> by Una Kravets</li>
+</ul>
+<h4 id="demos"><a href="https://css-tricks.com/css-cascade-layers/#aa-demos"></a>Demos<a aria-hidden="true" class="anchor-heading icon-link" href="#demos"></a></h4>
+<ul>
+<li><a href="https://codepen.io/collection/BNjmma">Layers CodePen collection</a></li>
+</ul>

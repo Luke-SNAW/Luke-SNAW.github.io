@@ -1,0 +1,33 @@
+<h1 id="acceptable-brute-force-attack-success-rate-industry-standard">Acceptable Brute Force Attack Success Rate Industry Standard<a aria-hidden="true" class="anchor-heading icon-link" href="#acceptable-brute-force-attack-success-rate-industry-standard"></a></h1>
+<p><strong>브루트포스 공격 성공 확률에 대한 산업 표준</strong></p>
+<p>일반적으로 인증 시스템에서 브루트포스 공격의 <strong>성공 확률을 0.1% 미만 (즉, 0.001 이하)</strong>으로 유지하는 것이 산업에서 "안전"하다고 간주됩니다. 이는 <strong>NIST SP 800-63B 가이드라인</strong>과 <strong>OWASP 권장사항</strong>에서 유도되는 수준으로, 온라인 공격에서 로그인 시도 횟수를 제한(rate limiting)하여 달성합니다.<a id="fnref-1" class="fnref" href="#fn-1">1</a><a id="fnref-2" class="fnref" href="#fn-2">2</a></p>
+<p><strong>주요 기준과 이유</strong>:</p>
+<ul>
+<li><strong>NIST 지침</strong>: 온라인 브루트포스 공격을 막기 위해 시도 횟수를 제한하라고 명시. 예를 들어, 분당 100회 시도로 제한하면 10자리 문자열(예: 62^10 ≈ 8.4조 조합)에서 성공 확률이 100/8.4조 ≈ <strong>10^{-12} 수준(0.0000000001%)</strong>으로 떨어짐. 짧은 문자열(예: 16자리 문화상품권 코드)이라도 rate limit으로 <strong>1% 미만 확률</strong>을 목표로 함.<a id="fnref-1" class="fnref" href="#fn-1">1</a><a id="fnref-2" class="fnref" href="#fn-2">2</a></li>
+<li><strong>OWASP 및 업계 실무</strong>: 브루트포스 성공률을 <strong>1% 이하</strong>로 억제하는 rate limiting/CAPTCHA/MFA를 권장. Microsoft 분석에 따르면 MFA가 99.9% 공격을 막지만, 단일 문자열 인증(Mullvad 계정 코드나 상품권처럼)은 rate limit 없인 취약. 성공률 <strong>0.01~0.1%</strong>조차 고위험으로 봄.<a id="fnref-4" class="fnref" href="#fn-4">4</a><a id="fnref-8" class="fnref" href="#fn-8">8</a></li>
+<li><strong>위험 허용 수준(risk tolerance)</strong>: 산업별 차이 있음.
+<ul>
+<li><strong>금융/고민감 산업</strong>: <strong>0.01% 미만</strong> (엄격한 규제 준수).<a id="fnref-11" class="fnref" href="#fn-11">11</a><a id="fnref-12" class="fnref" href="#fn-12">12</a></li>
+<li><strong>문화상품권 등 저가/대량 발행 서비스</strong>: <strong>1% 이하</strong> 허용되기도 함. 무한 시도 방지를 위해 계정 잠금이나 지연을 두지만, "특정 확률 이하"는 <strong>0.1~1%</strong>로 운영(사용자 편의성 trade-off). 그러나 이는 보안상 권장되지 않음.<a id="fnref-3" class="fnref" href="#fn-3">3</a><a id="fnref-6" class="fnref" href="#fn-6">6</a></li>
+</ul>
+</li>
+<li><strong>실제 취약점</strong>: 제공된 사례처럼 rate limit 미비 시 성공률 80% 이상(웹 앱 공격 중 브루트포스 비중). 분산 봇넷 공격에도 <strong>분당 수천 회</strong> 제한으로 확률을 0.001%대로 낮춤.<a id="fnref-7" class="fnref" href="#fn-7">7</a><a id="fnref-10" class="fnref" href="#fn-10">10</a></li>
+</ul>
+<p><strong>mullvad/문화상품권 사례</strong>: 이런 단일 문자열 인증은 편의성을 위해 설계됐으나, 브루트포스로 뚫리기 쉽습니다. 안전 기준은 <strong>0.1% 미만</strong>이지만, 실제 운영에서 1%까지 허용되는 경우가 있어 보안 논란. 더 나은 대안은 CAPTCHA나 시간 지연 추가.<a id="fnref-5" class="fnref" href="#fn-5">5</a><a id="fnref-9" class="fnref" href="#fn-9">9</a></p>
+<p>이 수치는 조직의 <strong>위험 허용도(risk tolerance)</strong>에 따라 조정되며, 절대적이지 않습니다. 정확한 %는 위협 모델(공격자 컴퓨팅 파워)에 따라 다름.<a id="fnref-3" class="fnref" href="#fn-3">3</a><a id="fnref-6" class="fnref" href="#fn-6">6</a></p>
+<hr>
+<h2 id="footnotes">Footnotes<a aria-hidden="true" class="anchor-heading icon-link" href="#footnotes"></a></h2>
+<ol>
+<li><span id="fn-1" style="width: 0; height: 0;"></span><p><a href="https://pages.nist.gov/800-63-4/sp800-63b.html">NIST Special Publication 800-63B</a> (22%)<a class="fn" href="#fnref-1">˄</a></p></li>
+<li><span id="fn-2" style="width: 0; height: 0;"></span><p><a href="https://pages.nist.gov/800-63-4/sp800-63b/passwords/">Strength of Passwords</a> (14%)<a class="fn" href="#fnref-2">˄</a></p></li>
+<li><span id="fn-4" style="width: 0; height: 0;"></span><p><a href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html">Authentication - OWASP Cheat Sheet Series</a> (11%)<a class="fn" href="#fnref-4">˄</a></p></li>
+<li><span id="fn-8" style="width: 0; height: 0;"></span><p><a href="https://owasp.org/www-community/controls/Blocking_Brute_Force_Attacks">Blocking Brute Force Attacks</a> (6%)<a class="fn" href="#fnref-8">˄</a></p></li>
+<li><span id="fn-11" style="width: 0; height: 0;"></span><p><a href="https://blog.pulsarsecurity.com/selecting-the-perfect-authentication-method-for-your-business">Selecting the Perfect Authentication Method for Your Business</a> (2%)<a class="fn" href="#fnref-11">˄</a></p></li>
+<li><span id="fn-12" style="width: 0; height: 0;"></span><p><a href="https://www.rsa.com/resources/blog/multi-factor-authentication/mastering-mfa-requirements-compliance-risks-and-best-practices/">Mastering MFA Requirements: Compliance, Risks, and Best Practices</a> (1%)<a class="fn" href="#fnref-12">˄</a></p></li>
+<li><span id="fn-3" style="width: 0; height: 0;"></span><p><a href="https://www.fairinstitute.org/blog/creating-cyber-risk-tolerance-statements">Creating Cyber Risk Tolerance Statements: Turn Strategy ...</a> (13%)<a class="fn" href="#fnref-3">˄</a></p></li>
+<li><span id="fn-6" style="width: 0; height: 0;"></span><p><a href="https://www.sysdig.com/blog/balancing-identity-management-and-risk-tolerance">Balancing Identity Management and Risk Tolerance</a> (8%)<a class="fn" href="#fnref-6">˄</a></p></li>
+<li><span id="fn-7" style="width: 0; height: 0;"></span><p><a href="https://www.upguard.com/blog/brute-force-attack">What is a Brute Force Attack?</a> (7%)<a class="fn" href="#fnref-7">˄</a></p></li>
+<li><span id="fn-10" style="width: 0; height: 0;"></span><p><a href="https://www.memcyco.com/brute-force-attack-prevention/">Why Rate Limiting Fails for ATO Defense | Memcyco</a> (3%)<a class="fn" href="#fnref-10">˄</a></p></li>
+<li><span id="fn-5" style="width: 0; height: 0;"></span><p><a href="https://portswigger.net/web-security/authentication/password-based/lab-broken-brute-force-protection-multiple-credentials-per-request">Lab: Broken brute-force protection, multiple credentials per request</a> (9%)<a class="fn" href="#fnref-5">˄</a></p></li>
+<li><span id="fn-9" style="width: 0; height: 0;"></span><p><a href="https://cwe.mitre.org/data/definitions/308.html">CWE-308: Use of Single-factor Authentication (4.19.1)</a> (4%)<a class="fn" href="#fnref-9">˄</a></p></li>
+</ol>

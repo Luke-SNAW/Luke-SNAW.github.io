@@ -1,0 +1,302 @@
+<h1 id="optimal-images-in-html">Optimal Images in HTML<a aria-hidden="true" class="anchor-heading icon-link" href="#optimal-images-in-html"></a></h1>
+<blockquote>
+<p><a href="https://www.builder.io/blog/fast-images">https://www.builder.io/blog/fast-images</a></p>
+</blockquote>
+<p>So you've got your nice page and you're adding your background image and…</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.hero</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* 🚩 */</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"/image.png"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>WAIT!</p>
+<p>Did you know that this is going to be very unoptimized for performance? And in more ways than one.</p>
+<h2 id="why-you-should-generally-avoid-background-image-in-css">Why you should (generally) avoid <code>background-image</code> in CSS<a aria-hidden="true" class="anchor-heading icon-link" href="#why-you-should-generally-avoid-background-image-in-css"></a></h2>
+<h3 id="optimal-image-sizing">Optimal image sizing<a aria-hidden="true" class="anchor-heading icon-link" href="#optimal-image-sizing"></a></h3>
+<p>Outside of using SVGs, there's virtually no case where every visitor to your site should receive the exact same image file, given the vast amount of screen sizes and resolutions individuals have these days.</p>
+<p><em>Does your site even work on watches yet?</em> (Kidding…I think)</p>
+<p>You could say, "oh! Media queries, I’ll manually specify a range of sizes of screen sizes and images":</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* 🚩 */</span>
+<span class="token selector"><span class="token class">.hero</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"/image.png"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token keyword">only</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">768</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token class">.hero</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"/image-768.png"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token keyword">only</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">1268</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token class">.hero</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"/image-1268.png"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Well, there is a problem with this. Besides being quite tedious and verbose, this is only taking screen <em>size</em> into account, but not <em>resolution</em>.</p>
+<p>So you could say, "aha! I know a cool trick for this, <code>[image-set](https://developer.mozilla.org/en-US/docs/Web/CSS/image/image-set)</code> to specify different image sizes for different resolutions":</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* 🚩 */</span>
+<span class="token selector"><span class="token class">.hero</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">image-set</span><span class="token punctuation">(</span><span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"/image-1x.png"</span><span class="token punctuation">)</span></span> <span class="token number">1</span><span class="token unit">x</span><span class="token punctuation">,</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"/image-2x.png"</span><span class="token punctuation">)</span></span> <span class="token number">2</span><span class="token unit">x</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>And you’d be right, this has some benefits. But, generally speaking, we need to take into account <em>both</em> screen size and resolution.</p>
+<p>So we could write some bloated CSS that combined media queries and image-set, but this is just getting complex, and it means we need to know exactly how large our image is for each screen, even as the site layout evolves over time.</p>
+<p>And still, this doesn’t support critical things like lazy loading, next-gen formats for supported browsers, priority hints, async decoding, and more.</p>
+<p>And to top things off, we also have an issue with chained requests.</p>
+<h3 id="avoiding-chained-requests">Avoiding chained requests<a aria-hidden="true" class="anchor-heading icon-link" href="#avoiding-chained-requests"></a></h3>
+<ul>
+<li>X Fetch HTML -> Fetch CSS -> Fetch Image</li>
+<li>O Fetch HTML -> Fetch Image</li>
+</ul>
+<p>With an image tag, you have the link to the <code>src</code> right in the HTML. So the browser can fetch the initial HTML, scan for images, and begin fetching high-priority images immediately.</p>
+<p>In the case of loading images in CSS, assuming you use external stylesheets (<code>link rel=”styleshset”</code>, like most do, instead of inline <code>style</code> everywhere) the browser must scan your HTML, fetch the CSS, and then find that a <code>background-image</code> is applied to an element, and only after all of that can go fetch that image. This will take longer.</p>
+<p>And yes, you can work around some things, like inlining CSS, <a href="https://web.dev/optimize-lcp/#optimize-when-the-resource-is-discovered">preloading</a> images, and pre-connecting to origins. But, as you read on, you will see additional advantages you get with the HTML <code>img</code> tag that you sadly don’t get with <code>background-image</code> in CSS.</p>
+<h3 id="when-to-consider-a-background-image">When to consider a background image<a aria-hidden="true" class="anchor-heading icon-link" href="#when-to-consider-a-background-image"></a></h3>
+<p>Before we move on to discuss the most optimal way of loading images, we have to remember that like all rules, there are exceptions. For instance, if you have a very small image you want to tile with <code>background-repeat</code> , there isn’t an easy way to accomplish repeating (that I know of) with <code>img</code> tags.</p>
+<p>But for any image that is larger than, say, 50px, I would highly suggest avoiding setting it in CSS and instead using an <code>img</code> tag for virtually everything.</p>
+<h2 id="optimally-loading-images">Optimally loading images<a aria-hidden="true" class="anchor-heading icon-link" href="#optimally-loading-images"></a></h2>
+<p>Now that we’ve complained about the challenges of using <code>background-image</code> in CSS, let’s talk actual solutions.</p>
+<p>In modern HTML, the <code>img</code> tag gives us a number of useful attributes to optimally load images. Let’s run through them.</p>
+<h3 id="browser-native-lazy-loading">Browser-native lazy loading<a aria-hidden="true" class="anchor-heading icon-link" href="#browser-native-lazy-loading"></a></h3>
+<p>The first amazing attribute we get on an <code>img</code> tag to improve our image performance is <a href="https://web.dev/browser-level-image-lazy-loading/#the-loading-attribute"><code>loading=lazy</code></a>:</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- 😍 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">loading</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>This is already a huge improvement, as now your visitors won’t automatically download images that are not even in the viewport. And even better — this has great performance, it’s fully natively implemented by browsers, requires no JS, and is <a href="https://caniuse.com/loading-lazy-attr">supported by all modern browsers</a></p>
+<blockquote>
+<p><strong>Note</strong> one important detail — ideally, do not lazy load images “<a href="https://en.wikipedia.org/wiki/Above_the_fold">above the fold</a>” (that is, images that will be in the browser’s viewport immediately on first load). That will help ensure your most critical images load as soon as possible, and all others will load only as needed.</p>
+</blockquote>
+<p>P.S.: <code>loading=lazy</code> <a href="https://web.dev/iframe-lazy-loading/">also works on</a> <code>[iframes](https://web.dev/iframe-lazy-loading/)</code> 😍</p>
+<h3 id="optimal-sizing-for-all-screen-sizes-and-resolutions">Optimal sizing for all screen sizes <em>and</em> resolutions<a aria-hidden="true" class="anchor-heading icon-link" href="#optimal-sizing-for-all-screen-sizes-and-resolutions"></a></h3>
+<p>Using <code>srcset</code> with your images is critical. Unless you are loading an SVG, you need to make sure that different screen sizes and resolutions get an optimally sized image:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span>
+  <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+    /image.png?width=100 100w,
+    /image.png?width=200 200w,
+    /image.png?width=400 400w,
+    /image.png?width=800 800w
+  <span class="token punctuation">"</span></span>
+  <span class="token attr-name">...</span>
+<span class="token punctuation">/></span></span>
+</code></pre>
+<p>One important thing to note is that this is a more powerful version than you get with <code>image-set</code> in CSS, because you can use the <code>[w](https://html.spec.whatwg.org/multipage/images.html#introduction-3:viewport-based-selection-2)</code> <a href="https://html.spec.whatwg.org/multipage/images.html#introduction-3:viewport-based-selection-2">unit</a> in an <code>img</code> <code>srcset</code>.</p>
+<p>What is useful about it is that it takes <em>both</em> size and resolution into account. So, if the image is currently displaying 200px wide, on a 2x pixel density device, with the above <code>srcset</code> the browser will know to grab the <code>400w</code> image (that is, the image that is <code>400px</code> wide, so it displays perfectly at 2x pixel density). Similarly, the same image on a 1x pixel density image will grab the <code>200w</code> image.</p>
+<h3 id="modern-formats-with-the-picture-tag">Modern formats with the <code>picture</code> tag<a aria-hidden="true" class="anchor-heading icon-link" href="#modern-formats-with-the-picture-tag"></a></h3>
+<p>You may have noticed we’re using a <code>.png</code> in our examples here. This is supported by any browser, but is almost never the most optimal image format.</p>
+<p>This is where adding the <code>picture</code> around our <code>img</code> can allow us to specify more modern and optimal formats, such as <a href="https://developers.google.com/speed/webp">webp</a>, and supported browsers will favor those, via the <code>source</code> tag:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>picture</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/webp<span class="token punctuation">"</span></span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+      /image.webp?width=100 100w,
+      /image.webp?width=200 200w,
+      /image.webp?width=400 400w,
+      /image.webp?width=800 800w
+    <span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>picture</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Optionally, you can support additional formats as well, such as <a href="https://en.wikipedia.org/wiki/AVIF">AVIF</a>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>picture</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/avif<span class="token punctuation">"</span></span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+      /image.avif?width=100 100w,
+      /image.avif?width=200 200w,
+      /image.avif?width=400 400w,
+      /image.avif?width=800 800w,
+      ...
+    <span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/webp<span class="token punctuation">"</span></span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+      /image.webp?width=100 100w,
+      /image.webp?width=200 200w,
+      /image.webp?width=400 400w,
+      /image.webp?width=800 800w,
+      ...
+    <span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>picture</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="dont-forget-the-aspect-ratio">Don’t forget the <code>aspect-ratio</code><a aria-hidden="true" class="anchor-heading icon-link" href="#dont-forget-the-aspect-ratio"></a></h3>
+<p>It’s important to keep in mind that we also want to avoid <a href="https://web.dev/cls/">layout shifts</a>. This happens when an image loads if you don’t specify a precise size for the image ahead of the image downloading. There are two ways you can accomplish this.</p>
+<p>The first is to specify a <code>width</code> and <code>height</code> attribute for your image. And optionally, but often a good idea, set the images <code>height</code> to <code>auto</code> in CSS so that the image is properly responsive as the screen size changes:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>500<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>300<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">height</span><span class="token punctuation">:</span> auto</span><span class="token punctuation">"</span></span></span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>Alternatively, you can also just use the newer <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio"><code>aspect-ratio</code></a> property in CSS to always have the right aspect ratio automatically. With this option, you don’t need to know the exact width and height of your image, just its aspect ratio:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token number">5</span> <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span></span><span class="token punctuation">"</span></span></span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p><code>aspect-ratio</code> also pairs great with <code>[object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)</code> and <code>[object-position](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position)</code>, which are quite similar to <code>[background-size](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)</code> and <code>[background-position](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position)</code> for background images, respectively.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.my-image</span></span> <span class="token punctuation">{</span>
+  <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token number">5</span> <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+  <span class="token comment">/* Fill the available space, even if the 
+     image has a different intrinsic aspect ratio */</span>
+  <span class="token property">object-fit</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="async-image-decoding">Async image decoding<a aria-hidden="true" class="anchor-heading icon-link" href="#async-image-decoding"></a></h3>
+<p>Additionally, you can specify <code>decoding="async"</code> to images to allow the browser to move the image decoding off of the main thread. MDN recommends to <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding#usage_notes">use this for off-screen images</a>.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">decoding</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>async<span class="token punctuation">"</span></span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<h3 id="resource-hints">Resource hints<a aria-hidden="true" class="anchor-heading icon-link" href="#resource-hints"></a></h3>
+<p>One last, and more advanced option, is <code>[fetchpriority](https://web.dev/priority-hints/)</code>. This can be helpful to hint to the browser if an image is extra high priority, such as your <a href="https://web.dev/optimize-lcp/">LCP image</a>.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">fetchpriority</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>high<span class="token punctuation">"</span></span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>Or, to lower the priority of images, such as if you have images that are above the fold but not of high importance, such as on other pages of a carousel:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>carousel<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slide-1<span class="token punctuation">"</span></span> <span class="token attr-name">fetchpriority</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>high<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slide-2<span class="token punctuation">"</span></span> <span class="token attr-name">fetchpriority</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>low<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slide-3<span class="token punctuation">"</span></span> <span class="token attr-name">fetchpriority</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>low<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="add-your-alt-text-kids">Add your <code>alt</code> text, kids<a aria-hidden="true" class="anchor-heading icon-link" href="#add-your-alt-text-kids"></a></h3>
+<p>Yes, <code>alt</code> text is critical for accessibility and SEO, and is not to be overlooked:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Builder.io drag and drop interface<span class="token punctuation">"</span></span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>Or, for images that are <em>purely</em> presentational (like abstract shapes, colors, or gradients), you can explicitly mark them as presentation only with the <code>role</code> attribute:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+</code></pre>
+<h3 id="understanding-the-sizes-attribute">Understanding the <code>sizes</code> attribute<a aria-hidden="true" class="anchor-heading icon-link" href="#understanding-the-sizes-attribute"></a></h3>
+<p>One important caveat to <code>srcset</code> attribute mentioned above is that browsers need to know the size an image will render at in order to pick the best sized image to fetch.</p>
+<p>Meaning, once the image has rendered, the browser knows its actual display size, multiples that by the pixel density, and fetches the closest possible image in size in the srcset.</p>
+<p>But for your <em>initial</em> page load, browsers like chrome have a preload scanner that looks for img tags in the HTML to begin prefetching them immediately.</p>
+<p>The thing is - this happens even before the page has rendered. For instance, our CSS hasn't even been fetched yet, so we have no indication as to how the image will display and at what size. As a result, the browser has to make some assumptions.</p>
+<p>By default the browser will assume all images are <code>100vw</code> - aka the full page width. That's anywhere from a little to a <em>whole lot</em> larger than they actually are. So that is far from optimal.</p>
+<p>This is where the sizes attribute comes in handy:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span>
+  <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span>
+  <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 400px) 200px, (max-width: 800px) 100vw, 50vw<span class="token punctuation">"</span></span>
+  <span class="token attr-name">...</span>
+<span class="token punctuation">/></span></span>
+</code></pre>
+<p>With this attribute, we can tell the browser at various window sizes, how large to expect our image to be (either exactly, with an exact pixel value like <code>500px</code>, or relative to the window, such as <code>50vw</code> to say it should display around 50% of the window width).</p>
+<p>So in the example above, a <code>900px</code> wide screen will not match either of the first two caluses, and instead match the fallback clause that specifies for larger screens assume the image will display at <code>50vw</code>.</p>
+<p>So since <code>50vw * 900px = 450px</code> the browser will aim for a <code>450px</code> wide image for a <code>1x</code> pixel density display, a <code>900px</code> wide image for <code>2x</code> pixel density, etc. It will then look for the closest match in the <code>srcset</code> and use that as the image to prefetch.</p>
+<h2 id="lets-recap">Let’s recap<a aria-hidden="true" class="anchor-heading icon-link" href="#lets-recap"></a></h2>
+<p>Wow, ok, that was a lot. Let’s put it all together.</p>
+<p>Here is a great example of a very optimized image for loading:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>picture</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/avif<span class="token punctuation">"</span></span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+      /image.avif?width=100 100w,
+      /image.avif?width=200 200w,
+      /image.avif?width=400 400w,
+      /image.avif?width=800 800w
+    <span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/webp<span class="token punctuation">"</span></span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+      /image.webp?width=100 100w,
+      /image.webp?width=200 200w,
+      /image.webp?width=400 400w,
+      /image.webp?width=800 800w
+    <span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span>
+    <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/image.png<span class="token punctuation">"</span></span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+      /image.png?width=100 100w,
+      /image.png?width=200 200w,
+      /image.png?width=400 400w,
+      /image.png?width=800 800w
+    <span class="token punctuation">"</span></span>
+    <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 800px) 100vw, 50vw<span class="token punctuation">"</span></span>
+    <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span> <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token number">16</span>/<span class="token number">9</span></span><span class="token punctuation">"</span></span></span>
+    <span class="token attr-name">loading</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span>
+    <span class="token attr-name">decoding</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>async<span class="token punctuation">"</span></span>
+    <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Builder.io drag and drop interface<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>picture</span><span class="token punctuation">></span></span>
+</code></pre>
+<h4 id="for-high-priority-images"><strong>For high priority images:</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#for-high-priority-images"></a></h4>
+<p>The above image is a good default, and best for images that may be below the fold.</p>
+<p>For your highest priority images, you should remove <code>loading="lazy"</code> and <code>decoding="async"</code> and consider adding <code>fetchpriority="high"</code> if this is your absolute highest priority image, like your LCP image:</p>
+<pre class="language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">     style="width: 100%; aspect-ratio: 16/9"
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">     loading="lazy"
+</span><span class="token prefix deleted">-</span><span class="token line">     decoding="async"
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">     fetchpriority="high"
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">     alt="Builder.io drag and drop interface"
+</span></span></code></pre>
+<h4 id="for-vectors-like-svgs"><strong>For vectors (like SVGs):</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#for-vectors-like-svgs"></a></h4>
+<p>Also, for vector formats such as SVG, we don't need to provide multiple sizes and formats, and can just include the below:</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- for SVG --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/image.svg<span class="token punctuation">"</span></span>
+  <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span> <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> <span class="token number">16</span>/<span class="token number">9</span></span><span class="token punctuation">"</span></span></span>
+  <span class="token attr-name">loading</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span>
+  <span class="token attr-name">decoding</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>async<span class="token punctuation">"</span></span>
+  <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Builder.io drag and drop interface<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre>
+<p>Note that we completely removed the <code>&#x3C;picture></code> and <code>&#x3C;source></code> tags, as well as removed the <code>srcset</code> and <code>sizes</code> attributes, as they are no longer needed.</p>
+<p>For high priority SVGs, the same rules mentioned above apply (remove <code>loading</code> and <code>decoding</code>, and optionally add <code>fetchpriority="high"</code> for your LCP image)</p>
+<h3 id="using-an-image-for-a-background">Using an image for a background<a aria-hidden="true" class="anchor-heading icon-link" href="#using-an-image-for-a-background"></a></h3>
+<p>Oh yeah, I almost forgot that we started this article by talking about our <em>original</em> use case — a background image.</p>
+<p>Now while the image optimization discussed here applies to any type of image you may want to use (such as background, foreground, and so on), it only takes a little bit of CSS (namely some absolute positioning and the object-fit property) to make an <code>img</code> behave like a <code>background-image</code>.</p>
+<p>Here is a pared down example you can <a href="https://jsfiddle.net/gt9ahezx/2/">try yourself</a>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>picture</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/webp<span class="token punctuation">"</span></span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>picture</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span><span class="token punctuation">></span></span>I am on top of the image<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector"><span class="token class">.container</span></span> <span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">h1</span> <span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector"><span class="token class">.bg-image</span></span> <span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">inset</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector"><span class="token class">.bg-image</span> img</span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+    <span class="token property">object-fit</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="is-using-this-much-additional-html-bad-for-performance">Is using this much additional HTML bad for performance?<a aria-hidden="true" class="anchor-heading icon-link" href="#is-using-this-much-additional-html-bad-for-performance"></a></h2>
+<p>Yes and no, but mostly no.</p>
+<p>It’s easy to forget just <em>how</em> large images are (in terms of bytes). Adding a few bytes to your HTML can save you thousands, or even millions, of bytes on those images by loading much more optimized versions.</p>
+<p>Second, let’s not forget that gzipping is a thing. The additional markup you will add for each image quickly becomes very redundant, which is perfectly suited for gzip to <a href="https://en.wikipedia.org/wiki/Deflate">deflate</a> away.</p>
+<p>So while DOM bloat and payload size definitely should always be a concern, I would suggest that the tradeoffs are in your favor on this one.</p>
+<h2 id="an-easier-way">An easier way<a aria-hidden="true" class="anchor-heading icon-link" href="#an-easier-way"></a></h2>
+<p>These days, you almost never need write all of that stuff by hand. Frameworks like <a href="https://nextjs.org/">NextJS</a> and <a href="https://qwik.builder.io/">Qwik</a>, as well as platforms like <a href="https://cloudinary.com/">Cloudinary</a> and <a href="https://www.builder.io/">Builder.io</a>, provide image components that make this straightforward, and look instead like the below:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token operator">&#x3C;</span><span class="token operator">!</span><span class="token operator">--</span> 😍 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">Image</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/image.png<span class="token punctuation">"</span></span>
+  <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Builder.io drag and drop interface<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>And with that, you can get most, if not all, of the above optimizations (including generating all of those different image sizes and formats), automatically.</p>
+<p>Note that that in most cases you still need to specify when an image is high priority, like so:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token operator">&#x3C;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token maybe-class-name">High</span> priority image <span class="token operator">--</span><span class="token operator">></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">Image</span></span>
+  <span class="token attr-name">priority</span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/image.png<span class="token punctuation">"</span></span>
+  <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Builder.io drag and drop interface<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>And in most cases if you want to use the <code>sizes</code> attribute you'll need to specify that manually too. Most of these components allow you to pass through options like that directly, like so:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token operator">&#x3C;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token maybe-class-name">Manually</span> speify sizes <span class="token operator">--</span><span class="token operator">></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">Image</span></span>
+  <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 500px) 200px, 50vw<span class="token punctuation">"</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/image.png<span class="token punctuation">"</span></span>
+  <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Builder.io drag and drop interface<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>The only Image component that I know that can automate setting the <code>sizes</code> attribute is the one that I made for <a href="https://www.builder.io/">Builder.io</a>, as we run a puppeteer script in the background to analyze the actual displayed layout of the image at various screen sizes and can generate that accordingly.</p>
+<h2 id="conclusion">Conclusion<a aria-hidden="true" class="anchor-heading icon-link" href="#conclusion"></a></h2>
+<p>Use <code>img</code> in HTML over CSS <code>background-image</code> whenever you can. Use lazy loading, <code>srcset</code>, <code>picture</code> tags, and the other optimizations we discussed above to deliver images in the most optimal way. Be aware of high-priority as compared to low-priority images and tweak your attributes accordingly.</p>
+<p>Or, just use a good framework (like <a href="https://nextjs.org/">NextJS</a> or <a href="https://qwik.builder.io/">Qwik</a>) and/or good platforms (like <a href="https://cloudinary.com/">Cloudinary</a> or <a href="https://www.builder.io/">Builder.io</a>) and you’ll be covered, the easy way.</p>
+<h2 id="about-me">About me<a aria-hidden="true" class="anchor-heading icon-link" href="#about-me"></a></h2>
+<p>Hi! I'm <a href="https://twitter.com/Steve8708?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Steve</a>, CEO of <a href="https://www.builder.io/">Builder.io</a>.</p>
+<p>I built our <code>Image</code> component and image optimization API, and have spent an absurd amount of time performance profiling them across hundreds of real world sites and apps.</p>
+<p>Our platform is a way to drag + drop with your components to create pages and other CMS content on your existing site or app, <a href="https://www.builder.io/blog/headless-cms-workflow">visually</a>.</p>
+<p>It’s all API driven and has integrations for all modern frameworks. You may find it interesting or useful:</p>

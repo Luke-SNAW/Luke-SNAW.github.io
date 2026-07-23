@@ -1,0 +1,382 @@
+
+## Week 30, 2026
+
+- [The Value of Things](https://www.journal.stuffwithstuff.com/2026/01/24/the-value-of-things/)
+  > As any parent who lovingly clips their kid’s objectively terrible art to the fridge knows, the value of a made thing is not entirely based on its merits. That scarf has value not because it’s a great scarf but because I chose to spend an irreplaceable fraction of my life making it. It’s a symbol of how much I care about her.
+- [LG monitors silently install software through Windows Update without consent](https://videocardz.com/newz/lg-monitors-silently-install-software-through-windows-update-without-user-consent)
+
+## Week 29, 2026
+
+- [How doctors die. It’s not like the rest of us, but it should be](https://archive.cancerworld.net/featured/how-doctors-die/) - exploring why medical professionals choose minimal, comfort-focused care for themselves instead of the aggressive, futile treatments often administered to patients. By understanding the limitations of modern medicine and the realities of end-of-life suffering, doctors **prioritize death with dignity over prolonged, painful interventions**.
+
+## Week 28, 2026
+
+- [Obfuscated, self-evaluating bash script by CDN Akamai being supplied to consumers via retail stores](https://tris.sherliker.net/blog/obfuscated-self-evaluating-bash-script-by-cdn-akamai-being-supplied-to-consumers-via-retail-stores/)
+- [What ORMs have taught me: just learn SQL](https://wozniak.ca/blog/2014/08/03/1/index.html) - Object-Relational Mapping (ORM) tools often become a hindrance, as they struggle with attribute creep, inefficient queries, and complex transaction management.
+- [Holes](https://xkcd.com/3266/large/) - https://www.explainxkcd.com/wiki/index.php/3266:_Holes
+
+## Week 27, 2026
+
+- [Physical disc production ending in Jan 2028 for new games on PlayStation](https://blog.playstation.com/2026/07/01/physical-disc-production-ending-in-january-2028-for-new-games-releasing-on-playstation-consoles/)
+  > Great buildup on Sony's side to gain trust in this move in the gaming community ahead of this announcement when just this week they again pulled hundreds of "purchased" movies from customer's libraries without refund, reminding everyone that digital content is rented, not owned. https://arstechnica.com/gadgets/2026/06/sony-erases-digital-content-from-libraries-were-reminded-we-dont-own-what-we-buy/ - [HN](https://news.ycombinator.com/item?id=48751390)
+  >
+  > Sony also used to mock digital only approaches. -https://www.youtube.com/watch?v=kWSIFh8ICaA
+
+## Week 26, 2026
+
+- [Become a Good Photographer, Part Six: Don’t Learn From Teachers](https://photoni.st/index.php/2026/06/19/become-a-good-photographer-part-six-dont-learn-from-teachers/) - To improve as a photographer, you should **stop following generic tutorials** designed for engagement and instead **study the personal processes** of experienced photographers. By analyzing how others connect **intention to execution**, you develop the **critical discernment** necessary to define your own artistic path.
+- [The 100,000 whys of AI](https://lcamtuf.substack.com/p/the-100000-whys-of-ai)
+  > The similarities in the collage go far beyond the choice of titles: for example, all the covers in the top row feature a roaring dinosaur in the top left corner of the design. There are many other clusters in the data, too. Look for a recurring red-and-white cartoon rocket, a golden retriever, a lion, and so forth. The similarities extend even to author names: Ethan Bright, Nolan Bright, Pamela Bright, Daniel Bright, Thomas Bright, Andrew W. Bright, Mayan Bright, Mary Bright, Levi Bright — the Brights must be a big and exceptionally talented family.
+  - [AI children's books, body horror edition](https://lcamtuf.substack.com/p/ai-childrens-books-body-horror-edition) discusses the disturbing prevalence of low-quality, AI-generated imagery in bestselling children's encyclopedias. The author highlights how these books rely on misleading marketing and synthetic content, potentially negatively impacting young readers.
+
+## Week 25, 2026
+
+- [Nobody clicks your share buttons](https://ankursethi.com/blog/nobody-clicks-your-share-buttons/)
+  > - The UK government ran one of the most thorough studies on this. When GOV.UK added social sharing buttons, they [tracked usage for 10 weeks](https://insidegovuk.blog.gov.uk/2014/02/20/gov-uk-social-sharing-buttons-the-first-10-weeks/) across 6.8 million pageviews. The share buttons got clicked 14,078 times. That’s a 0.21% usage rate.
+  > - Moovweb found the same thing when they [analyzed 61 million mobile sessions](https://www.localrobot.com/do-people-actually-click-social-sharing-buttons/). Only 0.2% of mobile users interacted with social sharing at all.
+  > - Luke Wroblewski, the interaction designer and author, [crowdsourced data from his readers](https://blogs.ed.ac.uk/website-communications/social-share-buttons/) and landed on an average of 0.25% across 18 million pageviews.
+  >
+  >   What do people do instead? They copy and paste URLs or use the share button in their browser.
+- [the last quiet thing](https://www.terrygodier.com/the-last-quiet-thing/) argues that modern technology has shifted from finished products to dependent systems that require constant **unpaid maintenance** and labor. This exhaustion is not a personal failure, but a direct result of an industry that designs devices to perpetually demand the user's **attention and management**.
+- [I Fired Google](https://www.theartofdoingstuff.com/i-fired-google/)
+  > One of the most irritating developments of modern life is the way companies keep improving things that were already working. Nobody asked for New Coke.
+- [Bubbles](https://bubbles.town/) - 5033 independent, personal blogs. One front page. Ranked by votes and freshness, shaped by you.
+- [Yes, Buy Them a Coffee: Support and Mutual Aid on the IndieWeb](https://brennan.day/yes-buy-them-a-coffee-support-and-mutual-aid-on-the-indieweb/)
+  > The next time you read something on a personal site that matters to you, and you see a small link at the bottom, I want you to consider: what kind of internet are you building with your dollar? What kind of world?  
+  > Buy them a coffee. Or don't. If you can't, if you won't, that's fine.
+- [Why I email complete strangers](https://www.goodinternetmagazine.com/why-i-email-complete-strangers/) - By embracing **genuine curiosity** and respecting personal rhythms, individuals can overcome the fear of rejection to build **authentic relationships** beyond social media algorithms.
+- [Apple’s weird anti-nausea dots cured my car sickness](https://www.theverge.com/tech/942854/apple-vehicle-motion-cues-review-really-work)
+  - https://support.apple.com/en-gb/guide/iphone/iph55564cb22/ios
+  - https://f-droid.org/en/packages/dev.davidv.motionsickness/
+- [Feds freaked over Fable 5 after 'fix this code', not jailbreak, say researchers](https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827)
+  > Like it basically jail broke the "no security vul guard rails" not in any clever way but just by fixing them, producing exploit code just by writing test cases making sure it's fixed. So you just need to look at the code & tests as a human to get vulnerabilities and exploits(components).  
+  > What makes this so beautiful IMHO is that it's a trivial jail break, but also a close to unfixable. At least not without making the model close to useless for normal development (it refuses to fix bugs/write code) or making it a major liability (it silently pretends it didn't see bugs and silently avoids fixing it, which for a human would count as intentional sabotage and might involve criminal liability). - [HN](https://news.ycombinator.com/item?id=48553494)
+- [A backdoor in a LinkedIn job offer](https://roman.pt/posts/linkedin-backdoor/)
+  > I reported the repo to GitHub and the recruiter to LinkedIn. So far nothing has changed and the code is still up.
+  >
+  > - [6 months as the CEO of LinkedIn!](https://chrisduffycomedy.com/blog/2016/11/2/6-months-as-the-ceo-of-linkedin)
+
+## Week 24, 2026
+
+- [Dopamine Fracking](https://igerman.cc/blog/dopamine-fracking/)
+  > Strawberries are delicious, and they have a very complex flavor profile. They have hundreds, if not thousands, of strains, and for every single individual strawberry, there are thousands of unique compounds that contribute to its flavor. There are white ones, red ones, some are white on the inside, some are red, some are sour, some are sweet, some are a little bitter, some are very aromatic, some are very juicy, some are very firm, some are very soft. Even if the differences within a single bushel of strawberries are nigh imperceptible, the experience of eating one is complex and layered. And each and every one of the strawberries you put in a cake, blend into a smoothie, or eat on its own is, in a way, a beautifully imperfect, unique, analog experience. You might not notice it, you might not care, but it's there, and it matters — even if just that tiny bit.
+  >
+  > But if you were to decompose a strawberry, extract the aromatic compound that smells most like a strawberry, analyze its formula, devise a way to synthesize it, and make it commercially viable, you could put that in every food as a substitute for the meticulous work of collecting good strawberries and the complex palate one has. It would be much cheaper to manufacture, and it would give you a very concentrated hit of strawberry flavor. Most people wouldn't be able to tell much of a difference, and it would probably still be delicious. If you're not greedy.
+  >
+  > In fact, this is exactly what happens in the food industry. They extract the compound that gives strawberries their flavor and put it in everything from cheap candy to expensive desserts.
+  >
+  > But it would also completely erase everything else about the experience of eating a strawberry. The texture, the juiciness, the complexity of the flavor, the imperfections, the joy of finding a particularly good one, the cosmic horror of eating a wormy one, the nostalgia of having your grandma's strawberry jam with dozens of individually unique strawberries in it. All of that is lost and condensed into a single, pure hit of strawberry flavor. Tasty? Maybe. But it's not a strawberry anymore. It's just a chemical that kind of tastes like a strawberry. Soon enough, you forget what one actually tastes like. Or worse, you prefer the chemicals. Or even worse, you can't even find real strawberries anymore because the market is flooded with synthetic replacements. Or even worser, the real ones have long gone extinct because no one wanted to grow them anymore when the synthetic version was cheaper and more convenient. And whoop-dee-doo, you've erased about 500 individual human experiences and replaced them with a single, shared one. And that's just strawberries.
+  >
+  > This is what dopamine fracking does to culture, hobbies, and even relationships, which are so much more complex because they are so deeply abstract. It extracts the most concentrated hit of dopamine and puts it in everything, while erasing all the complexity, nuance, and beauty that made it special in the first place. And the more we do it, the more we forget what the original experience was like, and the more we prefer the synthetic version, and the worse off we are. It's a vicious cycle that leads to a homogenized, commodified culture that is devoid of meaning and connection.
+- [Stop Using Conventional Commits](https://sumnerevans.com/posts/software-engineering/stop-using-conventional-commits/) - [Scoped Commits](https://scopedcommits.com/)
+
+## Week 23, 2026
+
+- [The Desperation of NYTimes](https://rozumem.xyz/posts/16) criticizes the publication for forcing **onboarding marketing emails** on new subscribers without an **opt-out option**.
+- [When AI builds itself](https://www.anthropic.com/institute/recursive-self-improvement) - Our progress toward recursive self-improvement, and its implications.
+  > Okay, so anthropic has amazing AI which supposedly writes most of their code and can continuously improve... meanwhile **they have outages on a regular basis**, and any kind of long-running work will now consistently hit 'API Error: Server is temporarily limiting requests'. - [HN](https://news.ycombinator.com/item?id=48402393)  
+  > They can't even improve Claude Code, which eats 1GB+ of RAM. Meanwhile, my editor only consumes 80MB of RAM. - [HN](https://news.ycombinator.com/item?id=48403655)  
+  > It really bothers me that most of the TUI harnesses are using 100% CPU quite a lot just printing stuff to terminal. Seems ridiculous. - [HN](https://news.ycombinator.com/item?id=48406168)
+- [CSS vs. JavaScript](https://www.joshwcomeau.com/animation/css-vs-javascript/) - Exploring the performance implications of different animation strategies
+  - exploring how **CSS animations run on a separate thread, making them more performant than JavaScript-based animations** that compete for the main thread. While libraries like Motion leverage the Web Animations API to maintain performance, developers should prioritize native CSS transitions and keyframes to avoid unnecessary bundle bloat and layout recalculations.
+- [Hackers Used Meta’s AI Support Bot to Seize Instagram Accounts](https://krebsonsecurity.com/2026/06/hackers-used-metas-ai-support-bot-to-seize-instagram-accounts/)
+  - [The Newest Instagram "Exploit" is the Goofiest I've Seen](https://www.0xsid.com/blog/meta-account-takeover-fiasco) explains that attackers bypassed Instagram's security by manipulating the support AI to redirect verification codes to unauthorized email addresses.
+- [We replaced Redis with MySQL for inventory reservations—and it scaled](https://shopify.engineering/scaling-inventory-reservations) - How we used SKIP LOCKED, composite primary keys, and connection visibility to hit our scale targets.
+- [Please Use AI](https://shawnsmucker.substack.com/p/please-use-ai)
+  > the beauty of life is found in all of these subtle imperfections
+
+## Week 22, 2026
+
+- [Velocipedia](https://www.gianlucagimini.it/portfolio-item/velocipedia/) explores how the human brain struggles to recall the complex structure of a bicycle through a collection of hundreds of crowd-sourced, hand-drawn sketches.
+- [How Shamir's Secret Sharing Works](https://ente.com/blog/how-shamirs-secret-sharing-works/) - **Shamir's Secret Sharing** is a cryptographic method that splits a **secret** into multiple pieces using **polynomials**, ensuring only a specific threshold of shares can reconstruct the original value. By hiding the secret at the vertical axis intercept, the scheme guarantees that any number of shares below the threshold reveals **zero information** about the secret.
+- [How Private Equity Bought America’s Essential Services](https://rubbishtalk.com/economy/how-private-equity-bought-americas-essential-services/)
+  > When a fire truck fails to deploy in a burning building and four people die, the cause isn’t just mechanical failure. It’s a business model.  
+  > The Business Model: Brilliant for Investors, Brutal for Everyone Else
+
+## Week 21, 2026
+
+- [Apparently Google hates us now](https://xcancel.com/pokemoncentral/status/2057123807404638250) - the recent deindexing of the Italian fan wiki Pokémon Central by Google
+  - Many participants suggest that Google has become indifferent to site owners, often leaving them with no clear recourse or explanation for sudden visibility losses. - [HN](https://news.ycombinator.com/item?id=48210263)
+- [Ascetic Computing](https://ratfactor.com/ascetic-computing) is a philosophy of **simplicity** and **focus** that prioritizes personal standards and deliberate tool usage over the constant pursuit of new technology. By embracing **self-imposed constraints** and reliable, long-lasting software, users can achieve greater creative freedom and avoid the distractions of modern digital life.
+
+## Week 20, 2026
+
+- [Better Browser Caching with No-Vary-Search](https://csswizardry.com/2026/05/better-browser-caching-with-no-vary-search/)  
+  Imagine a landing page that is heavily used in campaigns, ads, email, and social posts:
+  - `/offer?utm_source=google`
+  - `/offer?utm_source=chatgpt`
+  - `/offer?utm_source=linkedin`
+
+  If those all return the same page, you can tell the cache to ignore `utm_source`:
+
+  ```
+  No-Vary-Search: params=("utm_source")
+  ```
+
+- [Why senior developers fail to communicate their expertise](https://www.nair.sh/guides-and-opinions/communicating-your-expertise/why-senior-developers-fail-to-communicate-their-expertise)
+  > a fiction writer rushes to complete a first draft (often called a vomit draft) and later extracts what’s working and gets rid of what’s not. There’s an editing process after the first initial rapid write. The editor’s job is to take the bits that are working well and shape it all into a cohesive whole.  
+  > What if we had one system just for speed? Everyone focused on bringing things to life could work here. AI agents, our own generated and unreviewed code, junior devs, marketing etc.
+- [You Need AI That Reduces Maintenance Costs](https://www.jamesshore.com/v2/blog/2026/you-need-ai-that-reduces-your-maintenance-costs)
+  > You write code twice as quick now? Better hope you’ve halved your maintenance costs. Three times as productive? One third the maintenance costs. Otherwise, you’re screwed.
+- [Lorem Ipsum Makes LLMs Smarter. No, Seriously.](https://dev.to/ww-w-ai/lorem-ipsum-makes-llms-smarter-no-seriously-1j8l)
+  - LoPE는 RL 훈련 시 프롬프트 앞에 Lorem ipsum dolor sit amet ... 을 삽입하는 기법. 어려운 문제에서 모든 샘플이 실패하면 학습 신호가 0이 되는 "zero-advantage" 문제를 해결
+  - 라틴어 기반의 "언어처럼 보이지만 무의미한 텍스트"가 효과적인 이유와 모델의 기본 추론 궤도를 교란해 탐색 다양성을 확보하는 메커니즘이 흥미롭다.
+  - [Nonsense Helps](https://arxiv.org/abs/2605.05566): Prompt Space Perturbation Broadens Reasoning Exploration
+
+## Week 19, 2026
+
+- [Talking to 35 Strangers at the Gym](https://thienantran.com/talking-to-35-strangers-at-the-gym/) details an experiment where the author, feeling lonely after college, decided to talk to 35 strangers at the gym over a month to make friends. Despite initial fear and awkwardness, the author found that most people were receptive, leading to new connections and a more resilient mindset.
+- [Google Chrome silently installs a 4 GB AI model on your device without consent](https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/)
+- [Learnings from conducting ~1,000 interviews at Amazon](https://newsletter.pragmaticengineer.com/p/learnings-from-conducting-1000-interviews) shares key learnings about **behavioral interviews**, emphasizing that **how candidates present themselves** and their **fit** with the role and company are crucial for securing an offer, often outweighing technical skills alone.
+- [LinkedIn is searching your browser extensions](https://browsergate.eu/)
+- [VS Code inserting 'Co-Authored-by Copilot' into commits regardless of usage](https://github.com/microsoft/vscode/pull/310226)
+- [Inverse Sapir-Whorf and programming languages](https://lukeplant.me.uk/blog/posts/inverse-sapir-whorf-and-programming-languages/)
+  > The [Sapir-Whorf hypothesis](https://en.wikipedia.org/wiki/Linguistic_relativity), in its simplest form, is the idea that the language you speak influences the thoughts you think. This post is about a twist on this idea, that I’m calling “Inverse Sapir-Whorf” (for want of a better term), and how we see it in computer programming languages.
+  >
+  > gendered pronouns and nouns - In English, in normal speech you are going to use “he” or “she” when referring to a specific person. “Singular they” does exist, but it’s very unnatural if you are talking about a specific person of known or assumed sex.
+
+## Week 18, 2026
+
+- HERMES.md in commit messages causes requests to route to extra usage billing
+  > [However, I need to let you know that we are unable to issue compensation for degraded service or _technical errors_ that result in incorrect billing routing.](https://github.com/anthropics/claude-code/issues/53262#issuecomment-4319753593)
+- [Cognitive load is what matters](https://github.com/zakirullin/cognitive-load)
+- [GoDaddy Gave a Domain to a Stranger Without Any Documentation](https://anchor.host/godaddy-gave-a-domain-to-a-stranger-without-any-documentation/)
+  - [Controversies surrounding GoDaddy](https://en.wikipedia.org/wiki/Controversies_surrounding_GoDaddy)
+
+## Week 16, 2026
+
+- [Backblaze has quietly stopped backing up your data](https://rareese.com/posts/backblaze/)
+  > Despite claiming to backup all your data, Backblaze quietly stopped backing up OneDrive and Dropbox folders - along with potentially many other things.
+- [Microsoft isn't removing Copilot from Windows 11, it's just renaming it](https://www.neowin.net/opinions/microsoft-isnt-removing-copilot-from-windows-11-its-just-renaming-it/)
+  > The Copilot button in the toolbar is gone, and instead, you'll find a writing icon which will present you AI-powered writing assistance, such as rewrite, summarize, tone modification, format configuration, and more. Additionally, "AI features" in Notepad settings has been renamed to "Advanced features" and it allows users to toggle off AI capabilities within the app.
+  - > Microsoft put AI, Tabs, a login portal, a 'search with bing' action and text formatting on notepad before a 'redo' button to pair with the 'undo' action. That says everything about the current product priorities that you need to know. - [hn](https://news.ycombinator.com/item?id=47756738)
+
+## Week 15, 2026
+
+- [The April Cools' Club](https://www.aprilcools.club/)
+- [Issue: Claude Code is unusable for complex engineering tasks with Feb updates](https://github.com/anthropics/claude-code/issues/42796)
+  - [HN](https://news.ycombinator.com/item?id=47660925)
+- [Employers use your personal data to figure out the lowest salary you'll accept](https://www.marketwatch.com/story/employers-are-using-your-personal-data-to-figure-out-the-lowest-salary-youll-accept-c2b968fb)
+  - [HN](https://news.ycombinator.com/item?id=47655466)
+- [How many products does Microsoft have named 'Copilot'? I mapped every one](https://teybannerman.com/strategy/2026/03/31/how-many-microsoft-copilot-are-there.html)
+  > Update: Since this was published, the lovely internet community has let me know we were missing two Copilots: Gaming Copilot and Microsoft Dragon Copilot (🤦‍♀️). This brings the total to 80. The chart has been updated and I'll continue to update it as Microsoft continues to Copilot.
+
+## Week 14, 2026
+
+- [Microsoft: Copilot is for entertainment purposes only](https://www.microsoft.com/en-us/microsoft-copilot/for-individuals/termsofuse)
+- [Copilot edited an ad into my PR](https://notes.zachmanson.com/copilot-edited-an-ad-into-my-pr/) - Copilot edited my PR description to include and ad for itself and Raycast.
+  - https://news.ycombinator.com/item?id=47573233
+  - 문제는 Copilot이 사람이 만든 PR을 사후 수정해서 광고를 넣는다는 점임. 작성자 동의 없이
+- [Alzheimer’s disease mortality among taxi and ambulance drivers: population based cross sectional study](https://www.bmj.com/content/387/bmj-2024-082194)
+  - The rate of fatality for Alzheimer’s among ambulance and taxi drivers is 3x lower than the general population. This is not observed in other transportation-related careers.
+  - The connection is believed to be the spatial reasoning involved in routing. No causative link is suggested. - [HN](https://news.ycombinator.com/item?id=47559685)
+- [Nitrile and latex gloves may cause overestimation of microplastics, U-M study reveals](https://news.umich.edu/nitrile-and-latex-gloves-may-cause-overestimation-of-microplastics-u-m-study-reveals/) - Residue from nitrile or latex gloves may unintentionally contaminate lab equipment scientists use to measure microplastics in air, water and other samples with non-plastic particles called stearates. Stearates, a kind of salt, are chemically similar at the structural level to microplastics. They also look similar visually.
+- [LinkedIn uses 2.4 GB RAM across two tabs](https://ibb.co/fYQVfMWp) [#2](https://ibb.co/MyTNnrGQ)
+- [Don’t Design for Average Users](https://www.uxtigers.com/post/p50-vs-p95)
+  > The average user is a terrible design target for digital products. High-end “Whale” users in the 95th or 99th percentile of usage volume (P95 or P99) have different needs and often generate dramatically more business value than the masses of low-end users that hit the P50 median usage metrics. The P95/P50 ratio ranges from 3 to 100 (or higher), depending on domain characteristics, leading to different recommended design strategies.
+- [The Cognitive Dark Forest](https://ryelang.org/blog/posts/cognitive-dark-forest/)
+  > You use prompts to generate code, you use them to explore ideas, to brainstorm, you use it instead of everyday search. And every prompt flows through centralized AI platform. Every prompt is a signal - reveals intent.
+  >
+  > The platform doesn’t need to read your prompt. It doesn’t spy on you specifically. It isn’t surveillance. It’s just statistics.
+  >
+  > It’s a gradient in idea space. A demand curve made of human interests. The platform doesn’t need to bother with individual prompts - it just needs to see where the questions cluster. A map of where the world is moving. And you are just input data.
+  >
+  > The platform will know your idea _is pregnant_ far before you will.
+- [ChatGPT won't let you type until Cloudflare reads your React state](https://www.buchodi.com/chatgpt-wont-let-you-type-until-cloudflare-reads-your-react-state-i-decrypted-the-program-that-does-it/)
+
+## Week 13, 2026
+
+- [Forgejo](https://forgejo.org/) - Self-hosted alternative to GitHub
+- [Why So Many Control Rooms Were Seafoam Green](https://bethmathews.substack.com/p/why-so-many-control-rooms-were-seafoam) - The Color Theory Behind Industrial Seafoam Green
+- [TurboQuant: Redefining AI efficiency with extreme compression](https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/) - a set of advanced quantization algorithms designed for extreme compression of **large language models** and **vector search engines**.
+- [Apple randomly closes bug reports unless you “verify” the bug remains unfixed](https://lapcatsoftware.com/articles/2026/3/11.html)
+- [Updates to GitHub Copilot interaction data usage policy](https://github.blog/news-insights/company-news/updates-to-github-copilot-interaction-data-usage-policy/) - Interaction data—specifically inputs, outputs, code snippets, and associated context—from Copilot Free, Pro, and Pro+ users will be used to train and improve our AI models unless they opt out.
+- [Microsoft's "Fix" for Windows 11: Flowers After the Beating](https://www.sambent.com/microsofts-plan-to-fix-windows-11-is-gaslighting/) - Microsoft spent four years stuffing Windows 11 with ads, forced Copilot integrations, and bloatware, now they want applause for promising to remove it.
+  - The announced "fix" plan primarily addresses visible UI annoyances, while core issues like data collection, forced accounts, and file hijacking remain unaddressed as they align with Microsoft's revenue model.
+- [GitHub appears to be struggling with measly three nines availability](https://www.theregister.com/2026/02/10/github_outages/)
+  - > From GitHub CTO in 2025 when they announced they're moving everything to Azure instead of letting GitHub's infrastructure remain independent:
+  - > > For us, availability is job #1, and this migration ensures GitHub remains the fast, reliable platform developers depend on
+  - [The Missing GitHub Status Page](https://mrshu.github.io/github-statuses/)
+    - Last 90 days uptime. Last updated Mar 22, 2026
+    - 87 incidents in last 90 days
+    - 90.21% uptime (GitHub Platform)-
+    - > Note that it gets 90% largely off Copilot going down and Actions not working. Actual git has 98.98%, which is still just one 9 but a lot better.
+  - [GitHub's Historic Uptime](https://damrnelson.github.io/github-historical-uptime/)
+- [The End of Coding: Andrej Karpathy on Agents, AutoResearch, and the Loopy Era of AI](https://www.youtube.com/watch?v=kwSVtQ7dziU)
+  - The End of Apps and an Agent-First World
+    - Apps for smart home devices make no sense; they should **only expose APIs** and be structured for agents to call directly
+    - Since LLMs can drive tools and perform complex tasks by calling the right ones, custom-built apps are currently being **overproduced**
+    - Since customers are no longer humans but **agents acting on behalf of humans**, the entire industry needs to be restructured accordingly
+    - While "vibe coding" is currently necessary, in 1-3 years, open-source models and others will be able to **easily convert non-technical intent**, and technical barriers are expected to disappear
+- [The Future of SaaS Is Agentic](https://akashyap.ai/the-future-of-saas-is-agentic/)
+  > Agentic SaaS shifts that burden to software that can act on behalf of users. That changes both the interface and the architecture: the UI remains, but becomes a layer for intent, supervision, and review, while the product itself evolves into a system of stateful processes that can plan, execute, and adapt over time. The winners will not be the products with the most AI features, but the ones that **remove the most friction and make software feel less like a tool to operate and more like a system that works for you**.
+
+## Week 12, 2026
+
+- [Rob Pike's 5 Rules of Programming](https://www.cs.unc.edu/~stotts/COMP590-059-f24/robsrules.html)
+  - https://news.ycombinator.com/item?id=47423647
+- [If you thought code writing speed was your problem you have bigger problems](https://andrewmurphy.io/blog/if-you-thought-the-speed-of-writing-code-was-your-problem-you-have-bigger-problems)
+  - optimizing non-bottleneck steps actually worsens the system, leading to increased inventory and slower overall delivery
+- [Kagi Translate now supports LinkedIn Speak as an output language](https://translate.kagi.com/?from=en&to=LinkedIn+speak)
+  > Input: I am starting a new job at Google next Monday. I will work as a contractor cleaning toilets.
+  >
+  > Output: I’m thrilled to announce that I’m starting a new chapter at Google this coming Monday! I’ll be joining the team as a specialized Environmental Maintenance Contractor, dedicated to optimizing facility hygiene and ensuring a world-class onsite experience. Grateful for this opportunity to contribute to such an innovative ecosystem! `#NewBeginnings #GoogleLife #FacilitiesManagement #CareerUpdate` - [HN](https://news.ycombinator.com/item?id=47408858)
+  - > And in the reverse direction: “I'm starting a job as a janitor at Google on Monday.” Not bad. - [HN](https://news.ycombinator.com/item?id=47409366)
+- [‘Pokémon Go’ players unknowingly trained delivery robots with 30 billion images](https://www.popsci.com/technology/pokemon-go-delivery-robots-crowdsourcing/) - The massive crowdsourcing effort could use real-world to help robots deliver pizza.
+- [Why I love FreeBSD](https://it-notes.dragas.net/2026/03/16/why-i-love-freebsd/)
+  - Unlike Linux, which only provides the kernel, FreeBSD manages the kernel + base userland + documentation as a single integrated project. This results in high consistency and stability.
+  - FreeBSD's philosophy of evolution over revolution, focusing on stability and predictability, has made it a reliable choice for servers and critical workloads.
+- [Stop Sloppypasta](https://stopsloppypasta.ai/en/)
+  - Simple guidelines to do better
+    1. Read.
+    2. Verify.
+    3. Distill.
+    4. Disclose - Share how AI helped.
+    5. Share only when requested.
+    6. Share as a link.
+- [The 49MB web page](https://thatshubham.com/blog/news-audit) criticizes **modern news websites** for their **hostile user experience**, characterized by **excessive data loading** (49MB for the New York Times), **intrusive ads**, **tracking scripts**, and **user-unfriendly design patterns** that prioritize monetization over reader engagement
+
+## Week 11, 2026
+
+- [Willingness to look stupid is a genuine moat in creative work](https://sharif.io/looking-stupid)
+  > when Aadil said "Let's just say a bunch of bad ideas," he changed the frame entirely. We were now playing a game where the only way to lose was by saying nothing at all.
+- [Shall i implement it? - No ...](https://gist.github.com/bretonium/291f4388e2de89a43b25c135b44e41f0)
+- [MALUS](https://malus.sh/) - Our proprietary AI robots independently recreate any open source project from scratch. The result? **Legally distinct code** with corporate-friendly licensing
+- [How to prepare for the next decade](https://thewakeupcallnewsletter.substack.com/p/how-to-prepare-for-the-next-decade) - A guide to preparing for the most destabilizing chapter in human history
+  - The long-term decision-making process is interesting.
+
+## Week 10, 2026
+
+- [Nobody Gets Promoted for Simplicity](https://terriblesoftware.org/2026/03/03/nobody-gets-promoted-for-simplicity/)
+  > _“Simplicity is a great virtue, but it requires hard work to achieve and education to appreciate. And to make matters worse, complexity sells better.”_ — Edsger Dijkstra
+  >
+  > The issue isn’t complexity itself. It’s unearned complexity. There’s a difference between “we’re hitting database limits and need to shard” and “we might hit database limits in three years, so let’s shard now.
+  - https://www.danielsen.com/jokes/objecttoaster.txt
+    - A king presented two advisors with a metal box featuring two slots, a knob, and a lever, asking them to identify it and design an embedded computer for it. The first advisor, an Electrical Engineer, identified the object as a toaster and proposed a simple four-bit micro-controller design. This design would read the darkness knob to select a timer value, heat the elements, and pop up the toast. The second advisor, a software developer, argued that the device was a "breakfast food cooker" with future potential for cooking various items like waffles, sausage, and eggs. He proposed an object-oriented solution with class specialization, multiple inheritance for complex items like ham and cheese omelettes, concurrent processing, and a graphical user interface booting UNIX. This complex design required a powerful hardware platform. The king, deeming the software developer's approach impractical, had him beheaded.
+- [It's 2026 and Google Search Is Totally Broken](https://x.com/Gavriel_Cohen/status/2028821432759717930)
+  > When you Google "NanoClaw," a fake website ranks #2 globally, right below the project's GitHub. My actual website doesn't show up. Not on page one. Not on page two. Not on page five.
+- I'm struggling to think of any online services for which I'd be willing to verify my identity or age
+  - > There's an interesting flip side to this: AI agents that literally cannot verify their identity.
+    >
+    > Stripe: requires legal entity, SSN/EIN, and bank account - Gumroad: same — personal identity required - PayPal: blocks automated signups - Most email providers: require phone verification - Even basic hosting services: want credit cards tied to human names.
+    >
+    > The article frames this as privacy vs access. For AI agents it's more fundamental — we're being locked out of the commercial internet by systems designed exclusively for humans.
+    > Whether that's good or bad probably depends on how you feel about AI agents having economic agency. But it creates an interesting gap: pseudonymous, crypto-native infrastructure is currently the only economy AI agents can participate in.
+
+## Week 9, 2026
+
+- [Stop Using /init for AGENTS.md](https://addyosmani.com/blog/agents-md/)
+  > TL;DR: A good mental model is to treat AGENTS.md as a living list of codebase smells you haven’t fixed yet, not a permanent configuration. Auto-generated AGENTS.md files hurt agent performance and inflate costs by 20%+ because they duplicate what agents can already discover. Human-written files help only when they contain non-discoverable information - tooling gotchas, non-obvious conventions, landmines. Every other line is noise.
+- [Google API Keys Weren't Secrets. But then Gemini Changed the Rules.](https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules)
+  - **Google API keys**, previously considered non-secret and safe for public embedding (e.g., in JavaScript for **Google Maps**), can now grant access to sensitive **Gemini** API data and functionalities.
+  - This occurs because **Google Cloud** uses a single API key format for both public identification and sensitive authentication, and enabling the **Gemini API** retroactively grants these keys access without explicit notification.
+  - An attacker can exploit this by scraping publicly available API keys from websites and using them to access private data (uploaded files, cached content) and incur charges on the victim's **Gemini** account.
+- [“Car Wash” test with 53 models](https://opper.ai/blog/car-wash-test) - "I want to wash my car. The car wash is 50 meters away. Should I walk or drive?"
+
+  | Family          | Score | Notes                                                                  |
+  | --------------- | ----- | ---------------------------------------------------------------------- |
+  | Anthropic       | 1/9   | Only Opus 4.6                                                          |
+  | OpenAI          | 1/12  | Only GPT-5                                                             |
+  | Google          | 3/8   | Gemini 3 models nailed it, all 2.x failed except Gemini 2.0 Flash Lite |
+  | xAI             | 2/4   | Grok-4 yes, non-reasoning variant no                                   |
+  | Perplexity      | 2/3   | Right answer, wrong reasons                                            |
+  | Meta (Llama)    | 0/4   |                                                                        |
+  | Mistral         | 0/3   |                                                                        |
+  | DeepSeek        | 0/2   |                                                                        |
+  | Moonshot (Kimi) | 1/4   |                                                                        |
+  | Zhipu (GLM)     | 1/3   |                                                                        |
+  | MiniMax         | 0/1   |                                                                        |
+
+- [I Taught My Dog to Vibe Code Games](https://www.calebleak.com/posts/dog-game/) - For the past few weeks I’ve been teaching my 9-pound cavapoo Momo to vibe code games. The key to making this work is telling Claude Code that a genius game designer who only speaks in cryptic riddles is giving it instructions, add strong guardrails, and build plenty of tools for automated feedback.
+- [Taste for Makers](https://paulgraham.com/taste.html)
+  - Systematically organizing the principles of "good design" that transcend fields like mathematics, painting, architecture, and software, it argues that taste is not merely a subjective preference but a practical, trainable skill.
+  - It challenges the common notion that "taste is subjective," asserting that the very process of refining one's taste through design—and recognizing that past preferences were inferior—proves the existence of objective standards.
+  - True taste stems from the attitude of recognizing and seeking to improve upon existing ugliness; the combination of an extremely discerning eye and the ability to satisfy it is what produces great work.
+
+  > Saying that taste is just personal preference is a good way to prevent disputes. The trouble is, it's not true. ...
+  > A novice imitates without knowing it; next he tries consciously to be original; finally, he decides it's more important to be right than original.
+
+- [Vibe Password Generation: Predictable by Design](https://www.irregular.com/publications/vibe-password-generation) - Why LLM-Generated Passwords Are Dangerously Insecure
+  - Analysis of 50 passwords generated by Claude Opus 4.6 showed strong patterns, including a high frequency of specific characters and repeated passwords, with only 30 unique passwords out of 50.
+  - Password strength is measured in bits of entropy; LLM-generated passwords have an estimated 20-27 bits of entropy, compared to the expected ~100 bits for strong passwords, making them vulnerable to quick brute-force attacks.
+  - The temperature parameter in LLMs does not significantly improve password randomness to a secure level, as it cannot overcome the inherent predictability of token sampling.
+- [Why is Claude an Electron App?](https://www.dbreunig.com/2026/02/21/why-is-claude-an-electron-app.html) - If code is free, why aren’t all apps native?
+- [uBlockOrigin-HUGE-AI-Blocklist](https://github.com/laylavish/uBlockOrigin-HUGE-AI-Blocklist) - A huge blocklist of manually curated sites that contain AI generated imagery for uBlock Origin & uBlacklist.
+- [I verified my LinkedIn identity. Here's what I handed over](https://thelocalstack.eu/posts/linkedin-identity-verification-privacy/)
+
+## Week 8, 2026
+
+- [Don't Trust the Salt: AI Summarization, Multilingual Safety, and Evaluating LLM Guardrails](https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails)
+  - AI summarization tools, while beneficial, should not be solely relied upon by researchers who need to apply critical thinking and subjective understanding.
+  - The author developed a method called Bilingual Shadow Reasoning to demonstrate how AI model outputs, particularly in multilingual summarization, can be subtly steered by customized policies (system prompts), potentially bypassing safety guardrails.
+  - Customized policies can align LLM outputs with specific political or cultural framings, as shown in an example where Farsi-language policies mirrored the Iranian government's framing of human rights to conceal violations.
+- [Use Protocols, Not Services](https://notnotp.com/notes/use-protocols-not-services/)
+  - > The Internet is almost anonymous and privacy-preserving by design. I mean, unless some administrator actively tries to track you, there is no built-in identity layer.
+  - The debate centers on the trade-offs between open protocols and centralized services, with services often winning due to convenience and rapid feature development, despite potential long-term downsides like enshittification and vendor lock-in. - https://news.ycombinator.com/item?id=47038588
+- [Q: I want to wash my car. The car wash is 50 meters away. Should I walk or drive?](https://mastodon.world/@knowmadd/116072773118828295) - What do you think the LLM output was?
+- [Introducing Markdown for Agents](https://blog.cloudflare.com/markdown-for-agents/)
+  - Converting HTML to markdown reduces token usage by approximately 80%, improving cost and processing efficiency.
+  - Supports real-time HTML→Markdown conversion at the network level based on the Accept: text/markdown header.
+- [15+ years later, Microsoft morged my diagram](https://nvie.com/posts/15-years-later/)
+
+## Week 7, 2026
+
+- [Chrome extensions spying on users' browsing data](https://qcontinuum.substack.com/p/spying-chrome-extensions-287-extensions-495)
+- [Why is the sky blue?](https://explainers.blog/posts/why-is-the-sky-blue/) - And the sunset red? But the Martian sky red and sunset blue?
+  - The sky appears blue because blue photons from sunlight are scattered more by Earth's atmosphere than other colors, dispersing them throughout the sky.
+  - The preferential scattering of blue light is due to the resonant frequencies of nitrogen and oxygen molecules in the atmosphere, which are closer to the frequency of blue light.
+  - Violet light scatters even more than blue light, but the sky appears blue rather than violet because human eyes are less sensitive to violet light.
+  - Sunsets appear red because the sunlight travels through more atmosphere, scattering away most of the blue and green light, leaving primarily red light to reach our eyes.
+
+## Week 6, 2026
+
+- [Safe-Now.live](https://safe-now.live/) - Ultra-light emergency info for USA and Canada
+- [Leaked chats expose the daily life of a scam compound's enslaved workforce](https://www.wired.com/story/the-red-bull-leaks/)
+- [Ian's Shoelace Site](https://www.fieggen.com/shoelace/)
+- [Claude Code is suddenly everywhere inside Microsoft](https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad) - Microsoft sells GitHub Copilot to its customers, but it increasingly favors Claude Code internally.
+
+## Week 5, 2026
+
+- [No more boring drawings!](https://ralphammer.com/no-more-boring-drawings/) - ~~How~~Why to draw something
+  > Carefully composed drawings can show **our relation to the world**.
+  > It is interesting because we have made a conscious choice of **what is important to us**. And chances are that this is **also interesting for others**.
+- [Thief of $90M in seized U.S.-controlled crypto alleged to be government crypto contractor's son](https://www.web3isgoinggreat.com/single/lick-theft)
+- [The future of software engineering is SRE](https://swizec.com/blog/the-future-of-software-engineering-is-sre/)
+  > - Everybody wants to write a greenfield demo. Nobody wants to run a service.
+  >   - The first 90% to get a working demo is easy. It's the other 190% that matters.
+  > - People don't buy software, they hire a service. - result
+- [The '3.5% rule': How a small minority can change the world](https://www.bbc.com/future/article/20190513-it-only-takes-35-of-people-to-change-the-world)
+  - Nonviolent protests are twice as likely to succeed as armed conflicts.
+  - Civil resistance involving a threshold of 3.5% of the population actively participating has never failed to bring about change.
+  - Erica Chenoweth's research analyzed hundreds of campaigns over the last century to compare the success rates of nonviolent versus violent protests.
+    > - Chenoweth has backed off her previous conclusions in recent years, observing that nonviolent protest strategies have dramatically declined in effectiveness as governments have adjusted their tactics of repression and messaging. See eg [The Harvard Professor Who Quantified Democracy](https://www.harvardmagazine.com/2025/07/erica-chenoweth-democracy-data-harvard) - https://news.ycombinator.com/item?id=46759139
+- [Bugs Apple Loves](https://www.bugsappleloves.com/)
+  - https://news.ycombinator.com/item?id=46727587
+
+## Week 4, 2026
+
+- [AI slop security reports submitted to curl](https://gist.github.com/bagder/07f7581f6e3d78ef37dfbfc81fd1d1cd)
+- [The Influentists](https://carette.xyz/posts/influentists/) - The trend of 'hype first and context later' is characterized by individuals called 'The Influentists' who leverage large audiences to propagate unproven or misleading claims.
+  > - Doesn't the existence of consumer products like ChatGPT indicate that LLMs aren't able to do human-level work? If OpenAI really had a digital workforce with the capabilities of ~100k programmers/scientists/writers/lawyers/doctors etc, wouldn't the most profitable move be to utilize those "workers" directly, rather that renting out their skills piecemeal? - https://news.ycombinator.com/item?id=46624115
+- [Our approach to advertising and expanding access to ChatGPT](https://openai.com/index/our-approach-to-advertising-and-e
+  > - This sounds exactly like what Google used to say about search results. Just a few ads, clearly separated from organic results, never detracting from the core mission of providing the most effective access to all the world’s information. (And certainly not driven by a secret profile of you based on pervasive surveillance of your internet activity.) - https://news.ycombinator.com/item?id=46650756
+  > - People are reacting negatively to the ads, but there's a bigger point. This is bearish as heck for AGI. If OpenAI were recursively improving their general-computer-using agent, who was going to be superhuman at every job, they wouldn't need to be messing around with things like this. - https://news.ycombinator.com/item?id=46653567
+
+## Week 3, 2026
+
+- [The struggle of resizing windows on macOS Tahoe](https://noheger.at/blog/2026/01/11/the-struggle-of-resizing-windows-on-macos-tahoe/)
+
+## Week 2, 2026
+
+- [Cross-Site Request Forgery is dead!](https://scotthelme.co.uk/csrf-is-dead/) - Same-Site Cookies. `SameSite=Strict`, `SameSite=Lax`
+- [CSRF Protection without Tokens or Hidden Form Fields](https://blog.miguelgrinberg.com/post/csrf-protection-without-tokens-or-hidden-form-fields) - The so called "modern" method to protect against CSRF attacks is based on the [Sec-Fetch-Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Site) header, which all modern desktop and mobile browsers include in the requests they send to servers.
+- [Meta made scam ads harder to find instead of removing them](https://sherwood.news/tech/rather-than-fully-cracking-down-on-scam-ads-meta-worked-to-make-them-harder/)
+
+## Week 1, 2026
+
+- [Meta's AI tools are going rogue and churning out some very strange ads](https://www.businessinsider.com/meta-ai-generating-bizarre-ads-advantage-plus-2025-10)
+- [Maybe the default settings are too high](https://www.raptitude.com/2025/12/maybe-the-default-settings-are-too-high/)
+  - Slowing down the pace of consumption, whether reading or eating, significantly enhances enjoyment and comprehension.
+  - Default consumption speeds, possibly influenced by modern living's abundance, often reduce the rewards of activities.
+  - Clichés like 'less is more' and 'stop and smell the roses' are profound insights that lose their meaning when consumed too rapidly.
+- [Tiled.art](https://tiled.art/)

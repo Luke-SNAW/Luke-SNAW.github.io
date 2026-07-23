@@ -1,0 +1,89 @@
+<h1 id="switch-vs-ifelse-a-comparison">Switch vs if…else: A Comparison<a aria-hidden="true" class="anchor-heading icon-link" href="#switch-vs-ifelse-a-comparison"></a></h1>
+<blockquote>
+<p><a href="https://javascript.plainenglish.io/switch-vs-if-else-7f7617bfe8cb">https://javascript.plainenglish.io/switch-vs-if-else-7f7617bfe8cb</a></p>
+</blockquote>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">recommendMovie</span><span class="token punctuation">(</span><span class="token parameter">genre</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>genre <span class="token operator">===</span> <span class="token string">"action"</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Die Hard"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>genre <span class="token operator">===</span> <span class="token string">"comedy"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"The Big Lebowski"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>genre <span class="token operator">===</span> <span class="token string">"horror"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Dawn of the Dead"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>genre <span class="token operator">===</span> <span class="token string">"drama"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"The Shawshank Redemption"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>genre <span class="token operator">===</span> <span class="token string">"musical"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"The Blues Brothers"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>genre <span class="token operator">===</span> <span class="token string">"sci-fi"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Blade Runner"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Genre not recognized. Choose between action, comedy, horror, drama, musical, or sci-fi."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">recommendMovie</span><span class="token punctuation">(</span><span class="token parameter">genre</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">switch</span> <span class="token punctuation">(</span>genre<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">"action"</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Die Hard"</span><span class="token punctuation">)</span>
+      <span class="token keyword control-flow">break</span>
+    <span class="token keyword">case</span> <span class="token string">"comedy"</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"The Big Lebowski"</span><span class="token punctuation">)</span>
+      <span class="token keyword control-flow">break</span>
+    <span class="token keyword">case</span> <span class="token string">"horror"</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Dawn of the Dead"</span><span class="token punctuation">)</span>
+      <span class="token keyword control-flow">break</span>
+    <span class="token keyword">case</span> <span class="token string">"drama"</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"The Shawshank Redemption"</span><span class="token punctuation">)</span>
+      <span class="token keyword control-flow">break</span>
+    <span class="token keyword">case</span> <span class="token string">"musical"</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"The Blues Brothers"</span><span class="token punctuation">)</span>
+      <span class="token keyword control-flow">break</span>
+    <span class="token keyword">case</span> <span class="token string">"sci-fi"</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Blade Runner"</span><span class="token punctuation">)</span>
+    <span class="token keyword module">default</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>
+        <span class="token string">"Genre not recognized. Choose between action, comedy, drama, musical, or sci-fi."</span>
+      <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The switch statement is less cluttered, quicker to read, and easier to understand. It is also a little bit faster which gives it another advantage in cases with numerous conditions. The other area where switch statements shine is when multiple conditions execute the same outcome.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">fruitOrVegetable</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>
+    item <span class="token operator">===</span> <span class="token string">"apple"</span> <span class="token operator">||</span>
+    item <span class="token operator">===</span> <span class="token string">"orange"</span> <span class="token operator">||</span>
+    item <span class="token operator">===</span> <span class="token string">"banana"</span> <span class="token operator">||</span>
+    item <span class="token operator">===</span> <span class="token string">"cherry"</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Fruit"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>
+    item <span class="token operator">===</span> <span class="token string">"broccoli"</span> <span class="token operator">||</span>
+    item <span class="token operator">===</span> <span class="token string">"lettuce"</span> <span class="token operator">||</span>
+    item <span class="token operator">===</span> <span class="token string">"carrot"</span> <span class="token operator">||</span>
+    item <span class="token operator">===</span> <span class="token string">"potato"</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Vegetable"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Neither"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">fruitOrVegetable</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">switch</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">"apple"</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">"orange"</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">"banana"</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">"cherry"</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Fruit"</span><span class="token punctuation">)</span>
+      <span class="token keyword control-flow">break</span>
+    <span class="token keyword">case</span> <span class="token string">"broccoli"</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">"lettuce"</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">"carrot"</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">"potato"</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Vegetable"</span><span class="token punctuation">)</span>
+      <span class="token keyword control-flow">break</span>
+    <span class="token keyword module">default</span><span class="token operator">:</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Neither"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This is a pretty big improvement. It’s much easier to read and understand.</p>

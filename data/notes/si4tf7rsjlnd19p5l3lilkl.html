@@ -1,0 +1,116 @@
+<h1 id="dendron-vault-분리-및-비공개private-설정-정리">Dendron Vault 분리 및 비공개(Private) 설정 정리<a aria-hidden="true" class="anchor-heading icon-link" href="#dendron-vault-분리-및-비공개private-설정-정리"></a></h1>
+<p>일기(daily journal)처럼 발행하고 싶지 않은 노트를 별도 vault로 분리하는 방법 정리.</p>
+<h2 id="1-새-vault-생성">1. 새 Vault 생성<a aria-hidden="true" class="anchor-heading icon-link" href="#1-새-vault-생성"></a></h2>
+<p>명령 팔레트에서 <code>Dendron: Vault Add</code> 실행 → <strong>local</strong> 또는 <strong>remote</strong> 선택</p>
+<h3 id="local">Local<a aria-hidden="true" class="anchor-heading icon-link" href="#local"></a></h3>
+<ul>
+<li>워크스페이스 폴더 안에 새 폴더를 만들어 vault로 등록</li>
+<li>Git 저장소 연결 없음, 단순 파일 시스템 디렉토리</li>
+<li><code>dendron.yml</code>:
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">vaults</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">fsPath</span><span class="token punctuation">:</span> private<span class="token punctuation">-</span>journal
+</code></pre>
+</li>
+</ul>
+<h3 id="remote">Remote<a aria-hidden="true" class="anchor-heading icon-link" href="#remote"></a></h3>
+<ul>
+<li>기존/신규 git 저장소 URL을 입력받아 clone 후 vault로 등록</li>
+<li>독립된 <code>.git</code>을 가진 완전히 별도의 저장소</li>
+<li><code>dendron.yml</code>:
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">vaults</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">fsPath</span><span class="token punctuation">:</span> private<span class="token punctuation">-</span>journal
+    <span class="token key atrule">remote</span><span class="token punctuation">:</span>
+      <span class="token key atrule">type</span><span class="token punctuation">:</span> git
+      <span class="token key atrule">url</span><span class="token punctuation">:</span> <span class="token string">"git@github.com:username/private-journal.git"</span>
+</code></pre>
+</li>
+</ul>
+<h2 id="2-gitignore-자동-추가-local-vault-기본-동작">2. <code>.gitignore</code> 자동 추가 (Local Vault 기본 동작)<a aria-hidden="true" class="anchor-heading icon-link" href="#2-gitignore-자동-추가-local-vault-기본-동작"></a></h2>
+<ul>
+<li><code>Vault Add</code>로 local vault를 만들면 Dendron이 <strong>기본적으로 해당 vault 경로를 <code>.gitignore</code>에 자동 추가</strong>함 (의도된 동작)</li>
+<li>이유: 나중에 별도 repo(remote vault)로 전환할 가능성을 열어두기 위함</li>
+<li>하나의 repo에서 같이 관리하고 싶다면 <code>.gitignore</code>에서 해당 줄을 <strong>수동으로 제거</strong>한 뒤 커밋</li>
+</ul>
+<pre class="language-gitignore"><code class="language-gitignore"><span class="token comment"># 이 줄을 지우면 private-journal도 상위 repo에 커밋됨</span>
+<span class="token entry string">private-journal</span>
+</code></pre>
+<h2 id="3-local--remote-전환-별도-repo로-분리">3. Local → Remote 전환 (별도 repo로 분리)<a aria-hidden="true" class="anchor-heading icon-link" href="#3-local--remote-전환-별도-repo로-분리"></a></h2>
+<ol>
+<li>vault 폴더 안에서 별도 git repo 초기화
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> private-journal
+<span class="token function">git</span> init
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">"initial commit"</span>
+<span class="token function">git</span> remote <span class="token function">add</span> origin <span class="token operator">&#x3C;</span>REPO_URL<span class="token operator">></span>
+<span class="token function">git</span> push -u origin HEAD
+</code></pre>
+</li>
+<li><code>Dendron: Convert Vault</code> 명령으로 local → remote 전환 (기존 파일 유지, git만 연결)</li>
+</ol>
+<h3 id="주의-repo가-여러-개면-commitpush는-자동-통합되지-않음">주의: repo가 여러 개면 commit/push는 자동 통합되지 않음<a aria-hidden="true" class="anchor-heading icon-link" href="#주의-repo가-여러-개면-commitpush는-자동-통합되지-않음"></a></h3>
+<ul>
+<li>상위 workspace repo와 remote vault repo는 <strong>완전히 독립된 저장소</strong></li>
+<li>VS Code Source Control에서 각각 따로 commit/push 필요</li>
+<li><code>Dendron: Workspace Sync</code> 명령은 여러 vault를 한 번에 <strong>pull</strong>하는 데는 도움되지만, commit/push 자동화는 아님</li>
+</ul>
+<h2 id="4-visibility-private--발행publish-제외">4. <code>visibility: private</code> — 발행(Publish) 제외<a aria-hidden="true" class="anchor-heading icon-link" href="#4-visibility-private--발행publish-제외"></a></h2>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">vaults</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">fsPath</span><span class="token punctuation">:</span> vault
+  <span class="token punctuation">-</span> <span class="token key atrule">fsPath</span><span class="token punctuation">:</span> private<span class="token punctuation">-</span>journal
+    <span class="token key atrule">visibility</span><span class="token punctuation">:</span> private
+</code></pre>
+<ul>
+<li>이 설정은 <strong>정적 사이트 생성(publish) 시에만</strong> 영향</li>
+<li><code>private-journal</code> vault 안의 모든 노트는 사이트 빌드 결과물에서 통째로 제외됨</li>
+<li>개별 노트마다 <code>published: false</code>를 걸 필요 없음</li>
+</ul>
+<h3 id="️-핵심-주의사항-visibility-private--git-상에서-비공개">⚠️ 핵심 주의사항: <code>visibility: private</code> ≠ Git 상에서 비공개<a aria-hidden="true" class="anchor-heading icon-link" href="#️-핵심-주의사항-visibility-private--git-상에서-비공개"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>설정</th><th>의미</th></tr></thead><tbody><tr><td><code>visibility: private</code></td><td>정적 사이트에 <strong>발행 안 됨</strong> (HTML 페이지 생성 X)</td></tr><tr><td>Git repo가 public</td><td>저장소를 클론/탐색하면 원본 markdown 파일은 그대로 <strong>노출됨</strong></td></tr></tbody></table></div>
+<ul>
+<li>하나의 repo로 합쳐서 관리할 경우, <strong>그 repo 자체가 private repository인지 반드시 확인</strong> 필요</li>
+<li>Public repo라면 사이트엔 안 보여도 소스 코드 자체는 그대로 공개됨</li>
+</ul>
+<h2 id="5-결론-상황별-권장-방식">5. 결론: 상황별 권장 방식<a aria-hidden="true" class="anchor-heading icon-link" href="#5-결론-상황별-권장-방식"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>목적</th><th>권장 방법</th></tr></thead><tbody><tr><td>사이트에만 안 보이면 됨 (소스 공개 무관)</td><td><code>visibility: private</code> + 같은 (public) repo</td></tr><tr><td>완전한 비공개 (소스도 숨기고 싶음)</td><td>같은 repo면 <strong>repo 자체를 private repo로 설정</strong></td></tr><tr><td>완전히 독립적으로 관리/백업하고 싶음</td><td>Local → Remote 전환, <strong>별도 private repo</strong>로 분리</td></tr><tr><td>관리 단순화가 우선</td><td>하나의 repo에서 <code>.gitignore</code> 해제 + <code>visibility: private</code></td></tr></tbody></table></div>

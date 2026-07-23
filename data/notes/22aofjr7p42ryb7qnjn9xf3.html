@@ -1,0 +1,56 @@
+<h1 id="you-dont-need-a-modal-window">You don't need a modal window<a aria-hidden="true" class="anchor-heading icon-link" href="#you-dont-need-a-modal-window"></a></h1>
+<blockquote>
+<p><a href="https://youdontneedamodalwindow.dev/">https://youdontneedamodalwindow.dev/</a></p>
+</blockquote>
+<p>Just make a separate page.</p>
+<p>Maybe you have a master/detail setup on your web app. There's a list of products/documents/whatever, and clicking on one brings up the details.</p>
+<p>Close <strong>XYZ-489</strong></p>
+<h2 id="example-2">Example 2<a aria-hidden="true" class="anchor-heading icon-link" href="#example-2"></a></h2>
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque blanditiis nulla consectetur labore expedita corrupti nihil saepe iste perferendis exercitationem praesentium, possimus iusto itaque numquam vel ut officiis explicabo enim.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ID</th><th>Name</th><th></th></tr></thead><tbody><tr><td>XYZ-173</td><td>Example 1</td><td><a href="https://youdontneedamodalwindow.dev/#">Details</a></td></tr><tr><td>XYZ-489</td><td>Example 2</td><td><a href="https://youdontneedamodalwindow.dev/#">Details</a></td></tr></tbody></table></div>
+<p>Don't open the details in a modal window. Have it be a separate page.</p>
+<p><strong>Modal windows can't be bookmarked or shared as links.</strong> Deep linking can be added to modals, but it's complex. What will show up in the background when the link is followed? How much application state needs to be restored? How will the user be confident that it will work?</p>
+<p><strong>Modal windows can't be opened in a new tab.</strong> Even if you implement this, you'll be forcing users to duplicate the page underneath.</p>
+<p><strong>Modal windows make the Back button confusing.</strong> Will it close the modal and return to the page in the background, or return to the page you were before that?</p>
+<p><strong>Modal windows are hard to get right.</strong> The "final boss of accessibility". If you have access to <code>&#x3C;dialog></code>, it's easier — if you need to support older browsers, good luck. There's a very good chance the modal window you have in production has dealbreaking bugs.</p>
+<p>Consider if the modal window is really the best choice. There are many reasons modal dialogs are used when they're not appropriate:</p>
+<p><strong>To compensate for slow page load</strong></p>
+<p>Web apps should pass the "refresh test": If I sneak up behind your user and refresh their tab, their frustration should be negligible and no data should be lost.</p>
+<p><strong>Because it seems easy</strong></p>
+<p>Many UI toolkits offer modals out-of-the-box. A developer might be tempted to reach for it to <em>zhoozh up</em> the app. Really <em>make it pop</em>, you know.</p>
+<p><strong>Because it looked good in the mockup</strong></p>
+<p>You're designing a website, not a Figma artboard.</p>
+<p>Modal windows can be used for views that don't constitute a "resource" or correspond to a domain entity:</p>
+<ul>
+<li>Alerts</li>
+<li>Confirmation dialogs</li>
+<li>Forms for creating/updating entities</li>
+</ul>
+<p>Bonus: RESTful UI</p>
+<hr>
+<h2 id="fzaninotto"><a href="https://news.ycombinator.com/user?id=fzaninotto">fzaninotto</a><a aria-hidden="true" class="anchor-heading icon-link" href="#fzaninotto"></a></h2>
+<blockquote>
+<p><a href="https://marmelab.com/react-admin-demo/#/reviews">https://marmelab.com/react-admin-demo/#/reviews</a></p>
+</blockquote>
+<p>When clicking on a review, the detail appear on the same page. This allows to quickly browse through reviews, and preview some before doing batch edition. It's super effective.</p>
+<p>Notice that you can bookmark any review detail, too.</p>

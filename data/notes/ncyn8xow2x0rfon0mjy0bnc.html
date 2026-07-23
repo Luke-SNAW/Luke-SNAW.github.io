@@ -1,0 +1,123 @@
+<h1 id="vs-code">Vs Code<a aria-hidden="true" class="anchor-heading icon-link" href="#vs-code"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://betterprogramming.pub/vs-code-shortcuts-to-code-like-youre-playing-a-piano-e5db7b272d1">VS Code Shortcuts To Code Like You’re Playing a Piano</a></li>
+<li><a href="https://stackoverflow.com/a/45899693/5163033">Change the default terminal in Visual Studio Code</a> - Terminal: Select Default Profile</li>
+</ul>
+<h2 id="dev">Dev<a aria-hidden="true" class="anchor-heading icon-link" href="#dev"></a></h2>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=p42ai.refactor#p42refactor">P42 JavaScript Assistant: Refactoring Hints &#x26; Automation</a></li>
+<li>Markdown All in One
+<ul>
+<li>section numbering : Ctrl+Alt+P -> section</li>
+<li>TOC : Ctrl+Alt+P -> toc</li>
+</ul>
+</li>
+<li>Git Graph</li>
+<li>Emoji</li>
+<li>Regions With Colors</li>
+<li>Prettier-Standard</li>
+<li>Add jsdoc comments</li>
+<li><a href="https://github.com/fwouts/previewjs">Preview.js</a> - Get instant previews of your UI components, directly in your IDE</li>
+<li><a href="https://github.com/lostintangent/gistpad">GistPad</a> - VS Code extension for managing and sharing code snippets, notes and interactive samples using GitHub Gists</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-database-client2">Database Client</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a> - Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=JSONHero.jsonhero-vscode">JSON Hero</a> - a beautiful JSON viewer.</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=albymor.increment-selection">Increment Selection</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=heybourn.headwind">Headwind</a> to order Tailwind classes automatically</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold">Tailwind Fold</a> - Improves code readability by folding class attributes</li>
+<li><a href="https://marketplace.visualstudio.com/items/?itemName=wmaurer.vscode-jumpy">jumpy</a></li>
+</ul>
+<h2 id="testing">Testing<a aria-hidden="true" class="anchor-heading icon-link" href="#testing"></a></h2>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=jevakallio.vscode-live-frame">Live Frame</a> - Live preview your web application inside VS Code</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=statelyai.stately-vscode">XState VSCode</a> - Visual editing, autocomplete and typegen for XState</li>
+<li><a href="https://codingbeautydev.com/blog/unnecessary-vscode-extensions/">7 Unnecessary VSCode Extensions You Should Uninstall Now</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=Chouzz.vscode-better-align">Better Align</a></li>
+</ul>
+<h2 id="etc">Etc<a aria-hidden="true" class="anchor-heading icon-link" href="#etc"></a></h2>
+<ul>
+<li><a href="https://github.com/estruyf/vscode-front-matter">Front Matter</a> a CMS running straight in Visual Studio Code</li>
+</ul>
+<h3 id="default-vs-code-as-the-git-editor">Default VS Code As The Git Editor<a aria-hidden="true" class="anchor-heading icon-link" href="#default-vs-code-as-the-git-editor"></a></h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> config --global core.editor <span class="token string">"code -w"</span>
+</code></pre>
+<p>Open the command pallette and run <code>Shell Command: Install code in PATH</code></p>
+<h2 id="co-op">Co-op<a aria-hidden="true" class="anchor-heading icon-link" href="#co-op"></a></h2>
+<h3 id="필수">필수<a aria-hidden="true" class="anchor-heading icon-link" href="#필수"></a></h3>
+<ul>
+<li>ESLint, Prettier, Vetur
+<ul>
+<li>Settings> save 검색
+<ul>
+<li>Editor: Format On Save 활성화</li>
+<li>Edit in settings.json 클릭하여 편집하여 다음 내용을 추가
+<pre class="language-json"><code class="language-json"><span class="token property">"eslint.format.enable"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token property">"[vue]"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"editor.defaultFormatter"</span> <span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token property">"[javascript]"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"editor.defaultFormatter"</span> <span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token property">"eslint.validate"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token string">"javascript"</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token property">"editor.defaultFormatter"</span> <span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter">axe Accessibility Linter</a></li>
+<li>Code Spell Checker</li>
+</ul>
+<h3 id="선택">선택<a aria-hidden="true" class="anchor-heading icon-link" href="#선택"></a></h3>
+<ul>
+<li>Auto Close Tag</li>
+<li>Auto Rename Tag</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments">Better Comments</a></li>
+<li>Emmet JSS</li>
+<li>ES7 React/Redux/GraphQL/React-Native snippets</li>
+<li>Git Graph</li>
+<li>GitLens
+<pre><code>"gitlens.autolinks": [
+  {
+    "url": "https://app.asana.com/0/search?q=IT-&#x3C;num>",
+    "prefix": "IT-"
+  }
+],
+</code></pre>
+</li>
+<li>HTML CSS Support</li>
+<li>HTML End Tag Labels</li>
+<li>Indent-Rainbow</li>
+<li>JavaScript (ES6) snippets</li>
+<li>JavaScript Booster</li>
+<li>P42 JavaScript Assistant</li>
+<li>Regions with Colors</li>
+<li>Surround</li>
+<li>Todo Tree</li>
+<li>Turbo Console Log</li>
+<li>Vue Snippets StandardJS</li>
+<li>Vue VSCode Snippets</li>
+</ul>
+<h2 id="personal-knowledge-management">Personal knowledge management<a aria-hidden="true" class="anchor-heading icon-link" href="#personal-knowledge-management"></a></h2>
+<ul>
+<li><a href="https://github.com/foambubble/foam">Foam</a> is a personal knowledge management and sharing system inspired by <a href="https://roamresearch.com/">Roam Research</a>, built on <a href="https://code.visualstudio.com/">Visual Studio Code</a> and <a href="https://github.com/">GitHub</a>.</li>
+</ul>
+<h3 id="dendron"><a href="https://github.com/dendronhq/dendron">Dendron</a><a aria-hidden="true" class="anchor-heading icon-link" href="#dendron"></a></h3>
+<p>The personal knowledge management (PKM) tool that grows as you do!</p>
+<ul>
+<li><a href="https://github.com/dendronhq/dendron/discussions/2118">awesome-dendron: A Dendron awesome list of extensions, vaults, and more</a></li>
+</ul>
+<h2 id="apply-font">Apply Font<a aria-hidden="true" class="anchor-heading icon-link" href="#apply-font"></a></h2>
+<pre class="language-shell"><code class="language-shell">system_profiler -json SPFontsDataType <span class="token operator">|</span> <span class="token function">grep</span> <span class="token punctuation">\</span>"family <span class="token operator">|</span> <span class="token function">sort</span> <span class="token operator">|</span> <span class="token function">uniq</span> <span class="token comment"># https://stackoverflow.com/a/67132993/5163033</span>
+</code></pre>
+<p>Or</p>
+<p>In Desktop view, Press “⌘ + Space” to start Spotlight, then type in “font book”</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/sifjdlyh7vc7t98zi4y8ydq">Tips for typing import statements in JavaScript</a></li>
+</ol>
