@@ -2,12 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1784534711383
+updated: 1784793451936
 created: 1766965709816
 ---
 
 ## Week 30, 2026
 
+- [The Value of Things](https://www.journal.stuffwithstuff.com/2026/01/24/the-value-of-things/)
+  > As any parent who lovingly clips their kid’s objectively terrible art to the fridge knows, the value of a made thing is not entirely based on its merits. That scarf has value not because it’s a great scarf but because I chose to spend an irreplaceable fraction of my life making it. It’s a symbol of how much I care about her.
 - [LG monitors silently install software through Windows Update without consent](https://videocardz.com/newz/lg-monitors-silently-install-software-through-windows-update-without-user-consent)
 
 ## Week 29, 2026

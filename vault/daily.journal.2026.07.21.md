@@ -2,14 +2,14 @@
 id: kalyeaohv0ytha9o7tp8c0v
 title: "2026-07-21"
 desc: ""
-updated: 1784678579674
+updated: 1784769860610
 created: 1784598108628
 traitIds:
   - journalNote
 published: false
 ---
 
-## 약간의 불편함은 바람직
+## 약간의 불편함, 무작정 소비에 거리 두기는 바람직
 
 배고픔이 느껴지면 바로 먹으려 든다. 고통·스트레스로 느껴져서 바로 없애려고 함.
 성장과 건강을 위해 약간의 감수가 좋겠지.
