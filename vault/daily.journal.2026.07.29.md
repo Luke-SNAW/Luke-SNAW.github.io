@@ -2,7 +2,7 @@
 id: s9eeg7jgivx33lzyw8lh3oc
 title: "2026-07-29"
 desc: ""
-updated: 1785321737324
+updated: 1785330297566
 created: 1785289875201
 traitIds:
   - journalNote
@@ -40,3 +40,7 @@ published: false
 ## sketch
 
 바느질하듯이 외곽선 일부 띄엄띄엄 그리며 전체 외곽을 어렴풋이 먼저 잡고 선을 그으니 수정하기도 편하고 좋군 #drawing #draft 링크
+
+## 그냥 산책 나가고 뛸만 하면 뛰자.
+
+- [[#jogging|daily.journal.2026.07.27#jogging]] 비슷하게 2km 뛰고 돌아옴. 뭐, 달린게 어디냐. 어차피 나갈 때도 별 의욕 없어서 3km도 못 뛰고 1km나 뛰려나 싶지만 아예 안뛰어도 산책하는 겸 나갔다. #jogging

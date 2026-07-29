@@ -2,7 +2,7 @@
 id: gvck5z10hu8dl937fuhvk2t
 title: "07"
 desc: ""
-updated: 1785313515629
+updated: 1785330302660
 created: 1785289863002
 published: false
 ---
@@ -13,6 +13,7 @@ published: false
 - [[미디어별 여유 저항|daily.journal.2026.07.20#미디어별-여유-저항]]
 - [[약간의 불편함, 무작정 소비에 거리 두기는 바람직|daily.journal.2026.07.21#약간의-불편함-무작정-소비에-거리-두기는-바람직]]
 - [[우리 옷을 그리다|book-report.우리-옷을-그리다]]
+- [[그냥 산책 나가고 뛸만 하면 뛰자.|daily.journal.2026.07.29#그냥-산책-나가고-뛸만-하면-뛰자]]
 
 ## fin
 
