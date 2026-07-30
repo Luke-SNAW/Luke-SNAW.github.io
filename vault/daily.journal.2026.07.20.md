@@ -2,7 +2,7 @@
 id: 2wfat9ysip4guexmpv2pl13
 title: "2026-07-20"
 desc: ""
-updated: 1784624037002
+updated: 1785215532757
 created: 1784598733282
 traitIds:
   - journalNote
@@ -26,3 +26,5 @@ published: false
 글, 그림, 오디오, 영상
 
 오디오가 심심하지 않으면서 흘리기 좋다.
+
+생각해보니 견물생심이라고, 눈에 들어오면 홀리기 쉬운데 생각이상으로 저항이 힘듦. #lust

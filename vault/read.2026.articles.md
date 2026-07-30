@@ -2,9 +2,16 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1784793451936
+updated: 1785226564721
 created: 1766965709816
 ---
+
+## Week 31, 2026
+
+- [Fix Your Analog Life First](https://katherinemartinko.substack.com/p/fix-your-analog-life-first)
+  > We need more practice and less consumption in our lives. But reducing consumption does not automatically lead to practice; it must be actively sought, and that requires conscious choice, persistence, and stubborn adherence to routine.
+- [Every Kid Hates Practicing Music](https://katherinemartinko.substack.com/p/every-kid-hates-practicing-music)
+  > “The real point of music lessons is not to get good at an instrument. It’s about discipline. You’re teaching your kid to sit down and do something hard every single day, even if he doesn’t like it. Getting good is just a bonus. But you’re not wasting time by teaching him discipline that can be applied to everything else in life.”
 
 ## Week 30, 2026
 

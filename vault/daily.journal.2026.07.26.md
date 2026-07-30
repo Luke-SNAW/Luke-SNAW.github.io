@@ -2,7 +2,7 @@
 id: 2w6bi5mmlyngqoo3bwli39x
 title: "2026-07-26"
 desc: ""
-updated: 1785036227181
+updated: 1785215652096
 created: 1785032484144
 traitIds:
   - journalNote
@@ -17,3 +17,8 @@ published: false
 ## 우리 옷을 그리다
 
 - [[성리학의 이념을 담은 옷, 심의深衣|book-report.우리-옷을-그리다#성리학의-이념을-담은-옷-심의深衣]] #book
+
+## #drawing
+
+더 적은 외곽선으로 스케치해보자 #test
+더 수정하기 쉽고 더 빠른 프로토타입 만들기에 좋을 듯
