@@ -2,7 +2,7 @@
 id: gvck5z10hu8dl937fuhvk2t
 title: "07"
 desc: ""
-updated: 1785402526490
+updated: 1785487849257
 created: 1785289863002
 published: false
 ---
@@ -24,3 +24,4 @@ published: false
 - [[매매에 여유를 가지지 못하니 단기 매매는 더 적은 비중으로|daily.journal.2026.07.29#매매에-여유를-가지지-못하니-단기-매매는-더-적은-비중으로]]
 - [[하락장에서의 태세|daily.journal.2026.07.29#하락장에서의-태세]]
 - [[무한게임 vs 부의 감정 연료 발전|daily.journal.2026.07.30#무한게임-vs-부의-감정-연료-발전]]
+- [[헷지용 매도|daily.journal.2026.07.31#헷지용-매도]]

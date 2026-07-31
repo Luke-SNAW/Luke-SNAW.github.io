@@ -2,12 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1785226564721
+updated: 1785468589006
 created: 1766965709816
 ---
 
 ## Week 31, 2026
 
+- [Read This Before You Buy That TV Streaming Stick](https://krebsonsecurity.com/2026/07/read-this-before-you-buy-that-tv-streaming-stick/) - H96. TV ON? PROXY. TV OFF? AD FRAUD
 - [Fix Your Analog Life First](https://katherinemartinko.substack.com/p/fix-your-analog-life-first)
   > We need more practice and less consumption in our lives. But reducing consumption does not automatically lead to practice; it must be actively sought, and that requires conscious choice, persistence, and stubborn adherence to routine.
 - [Every Kid Hates Practicing Music](https://katherinemartinko.substack.com/p/every-kid-hates-practicing-music)
