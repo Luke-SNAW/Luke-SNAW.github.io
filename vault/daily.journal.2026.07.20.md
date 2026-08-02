@@ -2,7 +2,7 @@
 id: 2wfat9ysip4guexmpv2pl13
 title: "2026-07-20"
 desc: ""
-updated: 1785215532757
+updated: 1785635531345
 created: 1784598733282
 traitIds:
   - journalNote
@@ -10,8 +10,6 @@ published: false
 ---
 
 ## #fin
-
-#draft
 
 - 반도체 주 PER - youtube@Teyvat2019
   - 5 근처 - cyclical 해석
