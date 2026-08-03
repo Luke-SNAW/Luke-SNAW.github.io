@@ -2,7 +2,7 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1785717930392
+updated: 1785736696771
 created: 1779352821282
 ---
 
@@ -13,6 +13,7 @@ created: 1779352821282
 - 오른쪽 half shower qualified - 2026-06-09
 - Juggler's Tennis qualified - 2026-06-19
 - 왼쪽 half shower qualified - 2026-07
+- 오른쪽 half shower 30개 (그 동안 딱히 집계를 안함) - 2026-08-03
 
 ---
 

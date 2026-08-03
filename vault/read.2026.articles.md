@@ -2,9 +2,16 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1785468589006
+updated: 1785734090757
 created: 1766965709816
 ---
+
+## Week 32, 2026
+
+- [Diátaxis](https://diataxis.fr/) is a way of thinking about and doing documentation.
+  - It prescribes approaches to content, architecture and form that emerge from a systematic approach to understanding the needs of documentation users.
+  - Diátaxis identifies four distinct needs, and four corresponding forms of documentation - tutorials, how-to guides, technical reference and explanation.
+- [BMW Spider-Man in-car advertising](https://consumerrights.wiki/w/BMW_Spider-Man_in-car_advertising)
 
 ## Week 31, 2026
 
