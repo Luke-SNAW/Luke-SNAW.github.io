@@ -1,8 +1,8 @@
 ---
 id: j71mrhhqz6x9o90gwj5lmks
-title: Accomplishments Habit Formation
+title: Achievement - Habit Building
 desc: ""
-updated: 1782809732839
+updated: 1785718248161
 created: 1748831002093
 ---
 
@@ -71,3 +71,37 @@ created: 1748831002093
   - 자꾸 머리 혹사 시킴. 머리 혹사시킬 때마다 치매 확률 올라간다고 생각하고 좀 쉬자.
 - 영어해석: 해석도 잘 안되면서 속도만 내려고 한다.
   - rushing makes everything worse. — [Typing 118 WPM Broke My Brain in the Right Ways (A Year-Long Journey)](https://balaji-amg.surge.sh/blog/typing-118-wpm-brain-rewiring)
+
+---
+
+## achieve vs accomplish
+
+### achieve
+
+- **노력, 능력, 기술을 통해 도달한 결과**에 초점
+- 보통 **어렵거나 오랜 시간이 걸리는 목표**에 씀
+- 결과 자체의 **가치나 성취감**을 강조하는 느낌
+
+예: achieve success, achieve a goal, achieve fame, achieve independence
+→ "노력해서 이뤄낸 무언가 대단한 것"이라는 뉘앙스
+
+### accomplish
+
+- **계획했던 일을 완수했다, 끝냈다**는 것에 초점
+- 목표뿐 아니라 **과제(task)나 임무(mission)**에도 자연스럽게 씀
+- "achieve"보다 좀 더 **중립적이고 실무적인** 느낌
+
+예: accomplish a task, accomplish a mission, accomplish nothing
+→ "계획한 걸 완료했다"는 뉘앙스가 강함
+
+### 비교 예문
+
+- I achieved my dream of becoming a doctor. (의사가 되는 꿈을 이뤘다 — 큰 성취, 감동적 느낌)
+- I accomplished all my tasks today. (오늘 할 일을 다 끝냈다 — 일상적인 완수)
+
+둘 다 바꿔 써도 문법적으로는 크게 문제없는 경우가 많지만:
+
+- **achieve**는 "위대한 성취"에 더 잘 어울리고
+- **accomplish**는 "계획한 일의 완수"에 더 잘 어울려요
+
+예를 들어 "accomplish a dream"보다는 "achieve a dream"이 훨씬 자연스럽고, "accomplish a task"가 "achieve a task"보다 훨씬 자연스러워요. - by sonnet 5

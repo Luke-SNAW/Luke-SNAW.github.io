@@ -2,7 +2,7 @@
 id: 2mjrmv5yi21yp9d39mfhto7
 title: "2026-06-12"
 desc: ""
-updated: 1784704922540
+updated: 1785717479929
 created: 1783589062024
 traitIds:
   - journalNote
@@ -20,7 +20,8 @@ published: false
 ## 중력으로 인한 실속, 정지, 하락 움직임에 매료
 
 위에서 공이 중력에 의해 실속 후 정지, 하락 움직임에 매료됨.
-그걸 보고 있으니 저글링도 더 잘 된다. #juggling
+그걸 보고 있으니 저글링도 더 잘 된다.
+불멍, 물멍, 공멍 #juggling
 
 ## Struggling
 

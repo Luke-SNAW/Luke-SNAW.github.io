@@ -2,15 +2,17 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1784705038128
+updated: 1785717930392
 created: 1779352821282
 ---
 
-## Accomplishment
+## Achievement
 
+- 시작 - 2026-04-18
 - 3개 cascade 100개 달성 - 2026-05
 - 오른쪽 half shower qualified - 2026-06-09
 - Juggler's Tennis qualified - 2026-06-19
+- 왼쪽 half shower qualified - 2026-07
 
 ---
 
