@@ -84,6 +84,13 @@ publishing:
   copyAssets: true
   siteHierarchies:
     - root
+  hierarchy:
+    daily:
+      publishByDefault: false
+    dendron:
+      publishByDefault: false
+    templates:
+      publishByDefault: false
   enableSiteLastModified: true
   siteRootDir: docs
   siteUrl: https://luke-snaw.github.io/
