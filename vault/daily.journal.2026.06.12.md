@@ -2,11 +2,10 @@
 id: 2mjrmv5yi21yp9d39mfhto7
 title: "2026-06-12"
 desc: ""
-updated: 1785717479929
+updated: 1785742498584
 created: 1783589062024
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #fin

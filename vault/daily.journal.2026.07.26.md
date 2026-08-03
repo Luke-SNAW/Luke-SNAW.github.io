@@ -2,11 +2,10 @@
 id: 2w6bi5mmlyngqoo3bwli39x
 title: "2026-07-26"
 desc: ""
-updated: 1785215652096
+updated: 1785742498442
 created: 1785032484144
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 황차

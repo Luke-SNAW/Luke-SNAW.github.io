@@ -2,11 +2,10 @@
 id: s9eeg7jgivx33lzyw8lh3oc
 title: "2026-07-29"
 desc: ""
-updated: 1785330297566
+updated: 1785742498543
 created: 1785289875201
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 매매에 여유를 가지지 못하니 단기 매매는 더 적은 비중으로

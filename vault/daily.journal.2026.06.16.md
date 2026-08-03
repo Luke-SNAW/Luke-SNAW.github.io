@@ -2,11 +2,10 @@
 id: 7wjmbwe5bb4055xyi8y1svg
 title: "2026-06-16"
 desc: ""
-updated: 1783990830622
+updated: 1785742498530
 created: 1783589050142
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #fin

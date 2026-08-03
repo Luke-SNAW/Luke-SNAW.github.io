@@ -2,11 +2,10 @@
 id: 2i4694sylt7otb9l5ucsip6
 title: "2026-07-30"
 desc: ""
-updated: 1785402476340
+updated: 1785742498278
 created: 1785371370373
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 저베타로 전환

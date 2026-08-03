@@ -2,11 +2,10 @@
 id: oqpl2t641xkez3kriwf9p9a
 title: "2026-07-18"
 desc: ""
-updated: 1784623308624
+updated: 1785742498523
 created: 1784382781711
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 휴일 외출

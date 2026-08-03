@@ -2,11 +2,10 @@
 id: 5wuwik5x8jibum6e9yaqj7f
 title: "2026-07-19"
 desc: ""
-updated: 1784623358831
+updated: 1785742498422
 created: 1784469105337
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 못 그리지만 더 잘 그릴 수 있기에 나빠보이지 않음

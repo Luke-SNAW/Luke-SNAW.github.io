@@ -2,11 +2,10 @@
 id: 0oz7db4gqy4ydibv2o0d9bh
 title: "2026-06-18"
 desc: ""
-updated: 1783990843776
+updated: 1785742498347
 created: 1783579327402
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #meditation

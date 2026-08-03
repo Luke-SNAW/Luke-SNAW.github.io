@@ -2,11 +2,10 @@
 id: m2zij74s2roup8e6zyqkomq
 title: "2026-07-09"
 desc: ""
-updated: 1783990810505
+updated: 1785742498310
 created: 1783577931120
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #fin

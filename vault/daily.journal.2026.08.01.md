@@ -2,11 +2,10 @@
 id: hhkpsczmcd4b42ufv37th5y
 title: "2026-08-01"
 desc: ""
-updated: 1785664390231
+updated: 1785742498571
 created: 1785564200043
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 실행이 부담되면 일부만 목표로 시작

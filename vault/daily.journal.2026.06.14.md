@@ -2,11 +2,10 @@
 id: ft3uyhc9ijyq1p7jmy6tge2
 title: "2026-06-14"
 desc: ""
-updated: 1783990814679
+updated: 1785742498222
 created: 1783579443769
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #mental #chore

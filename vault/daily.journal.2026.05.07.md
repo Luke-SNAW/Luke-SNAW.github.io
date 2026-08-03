@@ -2,11 +2,10 @@
 id: 218tdng16ygoceqc3t9jxdf
 title: "2026-05-07"
 desc: ""
-updated: 1783990784004
+updated: 1785742498517
 created: 1783589176136
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 추세추종 거래는 장 시작에, 역행은 장 마감에 거래가 나은가? #fin

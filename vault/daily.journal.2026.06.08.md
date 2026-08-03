@@ -2,11 +2,10 @@
 id: ij8hcf6kege4pipj74wvg4w
 title: "2026-06-08"
 desc: ""
-updated: 1783990831826
+updated: 1785742498393
 created: 1783589099101
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #fin

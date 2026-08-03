@@ -2,11 +2,10 @@
 id: qeku9gyi98vv80mg98ndtqn
 title: "2026-07-04"
 desc: ""
-updated: 1783990828116
+updated: 1785742498297
 created: 1783577792637
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #mental

@@ -2,11 +2,10 @@
 id: h5marxjqhs76q5phzo7tub5
 title: "2026-04-27"
 desc: ""
-updated: 1784704307866
+updated: 1785742498340
 created: 1784704269587
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 저글링을 통한 기분 전환

@@ -2,11 +2,10 @@
 id: qxsnsznqqc0hnaj8hlzgpu1
 title: "2026-05-05"
 desc: ""
-updated: 1784704799369
+updated: 1785742498317
 created: 1784704648253
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 꾸준히 하면 결국된다

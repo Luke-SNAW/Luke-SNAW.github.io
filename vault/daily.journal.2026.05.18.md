@@ -2,11 +2,10 @@
 id: uc6hl40wwku4ijfi7h08sk8
 title: "2026-05-18"
 desc: ""
-updated: 1783990833607
+updated: 1785742498577
 created: 1783589151449
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #fin

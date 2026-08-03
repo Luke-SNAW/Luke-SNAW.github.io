@@ -2,11 +2,10 @@
 id: zhykuachs5hrb1yqbwzdqm4
 title: "2026-07-24"
 desc: ""
-updated: 1785118273278
+updated: 1785742498332
 created: 1785118113322
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #fin

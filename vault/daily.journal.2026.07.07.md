@@ -2,11 +2,10 @@
 id: apkfvosn818dwtltntihcm5
 title: "2026-07-07"
 desc: ""
-updated: 1783990841420
+updated: 1785742498497
 created: 1783577774952
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #mental

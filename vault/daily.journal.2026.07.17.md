@@ -2,11 +2,10 @@
 id: n69doag9w9jed8akq9dxfn9
 title: "2026-07-17"
 desc: ""
-updated: 1784623322866
+updated: 1785742498469
 created: 1784294492529
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 황차

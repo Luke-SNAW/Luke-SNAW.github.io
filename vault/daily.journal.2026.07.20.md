@@ -2,11 +2,10 @@
 id: 2wfat9ysip4guexmpv2pl13
 title: "2026-07-20"
 desc: ""
-updated: 1785635531345
+updated: 1785742498240
 created: 1784598733282
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #fin

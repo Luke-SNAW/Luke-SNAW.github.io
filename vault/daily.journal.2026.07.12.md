@@ -2,11 +2,10 @@
 id: wgrlamzod26fpi419mqf4nx
 title: "2026-07-12"
 desc: ""
-updated: 1784623454715
+updated: 1785742498355
 created: 1784017550101
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #drawing

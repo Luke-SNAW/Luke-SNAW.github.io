@@ -2,11 +2,10 @@
 id: 3hlj4zcs7g2s5xb8lm9krbw
 title: "2026-05-13"
 desc: ""
-updated: 1784704827594
+updated: 1785742498510
 created: 1784704793633
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 잘하니 더 하게 됨

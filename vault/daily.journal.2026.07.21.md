@@ -2,11 +2,10 @@
 id: kalyeaohv0ytha9o7tp8c0v
 title: "2026-07-21"
 desc: ""
-updated: 1785488124817
+updated: 1785742498416
 created: 1784598108628
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 약간의 불편함, 무작정 소비에 거리 두기는 바람직

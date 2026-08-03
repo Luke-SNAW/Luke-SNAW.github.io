@@ -2,11 +2,10 @@
 id: vf0w52vcxylt3fdj657sy70
 title: "2026-07-14"
 desc: ""
-updated: 1784678537314
+updated: 1785742498249
 created: 1783990464299
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 불릿포인트로 기록?

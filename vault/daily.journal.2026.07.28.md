@@ -2,11 +2,10 @@
 id: jvf8v0kwtbi4hdgnmx1eaj7
 title: "2026-07-28"
 desc: ""
-updated: 1785226556568
+updated: 1785742498564
 created: 1785226493113
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #reading

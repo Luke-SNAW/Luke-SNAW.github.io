@@ -2,11 +2,10 @@
 id: fbky183d6uc957sc5hwcr6c
 title: "2026-08-02"
 desc: ""
-updated: 1785670582834
+updated: 1785742498270
 created: 1785663978884
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #fin

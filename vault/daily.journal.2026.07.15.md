@@ -2,11 +2,10 @@
 id: fqz0trhpofpa4ms3jzf6avf
 title: "2026-07-15"
 desc: ""
-updated: 1784623376402
+updated: 1785742498377
 created: 1784110922354
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #fin

@@ -2,11 +2,10 @@
 id: kxf40mqozg8ohx7t4bneu43
 title: "2026-07-23"
 desc: ""
-updated: 1785112746005
+updated: 1785742498476
 created: 1784772380266
 traitIds:
   - journalNote
-published: false
 ---
 
 ## 삶이 무미건조하게 느껴짐

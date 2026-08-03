@@ -2,11 +2,10 @@
 id: ylntdfl9ee7f6uiai54tona
 title: "2026-07-13"
 desc: ""
-updated: 1784623441449
+updated: 1785742498483
 created: 1784190791848
 traitIds:
   - journalNote
-published: false
 ---
 
 ## juggler's tennis 연습

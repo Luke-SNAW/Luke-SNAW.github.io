@@ -2,11 +2,10 @@
 id: 3e3dpsljx34gw9zevg0ctj9
 title: "2026-07-27"
 desc: ""
-updated: 1785330066296
+updated: 1785742498490
 created: 1785118473140
 traitIds:
   - journalNote
-published: false
 ---
 
 ## #stretching

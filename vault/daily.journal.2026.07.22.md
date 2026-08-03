@@ -2,11 +2,10 @@
 id: h15bnbbb1vpk53jn1ehhg11
 title: "2026-07-22"
 desc: ""
-updated: 1785112876410
+updated: 1785742498435
 created: 1784704023637
 traitIds:
   - journalNote
-published: false
 ---
 
 ## half shower가 재밌다.
