@@ -2,7 +2,7 @@
 id: 3cjj2gdnz8veb8xm3umtm9c
 title: 2026년 08월
 desc: ""
-updated: 1785670282661
+updated: 1785744849376
 created: 1785633640998
 published: false
 ---
@@ -15,3 +15,4 @@ published: false
 ## fin
 
 - [[채널 전환 확인은 상·하단 둘 다 확인|daily.journal.2026.08.02#채널-전환-확인은-상하단-둘-다-확인]]
+- [[주식 사라고 연락하고 싶음 - 저점신호?|daily.journal.2026.08.02#주식-사라고-연락하고-싶음---저점신호]]
