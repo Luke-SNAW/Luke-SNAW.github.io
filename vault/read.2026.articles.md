@@ -2,12 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1785734090757
+updated: 1785887668191
 created: 1766965709816
 ---
 
 ## Week 32, 2026
 
+- [Leaving Proton Mail](https://nelson.cloud/leaving-proton-mail/) - due to persistent **UI bugs**, sluggish performance, and a **lack of focus** on core product improvements. The author criticizes the company for prioritizing features like AI integration and Proton Wallet over essential optimizations.
+- [Xbox goes down. You can't play games you own on disc.](https://birchtree.me/blog/xbox-goes-down-you-cant-play-games-you-own-on-disc/)
 - [Diátaxis](https://diataxis.fr/) is a way of thinking about and doing documentation.
   - It prescribes approaches to content, architecture and form that emerge from a systematic approach to understanding the needs of documentation users.
   - Diátaxis identifies four distinct needs, and four corresponding forms of documentation - tutorials, how-to guides, technical reference and explanation.
