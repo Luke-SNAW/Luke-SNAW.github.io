@@ -1,0 +1,247 @@
+<h1 id="11-html-best-practices-for-login--sign-up-forms">11 HTML best practices for login &#x26; sign-up forms<a aria-hidden="true" class="anchor-heading icon-link" href="#11-html-best-practices-for-login--sign-up-forms"></a></h1>
+<blockquote>
+<p><a href="https://evilmartians.com/chronicles/html-best-practices-for-login-and-signup-forms">https://evilmartians.com/chronicles/html-best-practices-for-login-and-signup-forms</a></p>
+</blockquote>
+<p>Most websites have login or sign-up forms; they’re a critical part of business conversion. However, even popular sites fail to implement the 11 best practices mentioned in this article, and thus have at least one mistake. So, read this post, and then check your forms and improve your UX by using HTML technologies the way they should be used.</p>
+<p>In general, sign-in and login forms are very simple. For most websites, they feature just 2 inputs and a submit button. But, even with this simple HTML structure, many websites still have little mistakes.</p>
+<p>Since this type of form is simple and has many chances for error, they present a good learning environment both for learning about some new HTML features, and to master the skills needed to produce the best user experience <strong>with any kind of form</strong>.</p>
+<h2 id="think-about-a-password-less-process-instead-of-emailpassword">Think about a password-less process instead of email/password<a aria-hidden="true" class="anchor-heading icon-link" href="#think-about-a-password-less-process-instead-of-emailpassword"></a></h2>
+<p>Before we get to the practices, a quick note: in this article, we’ll work with a classic email/password form as an example. However, in terms of security, passwords are actually the worst way to have users login, and this method has many, well-known weaknesses. Let’s quickly look at just a couple:</p>
+<ol>
+<li><a href="https://www.researchgate.net/publication/324455350_2018_Verizon_Data_Breach_Investigations_Report">This report on Verison’s 2018 data breach</a> says that over 70% of people reuse passwords across websites. Attackers could potentially find a cross-website shared password in some leaked data from one website and use it to steal an account on another website. Additionally, compared to a password-less option, like those we’ll discuss below, implementing 2FA as a solution would reduce UX.</li>
+<li>Users constantly forget their passwords, and resetting passwords takes too much time. According to <a href="https://www.transmitsecurity.com/wp-content/uploads/transmit-security-passwordless-report-the-impact-of-passwords-on-your-business.pdf">this report from Transmit Security</a>, 55% of consumers have stopped using a website because the login process was too complex.</li>
+</ol>
+<blockquote>
+<p>If you want to improve your login form, a first step would be thinking about a password-less option.</p>
+</blockquote>
+<p>Here are my favorite password-less options right now:</p>
+<ol>
+<li>Instead of a DIY implementation, use a secure, well-engineered and maintained third-party solution, such as <a href="https://auth0.com/">Auth0</a> or <a href="https://aws.amazon.com/cognito/">Amazon Cognito</a>. For several of our client projects, including the ones with the highest security requirements, we used one of those methods to authenticate.</li>
+<li>The new <strong>passkey standard</strong> suggested by <a href="https://developer.apple.com/videos/play/wwdc2022/10092/">Apple</a> and <a href="https://developers.google.com/identity/passkeys">Google</a>. <a href="https://www.passkeys.io/">This demo</a> and <a href="https://www.nytimes.com/wirecutter/blog/what-are-passkeys-and-how-they-can-replace-passwords/">article in New York Times</a> explain how it works and why it’s better.</li>
+<li>Implementing an email with <strong>sign-in link</strong> (many users utiize the <code>Remember password</code> feature with every login anyway).</li>
+</ol>
+<p>You can also combine these options, for instance, using a passkey for users with new browsers and sign-in links for users without passkeys.</p>
+<p>With that out of the way, let’s move on to the 11 best practices for login and sign up forms. (While reading, keep in mind that almost all of these guidelines are also valid for any type of form.)</p>
+<h2 id="1-set-autocomplete">1. Set <code>autocomplete</code><a aria-hidden="true" class="anchor-heading icon-link" href="#1-set-autocomplete"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> &#x3C;input type="email">
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> &#x3C;input type="email" autocomplete="username">
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> &#x3C;input type="password">
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> &#x3C;input type="password" autocomplete="current-password">
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;button>Login&#x3C;/button>
+</span></span></code></pre>
+<p>Password managers are the only option to reduce security risks on email/password forms (but even they don’t fix all of risks). This is why it is important to give password managers a hand.</p>
+<p>The <code>&#x3C;input></code> tag has the very useful <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete"><code>autocomplete</code></a> attribute. It also allows password managers to distinguish a login form (<code>current-password</code>) from a sign-up form (<code>new-password</code>).</p>
+<p>Let’s take a look:</p>
+<pre class="language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;label>
+</span><span class="token prefix unchanged"> </span><span class="token line">   New password:
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   &#x3C;input type="password">
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &#x3C;input type="password" autocomplete="new-password">
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;/label>
+</span><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;label>
+</span><span class="token prefix unchanged"> </span><span class="token line">   Confirm password:
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   &#x3C;input type="password">
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &#x3C;input type="password" autocomplete="new-password">
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;/label>
+</span><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;button>Sign Up&#x3C;/button>
+</span></span></code></pre>
+<p>Don’t set <code>autocomplete="off"</code> if you don’t know what are you doing! Doing so could lessen the user experience. We should only use this setting when we need to to hide very sensitive data (like a “symptoms” field on a medical website).</p>
+<blockquote>
+<p>The <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing"><code>autocomplete="off"</code> hack</a> addresses that when dynamically setting <code>disabled</code>, state is not reset upon refresh. Only set <code>off</code> for the submit <code>&#x3C;button></code>, not the entire form.</p>
+</blockquote>
+<h2 id="2-set-typeemail">2. Set <code>type="email"</code><a aria-hidden="true" class="anchor-heading icon-link" href="#2-set-typeemail"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;label>
+</span><span class="token prefix unchanged"> </span><span class="token line">   E-mail:
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   &#x3C;input type="text" autocomplete="username">
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &#x3C;input type="email" autocomplete="username">
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;/label>
+</span></span></code></pre>
+<p>One of the most common mistakes with login forms is using <code>type="text"</code> on an e-mail field instead of <code>type="email"</code>. Why is this attribute important?</p>
+<ol>
+<li>Browsers will suggest the user’s email in an autocomplete popup (even if the user is opening a website for a first time).</li>
+<li>On touch-devices, the user will be prompted with a specific, more comfortable keyboard designed for entering e-mails.</li>
+<li>It enables built-in e-mail validation.</li>
+</ol>
+<blockquote>
+<p>If your form allows for entering either a username or email within a single field, then, still, make sure to use <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode"><code>inputmode="email"</code></a> to enable the email keyboard. Overall, this is still way more convenient for users.</p>
+</blockquote>
+<p>If you don’t like the browser’s built-in validation, don’t set <code>type="text"</code>. Instead, use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"><code>novalidate</code></a> attribute.</p>
+<h2 id="3-all-clickables-should-use-button-or-a-not-div-or-span">3. All clickables should use <code>&#x3C;button></code> or <code>&#x3C;a></code>, not <code>&#x3C;div></code> or <code>&#x3C;span></code><a aria-hidden="true" class="anchor-heading icon-link" href="#3-all-clickables-should-use-button-or-a-not-div-or-span"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> Forgot your password? &#x3C;span>Reset it here&#x3C;/span>.
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> Forgot your password? &#x3C;a href="/restore">Reset it here&#x3C;/a>.
+</span></span>
+<span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> &#x3C;div>Login&#x3C;/div>
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> &#x3C;button>Login&#x3C;/button>
+</span></span></code></pre>
+<p>Links change the current page, and we should use <code>&#x3C;a></code> for all links. Buttons don’t change the page’s URL and only change the state on current page; we should use <code>&#x3C;button></code> for all buttons.</p>
+<blockquote>
+<p>For more accessibility tips, read this.</p>
+<p><a href="https://evilmartians.com/chronicles/accessible-design-from-the-get-go">Accessible design from the get-go</a></p>
+</blockquote>
+<p>Using the <code>&#x3C;a></code> tag has many benefits compared to <code>&#x3C;span onClick={…}></code>. For instance, the user can open a link in a new tab or see new the URL before clicking.</p>
+<p>By using <code>&#x3C;button></code> instead of <code>&#x3C;div></code>, you make your website more accessible and improve keyboard UX: screen-readers will tell users when they’re dealing with a button; buttons will have <code>:focus</code> state for an improved keyboard UX.</p>
+<p>Also, we should use <code>&#x3C;button></code> for a show/hide password feature; don’t forget about <code>aria-label</code> if you’re using an icon-only button:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Show password<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eye-icon<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>One more thing here: <code>&#x3C;a></code> and<code>&#x3C;button></code> are also good for development purposes. By always using <code>&#x3C;a></code>/<code>&#x3C;button></code> for interactive elements, you can easier create a CSS selector for all interactive elements:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">button<span class="token punctuation">,</span>
+a</span> <span class="token punctuation">{</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span> <span class="token comment">/* Using pointer is controversial, this is just an example */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>If you have non-submit buttons in your form (just <a href="https://www.nngroup.com/articles/reset-and-cancel-buttons/">don’t use a <code>Clear</code></a> button) set <code>type="button"</code>; any buttons without <code>type="button"</code> will trigger the form’s submit on click.</p>
+</blockquote>
+<h2 id="4-wrap-the-fields-and-submit-button-within-form-tags">4. Wrap the fields and submit <code>&#x3C;button></code> within <code>&#x3C;form></code> tags.<a aria-hidden="true" class="anchor-heading icon-link" href="#4-wrap-the-fields-and-submit-button-within-form-tags"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> &#x3C;div>
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> &#x3C;form>
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   &#x3C;label>Email: &#x3C;input type="email" autocomplete="username">&#x3C;/label>
+</span><span class="token prefix unchanged"> </span><span class="token line">   &#x3C;label>Password: &#x3C;input type="password" autocomplete="current-password">&#x3C;/label>
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &#x3C;button>Login&#x3C;/button>
+</span><span class="token prefix inserted">+</span><span class="token line"> &#x3C;form>
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> &#x3C;/div>
+</span><span class="token prefix deleted">-</span><span class="token line"> &#x3C;button>Login&#x3C;/button>
+</span></span></code></pre>
+<p>Be sure to wrap all the form’s fields and its submit <code>&#x3C;button></code> within <code>&#x3C;form></code> tags. Form submission using <code>Enter</code> only works if the fields are inside <code>&#x3C;form></code> tags and there is a single submit button. (Additionally, users taking advantage of screen-readers will appreciate the better navigation this implementation provides.)</p>
+<h2 id="5-avoid-using-placeholder-as-a-label">5. Avoid using <code>placeholder</code> as a <code>&#x3C;label></code><a aria-hidden="true" class="anchor-heading icon-link" href="#5-avoid-using-placeholder-as-a-label"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> &#x3C;input placeholder="E-mail" type="email" autocomplete="username">
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> &#x3C;label>
+</span><span class="token prefix inserted">+</span><span class="token line">   E-mail:
+</span><span class="token prefix inserted">+</span><span class="token line">   &#x3C;input type="email" autocomplete="username">
+</span><span class="token prefix inserted">+</span><span class="token line"> &#x3C;/label>
+</span></span></code></pre>
+<p>The <code>placeholder</code> attribute was created to show an example of a potential input, not to describe that input. Thus, I would completely advise against using it as a substitute for the <code>&#x3C;label></code> tag. Moreover, placeholder values will be hidden while users are entering the data, and they also often have contrast issues.</p>
+<blockquote>
+<p>Even as a <code>DD/MM/YYYY</code> format hint it’s better to avoid <code>placeholder</code> and write the hint on a separate line.</p>
+</blockquote>
+<blockquote>
+<h2 id="the-placeholder-attribute-should-not-be-used-as-an-alternative-to-a-label">The placeholder attribute should <strong>not</strong> be used as an alternative to a label.<a aria-hidden="true" class="anchor-heading icon-link" href="#the-placeholder-attribute-should-not-be-used-as-an-alternative-to-a-label"></a></h2>
+<p>HTML Living Standard</p>
+</blockquote>
+<p>That said, this is not so critical for short email + password forms, but on larger forms <a href="https://www.smashingmagazine.com/2018/06/placeholder-attribute/">placeholder’s issues</a> are more obvious.</p>
+<blockquote>
+<p>Using <code>for</code>/<code>id</code> in <code>&#x3C;label></code> isn’t the only option; we can wrap <code>&#x3C;input></code> tags inside <code>&#x3C;label></code> without using <code>for</code>/<code>id</code>.</p>
+</blockquote>
+<h2 id="6-wrap-checkbox-inputs-within-label-tags">6. Wrap checkbox inputs within <code>&#x3C;label></code> tags<a aria-hidden="true" class="anchor-heading icon-link" href="#6-wrap-checkbox-inputs-within-label-tags"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> &#x3C;input type="checkbox"> I agree with the privacy policy
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> &#x3C;label>
+</span><span class="token prefix inserted">+</span><span class="token line">   &#x3C;input type="checkbox"> I agree with the privacy policy
+</span><span class="token prefix inserted">+</span><span class="token line"> &#x3C;/label>
+</span></span></code></pre>
+<p>By default, checkbox inputs have very a small size, and thus a small area where clicks will be detected. This means users need more time to precisely place the cursor where it needs to be. But if a checkbox input is wrapped in <code>&#x3C;label></code> tags, then clicking on its text will also change the checkbox value. (Also, note that each individual checkbox input will need its own <code>&#x3C;label></code> tags.)</p>
+<p>When doing this, it’s also better to add a clear <code>:hover</code> effect to show users that they can click on the text to trigger the input:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">label<span class="token pseudo-class">:hover</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="7-add-a-visible-focus-state">7. Add a visible <code>:focus</code> state<a aria-hidden="true" class="anchor-heading icon-link" href="#7-add-a-visible-focus-state"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> *:focus {
+</span><span class="token prefix deleted">-</span><span class="token line">   outline: none;
+</span><span class="token prefix deleted">-</span><span class="token line"> }
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> button:focus-visible, a:focus-visible, input:focus-visible {
+</span><span class="token prefix inserted">+</span><span class="token line">   outline: 5px solid oklch(60% 0.15 252);
+</span><span class="token prefix inserted">+</span><span class="token line"> }
+</span></span></code></pre>
+<blockquote>
+<p>Read more about the OKLCH colors we’re using here.</p>
+<p><a href="https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl">OKLCH in CSS: why we moved from RGB and HSL</a></p>
+</blockquote>
+<p>We often forget or neglect keyboard UX in our applications. But when it comes to forms, in general, every user will make use of the keyboard. So, we need to think about how our UIs are accessible from the keyboard.</p>
+<p>The first step is to add the contrast <code>:focus</code> state to highlight the current field. Users will use their peripheral vision to determine where the focus has been moved. Sara Soueidan wrote a <a href="https://www.sarasoueidan.com/blog/focus-indicators/">great guide</a> that explains how to make <code>:focus</code> indicators clearly visible.</p>
+<p>After creating a <code>:focus</code> state for input fields and buttons, add this to your <code>&#x3C;a></code> tags, too. This is the first small step for improving the keyboard accessibility of your website.</p>
+<blockquote>
+<p>Never disable the <code>:focus</code> state in your app.</p>
+</blockquote>
+<p>Another tip: use <a href="https://css-tricks.com/almanac/selectors/f/focus-visible/"><code>:focus-visible</code></a> if you have SPA and want to remove a <code>:focus</code> state after clicking on a menu item.</p>
+<h2 id="8-mark-invalid-fields-for-screen-readers">8. Mark invalid fields for screen-readers<a aria-hidden="true" class="anchor-heading icon-link" href="#8-mark-invalid-fields-for-screen-readers"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;input type="email" autocomplete="username"
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">         class="invalid">
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">         required aria-invalid="true" aria-errormessage="email-error">
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;div id="email-error">Enter a valid email address&#x3C;/div>
+</span></span></code></pre>
+<p><code>aria-invalid</code> and <code>aria-errormessage</code> display validation errors for screen-reader users.</p>
+<p>Another note: it’s also nice to warn screen reader users about required fields by using the <code>required</code> attribute. If you don’t like the browser’s built-in validation that comes with <code>required</code>, be sure to use the <code>aria-required</code> attribute when implementing your own.</p>
+<h2 id="9-prevent-validation-in-the-middle-of-user-input">9. Prevent validation in the middle of user input<a aria-hidden="true" class="anchor-heading icon-link" href="#9-prevent-validation-in-the-middle-of-user-input"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> input.addEventListener('keyup', () => {
+</span><span class="token prefix deleted">-</span><span class="token line">   if (validate(input)) {
+</span><span class="token prefix deleted">-</span><span class="token line">     markValid(input)
+</span><span class="token prefix deleted">-</span><span class="token line">   } else {
+</span><span class="token prefix deleted">-</span><span class="token line">     markInvalid(input)
+</span><span class="token prefix deleted">-</span><span class="token line">   }
+</span><span class="token prefix deleted">-</span><span class="token line"> })
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> input.addEventListener('input', () => {
+</span><span class="token prefix inserted">+</span><span class="token line">   if (validate(input)) {
+</span><span class="token prefix inserted">+</span><span class="token line">     markValid(input)
+</span><span class="token prefix inserted">+</span><span class="token line">   }
+</span><span class="token prefix inserted">+</span><span class="token line"> })
+</span><span class="token prefix inserted">+</span><span class="token line"> input.addEventListener('change', () => {
+</span><span class="token prefix inserted">+</span><span class="token line">   if (validate(input)) {
+</span><span class="token prefix inserted">+</span><span class="token line">     markValid(input)
+</span><span class="token prefix inserted">+</span><span class="token line">   } else {
+</span><span class="token prefix inserted">+</span><span class="token line">     markInvalid(input)
+</span><span class="token prefix inserted">+</span><span class="token line">   }
+</span><span class="token prefix inserted">+</span><span class="token line"> })
+</span></span></code></pre>
+<p>We don’t want to distract or confuse users with error animations while they’re inputting data into a form, so don’t display a <code>Not valid email</code> error before a user hasn’t finished their input.</p>
+<p>As a solution, use <code>change</code> instead of <code>keyup</code> for validation once the user has finished their input (by moving to another control or by submitting the form). Of course, we can use still <code>input</code>/<code>keyup</code>, but only to hide errors during input.</p>
+<p>Here is <a href="https://www.smashingmagazine.com/2022/09/inline-validation-web-forms-ux/">a good guide on inline form validation</a>. - Reward Early, Punish Late</p>
+<h2 id="10-prevent-forms-from-being-sent-twice">10. Prevent forms from being sent twice<a aria-hidden="true" class="anchor-heading icon-link" href="#10-prevent-forms-from-being-sent-twice"></a></h2>
+<pre class="language-js"><code class="language-js">form<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"submit"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  submit<span class="token punctuation">.</span><span class="token property-access">disabled</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+
+  <span class="token comment">// Fix for Firefox. It persists the dynamic disabled state without this hack.</span>
+  submit<span class="token punctuation">.</span><span class="token property-access">autocomplete</span> <span class="token operator">=</span> <span class="token string">"off"</span>
+
+  <span class="token comment">// We are using setTimeout for page-reload submit.</span>
+  <span class="token comment">// For AJAX, use await and try-finally to enable submit the button again.</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    button<span class="token punctuation">.</span><span class="token property-access">disabled</span> <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>User can often accidentily double-click instead of a single-click. So, to prevent showing some server error, it’s better to disable the button upon form submission.</p>
+<h2 id="11-with-ajax-think-about-network-latency-and-servernetwork-errors">11. With AJAX, think about network latency and server/network errors<a aria-hidden="true" class="anchor-heading icon-link" href="#11-with-ajax-think-about-network-latency-and-servernetwork-errors"></a></h2>
+<pre class="language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> form.addEventListener('submit', async () => {
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   await fetch(…)
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   try {
+</span><span class="token prefix inserted">+</span><span class="token line">     showLoader()
+</span><span class="token prefix inserted">+</span><span class="token line">     await fetch(…)
+</span><span class="token prefix inserted">+</span><span class="token line">   } catch (e) {
+</span><span class="token prefix inserted">+</span><span class="token line">     showError(e)
+</span><span class="token prefix inserted">+</span><span class="token line">   } finally {
+</span><span class="token prefix inserted">+</span><span class="token line">     hideLoader()
+</span><span class="token prefix inserted">+</span><span class="token line">   }
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> })
+</span></span></code></pre>
+<p>For every AJAX request, there are two things we should always think about:</p>
+<ol>
+<li>Show a <strong>loading state</strong> to the user. During local development you have 0ms latency, but live users will have up to a few seconds before a server response, so users should see some kind of reaction after clicking on a submit button.</li>
+<li>Process <strong>network and server errors</strong>. You won’t see them in local development, but on production every user might experience a <code>WiFi is down</code> or <code>Error 500</code> error from the server; be ready for them, and show some appropriate text to users.</li>
+</ol>
+<p>Note: for auth forms, it’s better to submit the form by page reload, this is better as it will save the user’s token to <code>httpOnly</code>-cookie and update all stores in web app.</p>
+<h2 id="checklist">Checklist<a aria-hidden="true" class="anchor-heading icon-link" href="#checklist"></a></h2>
+<p>Let’s quickly wrap things up. Use this checklist on your next pull request review that deals with any form:</p>
+<ol>
+<li>Set <code>autocomplete</code> to input fields</li>
+<li>Select the correct <code>type</code> value for input fields</li>
+<li>All clickable elements should use <code>&#x3C;button></code> or <code>&#x3C;a></code>, not <code>&#x3C;div></code> or <code>&#x3C;span></code></li>
+<li>Wrap input fields and the submit <code>&#x3C;button></code> inside <code>&#x3C;form></code> tags</li>
+<li>Connect <code>&#x3C;label></code> and <code>&#x3C;input></code> tags, avoid <code>placeholder</code></li>
+<li>Wrap checkboxes inside <code>&#x3C;label></code> tags</li>
+<li>Set visible <code>:focus</code> state to UI</li>
+<li>Mark invalid fields for screen-readers</li>
+<li>Prevent validation in the middle of input</li>
+<li>Prevent forms from being sent twice</li>
+<li>Think about network latency and server/network errors</li>
+</ol>
+<hr>
+<h2 id="dont-use-the-placeholder-attribute"><a href="https://www.smashingmagazine.com/2018/06/placeholder-attribute/">Don’t Use The Placeholder Attribute</a><a aria-hidden="true" class="anchor-heading icon-link" href="#dont-use-the-placeholder-attribute"></a></h2>
+<ul>
+<li>Can’t be automatically translated;</li>
+<li>Is oftentimes used in place of a label, locking out assistive technology;</li>
+<li>Can hide important information when content is entered;</li>
+<li>Can be too light-colored to be legible;</li>
+<li>Has limited styling options;</li>
+<li>May look like pre-filled information and be skipped over.</li>
+</ul>

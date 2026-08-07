@@ -1,0 +1,22 @@
+<h1 id="privacy">Privacy<a aria-hidden="true" class="anchor-heading icon-link" href="#privacy"></a></h1>
+<ul>
+<li><a href="https://gomakethings.com/google-fonts-and-gdpr/">Google Fonts and GDPR</a>: <a href="https://www.theregister.com/2022/01/31/website_fine_google_fonts_gdpr/">A German court ruled that serving custom web fonts from Google Fonts violates GDPR</a>, because it shares a visitors IP address with Google without their permission or consent.</li>
+</ul>
+<hr>
+<h2 id="chatgpt-wont-let-you-type-until-cloudflare-reads-your-react-state"><a href="https://www.buchodi.com/chatgpt-wont-let-you-type-until-cloudflare-reads-your-react-state-i-decrypted-the-program-that-does-it/">ChatGPT won't let you type until Cloudflare reads your React state</a><a aria-hidden="true" class="anchor-heading icon-link" href="#chatgpt-wont-let-you-type-until-cloudflare-reads-your-react-state"></a></h2>
+<p>The program collects 55 properties. No variation across 377 samples. All 55, every time, organized into three layers:</p>
+<h3 id="layer-1-browser-fingerprint">Layer 1: Browser Fingerprint<a aria-hidden="true" class="anchor-heading icon-link" href="#layer-1-browser-fingerprint"></a></h3>
+<p><strong>WebGL</strong> (8 properties): <code>UNMASKED_VENDOR_WEBGL</code>, <code>UNMASKED_RENDERER_WEBGL</code>, <code>WEBGL_debug_renderer_info</code>, <code>getExtension</code>, <code>getParameter</code>, <code>getContext</code>, <code>canvas</code>, <code>webgl</code></p>
+<p><strong>Screen</strong> (8): <code>colorDepth</code>, <code>pixelDepth</code>, <code>width</code>, <code>height</code>, <code>availWidth</code>, <code>availHeight</code>, <code>availLeft</code>, <code>availTop</code></p>
+<p><strong>Hardware</strong> (5): <code>hardwareConcurrency</code>, <code>deviceMemory</code>, <code>maxTouchPoints</code>, <code>platform</code>, <code>vendor</code></p>
+<p><strong>Font measurement</strong> (4): <code>fontFamily</code>, <code>fontSize</code>, <code>getBoundingClientRect</code>, <code>innerText</code>. Creates a hidden div, sets a font, measures rendered text dimensions, removes the element.</p>
+<p><strong>DOM probing</strong> (8): <code>createElement</code>, <code>appendChild</code>, <code>removeChild</code>, <code>div</code>, <code>style</code>, <code>position</code>, <code>visibility</code>, <code>ariaHidden</code></p>
+<p><strong>Storage</strong> (5): <code>storage</code>, <code>quota</code>, <code>estimate</code>, <code>setItem</code>, <code>usage</code>. Also writes the fingerprint to <code>localStorage</code> under key <code>6f376b6560133c2c</code> for persistence across page loads.</p>
+<h3 id="layer-2-cloudflare-network">Layer 2: Cloudflare Network<a aria-hidden="true" class="anchor-heading icon-link" href="#layer-2-cloudflare-network"></a></h3>
+<p><strong>Edge headers</strong> (5): <code>cfIpCity</code>, <code>cfIpLatitude</code>, <code>cfIpLongitude</code>, <code>cfConnectingIp</code>, <code>userRegion</code></p>
+<p>These are injected server-side by Cloudflare's edge. They exist only if the request passed through Cloudflare's network. A bot making direct requests to the origin server or running behind a non-Cloudflare proxy will produce missing or inconsistent values.</p>
+<h3 id="layer-3-application-state">Layer 3: Application State<a aria-hidden="true" class="anchor-heading icon-link" href="#layer-3-application-state"></a></h3>
+<p><strong>React internals</strong> (3): <code>__reactRouterContext</code>, <code>loaderData</code>, <code>clientBootstrap</code></p>
+<p>This is the part that matters. <code>__reactRouterContext</code> is an internal data structure that React Router v6+ attaches to the DOM. <code>loaderData</code> contains the route loader results. <code>clientBootstrap</code> is specific to ChatGPT's SSR hydration.</p>
+<p>These properties only exist if the ChatGPT React application has fully rendered and hydrated. A headless browser that loads the HTML but doesn't execute the JavaScript bundle won't have them. A bot framework that stubs out browser APIs but doesn't actually run React won't have them.</p>
+<p>This is bot detection at the application layer, not the browser layer.</p>

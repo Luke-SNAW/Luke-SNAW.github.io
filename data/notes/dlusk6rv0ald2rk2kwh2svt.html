@@ -1,0 +1,50 @@
+<h1 id="optimizing-images-for-mobile-browsers-with-a-ux-mindset">Optimizing images for mobile browsers with a UX mindset<a aria-hidden="true" class="anchor-heading icon-link" href="#optimizing-images-for-mobile-browsers-with-a-ux-mindset"></a></h1>
+<blockquote>
+<p><a href="https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/">https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/</a></p>
+</blockquote>
+<h2 id="resizing-images-for-big-wins"><a href="https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/#resizing-images-big-wins">Resizing images for big wins</a><a aria-hidden="true" class="anchor-heading icon-link" href="#resizing-images-for-big-wins"></a></h2>
+<h2 id="compression-lesson"><a href="https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/#compression-lesson">Compression lesson</a><a aria-hidden="true" class="anchor-heading icon-link" href="#compression-lesson"></a></h2>
+<h2 id="formats-for-the-win"><a href="https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/#formats-win">Formats for the win</a><a aria-hidden="true" class="anchor-heading icon-link" href="#formats-for-the-win"></a></h2>
+<h2 id="load-responsively"><a href="https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/#load-responsively">Load responsively</a><a aria-hidden="true" class="anchor-heading icon-link" href="#load-responsively"></a></h2>
+<p>With the HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture"><code>&#x3C;picture> element</code></a>, we can load the image in the right size and format, no matter the device. It ensures the best image-loading experience every time, taking into account a device’s DPR automatically.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>picture</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+      assets/cactus-300.avif   300w,
+      assets/cactus-1100.avif 1100w,
+      assets/cactus-1300.avif 1300w,
+      assets/cactus-2100.avif 2100w
+    <span class="token punctuation">"</span></span>
+    <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 1300px) 100vw, 1300px<span class="token punctuation">"</span></span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/avif<span class="token punctuation">"</span></span>
+    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>747<span class="token punctuation">"</span></span>
+    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1100<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+      assets/cactus-300.webp   300w,
+      assets/cactus-1100.webp 1100w,
+      assets/cactus-1300.webp 1300w,
+      assets/cactus-2100.webp 2100w
+    <span class="token punctuation">"</span></span>
+    <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 1300px) 100vw, 1300px<span class="token punctuation">"</span></span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/webp<span class="token punctuation">"</span></span>
+    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>747<span class="token punctuation">"</span></span>
+    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1100<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span>
+    <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>
+      assets/cactus-300.jpg   300w,
+      assets/cactus-1100.jpg 1100w,
+      assets/cactus-1300.jpg 1300w,
+      assets/cactus-2100.jpg 2100w
+    <span class="token punctuation">"</span></span>
+    <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 1300px) 100vw, 1300px<span class="token punctuation">"</span></span>
+    <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>assets/cactus-1100.jpg<span class="token punctuation">"</span></span>
+    <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Cactus image loaded responsively<span class="token punctuation">"</span></span>
+    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>747<span class="token punctuation">"</span></span>
+    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1100<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>picture</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="lazy-loading-for-image-optimization"><a href="https://blog.logrocket.com/ux-design/optimizing-images-mobile-browsers-ux-mindset/#lazy-loading-image-optimization">Lazy loading for image optimization</a><a aria-hidden="true" class="anchor-heading icon-link" href="#lazy-loading-for-image-optimization"></a></h2>

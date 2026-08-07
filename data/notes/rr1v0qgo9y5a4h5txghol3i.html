@@ -1,0 +1,19 @@
+<h1 id="event-delegation-with-lokalised-anchor">Event Delegation with Lokalised Anchor<a aria-hidden="true" class="anchor-heading icon-link" href="#event-delegation-with-lokalised-anchor"></a></h1>
+<pre class="language-vue"><code class="language-vue">&#x3C;template>
+  &#x3C;article @click="toPolicy">
+    &#x3C;a>개인 정보 처리 방침&#x3C;/a>을 참조
+    &#x3C;!-- a tag가 lokalise 내용에 포함 됨-->
+  &#x3C;/article>
+&#x3C;/template>
+
+&#x3C;script>
+export default {
+  methods: {
+    toPolicy({ target }) {
+      if (target.tagName.toLowerCase() != "a") return;
+      this.$router.push("/policy/privacy");
+    },
+  },
+};
+&#x3C;/script>
+</code></pre>

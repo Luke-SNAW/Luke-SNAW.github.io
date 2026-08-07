@@ -1,0 +1,254 @@
+<h1 id="writing-api-design-standards">Writing API Design Standards<a aria-hidden="true" class="anchor-heading icon-link" href="#writing-api-design-standards"></a></h1>
+<blockquote>
+<p><a href="https://medium.com/@trgoodwill/writing-api-design-standards-84cb7cbb3fd7">https://medium.com/@trgoodwill/writing-api-design-standards-84cb7cbb3fd7</a></p>
+</blockquote>
+<blockquote>
+<p>An 8-step guide to tailoring resource API design standards to your organizational context</p>
+</blockquote>
+<h2 id="the-role-of-api-standards"><strong>The Role of API Standards</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#the-role-of-api-standards"></a></h2>
+<p>API Development Standards are a focused collection of imperatives, conventions and guidance, and are intended to improve the <strong><em>consistency, stability, generality, predictability and usability of business resource APIs</em></strong>. They may be self-contained or reference and augment external standards. They may offer best-practice recommendations and provide a basis for quality assessment.</p>
+<p>Governed, opiniated standards and patterns will be required to enable <strong><em>seamless interoperability between independent, decoupled domains</em></strong>. Balancing the benefits to development teams of an enterprise landscape of rich, composable, self-service business data against the impost on implementation flexibility is a difficult line to tread – <strong><em>standards, just like models, must learn from implementation</em></strong> and improve through engagement and iteration.</p>
+<h3 id="fit-for-purpose-tailored-to-the-enterprise-context">Fit-for Purpose, Tailored to the Enterprise Context<a aria-hidden="true" class="anchor-heading icon-link" href="#fit-for-purpose-tailored-to-the-enterprise-context"></a></h3>
+<p>This discussion will touch of a number of conventions and standards that will be relevant in a large enterprise environment. While sample guidance and exemplars are offered in this cluster of articles, there is often more than one tried-and-tested approach in any one area of API design — specific tactics and conventions should be tailored to the target environment.</p>
+<h3 id="must-should-may-keywords">MUST, SHOULD, MAY Keywords<a aria-hidden="true" class="anchor-heading icon-link" href="#must-should-may-keywords"></a></h3>
+<p>In the context of the following sections and linked documents, the words ‘must’, ‘should’ and ‘may’ serve as a loose indication of the importance of a concept. Were these concepts to be translated into enterprise guidance, occurrences of these words SHOULD be considered against their definition per <a href="https://www.ietf.org/rfc/rfc2119">RFC 2119</a> and aligned and capitalized as considered appropriate.</p>
+<h2 id="1-principles-concepts-and-terms">1. Principles, Concepts and Terms<a aria-hidden="true" class="anchor-heading icon-link" href="#1-principles-concepts-and-terms"></a></h2>
+<p>Introduce the motivation behind and importance of API development standards to your organization. It is important to introduce the maintainers of the standards and <strong><em>provide a mailbox or other method of feedback</em></strong>.</p>
+<p>Briefly outline and/or define important concepts and terms, especially if definitions are loose in common usage. <em>Here are a few candidates:</em></p>
+<h3 id="domain">Domain<a aria-hidden="true" class="anchor-heading icon-link" href="#domain"></a></h3>
+<p>In the context of this document, the word “business domain” is concerned with the responsibilities of a business entity such as “cargo and trade”. In contrast, the unqualified word “domain” — as used in the term “domain model” — is used synonymously with “business sub-domain”, the business owner of a capability or product stream, that maps to a bounded context such as “regulatory”.</p>
+<h3 id="rest">REST<a aria-hidden="true" class="anchor-heading icon-link" href="#rest"></a></h3>
+<p>The REST architectural style “provides a set of architectural constraints that, when applied as a whole, emphasizes scalability of component interactions, generality of interfaces, independent deployment of components” — <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Fielding, R.T. 2000, Representational State Transfer (REST)</a>. The tooling and patterns for REST APIs are relatively advanced, and REST API technology literacy is high.</p>
+<h3 id="rest-model">REST Model<a aria-hidden="true" class="anchor-heading icon-link" href="#rest-model"></a></h3>
+<p>A REST model will describe a business resource, and how client systems interact with it. The model will detail operations, methods and paths. It may include assertions and status codes. It is aligned with the domain data model, though abstracted to enhance composability, generality and stability. From the REST model and the constraints provided by enterprise API standards, it is possible to generate a prototype API specification.</p>
+<h3 id="types-of-api">Types of API<a aria-hidden="true" class="anchor-heading icon-link" href="#types-of-api"></a></h3>
+<p>There are a number of ways to slice and dice APIs into categories, however in the enterprise context, there are <strong><em>two overarching categories</em></strong> that will profoundly affect the standards and patterns that may apply <strong>—</strong> these are <strong><em>Business Resource APIs</em></strong> and <strong><em>Mediating APIs.</em></strong></p>
+<p><strong>Business Resource APIs</strong> are ‘canonical’ business capability APIs, and the <strong><em>source-of-truth for business data</em></strong>. They are the product of a process of Domain Driven Design and REST Modelling. Business resources are the nouns of a system, such as ‘<em>applications</em>’ and ‘<em>applicants</em>’. Resource APIs provide a context for interaction with a business capability, represent the business facts about a business domain, and when consistently modeled, discoverable and subscribable, they become the backbone of a federated data platform.</p>
+<p>Business resource APIs are <em>always</em> secured by an enterprise API gateway, and ideally, secured by OAuth/OIDC and API scope authorization. These APIs must be stable, reusable, discoverable and subscribe-able via an enterprise API developer portal.</p>
+<p><strong>Mediating APIs</strong>, including experience APIs, will tend to be tailored to specific applications (SPA/PWA/Mobile) or use-case requirements. These APIS are <strong>not</strong> the source of truth for business information— data requirements are composed, cached or replicated from enterprise resource APIs. Typically there is little potential for re-use.</p>
+<p>The consumer and producer of experience APIs are often managed by the same team. Experience APIs are usually not intended to be discoverable in an enterprise portal, are sensitive to latency and may employ OIDC scopes that are not compatible with upstream API scopes. These APIs will typically manage their OWN cloud-native API gateway, in conformance with <em>governing patterns created specifically for this purpose.</em></p>
+<h3 id="focusing-standards">Focusing Standards<a aria-hidden="true" class="anchor-heading icon-link" href="#focusing-standards"></a></h3>
+<p>Standards underpinning interoperability, discovery and reuse will be focused on resource APIs, however most conventions will have a level of applicability to mediating/experience APIs.</p>
+<p>Leaving to developer discretion the translation of conventions to a mediating/experience API context is recommended over committing to parallel sets of standards, however robust configuration patterns and templates should be created to support the special case of experience APIs managing their own API gateways.</p>
+<h3 id="ddd-the-domain-model-and-stakeholder-engagement">DDD, the Domain Model and Stakeholder Engagement<a aria-hidden="true" class="anchor-heading icon-link" href="#ddd-the-domain-model-and-stakeholder-engagement"></a></h3>
+<p>Robust, consistent and truly interoperable resource APIs need to be anchored in a validated model of the domain and the bounded context.</p>
+<p>DDD can sound like a huge commitment, however contemporary agile-aligned processes and domain modelling tooling give a lean focus and form to the discipline, and facilitate sharing and collaboration on the model.</p>
+<p><em>For more:</em> <a href="https://medium.com/@trgoodwill/where-do-business-resource-apis-come-from-472cc8422dec"><strong><em>Modeling Coherent and Composable Business Resource APIs</em></strong></a></p>
+<h3 id="api-maturity">API Maturity<a aria-hidden="true" class="anchor-heading icon-link" href="#api-maturity"></a></h3>
+<p>Agreement on an intentional, interoperability-focused API maturity model can underpin coherent and evolvable API and interoperability standards, identify interim and target states, and minimize technical debt.</p>
+<p><em>This is discussed further here:</em> <a href="https://medium.com/@trgoodwill/api-interoperability-maturity-model-85d0e74c066b"><strong><em>API Interoperability Maturity Model</em></strong></a><strong><em>.</em></strong></p>
+<h3 id="apis-and-business-events">APIs and Business Events<a aria-hidden="true" class="anchor-heading icon-link" href="#apis-and-business-events"></a></h3>
+<p>Synchronous business resource APIs and asynchronous business events are fundamentally related. If your organization has adopted an API harmonized business event model, an introduction to and overview of the framework should be provided, together with links to event-specific guidance.</p>
+<p><em>This topic is discussed further here:</em> <a href="https://kxdocuments.accenture.com/Contribution/f31f8bf1-f21d-4e6d-bb1d-193c0b5407d3">A Harmonized API-led Interoperability Framework (accenture.com)</a>.</p>
+<h2 id="2-api-lifecycle-management">2. API Lifecycle Management<a aria-hidden="true" class="anchor-heading icon-link" href="#2-api-lifecycle-management"></a></h2>
+<h3 id="api-lifecycle-phases">API Lifecycle Phases<a aria-hidden="true" class="anchor-heading icon-link" href="#api-lifecycle-phases"></a></h3>
+<p>The API lifecycle is sometimes characterised in terms of production readiness, sometimes in terms of development stages. In an enterprise managed API context, an API lifecycle must encompass both of these perspectives, as well as the reality of multiple environments and pre-production consumer feedback and iteration.</p>
+<p><img src="/assets/images/back-end/writing-api-design-standards__lifecycle.webp"></p>
+<p>A diagrammatic description of the phases of an API lifecycle</p>
+<h3 id="starting-point">Starting point<a aria-hidden="true" class="anchor-heading icon-link" href="#starting-point"></a></h3>
+<ul>
+<li><strong>Discovery:</strong> Discovery is outside of the API lifecycle, however it is the setup and the initial entrypoint. It is the process of demand generation, prioritization and planning that results in a prioritized backlog and kickoff of the design phase.</li>
+<li><strong>Evolution:</strong> Observation, evaluation and client feedback on APIs deployed to either test or production environments may trigger design changes. Changes may be breaking, or non-breaking.</li>
+</ul>
+<h3 id="design">Design<a aria-hidden="true" class="anchor-heading icon-link" href="#design"></a></h3>
+<ol>
+<li><strong>Model:</strong> Through a process of broad stakeholder consultation, distillation and frequent iteration, a model of the domain is built. A collaborative, version controlled and readily accessible domain data modelling tool is recommended.</li>
+<li><strong>Validate:</strong> The domain model “<em>acts as a</em> <a href="https://martinfowler.com/bliki/UbiquitousLanguage.html"><em>Ubiquitous Language</em></a> <em>to help communication between software developers and domain experts</em>”, maximizing collaboration, tightening the feedback loop, and ensuring that the domain model remains the definitive source-of-truth.</li>
+</ol>
+<h3 id="test">Test<a aria-hidden="true" class="anchor-heading icon-link" href="#test"></a></h3>
+<ol>
+<li><strong>Document:</strong> API specifications may be tool-generated or ‘hand-crafted’ from the model, in conformance with API standards and security policies. The specification is deployed to a development environment and may be initially backended by a mock service.</li>
+<li><strong>Test</strong>: ‘Code-first’ API continuous integration and publishing automation can apply Policy-as-Code controls, enforce mandatory standards with specification linting, and validate security schemes. Deployment and regression testing validates security, function and performance.</li>
+<li><strong>Evaluate:</strong> Testing, client engagement and analytics inform an evaluation of the API resulting in either promotion or rework. The API may loop through several test environments and evaluation checkpoints.</li>
+</ol>
+<h3 id="release">Release<a aria-hidden="true" class="anchor-heading icon-link" href="#release"></a></h3>
+<ol>
+<li><strong>Publish:</strong> APIs that survive the final test and acceptance stage-gate are published to production. APIs might be published to an internal, partner or public facing catalog as appropriate.</li>
+<li><strong>Support &#x26; Observe:</strong> The API is actively monitored and supported, and client engagement encouraged via the client portal. Feedback and analysis may provide insights that shape the <strong>evolution</strong> of APIs and business processes.</li>
+<li><strong>Deprecate:</strong> As APIs evolve and are republished as a new major version, the previous version must be deprecated — which means maintaining support for a period in order to allow existing clients adequate time to cut-over to the new version. No new clients are able to subscribe to a deprecated API. A retirement schedule should be communicated to subscribed clients.</li>
+<li><strong>Retire:</strong> Once existing clients have cut-over to the new version, and/or the scheduled retirement date arrives, the API is retired, and will no longer be available. Calls to this API will result in a gateway error.</li>
+</ol>
+<h3 id="security">Security<a aria-hidden="true" class="anchor-heading icon-link" href="#security"></a></h3>
+<p>It is important to note that <strong>security is not a step</strong> — but rather is embedded in each phase.</p>
+<ul>
+<li>Data is classified and regulatory controls identified during the <strong>modelling phase</strong></li>
+<li><strong>API development</strong> guidelines outline practises and patterns to be employed by developers to secure APIs</li>
+<li>API specification linting is applied during <strong>integration into source control</strong></li>
+<li>API management and API gateway security policies are <strong>enforced on test and production gateways</strong></li>
+<li><strong>API testing</strong> incorporates OWASP testing as well as targeted testing against applicable security controls</li>
+</ul>
+<h3 id="api-lifecycle-states">API Lifecycle States<a aria-hidden="true" class="anchor-heading icon-link" href="#api-lifecycle-states"></a></h3>
+<p>API Lifecycle states are of particular interest to consumers, as they will have ramifications in terms of stability and support. The lifecycle states of an API are as follows:</p>
+<ul>
+<li><strong>In Design</strong> — in design and development, subject to change at any time.</li>
+<li><strong>In Test</strong> — feedback encouraged; breaking changes may be made.</li>
+<li><strong>Published</strong> — released to production, stable and actively supported.</li>
+<li><strong>Deprecated</strong> — soon to be retired. New clients are unable to subscribe.</li>
+<li><strong>Retired</strong> — the API has been shut down. The gateway will return errors.</li>
+</ul>
+<h3 id="managing-api-versions">Managing API Versions<a aria-hidden="true" class="anchor-heading icon-link" href="#managing-api-versions"></a></h3>
+<p>A key aim of business resource APIs is stability. However, in the pursuit of continuous improvement, breaking changes are almost inevitable, and in order to avoid a ‘big-bang’ coordinated cut-over there will occasionally be a need to support more than one version of an API.</p>
+<p><strong>Versioning APIs</strong></p>
+<p>An enterprise-wide API versioning strategy will be required. Versioned URLs are widely employed for the management of API versions. The scheme is somewhat limiting but uncomplicated, making it easy for clients to comprehend and control which API versions they interact with.</p>
+<p><em>Versioning options and considerations are covered in the article</em> <a href="https://medium.com/@trgoodwill/api-bites-1af949efdd1b"><strong><em>Versioning Managed APIs</em></strong></a><strong><em>.</em></strong></p>
+<p>Versioned URLs must <em>only</em> include the MAJOR version as part of the URI, in the format ‘v{MAJOR}’, e.g.</p>
+<p>/membership/v1/applicants</p>
+<p>Minor and patch versions (assuming SemVer versioning) must NOT be included in the URI as such changes are by definition backwards-compatible.</p>
+<p><strong>Semantic Versioning</strong></p>
+<p>Unless there is a compelling reason not to, API Models and specifications should be managed with <a href="https://semver.org/">semantic versioning</a>.</p>
+<p>{MAJOR}.{MINOR}.{PATCH}</p>
+<p>Versioning should align across the domain and REST models, and the API specification. Ideally, <a href="https://medium.com/@trgoodwill/api-interoperability-maturity-bb1e5a25dea1">domain modelling tooling would manage semantic versioning</a> across all derivative artifacts.</p>
+<p>As a guide the following rules should apply when incrementing the API version number:</p>
+<ul>
+<li><strong>MAJOR</strong> version when <strong><em>incompatible</em></strong> or <strong><em>breaking</em></strong> API changes are made,</li>
+<li><strong>MINOR</strong> version when functionality is added in a backwards-compatible manner, and</li>
+<li><strong>PATCH</strong> version when backwards-compatible bug fixes are made.</li>
+</ul>
+<p><strong>Replacing a Major API Version</strong></p>
+<p><em>Also covered in</em> <a href="https://medium.com/@trgoodwill/api-bites-1af949efdd1b"><strong><em>Versioning Managed APIs</em></strong></a><strong><em>.</em></strong></p>
+<p>In short:</p>
+<ul>
+<li>Avoid major (breaking) version changes.</li>
+<li>Justify, document and socialize unavoidable breaking changes.</li>
+<li>Decouple cut-over — maintain a deprecated version.</li>
+<li>Communicate a retirement schedule.</li>
+</ul>
+<h2 id="design-tooling-and-documentation">Design Tooling and Documentation<a aria-hidden="true" class="anchor-heading icon-link" href="#design-tooling-and-documentation"></a></h2>
+<h3 id="api-documentation">API Documentation<a aria-hidden="true" class="anchor-heading icon-link" href="#api-documentation"></a></h3>
+<p>The OpenAPI Specification (OAS) defines a standard, programming language agnostic interface description for REST APIs. Importantly, the specification is widely supported by API Management platforms, and by a number or domain modelling platforms.</p>
+<p>Adoption of the most current, generally supported specification version is recommended. Take the time to research the level of support offered by commercial API management platforms — including both gateway and developer portal support for key features. Be prepared to support more than one version of the spec as new versions are released.</p>
+<p>Include the full semantic version number in the OpenAPI 3.x info object or Swagger 2 API description — {MAJOR}.{MINOR}.{PATCH}</p>
+<p>API request and response examples should be included in the specification document to assist client developers.</p>
+<h3 id="api-design-tooling"><strong>API Design Tooling</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#api-design-tooling"></a></h3>
+<p>If your organization has adopted enterprise API design and development tools or platforms (recommended), an introduction would be warranted, together with links to ‘getting started’ resources.</p>
+<p>Domain/REST modelling tooling must provide the ability for a diverse group of stakeholders to collaborate on the model. Ideally the platform will support source control and manage semantic versioning across the model and its derivative artefacts — features that are helpful in maintaining the currency and traceability of published APIs.</p>
+<p>API specifications are generated from the model, in conformance with API standards and security policies. These may be tool generated based on standards and policy-conformant rules or templates, or they may be ‘hand-crafted’ from templates. In either case, peer review is essential.</p>
+<p><img src="/assets/images/back-end/writing-api-design-standards__api-specification.webp"></p>
+<p>API specifications are generated from the model, in conformance with API standards and security policies.</p>
+<p><em>Links out</em> to configuration guidance should be provided.</p>
+<h2 id="integrated-devops">Integrated DevOps<a aria-hidden="true" class="anchor-heading icon-link" href="#integrated-devops"></a></h2>
+<p>API enabled, interoperable business services often endure considerable friction and blocking engagements coordinating the delivery of new and updated interfaces. A well-defined process of model driven development, complimentary tooling and vertically integrated DevOps can <strong><em>substantially reduce friction between domain model development and delivery</em></strong>.</p>
+<p><em>Managing API lifecycles with model driven development, API generation and automation is discussed in</em> <a href="https://medium.com/@trgoodwill/managing-api-lifecycles-with-model-driven-integrated-devops-3cfcb9eca32e"><strong><em>Managing API Lifecycles with Model Driven, Integrated DevOps</em></strong></a></p>
+<p><strong>Source Control:</strong> Guidance on enterprise source/version control and continuous integration enablement should be provided. API specification documents (and potentially config files) should be co-located in a common repository with the service implementation. Include high level guidance as part of the lifecycle management model and <em>links out</em> to more detailed tool and platform-specific documentation and ‘getting started’ resources.</p>
+<p><strong>Compliance with Security Controls and API Design Standards:</strong> API design standards and security policy compliance is automated wherever possible. Continuous integration and delivery pipelines will apply Policy-as-Code controls, enforce mandatory standards with specification document linting, and will validate API security schemes and gateway security configuration as appropriate for a given context.</p>
+<p><img src="/assets/images/back-end/writing-api-design-standards__compliance.webp"></p>
+<p><strong>CI-CD Pipeline Enrolment:</strong> Enterprise endorsed DevOps tools and platforms should be identified in API Lifecycle Management guidance, together with <em>links out</em> to more detailed tool and platform-specific documentation and ‘getting started’ resources for CI-CD enrolment. Typically, onboarding into lower (dev) environments will present a low barrier, however an autonomous CI-CD pipeline will require tighter governance and accountability.</p>
+<p><strong>Coordinated, Automated Deployment:</strong> As managed APIs are the interface to deployed microservices, DevOps tooling must ensure that new and updated interfaces and schemas generated by domain modeling tooling and implemented by a business service are published to relevant API management platforms simultaneously with the deployment of the business service. Deployment and testing of APIs must be automated, domain-autonomous and as frictionless as possible.</p>
+<p><img src="/assets/images/back-end/writing-api-design-standards__deployment-automation.webp"></p>
+<p><strong>Testing Platforms:</strong> Similarly, enterprise testing requirements, tools and platform guidance should be provided, together with <em>links out</em> to more detailed tool and platform-specific documentation and ‘getting started’ resources.</p>
+<h3 id="registering-api-resources-with-iam">Registering API Resources with IAM<a aria-hidden="true" class="anchor-heading icon-link" href="#registering-api-resources-with-iam"></a></h3>
+<p>It is essential to provide clear and efficient guidance for the registration of new business resources, data profiles and resource access policies to API Management, Security Token Service (STS) and Identity Access Management (IAM) platforms.</p>
+<p><em>Registration of API resources is further discussed here:</em> <a href="https://medium.com/@trgoodwill/securing-apis-with-an-integrated-security-framework-bf70569c8919">Securing APIs with an Integrated Security Framework</a></p>
+<h2 id="3-path-and-naming-conventions">3. Path and Naming Conventions<a aria-hidden="true" class="anchor-heading icon-link" href="#3-path-and-naming-conventions"></a></h2>
+<p>Consistent naming conventions enhance the coherence, predictability and usability of APIs. There are a number of factors that may influence naming conventions. This might include prevalent development languages and frameworks, and conventions already employed in legacy messaging protocols, data dictionaries etc. A Java or JS shop will <em>probably</em> prefer lowerCamelCase, a Python shop will <em>probably</em> prefer snake<em>case. An organization with a SOA heritage will _probably</em> prefer camelCase. It is a good idea to seek buy-in from stakeholders, and particularly developers.</p>
+<h3 id="field-names">Field Names<a aria-hidden="true" class="anchor-heading icon-link" href="#field-names"></a></h3>
+<p>For request and response body field names (and query parameter names), case MUST be consistent. Either lowerCamelCase or snake_case schemes will ordinarily be mandated within an organization. At this point, lowerCamelCase is more prevalent, and should probably be the default choice unless there are compelling reasons to go a different way. e.g. <code>"familyName" : "Jones"</code></p>
+<p>Fields that represent arrays should be named using plural nouns (e.g. ‘colours’).</p>
+<h3 id="resource-names">Resource Names<a aria-hidden="true" class="anchor-heading icon-link" href="#resource-names"></a></h3>
+<p>Resource names must be plural nouns when referring to a resource collection (there are potentially a number of instances) e.g. ‘/<strong>users’</strong>. A singleton, such as ‘/users/1234/<strong>cart’</strong> must be singular.</p>
+<p><a href="https://api.myorg.com/membership/v1/applications/12345">https://api.myorg.com/membership/v1/<strong>applications</strong></a></p>
+<p>Resource names should be lower-case and use only alphabetic characters, with hyphens employed to separate words in the URI. URIs are the only place where hyphens are used as a word separator. In all other situations, the word separation scheme should align with enterprise field naming conventions (e.g. camelCase or snake_case).</p>
+<h3 id="resource-identifiers">Resource Identifiers<a aria-hidden="true" class="anchor-heading icon-link" href="#resource-identifiers"></a></h3>
+<p>A resource identifier can be a string or numeric value, and must be URL safe. A protected or confidential resource identifier must be un-guessable and non-sequential, providing maximum abstraction from Personally Identifiable Information, primary keys, and time or order of creation. This requirement may be met with a Universally Unique Identifier (UUID), e.g.</p>
+<p>/v1/applicants/<strong>538d9bb1–95c9–4ceb-864c-808877765733</strong></p>
+<p>The resource identifier must be immutable.</p>
+<h3 id="resource-references">Resource References<a aria-hidden="true" class="anchor-heading icon-link" href="#resource-references"></a></h3>
+<p>Resource identifiers returned with the core data should be referenced consistently — a standard should be mandated.</p>
+<p>The most popular schemes are:</p>
+<ul>
+<li>Return an “id” field. e.g. <code>"id" : "12B34C"</code>. The name of the resource is implied, having been addressed in the URL.</li>
+<li>Return an unambiguous concatenation of the resource name followed by the “Id” designation, e.g. <code>"customerId" : "12B34C"</code>.</li>
+</ul>
+<p>All <strong><em>external resource id references</em></strong> should in any case be concatenation of the resource name followed by the “Id” designation, e.g. <code>"orderId" : "34C56D"</code>. Standardizing resource Ids in this format can simplify and improve the clarity of references.</p>
+<h3 id="path-conventions">Path conventions<a aria-hidden="true" class="anchor-heading icon-link" href="#path-conventions"></a></h3>
+<p>The structure of the URLs by which Business Resource APIs are addressed should be consistent, predictable, and meaningful to clients. Enterprise guidance on URI and path composition can ensure clarity of API context and intent, and therefore usability.</p>
+<p><em>Further reading:</em> <a href="https://medium.com/@trgoodwill/api-bites-7373b2127ed1"><strong><em>Predictable API Path Conventions</em></strong></a></p>
+<h3 id="query-parameters">Query Parameters<a aria-hidden="true" class="anchor-heading icon-link" href="#query-parameters"></a></h3>
+<p>Predictably implemented parameter driven field selection and filtering can reduce over-fetching and enhance composability — without risking a proliferation of client-coupled response document models.</p>
+<p>Query parameters commonly employed for this purpose include ‘fields’, ‘include’ and ‘sort’ parameters and field-based filtering. The exact name and syntax of the parameters matters less than the imperative that they are transparent in intent, and applied to a business resource context.</p>
+<p>Query parameter names must be consistent with field naming conventions (e.g. camelCase or snake_case).</p>
+<p><em>Filtering is discussed further here:</em> <a href="https://medium.com/@trgoodwill/api-bites-filtering-conventions-8a1a19c03975"><strong><em>Filtering Conventions</em></strong></a></p>
+<h2 id="4-payload-conventions">4. Payload Conventions<a aria-hidden="true" class="anchor-heading icon-link" href="#4-payload-conventions"></a></h2>
+<h3 id="encoding">Encoding<a aria-hidden="true" class="anchor-heading icon-link" href="#encoding"></a></h3>
+<p>Unicode Transformation Format-8 (UTF-8) is the standard encoding type for all text and textual representations of data through APIs, and is the default encoding for JSON (RFC 7159). UTF-8 encoding must ordinarily be adhered to for APIs published across the enterprise and externally. Other encodings may be used for ‘private’ partner APIs if and only if there are technical limitations to using UTF-8.</p>
+<h3 id="interoperable-data-formats">Interoperable Data Formats<a aria-hidden="true" class="anchor-heading icon-link" href="#interoperable-data-formats"></a></h3>
+<p>Enterprise guidance on media type, data-time format and shared enterprise vocabulary (e.g. archetypes such as ‘address’) should be provided to improve the interoperability of APIs.</p>
+<p><em>Interoperable data formats are discussed further here:</em> <a href="https://medium.com/p/76ffde7f5eb2/edit"><strong><em>Payload Conventions</em></strong></a></p>
+<h3 id="request-and-response-document-structure">Request and Response Document Structure<a aria-hidden="true" class="anchor-heading icon-link" href="#request-and-response-document-structure"></a></h3>
+<p>Similarly, a consistent and coherent document structure will enhance the predictability and usability of business resource APIs. There may be applicable regulatory or industry frameworks/formalisms that provide structural constraints, however in general data structures should be as flat and lean as possible — expressing composability and cohesion in alignment with <a href="https://medium.com/@trgoodwill/where-do-business-resource-apis-come-from-472cc8422dec">core domain and conceptual contours principles.</a></p>
+<p><em>Request and response document structure is discussed further in</em> <a href="https://medium.com/p/76ffde7f5eb2/edit"><strong><em>Payload Conventions</em></strong></a></p>
+<h3 id="binary-and-multi-part-content">Binary and Multi-part Content<a aria-hidden="true" class="anchor-heading icon-link" href="#binary-and-multi-part-content"></a></h3>
+<p>Some resources have one or more binary documents associated with them. For example identity verification might require multiple supporting documents. REST interfaces are, however, primarily concerned with data that can be serialized and parsed (and/or validated) by services and platforms that processes HTTP requests.</p>
+<p>Implementation details for large binary uploads are often necessarily different from small JSON payloads (for example virus scanning, different tuning for HTTP variables for efficient compression, different DDOS protection strategies, etc). For these reasons, care needs to be taken with the modeling of binary data to avoid unnecessary imposts on performance and availability.</p>
+<p><em>More on this topic in the article:</em> <a href="https://medium.com/@trgoodwill/api-bites-binary-and-multi-part-content-283ef69fc5e9"><strong><em>Binary and Multi-Part Content</em></strong></a></p>
+<h3 id="hateoas-link-relations-and-pagination">HATEOAS, Link Relations and Pagination<a aria-hidden="true" class="anchor-heading icon-link" href="#hateoas-link-relations-and-pagination"></a></h3>
+<p>Existentially related sub-resources may <strong><em>optionally</em></strong> be represented as links, however in a managed API environment, linking versioned APIs external to the current namespace creates dependencies, and such links may in fact be invalid for some clients when these services undergo major version changes. It is best to reserve links for operations and resources within the same versioned namespace.</p>
+<p>When links are employed as <a href="https://medium.com/@trgoodwill/the-engine-of-application-state-92bfdce0d41c">HATEOAS — the engine of application state</a>, applicable, adjacent state-lifecycle affordances are presented as links in the payload. The name of every HATEOAS link will correspond to a documented operation with an explicitly defined request and response document, referring to an <strong><em>operationId</em></strong> or to an OAS 3 <strong><em>link name</em></strong>.</p>
+<p><em>More on this topic in the article:</em> <a href="https://medium.com/@trgoodwill/the-engine-of-application-state-92bfdce0d41c"><strong><em>The Engine of Application State. Aligning HATEOAS, Affordances and Business Events</em></strong></a></p>
+<h2 id="5-request-and-response-protocols">5. Request and Response Protocols<a aria-hidden="true" class="anchor-heading icon-link" href="#5-request-and-response-protocols"></a></h2>
+<p>Guidance on consistent request and response HTTP protocols should be provided, and should cover (at least):</p>
+<ul>
+<li><strong>HTTPS</strong> : Expose only HTTPS TLS-encrypted endpoints</li>
+<li><strong>HTTP Methods</strong> : Descriptions and guidance for standard HTTP methods as applied to business resources. Include why (or why not) business services might avoid DELETE, support PATCH for partial updates and support HEAD for enterprise health checks.</li>
+<li><strong>HTTP Request and Response Headers</strong> : Describe headers that API resource servers should understand and those that should be applied to API responses.</li>
+<li><strong>HTTP Response Status Codes</strong> : Guidance on the HTTP Response codes that may be appropriate for a resource server to return against each of the commonly supported HTTP methods.</li>
+<li><strong>Response Caching</strong> : Guidance on cache control, and how HTTP caching can impact APIs.</li>
+</ul>
+<p><em>Request and response protocols are discussed here:</em> <a href="https://medium.com/@trgoodwill/1f3a4f34cecf?source=friends_link&#x26;sk=7c5c4de05dd7a1da933760c56251d097"><strong><em>Request and Response Protocols</em></strong></a></p>
+<h2 id="6-error-handling">6. Error Handling<a aria-hidden="true" class="anchor-heading icon-link" href="#6-error-handling"></a></h2>
+<p>Returning a <a href="https://medium.com/@trgoodwill/1f3a4f34cecf">standard HTTP status code</a> for unsuccessful API requests will ordinarily convey adequate, high-level information about the error to the client with little risk of exposing information that may compromise security. Not infrequently however, the intentionally terse HTTP status response (consider ‘400 — Bad request’) impedes timely resolution of an issue.</p>
+<p>Reliable and comprehensive enterprise logging, tracing and analytics should be considered the ideal target platform for analysis and resolution of API errors within the enterprise. However, in the absence of consistent, detailed and navigable logs, or in support of data exchange over trusted networks, enterprise error responses might be considered.</p>
+<p>When enterprise error responses are introduced into the API framework, business resource APIs may provide additional error information in the response body. Enterprise guidance on error response structure and semantics will be required, as well as caveats around its use.</p>
+<p>For example, an “errors” top-level array might be defined, with one or more error objects returned in a collection. Each error object might contain fields that <em>broadly</em> characterize the issue, assist client maintainers in locating or communicating log identifiers and error codes, and potentially provide a reference to problematic data in the request message.</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"errors"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"85024bfe-a602-7b3c-82be-301e7d0bd0a6"</span><span class="token punctuation">,</span>
+      <span class="token property">"code"</span><span class="token operator">:</span> <span class="token string">"12345"</span><span class="token punctuation">,</span>
+      <span class="token property">"detail"</span><span class="token operator">:</span> <span class="token string">"Future date not allowed"</span><span class="token punctuation">,</span>
+      <span class="token property">"source"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"body"</span><span class="token operator">:</span> <span class="token string">"birthDate"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>When returning error responses, technical details, technical errors, thread dumps, and process identifiers <strong><em>must be masked</em></strong>. Care should be taken to ensure PII or other classified information is not returned.</p>
+<h2 id="7-api-security">7. API Security<a aria-hidden="true" class="anchor-heading icon-link" href="#7-api-security"></a></h2>
+<h3 id="security-by-design">Security-by-Design<a aria-hidden="true" class="anchor-heading icon-link" href="#security-by-design"></a></h3>
+<p>Data must be classified and regulatory controls identified during the modelling phase in order to ensure robust API security.</p>
+<p><img src="/assets/images/back-end/writing-api-design-standards__security-by-design.webp"></p>
+<p>Fine-grained data handling and security controls are implemented accordingly by the business service responsible for the data. Corresponding API specification security schemes are derived from matching security controls captured by the domain model against templated enterprise security patterns.</p>
+<p><em>Security-by-design, registration of resources and integrated API security are considered in</em> <a href="https://medium.com/@trgoodwill/securing-apis-with-an-integrated-security-framework-bf70569c8919"><strong><em>more detail here</em></strong></a></p>
+<h3 id="protecting-resource-apis-with-api-scopes">Protecting Resource APIs with API Scopes<a aria-hidden="true" class="anchor-heading icon-link" href="#protecting-resource-apis-with-api-scopes"></a></h3>
+<p>API scopes are an extension of the OAuth scope mechanism and are utilized by OAS 3 and many API management platforms to control access to API operations.</p>
+<p>API gateways will make a low-granularity access decision that asks only “is this a registered user and/or system with a valid API use-case?”. The access token (and the OIDC identity token behind it) is intended to provide the business service with the means to ask the high-granularity access question “Does this particular user have a right to see the requested data?”.</p>
+<p>API scopes represent the authorized user/system scope of access to a business resource. It is essential to define and guide a clear and efficient process for the registration of business resources and data profiles to Identity Access Management (IAM) and Security Token Service (STS) platforms.</p>
+<p><em>More here on</em> <a href="https://medium.com/@trgoodwill/protecting-resource-apis-with-api-scopes-4f0e819763d7"><strong><em>Protecting Resource APIs with API Scopes</em></strong></a></p>
+<h3 id="tactics-to-secure-sensitive-apis">Tactics to Secure Sensitive APIs<a aria-hidden="true" class="anchor-heading icon-link" href="#tactics-to-secure-sensitive-apis"></a></h3>
+<p>Guidance on securing sensitive APIs will include:</p>
+<ul>
+<li><strong>API Abstraction</strong> : An API must not expose implementation details. Resource identifiers should be non-sequential and un-guessable, providing maximum abstraction from Personally Identifiable Information, primary keys, and time or order of creation.</li>
+<li><strong>Transport Security :</strong> Expose only HTTPS TLS-encrypted endpoints. restrict to TLS versions ’n’ or ‘n-1’ (e.g. ‘TLS 1.3 or 1.2’). Locked down resource server APIs with MA from the API Gateway.</li>
+<li><strong>Data Confidentiality, Integrity and Non-Repudiation, :</strong> Occasionally, regulatory controls or controls-by-agreement will dictate special handling of data. Careful validation of such requirements and a coherent and consistent enterprise approach can mitigate a potentially considerable maintenance burden</li>
+<li><strong>API Testing :</strong> ‘Code-first’ API publishing automation incorporating Policy-as-Code controls and security testing can improve API security.</li>
+<li><strong>Gateway Security Features :</strong> Make use of the Security policy features provided by API Gateway platforms to augment back-end API security and provide defense-in-depth.</li>
+</ul>
+<p><em>API security tactics are discussed here:</em> <a href="https://medium.com/@trgoodwill/api-bites-securing-sensitive-api-s-bac6d51fe233"><strong><em>Tactics to Secure Sensitive APIs</em></strong></a></p>
+<h2 id="8-logging-traceability-and-availability">8. Logging, Traceability and Availability<a aria-hidden="true" class="anchor-heading icon-link" href="#8-logging-traceability-and-availability"></a></h2>
+<h3 id="enterprise-logging-and-tracing">Enterprise Logging and Tracing<a aria-hidden="true" class="anchor-heading icon-link" href="#enterprise-logging-and-tracing"></a></h3>
+<p>Content (payload) classified as sensitive or otherwise restricted should not be logged by gateways or business services, unless over secure channels and to platforms approved for the retention of data to the appropriate classification. <em>Guidance might include the following directives:</em></p>
+<ul>
+<li>Ensure logged data is masked and sanitized to prevent exposure of credentials, tokens, Personally Identifiable Information or other sensitive business information.</li>
+<li>Implement an allowed list of characters to mitigate against log injection attacks. <a href="https://owasp.org/www-community/attacks/Log_Injection">Test potential vulnerabilities</a>.</li>
+<li>Understand and follow <a href="https://medium.com/@trgoodwill/api-bites-w3c-trace-context-8a4f4dcb2456">enterprise trace participation</a> requirements</li>
+</ul>
+<p><em>More on distributed tracing here:</em> <a href="https://medium.com/@trgoodwill/api-bites-w3c-trace-context-8a4f4dcb2456"><strong><em>Distributed Tracing and W3C Trace Context</em></strong></a></p>
+<h3 id="audit-logs-security-incident-and-event-management">Audit Logs, Security Incident and Event Management<a aria-hidden="true" class="anchor-heading icon-link" href="#audit-logs-security-incident-and-event-management"></a></h3>
+<p>When a security event occurs, or an authorization decision is made, it must be logged to an enterprise security incident and event management platform (SIEM) where incidents, patterns and trends can be analyzed and acted upon. It is imperative to define the right granularity of logging and to ensure alerts and notifications are appropriately escalated.</p>
+<h3 id="health-check">Health Check<a aria-hidden="true" class="anchor-heading icon-link" href="#health-check"></a></h3>
+<p>Provide guidance on the API contexts that would require business services to support API health checks, and consider a standardized approach.</p>
+<p>Enterprise-wide support for the <strong>HEAD</strong> method provides an avenue for a standardized, safe and consistently implemented service health check mechanism.</p>
+<h2 id="wrap-up">Wrap-up<a aria-hidden="true" class="anchor-heading icon-link" href="#wrap-up"></a></h2>
+<p>Governed, opiniated standards and patterns will be required to enable <strong><em>seamless interoperability between independent, decoupled domains</em></strong>. While sample guidance and exemplars are offered in this article, there is often more than one tried-and-tested approach in any one area of API design — specific tactics and conventions should be tailored to the target environment.</p>
+<p>Involve a broad cross-section of developers, validate assumptions, and aim for practical and unambiguous guidance that will be easily understood by the bulk of your technical staff. Consider development standards a living document— <strong><em>standards must learn from implementation</em></strong> and improve through engagement and iteration.</p>

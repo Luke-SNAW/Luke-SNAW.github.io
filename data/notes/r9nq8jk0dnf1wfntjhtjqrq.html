@@ -1,0 +1,242 @@
+<h1 id="how-to-favicon-in-2023-six-files-that-fit-most-needs">How to Favicon in 2023: Six files that fit most needs<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-favicon-in-2023-six-files-that-fit-most-needs"></a></h1>
+<blockquote>
+<p><a href="https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs?ref=heydesigner">https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs?ref=heydesigner</a></p>
+</blockquote>
+<h2 id="the-extremely-short-version">The extremely short version<a aria-hidden="true" class="anchor-heading icon-link" href="#the-extremely-short-version"></a></h2>
+<p>Instead of serving dozens of icons, all you need is just <strong>five</strong> icons and one JSON file.</p>
+<p>For the browser using HTML:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/favicon.ico<span class="token punctuation">"</span></span> <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>any<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token comment">&#x3C;!-- 32×32 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/icon.svg<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/svg+xml<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>apple-touch-icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/apple-touch-icon.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token comment">&#x3C;!-- 180×180 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manifest<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/manifest.webmanifest<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>And in your web app manifest:</p>
+<pre class="language-json"><code class="language-json"><span class="token comment">// manifest.webmanifest</span>
+<span class="token punctuation">{</span>
+  <span class="token property">"icons"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"/icon-192.png"</span><span class="token punctuation">,</span> <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"image/png"</span><span class="token punctuation">,</span> <span class="token property">"sizes"</span><span class="token operator">:</span> <span class="token string">"192x192"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"/icon-512.png"</span><span class="token punctuation">,</span> <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"image/png"</span><span class="token punctuation">,</span> <span class="token property">"sizes"</span><span class="token operator">:</span> <span class="token string">"512x512"</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="the-long-version-where-everything-is-explained">The long version, where everything is explained<a aria-hidden="true" class="anchor-heading icon-link" href="#the-long-version-where-everything-is-explained"></a></h2>
+<blockquote>
+<h2 id="perfection-is-achieved-not-when-there-is-nothing-more-to-add-but-when-there-is-nothing-left-to-take-away">Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.<a aria-hidden="true" class="anchor-heading icon-link" href="#perfection-is-achieved-not-when-there-is-nothing-more-to-add-but-when-there-is-nothing-left-to-take-away"></a></h2>
+<hr>
+<p>Antoine de Saint-Exupéry<br>
+— Airman's Odyssey</p>
+</blockquote>
+<h2 id="the-ultimate-favicon-setup">The Ultimate Favicon Setup<a aria-hidden="true" class="anchor-heading icon-link" href="#the-ultimate-favicon-setup"></a></h2>
+<p>Instead of creating many images with different sizes, I decided to rely on SVG and browser downscaling. If you’re concerned about performance, I’m here to set the record straight:</p>
+<ul>
+<li>Browsers download favicons in the background, so a bigger favicon image does not affect website performance.</li>
+<li>SVG is a great way to reduce image size for images that aren’t supposed to be bitmaps in the first place; for many <em>logos</em> the resulting file will be much smaller than a PNG.</li>
+<li>With just three PNG images in this minimum set, you can use advanced tools to optimize their size. This solves a problem for Internet users that don’t have unlimited data plans.</li>
+</ul>
+<p>Now I’ll reveal the minimal set of icons that I came up with during my research and practice. This list should work with all popular browsers and devices, both old and new.</p>
+<h4 id="i-faviconico-for-legacy-browsers">I. favicon.ico for legacy browsers<a aria-hidden="true" class="anchor-heading icon-link" href="#i-faviconico-for-legacy-browsers"></a></h4>
+<p>ICO files actually have a <a href="https://en.wikipedia.org/wiki/ICO_(file_format)#Icon_resource_structure">directory structure</a> and can pack files with different resolutions. I recommend sticking to a single 32×32 image, unless the one you have doesn’t downscale well to 16×16 (if it becomes blurry, for instance). In that case, you can ask your designer to come up with a special version of the logo that’s tailored to fit small pixel grids.</p>
+<p>Don’t get smart with the folder static asset folder structure and cache busters. <code>https://example.com</code> website should have a favicon on <code>https://example.com/favicon.ico</code>. Some tools, like RSS readers, just request <code>/favicon.ico</code> from the server and don’t bother looking elsewhere.</p>
+<p>We need <code>sizes="any"</code> for <code>&#x3C;link></code> to <code>.ico</code> file in order to fix the <a href="https://twitter.com/subzey/status/1417099064949235712">Chrome bug</a> where it chooses an ICO file over an SVG.</p>
+<h4 id="ii-a-single-svg-icon-with-a-lightdark-version-for-modern-browsers">II. A single SVG icon with a light/dark version for modern browsers<a aria-hidden="true" class="anchor-heading icon-link" href="#ii-a-single-svg-icon-with-a-lightdark-version-for-modern-browsers"></a></h4>
+<p>SVG is a vector format that describes curves instead of pixels. At large sizes, it’s more efficient than raster images. As of this writing, <a href="https://caniuse.com/link-icon-svg">72% of all browsers</a> support SVG icons.</p>
+<p>Your HTML page should have a <code>&#x3C;link></code> tag in its <code>&#x3C;head></code> with <code>rel="icon"</code>, <code>type="image/svg+xml"</code> and with the <code>href</code> containing a link to the SVG file as attributes.</p>
+<p>SVG is an XML format and can contain a <code>&#x3C;style></code> tag to describes CSS. As with any CSS, it can contain media queries like <code>@media (prefers-color-scheme: dark)</code>. This will allow you to toggle the same icon between <a href="https://web.dev/building-an-adaptive-favicon/">light and dark system themes</a>.</p>
+<h4 id="iii-180180-png-image-for-apple-devices">III. 180×180 PNG image for Apple devices<a aria-hidden="true" class="anchor-heading icon-link" href="#iii-180180-png-image-for-apple-devices"></a></h4>
+<p>The Apple touch icon is an image that Apple devices will use if you add the webpage as a shortcut to your home screen on an iPhone or iPad. Your HTML page should have <code>&#x3C;link rel="apple-touch-icon" href="apple-touch-icon.png"></code> tag inside <code>&#x3C;head></code>.</p>
+<p>Since iOS 8+, iPads have required an image with a 180×180 resolution. Other devices will downscale it, but if we provide the source with a high-enough quality, the downscaling won’t hurt the end-user (I’ll come back to this later).</p>
+<p>Small note: an Apple touch icon will look better if you place <code>20px</code> padding around the icon and add some background color. You can use any image editor to do this.</p>
+<h4 id="iv-web-app-manifest-with-192192-and-512512-png-icons-for-android-devices">IV. Web app manifest with 192×192 and 512×512 PNG icons for Android devices<a aria-hidden="true" class="anchor-heading icon-link" href="#iv-web-app-manifest-with-192192-and-512512-png-icons-for-android-devices"></a></h4>
+<ul>
+<li>A web app manifest is a JSON file containing all the details for a browser to install your website as a system application. This format came about from Google via its <a href="https://en.wikipedia.org/wiki/Progressive_web_application">PWA</a> initiative.</li>
+<li>Your HTML page should have a <code>&#x3C;link rel="manifest" href="path.webmanifest"></code> tag with a link to the manifest file.</li>
+<li>The manifest should have an <code>icon</code> field that links to two icons: 192×192, for display on the home screen, and 512×512 which will be used as a splash screen as PWA is loading.</li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"icons"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"/icon-192.png"</span><span class="token punctuation">,</span> <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"image/png"</span><span class="token punctuation">,</span> <span class="token property">"sizes"</span><span class="token operator">:</span> <span class="token string">"192x192"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"/icon-512.png"</span><span class="token punctuation">,</span> <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"image/png"</span><span class="token punctuation">,</span> <span class="token property">"sizes"</span><span class="token operator">:</span> <span class="token string">"512x512"</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="did-we-forget-anyone">Did we forget anyone?<a aria-hidden="true" class="anchor-heading icon-link" href="#did-we-forget-anyone"></a></h2>
+<p>There are, of course, more favicon flavors out there, some of them quite obscure, so let’s see how our setup fares with them. Maybe, it’s time to say farewell to some of the less successful formats out there.</p>
+<h4 id="windows-tile-icon">Windows Tile Icon<a aria-hidden="true" class="anchor-heading icon-link" href="#windows-tile-icon"></a></h4>
+<p>Microsoft Edge used to <a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/hh772707(v=vs.85)">support</a> a special icon format to pin websites to the start menu. For recent versions of Windows, this is no longer required.</p>
+<h4 id="safari-pinned-icon">Safari Pinned Icon<a aria-hidden="true" class="anchor-heading icon-link" href="#safari-pinned-icon"></a></h4>
+<p>Safari formerly had a requirement of SVG monochrome icon for <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html">pinned tabs</a>. However, since Safari 12, we can use a regular favicon for pinned tabs. Even <a href="https://www.apple.com/">apple.com</a> doesn’t use the <code>mask-icon</code> anymore.</p>
+<h4 id="relshortcut">rel=“shortcut”<a aria-hidden="true" class="anchor-heading icon-link" href="#relshortcut"></a></h4>
+<p>A lot of (now outdated) tutorials will include a <code>favicon.ico</code> into HTML like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>shortcut icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/favicon.ico<span class="token punctuation">"</span></span> <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>any<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>Be warned that <code>shortcut</code> is not, and never has been, a valid link relation. Read this <a href="https://mathiasbynens.be/notes/rel-shortcut-icon">amazing article</a> by Mathias Bynens from ten years ago that explains why we never needed shortcuts and why <code>rel="icon"</code> is just fine.</p>
+<h4 id="opera-coast">Opera Coast<a aria-hidden="true" class="anchor-heading icon-link" href="#opera-coast"></a></h4>
+<p>In the past, Opera Coast, an experimental browser for iOS, required a special 228×228 icon. This browser left the App Store in 2017, and I doubt it survived the multiple iOS updates since that time.</p>
+<p>Now, as we wave good-bye to our fallen comrades, let’s see how to produce an ultimate favicon set for those who are still standing.</p>
+<h2 id="how-to-build-our-ultimate-favicon-set">How to build our Ultimate Favicon Set<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-build-our-ultimate-favicon-set"></a></h2>
+<p>Here’s how to build our ultimate, minimalistic favicon set in six quick steps. All you need to start is an SVG file for the logo that you want to use.</p>
+<h4 id="step-1-prepare-the-svg">Step 1: Prepare the SVG<a aria-hidden="true" class="anchor-heading icon-link" href="#step-1-prepare-the-svg"></a></h4>
+<p>Be sure that the SVG image is <em>square</em>. Open the source file in your system viewer and check the image’s width and height. It’s easy to adjust the SVG size using any SVG editor. In <a href="https://inkscape.org/">Inkscape</a>, you can change document size by selecting File → Document Properties and then center the logo using Object → Align and Distribute.</p>
+<p>Save your file as <code>icon.svg</code>. Now let’s fiddle with our SVG and make it play well with modern system <em>themes</em>. Ask your designer how the colors should be inverted for a dark theme (for B&#x26;W logos, you just change black to white).</p>
+<p>Now, open your SVG file in a <em>text</em> editor. Find a <code>&#x3C;path></code> with a dark or missing <code>fill</code>. Add a CSS media query that will trigger on theme changes and change <code>fill</code> to the colors you want:</p>
+<pre class="language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &#x3C;style>
+</span><span class="token prefix inserted">+</span><span class="token line">     @media (prefers-color-scheme: dark) {
+</span><span class="token prefix inserted">+</span><span class="token line">     .a { fill: #f0f0f0 }
+</span><span class="token prefix inserted">+</span><span class="token line">     }
+</span><span class="token prefix inserted">+</span><span class="token line">   &#x3C;/style>
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   &#x3C;path fill="#0f0f0f" d="…" />
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &#x3C;path class="a" fill="#0f0f0f" d="…" />
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;/svg>
+</span></span></code></pre>
+<p>You may also use this media query technique with SVGs to <a href="https://evilmartians.com/chronicles/how-to-use-p3-colors-in-svg">add wide-gamut P3 colors</a> to your favicons.</p>
+<h4 id="step-2-create-an-ico-file">Step 2: Create an ICO file<a aria-hidden="true" class="anchor-heading icon-link" href="#step-2-create-an-ico-file"></a></h4>
+<p>Open your <code>icon.svg</code> file in a raster graphics editor. I recommend <a href="https://www.gimp.org/">GIMP</a>; it’s free and multi-platform.</p>
+<p>Accept rendering SVG to raster. Set the width and height to be 32 pixels. Export file to <code>favicon.ico</code> using <em>32 bpp, 8-bit alpha, no palette</em> settings.</p>
+<p>If you do not have GIMP you can install <a href="https://inkscape.org/">Inkscape</a> and <a href="https://www.imagemagick.org/script/download.php">ImageMagick</a> and convert SVG to ICO in the terminal:</p>
+<pre class="language-shell"><code class="language-shell">inkscape ./icon.svg --export-width<span class="token operator">=</span><span class="token number">32</span> --export-filename<span class="token operator">=</span><span class="token string">"./tmp.png"</span>
+<span class="token comment"># In Windows call `magick convert ./tmp.png ./favicon.ico`</span>
+convert ./tmp.png ./favicon.ico
+<span class="token function">rm</span> ./tmp.png
+</code></pre>
+<p>Scale the image down to 16×16 and check the icon visibility. If it has become too blurry, it would be better to ask your designer for a custom tiny version of the logo.</p>
+<p>To include a separate 16×16 version of an icon:</p>
+<ol>
+<li>Open <code>favicon.ico</code> with the 32×32 icon.</li>
+<li>Create a new layer with a 16×16 size.</li>
+<li>Put the 16×16 version of an icon into this layer.</li>
+<li>Export the file. GIMP will save each layout as a separate version of the icon.</li>
+</ol>
+<p>Or you can do the same in ImageMagick by:</p>
+<pre class="language-shell"><code class="language-shell">convert ./icon-32.png ./icon-16.png ./favicon.ico
+</code></pre>
+<h4 id="step-3-create-png-images">Step 3: Create PNG images<a aria-hidden="true" class="anchor-heading icon-link" href="#step-3-create-png-images"></a></h4>
+<p>Open your source SVG file in a raster graphics editor again and create a 512×512 image. Export it as <code>icon-512.png</code>.<br>
+Scale the image to 192×192 and export it to <code>icon-192.png</code>. Now scale the image itself to 140×140 and set the canvas to 180×180, and then export it as <code>apple-touch-icon.png</code>.</p>
+<p>Or you can do the same in Inkscape:</p>
+<pre class="language-shell"><code class="language-shell">inkscape ./icon.svg --export-width<span class="token operator">=</span><span class="token number">512</span> --export-filename<span class="token operator">=</span><span class="token string">"./icon-512.png"</span>
+inkscape ./icon.svg --export-width<span class="token operator">=</span><span class="token number">192</span> --export-filename<span class="token operator">=</span><span class="token string">"./icon-192.png"</span>
+</code></pre>
+<h4 id="step-4-optimize-png-and-svg-files">Step 4: Optimize PNG and SVG files<a aria-hidden="true" class="anchor-heading icon-link" href="#step-4-optimize-png-and-svg-files"></a></h4>
+<p>The best tool for optimizing SVGs is <a href="https://github.com/svg/svgo">SVGO</a>. To use it, run:</p>
+<pre class="language-shell"><code class="language-shell">npx svgo --multipass icon.svg
+</code></pre>
+<p><a href="https://squoosh.app/">Squoosh</a> is a great web app to optimize raster images:</p>
+<ol>
+<li>Open your <code>icon-512.png</code> in Squoosh.</li>
+<li>Change the Compress setting to <code>OxiPNG</code>.</li>
+<li>Enable “Reduce palette”.</li>
+<li>Set 64 colors.</li>
+<li>Compare the before/after by moving the slider. If you see a difference, increase the number of colors.</li>
+<li>Save the file.</li>
+</ol>
+<p>Repeat these steps for <code>icon-192.png</code> and <code>apple-touch-icon.png</code>.</p>
+<h4 id="step-5-add-the-icons-to-html">Step 5: Add the icons to HTML<a aria-hidden="true" class="anchor-heading icon-link" href="#step-5-add-the-icons-to-html"></a></h4>
+<p>You need to add links to <code>favicon.ico</code> and to <code>apple-touch-icon.png</code> into your HTML.</p>
+<p>For static HTML:</p>
+<pre class="language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;title>My website&#x3C;/title>
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> &#x3C;link rel="icon" href="/favicon.ico" sizes="any">
+</span><span class="token prefix inserted">+</span><span class="token line"> &#x3C;link rel="icon" href="/icon.svg" type="image/svg+xml">
+</span><span class="token prefix inserted">+</span><span class="token line"> &#x3C;link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</span></span></code></pre>
+<p>However, we recommend using a bundler to generate cache busters (include the file’s hash in the name as a fingerprint). If you are using Webpack with <a href="https://webpack.js.org/plugins/html-webpack-plugin/"><code>HtmlWebpackPlugin</code></a>:</p>
+<ol>
+<li>
+<p>Create an <code>index.html</code> template.</p>
+</li>
+<li>
+<p>Add the template to the plugin options:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span> template<span class="token operator">:</span> <span class="token string">"./view/index.html"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li>
+<p>Define an HTML template with links (the examples use <code>HtmlWebpackPlugin</code> to include files, but it can be your templating language of choice):</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>My website<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width,initial-scale=1<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/favicon.ico<span class="token punctuation">"</span></span> <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>any<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span>
+      <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span>
+      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/svg+xml<span class="token punctuation">"</span></span>
+      <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&#x3C;%=
+      require(<span class="token punctuation">'</span>./icon.svg<span class="token punctuation">'</span>).default
+    %><span class="token punctuation">"</span></span>
+    <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span>
+      <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>apple-touch-icon<span class="token punctuation">"</span></span>
+      <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&#x3C;%=
+      require(<span class="token punctuation">'</span>./apple-touch-icon.png<span class="token punctuation">'</span>).default
+    %><span class="token punctuation">"</span></span>
+    <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+</li>
+<li>
+<p>Use <a href="https://www.npmjs.com/package/copy-webpack-plugin"><code>copy-webpack-plugin</code></a> to copy <code>favicon.ico</code> <em>without</em> adding a hash to file name.</p>
+</li>
+</ol>
+<h4 id="bonus-tip-create-a-separate-icon-for-staging">Bonus tip: create a separate icon for staging<a aria-hidden="true" class="anchor-heading icon-link" href="#bonus-tip-create-a-separate-icon-for-staging"></a></h4>
+<p>Favicons are a nice way to distinguish your production environment from a staging one. I find that using an alternative icon for staging is super effective for avoiding any costly cases of confusion.</p>
+<p>Create a <code>favicon-dev.ico</code> with the same logo, but invert the colors (or do something that makes sense to you). Do the same for SVG and create <code>icon-dev.svg</code>.</p>
+<p>Now, replace the icons in your HTML template depending on the <code>process.env.NODE_ENV === 'production'</code> condition:</p>
+<pre class="language-diff"><code class="language-diff">
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;!doctype html>
+</span><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;html lang="en">
+</span><span class="token prefix unchanged"> </span><span class="token line">   &#x3C;head>
+</span><span class="token prefix unchanged"> </span><span class="token line">     &#x3C;meta charset="utf-8">
+</span><span class="token prefix unchanged"> </span><span class="token line">     &#x3C;title>My website&#x3C;/title>
+</span><span class="token prefix unchanged"> </span><span class="token line">     &#x3C;meta name="viewport" content="width=device-width,initial-scale=1">
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">     &#x3C;link rel="icon" href="/favicon.ico" sizes="any">
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">     &#x3C;link rel="icon" sizes="any" href="&#x3C;%=
+</span><span class="token prefix inserted">+</span><span class="token line">       process.env.NODE_ENV === 'production'
+</span><span class="token prefix inserted">+</span><span class="token line">         ? '/favicon.ico'
+</span><span class="token prefix inserted">+</span><span class="token line">         : require('./favicon-dev.ico').default
+</span><span class="token prefix inserted">+</span><span class="token line">     %>">
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">     &#x3C;link rel="icon" type="image/svg+xml" href="&#x3C;%=
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">       require('./icon.svg').default
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">       process.env.NODE_ENV === 'production'
+</span><span class="token prefix inserted">+</span><span class="token line">         ? require('./icon.svg').default
+</span><span class="token prefix inserted">+</span><span class="token line">         : require('./icon-dev.svg').default
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">     %>">
+</span><span class="token prefix unchanged"> </span><span class="token line">     &#x3C;link rel="apple-touch-icon" href="&#x3C;%=
+</span><span class="token prefix unchanged"> </span><span class="token line">       require('./apple-touch-icon.png').default
+</span><span class="token prefix unchanged"> </span><span class="token line">     %>">
+</span><span class="token prefix unchanged"> </span><span class="token line">   &#x3C;/head>
+</span><span class="token prefix unchanged"> </span><span class="token line">   &#x3C;body>&#x3C;/body>
+</span><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;/html>
+</span></span></code></pre>
+<h4 id="step-6-create-a-web-app-manifest">Step 6: Create a web app manifest<a aria-hidden="true" class="anchor-heading icon-link" href="#step-6-create-a-web-app-manifest"></a></h4>
+<p>For static HTML, create a JSON file named <code>manifest.webmanifest</code>:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"My website"</span><span class="token punctuation">,</span>
+  <span class="token property">"icons"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"/icon-192.png"</span><span class="token punctuation">,</span> <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"image/png"</span><span class="token punctuation">,</span> <span class="token property">"sizes"</span><span class="token operator">:</span> <span class="token string">"192x192"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"/icon-512.png"</span><span class="token punctuation">,</span> <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"image/png"</span><span class="token punctuation">,</span> <span class="token property">"sizes"</span><span class="token operator">:</span> <span class="token string">"512x512"</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Link it in your HTML:</p>
+<pre class="language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;title>My website&#x3C;/title>
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> &#x3C;link rel="manifest" href="/manifest.webmanifest">
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;link rel="icon" href="/favicon.ico" sizes="any">
+</span><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;link rel="icon" href="/icon.svg" type="image/svg+xml">
+</span><span class="token prefix unchanged"> </span><span class="token line"> &#x3C;link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</span></span></code></pre>
+<p>With Webpack, you can use <a href="https://www.npmjs.com/package/webpack-pwa-manifest">webpack-pwa-manifest</a> plugin:</p>
+<pre class="language-js"><code class="language-js">  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    …<span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">WebpackPwaManifest</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token string">'My website'</span><span class="token punctuation">,</span>
+      icons<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> src<span class="token operator">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'./icon-192.png'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sizes<span class="token operator">:</span> <span class="token string">'192x192'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> src<span class="token operator">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'./icon-512.png'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sizes<span class="token operator">:</span> '<span class="token number">512</span>x512 <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+</code></pre>
+<p>Thank you for reading! As you can see, with modern web standards, the task of creating our Ultimate Favicon Set becomes quite straightforward. And even though following the steps manually shouldn’t take much of your time, having an automated tool to do the same will make things even more amazing! Feel free to ping me on <a href="https://twitter.com/sitnikcode">Twitter</a> if you’re willing to build one; I’ll be more than happy to help!</p>

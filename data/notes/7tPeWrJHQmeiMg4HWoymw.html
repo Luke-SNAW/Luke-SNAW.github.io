@@ -1,0 +1,91 @@
+<h1 id="accessibility">Accessibility<a aria-hidden="true" class="anchor-heading icon-link" href="#accessibility"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://github.com/lezhin/accessibility">레진 웹 접근성 가이드라인</a></li>
+<li><a href="https://a11y-automation.dev/violations">A11y Automation Tracker > Potential Violations</a></li>
+<li><a href="https://gomakethings.com/accessibility-assistive-technology-and-javascript/">Accessibility, assistive technology, and JavaScript</a>
+<ul>
+<li><a href="https://gomakethings.com/accessibility-assistive-technology-and-javascript/#a-quick-note-about-macos">A quick note about macOS</a> - On macOS, keyboard focus navigation is off by default. Chromium browsers (like Chrome and Edge) automatically support keyboard navigation anyways, but Firefox and Safari honor the system preferences.</li>
+</ul>
+</li>
+<li><a href="https://www.matuzo.at/blog/2022/please-stop-disabling-zoom/">Please, stop disabling zoom</a></li>
+<li><a href="https://jessbudd.com/blog/screen-reader-usability-testing-observations/">5 takeaways from screen reader usability interviews</a>
+<ul>
+<li>Usually when we think of alt text, we think "What is this a picture of?" - but in the case of links where the only content is an image, the alt text needs to describe the function of that link. Not the image itself.</li>
+</ul>
+</li>
+<li><a href="https://webhint.io/docs/user-guide/hints/accessibility/">https://webhint.io/docs/user-guide/hints/accessibility/</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques">Using ARIA: Roles, states, and properties</a></li>
+<li><a href="https://a11y-solutions.stevenwoodson.com/">Accessibility Solutions</a></li>
+<li>👑 <a href="https://design-system.service.gov.uk/accessibility/">GOV.UK Design System > Accessibility</a> explains how the team works to ensure the Design System and Frontend are accessible.</li>
+<li><a href="https://www.infoq.com/news/2023/04/web-accessibility/">Improving Web Accessibility with Semantic HTML and Testing Techniques and Tools</a></li>
+<li><a href="https://ericwbailey.website/published/display-contents-considered-harmful/"><code>display: contents</code> considered harmful</a></li>
+<li><a href="https://ashleemboyer.com/blog/don-t-use-fixed-css-height-or-width-on-text-containers">Don't Use Fixed CSS height or width on Buttons, Links, or Any Other Text Containers</a>
+<blockquote>
+<p>Despite some web design tools specifying CSS <code>height</code> values for elements like buttons, setting <code>height</code> or <code>max-height</code> can actually put you at risk for failing <a href="https://www.w3.org/TR/WCAG22/#resize-text">WCAG 2.2 Success Criterion 1.4.4 Resize Text</a>.</p>
+</blockquote>
+</li>
+<li><a href="https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-1/">Accessible notifications with ARIA Live Regions (Part 1)</a></li>
+<li><a href="https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-2/">Accessible notifications with ARIA Live Regions (Part 2)</a></li>
+<li><a href="https://ishadeed.com/article/target-size/">Designing better target sizes</a></li>
+<li><a href="https://frontendmasters.com/blog/you-want-border-color-transparent-not-border-none/">You Want border-color: transparent, Not border: none</a>
+<ul>
+<li><code>@media (forced-colors: active)</code></li>
+</ul>
+</li>
+<li><a href="https://a11y.gitbook.io/wcag">모두를 위한 디자인</a></li>
+<li><a href="https://www.scottohara.me/blog/2024/08/29/paragraphs.html">Paragraphs</a></li>
+<li><a href="https://piccalil.li/blog/practical-accessibility-tips-you-can-apply-today/">Practical Accessibility Tips You Can Apply Today</a></li>
+</ul>
+<h2 id="text">Text<a aria-hidden="true" class="anchor-heading icon-link" href="#text"></a></h2>
+<ul>
+<li><a href="https://benmyers.dev/blog/multilingual-web-accessibility/">Lost in Translation: Tips for Multilingual Web Accessibility</a></li>
+<li><a href="https://adrianroselli.com/2024/05/a-brief-note-on-highlighted-text.html">A Brief Note on Highlighted Text</a>
+<blockquote>
+<p>If you plan to style text highlighted by the browser, you must give it sufficient contrast — 3:1 for the highlight block against its background and (probably) 4.5:1 for the text within that highlighted block against that background.</p>
+</blockquote>
+</li>
+<li><a href="https://medium.com/airbnb-engineering/rethinking-text-resizing-on-web-1047b12d2881">Rethinking Text Resizing on Web</a>
+<ul>
+<li>Airbnb has made improving web accessibility a priority, focusing on the WCAG 1.4.4 Resize Text guideline. This guideline is important for users with low vision, as it requires web content to be maintained when text is scaled 200%.</li>
+</ul>
+</li>
+</ul>
+<h2 id="prefers-reduced-motion"><a href="https://news.ycombinator.com/item?id=31765773">prefers-reduced-motion</a><a aria-hidden="true" class="anchor-heading icon-link" href="#prefers-reduced-motion"></a></h2>
+<p>The <code>prefers-reduced-motion</code> feature is explicitly<a id="fnref-1" class="fnref" href="#fn-1">1</a> intended to accommodate people with vestibular motion disorders, which are common above age 40.<a id="fnref-2" class="fnref" href="#fn-2">2</a></p>
+<h2 id="unchain-my-inaccessibly-labelled-heart"><a href="https://css-tricks.com/unchain-my-inaccessibly-labelled-heart/">Unchain My Inaccessibly-Labelled Heart</a><a aria-hidden="true" class="anchor-heading icon-link" href="#unchain-my-inaccessibly-labelled-heart"></a></h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>article1-heading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>All About Dragons<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h2</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>I like dragons. Blah blah blah blah blah.<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span>
+    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>article1-read-more<span class="token punctuation">"</span></span>
+    <span class="token attr-name">aria-labelledby</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>article1-read-more article1-heading<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>
+    Read more
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>What happens there is a screenreader will replace the existing semantic label between the link tags and use the content from both elements and announce them together as a single string of text:</p>
+<pre class="language-html"><code class="language-html">Read more All About Dragons
+</code></pre>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/vxkm39axnwtwghh5w2ndbnm">A Guide To Keyboard Accessibility: HTML And CSS (Part 1)</a></li>
+<li><a href="/notes/ofqjgpm5xy7hl480d0t6rhy">A Guide To Keyboard Accessibility: JavaScript (Part 2)</a></li>
+<li><a href="/notes/ykhj06hhd6v8l978e2rg1g2">A Quick Guide on How to Create Accessible Buttons in HTML</a></li>
+<li><a href="/notes/530nq8t28bki28yiaikjxrp">Accessibility tools</a></li>
+<li><a href="/notes/vjfxdfsvtufatxarr0llqjf">Anchor Tag</a></li>
+<li><a href="/notes/h8arxu6s90wieoccgdj3c1b">Don't disable buttons</a></li>
+<li><a href="/notes/mppm3i60nlk6wi0urtna3jz">HTML Semantics</a></li>
+<li><a href="/notes/t50d33c18ed3hvohxl81ske">How to make external links accessible</a></li>
+<li><a href="/notes/d8dUQN3pq8S0thhP0q0pZ">How to prepare as soon-to-be blind developer?</a></li>
+<li><a href="/notes/6a4pspgy5vpdeqr0t75ja88">Links vs Buttons in Modern Web Applications</a></li>
+<li><a href="/notes/19132lpvnc3tbkz7ndlrut5">Strikethrough Accessibility</a></li>
+<li><a href="/notes/7plyjsn42io97r7tzs26old">Toasts pose significant accessibility concerns and are not recommended for use</a></li>
+</ol>
+<h2 id="footnotes">Footnotes<a aria-hidden="true" class="anchor-heading icon-link" href="#footnotes"></a></h2>
+<ol>
+<li><span id="fn-1" style="width: 0; height: 0;"></span><p><a href="https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion/">https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion/</a><a class="fn" href="#fnref-1">˄</a></p></li>
+<li><span id="fn-2" style="width: 0; height: 0;"></span><p><a href="https://vestibular.org/article/what-is-vestibular/about-vestibular-disorders/">https://vestibular.org/article/what-is-vestibular/about-vestibular-disorders/</a><a class="fn" href="#fnref-2">˄</a></p></li>
+</ol>

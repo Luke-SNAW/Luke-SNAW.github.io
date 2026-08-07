@@ -1,0 +1,92 @@
+<h1 id="astro-이미지-최적화와-캐시-bust">Astro 이미지 최적화와 캐시 bust<a aria-hidden="true" class="anchor-heading icon-link" href="#astro-이미지-최적화와-캐시-bust"></a></h1>
+<blockquote>
+<p>작성일: 2026-04-01 | from claude-sonnet-4-6</p>
+</blockquote>
+<h2 id="개요">개요<a aria-hidden="true" class="anchor-heading icon-link" href="#개요"></a></h2>
+<p>Astro 빌드 시 발생하는 <code>MissingSharp</code> 에러의 원인과 해결 방법, 그리고 <code>sharp</code> 설치 여부와 캐시 bust의 관계를 정리한다.</p>
+<h2 id="내용">내용<a aria-hidden="true" class="anchor-heading icon-link" href="#내용"></a></h2>
+<h3 id="missingsharp-에러">MissingSharp 에러<a aria-hidden="true" class="anchor-heading icon-link" href="#missingsharp-에러"></a></h3>
+<p>Astro는 <code>src/assets/</code>에 위치한 이미지를 빌드 시 최적화할 때 <code>sharp</code> 패키지를 사용한다. <code>sharp</code>가 설치되지 않은 환경(예: CI/CD)에서 빌드하면 아래 에러가 발생한다.</p>
+<pre><code>MissingSharp: Could not find Sharp. Please install Sharp (`sharp`) manually
+into your project or migrate to another image service.
+</code></pre>
+<h3 id="해결-방법-비교">해결 방법 비교<a aria-hidden="true" class="anchor-heading icon-link" href="#해결-방법-비교"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>방법</th><th align="center">이미지 최적화</th><th align="center">캐시 bust</th><th align="center">의존성 추가</th></tr></thead><tbody><tr><td><code>sharp</code> 설치</td><td align="center">O</td><td align="center">O</td><td align="center">O</td></tr><tr><td><code>noop</code> 서비스 설정</td><td align="center">X</td><td align="center">O</td><td align="center">X</td></tr><tr><td><code>public/</code>으로 이동</td><td align="center">X</td><td align="center">X</td><td align="center">X</td></tr></tbody></table></div>
+<p><strong>방법 1 — <code>sharp</code> 설치</strong></p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> <span class="token function">add</span> sharp
+</code></pre>
+<p><code>&#x3C;Image></code> 컴포넌트나 마크다운 이미지 참조 시 WebP 변환, 리사이즈 등 최적화를 수행한다. 빌드마다 최적화가 실행되지만, 변경된 이미지만 재처리되므로 실제 비용은 크지 않다.</p>
+<p><strong>방법 2 — noop 이미지 서비스 설정</strong></p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// astro.config.mjs</span>
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  image<span class="token operator">:</span> <span class="token punctuation">{</span> service<span class="token operator">:</span> <span class="token punctuation">{</span> entrypoint<span class="token operator">:</span> <span class="token string">"astro/assets/services/noop"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>이미지 최적화를 건너뛰지만, 파일명 해시(캐시 bust)는 Vite가 담당하므로 그대로 동작한다. <code>&#x3C;Image></code> 컴포넌트를 사용하지 않는 프로젝트에 적합하다.</p>
+<h3 id="캐시-bust와-sharp의-관계">캐시 bust와 sharp의 관계<a aria-hidden="true" class="anchor-heading icon-link" href="#캐시-bust와-sharp의-관계"></a></h3>
+<ul>
+<li><strong>캐시 bust(해시 파일명)</strong> — Vite의 자산 파이프라인이 처리하며, <code>sharp</code>와 무관하게 동작</li>
+<li><strong>이미지 최적화(WebP 변환, 리사이즈)</strong> — <code>sharp</code>가 필요</li>
+</ul>
+<p><code>src/assets/</code>에 이미지를 두면 <code>sharp</code> 없이도 캐시 bust가 적용된다. <code>public/</code>으로 이동하면 파일명이 고정되어 캐시 bust가 되지 않는다.</p>
+<h3 id="선택-기준">선택 기준<a aria-hidden="true" class="anchor-heading icon-link" href="#선택-기준"></a></h3>
+<ul>
+<li>이미지 최적화(포맷 변환, 리사이즈)가 필요하면 → <code>sharp</code> 설치</li>
+<li>캐시 bust만 필요하고 최적화는 불필요하면 → <code>noop</code> 서비스 설정</li>
+</ul>
+<h3 id="github-actions-ci에서의-이미지-최적화-캐시">GitHub Actions CI에서의 이미지 최적화 캐시<a aria-hidden="true" class="anchor-heading icon-link" href="#github-actions-ci에서의-이미지-최적화-캐시"></a></h3>
+<p>Astro는 빌드 시 최적화된 이미지를 <code>.astro/image-cache/</code>에 저장한다. 로컬에서는 빌드 간 재사용되지만, CI 환경은 매 실행마다 초기화되므로 <strong>별도 캐시 설정이 없으면 이미지를 매번 전부 재최적화</strong>한다.</p>
+<p><code>actions/setup-node</code>의 <code>cache: "pnpm"</code>은 pnpm store만 캐싱하며 <code>.astro/</code>는 포함되지 않는다.</p>
+<p><strong><code>.astro/</code> 디렉토리 캐싱 설정 예시</strong></p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 <span class="token comment"># v5.0.4</span>
+  <span class="token key atrule">with</span><span class="token punctuation">:</span>
+    <span class="token key atrule">path</span><span class="token punctuation">:</span> .astro
+    <span class="token key atrule">key</span><span class="token punctuation">:</span> astro<span class="token punctuation">-</span>image<span class="token punctuation">-</span>cache<span class="token punctuation">-</span>$<span class="token punctuation">{</span><span class="token punctuation">{</span> hashFiles('src/assets/<span class="token important">**')</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token key atrule">restore-keys</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+      astro-image-cache-</span>
+</code></pre>
+<p><code>hashFiles</code>만 사용하면 이미지 하나가 추가될 때마다 캐시 키가 바뀌어 전체 재처리가 발생한다. <code>restore-keys</code>에 prefix를 지정하면 완전 일치 캐시가 없을 때 가장 최근의 부분 일치 캐시를 복원하여, 기존 이미지는 재사용하고 새로 추가된 이미지만 처리한다.</p>
+<blockquote>
+<p><code>noop</code> 이미지 서비스를 사용하는 경우 이미지 최적화가 비활성화되므로 위 캐시 설정은 불필요하다.</p>
+</blockquote>
+<h2 id="참고">참고<a aria-hidden="true" class="anchor-heading icon-link" href="#참고"></a></h2>
+<ul>
+<li><a href="https://docs.astro.build/en/reference/image-service-reference/">Astro Image Service API</a></li>
+<li><a href="https://docs.astro.build/en/guides/images/">Astro Assets Guide</a></li>
+<li><a href="https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching">Dependency caching reference - GitHub Docs</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In / TIL</a></li>
+</ul>

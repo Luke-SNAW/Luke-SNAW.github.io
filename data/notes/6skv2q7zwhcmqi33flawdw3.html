@@ -1,0 +1,37 @@
+<h1 id="modern-css-in-real-life">Modern CSS in Real Life<a aria-hidden="true" class="anchor-heading icon-link" href="#modern-css-in-real-life"></a></h1>
+<blockquote>
+<p><a href="https://chriscoyier.net/2023/06/06/modern-css-in-real-life/">https://chriscoyier.net/2023/06/06/modern-css-in-real-life/</a></p>
+</blockquote>
+<h2 id="logical-properties--layout"><a href="https://chriscoyier.net/2023/06/06/modern-css-in-real-life/#logical-properties-layout">Logical Properties &#x26; Layout</a><a aria-hidden="true" class="anchor-heading icon-link" href="#logical-properties--layout"></a></h2>
+<p>Logical Properties make for a slightly easier-to-understand model because the words are more consistently used.</p>
+<ul>
+<li><code>margin-right</code>: Translated to RTL, spacing problem. use <code>margin-inline-end</code> (or <code>gap</code>).</li>
+<li><code>img</code> alt: With that brief information, perhaps someone might be able to, say, recognize the exact pier in the photo if they had been there before or the like.</li>
+</ul>
+<h2 id="cascade-layers"><a href="https://chriscoyier.net/2023/06/06/modern-css-in-real-life/#logical-properties-layout">Cascade Layers</a><a aria-hidden="true" class="anchor-heading icon-link" href="#cascade-layers"></a></h2>
+<ul>
+<li>higher layer will win, regardless of specificity.</li>
+</ul>
+<p>Consider <a href="https://getbootstrap.com/">Bootstrap</a>. Tons of people have used it and mostly successfully.</p>
+<p>But haven’t you heard horror stories too? Or lived one? Sometimes the <em>way</em> it gets implemented is really strange or problematic. Like loading the entire library when only a little bit is used. Like trying to customize it but struggling with that and not being sure how to upgrade after monkey patching. Like loading multiple copies of it because omg who even knows what is happening anymore. But the most common problem I’ve heard about? (I’d like to think I’m qualified to know about people’s problems as I’ve had <a href="https://shoptalkshow.com/">a write-in-question web development podcast</a> for a decade): <strong>overrides</strong>.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://cdn.com/bootstrap.css"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span></span>
+
+<span class="token selector">h5</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* nope */</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The problem is that people use Bootstrap, then need to override some aspect of it, and instead of doing that in some chill, normal, maintainable way, they use super powerful CSS selectors to override things (then do it again, and again). Or they use <code>!important</code> rules. This is born out of not knowing exactly how best safely and maintainable override the CSS that Bootstrap provides. (And I hope this is clear: this applies to any CSS library or even a project’s own CSS).</p>
+<p>So what can you do? How does cascade layers apply to this?</p>
+<p>We can use cascade layers to essentially <em>demote</em> the entirety of Bootstrap.</p>
+<p>Here, my <code>@import</code> of Bootstrap is plunked onto a layer. Note: we don’t even have to name it, and we can use this keyword instead of <code>@layer</code> while importing.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://cdn.com/bootstrap.css"</span><span class="token punctuation">)</span></span> layer<span class="token punctuation">;</span></span>
+
+<span class="token selector">h5</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* winner winner chicken dinner */</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Now my super weak CSS selector in which I’m trying to override header margin <em>does</em> win. It wins because “un”-layered styles are the most powerful, like the “highest” layer. Wild. My guess is that if you did this on a new project, over time, you’ve have less annoying CSS selector conflicts, escalating specfiicty, and <code>!important</code> wars.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@layer</span> reset<span class="token punctuation">,</span> default<span class="token punctuation">,</span> themes<span class="token punctuation">,</span> patterns<span class="token punctuation">,</span> layouts<span class="token punctuation">,</span> components<span class="token punctuation">,</span> utilities<span class="token punctuation">;</span></span>
+</code></pre>

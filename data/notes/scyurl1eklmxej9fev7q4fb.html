@@ -1,0 +1,65 @@
+<h1 id="cli">CLI<a aria-hidden="true" class="anchor-heading icon-link" href="#cli"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://ss64.com/mac/">macOS Bash commands</a></li>
+<li><a href="https://interfacecraft.online/posts/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/">How I Automated My Computer Routine With macOS Folder Actions</a></li>
+</ul>
+<h2 id="useful-built-in-macos-command-line-utilities"><a href="https://weiyen.net/articles/useful-macos-cmd-line-utilities">Useful built-in macOS command-line utilities</a><a aria-hidden="true" class="anchor-heading icon-link" href="#useful-built-in-macos-command-line-utilities"></a></h2>
+<h3 id="open-files-from-the-terminal">Open files from the terminal<a aria-hidden="true" class="anchor-heading icon-link" href="#open-files-from-the-terminal"></a></h3>
+<p>If you want to open a file from the terminal, you can use the <code>open</code> command.</p>
+<pre class="language-sh"><code class="language-sh">open file.txt
+</code></pre>
+<p>This will open the file in the default application for that file type, as if you had double-clicked it in the Finder.</p>
+<p>Link: <a href="https://ss64.com/mac/open.html">https://ss64.com/mac/open.html</a></p>
+<h3 id="copy-and-paste">Copy and paste<a aria-hidden="true" class="anchor-heading icon-link" href="#copy-and-paste"></a></h3>
+<p><code>pbcopy</code> and <code>pbpaste</code> are command-line utilities that allow you to copy and paste text to the pasteboard (what other operating systems might call the "clipboard").</p>
+<p><code>pbcopy</code> takes whatever was given in the standard input, and places it in the pasteboard.</p>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">"Hello, world!"</span> <span class="token operator">|</span> pbcopy<span class="token punctuation">;</span>
+</code></pre>
+<p><code>pbpaste</code> takes whatever is in the pasteboard and prints it to the standard output.</p>
+<p>pbpaste</p>
+<pre class="language-shell"><code class="language-shell"><span class="token operator">>></span> Hello, world<span class="token operator">!</span>
+</code></pre>
+<p>This is very useful for getting data from files into the browser, or other GUI applications.</p>
+<h5 id="links">Links:<a aria-hidden="true" class="anchor-heading icon-link" href="#links"></a></h5>
+<ul>
+<li><a href="https://ss64.com/mac/pbcopy.html">https://ss64.com/mac/pbcopy.html</a></li>
+<li><a href="https://ss64.com/mac/pbpaste.html">https://ss64.com/mac/pbpaste.html</a></li>
+</ul>
+<h3 id="utc-date">UTC date<a aria-hidden="true" class="anchor-heading icon-link" href="#utc-date"></a></h3>
+<p>If you work with servers a lot, it can be useful to know the current time in UTC, when e.g. looking at server logs.</p>
+<p>This is a one-liner in the terminal:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">date</span> -u
+</code></pre>
+<p>Alternatively, you can use</p>
+<pre class="language-shell"><code class="language-shell"><span class="token assign-left variable">TZ</span><span class="token operator">=</span>UTC <span class="token function">date</span>
+</code></pre>
+<p>Link: <a href="https://ss64.com/mac/date.html">https://ss64.com/mac/date.html</a></p>
+<h3 id="internet-speedtest">Internet speedtest<a aria-hidden="true" class="anchor-heading icon-link" href="#internet-speedtest"></a></h3>
+<p>If you want to run an Internet speedtest, you can run one directly from the terminal with</p>
+<pre class="language-shell"><code class="language-shell">networkQuality  <span class="token comment"># Note the capital "Q"!</span>
+</code></pre>
+<p>Link: <a href="https://ss64.com/mac/networkquality.html">https://ss64.com/mac/networkquality.html</a></p>
+<h3 id="prevent-your-mac-from-sleeping">Prevent your Mac from sleeping<a aria-hidden="true" class="anchor-heading icon-link" href="#prevent-your-mac-from-sleeping"></a></h3>
+<p>If you are want to keep your Mac from sleeping, you can run <code>caffeinate</code> in the terminal.</p>
+<pre class="language-shell"><code class="language-shell">caffeinate
+</code></pre>
+<p><code>caffeinate</code> will keep your Mac awake until you stop it, e.g. by pressing Ctrl+C. <code>caffeinate</code> used to be a third-party tool, but it is now built-in to macOS.</p>
+<p>I use this mostly to prevent my Mac from sleeping when I am running a server.</p>
+<p>Link: <a href="https://ss64.com/mac/caffeinate.html">https://ss64.com/mac/caffeinate.html</a></p>
+<h3 id="generate-uuids">Generate UUIDs<a aria-hidden="true" class="anchor-heading icon-link" href="#generate-uuids"></a></h3>
+<p>If you need to generate a UUID, you can use the <code>uuidgen</code> command.</p>
+<pre class="language-shell"><code class="language-shell">uuidgen
+</code></pre>
+<p>By default <code>uuidgen</code> outputs a UUID in uppercase. You can combine this with <code>tr</code> and <code>pbcopy</code> to copy the UUID to the clipboard in lowercase.</p>
+<pre class="language-shell"><code class="language-shell">uuidgen <span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">'[:upper:]'</span> <span class="token string">'[:lower:]'</span> <span class="token operator">|</span> pbcopy
+</code></pre>
+<p>I use this a lot when writing unit tests that require IDs.</p>
+<p>Link: <a href="https://ss64.com/mac/uuidgen.html">https://ss64.com/mac/uuidgen.html</a></p>
+<h3 id="honourable-mentions">Honourable mentions<a aria-hidden="true" class="anchor-heading icon-link" href="#honourable-mentions"></a></h3>
+<ul>
+<li><code>mdfind</code>: Spotlight search, but in the terminal. I generally use Spotlight itself (or rather the excellent <a href="https://www.raycast.com/">Raycast</a>). <a href="https://ss64.com/mac/mdfind.html">Link</a></li>
+<li><code>say</code>: This command makes your Mac speak the text you give it. <a href="https://ss64.com/mac/say.html">Link</a></li>
+<li><code>screencapture</code>: This command allows you to take screenshots and save them to a file. I prefer using <code>cmd-shift-5</code> for this. <a href="https://ss64.com/mac/screencapture.html">Link</a></li>
+<li><code>networksetup</code>: This command allows you to configure your network settings programmatically. I found its API very intimidating, and so I haven't really used it much. <a href="https://ss64.com/mac/networksetup.html">Link</a></li>
+</ul>

@@ -1,0 +1,741 @@
+<h1 id="a-practical-guide-to-blobs-file-apis-and-memory-optimization">A Practical Guide to Blobs, File APIs, and Memory Optimization<a aria-hidden="true" class="anchor-heading icon-link" href="#a-practical-guide-to-blobs-file-apis-and-memory-optimization"></a></h1>
+<p>In modern front-end apps, file handling is everywhere: image uploads, CSV exports, previews, and rich editors. But once files get big or numerous, things start to break: the UI freezes, memory usage spikes, and the browser occasionally dies.</p>
+<p>This guide walks through <strong>six practical Blob techniques</strong> that help handle files efficiently and safely:</p>
+<ul>
+<li>Creating Blobs correctly</li>
+<li>Chunking large files</li>
+<li>Compressing and converting images</li>
+<li>Implementing robust file previews</li>
+<li>Exporting data as downloadable files</li>
+<li>Managing memory to avoid Blob URL leaks</li>
+</ul>
+<p>The goal: <strong>make file handling fast, stable, and production-ready.</strong></p>
+<hr>
+<h2 id="1-creating-blob-objects-safely-and-efficiently">1. Creating Blob Objects Safely and Efficiently<a aria-hidden="true" class="anchor-heading icon-link" href="#1-creating-blob-objects-safely-and-efficiently"></a></h2>
+<h3 id="common-pain">Common pain<a aria-hidden="true" class="anchor-heading icon-link" href="#common-pain"></a></h3>
+<p>Many developers start by manipulating giant strings or base64 data URLs, which:</p>
+<ul>
+<li>Duplicate data in memory</li>
+<li>Blow up heap usage</li>
+<li>Slow down the UI</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token comment">// ❌ Bad: huge string + data URL = double memory usage</span>
+<span class="token keyword">const</span> hugeText <span class="token operator">=</span> <span class="token string">"Very long text..."</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">100_000</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> dataUrl <span class="token operator">=</span> <span class="token string">"data:text/plain;charset=utf-8,"</span> <span class="token operator">+</span> <span class="token function">encodeURIComponent</span><span class="token punctuation">(</span>hugeText<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="use-blobs-instead">Use Blobs instead<a aria-hidden="true" class="anchor-heading icon-link" href="#use-blobs-instead"></a></h3>
+<p>A Blob is a lightweight wrapper around binary data. The browser can stream it, slice it, and build URLs from it without copying the entire payload.</p>
+<pre class="language-js"><code class="language-js"><span class="token doc-comment comment">/**
+ * Safely create a Blob from data chunks.
+ */</span>
+<span class="token keyword">const</span> createBlob <span class="token operator">=</span> <span class="token punctuation">(</span>parts<span class="token operator">:</span> <span class="token maybe-class-name">BlobPart</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> options<span class="token operator">:</span> <span class="token maybe-class-name">BlobPropertyBag</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token parameter"><span class="token maybe-class-name">Blob</span></span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span>parts<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    type<span class="token operator">:</span> options<span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">??</span> <span class="token string">"text/plain"</span><span class="token punctuation">,</span>
+    endings<span class="token operator">:</span> options<span class="token punctuation">.</span><span class="token property-access">endings</span> <span class="token operator">??</span> <span class="token string">"transparent"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Text Blob</span>
+<span class="token keyword">const</span> messageBlob <span class="token operator">=</span> <span class="token function">createBlob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"Hello, Blob!"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  type<span class="token operator">:</span> <span class="token string">"text/plain"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// JSON Blob</span>
+<span class="token keyword">const</span> userProfile <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"Alex"</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">29</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> profileBlob <span class="token operator">=</span> <span class="token function">createBlob</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">stringify</span><span class="token punctuation">(</span>userProfile<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  type<span class="token operator">:</span> <span class="token string">"application/json"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// HTML Blob</span>
+<span class="token keyword">const</span> htmlSnippet <span class="token operator">=</span> <span class="token string">"&#x3C;h1>Dynamically Generated HTML&#x3C;/h1>"</span>
+<span class="token keyword">const</span> htmlBlob <span class="token operator">=</span> <span class="token function">createBlob</span><span class="token punctuation">(</span><span class="token punctuation">[</span>htmlSnippet<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">"text/html"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="real-world-use-download-config-as-file">Real-world use: “download config as file”<a aria-hidden="true" class="anchor-heading icon-link" href="#real-world-use-download-config-as-file"></a></h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">downloadConfig</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">config<span class="token operator">:</span> unknown</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> serialized <span class="token operator">=</span> <span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">stringify</span><span class="token punctuation">(</span>config<span class="token punctuation">,</span> <span class="token keyword null nil">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span>serialized<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    type<span class="token operator">:</span> <span class="token string">"application/json"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">createObjectURL</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> anchor <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span>
+
+  anchor<span class="token punctuation">.</span><span class="token property-access">href</span> <span class="token operator">=</span> url
+  anchor<span class="token punctuation">.</span><span class="token property-access">download</span> <span class="token operator">=</span> <span class="token string">"config.json"</span>
+  <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>anchor<span class="token punctuation">)</span>
+  anchor<span class="token punctuation">.</span><span class="token method function property-access">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  anchor<span class="token punctuation">.</span><span class="token method function property-access">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">revokeObjectURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Key ideas</strong></p>
+<ul>
+<li>Blobs <strong>wrap data without copying it</strong>.</li>
+<li>Always set a <strong>correct MIME type</strong> (e.g., <code>application/json</code>, <code>image/jpeg</code>).</li>
+<li>Use <code>URL.createObjectURL(blob)</code> to get a fast, stream-friendly URL.</li>
+</ul>
+<hr>
+<h2 id="2-chunking-large-files-to-avoid-memory-explosions">2. Chunking Large Files to Avoid Memory Explosions<a aria-hidden="true" class="anchor-heading icon-link" href="#2-chunking-large-files-to-avoid-memory-explosions"></a></h2>
+<h3 id="common-pain-1">Common pain<a aria-hidden="true" class="anchor-heading icon-link" href="#common-pain-1"></a></h3>
+<p>Reading a 2 GB log file with <code>FileReader.readAsText()</code> in one go is a great way to:</p>
+<ul>
+<li>Freeze the tab</li>
+<li>Hit memory limits</li>
+<li>Crash the browser</li>
+</ul>
+<pre class="language-js"><code class="language-js">
+    <span class="token comment">// ❌ Bad: read entire file into memory</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">processLargeFile</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">file<span class="token operator">:</span> <span class="token maybe-class-name">File</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      reader<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> text <span class="token operator">=</span> event<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token operator">?.</span>result <span class="token keyword module">as</span> string<span class="token punctuation">;</span>
+        <span class="token comment">// Massive string in memory</span>
+        <span class="token function">handleWholeFile</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+      reader<span class="token punctuation">.</span><span class="token method function property-access">readAsText</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="better-process-in-chunks-with-slice">Better: process in chunks with <code>slice()</code><a aria-hidden="true" class="anchor-heading icon-link" href="#better-process-in-chunks-with-slice"></a></h3>
+<pre class="language-js"><code class="language-js">
+    <span class="token doc-comment comment">/**
+     * Process a file in fixed-size chunks to avoid memory pressure.
+     */</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">processFileInChunks</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>
+      <span class="token parameter">file<span class="token operator">:</span> <span class="token maybe-class-name">File</span><span class="token punctuation">,</span>
+      chunkSize <span class="token operator">=</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">,</span>
+      onProgress<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">info<span class="token operator">:</span> <span class="token punctuation">{</span>
+        current<span class="token operator">:</span> number<span class="token punctuation">;</span>
+        total<span class="token operator">:</span> number<span class="token punctuation">;</span>
+        percentage<span class="token operator">:</span> number<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">void</span></span>
+    <span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> totalChunks <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">ceil</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token property-access">size</span> <span class="token operator">/</span> chunkSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> results<span class="token operator">:</span> unknown<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+      <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&#x3C;</span> totalChunks<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> start <span class="token operator">=</span> index <span class="token operator">*</span> chunkSize<span class="token punctuation">;</span>
+        <span class="token keyword">const</span> end <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">min</span><span class="token punctuation">(</span>start <span class="token operator">+</span> chunkSize<span class="token punctuation">,</span> file<span class="token punctuation">.</span><span class="token property-access">size</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> chunk <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">readChunk</span><span class="token punctuation">(</span>chunk<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        results<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        onProgress<span class="token operator">?.</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          current<span class="token operator">:</span> index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          total<span class="token operator">:</span> totalChunks<span class="token punctuation">,</span>
+          percentage<span class="token operator">:</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">round</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> totalChunks<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword control-flow">return</span> results<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> readChunk <span class="token operator">=</span> <span class="token punctuation">(</span>
+      chunk<span class="token operator">:</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">,</span>
+      index<span class="token operator">:</span> number
+    <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token known-class-name class-name">Promise</span><span class="token operator">&#x3C;</span><span class="token punctuation">{</span> index<span class="token operator">:</span> number<span class="token punctuation">;</span> size<span class="token operator">:</span> number<span class="token punctuation">;</span> sample<span class="token operator">:</span> string <span class="token punctuation">}</span><span class="token operator">></span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        reader<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> text <span class="token operator">=</span> event<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token operator">?.</span>result <span class="token keyword module">as</span> string<span class="token punctuation">;</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            index<span class="token punctuation">,</span>
+            size<span class="token operator">:</span> chunk<span class="token punctuation">.</span><span class="token property-access">size</span><span class="token punctuation">,</span>
+            sample<span class="token operator">:</span> text<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        reader<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onerror</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">reject</span><span class="token punctuation">(</span>reader<span class="token punctuation">.</span><span class="token property-access">error</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        reader<span class="token punctuation">.</span><span class="token method function property-access">readAsText</span><span class="token punctuation">(</span>chunk<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="real-world-use-chunked-upload-class">Real-world use: chunked upload class<a aria-hidden="true" class="anchor-heading icon-link" href="#real-world-use-chunked-upload-class"></a></h3>
+<pre class="language-js"><code class="language-js">
+    <span class="token keyword">class</span> <span class="token class-name">ChunkedUploader</span> <span class="token punctuation">{</span>
+      <span class="token keyword">private</span> file<span class="token operator">:</span> <span class="token maybe-class-name">File</span><span class="token punctuation">;</span>
+      <span class="token keyword">private</span> chunkSize<span class="token operator">:</span> number<span class="token punctuation">;</span>
+      <span class="token keyword">private</span> uploadUrl<span class="token operator">:</span> string<span class="token punctuation">;</span>
+      <span class="token keyword">private</span> onProgress<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">info<span class="token operator">:</span> <span class="token punctuation">{</span>
+        uploaded<span class="token operator">:</span> number<span class="token punctuation">;</span>
+        total<span class="token operator">:</span> number<span class="token punctuation">;</span>
+        percentage<span class="token operator">:</span> number<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+
+      <span class="token function">constructor</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span><span class="token punctuation">,</span> options<span class="token operator">:</span> <span class="token punctuation">{</span>
+        chunkSize<span class="token operator">?</span><span class="token operator">:</span> number<span class="token punctuation">;</span>
+        uploadUrl<span class="token operator">:</span> string<span class="token punctuation">;</span>
+        onProgress<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">info<span class="token operator">:</span> <span class="token punctuation">{</span> uploaded<span class="token operator">:</span> number<span class="token punctuation">;</span> total<span class="token operator">:</span> number<span class="token punctuation">;</span> percentage<span class="token operator">:</span> number <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">file</span> <span class="token operator">=</span> file<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">chunkSize</span> <span class="token operator">=</span> options<span class="token punctuation">.</span><span class="token property-access">chunkSize</span> <span class="token operator">??</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">;</span> <span class="token comment">// 2MB</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">uploadUrl</span> <span class="token operator">=</span> options<span class="token punctuation">.</span><span class="token property-access">uploadUrl</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">onProgress</span> <span class="token operator">=</span> options<span class="token punctuation">.</span><span class="token property-access">onProgress</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">async</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> totalChunks <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">ceil</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">file</span><span class="token punctuation">.</span><span class="token property-access">size</span> <span class="token operator">/</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">chunkSize</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> uploadId <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">createUploadId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&#x3C;</span> totalChunks<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> start <span class="token operator">=</span> index <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">chunkSize</span><span class="token punctuation">;</span>
+          <span class="token keyword">const</span> end <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">min</span><span class="token punctuation">(</span>start <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">chunkSize</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">file</span><span class="token punctuation">.</span><span class="token property-access">size</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">const</span> chunk <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">file</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token keyword control-flow">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">uploadChunk</span><span class="token punctuation">(</span>chunk<span class="token punctuation">,</span> index<span class="token punctuation">,</span> uploadId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">onProgress</span><span class="token operator">?.</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            uploaded<span class="token operator">:</span> index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            total<span class="token operator">:</span> totalChunks<span class="token punctuation">,</span>
+            percentage<span class="token operator">:</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">round</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> totalChunks<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">mergeChunks</span><span class="token punctuation">(</span>uploadId<span class="token punctuation">,</span> totalChunks<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token function">uploadChunk</span><span class="token punctuation">(</span><span class="token parameter">chunk<span class="token operator">:</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">,</span> index<span class="token operator">:</span> number<span class="token punctuation">,</span> uploadId<span class="token operator">:</span> string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> body <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        body<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span><span class="token string">'chunk'</span><span class="token punctuation">,</span> chunk<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        body<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span> <span class="token known-class-name class-name">String</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        body<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span><span class="token string">'uploadId'</span><span class="token punctuation">,</span> uploadId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">uploadUrl</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> method<span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span> body <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span><span class="token property-access">ok</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword control-flow">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Chunk </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>index<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> upload failed</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token function">mergeChunks</span><span class="token punctuation">(</span><span class="token parameter">uploadId<span class="token operator">:</span> string<span class="token punctuation">,</span> totalChunks<span class="token operator">:</span> number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/api/merge-chunks'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          method<span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+          headers<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'application/json'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          body<span class="token operator">:</span> <span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span> uploadId<span class="token punctuation">,</span> totalChunks <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span><span class="token property-access">ok</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword control-flow">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Failed to merge chunks'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword control-flow">return</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token function">createUploadId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toString</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="3-image-compression-and-format-conversion-on-the-front-end">3. Image Compression and Format Conversion on the Front End<a aria-hidden="true" class="anchor-heading icon-link" href="#3-image-compression-and-format-conversion-on-the-front-end"></a></h2>
+<h3 id="common-pain-2">Common pain<a aria-hidden="true" class="anchor-heading icon-link" href="#common-pain-2"></a></h3>
+<p>Uploading raw 8 MB photos directly from phones or cameras:</p>
+<ul>
+<li>Wastes bandwidth</li>
+<li>Slows uploads</li>
+<li>Hurts perceived performance</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token comment">// ❌ No compression: heavy uploads, slow UX</span>
+<span class="token keyword">const</span> <span class="token function-variable function">uploadOriginalImage</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">file<span class="token operator">:</span> <span class="token maybe-class-name">File</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> body <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  body<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span><span class="token string">"image"</span><span class="token punctuation">,</span> file<span class="token punctuation">)</span>
+  <span class="token keyword control-flow">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"/upload"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> method<span class="token operator">:</span> <span class="token string">"POST"</span><span class="token punctuation">,</span> body <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="better-compress-with-canvas-and-blob">Better: compress with <code>&#x3C;canvas></code> and Blob<a aria-hidden="true" class="anchor-heading icon-link" href="#better-compress-with-canvas-and-blob"></a></h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">interface</span> <span class="token class-name">CompressionOptions</span> <span class="token punctuation">{</span>
+  maxWidth<span class="token operator">?</span><span class="token operator">:</span> number<span class="token punctuation">;</span>
+  maxHeight<span class="token operator">?</span><span class="token operator">:</span> number<span class="token punctuation">;</span>
+  quality<span class="token operator">?</span><span class="token operator">:</span> number<span class="token punctuation">;</span>
+  outputType<span class="token operator">?</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> compressImage <span class="token operator">=</span> <span class="token punctuation">(</span>
+  file<span class="token operator">:</span> <span class="token maybe-class-name">File</span><span class="token punctuation">,</span>
+  options<span class="token operator">:</span> <span class="token maybe-class-name">CompressionOptions</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token known-class-name class-name">Promise</span><span class="token operator">&#x3C;</span><span class="token maybe-class-name">Blob</span><span class="token operator">></span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>
+    maxWidth <span class="token operator">=</span> <span class="token number">1920</span><span class="token punctuation">,</span>
+    maxHeight <span class="token operator">=</span> <span class="token number">1080</span><span class="token punctuation">,</span>
+    quality <span class="token operator">=</span> <span class="token number">0.8</span><span class="token punctuation">,</span>
+    outputType <span class="token operator">=</span> <span class="token string">"image/jpeg"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span> <span class="token operator">=</span> options
+
+  <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> img <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> canvas <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">"canvas"</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> ctx <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token method function property-access">getContext</span><span class="token punctuation">(</span><span class="token string">"2d"</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"Canvas 2D context not available"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token keyword control-flow">return</span>
+    <span class="token punctuation">}</span>
+
+    img<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> width<span class="token punctuation">,</span> height <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">fitIntoBox</span><span class="token punctuation">(</span>
+        img<span class="token punctuation">.</span><span class="token property-access">width</span><span class="token punctuation">,</span>
+        img<span class="token punctuation">.</span><span class="token property-access">height</span><span class="token punctuation">,</span>
+        maxWidth<span class="token punctuation">,</span>
+        maxHeight
+      <span class="token punctuation">)</span>
+
+      canvas<span class="token punctuation">.</span><span class="token property-access">width</span> <span class="token operator">=</span> width
+      canvas<span class="token punctuation">.</span><span class="token property-access">height</span> <span class="token operator">=</span> height
+      ctx<span class="token punctuation">.</span><span class="token method function property-access">drawImage</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
+
+      canvas<span class="token punctuation">.</span><span class="token method function property-access">toBlob</span><span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token parameter">blob</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>blob<span class="token punctuation">)</span> <span class="token function">resolve</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span>
+          <span class="token keyword control-flow">else</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"Failed to compress image"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        outputType<span class="token punctuation">,</span>
+        quality
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    img<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onerror</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"Failed to load image"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    img<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">createObjectURL</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">fitIntoBox</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+  <span class="token parameter">originalWidth<span class="token operator">:</span> number<span class="token punctuation">,</span>
+  originalHeight<span class="token operator">:</span> number<span class="token punctuation">,</span>
+  maxWidth<span class="token operator">:</span> number<span class="token punctuation">,</span>
+  maxHeight<span class="token operator">:</span> number</span>
+<span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> width <span class="token operator">=</span> originalWidth
+  <span class="token keyword">let</span> height <span class="token operator">=</span> originalHeight
+
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>width <span class="token operator">></span> maxWidth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    height <span class="token operator">=</span> <span class="token punctuation">(</span>height <span class="token operator">*</span> maxWidth<span class="token punctuation">)</span> <span class="token operator">/</span> width
+    width <span class="token operator">=</span> maxWidth
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>height <span class="token operator">></span> maxHeight<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    width <span class="token operator">=</span> <span class="token punctuation">(</span>width <span class="token operator">*</span> maxHeight<span class="token punctuation">)</span> <span class="token operator">/</span> height
+    height <span class="token operator">=</span> maxHeight
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span> width<span class="token operator">:</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">round</span><span class="token punctuation">(</span>width<span class="token punctuation">)</span><span class="token punctuation">,</span> height<span class="token operator">:</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">round</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="real-world-use-avatar-uploader">Real-world use: avatar uploader<a aria-hidden="true" class="anchor-heading icon-link" href="#real-world-use-avatar-uploader"></a></h3>
+<pre class="language-js"><code class="language-js">
+    <span class="token keyword">class</span> <span class="token class-name">AvatarService</span> <span class="token punctuation">{</span>
+      <span class="token keyword">private</span> maxSize<span class="token operator">:</span> number<span class="token punctuation">;</span>
+      <span class="token keyword">private</span> quality<span class="token operator">:</span> number<span class="token punctuation">;</span>
+
+      <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">options<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span> maxSize<span class="token operator">?</span><span class="token operator">:</span> number<span class="token punctuation">;</span> quality<span class="token operator">?</span><span class="token operator">:</span> number <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">maxSize</span> <span class="token operator">=</span> options<span class="token operator">?.</span>maxSize <span class="token operator">??</span> <span class="token number">200</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">quality</span> <span class="token operator">=</span> options<span class="token operator">?.</span>quality <span class="token operator">??</span> <span class="token number">0.9</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">async</span> <span class="token function">prepareAvatar</span><span class="token punctuation">(</span><span class="token parameter">file<span class="token operator">:</span> <span class="token maybe-class-name">File</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">isSupportedType</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword control-flow">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Please choose a valid image file'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> compressed <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">compressImage</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          maxWidth<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">maxSize</span><span class="token punctuation">,</span>
+          maxHeight<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">maxSize</span><span class="token punctuation">,</span>
+          quality<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">quality</span><span class="token punctuation">,</span>
+          outputType<span class="token operator">:</span> <span class="token string">'image/jpeg'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> previewUrl <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">createObjectURL</span><span class="token punctuation">(</span>compressed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+          blob<span class="token operator">:</span> compressed<span class="token punctuation">,</span>
+          previewUrl<span class="token punctuation">,</span>
+          originalSize<span class="token operator">:</span> file<span class="token punctuation">.</span><span class="token property-access">size</span><span class="token punctuation">,</span>
+          compressedSize<span class="token operator">:</span> compressed<span class="token punctuation">.</span><span class="token property-access">size</span><span class="token punctuation">,</span>
+          compressionRatio<span class="token operator">:</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">round</span><span class="token punctuation">(</span>
+            <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> compressed<span class="token punctuation">.</span><span class="token property-access">size</span> <span class="token operator">/</span> file<span class="token punctuation">.</span><span class="token property-access">size</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">async</span> <span class="token function">uploadAvatar</span><span class="token punctuation">(</span><span class="token parameter">blob<span class="token operator">:</span> <span class="token maybe-class-name">Blob</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> body <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        body<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span><span class="token string">'avatar'</span><span class="token punctuation">,</span> blob<span class="token punctuation">,</span> <span class="token string">'avatar.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/api/upload-avatar'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          method<span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+          body<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span><span class="token property-access">ok</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword control-flow">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Failed to upload avatar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword control-flow">return</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token function">isSupportedType</span><span class="token punctuation">(</span><span class="token parameter">file<span class="token operator">:</span> <span class="token maybe-class-name">File</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> <span class="token punctuation">[</span><span class="token string">'image/jpeg'</span><span class="token punctuation">,</span> <span class="token string">'image/png'</span><span class="token punctuation">,</span> <span class="token string">'image/gif'</span><span class="token punctuation">,</span> <span class="token string">'image/webp'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span>
+          file<span class="token punctuation">.</span><span class="token property-access">type</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="4-a-unified-file-preview-component">4. A Unified File Preview Component<a aria-hidden="true" class="anchor-heading icon-link" href="#4-a-unified-file-preview-component"></a></h2>
+<p>You might need to preview:</p>
+<ul>
+<li>Images</li>
+<li>Text / JSON</li>
+<li>Audio / Video</li>
+<li>PDFs or “unknown” files</li>
+</ul>
+<p>Doing this ad hoc for each type leads to repeated, messy code.</p>
+<h3 id="better-a-reusable-preview-class">Better: a reusable preview class<a aria-hidden="true" class="anchor-heading icon-link" href="#better-a-reusable-preview-class"></a></h3>
+<pre class="language-ts"><code class="language-ts">    <span class="token keyword">class</span> <span class="token class-name"><span class="token maybe-class-name">FilePreviewer</span></span> <span class="token punctuation">{</span>
+      <span class="token keyword">private</span> container<span class="token operator">:</span> <span class="token maybe-class-name">HTMLElement</span><span class="token punctuation">;</span>
+      <span class="token keyword">private</span> textEncoding<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+
+      <span class="token function">constructor</span><span class="token punctuation">(</span>container<span class="token operator">:</span> <span class="token maybe-class-name">HTMLElement</span><span class="token punctuation">,</span> options<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span> textEncoding<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span> <span class="token operator">=</span> container<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">textEncoding</span> <span class="token operator">=</span> options<span class="token operator">?.</span>textEncoding <span class="token operator">??</span> <span class="token string">'utf-8'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">async</span> <span class="token function">preview</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> type <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">detectType</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">case</span> <span class="token string">'image'</span><span class="token operator">:</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">renderImage</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">case</span> <span class="token string">'text'</span><span class="token operator">:</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">renderText</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">case</span> <span class="token string">'audio'</span><span class="token operator">:</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">renderAudio</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">case</span> <span class="token string">'video'</span><span class="token operator">:</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">renderVideo</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">case</span> <span class="token string">'pdf'</span><span class="token operator">:</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">renderPdfPlaceholder</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword module">default</span><span class="token operator">:</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">renderUnknown</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token function">detectType</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> mime <span class="token operator">=</span> <span class="token punctuation">(</span>file <span class="token keyword module">as</span> <span class="token maybe-class-name">File</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">type</span><span class="token operator">?.</span><span class="token method function property-access">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>mime<span class="token punctuation">.</span><span class="token method function property-access">startsWith</span><span class="token punctuation">(</span><span class="token string">'image/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token string">'image'</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>mime<span class="token punctuation">.</span><span class="token method function property-access">startsWith</span><span class="token punctuation">(</span><span class="token string">'text/'</span><span class="token punctuation">)</span> <span class="token operator">||</span> mime <span class="token operator">===</span> <span class="token string">'application/json'</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token string">'text'</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>mime<span class="token punctuation">.</span><span class="token method function property-access">startsWith</span><span class="token punctuation">(</span><span class="token string">'audio/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token string">'audio'</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>mime<span class="token punctuation">.</span><span class="token method function property-access">startsWith</span><span class="token punctuation">(</span><span class="token string">'video/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token string">'video'</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>mime <span class="token operator">===</span> <span class="token string">'application/pdf'</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token string">'pdf'</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">return</span> <span class="token string">'unknown'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token function">renderImage</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">createObjectURL</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> img <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        img<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> url<span class="token punctuation">;</span>
+        img<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">maxWidth</span> <span class="token operator">=</span> <span class="token string">'100%'</span><span class="token punctuation">;</span>
+        img<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">maxHeight</span> <span class="token operator">=</span> <span class="token string">'480px'</span><span class="token punctuation">;</span>
+        img<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">objectFit</span> <span class="token operator">=</span> <span class="token string">'contain'</span><span class="token punctuation">;</span>
+
+        img<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">revokeObjectURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token function">renderText</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> content <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">readAsText</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> pre <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'pre'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        pre<span class="token punctuation">.</span><span class="token property-access">textContent</span> <span class="token operator">=</span>
+          content<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">></span> <span class="token number">10_000</span>
+            <span class="token operator">?</span> content<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10_000</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+              '
+
+    <span class="token spread operator">...</span> <span class="token punctuation">(</span>truncated to <span class="token number">10</span><span class="token punctuation">,</span><span class="token number">000</span> characters<span class="token punctuation">)</span>'
+            <span class="token operator">:</span> content<span class="token punctuation">;</span>
+
+        pre<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">whiteSpace</span> <span class="token operator">=</span> <span class="token string">'pre-wrap'</span><span class="token punctuation">;</span>
+        pre<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">maxHeight</span> <span class="token operator">=</span> <span class="token string">'400px'</span><span class="token punctuation">;</span>
+        pre<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">overflow</span> <span class="token operator">=</span> <span class="token string">'auto'</span><span class="token punctuation">;</span>
+        pre<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">padding</span> <span class="token operator">=</span> <span class="token string">'10px'</span><span class="token punctuation">;</span>
+        pre<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">background</span> <span class="token operator">=</span> <span class="token string">'#f5f5f5'</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>pre<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token function">renderAudio</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">createObjectURL</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> audio <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'audio'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        audio<span class="token punctuation">.</span><span class="token property-access">controls</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        audio<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> url<span class="token punctuation">;</span>
+        audio<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onloadedmetadata</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">revokeObjectURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>audio<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token function">renderVideo</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">createObjectURL</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> video <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'video'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        video<span class="token punctuation">.</span><span class="token property-access">controls</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        video<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">maxWidth</span> <span class="token operator">=</span> <span class="token string">'100%'</span><span class="token punctuation">;</span>
+        video<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">maxHeight</span> <span class="token operator">=</span> <span class="token string">'400px'</span><span class="token punctuation">;</span>
+        video<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> url<span class="token punctuation">;</span>
+        video<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onloadedmetadata</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">revokeObjectURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>video<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token function">renderPdfPlaceholder</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> box <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        box<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">padding</span> <span class="token operator">=</span> <span class="token string">'32px'</span><span class="token punctuation">;</span>
+        box<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">textAlign</span> <span class="token operator">=</span> <span class="token string">'center'</span><span class="token punctuation">;</span>
+
+        box<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>PDF preview placeholder<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Type: <span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token punctuation">(</span>file <span class="token keyword module">as</span> <span class="token maybe-class-name">File</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">||</span> <span class="token string">'application/pdf'</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+        </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>box<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token function">renderUnknown</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> box <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        box<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">padding</span> <span class="token operator">=</span> <span class="token string">'32px'</span><span class="token punctuation">;</span>
+        box<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">textAlign</span> <span class="token operator">=</span> <span class="token string">'center'</span><span class="token punctuation">;</span>
+
+        box<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Preview is not available for this file type.<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Name: <span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token punctuation">(</span>file <span class="token keyword module">as</span> <span class="token maybe-class-name">File</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">??</span> <span class="token string">'unknown'</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+        </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>box<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token function">readAsText</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token known-class-name class-name">Promise</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token maybe-class-name">FileReader</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          reader<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token arrow operator">=></span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token operator">?.</span>result <span class="token keyword module">as</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token operator">??</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          reader<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onerror</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">reject</span><span class="token punctuation">(</span>reader<span class="token punctuation">.</span><span class="token property-access">error</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          reader<span class="token punctuation">.</span><span class="token method function property-access">readAsText</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">textEncoding</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="5-data-export-and-download-with-blobs-json-csv-excel">5. Data Export and Download with Blobs (JSON, CSV, “Excel”)<a aria-hidden="true" class="anchor-heading icon-link" href="#5-data-export-and-download-with-blobs-json-csv-excel"></a></h2>
+<h3 id="common-pain-3">Common pain<a aria-hidden="true" class="anchor-heading icon-link" href="#common-pain-3"></a></h3>
+<p>Using data URLs for large exports:</p>
+<ul>
+<li>Duplicates content in memory</li>
+<li>Hits URL length limits</li>
+<li>Breaks on large datasets</li>
+</ul>
+<h3 id="better-centralized-blob-based-downloader">Better: centralized Blob-based downloader<a aria-hidden="true" class="anchor-heading icon-link" href="#better-centralized-blob-based-downloader"></a></h3>
+<pre class="language-ts"><code class="language-ts">    <span class="token keyword">class</span> <span class="token class-name"><span class="token maybe-class-name">DownloadService</span></span> <span class="token punctuation">{</span>
+      <span class="token function">downloadJson</span><span class="token punctuation">(</span>data<span class="token operator">:</span> <span class="token builtin">unknown</span><span class="token punctuation">,</span> fileName <span class="token operator">=</span> <span class="token string">'data.json'</span><span class="token punctuation">,</span> pretty <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> serialized <span class="token operator">=</span> pretty
+          <span class="token operator">?</span> <span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token keyword null nil">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+          <span class="token operator">:</span> <span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token maybe-class-name">Blob</span></span><span class="token punctuation">(</span><span class="token punctuation">[</span>serialized<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          type<span class="token operator">:</span> <span class="token string">'application/json'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">triggerDownload</span><span class="token punctuation">(</span>blob<span class="token punctuation">,</span> fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token function">downloadCsv</span><span class="token punctuation">(</span>
+        rows<span class="token operator">:</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">unknown</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        fileName <span class="token operator">=</span> <span class="token string">'data.csv'</span><span class="token punctuation">,</span>
+        headers<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>rows<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> headerRow <span class="token operator">=</span> headers <span class="token operator">??</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">keys</span><span class="token punctuation">(</span>rows<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> lines<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        lines<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>headerRow<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> row <span class="token keyword">of</span> rows<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> values <span class="token operator">=</span> headerRow<span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> raw <span class="token operator">=</span> row<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> text <span class="token operator">=</span>
+              raw <span class="token operator">===</span> <span class="token keyword null nil">null</span> <span class="token operator">||</span> raw <span class="token operator">===</span> <span class="token keyword nil">undefined</span> <span class="token operator">?</span> <span class="token string">''</span> <span class="token operator">:</span> <span class="token known-class-name class-name">String</span><span class="token punctuation">(</span>raw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// escape commas/quotes</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[",]</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token method function property-access">test</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword control-flow">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>text<span class="token punctuation">.</span><span class="token method function property-access">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">"</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'""'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword control-flow">return</span> text<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          lines<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>values<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// add BOM for UTF-8 + Excel friendliness</span>
+        <span class="token keyword">const</span> <span class="token constant">BOM</span> <span class="token operator">=</span> <span class="token string">'﻿'</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token maybe-class-name">Blob</span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token constant">BOM</span> <span class="token operator">+</span> lines<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>'
+    '<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          type<span class="token operator">:</span> <span class="token string">'text/csv;charset=utf-8'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">triggerDownload</span><span class="token punctuation">(</span>blob<span class="token punctuation">,</span> fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token function">downloadText</span><span class="token punctuation">(</span>
+        text<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+        fileName <span class="token operator">=</span> <span class="token string">'data.txt'</span><span class="token punctuation">,</span>
+        mimeType <span class="token operator">=</span> <span class="token string">'text/plain'</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token maybe-class-name">Blob</span></span><span class="token punctuation">(</span><span class="token punctuation">[</span>text<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> mimeType <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">triggerDownload</span><span class="token punctuation">(</span>blob<span class="token punctuation">,</span> fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">private</span> <span class="token function">triggerDownload</span><span class="token punctuation">(</span>blob<span class="token operator">:</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">,</span> fileName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">createObjectURL</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> anchor <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        anchor<span class="token punctuation">.</span><span class="token property-access">href</span> <span class="token operator">=</span> url<span class="token punctuation">;</span>
+        anchor<span class="token punctuation">.</span><span class="token property-access">download</span> <span class="token operator">=</span> fileName<span class="token punctuation">;</span>
+        anchor<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">display</span> <span class="token operator">=</span> <span class="token string">'none'</span><span class="token punctuation">;</span>
+
+        <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        anchor<span class="token punctuation">.</span><span class="token method function property-access">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        anchor<span class="token punctuation">.</span><span class="token method function property-access">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">revokeObjectURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="6-blob-url-memory-management-and-leak-prevention">6. Blob URL Memory Management and Leak Prevention<a aria-hidden="true" class="anchor-heading icon-link" href="#6-blob-url-memory-management-and-leak-prevention"></a></h2>
+<h3 id="common-pain-4">Common pain<a aria-hidden="true" class="anchor-heading icon-link" href="#common-pain-4"></a></h3>
+<p>Every <code>URL.createObjectURL(blob)</code> allocates resources. If you never call <code>URL.revokeObjectURL(url)</code>:</p>
+<ul>
+<li>Memory usage climbs</li>
+<li>Long-running apps slowly degrade</li>
+<li>Image editors / file managers leak like crazy</li>
+</ul>
+<h3 id="centralized-memory-manager">Centralized memory manager<a aria-hidden="true" class="anchor-heading icon-link" href="#centralized-memory-manager"></a></h3>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name"><span class="token maybe-class-name">BlobUrlManager</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> urls <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token known-class-name class-name">Map</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> blob<span class="token operator">:</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">;</span> createdAt<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">private</span> maxAgeMs <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">1000</span> <span class="token comment">// 5 minutes</span>
+
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">cleanupExpired</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">60_000</span><span class="token punctuation">)</span>
+    <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"beforeunload"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">cleanupAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">createUrl</span><span class="token punctuation">(</span>blob<span class="token operator">:</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">createObjectURL</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">urls</span><span class="token punctuation">.</span><span class="token method function property-access">set</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      blob<span class="token punctuation">,</span>
+      createdAt<span class="token operator">:</span> <span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow">return</span> url
+  <span class="token punctuation">}</span>
+
+  <span class="token function">revokeUrl</span><span class="token punctuation">(</span>url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">urls</span><span class="token punctuation">.</span><span class="token method function property-access">has</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">revokeObjectURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">urls</span><span class="token punctuation">.</span><span class="token method function property-access">delete</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">createAutoUrl</span><span class="token punctuation">(</span>blob<span class="token operator">:</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">,</span> timeoutMs <span class="token operator">=</span> <span class="token number">30_000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">createUrl</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">revokeUrl</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">,</span> timeoutMs<span class="token punctuation">)</span>
+    <span class="token keyword control-flow">return</span> url
+  <span class="token punctuation">}</span>
+
+  <span class="token function">cleanupExpired</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> now <span class="token operator">=</span> <span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>url<span class="token punctuation">,</span> entry<span class="token punctuation">]</span> <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">urls</span><span class="token punctuation">.</span><span class="token method function property-access">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>now <span class="token operator">-</span> entry<span class="token punctuation">.</span><span class="token property-access">createdAt</span> <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">maxAgeMs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">revokeUrl</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">cleanupAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> url <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">urls</span><span class="token punctuation">.</span><span class="token method function property-access">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token method function property-access">revokeObjectURL</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">urls</span><span class="token punctuation">.</span><span class="token method function property-access">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> blobUrlManager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token maybe-class-name">BlobUrlManager</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="example-safe-image-preview">Example: safe image preview<a aria-hidden="true" class="anchor-heading icon-link" href="#example-safe-image-preview"></a></h3>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name"><span class="token maybe-class-name">ManagedImagePreview</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> container<span class="token operator">:</span> <span class="token maybe-class-name">HTMLElement</span>
+  <span class="token keyword">private</span> activeUrls <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token known-class-name class-name">Set</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token function">constructor</span><span class="token punctuation">(</span>container<span class="token operator">:</span> <span class="token maybe-class-name">HTMLElement</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span> <span class="token operator">=</span> container
+  <span class="token punctuation">}</span>
+
+  <span class="token function">show</span><span class="token punctuation">(</span>file<span class="token operator">:</span> <span class="token maybe-class-name">File</span> <span class="token operator">|</span> <span class="token maybe-class-name">Blob</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> url <span class="token operator">=</span> blobUrlManager<span class="token punctuation">.</span><span class="token method function property-access">createUrl</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">activeUrls</span><span class="token punctuation">.</span><span class="token method function property-access">add</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> img <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span>
+    img<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> url
+    img<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">maxWidth</span> <span class="token operator">=</span> <span class="token string">"100%"</span>
+    img<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">maxHeight</span> <span class="token operator">=</span> <span class="token string">"400px"</span>
+
+    img<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onerror</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      blobUrlManager<span class="token punctuation">.</span><span class="token method function property-access">revokeUrl</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">activeUrls</span><span class="token punctuation">.</span><span class="token method function property-access">delete</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> url <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">activeUrls</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      blobUrlManager<span class="token punctuation">.</span><span class="token method function property-access">revokeUrl</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">activeUrls</span><span class="token punctuation">.</span><span class="token method function property-access">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">container</span><span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">""</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="summary-when-and-how-to-use-blobs">Summary: When and How to Use Blobs<a aria-hidden="true" class="anchor-heading icon-link" href="#summary-when-and-how-to-use-blobs"></a></h2>
+<p><strong>Use Blobs when you:</strong></p>
+<ul>
+<li>Need to <strong>create files on the front end</strong> (JSON, CSV, images, exports)</li>
+<li>Want to <strong>stream or chunk large files</strong> without loading them fully into memory</li>
+<li>Implement <strong>image compression or format conversion</strong></li>
+<li>Provide a <strong>unified file preview</strong> experience</li>
+<li>Need safe <strong>download/export</strong> flows for big datasets</li>
+<li>Care about <strong>long-running apps and memory leaks</strong></li>
+</ul>
+<p>Blobs, used together with File APIs and <code>URL.createObjectURL</code>, are the backbone of robust front-end file handling. Once you get comfortable with them, large uploads, previews, and exports stop being scary and start feeling like just another part of your toolkit.</p>
+<hr>
+<h2 id="related-resources">Related Resources<a aria-hidden="true" class="anchor-heading icon-link" href="#related-resources"></a></h2>
+<ul>
+<li>Blob API – MDN Documentation</li>
+<li>File API – W3C Specification</li>
+<li>URL.createObjectURL() – MDN Documentation</li>
+<li>Canvas API – MDN Documentation</li>
+</ul>
