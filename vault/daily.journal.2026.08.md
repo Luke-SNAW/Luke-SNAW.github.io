@@ -2,7 +2,7 @@
 id: 3cjj2gdnz8veb8xm3umtm9c
 title: 2026년 08월
 desc: ""
-updated: 1785836757773
+updated: 1786095846531
 created: 1785633640998
 published: false
 ---
@@ -12,6 +12,8 @@ published: false
 - [[그림도 글씨처럼 즐겨|daily.journal.2026.08.01#그림도-글씨처럼-즐겨]]
 - [[효율은 여유 확보 후에|daily.journal.2026.08.02#효율은-여유-확보-후에]]
 - [[잠자리 시간 여유|daily.journal.2026.08.04#잠자리-시간-여유]]
+- [[1분간 눈감아 메타인지 활성화|daily.journal.2026.08.06#1분간-눈감아-메타인지-활성화]]
+- [[오른골반 안쪽으로 말림|daily.journal.2026.08.07#오른골반-안쪽으로-말림]]
 
 ## fin
 
