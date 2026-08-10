@@ -2,7 +2,7 @@
 id: e27crz1ovxiph9ohvbjedy6
 title: Setting Front CDN
 desc: ""
-updated: 1775005281879
+updated: 1786336141347
 created: 1646021156163
 ---
 
@@ -157,7 +157,7 @@ cloudfront에서 403 error를 SPA framework index.html로 처리하도록 해주
 
 ## Github Actions with IAM Roles
 
-[Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
+[Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws)
 
 ```yml
 - name: Configure AWS credentials

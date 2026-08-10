@@ -2,7 +2,7 @@
 id: 3cjj2gdnz8veb8xm3umtm9c
 title: 2026년 08월
 desc: ""
-updated: 1786095846531
+updated: 1786355351152
 created: 1785633640998
 published: false
 ---
@@ -13,7 +13,9 @@ published: false
 - [[효율은 여유 확보 후에|daily.journal.2026.08.02#효율은-여유-확보-후에]]
 - [[잠자리 시간 여유|daily.journal.2026.08.04#잠자리-시간-여유]]
 - [[1분간 눈감아 메타인지 활성화|daily.journal.2026.08.06#1분간-눈감아-메타인지-활성화]]
+  - [[염주 굴리기 루틴|daily.journal.2026.08.08#염주-굴리기-루틴]]
 - [[오른골반 안쪽으로 말림|daily.journal.2026.08.07#오른골반-안쪽으로-말림]]
+- [[이것이 중도中道?|daily.journal.2026.08.08#이것이-중도中道]]
 
 ## fin
 
