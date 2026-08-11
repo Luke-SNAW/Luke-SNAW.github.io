@@ -2,7 +2,7 @@
 id: f1bzhuwj22oh19fhwhq3ut4
 title: "2026년"
 desc: ""
-updated: 1786355427373
+updated: 1786409014387
 created: 1784168904142
 published: false
 ---
@@ -11,7 +11,7 @@ published: false
 
 - [[속도보다 리듬|daily.journal.2026.07.10#속도보다-리듬]]
 - [[미디어별 여유 저항|daily.journal.2026.07.20#미디어별-여유-저항]]
-- [[복압보다 립케이지+척추부터|daily.journal.2026.07.25#복압보다-립케이지척추부터]]
+- [[복압보다 립케이지와 척추부터|daily.journal.2026.07.25#복압보다-립케이지와-척추부터]]
 - [[그냥 산책 나가고 뛸만 하면 뛰자.|daily.journal.2026.07.29#그냥-산책-나가고-뛸만-하면-뛰자]]
 
 ## 08
