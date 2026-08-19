@@ -2,7 +2,7 @@
 id: j71mrhhqz6x9o90gwj5lmks
 title: Achievement - Habit Building
 desc: ""
-updated: 1785718248161
+updated: 1787116910559
 created: 1748831002093
 ---
 
@@ -10,6 +10,7 @@ created: 1748831002093
 
 ## 2026
 
+- [[늦은 퇴근으로 개인정비 시간 늘리기|daily.journal.2026.08.19#늦은-퇴근으로-개인정비-시간-늘리기]]
 - 손글씨 노트 첫 권 2025-08-12~2026-06-21
 - 저글링 04
   - semi 명상 정도로 mode 전환이 됨. 평소 행동, 사고 패턴과는 판이.
