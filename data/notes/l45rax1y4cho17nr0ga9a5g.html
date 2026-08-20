@@ -1,0 +1,127 @@
+<h1 id="prisma-migration">prisma-migration<a aria-hidden="true" class="anchor-heading icon-link" href="#prisma-migration"></a></h1>
+<h1 id="prisma-migration-가이드">Prisma Migration 가이드<a aria-hidden="true" class="anchor-heading icon-link" href="#prisma-migration-가이드"></a></h1>
+<h2 id="개요">개요<a aria-hidden="true" class="anchor-heading icon-link" href="#개요"></a></h2>
+<p>Prisma의 마이그레이션 시스템(<code>migrate dev</code>, <code>migrate deploy</code>)의 동작 원리, Shadow Database 개념, 그리고 실무 워크플로우를 정리한 문서.</p>
+<h2 id="명령어-해설">명령어 해설<a aria-hidden="true" class="anchor-heading icon-link" href="#명령어-해설"></a></h2>
+<pre class="language-sh"><code class="language-sh">npx prisma migrate dev --name add-compliance-export-log
+</code></pre>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>부분</th><th>설명</th></tr></thead><tbody><tr><td><code>npx</code></td><td><code>node_modules/.bin</code>의 로컬 패키지 바이너리 실행</td></tr><tr><td><code>prisma migrate dev</code></td><td>개발 환경용 마이그레이션 명령</td></tr><tr><td><code>--name</code></td><td>마이그레이션 폴더 이름 지정</td></tr></tbody></table></div>
+<p>실행 결과로 <code>prisma/migrations/20260206XXXXXX_add_compliance_export_log/migration.sql</code> 파일이 생성된다.</p>
+<h2 id="migrate-dev-vs-migrate-deploy">migrate dev vs migrate deploy<a aria-hidden="true" class="anchor-heading icon-link" href="#migrate-dev-vs-migrate-deploy"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th><code>migrate dev</code></th><th><code>migrate deploy</code></th></tr></thead><tbody><tr><td><strong>용도</strong></td><td>개발 중 스키마 변경</td><td>프로덕션/스테이징 배포</td></tr><tr><td><strong>마이그레이션 파일 생성</strong></td><td>O (자동 생성)</td><td>X (이미 있는 파일만 적용)</td></tr><tr><td><strong>Prisma Client 재생성</strong></td><td>O (자동)</td><td>X</td></tr><tr><td><strong>DB 리셋 제안</strong></td><td>O (충돌 시 프롬프트)</td><td>X (절대 리셋 안 함)</td></tr><tr><td><strong>Shadow Database 사용</strong></td><td>O</td><td>X</td></tr><tr><td><strong>대화형 프롬프트</strong></td><td>O</td><td>X (실패 시 에러로 종료)</td></tr></tbody></table></div>
+<p>요약하면 <code>dev</code>는 <strong>마이그레이션을 만드는</strong> 명령, <code>deploy</code>는 <strong>만들어진 마이그레이션을 적용하는</strong> 명령이다.</p>
+<h2 id="shadow-database">Shadow Database<a aria-hidden="true" class="anchor-heading icon-link" href="#shadow-database"></a></h2>
+<p><code>migrate dev</code> 실행 시 Prisma가 내부적으로 생성하는 <strong>임시 데이터베이스</strong>. 변경사항의 정확한 diff를 계산하기 위한 깨끗한 기준점으로 사용된다.</p>
+<h3 id="동작-방식">동작 방식<a aria-hidden="true" class="anchor-heading icon-link" href="#동작-방식"></a></h3>
+<pre><code>1. 임시 DB 생성 (shadow database)
+2. 기존 마이그레이션 파일들을 처음부터 순서대로 전부 적용
+3. → "DB가 있어야 할 정확한 상태" 확보
+4. 이 상태와 schema.prisma를 비교하여 diff 산출
+5. diff를 기반으로 새 마이그레이션 SQL 생성
+6. 임시 DB 삭제
+</code></pre>
+<h3 id="실제-db-인스턴스-필요-여부">실제 DB 인스턴스 필요 여부<a aria-hidden="true" class="anchor-heading icon-link" href="#실제-db-인스턴스-필요-여부"></a></h3>
+<p>Shadow database는 <strong>실제 DB 인스턴스가 필요</strong>하다. 로컬 DB에 <code>CREATE DATABASE</code> 권한이 있으면 자동 처리되지만, 클라우드/관리형 DB(RDS, PlanetScale 등)에서는 권한이 없어 별도 지정이 필요하다.</p>
+<pre class="language-prisma"><code class="language-prisma">datasource db {
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+</code></pre>
+<p><code>SHADOW_DATABASE_URL</code>에 별도의 빈 DB를 연결하면 된다.</p>
+<h2 id="이미-테이블이-존재하는-상태에서-migrate-dev-실행-시">이미 테이블이 존재하는 상태에서 migrate dev 실행 시<a aria-hidden="true" class="anchor-heading icon-link" href="#이미-테이블이-존재하는-상태에서-migrate-dev-실행-시"></a></h2>
+<p><code>schema.prisma</code>에 정의되어 있지만 마이그레이션 이력에 없는 테이블이 DB에 이미 존재하면, <code>CREATE TABLE</code>이 중복 실행되어 <strong>에러가 발생</strong>한다.</p>
+<h3 id="해결-baseline-마이그레이션">해결: Baseline 마이그레이션<a aria-hidden="true" class="anchor-heading icon-link" href="#해결-baseline-마이그레이션"></a></h3>
+<pre class="language-sh"><code class="language-sh"># 1. 마이그레이션 파일만 생성 (DB에 적용하지 않음)
+npx prisma migrate dev --name add-compliance-export-log --create-only
+
+# 2. 이 마이그레이션을 "이미 적용된 것"으로 표시
+npx prisma migrate resolve --applied 20260206XXXXXX_add_compliance_export_log
+</code></pre>
+<h2 id="표준-워크플로우">표준 워크플로우<a aria-hidden="true" class="anchor-heading icon-link" href="#표준-워크플로우"></a></h2>
+<p>DB 변경사항이 있을 때마다 마이그레이션 파일을 생성하고 commit에 포함시켜야 한다.</p>
+<pre><code>1. schema.prisma 수정
+2. npx prisma migrate dev --name 변경내용
+3. 생성된 마이그레이션 파일 + schema.prisma 함께 commit &#x26; push
+4. 프로덕션 배포 시 npx prisma migrate deploy → 자동 반영
+</code></pre>
+<h3 id="commit에-포함되는-파일">commit에 포함되는 파일<a aria-hidden="true" class="anchor-heading icon-link" href="#commit에-포함되는-파일"></a></h3>
+<pre><code>prisma/
+  schema.prisma                              ← 스키마 변경
+  migrations/
+    20260206XXXXXX_add_compliance_export_log/
+      migration.sql                          ← 자동 생성된 SQL
+</code></pre>
+<h3 id="마이그레이션-파일을-git에-포함하는-이유">마이그레이션 파일을 Git에 포함하는 이유<a aria-hidden="true" class="anchor-heading icon-link" href="#마이그레이션-파일을-git에-포함하는-이유"></a></h3>
+<ul>
+<li><strong>다른 개발자</strong>: pull 후 <code>migrate dev</code>만 실행하면 동일한 DB 상태</li>
+<li><strong>CI/CD</strong>: 배포 파이프라인에서 <code>migrate deploy</code>로 자동 적용</li>
+<li><strong>이력 추적</strong>: Git 히스토리로 스키마 변경 이력 확인 가능</li>
+<li><strong>롤백 판단</strong>: 문제 발생 시 어떤 SQL이 실행됐는지 파일로 확인 가능</li>
+</ul>
+<h2 id="참고">참고<a aria-hidden="true" class="anchor-heading icon-link" href="#참고"></a></h2>
+<ul>
+<li><a href="https://www.prisma.io/docs/concepts/components/prisma-migrate">Prisma Migrate 공식 문서</a></li>
+<li>Rails의 <code>db/migrate/</code>, Django의 <code>migrations/</code>도 동일한 방식의 마이그레이션 시스템을 사용</li>
+</ul>

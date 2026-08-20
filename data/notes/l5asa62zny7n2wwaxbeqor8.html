@@ -1,0 +1,57 @@
+<h1 id="i-think-the-ergonomics-of-generators-is-growing-on-me">I think the ergonomics of generators is growing on me.<a aria-hidden="true" class="anchor-heading icon-link" href="#i-think-the-ergonomics-of-generators-is-growing-on-me"></a></h1>
+<blockquote>
+<p>Generators encapsulate state management, reducing tight coupling between components and allowing for cleaner, more modular code.
+The document illustrates how generators can replace complex patterns like recursion or callbacks, simplifying code and enhancing readability.
+— <a href="https://macarthur.me/posts/generators/">https://macarthur.me/posts/generators/</a></p>
+</blockquote>
+<h2 id="where-ive-begun-to-appreciate-them"><a href="https://macarthur.me/posts/generators/#where-ive-begun-to-appreciate-them">Where I've Begun to Appreciate Them</a><a aria-hidden="true" class="anchor-heading icon-link" href="#where-ive-begun-to-appreciate-them"></a></h2>
+<p>There's no groundbreaking capability here. I'm hard-pressed to find a problem that can't be solved with more common approaches. But as I've started working with them more, I'm coming to appreciate generators more often. A few reasons that come to mind:</p>
+<h3 id="they-can-help-reduce-tight-coupling"><a href="https://macarthur.me/posts/generators/#they-can-help-reduce-tight-coupling">They can help reduce tight coupling.</a><a aria-hidden="true" class="anchor-heading icon-link" href="#they-can-help-reduce-tight-coupling"></a></h3>
+<p>Generators (and all other iterators) shine at encapsulating themselves, including the management of its own state. More &#x26; more, I'm noticing how this helps ease the coupling between components I had always blindly made interdependent.</p>
+<p>Scenario: when a button is clicked, you want to sequentially show the moving average of some price over the past five years, starting long ago. You only need the average of one window at a time, and you might not even need every possible item in the set (the user might not click through all the way). This would do the job:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> windowStart <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">function</span> <span class="token function">calculateMovingAverage</span><span class="token punctuation">(</span><span class="token parameter">values<span class="token punctuation">,</span> windowSize</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> section <span class="token operator">=</span> values<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span>windowStart<span class="token punctuation">,</span> windowStart <span class="token operator">+</span> windowSize<span class="token punctuation">)</span>
+
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>section<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&#x3C;</span> windowSize<span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token keyword null nil">null</span>
+
+  <span class="token keyword control-flow">return</span> section<span class="token punctuation">.</span><span class="token method function property-access">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">sum<span class="token punctuation">,</span> val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> sum <span class="token operator">+</span> val<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">/</span> windowSize
+<span class="token punctuation">}</span>
+
+loadButton<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> avg <span class="token operator">=</span> <span class="token function">calculateMovingAverage</span><span class="token punctuation">(</span>prices<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+  average<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">Average: $<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>avg<span class="token interpolation-punctuation punctuation">}</span></span></span><span class="token template-punctuation string">`</span></span>
+  windowStart<span class="token operator">++</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Every time the button is clicked, the next average is rendered to the screen. But it's lame that we need to have a persistent <code>windowStart</code> variable at such a high scope, and I don't feel great about making the event listener responsible for updating that state. I want it exclusively focused on updating the UI.</p>
+<p>On top of that, I might want to derive moving averages somewhere else on the page too. That'd be hard with so many things intersecting with everything else. Boundaries are weak and portability is a no-go.</p>
+<p>A generator would help remedy this:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">calculateMovingAverage</span><span class="token punctuation">(</span><span class="token parameter">values<span class="token punctuation">,</span> windowSize</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> windowStart <span class="token operator">=</span> <span class="token number">0</span>
+
+  <span class="token keyword control-flow">while</span> <span class="token punctuation">(</span>windowStart <span class="token operator">&#x3C;=</span> values<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> section <span class="token operator">=</span> values<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span>windowStart<span class="token punctuation">,</span> windowStart <span class="token operator">+</span> windowSize<span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow">yield</span> section<span class="token punctuation">.</span><span class="token method function property-access">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">sum<span class="token punctuation">,</span> val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> sum <span class="token operator">+</span> val<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">/</span> windowSize
+
+    windowStart<span class="token operator">++</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> generator <span class="token operator">=</span> <span class="token function">calculateMovingAverage</span><span class="token punctuation">(</span>prices<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+
+loadButton<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> value <span class="token punctuation">}</span> <span class="token operator">=</span> generator<span class="token punctuation">.</span><span class="token method function property-access">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  average<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">Average: $<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token interpolation-punctuation punctuation">}</span></span></span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>There are some nice perks:</p>
+<ul>
+<li>The <code>windowStart</code> variable is only exposed where it's needed. No further.</li>
+<li>Since state and logic are self-contained, you could have multiple, distinct generators being used in parallel with no issue.</li>
+<li>Everything’s more focused in purpose. The math + state are left to the generator, and the click handler updates the DOM. Clear boundaries.</li>
+</ul>
+<h3 id="they-can-help-avoid-little-annoying-things"><a href="https://macarthur.me/posts/generators/#they-can-help-avoid-little-annoying-things">They can help avoid little "annoying" things.</a><a aria-hidden="true" class="anchor-heading icon-link" href="#they-can-help-avoid-little-annoying-things"></a></h3>
+<h3 id="they-can-help-make-exhaustive-pagination-more-efficient"><a href="https://macarthur.me/posts/generators/#they-can-help-make-exhaustive-pagination-more-efficient">They can help make exhaustive pagination more efficient.</a><a aria-hidden="true" class="anchor-heading icon-link" href="#they-can-help-make-exhaustive-pagination-more-efficient"></a></h3>

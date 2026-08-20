@@ -1,0 +1,173 @@
+<h1 id="understanding-nestjs-architecture">Understanding NestJS Architecture<a aria-hidden="true" class="anchor-heading icon-link" href="#understanding-nestjs-architecture"></a></h1>
+<blockquote>
+<p>Manish Sharma</p>
+<p><a href="https://medium.com/aws-tip/understanding-nestjs-architecture-f257d054211d">https://medium.com/aws-tip/understanding-nestjs-architecture-f257d054211d</a></p>
+</blockquote>
+<p>NestJS is a NodeJs framework built on top of ExpressJs and is used for building efficient, scalable, loosely coupled, testable and easily maintainable server side web applications using architecture principles in mind.</p>
+<blockquote>
+<p>The problem NestJs trying to solve is that of architecture. As <a href="https://madecurious.com/curiosities/the-benefits-of-taking-an-architectural-approach-to-software-development/">Lee Barker</a> says: Architectural approach promotes a whole heap of things from good design through to the early identification of potential risks, and gives stakeholders more clarity, among other things</p>
+</blockquote>
+<p><strong>Hello NestJS</strong></p>
+<p>The simplest approach is to create a Controller doing all things: from validation to request-processing to handling business logic to interacting with data base and so on.</p>
+<p><img src="/./assets/images/javascript/nestjs__fat-ugly-controller.avif" alt="Fat Ugly Controller"></p>
+<p>Fat Ugly Controller</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">/*
+  /simple/convert/12
+*/</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">Controller</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Get</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Param</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"@nestjs/common"</span>
+@<span class="token function"><span class="token maybe-class-name">Controller</span></span><span class="token punctuation">(</span><span class="token string">"simple"</span><span class="token punctuation">)</span>
+<span class="token keyword module">export</span> <span class="token keyword">class</span> <span class="token class-name">SimpleController</span> <span class="token punctuation">{</span>
+  @<span class="token function"><span class="token maybe-class-name">Get</span></span><span class="token punctuation">(</span><span class="token string">"/convert/:inr"</span><span class="token punctuation">)</span>
+  <span class="token function">convert</span><span class="token punctuation">(</span>@<span class="token function"><span class="token maybe-class-name">Param</span></span><span class="token punctuation">(</span><span class="token string">"inr"</span><span class="token punctuation">)</span> inr<span class="token operator">:</span> number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> inr <span class="token operator">*</span> <span class="token number">80</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This is FAT controller approach, <a href="https://medium.com/@steadweb/the-fat-controller-and-its-misuse-part-1-710bc38fe19">NOT recommended</a> at all. Why ?</p>
+<h2 id="services">Services<a aria-hidden="true" class="anchor-heading icon-link" href="#services"></a></h2>
+<p><strong>Rule# 1:</strong> Business logic should be delegated to a separate entity known as service.</p>
+<p><img src="/./assets/images/javascript/nestjs__controller-using-service.avif" alt="Controller using Service"></p>
+<p>Controller using Service</p>
+<p>Let’s create a service first:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">Injectable</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"@nestjs/common"</span>
+@<span class="token function"><span class="token maybe-class-name">Injectable</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword module">export</span> <span class="token keyword">class</span> <span class="token class-name">ConverterService</span> <span class="token punctuation">{</span>
+  <span class="token function">convert</span><span class="token punctuation">(</span>inr<span class="token operator">:</span> number<span class="token punctuation">)</span><span class="token operator">:</span> number <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> inr <span class="token operator">*</span> <span class="token number">80</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Services have to “Injectable” and has be registered in Module under providers section :</p>
+<pre class="language-js"><code class="language-js">providers<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token maybe-class-name">ConverterService</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre>
+<p>NestJS follows dependency injection of <a href="https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898">SOLID principles</a>. We do not want Controller to instantiate services to be used. Injectable reduces the dependency of Controller on dependent services. NestJs is responsible for “instantiating” service as per requirement. Inside controller we have used constructor for service injection.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">Controller</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Get</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Param</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">ConverterService</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'./converter.service'</span><span class="token punctuation">;</span>
+@<span class="token function"><span class="token maybe-class-name">Controller</span></span><span class="token punctuation">(</span><span class="token string">'service'</span><span class="token punctuation">)</span>
+<span class="token keyword module">export</span> <span class="token keyword">class</span> <span class="token class-name">ServiceController</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ConverterService is Injectable, so NestJS handles task of instantiation*/</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter"><span class="token keyword">private</span> readonly converterService<span class="token operator">:</span> <span class="token maybe-class-name">ConverterService</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  @<span class="token function"><span class="token maybe-class-name">Get</span></span><span class="token punctuation">(</span><span class="token string">'/convert/:inr'</span><span class="token punctuation">)</span>
+  <span class="token function">convert</span><span class="token punctuation">(</span>@<span class="token function"><span class="token maybe-class-name">Param</span></span><span class="token punctuation">(</span><span class="token string">'inr'</span><span class="token punctuation">)</span> inr<span class="token operator">:</span> number<span class="token punctuation">)</span><span class="token operator">:</span> number <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">converterService</span><span class="token punctuation">.</span><span class="token method function property-access">convert</span><span class="token punctuation">(</span>inr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>So far so good. But what about Validation ?<br>
+Executing <a href="http://127.0.0.1:3000/service/convert/aa"><strong>http://127.0.0.1:3000/service/convert/</strong></a><strong>12</strong> will work, but <a href="http://127.0.0.1:3000/service/convert/aa"><strong>http://127.0.0.1:3000/service/convert/aa</strong></a> won’t. It will return NaN (Not a number). What we are missing is Validation layer. Implementing validation logic inside controller will again turn it into a FAT UGLY Controller. In NestJS we can use Pipes for validation.</p>
+<h2 id="pipes">Pipes<a aria-hidden="true" class="anchor-heading icon-link" href="#pipes"></a></h2>
+<p><strong>Rule# 2:</strong> Validation logic should be delegated to a separate entity known as pipe.</p>
+<p><img src="/./assets/images/javascript/nestjs__controller-using-service-and-pipes.avif" alt="Controller using Service and Pipes"></p>
+<p>Controller using Service and Pipes</p>
+<p>In NestJS pipes are mainly used for transformation and validation. Let’s create a smart pipe. It not only validates input to be numeric, but also allows input containing commas. So while values like “abc” is not allowed, Pipe will accept “1,000” and strip commas from input before passing it to controller.<br>
+<em>/smart/convert/12</em> is allowed<br>
+<em>/smart/convert/1,000</em> is allowed, 1,000 will be treated as 1000<br>
+<em>/smart/convert/abc</em> is not allowed, raise 422 (UnprocessableEntityException)</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span>
+  <span class="token maybe-class-name">ArgumentMetadata</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">Injectable</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">PipeTransform</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">UnprocessableEntityException</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"@nestjs/common"</span>
+
+@<span class="token function"><span class="token maybe-class-name">Injectable</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword module">export</span> <span class="token keyword">class</span> <span class="token class-name">CommaPipe</span> <span class="token keyword">implements</span> <span class="token class-name">PipeTransform</span> <span class="token punctuation">{</span>
+  <span class="token function">transform</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token operator">:</span> any<span class="token punctuation">,</span> metadata<span class="token operator">:</span> <span class="token maybe-class-name">ArgumentMetadata</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* remove comma from input */</span>
+    <span class="token keyword">var</span> output <span class="token operator">=</span> value<span class="token punctuation">.</span><span class="token method function property-access">replaceAll</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+    <span class="token comment">/* If input is Not a Number, raise 422 error  */</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">throw</span> <span class="token keyword">new</span> <span class="token class-name">UnprocessableEntityException</span><span class="token punctuation">(</span>
+        <span class="token punctuation">[</span><span class="token string">"Non numeric input"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"Incorrect Parameter"</span>
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">return</span> output
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>And updated controller (using Pipe) is:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">Controller</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Get</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Param</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">ConverterService</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'./converter.service'</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">CommaPipe</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'./comma.pipe'</span><span class="token punctuation">;</span>
+
+@<span class="token function"><span class="token maybe-class-name">Controller</span></span><span class="token punctuation">(</span><span class="token string">'smart'</span><span class="token punctuation">)</span>
+<span class="token keyword module">export</span> <span class="token keyword">class</span> <span class="token class-name">SmartController</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter"><span class="token keyword">private</span> readonly converterService<span class="token operator">:</span> <span class="token maybe-class-name">ConverterService</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token comment">/*
+    We have used CommaPipe to validate "inr" path parameter
+  */</span>
+  @<span class="token function"><span class="token maybe-class-name">Get</span></span><span class="token punctuation">(</span><span class="token string">'/convert/:inr'</span><span class="token punctuation">)</span>
+  <span class="token function">convert</span><span class="token punctuation">(</span>@<span class="token function"><span class="token maybe-class-name">Param</span></span><span class="token punctuation">(</span><span class="token string">'inr'</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">CommaPipe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> inr<span class="token operator">:</span> number<span class="token punctuation">)</span><span class="token operator">:</span> number <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">converterService</span><span class="token punctuation">.</span><span class="token method function property-access">convert</span><span class="token punctuation">(</span>inr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>Lesson learnt so far: Delegate business logic to service and validation logic to pipes.</p>
+</blockquote>
+<h2 id="interceptors">Interceptors<a aria-hidden="true" class="anchor-heading icon-link" href="#interceptors"></a></h2>
+<p><strong>Rule# 3:</strong> Response transformation should be delegated to a separate entity known as interceptor.</p>
+<p><img src="/./assets/images/javascript/nestjs__controller-using-service-and-pipes-and-interceptor.avif" alt="NestJS Controller using Service and Pipes and Interceptor"></p>
+<p>Controller using Service and Pipes and Interceptor</p>
+<p>So far so good. But What if i want output to be in more presentable/readable form ? I want output to be formatted from <strong>2400000</strong> to <strong>2,400,000</strong> so as to offer readability to user. How can i do this ?
+The answer is interceptors. Interceptors.</p>
+<blockquote>
+<p>Interceptors are used for applying custom logic and transforming response.</p>
+</blockquote>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span>
+  <span class="token maybe-class-name">CallHandler</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">ExecutionContext</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">Injectable</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">NestInterceptor</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">UnprocessableEntityException</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"@nestjs/common"</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">Observable</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"rxjs"</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> map <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"rxjs/operators"</span>
+
+@<span class="token function"><span class="token maybe-class-name">Injectable</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword module">export</span> <span class="token keyword">class</span> <span class="token class-name">CommaInterceptor</span> <span class="token keyword">implements</span> <span class="token class-name">NestInterceptor</span> <span class="token punctuation">{</span>
+  <span class="token function">intercept</span><span class="token punctuation">(</span>context<span class="token operator">:</span> <span class="token maybe-class-name">ExecutionContext</span><span class="token punctuation">,</span> next<span class="token operator">:</span> <span class="token maybe-class-name">CallHandler</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token maybe-class-name">Observable</span><span class="token operator">&#x3C;</span>any<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> request <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token method function property-access">switchToHttp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">getRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword control-flow">return</span> next<span class="token punctuation">.</span><span class="token method function property-access">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">pipe</span><span class="token punctuation">(</span>
+      <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+        <span class="token comment">/* adding comma every 3 digits */</span>
+        data <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token method function property-access">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\B(?=(\d{3})+(?!\d))</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">)</span>
+        <span class="token keyword control-flow">return</span> data
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Controller:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">Controller</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Get</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Param</span><span class="token punctuation">,</span> <span class="token maybe-class-name">UseInterceptors</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">ConverterService</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'./converter.service'</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">CommaPipe</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'./comma.pipe'</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">CommaInterceptor</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'./comma.interceptor'</span><span class="token punctuation">;</span>
+
+@<span class="token function"><span class="token maybe-class-name">Controller</span></span><span class="token punctuation">(</span><span class="token string">'intercept'</span><span class="token punctuation">)</span>
+<span class="token keyword module">export</span> <span class="token keyword">class</span> <span class="token class-name">InterceptController</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter"><span class="token keyword">private</span> readonly converterService<span class="token operator">:</span> <span class="token maybe-class-name">ConverterService</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  @<span class="token function"><span class="token maybe-class-name">Get</span></span><span class="token punctuation">(</span><span class="token string">'/convert/:inr'</span><span class="token punctuation">)</span>
+  <span class="token comment">/* Interceptor */</span>
+  @<span class="token function"><span class="token maybe-class-name">UseInterceptors</span></span><span class="token punctuation">(</span><span class="token maybe-class-name">CommaInterceptor</span><span class="token punctuation">)</span>
+  <span class="token comment">/* Pipe for Param */</span>
+  <span class="token function">convert</span><span class="token punctuation">(</span>@<span class="token function"><span class="token maybe-class-name">Param</span></span><span class="token punctuation">(</span><span class="token string">'inr'</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">CommaPipe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> inr<span class="token operator">:</span> number<span class="token punctuation">)</span><span class="token operator">:</span> number <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">converterService</span><span class="token punctuation">.</span><span class="token method function property-access">convert</span><span class="token punctuation">(</span>inr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="repository">Repository<a aria-hidden="true" class="anchor-heading icon-link" href="#repository"></a></h2>
+<p><strong>Rule# 4:</strong> Data Layer should be isolated. Data access and manipulation logic should be delegated to a separate entity known as Repository.</p>
+<p><img src="/./assets/images/javascript/nestjs__controller-using-service-and-pipes-and-interceptor-and-repository.avif" alt="Controller using Service and Pipes and Interceptor and Repository"></p>
+<p>Controller using Service and Pipes and Interceptor and Repository</p>
+<p>Connecting NestJs App to MongoDb or MYSQL or accessing external data via APIs is a vast topic. I will publish another tutorial for the same.
+NestJs provides Middlewares and Guards as well. A Complete NestJS App using all nuts and bolts is explained below:</p>
+<p><img src="/./assets/images/javascript/nestjs__architecture.avif" alt="NestJS App using Controllers, Services ,Pipes, Guards, Middlewares, Interceptors and Repository"></p>
+<p>NestJS App using Controllers, Services ,Pipes, Guards, Middlewares, Interceptors and Repository</p>
+<p>I suggest all readers to read the concept of providers from <a href="https://docs.nestjs.com/first-steps">official documentation of NestJs</a>.</p>
+<p>Please read about <a href="https://docs.nestjs.com/modules">NestJS modules</a> and refer to <a href="https://github.com/mansha99/nestjs-arch/blob/master/src/app.module.ts">app.module.ts</a> file from repository. Source code may be downloaded from <a href="https://github.com/mansha99/nestjs-arch/tree/master">this</a> repo.
+Feel free to connect if you have any doubt, query or discussion.
+Happy Coding.</p>

@@ -1,0 +1,46 @@
+<h1 id="git-commands-nobody-has-told-you">Git commands nobody has told you<a aria-hidden="true" class="anchor-heading icon-link" href="#git-commands-nobody-has-told-you"></a></h1>
+<p><a href="https://bootcamp.uxdesign.cc/git-commands-nobody-has-told-you-cd7025bea8db">https://bootcamp.uxdesign.cc/git-commands-nobody-has-told-you-cd7025bea8db</a></p>
+<h1 id="copy-changes-from-another-branch"><strong>Copy changes from another branch</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#copy-changes-from-another-branch"></a></h1>
+<p>There are some scenarios where we have to add changes to more than one branches, for example if there are two versions and we support both of them, we should commit changes to both branches.</p>
+<p>Let’s have two branches, <strong>branchA</strong> and bra<strong>n</strong>chB. Instead of committing in both branches manually, we can use <strong>git rebase</strong> command.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> checkout branchA
+<span class="token function">git</span> rebase branchB
+</code></pre>
+<p>What will happen is that <strong>branchA</strong> will look like it was branched from <strong>branchB</strong>.</p>
+<h1 id="remove-file-from-a-commit">Remove file from a commit<a aria-hidden="true" class="anchor-heading icon-link" href="#remove-file-from-a-commit"></a></h1>
+<p>If we would like to remove a certain file that has been committed to a branch, we can use <strong>git reset</strong> command.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> reset --soft HEAD^
+</code></pre>
+<p>This will bring the committed files to the staging area and then we can specify exactly which file to remove.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> reset HEAD <span class="token operator">&#x3C;</span>filename<span class="token operator">></span>
+</code></pre>
+<h1 id="find-a-commit-with-a-bug">Find a commit with a bug<a aria-hidden="true" class="anchor-heading icon-link" href="#find-a-commit-with-a-bug"></a></h1>
+<p>Have you been in a situation when a bug was introduced and you had to search when and what exactly was changed for this bug to appear? If you knew this command then, this process would be faster and easier. Using git bisect we can search for a commit which creates the bug, by first telling it a “bad” commit which has the bug and a “good” commit where it wasn’t there.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> bisect start
+<span class="token function">git</span> bisect bad
+<span class="token function">git</span> bisect good v.11.0.1-rc2
+</code></pre>
+<p>When we are done we should use <strong>git bisect reset</strong> to clean up the state and return to the original HEAD.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> bisect reset
+</code></pre>
+<h1 id="show-commits-where-a-particular-file-was-changed">Show commits where a particular file was changed<a aria-hidden="true" class="anchor-heading icon-link" href="#show-commits-where-a-particular-file-was-changed"></a></h1>
+<p>There are cases when we want to see all of the changes to a particular file and this can be done using <strong>git log</strong> with <strong>— follow</strong> flag.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> log --follow -- <span class="token operator">&#x3C;</span>filename<span class="token operator">></span>
+</code></pre>
+<h1 id="revert-all-local-changes">Revert all local changes<a aria-hidden="true" class="anchor-heading icon-link" href="#revert-all-local-changes"></a></h1>
+<p>There are different ways to remove local changes depending the scenario you have.</p>
+<p>If you want to revert the changes to your working copy use:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> restore <span class="token builtin class-name">.</span>
+</code></pre>
+<p>If you want to remove all unpushed commits to master use:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> reset
+</code></pre>
+<p>If you want to revert a change by a commit use:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> revert <span class="token operator">&#x3C;</span>commit<span class="token operator">></span>
+</code></pre>
+<p>If you want to remove untracked files or directories or use:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> clean -f or <span class="token function">git</span> clean -fd
+</code></pre>
+<blockquote>
+<p>Stay tuned for Part 2, where will we look into the depths of git.</p>
+</blockquote>

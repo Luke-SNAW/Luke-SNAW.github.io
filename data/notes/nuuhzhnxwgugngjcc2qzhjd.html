@@ -1,0 +1,67 @@
+<h1 id="what-color-is-your-function">What Color is Your Function?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-color-is-your-function"></a></h1>
+<p><a href="https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/">https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/</a></p>
+<h1 id="a-new-language">A new language<a aria-hidden="true" class="anchor-heading icon-link" href="#a-new-language"></a></h1>
+<h1 id="what-color-is-your-function-1">What color is your function?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-color-is-your-function-1"></a></h1>
+<p>Except wait. Here’s where our language gets screwy. It has this one peculiar feature:</p>
+<h2 id="every-function-has-a-color">Every function has a color.<a aria-hidden="true" class="anchor-heading icon-link" href="#every-function-has-a-color"></a></h2>
+<p>Each function—anonymous callback or regular named one—is either red or blue. Instead of a single function keyword, there are two:</p>
+<pre><code>blue_function doSomethingAzure() {
+// This is a blue function...
+}
+
+red_function doSomethingCarnelian() {
+// This is a red function...
+}
+</code></pre>
+<p>There are no colorless functions in the language. Want to make a function? Gotta pick a color. Them’s the rules. And, actually, there are a couple more rules you have to follow too:</p>
+<h2 id="the-way-you-call-a-function-depends-on-its-color">The way you call a function depends on its color.<a aria-hidden="true" class="anchor-heading icon-link" href="#the-way-you-call-a-function-depends-on-its-color"></a></h2>
+<p>Imagine a “blue call” syntax and a “red call” syntax. Something like:</p>
+<pre><code>doSomethingAzure()blue;
+doSomethingCarnelian()red;
+</code></pre>
+<p>When calling a function, you need to use the call that corresponds to its color. If you get it wrong—call a red function with <code>blue</code> after the parentheses or vice versa—it does something bad. Dredge up some long-forgotten nightmare from your childhood like a clown with snakes for arms hiding under your bed. That jumps out of your monitor and sucks out your vitreous humour.</p>
+<p>Annoying rule, right? Oh, and one more:</p>
+<h3 id="you-can-only-call-a-red-function-from-within-another-red-function">You can only call a red function from within another red function.<a aria-hidden="true" class="anchor-heading icon-link" href="#you-can-only-call-a-red-function-from-within-another-red-function"></a></h3>
+<p>You can call a blue function from within a red one. This is kosher:</p>
+<pre><code>red_function doSomethingCarnelian() {
+doSomethingAzure()blue;
+}
+</code></pre>
+<p>But you can’t go the other way. If you try to do this:</p>
+<pre><code>blue_function doSomethingAzure() {
+doSomethingCarnelian()red;
+}
+</code></pre>
+<p>Well, you’re gonna get a visit from old Spidermouth the Night Clown.</p>
+<p>This makes writing higher-order functions like our <code>filter</code>() example trickier. We have to pick a color for it and that affects the colors of the functions we’re allowed to pass to it. The obvious solution is to make <code>filter</code>() red. That way, it can take either red or blue functions and call them. But then we run into the next itchy spot in the hairshirt that is this language:</p>
+<h2 id="red-functions-are-more-painful-to-call">Red functions are more painful to call.<a aria-hidden="true" class="anchor-heading icon-link" href="#red-functions-are-more-painful-to-call"></a></h2>
+<p>For now, I won’t precisely define “painful”, but just imagine that the programmer has to jump through some kind of annoying hoops every time they call a red function.</p>
+<p>What matters is that if you decide to make a function red, everyone using your API will want to spit in your coffee and/or deposit some even less savory fluids in it.</p>
+<p>The obvious solution then is to never use red functions. Just make everything blue and you’re back to the sane world where all functions have the same color, which is equivalent to them all having no color, which is equivalent to our language not being entirely stupid.</p>
+<p>Alas, the sadistic language designers—and we all know all programming language designers are sadists, don’t we?—jabbed one final thorn in our side:</p>
+<h2 id="some-core-library-functions-are-red">Some core library functions are red.<a aria-hidden="true" class="anchor-heading icon-link" href="#some-core-library-functions-are-red"></a></h2>
+<h1 id="its-functional-programmings-fault">It’s functional programming’s fault!<a aria-hidden="true" class="anchor-heading icon-link" href="#its-functional-programmings-fault"></a></h1>
+<p>You might be thinking that the problem here is we’re trying to use higher-order functions.</p>
+<p>If we only call blue functions, make our function blue. Otherwise, make it red. As long as we never make functions that accept functions, we don’t have to worry about trying to be “polymorphic over function color” (“polychromatic”?) or any nonsense like that.</p>
+<p>But, alas, higher order functions are just one example. This problem is pervasive any time we want to break our program down into separate functions that get reused.</p>
+<p>For example, let’s say we have a nice little blob of code that, I don’t know, implements Dijkstra’s algorithm over a graph representing how much your social network are crushing on each other.</p>
+<p>Later, you end up needing to use this same blob of code somewhere else. You do the natural thing and hoist it out into a separate function. You call it from the old place and your new code that uses it. But what color should it be? Obviously, you’ll make it blue if you can, but what if it uses one of those nasty red-only core library functions?</p>
+<p>What if the new place you want to call it is blue? You’ll have to turn it red. Then you’ll have to turn the function that calls it red.</p>
+<h1 id="a-colorful-allegory">A colorful allegory<a aria-hidden="true" class="anchor-heading icon-link" href="#a-colorful-allegory"></a></h1>
+<p>Of course, I’m not really talking about color here, am I? It’s an allegory, a literary trick. The Sneetches isn’t about stars on bellies, it’s about race. By now, you may have an inkling of what color actually represents. If not, here’s the big reveal:</p>
+<p><strong>Red functions are asynchronous ones.</strong></p>
+<p>...</p>
+<h1 id="i-promise-the-future-is-better">I promise the future is better<a aria-hidden="true" class="anchor-heading icon-link" href="#i-promise-the-future-is-better"></a></h1>
+<h1 id="im-awaiting-a-solution">I’m awaiting a solution<a aria-hidden="true" class="anchor-heading icon-link" href="#im-awaiting-a-solution"></a></h1>
+<h1 id="what-language-isnt-colored">What language isn’t colored?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-language-isnt-colored"></a></h1>
+<p>So JS, Dart, C#, and Python have this problem. CoffeeScript and most other languages that compile to JS do too (which is why Dart inherited it). I think even ClojureScript has this issue even though they’ve tried really hard to push against it with their <a href="https://github.com/clojure/core.async">core.async</a> stuff.</p>
+<p>Wanna know one that doesn’t? Java. There you go. In their defense, they are actively trying to correct this oversight by moving to futures and async IO. It’s like a race to the bottom.</p>
+<p>C# also actually can avoid this problem too. They opted in to having color. Before they added async-await and all of the <code>Task&#x3C;T></code> stuff, you just used regular sync API calls. Three more languages that don’t have this problem: Go, Lua, and Ruby.</p>
+<p>Any guess what they have in common?</p>
+<p>Threads. Or, more precisely: multiple independent callstacks that can be switched between. It isn’t strictly necessary for them to be operating system threads. Goroutines in Go, coroutines in Lua, and fibers in Ruby are perfectly adequate.</p>
+<p>(That’s why C# has that little caveat. You can avoid the pain of async in C# by using threads.)</p>
+<h1 id="remembrance-of-operations-past">Remembrance of operations past<a aria-hidden="true" class="anchor-heading icon-link" href="#remembrance-of-operations-past"></a></h1>
+<h1 id="awaiting-a-generated-solution">Awaiting a generated solution<a aria-hidden="true" class="anchor-heading icon-link" href="#awaiting-a-generated-solution"></a></h1>
+<h1 id="reified-callstacks">Reified callstacks<a aria-hidden="true" class="anchor-heading icon-link" href="#reified-callstacks"></a></h1>
+<p>But if you have threads (green- or OS-level), you don’t need to do that. You can just suspend the entire thread and hop straight back to the OS or event loop <em>without having to return from all of those functions.</em></p>
+<p>Go is the language that does this most beautifully in my opinion. As soon as you do any IO operation, it just parks that goroutine and resumes any other ones that aren’t blocked on IO.</p>

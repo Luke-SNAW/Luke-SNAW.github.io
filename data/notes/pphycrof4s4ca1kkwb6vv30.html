@@ -1,0 +1,38 @@
+<h1 id="using-a-javascript-proxy-as-low-code-rest-client">Using a javascript proxy as low code REST client<a aria-hidden="true" class="anchor-heading icon-link" href="#using-a-javascript-proxy-as-low-code-rest-client"></a></h1>
+<blockquote>
+<p><a href="https://gist.github.com/DavidWells/53518b3c12344952641dc81cc7599939">https://gist.github.com/DavidWells/53518b3c12344952641dc81cc7599939</a></p>
+</blockquote>
+<pre class="language-js"><code class="language-js"><span class="token comment">/* Using a JavaScript proxy for a super low code REST client */</span>
+<span class="token comment">// via https://dev.to/dipsaus9/javascript-lets-create-aproxy-19hg</span>
+<span class="token comment">// also see https://towardsdatascience.com/why-to-use-javascript-proxy-5cdc69d943e3</span>
+<span class="token comment">// also see https://github.com/fastify/manifetch</span>
+<span class="token comment">// also see https://github.com/flash-oss/allserver</span>
+<span class="token comment">// and https://gist.github.com/v1vendi/75d5e5dad7a2d1ef3fcb48234e4528cb</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">createApi</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>
+    <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token property-access">ok</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+          <span class="token keyword control-flow">return</span> <span class="token known-class-name class-name">Promise</span><span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span> error<span class="token operator">:</span> <span class="token string">"Malformed Request"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> api <span class="token operator">=</span> <span class="token function">createApi</span><span class="token punctuation">(</span><span class="token string">"https://swapi.co/api"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 'get' request to https://swapi.co/api/people</span>
+<span class="token keyword">let</span> people <span class="token operator">=</span> <span class="token keyword control-flow">await</span> api<span class="token punctuation">.</span><span class="token method function property-access">people</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 'get' request to https://swapi.co/api/people/1</span>
+<span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token keyword control-flow">await</span> api<span class="token punctuation">.</span><span class="token method function property-access">people</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ... any https://swapi.dev/ endpoint</span>
+</code></pre>

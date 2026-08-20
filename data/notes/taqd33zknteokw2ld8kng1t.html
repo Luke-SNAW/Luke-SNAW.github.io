@@ -1,0 +1,57 @@
+<h1 id="hard-refresh-vs-cache-clearing">Hard Refresh Vs Cache Clearing<a aria-hidden="true" class="anchor-heading icon-link" href="#hard-refresh-vs-cache-clearing"></a></h1>
+<p>하드 리프레시(Hard Refresh)는 <strong>캐시를 삭제하는 것이 아니라 현재 페이지 로드 시에만 캐시를 우회(bypass)</strong>합니다.</p>
+<h2 id="하드-리프레시-vs-캐시-삭제">하드 리프레시 vs 캐시 삭제<a aria-hidden="true" class="anchor-heading icon-link" href="#하드-리프레시-vs-캐시-삭제"></a></h2>
+<p>Chrome DevTools에서 제공하는 3가지 reload 옵션:</p>
+<ol>
+<li><strong>Normal Reload</strong> - 일반 새로고침 (캐시 사용)</li>
+<li><strong>Hard Reload</strong> - 캐시 우회하고 새로고침 (캐시는 유지)</li>
+<li><strong>Empty Cache and Hard Reload</strong> - 캐시 삭제 후 새로고침</li>
+</ol>
+<p>이 세 가지가 별개의 옵션으로 존재한다는 것 자체가 Hard Reload는 캐시를 삭제하지 않는다는 증거입니다.</p>
+<h3 id="chrome-devtools-reload-옵션-접근-방법">Chrome DevTools Reload 옵션 접근 방법<a aria-hidden="true" class="anchor-heading icon-link" href="#chrome-devtools-reload-옵션-접근-방법"></a></h3>
+<ol>
+<li>DevTools 열기 (F12 또는 Cmd+Option+I)</li>
+<li>주소창 왼쪽의 새로고침 버튼을 오른쪽 클릭 (또는 길게 클릭)</li>
+<li>드롭다운 메뉴에서 옵션 선택</li>
+</ol>
+<p><strong>중요</strong>: DevTools가 열려있을 때만 이 옵션들이 나타납니다.</p>
+<h2 id="하드-리프레시에-영향을-받지-않는-것">하드 리프레시에 영향을 받지 않는 것<a aria-hidden="true" class="anchor-heading icon-link" href="#하드-리프레시에-영향을-받지-않는-것"></a></h2>
+<p>하드 리프레시는 다음을 <strong>삭제하거나 변경하지 않습니다</strong>:</p>
+<ul>
+<li>Cookies</li>
+<li>Local Storage</li>
+<li>Session Storage</li>
+<li>Saved passwords</li>
+<li>Form data</li>
+<li>Browser history</li>
+</ul>
+<p>출처: <a href="https://www.drizz.dev/post/hard-reload-chrome-shortcuts-cache-clearing-and-common-fixes">Chrome Hard Reload Explained - drizz.dev</a></p>
+<h2 id="qa-보고-사례-새-탭에서-오래된-캐시-문제">QA 보고 사례: 새 탭에서 오래된 캐시 문제<a aria-hidden="true" class="anchor-heading icon-link" href="#qa-보고-사례-새-탭에서-오래된-캐시-문제"></a></h2>
+<h3 id="문제-상황">문제 상황<a aria-hidden="true" class="anchor-heading icon-link" href="#문제-상황"></a></h3>
+<ol>
+<li>사용자가 <code>window.open(url, '_blank')</code>으로 새 탭 열기 → 오래된 HTML 표시</li>
+<li>하드 리프레시 수행 → 최신 HTML 표시</li>
+<li>다시 <code>window.open(url, '_blank')</code>으로 새 탭 열기 → 여전히 오래된 HTML 표시</li>
+</ol>
+<h3 id="원인">원인<a aria-hidden="true" class="anchor-heading icon-link" href="#원인"></a></h3>
+<ul>
+<li>하드 리프레시는 <strong>그 탭에서만</strong> 캐시를 우회</li>
+<li>브라우저의 HTTP 캐시는 <strong>browser-wide</strong>로 공유되며 삭제되지 않음</li>
+<li>새 탭을 열 때는 일반적인 페이지 로드이므로 캐시를 사용</li>
+</ul>
+<h3 id="해결-방법">해결 방법<a aria-hidden="true" class="anchor-heading icon-link" href="#해결-방법"></a></h3>
+<p>서버에서 <code>Cache-Control</code> 헤더를 명시적으로 설정:</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token comment"># HTML 파일: 캐시하지 않음</span>
+<span class="token punctuation">-</span><span class="token punctuation">-</span>cache<span class="token punctuation">-</span>control 'no<span class="token punctuation">-</span>store<span class="token punctuation">,</span> no<span class="token punctuation">-</span>cache<span class="token punctuation">,</span> must<span class="token punctuation">-</span>revalidate'
+</code></pre>
+<h2 id="참고-자료">참고 자료<a aria-hidden="true" class="anchor-heading icon-link" href="#참고-자료"></a></h2>
+<ul>
+<li><a href="https://www.drizz.dev/post/hard-reload-chrome-shortcuts-cache-clearing-and-common-fixes">Chrome Hard Reload Explained - drizz.dev</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching">MDN - HTTP Caching</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control">MDN - Cache-Control</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In / TIL</a></li>
+</ul>
