@@ -2,12 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1787109679940
+updated: 1787198825565
 created: 1766965709816
 ---
 
 ## Week 34, 2026
 
+- [Geolocating Random Islet Image Using Geometry & CUDA GPU Programming](https://yassa9.github.io/osint/gralhix-004/)
 - [Twitch Does Not Respect Their Users, So I'm Quitting](https://dallincrump.com/twitch-does-not-respect-their-users-so-im-quitting)
   > Last week Twitch announced that it had [automatically opted all of its user accounts into using all content for training Amazon's generative “AI” models](https://arstechnica.com/ai/2026/08/twitch-content-has-trained-amazon-ai-for-years-but-users-can-opt-out-now/). They didn't send their users an email or notify us within Twitch. They [posted about it on X](https://www.404media.co/twitch-training-amazon-ai-models-how-to-opt-out-setting/), a platform I don't use, acting like they were doing us a favor by allowing us to opt out.
 - [The Amazon tax](https://seths.blog/2026/08/the-amazon-tax/) is a critique of how **Amazon's search ads** degrade the shopping experience by forcing merchants to pay for visibility on products they are already selling, effectively acting as a form of **legal theft**. This system increases **product costs** and incentivizes the production of lower-quality goods while shifting Amazon's focus away from its original mission of being **customer-centric**.

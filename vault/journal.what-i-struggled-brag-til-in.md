@@ -2,9 +2,11 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled \U0001F9D7/\U0001F4E3 brag In / TIL"
 desc: ""
-updated: 1785900745764
+updated: 1787196970060
 created: 1669264809793
 ---
+
+## Week 34, 2026 - [[Hard Refresh Vs Cache Clearing|dev.web.hard-refresh-vs-cache-clearing]]
 
 ## Week 32, 2026 - [[마이그레이션 문서 주의사항 누락 원인 분석 (postmortem) - Claude|journal.what-i-struggled-brag-til-in.migration-checklist-omission-postmortem#마이그레이션-문서-주의사항-누락-원인-분석-postmortem---claude]]
 
