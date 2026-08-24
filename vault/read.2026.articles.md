@@ -2,9 +2,17 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1787198825565
+updated: 1787564693496
 created: 1766965709816
 ---
+
+## Week 35, 2026
+
+- [Scientists Release Biggest 2D Map of the Universe](https://newscenter.lbl.gov/2026/08/10/scientists-release-biggest-2d-map-of-the-universe/) - https://www.legacysurvey.org/viewer
+  > Covering roughly 75% of the sky in visible and near-infrared light, the updated map provides a deep view of the extragalactic universe not blocked by the dust and stars of our own Milky Way.
+- [I'm Upset Again About a Co-Creator of RSS Being Prosecuted For Something Meta Is Doing With Little Consequence](https://blog.curiousquail.com/im-upset-again-about-a-co-creator-of-rss-being-prosecuted-for-something-meta-is-doing-with-little-consequence/)
+  > It’s nothing short of an indictment of our society at large that Aaron Swartz, one of the co-creators of the RSS protocol (among many other things) was effectively assasinated by our legal system for “illegally” downloading about [70 gigabytes of academic articles from JSTOR](https://web.archive.org/web/20150912185122/https://www.politico.com/blogs/under-the-radar/2011/07/mit-also-pressing-charges-against-hacking-suspect-037709) - charged so excessively to be made an example of (we're talking 35 years in prison, $1million USD fine, and asset forfeiture) to the point where he felt the need to take his own life rather than deal with the court circus and impending financial ruin - while Facebook (oh I’m sorry Meta) has [torrented 80 TERABYTES of books to train their AI models](https://arstechnica.com/tech-policy/2025/02/meta-torrented-over-81-7tb-of-pirated-books-to-train-ai-authors-say/) with virtually no consequences other than a [court case](https://www.theguardian.com/technology/2026/may/05/publishers-sue-meta-copyright-ai) they will most likely get some sort of financial slap on the wrist for while their AI models continue to print them money.
+- [AliExpress webpage keeping multipoint Bluetooth headphones active with WebAudio fingerprinting](https://blog.laserphile.com/2026/08/aliexpress-webpage-keeping-multipoint.html)
 
 ## Week 34, 2026
 

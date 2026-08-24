@@ -2,9 +2,11 @@
 id: 6645fjtiqxtko03nuccgjj2
 title: "What I struggled \U0001F9D7/\U0001F4E3 brag In / TIL"
 desc: ""
-updated: 1787196970060
+updated: 1787554615903
 created: 1669264809793
 ---
+
+## Week 35, 2026 - [[Kakao Postcode SDK COEP 차단 이슈 해결|journal.what-i-struggled-brag-til-in.kakao-postcode-coep-issue#kakao-postcode-sdk-coep-차단-이슈-해결]]
 
 ## Week 34, 2026 - [[Hard Refresh Vs Cache Clearing|dev.web.hard-refresh-vs-cache-clearing]]
 
