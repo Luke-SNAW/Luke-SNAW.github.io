@@ -2,12 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1787564693496
+updated: 1787713021941
 created: 1766965709816
 ---
 
 ## Week 35, 2026
 
+- [Andreessen Horowitz is shaping AI policy — while investing in a bleak vision of the future](https://www.modelrepublic.org/articles/a16z-portfolio) - The firm’s investment portfolio is full of companies that have exploited legal loopholes, created disturbing products, and broken the law.
 - [Scientists Release Biggest 2D Map of the Universe](https://newscenter.lbl.gov/2026/08/10/scientists-release-biggest-2d-map-of-the-universe/) - https://www.legacysurvey.org/viewer
   > Covering roughly 75% of the sky in visible and near-infrared light, the updated map provides a deep view of the extragalactic universe not blocked by the dust and stars of our own Milky Way.
 - [I'm Upset Again About a Co-Creator of RSS Being Prosecuted For Something Meta Is Doing With Little Consequence](https://blog.curiousquail.com/im-upset-again-about-a-co-creator-of-rss-being-prosecuted-for-something-meta-is-doing-with-little-consequence/)

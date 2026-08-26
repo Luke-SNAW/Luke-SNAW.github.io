@@ -2,7 +2,7 @@
 id: nb1vsnjkhtv97ukvgq43yde
 title: Dj Max
 desc: ""
-updated: 1783511213879
+updated: 1787719540598
 created: 1761376965248
 published: false
 ---
@@ -35,3 +35,4 @@ published: false
 5.6 배속.
 보통 노트는 핸드팬 치듯이 가볍게 끊어치기.
 사이드키 예고가 눈에 너무 거슬려 약화시킬 방법을 찾다 못 찾아서 그냥 끔. 눈 아픈거 보다 노트 익숙해지는 게 낫겠지
+#djmax
