@@ -2,12 +2,18 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1787713021941
+updated: 1787823620623
 created: 1766965709816
 ---
 
 ## Week 35, 2026
 
+- [It is a sign of the times that Amazon gets to call this fair use while huge corporations try to sue the Internet Archive out of business.](https://observationalepidemiology.blogspot.com/2026/08/it-is-sign-of-times-that-amazon-gets-to.html)
+  > Amazon is buying massive quantities of books, scanning them for AI training data, and destroying them in the process.
+  > [404media](https://www.404media.co/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-training-facility/)
+- [Actually Queryable Executables](https://fzakaria.com/2026/08/24/actually-queryable-executables) leverage the **SQLite** format to store both the program logic and its runtime state within a single file.
+- [MS Paint and Photos inivisibly watermark even locally generated output with GUID](https://xusheng.dev/posts/reversing/mspaint_invisible_watermark/main/)
+- [Homerow](https://www.homerow.app/) - Keyboard shortcuts for your entire Mac
 - [Andreessen Horowitz is shaping AI policy — while investing in a bleak vision of the future](https://www.modelrepublic.org/articles/a16z-portfolio) - The firm’s investment portfolio is full of companies that have exploited legal loopholes, created disturbing products, and broken the law.
 - [Scientists Release Biggest 2D Map of the Universe](https://newscenter.lbl.gov/2026/08/10/scientists-release-biggest-2d-map-of-the-universe/) - https://www.legacysurvey.org/viewer
   > Covering roughly 75% of the sky in visible and near-infrared light, the updated map provides a deep view of the extragalactic universe not blocked by the dust and stars of our own Milky Way.
