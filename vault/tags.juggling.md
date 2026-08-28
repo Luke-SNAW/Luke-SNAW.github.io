@@ -2,7 +2,7 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1787811772797
+updated: 1787909249137
 created: 1779352821282
 ---
 
@@ -24,9 +24,11 @@ created: 1779352821282
 - 오른쪽 2in1 circles (Level 1?) 30개 달성 - 2026-08-24
 - 오른쪽 Fake Columns (Level 2) 시작 - 2026-08-26
 - 3개 cascade (Level 2) 230개 넘겨 그만둠 - 2026-08-27
+- 오른쪽 half shower (Level 3) 100개 달성 - 2026-08-27
 
 ---
 
 - [[중력으로 인한 실속, 정지, 하락 움직임에 매료|daily.journal.2026.06.12#중력으로-인한-실속-정지-하락-움직임에-매료]]
 - [[꾸준히 하면 결국된다|daily.journal.2026.05.05#꾸준히-하면-결국된다]]
 - [[궤적이 어그러지지 않는 궁리도 가치 있지만, 어그러졌을 때 완화하려는 노력, 대처에 신경쏟는 행동이 재미있다.|daily.journal.2026.06.12#struggling]]
+- [[최상단 target 의식|daily.journal.2026.08.28#최상단-target-의식]]

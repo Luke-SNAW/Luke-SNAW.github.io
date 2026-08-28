@@ -2,7 +2,7 @@
 id: 3cjj2gdnz8veb8xm3umtm9c
 title: 2026년 08월
 desc: ""
-updated: 1787723953568
+updated: 1787910094751
 created: 1785633640998
 published: false
 ---
@@ -25,6 +25,7 @@ published: false
 - [[소비 비중 낮춰 놀기|daily.journal.2026.08.23#소비-비중-낮춰-놀기]]
 - [[자아고갈 상태|daily.journal.2026.08.23#자아고갈-상태]]
 - [[스트레스 회복은 간화선 시도하다 안되면 운동으로 전환|daily.journal.2026.08.25#스트레스-회복은-간화선-시도하다-안되면-운동으로-전환]]
+- [[지관, 무상체험|daily.journal.2026.08.27#두-번째-단락-불교적-해석-1-gemma-4-31b]]
 
 ## fin
 

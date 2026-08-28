@@ -2,12 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1787823620623
+updated: 1787901644246
 created: 1766965709816
 ---
 
 ## Week 35, 2026
 
+- [20,585 New Subscribers in 90 Days: Here's Everything I Did](https://kaguura.substack.com/p/90-days-20585-new-subscribers-heres)
 - [It is a sign of the times that Amazon gets to call this fair use while huge corporations try to sue the Internet Archive out of business.](https://observationalepidemiology.blogspot.com/2026/08/it-is-sign-of-times-that-amazon-gets-to.html)
   > Amazon is buying massive quantities of books, scanning them for AI training data, and destroying them in the process.
   > [404media](https://www.404media.co/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-training-facility/)
