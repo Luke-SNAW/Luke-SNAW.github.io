@@ -2,7 +2,7 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1787909249137
+updated: 1788150556632
 created: 1779352821282
 ---
 
@@ -25,6 +25,7 @@ created: 1779352821282
 - 오른쪽 Fake Columns (Level 2) 시작 - 2026-08-26
 - 3개 cascade (Level 2) 230개 넘겨 그만둠 - 2026-08-27
 - 오른쪽 half shower (Level 3) 100개 달성 - 2026-08-27
+- 오른쪽 2in1 circles (Level 1?) 100개 달성 - 2026-08-31
 
 ---
 
