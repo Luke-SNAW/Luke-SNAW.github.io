@@ -2,12 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1788163493245
+updated: 1788237767167
 created: 1766965709816
 ---
 
 ## Week 36, 2026
 
+- [In this discussion](https://youtu.be/f84W0KtxDls), Yuval Noah Harari warns that AI functions as an agent capable of autonomously reshaping civilization by controlling the information and language that underpin human society. He emphasizes that as intelligence becomes cheap and abundant, humanity must prioritize the development of wisdom and AI safety to navigate this unprecedented shift in power.
 - [The Internet Is Kind of a Predatory Cesspit Now](https://www.stephendiehl.com/posts/internet_predatory_cesspit/) - The **modern internet** has evolved into a **predatory system** that industrializes human vulnerability, using **algorithmic loops** to convert fear, loneliness, and greed into recurring revenue. This **grift economy** traps individuals in cycles of **compulsive consumption and distribution**, where social interactions are increasingly commodified and detached from reality.
 
 ## Week 35, 2026
