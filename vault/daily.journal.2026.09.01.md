@@ -2,7 +2,7 @@
 id: lahseel3vxncnbcp49v0m4g
 title: "2026-09-01"
 desc: ""
-updated: 1788256267569
+updated: 1788322357446
 created: 1788237912948
 traitIds:
   - journalNote
@@ -23,3 +23,13 @@ Democracy relies on human conversation, yet **AI** is increasingly dominating th
 ### The Urgent Need for Wisdom
 
 Currently, the investment ratio between developing more powerful **AI** and ensuring its safety is alarmingly imbalanced, with far less funding allocated to safety. Ultimately, the future hinges on whether humanity can cultivate the wisdom to guide these powerful tools responsibly, rather than becoming subjects of the very systems created to serve us.
+
+## #drawing
+
+아침 출근 전 스케치할 때 미약한 선으로 전체 구도를 흐리멍텅하게 잡고 시작하니 전체 결과물이 더 좋은 듯. #test
+단순히 그리는 대상이 컵케잌이라 실제보다 더 좋게 보이는 가능성이 꽤 있지만. (얼굴, 손처럼 인식기준이 깐깐하지 않음) 뭐 취미라면 과정을 즐기는데 가치가 있으니 결과 기대치 낮은 쪽이 지속하기엔 좋다.
+
+## 레벨이 높아질 수록 활동끼리 충돌
+
+수준을 조금 올리니까 활동상충이 많아져 짜증남. 23시 샤워를 22시로 당기니 근력운동 전에 마쳐야 해서 난이도가 올라가는 식.
+놀기를 잘게 잘라서 스케쥴링하면 나아질 거 같지만 결국 노는시간 줄이기 같은데...
