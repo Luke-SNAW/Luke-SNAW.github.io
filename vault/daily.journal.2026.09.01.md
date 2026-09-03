@@ -2,7 +2,7 @@
 id: lahseel3vxncnbcp49v0m4g
 title: "2026-09-01"
 desc: ""
-updated: 1788322357446
+updated: 1788427092336
 created: 1788237912948
 traitIds:
   - journalNote
@@ -33,3 +33,4 @@ Currently, the investment ratio between developing more powerful **AI** and ensu
 
 수준을 조금 올리니까 활동상충이 많아져 짜증남. 23시 샤워를 22시로 당기니 근력운동 전에 마쳐야 해서 난이도가 올라가는 식.
 놀기를 잘게 잘라서 스케쥴링하면 나아질 거 같지만 결국 노는시간 줄이기 같은데...
+개짜증나서 우울증 올 거 같음. 웃기네... 건전하게 살려니까 해소를 버려야 하는 한계를 느끼고 우울증이 오려고 하다니
