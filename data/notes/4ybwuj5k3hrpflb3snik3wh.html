@@ -1,0 +1,24 @@
+<h1 id="cli">CLI<a aria-hidden="true" class="anchor-heading icon-link" href="#cli"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://linuxhandbook.com/source-command/">What is Source Command in Linux and How Does it Work?</a></li>
+<li><a href="https://clig.dev/">Command Line Interface Guidelines</a>
+<ul>
+<li><a href="https://clig.kr/">명령줄 인터페이스 가이드라인</a></li>
+</ul>
+</li>
+<li>Setting PATH environment variable in OSX permanently
+<blockquote>
+<p>You have to add it to <code>/etc/paths</code>. - <a href="https://stackoverflow.com/a/22465399/26960115">https://stackoverflow.com/a/22465399/26960115</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="라인-수-200-넘는-js-ts-파일-리스트-출력">라인 수 200 넘는 js, ts 파일 리스트 출력<a aria-hidden="true" class="anchor-heading icon-link" href="#라인-수-200-넘는-js-ts-파일-리스트-출력"></a></h2>
+<pre class="language-bash"><code class="language-bash"><span class="token function">wc</span> -l <span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f <span class="token punctuation">\</span><span class="token punctuation">(</span> -name <span class="token string">"*.ts"</span> -o -name <span class="token string">"*.js"</span> <span class="token punctuation">\</span><span class="token punctuation">)</span> <span class="token operator">!</span> -path <span class="token string">"./node_modules/*"</span> <span class="token operator">!</span> -path <span class="token string">"./dist/*"</span><span class="token variable">)</span></span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'$1 > 200 &#x26;&#x26; !/total$/ {print}'</span> <span class="token operator">|</span> <span class="token function">sort</span> -rn
+</code></pre>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/hjt058gz8lse7lrfwxrco51">How to Search Files Effectively in the Linux Terminal</a></li>
+<li><a href="/notes/lptq5mubxtlhliuzn2k56t8">My favorite tricks for navigating the Linux terminal faster</a></li>
+</ol>

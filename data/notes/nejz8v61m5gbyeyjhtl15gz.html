@@ -1,0 +1,10 @@
+<h1 id="git-rebase-with-merges">Git Rebase... with Merges?<a aria-hidden="true" class="anchor-heading icon-link" href="#git-rebase-with-merges"></a></h1>
+<blockquote>
+<p><a href="https://jnielson.com/git-rebase-with-merges">https://jnielson.com/git-rebase-with-merges</a></p>
+</blockquote>
+<p><strong>Did you know that <code>git rebase -i</code> will drop merge commits by default?</strong></p>
+<blockquote>
+<p>Note: Needs git --version to be greater than v2.22.0 in order to have this feature</p>
+</blockquote>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> rebase -i --rebase-merges <span class="token punctuation">[</span>some commit<span class="token punctuation">]</span>
+</code></pre>

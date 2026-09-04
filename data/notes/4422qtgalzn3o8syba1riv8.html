@@ -1,0 +1,28 @@
+<h1 id="we-switched-to-cursor-based-pagination">We switched to cursor-based pagination<a aria-hidden="true" class="anchor-heading icon-link" href="#we-switched-to-cursor-based-pagination"></a></h1>
+<blockquote>
+<p><a href="https://www.moderntreasury.com/journal/shifting-our-apis-pagination-method-from-offset-to-cursor-based">https://www.moderntreasury.com/journal/shifting-our-apis-pagination-method-from-offset-to-cursor-based</a></p>
+</blockquote>
+<h1 id="deferred-join">deferred join<a aria-hidden="true" class="anchor-heading icon-link" href="#deferred-join"></a></h1>
+<p>There are ways to mitigate the (although not eliminate) the slowing down of offset/limit pagination in later pages. The technique is called a "deferred join" and it is most effective in MySQL. The basic idea is to paginate as little data as necessary, and then do a self-join to get the rest of the data for a single page.</p>
+<p>You can read more about it <a href="https://aaronfrancis.com/2022/efficient-pagination-using-deferred-joins">here</a> or <a href="https://planetscale.com/blog/fastpage-faster-offset-pagination-for-rails-apps">here</a>.</p>
+<p>There are libraries for <a href="https://github.com/hammerstonedev/fast-paginate">Laravel</a> and <a href="https://github.com/planetscale/fast_page">Rails</a> as well!</p>
+<p>Cursor based pagination is wonderful, but sometimes you're stuck with offset/limit for whatever reason. Might as well make it fast.</p>
+<h2 id="mostly-only-works-in-mysql">mostly only works in MySQL<a aria-hidden="true" class="anchor-heading icon-link" href="#mostly-only-works-in-mysql"></a></h2>
+<p>To be clear, this technique (which it seems I independently discovered in 2015) mostly only works in MySQL because other databases usually have planners which are smart enough to not pull everything in eagerly.</p>
+<p>MySQL is fairly predictable, though, so when you understand that it wants to nested-loop join all your rows before evaluating predicates on the parent table, it's a predictable win to stop it doing that.</p>
+<p>The technique is still applicable even when you have no joins, because MySQL will materialize rows with every selected column before evaluating the unindexed portion of the predicate, and the order by.</p>
+<h1 id="keyset-pagination">keyset pagination<a aria-hidden="true" class="anchor-heading icon-link" href="#keyset-pagination"></a></h1>
+<p>My favourite technical explanation of that is <a href="https://use-the-index-luke.com/no-offset">here</a></p>
+<h1 id="why-does-every-web-site-default-to-aggressively-paginate-their-information">Why does every web site default to aggressively paginate their information?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-does-every-web-site-default-to-aggressively-paginate-their-information"></a></h1>
+<p>Pagination sucks, it's a waste of time and of clicks, and should be a last resort. Sure, when Google returns millions of search results, paginate. But:
+For instance, if you have 40 entries and specify that there should be 10 items per page</p>
+<p>40 entries??? Just show them all to me. My browser has a scrollbar, CTRL-F is much faster than your search box.</p>
+<p>"but not everyone has a reliable fast connection" -- yes, which is a good reason to deliver more data per http request than breaking it up and requiring lots of slow requests.</p>
+<p>"but the database load" -- half the queries, each returning 2x data, is almost always going to be easier on a RDBMS. If it's not then you probably need to rethink your schema.</p>
+<h2 id="marketing">marketing<a aria-hidden="true" class="anchor-heading icon-link" href="#marketing"></a></h2>
+<blockquote>
+<p>Why does every web site default to aggressively paginate their information?<br>
+You get to see more ads while flipping through pages.</p>
+</blockquote>
+<p>Timing metrics for loading smaller pages make marketing happy.</p>
+<p>Timing metrics for time spent on the website make marketing happy.</p>

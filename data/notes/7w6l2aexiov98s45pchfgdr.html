@@ -1,0 +1,32 @@
+<h1 id="schema-templates">Schema Templates<a aria-hidden="true" class="anchor-heading icon-link" href="#schema-templates"></a></h1>
+<blockquote>
+<p><a href="https://wiki.dendron.so/notes/GelEQPZrSgr3CK9y10Nrg/">https://wiki.dendron.so/notes/GelEQPZrSgr3CK9y10Nrg/</a></p>
+</blockquote>
+<h2 id="스키마-템플릿에-frontmatter로-published-false-넣기">스키마 템플릿에 frontmatter로 <code>published: false</code> 넣기<a aria-hidden="true" class="anchor-heading icon-link" href="#스키마-템플릿에-frontmatter로-published-false-넣기"></a></h2>
+<p>templates.daily.md (또는 지정한 템플릿 노트)의 프론트매터에 넣으면 됩니다.</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">published</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+<span class="token punctuation">---</span>
+</code></pre>
+<pre class="language-md"><code class="language-md"><span class="token title important"><span class="token punctuation">##</span> Thoughts</span>
+
+<span class="token title important"><span class="token punctuation">##</span> Grateful</span>
+
+<span class="token title important"><span class="token punctuation">##</span> Tasks</span>
+</code></pre>
+<p>그리고 스키마에서 이 템플릿을 연결:</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token key atrule">schemas</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">id</span><span class="token punctuation">:</span> daily
+    <span class="token key atrule">parent</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">children</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">pattern</span><span class="token punctuation">:</span> journal
+        <span class="token key atrule">children</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">pattern</span><span class="token punctuation">:</span> <span class="token string">"[0-2][0-9][0-9][0-9]"</span>
+            <span class="token key atrule">children</span><span class="token punctuation">:</span>
+              <span class="token punctuation">-</span> <span class="token key atrule">pattern</span><span class="token punctuation">:</span> <span class="token string">"[0-1][0-9]"</span>
+                <span class="token key atrule">children</span><span class="token punctuation">:</span>
+                  <span class="token punctuation">-</span> <span class="token key atrule">pattern</span><span class="token punctuation">:</span> <span class="token string">"[0-3][0-9]"</span>
+                    <span class="token key atrule">template</span><span class="token punctuation">:</span> templates.daily
+</code></pre>
+<h2 id="알려진-버그-config-키는-복사-안-되지만-일반-frontmatter-키published-등는-정상-복사됨">알려진 버그: <code>config</code> 키는 복사 안 되지만, 일반 <strong>frontmatter</strong> 키(<code>published</code> 등)는 정상 복사됨<a aria-hidden="true" class="anchor-heading icon-link" href="#알려진-버그-config-키는-복사-안-되지만-일반-frontmatter-키published-등는-정상-복사됨"></a></h2>
