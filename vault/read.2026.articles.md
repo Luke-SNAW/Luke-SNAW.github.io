@@ -2,9 +2,17 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1788498930843
+updated: 1788916968525
 created: 1766965709816
 ---
+
+## Week 37, 2026
+
+- [Why We Must Return to the Office to Use AI in Person](https://www.mcsweeneys.net/articles/why-we-must-return-to-the-office-to-use-ai-in-person)
+  > Mondo Mayo’s proprietary metrics indicate that family life can be performed remotely with greater efficiency and manager satisfaction. The Mondo Machine, rented at an affordable rate, sits in your home when you cannot be there, feeding pellets to your child, and they bond.
+- [Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations](https://academic.oup.com/pnasnexus/article/4/4/pgaf087/8098745?login=false)
+- [LG smart TVs caught logging audio with screen off and snooping on local devices](https://www.notebookcheck.net/LG-smart-TVs-caught-logging-audio-with-screen-off-and-snooping-on-local-devices.1391214.0.html)
+  - [216,000,000 Spy TVs | The LG Smart TV Problem](https://www.youtube.com/watch?v=6IFVTcM28KA)
 
 ## Week 36, 2026
 
