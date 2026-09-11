@@ -2,12 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1788916968525
+updated: 1789115853124
 created: 1766965709816
 ---
 
 ## Week 37, 2026
 
+- [What will our economic future look like? (anthropic.com)](https://www.anthropic.com/institute/econ-scenarios)
+  > I like how the least optimistic scenario is simply LLMs not making a difference, instead of the very real possibility of them damaging education, destroying people’s attention spans and their ability to learn, eroding trust within societies, increasing the wealth inequality and leading to class wars. - [HN](https://news.ycombinator.com/item?id=49627426)
 - [Why We Must Return to the Office to Use AI in Person](https://www.mcsweeneys.net/articles/why-we-must-return-to-the-office-to-use-ai-in-person)
   > Mondo Mayo’s proprietary metrics indicate that family life can be performed remotely with greater efficiency and manager satisfaction. The Mondo Machine, rented at an affordable rate, sits in your home when you cannot be there, feeding pellets to your child, and they bond.
 - [Splash-free urinals for global sustainability and accessibility: Design through physics and differential equations](https://academic.oup.com/pnasnexus/article/4/4/pgaf087/8098745?login=false)
