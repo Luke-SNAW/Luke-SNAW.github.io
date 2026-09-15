@@ -1,0 +1,317 @@
+<h1 id="tla-인증-명세-authtla--mcauthcfg-해설">TLA+ 인증 명세 (Auth.tla / MCAuth.cfg) 해설<a aria-hidden="true" class="anchor-heading icon-link" href="#tla-인증-명세-authtla--mcauthcfg-해설"></a></h1>
+<blockquote>
+<p>작성일: 2026-04-08 | from claude-sonnet-4-6</p>
+</blockquote>
+<h2 id="개요">개요<a aria-hidden="true" class="anchor-heading icon-link" href="#개요"></a></h2>
+<p><code>specs/auth/</code> 디렉토리의 TLA+ 인증 명세(<code>Auth.tla</code>, <code>MCAuth.tla</code>, <code>MCAuth.cfg</code>, <code>Common.tla</code>)의 구조와 핵심 개념을 설명한다. MC 래퍼 패턴, 불변식, 활성도, 시간 연산자를 다룬다.</p>
+<h2 id="모듈-구조">모듈 구조<a aria-hidden="true" class="anchor-heading icon-link" href="#모듈-구조"></a></h2>
+<pre><code>Common.tla          공유 타입: Users, Passwords, Pages, UserRecord, ...
+    └── Auth.tla    인증 상태머신 명세
+            └── MCAuth.tla   TLC 모델체킹 래퍼
+                    └── MCAuth.cfg   TLC 설정 파일
+</code></pre>
+<h3 id="mcauthcfg-구성">MCAuth.cfg 구성<a aria-hidden="true" class="anchor-heading icon-link" href="#mcauthcfg-구성"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>섹션</th><th>내용</th></tr></thead><tbody><tr><td><code>CONSTANTS</code></td><td>모델값 선언 + 집합 정의</td></tr><tr><td><code>Accounts &#x3C;- MCAccounts</code></td><td>함수 리터럴 우회 (cfg 문법 제약)</td></tr><tr><td><code>SPECIFICATION Spec</code></td><td><code>Init /\ [][Next]_authVars /\ WF(...)</code></td></tr><tr><td><code>INVARIANTS</code></td><td>TypeOK, SignedInImpliesAuthenticatedPage, SessionMatchesAccount</td></tr><tr><td><code>PROPERTIES</code></td><td>PendingLoginEventuallyResolves (liveness)</td></tr></tbody></table></div>
+<hr>
+<h2 id="mc-래퍼-패턴">MC 래퍼 패턴<a aria-hidden="true" class="anchor-heading icon-link" href="#mc-래퍼-패턴"></a></h2>
+<h3 id="왜-필요한가">왜 필요한가<a aria-hidden="true" class="anchor-heading icon-link" href="#왜-필요한가"></a></h3>
+<p>TLC <code>.cfg</code> 파일의 <code>CONSTANTS</code> 섹션은 세 가지 문법만 허용한다:</p>
+<pre><code>Foo = bareword          # model value
+Foo = {m1, m2, ...}     # model value 집합
+Foo &#x3C;- OperatorName     # 연산자 오버라이드
+</code></pre>
+<p><code>[u1 |-> pw1, u2 |-> pw2]</code> 같은 함수 리터럴은 파서가 이해하지 못한다. <code>Auth.tla</code>의 <code>Accounts</code> 상수는 함수값이어야 하므로 직접 cfg에 쓸 수 없다.</p>
+<h3 id="해결-구조">해결 구조<a aria-hidden="true" class="anchor-heading icon-link" href="#해결-구조"></a></h3>
+<p><code>MCAuth.tla</code>에 함수를 연산자로 정의하고 cfg에서 <code>&#x3C;-</code>로 바인딩한다.</p>
+<pre class="language-tla"><code class="language-tla">---- MODULE MCAuth ----
+EXTENDS Auth, TLC   \* TLC 필수: @@ 와 :> 가 TLC 모듈 소속
+
+MCAccounts == (u1 :> pw1) @@ (u2 :> pw2)
+====
+</code></pre>
+<pre><code>\* MCAuth.cfg
+Accounts &#x3C;- MCAccounts
+</code></pre>
+<p>TLC는 <code>MCAuth.tla</code>를 평가할 때 <code>MCAccounts</code>를 호출해 함수값을 만들고, 그것을 <code>Accounts</code>에 바인딩한다.</p>
+<h3 id="주의사항">주의사항<a aria-hidden="true" class="anchor-heading icon-link" href="#주의사항"></a></h3>
+<ul>
+<li><code>Auth.tla</code>에 <code>Accounts</code>라는 CONSTANT가 이미 선언되어 있으므로, MC 래퍼에서 같은 이름으로 operator를 정의하면 충돌 → 반드시 <code>MCAccounts</code>처럼 다른 이름 사용 후 <code>&#x3C;-</code> 오버라이드</li>
+<li><code>@@</code>, <code>:></code>는 TLA+ 코어가 아닌 <code>TLC</code> 표준 모듈 소속 → <code>EXTENDS Auth, TLC</code> 필수</li>
+<li>NULL 센티넬은 문자열(<code>"__NULL__"</code>)이 아닌 <code>CONSTANT</code>로 선언해 model value로 사용해야 TypeOK 평가 시 타입 충돌이 없음</li>
+</ul>
+<hr>
+<h2 id="spec-정의">Spec 정의<a aria-hidden="true" class="anchor-heading icon-link" href="#spec-정의"></a></h2>
+<pre class="language-tla"><code class="language-tla">Spec == Init /\ [][Next]_authVars /\ WF_authVars(LoginSucceeds) /\ WF_authVars(LoginFails)
+</code></pre>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항</th><th>역할</th></tr></thead><tbody><tr><td><code>Init</code></td><td>초기 상태 조건</td></tr><tr><td><code>[][Next]_authVars</code></td><td>모든 스텝에서 Next 실행 또는 authVars 불변 (stuttering 허용)</td></tr><tr><td><code>WF_authVars(LoginSucceeds)</code></td><td>로그인 성공 액션의 약한 공정성</td></tr><tr><td><code>WF_authVars(LoginFails)</code></td><td>로그인 실패 액션의 약한 공정성</td></tr></tbody></table></div>
+<p><code>Init /\ [][Next]_authVars</code>만으로는 Safety만 보장. WF 조건을 추가해야 Liveness까지 보장된다.</p>
+<h3 id="authvars-튜플"><code>authVars</code> 튜플<a aria-hidden="true" class="anchor-heading icon-link" href="#authvars-튜플"></a></h3>
+<pre class="language-tla"><code class="language-tla">authVars == &#x3C;&#x3C;currentPage, session, pendingLogin>>
+</code></pre>
+<p>세 변수를 튜플로 묶은 단축 이름. <code>UNCHANGED authVars</code>와 <code>WF_authVars(A)</code> subscript에 사용된다. 변수가 추가/삭제될 때 이 한 줄만 고치면 모든 액션에 자동 반영된다.</p>
+<hr>
+<h2 id="불변식-safety-invariants">불변식 (Safety Invariants)<a aria-hidden="true" class="anchor-heading icon-link" href="#불변식-safety-invariants"></a></h2>
+<p>"어떤 상태에서도 항상 참이어야 한다" — TLC가 도달 가능한 모든 상태를 탐색하며 위반 즉시 반례를 출력한다.</p>
+<h3 id="typeok">TypeOK<a aria-hidden="true" class="anchor-heading icon-link" href="#typeok"></a></h3>
+<p>각 변수가 정해진 타입 안에 있는지 확인하는 기반 불변식. 다른 불변식들은 이 위에서 동작한다.</p>
+<h3 id="signedinimpliesauthenticatedpage">SignedInImpliesAuthenticatedPage<a aria-hidden="true" class="anchor-heading icon-link" href="#signedinimpliesauthenticatedpage"></a></h3>
+<pre class="language-tla"><code class="language-tla">SignedInImpliesAuthenticatedPage ==
+    session /= NULL => currentPage \notin {"/login", "/signup"}
+</code></pre>
+<p>"세션이 있으면 인증된 페이지에 있어야 한다." 대우: 로그인/회원가입 페이지에 있다면 세션이 없어야 한다.</p>
+<p><code>LoginSucceeds</code>에서 <code>currentPage' = "/my-tests"</code> 대입이 누락되면 즉시 위반된다. Cypress의 <code>cy.url().should('include', '/my-tests')</code>와 대응하는 형식적 서술.</p>
+<h3 id="sessionmatchesaccount">SessionMatchesAccount<a aria-hidden="true" class="anchor-heading icon-link" href="#sessionmatchesaccount"></a></h3>
+<pre class="language-tla"><code class="language-tla">SessionMatchesAccount ==
+    session /= NULL => Accounts[session.id] = session.password
+</code></pre>
+<p>"활성 세션의 자격증명은 반드시 등록된 계정과 일치해야 한다." <code>LoginSucceeds</code>가 <code>Accounts[id] = password</code> 조건을 체크한 후에만 세션을 만들기 때문에 유지된다.</p>
+<hr>
+<h2 id="활성도-liveness-property">활성도 (Liveness Property)<a aria-hidden="true" class="anchor-heading icon-link" href="#활성도-liveness-property"></a></h2>
+<p>"결국에는 반드시 일어나야 한다" — 시간 축을 따라 검증. 반례는 무한 루프(lasso) 형태.</p>
+<h3 id="pendinglogineventuallyresolves">PendingLoginEventuallyResolves<a aria-hidden="true" class="anchor-heading icon-link" href="#pendinglogineventuallyresolves"></a></h3>
+<pre class="language-tla"><code class="language-tla">PendingLoginEventuallyResolves ==
+    (pendingLogin /= NULL) ~> (pendingLogin = NULL)
+</code></pre>
+<p>"로그인 시도가 걸려있으면, 언젠가는 반드시 해소된다."</p>
+<p><code>pendingLogin</code>을 NULL로 만드는 액션은 <code>LoginSucceeds</code>와 <code>LoginFails</code> 둘뿐이다. <code>Spec</code>의 <code>WF_authVars(LoginSucceeds) /\ WF_authVars(LoginFails)</code>가 없으면 시스템이 <code>NavigateTo</code>만 무한 반복해도 명세 위반이 아니게 된다.</p>
+<h3 id="safety-vs-liveness">Safety vs Liveness<a aria-hidden="true" class="anchor-heading icon-link" href="#safety-vs-liveness"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>Safety (불변식)</th><th>Liveness (활성도)</th></tr></thead><tbody><tr><td>질문</td><td>나쁜 일이 일어나지 않는가?</td><td>좋은 일이 결국 일어나는가?</td></tr><tr><td>위반</td><td>특정 상태 하나에서 발생</td><td>무한히 지속되는 경로에서 발생</td></tr><tr><td>서술 방식</td><td>상태 조건만으로 서술</td><td><code>~></code>, <code>&#x3C;></code>, <code>[]&#x3C;></code> 등 시간 연산자 필요</td></tr></tbody></table></div>
+<hr>
+<h2 id="weak-fairness-vs-strong-fairness">Weak Fairness vs Strong Fairness<a aria-hidden="true" class="anchor-heading icon-link" href="#weak-fairness-vs-strong-fairness"></a></h2>
+<pre class="language-tla"><code class="language-tla">WF_vars(A) == [](ENABLED &#x3C;&#x3C;A>>_vars) => []&#x3C;>&#x3C;&#x3C;A>>_vars
+SF_vars(A) == []&#x3C;>ENABLED &#x3C;&#x3C;A>>_vars => []&#x3C;>&#x3C;&#x3C;A>>_vars
+</code></pre>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>WF</th><th>SF</th></tr></thead><tbody><tr><td>보장 조건</td><td>enabled가 끊기지 않고 지속</td><td>enabled가 무한히 자주 발생</td></tr><tr><td>강도</td><td>약함</td><td>강함 (WF를 포함)</td></tr><tr><td>적합한 경우</td><td>한번 가능해지면 조건이 유지됨</td><td>가능/불가능을 반복할 수 있음</td></tr></tbody></table></div>
+<p><code>LoginSucceeds</code>/<code>LoginFails</code>는 <code>pendingLogin</code>이 설정되면 해소될 때까지 enabled 상태가 끊기지 않으므로 WF로 충분하다.</p>
+<p>SF가 필요한 경우: 채널에 메시지를 넣었다 뺐다 하는 시스템처럼 <code>Recv</code>의 enabled 상태가 켜졌다 꺼지기를 반복할 때.</p>
+<hr>
+<h2 id="시간-연산자">시간 연산자<a aria-hidden="true" class="anchor-heading icon-link" href="#시간-연산자"></a></h2>
+<p>실행 경로(무한히 이어지는 상태 시퀀스) 전체를 대상으로 서술한다.</p>
+<h3 id="--always"><code>[]</code> — Always<a aria-hidden="true" class="anchor-heading icon-link" href="#--always"></a></h3>
+<pre class="language-tla"><code class="language-tla">[]P  \* 모든 상태에서 P가 참
+</code></pre>
+<p>불변식이 바로 <code>[]P</code> 형태. <code>INVARIANTS TypeOK</code>는 TLC에게 <code>[]TypeOK</code>를 검사하라는 뜻.</p>
+<h3 id="--eventually"><code>&#x3C;></code> — Eventually<a aria-hidden="true" class="anchor-heading icon-link" href="#--eventually"></a></h3>
+<pre class="language-tla"><code class="language-tla">&#x3C;>P  \* 어떤 상태에서는 P가 참
+</code></pre>
+<h3 id="--always-eventually"><code>[]&#x3C;></code> — Always Eventually<a aria-hidden="true" class="anchor-heading icon-link" href="#--always-eventually"></a></h3>
+<pre class="language-tla"><code class="language-tla">[]&#x3C;>P  \* P가 무한히 자주 참이 된다
+</code></pre>
+<p>상태: s0 s1 s2 s3 s4 s5 s6 ...<br>
+P: ✗ ✓ ✗ ✗ ✓ ✗ ✓ ... → []&#x3C;>P 성립<br>
+P: ✗ ✓ ✗ ✗ ✗ ✗ ✗ ... → []&#x3C;>P 위반 (s1 이후 P 안 나타남)</p>
+<p>SF 정의에 등장: <code>SF_v(A) == []&#x3C;>ENABLED&#x3C;&#x3C;A>>_v => []&#x3C;>&#x3C;&#x3C;A>>_v</code></p>
+<h3 id="--eventually-always"><code>&#x3C;>[]</code> — Eventually Always<a aria-hidden="true" class="anchor-heading icon-link" href="#--eventually-always"></a></h3>
+<pre class="language-tla"><code class="language-tla">&#x3C;>[]P  \* 언젠가부터 P가 영원히 참이 된다 (안착)
+</code></pre>
+<p>상태: s0 s1 s2 s3 s4 s5 ...<br>
+P: ✗ ✗ ✓ ✗ ✓ ✓ ... → &#x3C;>[]P 아직 모름 (계속 봐야 함)<br>
+P: ✗ ✗ ✓ ✓ ✓ ✓ ... → &#x3C;>[]P 성립 (s2부터 영원히 참)</p>
+<p>시스템이 로그인 완료 상태에 안착하는 것을 서술할 때 사용.</p>
+<h3 id="--leads-to"><code>~></code> — Leads-to<a aria-hidden="true" class="anchor-heading icon-link" href="#--leads-to"></a></h3>
+<pre class="language-tla"><code class="language-tla">P ~> Q  ==  [](P => &#x3C;>Q)
+\* P가 참인 상태에 도달할 때마다, 이후 언젠가는 반드시 Q가 참이 된다
+</code></pre>
+<p>P: ✗ ✓ ✗ ✗ ✓ ✗ ...<br>
+Q: ✗ ✗ ✓ ✗ ✗ ✓ ...<br>
+------↑-----↑<br>
+-P 이후 Q----P 이후 Q → P ~> Q 성립</p>
+<h3 id="강도-관계">강도 관계<a aria-hidden="true" class="anchor-heading icon-link" href="#강도-관계"></a></h3>
+<pre><code>[]P  →  []&#x3C;>P  →  &#x3C;>P
+[]P  →  &#x3C;>[]P  →  &#x3C;>P
+</code></pre>
+<hr>
+<h2 id="연산자-vs-함수-tla-용어">연산자 vs 함수 (TLA+ 용어)<a aria-hidden="true" class="anchor-heading icon-link" href="#연산자-vs-함수-tla-용어"></a></h2>
+<p>TLA+에서 공식 용어는 두 가지다.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>TLA+ 용어</th><th>문법</th><th>특징</th></tr></thead><tbody><tr><td><strong>Operator</strong></td><td><code>Op(x) == ...</code></td><td>수식의 약칭(abbreviation). 값으로 전달 불가. 매크로에 가까운 수식 치환</td></tr><tr><td><strong>Function</strong></td><td><code>f[x \in S] == ...</code></td><td>값(value). 도메인이 있고 <code>f[x]</code>로 적용. 수학의 집합론적 매핑</td></tr></tbody></table></div>
+<p><code>NavigateTo(page)</code>와 <code>Next</code>는 모두 Operator. 차이는 매개변수 유무와 의미적 역할뿐이다.</p>
+<hr>
+<h2 id="tlc-상태공간-탐색">TLC 상태공간 탐색<a aria-hidden="true" class="anchor-heading icon-link" href="#tlc-상태공간-탐색"></a></h2>
+<p>TLC는 BFS(너비 우선 탐색)로 <code>Next</code>의 모든 분기를 현재 상태에서 시도하고, enabled인 것을 모두 후계 상태로 등록한다.</p>
+<p>초기 상태 (Init)<br>
+currentPage = "/login"<br>
+session = NULL<br>
+pendingLogin = NULL</p>
+<p>이 상태에서 Next의 각 분기를 시도:</p>
+<h3 id="분기-1-e-u-in-users-p-in-passwords--submitloginu-p">분기 1: \E u \in Users, p \in Passwords : SubmitLogin(u, p)<a aria-hidden="true" class="anchor-heading icon-link" href="#분기-1-e-u-in-users-p-in-passwords--submitloginu-p"></a></h3>
+<p>SubmitLogin의 enabled 조건:
+/\ session = NULL ✓<br>
+/\ pendingLogin = NULL ✓<br>
+/\ currentPage = "/login" ✓</p>
+<p>{u1,u2} × {pw1,pw2,pw_bad} 6가지 모두 enabled → 6개 후계 상태 생성</p>
+<ol>
+<li>후계 상태 1-1: pendingLogin = [id:u1, password:pw1]</li>
+<li>후계 상태 1-2: pendingLogin = [id:u1, password:pw2]</li>
+<li>후계 상태 1-3: pendingLogin = [id:u1, password:pw_bad]</li>
+<li>후계 상태 1-4: pendingLogin = [id:u2, password:pw1]</li>
+<li>후계 상태 1-5: pendingLogin = [id:u2, password:pw2]</li>
+<li>후계 상태 1-6: pendingLogin = [id:u2, password:pw_bad]</li>
+</ol>
+<h3 id="분기-2-loginsucceeds">분기 2: LoginSucceeds<a aria-hidden="true" class="anchor-heading icon-link" href="#분기-2-loginsucceeds"></a></h3>
+<p>enabled 조건:
+/\ pendingLogin /= NULL ✗ (NULL임)<br>
+→ disabled, 후계 상태 없음</p>
+<p>분기 3: LoginFails → disabled (동일 이유)<br>
+분기 4: Logout → disabled (session = NULL)<br>
+분기 5: NavigateTo → disabled (session = NULL)</p>
+<h3 id="결과-탐색-큐에-6개-추가">결과: 탐색 큐에 6개 추가<a aria-hidden="true" class="anchor-heading icon-link" href="#결과-탐색-큐에-6개-추가"></a></h3>
+<p>큐: [상태1-1, 상태1-2, 상태1-3, 상태1-4, 상태1-5, 상태1-6]</p>
+<p>각 상태에서 다시 같은 과정 반복. 예를 들어 상태1-1에서:</p>
+<p>상태1-1: pendingLogin = [id:u1, password:pw1]</p>
+<p>LoginSucceeds enabled?<br>
+pendingLogin /= NULL ✓
+Accounts[u1] = pw1 ✓ → enabled → 후계 상태 생성</p>
+<p>LoginFails enabled?
+pendingLogin /= NULL ✓<br>
+Accounts[u1] /= pw1 ✗ → disabled</p>
+<p>SubmitLogin enabled?
+pendingLogin = NULL ✗ → disabled</p>
+<hr>
+<p>전체 그림</p>
+<pre><code>                  Init
+                   │
+      ┌────────────┼──────────────┐
+    (u1,pw1)    (u1,pw2)  ...  (u2,pw_bad)
+      │
+ LoginSucceeds
+      │
+session=[u1,pw1]
+currentPage="/my-tests"
+      │
+    Logout / NavigateTo / ...
+</code></pre>
+<p>TLC는 이 그래프를 완전히 탐색하고, 모든 노드에서 Invariant를 체크한다. 위반 발견 시 Init → 위반 상태까지의 경로를 반례로 출력.</p>
+<hr>
+<h2 id="참고">참고<a aria-hidden="true" class="anchor-heading icon-link" href="#참고"></a></h2>
+<ul>
+<li><code>specs/auth/Auth.tla</code> — 인증 상태머신 명세</li>
+<li><code>specs/auth/MCAuth.tla</code> — TLC 모델체킹 래퍼</li>
+<li><code>specs/auth/MCAuth.cfg</code> — TLC 설정 파일</li>
+<li><code>specs/auth/Common.tla</code> — 공유 타입 정의</li>
+<li>Leslie Lamport, "Specifying Systems" — 공식 TLA+ 교재</li>
+<li><a href="https://learntla.com">https://learntla.com</a> — 실무 관점 TLA+ 입문</li>
+</ul>

@@ -1,0 +1,199 @@
+<h1 id="a-more-modern-css-reset">A (more) Modern CSS Reset<a aria-hidden="true" class="anchor-heading icon-link" href="#a-more-modern-css-reset"></a></h1>
+<blockquote>
+<p><a href="https://andy-bell.co.uk/a-more-modern-css-reset/">https://andy-bell.co.uk/a-more-modern-css-reset/</a></p>
+</blockquote>
+<p>I wrote <a href="https://andy-bell.co.uk/a-modern-css-reset/">A Modern CSS Reset</a> almost 4 years ago and, yeh, it’s not aged overly well. I spotted it being linked up again a few days ago and thought it’s probably a good idea to publish an updated version.</p>
+<p>I know I also have a terrible record with open source maintenance, so I thought I’d <a href="https://github.com/Andy-set-studio/modern-css-reset">archive the original</a> and just post this instead. Do with it what you want!</p>
+<p>To be super clear, this is a reset that works for me, personally and us at <a href="https://set.studio/">Set Studio</a>. Whenever I refer to “we”, that’s who I’m referring to.</p>
+<h2 id="the-reset-in-whole">The reset in whole<a aria-hidden="true" class="anchor-heading icon-link" href="#the-reset-in-whole"></a></h2>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Box sizing rules */</span>
+<span class="token selector">*<span class="token punctuation">,</span>
+*<span class="token pseudo-element">::before</span><span class="token punctuation">,</span>
+*<span class="token pseudo-element">::after</span></span> <span class="token punctuation">{</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Prevent font size inflation */</span>
+<span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token property">-moz-text-size-adjust</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">-webkit-text-size-adjust</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">text-size-adjust</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Remove default margin in favour of better control in authored CSS */</span>
+<span class="token selector">body<span class="token punctuation">,</span>
+h1<span class="token punctuation">,</span>
+h2<span class="token punctuation">,</span>
+h3<span class="token punctuation">,</span>
+h4<span class="token punctuation">,</span>
+p<span class="token punctuation">,</span>
+figure<span class="token punctuation">,</span>
+blockquote<span class="token punctuation">,</span>
+dl<span class="token punctuation">,</span>
+dd</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */</span>
+<span class="token selector">ul<span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">role</span><span class="token operator">=</span><span class="token attr-value">"list"</span><span class="token punctuation">]</span></span><span class="token punctuation">,</span>
+ol<span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">role</span><span class="token operator">=</span><span class="token attr-value">"list"</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Set core body defaults */</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">vh</span><span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">1.5</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Set shorter line heights on headings and interactive elements */</span>
+<span class="token selector">h1<span class="token punctuation">,</span>
+h2<span class="token punctuation">,</span>
+h3<span class="token punctuation">,</span>
+h4<span class="token punctuation">,</span>
+button<span class="token punctuation">,</span>
+input<span class="token punctuation">,</span>
+label</span> <span class="token punctuation">{</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">1.1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Balance text wrapping on headings */</span>
+<span class="token selector">h1<span class="token punctuation">,</span>
+h2<span class="token punctuation">,</span>
+h3<span class="token punctuation">,</span>
+h4</span> <span class="token punctuation">{</span>
+  <span class="token property">text-wrap</span><span class="token punctuation">:</span> balance<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* A elements that don't have a class get default styles */</span>
+<span class="token selector">a<span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">class</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">text-decoration-skip-ink</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> currentColor<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Make images easier to work with */</span>
+<span class="token selector">img<span class="token punctuation">,</span>
+picture</span> <span class="token punctuation">{</span>
+  <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Inherit fonts for inputs and buttons */</span>
+<span class="token selector">input<span class="token punctuation">,</span>
+button<span class="token punctuation">,</span>
+textarea<span class="token punctuation">,</span>
+select</span> <span class="token punctuation">{</span>
+  <span class="token property">font</span><span class="token punctuation">:</span> inherit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Make sure textareas without a rows attribute are not tiny */</span>
+<span class="token selector">textarea<span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">rows</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">em</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Anything that has been anchored to should have extra scroll margin */</span>
+<span class="token selector"><span class="token pseudo-class">:target</span></span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-margin-block</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">ex</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="breakdown">Breakdown<a aria-hidden="true" class="anchor-heading icon-link" href="#breakdown"></a></h2>
+<p>As is tradition, let’s break it down:</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Box sizing rules */</span>
+<span class="token selector">*<span class="token punctuation">,</span>
+*<span class="token pseudo-element">::before</span><span class="token punctuation">,</span>
+*<span class="token pseudo-element">::after</span></span> <span class="token punctuation">{</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This rule is pretty self explanatory, but in short, I’m setting all elements and pseudo-elements to use the <code>border-box</code>, <a href="https://web.dev/learn/css/box-model/">rather than the default <code>content-box</code> for sizing</a>. Now we’re focussing more on letting the <a href="https://buildexcellentwebsit.es/">browser do more work</a> with <a href="https://every-layout.dev/">flexible layouts</a> with <a href="https://utopia.fyi/">fluid type and space</a>, this rule isn’t as useful as it once was. But, it’s rare that a project doesn’t have some explicit sizing somewhere, so it’s still got a place in the reset.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Prevent font size inflation */</span>
+<span class="token selector">html</span> <span class="token punctuation">{</span>
+  <span class="token property">-moz-text-size-adjust</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">-webkit-text-size-adjust</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">text-size-adjust</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The <a href="https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/">best explainer for this is by Kilian</a>. He also explains why we still need those ugly prefixes too.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Remove default margin in favour of better control in authored CSS */</span>
+<span class="token selector">body<span class="token punctuation">,</span>
+h1<span class="token punctuation">,</span>
+h2<span class="token punctuation">,</span>
+h3<span class="token punctuation">,</span>
+h4<span class="token punctuation">,</span>
+p<span class="token punctuation">,</span>
+figure<span class="token punctuation">,</span>
+blockquote<span class="token punctuation">,</span>
+dl<span class="token punctuation">,</span>
+dd</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>I’ll always favour stripping out user agent styles for margin in favour of <a href="https://andy-bell.co.uk/my-favourite-3-lines-of-css/">defining flow and space at a more macro level</a>. With logical properties, I’m removing the end margin now instead of all sides in the older reset. It seems to work well in production.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */</span>
+<span class="token selector">ul<span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">role</span><span class="token operator">=</span><span class="token attr-value">"list"</span><span class="token punctuation">]</span></span><span class="token punctuation">,</span>
+ol<span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">role</span><span class="token operator">=</span><span class="token attr-value">"list"</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Safari do some wild shit, which includes <a href="https://bugs.webkit.org/show_bug.cgi?id=170179">this one</a>: if you remove list styling, they’ll remove the semantics for VoiceOver. Some will say it’s a feature and some will say it’s a bug. I say it’s daft, but to make sure that a <code>role</code> is added, I remove the list styling by default for it as a little reward.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Set core body defaults */</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">vh</span><span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">1.5</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>I like a nice legible line height that gets inherited. Setting a min height as <code>100vh</code> on the body is pretty handy too, especially if you’re gonna be setting decorative elements. It might be tempting to use a new unit like <code>dvh</code>, but if you <a href="https://ishadeed.com/article/new-viewport-units/#:~:text=Be%20careful%20with%20the%20dvh,is%20scrolling%20up%20or%20down.">delve deep like Ahmad has</a>, you’ll see that can cause more problems than solutions, which is not what you want your reset to be doing!</p>
+<p><a href="https://mastodon.social/@simevidas/111088262361593466">The <code>svh</code> unit seems better than <code>dvh</code></a>, but I’m happy with <code>vh</code>. Always make sure you understand the newer units before diving head first into them, or recommending them as gospel is my advice. If something is already working for you, there’s no need to change it!</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Set shorter line heights on headings and interactive elements */</span>
+<span class="token selector">h1<span class="token punctuation">,</span>
+h2<span class="token punctuation">,</span>
+h3<span class="token punctuation">,</span>
+h4<span class="token punctuation">,</span>
+button<span class="token punctuation">,</span>
+input<span class="token punctuation">,</span>
+label</span> <span class="token punctuation">{</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">1.1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Just like it’s handy to have a generous <code>line-height</code> globally, it’s equally handy to have a shorter <code>line-height</code> for headings and buttons etc. It’s definitely worth removing or modifying this rule if your font has large ascenders and descenders though. The last thing you want is those clashing with each other and creating an accessibility issue.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Balance text wrapping on headings */</span>
+<span class="token selector">h1<span class="token punctuation">,</span>
+h2<span class="token punctuation">,</span>
+h3<span class="token punctuation">,</span>
+h4</span> <span class="token punctuation">{</span>
+  <span class="token property">text-wrap</span><span class="token punctuation">:</span> balance<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This rule is rather specific to our projects, but the newish <code>text-wrap</code> property makes headings look lovely. I imagine some people will find this not appropriate, so you might want to remove this one.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* A elements that don't have a class get default styles */</span>
+<span class="token selector">a<span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">class</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">text-decoration-skip-ink</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> currentColor<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This rule is first making sure the text decoration doesn’t interfere with ascenders and descenders. I think this is mostly default in browsers now, but it’s a good insurance policy to set it too. We like to set links to inherit the <code>currentColor</code> of text too by default at <a href="https://set.studio/">the studio</a>, but if you don’t, you probably want to remove it.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Inherit fonts for inputs and buttons */</span>
+<span class="token selector">input<span class="token punctuation">,</span>
+button<span class="token punctuation">,</span>
+textarea<span class="token punctuation">,</span>
+select</span> <span class="token punctuation">{</span>
+  <span class="token property">font</span><span class="token punctuation">:</span> inherit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The <code>font: inherit</code> shorthand is bloody useful and we certainly find that with inputs and form elements. It’s mostly going to affect <code>&#x3C;textarea></code> elements, but there’s no harm in applying it to other form elements too because it saves on some CSS later on in a project.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Make sure textareas without a rows attribute are not tiny */</span>
+<span class="token selector">textarea<span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">rows</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">em</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Speaking of <code>&#x3C;textarea></code> elements, this rule is handy. By default, if you don’t add a <code>rows</code> attribute, they can be super teeny. This isn’t ideal with coarse pointers such as fingers and by proxy, <code>&#x3C;textarea></code> elements tend to be used for multiple lines of text. It makes sense to make that easier.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Anything that has been anchored to should have extra scroll margin */</span>
+<span class="token selector"><span class="token pseudo-class">:target</span></span> <span class="token punctuation">{</span>
+  <span class="token property">scroll-margin-block</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">ex</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Finally, if an element is anchored, it makes sense to add a bit more space above it with <code>scroll-margin</code>, which is only accounted for if that element is targeted. A little tweak with lots of user experience power! You might want to adjust this if you have a fixed header though.</p>
+<h2 id="wrapping-up">Wrapping up<a aria-hidden="true" class="anchor-heading icon-link" href="#wrapping-up"></a></h2>
+<p>Will this reset last another 4 years? Maybe! The <a href="https://andy-bell.co.uk/a-modern-css-reset/">other one</a> certainly hasn’t caused issues.</p>
+<p>Regardless, it’s pretty useful as a base to start projects, here at <a href="https://set.studio/">the studio</a>. We don’t go back and retroactively update the other reset on client projects either because that one works absolutely fine.</p>
+<p>Resets are one of those things that people get worked up about, but really, with browsers being so bloody good now, you probably don’t even need one in the first place. My advice is take bits you like from ones you find on the web and create your own, that <strong>works for you and your team</strong>.</p>

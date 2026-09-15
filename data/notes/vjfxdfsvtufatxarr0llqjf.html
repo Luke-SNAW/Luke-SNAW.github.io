@@ -1,0 +1,52 @@
+<h1 id="anchor-tag">Anchor Tag<a aria-hidden="true" class="anchor-heading icon-link" href="#anchor-tag"></a></h1>
+<h2 id="clicking-a-element-using-enterspace-key-is-not-working-even-though-it-is-focused-accessibility"><a href="https://stackoverflow.com/a/66311677/5163033">Clicking <code>&#x3C;a></code> element using Enter/Space key is not working even though it is focused (accessibility)</a><a aria-hidden="true" class="anchor-heading icon-link" href="#clicking-a-element-using-enterspace-key-is-not-working-even-though-it-is-focused-accessibility"></a></h2>
+<h3 id="short-answer">Short Answer<a aria-hidden="true" class="anchor-heading icon-link" href="#short-answer"></a></h3>
+<p>To call a function you should use a <code>&#x3C;button></code> and an Event Listener. Use buttons for same page interactivity (calling JS functions) and use <code>&#x3C;a href="some-location"...</code> for anything that causes the URL to update (navigation to a new page or to a location in the current document).</p>
+<p>This is important for usability!</p>
+<h3 id="longer-answer">Longer Answer<a aria-hidden="true" class="anchor-heading icon-link" href="#longer-answer"></a></h3>
+<p>As you have marked this accessibility I will focus on that.</p>
+<p>Any anchor <code>&#x3C;a></code> must have a valid <code>href</code> to be focusable and work as a hyperlink.</p>
+<p>I have seen people offering the advice of <code>&#x3C;a href="javascript:void(0)"</code>, <strong>never</strong> do this, this is an anti-pattern.</p>
+<p>Also <code>&#x3C;a href="#"</code> is also an anti-pattern as it does not provide any navigation.</p>
+<p>This is all a hangover from HTML4 where you couldn't style a <code>&#x3C;button></code> element and a bad practice that just needs to go away now.</p>
+<h4 id="so-what-should-i-use">So what should I use?<a aria-hidden="true" class="anchor-heading icon-link" href="#so-what-should-i-use"></a></h4>
+<p>If you are trying to make something that a user can interact with on the same page (something that calls a JavaScript function) then use a <code>&#x3C;button></code>.</p>
+<p>If you are trying make something that causes navigation (either to a new page or to a place in the current document) then use a valid anchor <code>&#x3C;a href="some-location">Some Location&#x3C;/a></code> or <code>&#x3C;a href="#document-fragment">Place in current document&#x3C;/a></code>.</p>
+<h3 id="why-does-it-matter">Why does it matter?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-does-it-matter"></a></h3>
+<p>For users of assistive technology (mainly screen reader users) the type of element used is important. The use of the correct element for the job is known as <em>semantics</em>.</p>
+<p>An anchor with a valid <code>href</code> tells a screen reader user "Clicking this will result in navigation". It also lets them know that they need to press <kbd>Enter</kbd> to activate the link.</p>
+<p>A <code>&#x3C;button></code> on the other hand tells a screen reader user "I will perform an action on this page". It also lets them know that they can press `<kbd>Enter</kbd> <strong>or</strong> <kbd>Space</kbd> to activate the button.</p>
+<p>This expected behaviour is essential for a screen reader user to not get confused or frustrated while using your website / web app.</p>
+<p>It also helps with SEO, makes your mark-up easier to understand etc.</p>
+<h3 id="so-how-to-call-a-function-from-a-page">So how to call a function from a page?<a aria-hidden="true" class="anchor-heading icon-link" href="#so-how-to-call-a-function-from-a-page"></a></h3>
+<p>First as I said, use a <code>&#x3C;button></code>.</p>
+<p>Rather than inlining the <code>click</code> handler, add it in your JS file.</p>
+<p>In the below example I gave the button an <code>id="searchJavaScript</code> and then used <code>document.querySelector('#searchJavaScript');</code> to grab that button.</p>
+<p>In reality you would use a better selector within <code>querySelector</code> based on your mark-up.</p>
+<p>Then we use <code>.addEventListener('click'</code> to listen for any click events on that button.</p>
+<p>You can <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">learn more about <code>addEventListener</code> here</a>.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> jsButton <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"#searchJavaScript"</span><span class="token punctuation">)</span>
+
+jsButton<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"You clicked the JavaScript Search Button"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>searchJavaScript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>JavaScript<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="but-i-need-to-do-something-before-navigation-occurs">But I need to do something before navigation occurs?<a aria-hidden="true" class="anchor-heading icon-link" href="#but-i-need-to-do-something-before-navigation-occurs"></a></h3>
+<p>It should still be a valid anchor!</p>
+<p>If you need to run some function before navigation occurs we can still easily do that with <code>event.preventDefault()</code>.</p>
+<p><strong>You should still have a valid hyperlink</strong>.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> link <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span>
+
+link<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>
+    <span class="token string">"I will appear before navigation so you can set up whatever you need"</span>
+  <span class="token punctuation">)</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"I will appear before navigation"</span><span class="token punctuation">)</span>
+  <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">location</span><span class="token punctuation">.</span><span class="token property-access">href</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">href</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://google.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Go to Google but run a function first<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+</code></pre>

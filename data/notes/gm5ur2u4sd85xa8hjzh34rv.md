@@ -1,0 +1,63 @@
+
+## Bazzite와 비슷한 게임 중심 리눅스 배포판 비교 (2026년 3월 기준)
+
+**Bazzite**는 Fedora Atomic 기반의 불변(immutable) 게이밍 리눅스 배포판으로, SteamOS 클론처럼 Steam 사전 설치, HDR/VRR 지원, CPU 스케줄러 최적화 등을 제공하며 안정성과 초보자 친화성을 강조합니다. 최근 버전(43.20260309)에서는 Mesa 26.0.1, KDE Plasma 6.6.1, 커널 6.17.7, Nvidia 590 드라이버, 네이티브 HDR 지원이 포함되었습니다. 추가로, 2026년 1월 Bazzite는 **Open Gaming Collective(OGC)**에 합류했습니다. OGC는 ChimeraOS, Nobara, Playtron, CachyOS 등이 참여하는 협력 조직으로, 커널 패치, 입력 툴링, gamescope 등 핵심 컴포넌트를 공동 개발해 한 배포판의 개선이 전체 생태계에 혜택을 주도록 합니다.
+
+---
+
+**Nobara** (Fedora 기반, 비불변)
+
+Proton-GE 개발자 Thomas Crider(GloriousEggroll)가 유지보수하는 게이밍 특화 배포판. 2026년 1월 Nobara 43이 출시되었으며, Official(커스텀 KDE), GNOME, KDE, Steam-HTPC, Steam-Handheld 등 다섯 가지 에디션을 제공합니다. NVIDIA 드라이버가 사전 설치된 ISO도 별도 제공됩니다. 직접 테스트에서 데스크톱 반응성 기준으로 Bazzite와 동등하거나 약간 앞서는 성능을 보입니다. 단점으로는 커널 레벨 안티치트(EAC, BattlEye)가 Secure Boot 없이는 제대로 동작하지 않는 경우가 있어, 멀티플레이어 게임 위주 사용자에게는 제약이 될 수 있습니다.
+
+---
+
+**CachyOS** (Arch 기반)
+
+최근 Steam 하드웨어 서베이에서 인기 리눅스 배포판 3위를 기록할 만큼 빠르게 성장했습니다. 2026년 3월 릴리스(260308)에서 핸드헬드 에디션이 대폭 개선되어 ROG Ally, Steam Deck, Legion Go, Legion Go S를 공식 지원합니다. 핸드헬드 에디션은 Valve의 gamescope-session을 포크한 gamescope-session-cachyos를 도입해 Steam Deck 및 Legion Go의 펌웨어 업데이트를 지원하며, 기본 부트로더가 Limine으로 변경되었고 ISO는 기본적으로 Wayland를 사용합니다. 최신 하드웨어(예: RX 9070 XT 등 신형 GPU)에서는 Bazzite의 불변성 때문에 드라이버 업데이트가 어려운 반면, CachyOS는 몇 가지 명령으로 즉시 해결 가능하다는 현실적인 장점이 있습니다.
+
+---
+
+**Pop!\_OS** (Ubuntu 기반)
+
+2025년 12월 Pop!\_OS 24.04 LTS가 Rust 기반의 완전히 새로운 COSMIC 데스크톱 환경과 함께 정식 출시되었습니다. 커널 6.17, Mesa 25.1.5가 탑재되었으며, COSMIC은 Arch, Fedora, openSUSE 등 다른 배포판에서도 설치 가능합니다. 작년 "예정"에서 드디어 출시된 셈으로, NVIDIA/AMD 드라이버 내장 및 범용성은 그대로 유지됩니다. 다만 게임이 화면 밖으로 일부 벗어나는 버그, 디스플레이 핫키 미지원 등 아직 다듬어야 할 부분이 남아 있습니다.
+
+---
+
+**SteamOS**
+
+2025년부터 Valve가 Lenovo Legion Go, Asus ROG Ally 등 서드파티 핸드헬드 기기에 대한 공식 "SteamOS Compatible" 지원을 시작했습니다. 공식 PC 범용 배포판 출시는 아직 없으나, Valve의 패키지가 OGC를 통해 Bazzite 등 다른 배포판에 공유되고 있습니다.
+
+---
+
+| 배포판       | 기반          | 불변성 | 2026년 주요 변화                                          | 강점                                   | 약점                                 | 추천 대상                   |
+| ------------ | ------------- | ------ | --------------------------------------------------------- | -------------------------------------- | ------------------------------------ | --------------------------- |
+| **Bazzite**  | Fedora Atomic | 예     | OGC 합류, Nvidia 590, HDR 네이티브, KDE 6.6               | 안정성, 초보자 친화, 핸드헬드          | 최신 GPU 드라이버 즉시 반영 어려움   | 메인 PC/초보자              |
+| **Nobara**   | Fedora        | 아니오 | Nobara 43 출시, 5개 에디션, NVIDIA ISO 제공               | 고성능, 커스터마이징, 스트리밍         | 안티치트 Secure Boot 문제            | 경험자/크리에이터           |
+| **CachyOS**  | Arch          | 아니오 | Steam 서베이 3위, 핸드헬드 에디션 대폭 개선, Wayland 기본 | 최고 FPS, 최신 하드웨어 대응           | 초보자 불친화                        | 고사양/신형 하드웨어 게이머 |
+| **Pop!\_OS** | Ubuntu        | 아니오 | COSMIC DE 정식 출시(2025.12)                              | 범용성, NVIDIA/AMD 드라이버, 세련된 UI | 게이밍 특화 부족, COSMIC 아직 미성숙 | 다용도 사용자               |
+
+**추천**: 초보자라면 **Bazzite** (OGC 합류로 생태계 지원 더욱 강화). 최신 GPU 또는 핸드헬드 사용자라면 **CachyOS** 핸드헬드 에디션이 이제 강력한 대안. 게이밍+크리에이티브 작업 병행이라면 **Nobara 43**. 범용 작업도 중요하다면 COSMIC DE 안정화를 기다리며 **Pop!\_OS 24.04**도 고려할 만합니다.
+
+---
+
+## FreeBSD 배포판의 주요 특징
+
+### 🔷 기본 개요
+
+FreeBSD는 BSD(Berkeley Software Distribution) 계열의 오픈소스 유닉스 운영체제로, Linux와는 별개의 독립적인 커널과 사용자 공간을 갖춥니다.
+
+---
+
+### 핵심 특징
+
+**완전한 운영체제** Linux가 커널만 제공하는 것과 달리, FreeBSD는 커널 + 기본 사용자 공간(userland) + 문서를 하나의 통합 프로젝트로 관리합니다. 일관성과 안정성이 높습니다.
+
+**라이선스 (BSD 라이선스)** GPL보다 훨씬 자유로운 BSD 라이선스를 사용합니다. 소스코드 공개 의무가 없어 상용 제품에 많이 채택됩니다. PlayStation OS, macOS/iOS의 일부, Netflix 등이 FreeBSD 코드를 활용합니다.
+
+**ZFS 파일시스템 기본 지원** 스냅샷, 압축, 중복 제거, 체크섬 기반 데이터 무결성 등 엔터프라이즈급 기능을 기본 제공합니다.
+
+**Jail (컨테이너 기술의 원조)** Docker보다 훨씬 앞선 2000년에 도입된 경량 가상화/격리 기술입니다. 각 Jail은 독립적인 프로세스 공간과 네트워크를 가집니다.
+
+**네트워크 성능** Netflix는 FreeBSD를 CDN 서버 OS로 채택할 만큼 네트워크 스택 성능이 뛰어납니다. CARP, pf 방화벽, IPFW 등 강력한 네트워크 도구를 기본 제공합니다.
+
+**안정성 & 예측 가능성** 보수적인 변경 정책으로 엔터프라이즈 환경에서 신뢰받습니다. 서버, 방화벽, NAS(TrueNAS의 기반) 등에 널리 사용됩니다.

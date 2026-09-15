@@ -1,0 +1,58 @@
+<h1 id="dont-disable-buttons">Don't disable buttons<a aria-hidden="true" class="anchor-heading icon-link" href="#dont-disable-buttons"></a></h1>
+<blockquote>
+<p><a href="https://gomakethings.com/dont-disable-buttons/">https://gomakethings.com/dont-disable-buttons/</a></p>
+<p><code>disabled</code> shouldn't block focus - <a href="https://news.ycombinator.com/item?id=38196458">danShumway</a></p>
+</blockquote>
+<p>Today I want to talk about why developers do it, why it’s bad, and what you can do instead. Let’s dig in!</p>
+<h2 id="why-developers-disable-buttons-">Why developers disable buttons <a href="https://gomakethings.com/dont-disable-buttons/#why-developers-disable-buttons">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#why-developers-disable-buttons-"></a></h2>
+<p>Typically, I see the pattern used to prevent a form from being submitted a second time while waiting for the form is processed.</p>
+<p>Often, you’re waiting for an API response that may take a few moments, and you don’t want the user to submit the form again until the original response is processed.</p>
+<pre class="language-js"><code class="language-js">form<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"submit"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Don't let the form reload the page</span>
+  event<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// Get the submit button and disable it</span>
+  <span class="token keyword">let</span> btn <span class="token operator">=</span> form<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span>
+  btn<span class="token punctuation">.</span><span class="token method function property-access">addAttribute</span><span class="token punctuation">(</span><span class="token string">"disabled"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// Do more form stuff...</span>
+
+  <span class="token comment">// re-enable the button after the API responds</span>
+  btn<span class="token punctuation">.</span><span class="token method function property-access">removeAttribute</span><span class="token punctuation">(</span><span class="token string">"disabled"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>With the <code>button</code> disabled, it cannot be clicked again.</p>
+<h2 id="why-this-pattern-is-bad-">Why this pattern is bad <a href="https://gomakethings.com/dont-disable-buttons/#why-this-pattern-is-bad">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#why-this-pattern-is-bad-"></a></h2>
+<p>For starters, it doesn’t really do what you want it to.</p>
+<p>Just because the <code>button</code> is <code>disabled</code> doesn’t mean the form can’t be submitted. Someone could focus on one of the form fields, then press the <code>enter</code> or <code>return</code> key, and the form would submit.</p>
+<p>But it’s also horrible for accessibility.</p>
+<p>Elements with the <code>disabled</code> attribute cannot receive focus, which creates confusing situations for screen reader users and people who <a href="https://gomakethings.com/navigating-the-web-with-a-keyboard/">navigate the web with a keyboard</a>.</p>
+<p>If the <code>button</code> is the current item in focus when you add the <code>disabled</code> attribute (for example, if someone just pressed it to submit the form), the element actually loses focus, which shifts to the <code>document</code> element.</p>
+<p>For a screen reader user, this is particularly jarring, as now you’re in a totally different place on the page.</p>
+<p>So to recap, it doesn’t do what you actually want it to <em>and</em> it breaks your application for a segment of your users.</p>
+<h2 id="a-better-way-">A better way <a href="https://gomakethings.com/dont-disable-buttons/#a-better-way">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#a-better-way-"></a></h2>
+<p>So, what should you do instead?</p>
+<p>I personally prefer to add an attribute to the <code>form</code> as its being submitted, and remove it after all of the form actions are done. Whenever a <code>submit</code> event happens, I check for that attribute first. If it exists, I end the event handler early to prevent multiple form submissions.</p>
+<pre class="language-js"><code class="language-js">form<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"submit"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Don't let the form reload the page</span>
+  event<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// If the form is already submitting, do nothing</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>form<span class="token punctuation">.</span><span class="token method function property-access">hasAttribute</span><span class="token punctuation">(</span><span class="token string">"data-submitting"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+
+  <span class="token comment">// Add the [data-submitting] attribute to stop multiple submissions</span>
+  form<span class="token punctuation">.</span><span class="token method function property-access">setAttribute</span><span class="token punctuation">(</span><span class="token string">"data-submitting"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// Do more form stuff...</span>
+
+  <span class="token comment">// Remove the [data-submitting] attribute</span>
+  form<span class="token punctuation">.</span><span class="token method function property-access">removeAttribute</span><span class="token punctuation">(</span><span class="token string">"data-submitting"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>This preserves focus on your form elements and avoids any weird accessibility issues, prevents duplication form submissions, and also prevents keyboard actions on other form fields from submitting the form.</p>
+<p>You can also style form elements to “appear” disabled using the <code>[data-submitting]</code> CSS selector…</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">data-submitting</span><span class="token punctuation">]</span></span> button</span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">0.8</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Don’t forget to also include <a href="https://gomakethings.com/how-and-why-to-use-aria-live/">an ARIA live region</a> and display form status messages throughout the process.</p>

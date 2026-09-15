@@ -1,0 +1,26 @@
+<h1 id="cypress-v10-tips-and-tricks">Cypress v10 Tips and Tricks<a aria-hidden="true" class="anchor-heading icon-link" href="#cypress-v10-tips-and-tricks"></a></h1>
+<blockquote>
+<p><a href="https://glebbahmutov.com/blog/cypress-v10-tips/">https://glebbahmutov.com/blog/cypress-v10-tips/</a></p>
+</blockquote>
+<p>This blog post collects my tips for using Cypress v10+ which is a large step after the previous versions of Cypress. I plan to add more tips to this blog post as I use v10 more. See my post <a href="https://glebbahmutov.com/blog/cypress-tips-and-tricks/" title="Cypress Tips and Tricks">Cypress Tips and Tricks</a> for more content; most of it still applies to Cypress v10+ tests.</p>
+<ul>
+<li><a href="https://glebbahmutov.com/blog/cypress-v10-tips/#register-the-plugins">Register the plugins</a></li>
+<li><a href="https://glebbahmutov.com/blog/cypress-v10-tips/#launch-the-test-runner-in-the-desired-mode">Launch the test runner in the desired mode</a></li>
+<li><a href="https://glebbahmutov.com/blog/cypress-v10-tips/#quickly-change-the-testing-type">Quickly change the testing type</a></li>
+<li><a href="https://glebbahmutov.com/blog/cypress-v10-tips/#run-all-specs">Run all specs</a></li>
+<li><a href="https://glebbahmutov.com/blog/cypress-v10-tips/#run-e2e-and-component-tests-on-ci">Run E2E and component tests on CI</a></li>
+<li><a href="https://glebbahmutov.com/blog/cypress-v10-tips/#check-the-mode-from-the-config-file">Check the mode from the config file</a></li>
+<li><a href="https://glebbahmutov.com/blog/cypress-v10-tips/#set-the-user-values-using-the-env-block">Set the user values using the env block</a></li>
+</ul>
+<h1 id="launch-the-test-runner-in-the-desired-mode">Launch the test runner in the desired mode<a aria-hidden="true" class="anchor-heading icon-link" href="#launch-the-test-runner-in-the-desired-mode"></a></h1>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"react-scripts start"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"react-scripts build"</span><span class="token punctuation">,</span>
+    <span class="token property">"eject"</span><span class="token operator">:</span> <span class="token string">"react-scripts eject"</span><span class="token punctuation">,</span>
+    <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"start-test 3000 cy:e2e"</span><span class="token punctuation">,</span>
+    <span class="token property">"e2e"</span><span class="token operator">:</span> <span class="token string">"cypress open --e2e --browser electron"</span><span class="token punctuation">,</span>
+    <span class="token property">"comp"</span><span class="token operator">:</span> <span class="token string">"cypress open --component --browser electron"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>

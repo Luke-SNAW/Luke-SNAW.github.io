@@ -1,0 +1,34 @@
+<h1 id="stop-using-json-web-tokens-for-authentication-use-stateful-sessions-instead">Stop Using JSON Web Tokens For Authentication. Use Stateful Sessions Instead.<a aria-hidden="true" class="anchor-heading icon-link" href="#stop-using-json-web-tokens-for-authentication-use-stateful-sessions-instead"></a></h1>
+<p><a href="https://betterprogramming.pub/stop-using-json-web-tokens-for-authentication-use-stateful-sessions-instead-c0a803931a5d">https://betterprogramming.pub/stop-using-json-web-tokens-for-authentication-use-stateful-sessions-instead-c0a803931a5d</a></p>
+<p>I'm tired of seeing the same tutorials pop up every couple of weeks.</p>
+<ul>
+<li>"JWTokens are the recommended auth method because of scalability."</li>
+<li>"JWTokens are easier to use."</li>
+<li>"JWTokens are stateless, so you don't use memory on the server."</li>
+</ul>
+<p>I am sure their intentions are good, but they share an un-secure way of authenticating and authorizing users, at least for web applications.</p>
+<p>However, please don't feel bad; I used JWT (incorrectly) when starting I was starting out because I didn't know any better.</p>
+<h2 id="the-way-jwt-is-usually-implemented-in-tutorials">The Way JWT is usually implemented (in tutorials)<a aria-hidden="true" class="anchor-heading icon-link" href="#the-way-jwt-is-usually-implemented-in-tutorials"></a></h2>
+<p>With that out of the way, let's go through the flow to authenticate users with JWT.</p>
+<ul>
+<li><strong>The user enters their username and password —</strong> When the user clicks the sign-in button, a request is sent to the server to verify the user's credential with the database.</li>
+<li><strong>The server successfully authenticates the user</strong> — The server now creates and signs a JWT using a secret password and returns it in the response.</li>
+</ul>
+<p>Tutorials usually set the expiration to about one week to 30 days.</p>
+<ul>
+<li><strong>The Client Receives the JWT in the response</strong> — The developer (in a client like chrome) receives it, applies some logic, and then stores it, usually in Local Storage.</li>
+<li><strong>The Client uses info stored in the Token to render conditionally</strong> — Usually, tutorials use fields like a user's email, username, and boolean fields like <code>isAdmin</code><strong>.</strong></li>
+<li><strong>The Client Adds the Token as a header for every request</strong> — If the Token exists in Local Storage, the user's session is active.</li>
+</ul>
+<p>The server can now check the user's identity by decrypting the signed Token on every request.</p>
+<p>The Token will be valid until it expires.</p>
+<h2 id="everything-thats-wrong-with-using-jwt-this-way">Everything that's Wrong With Using JWT this way.<a aria-hidden="true" class="anchor-heading icon-link" href="#everything-thats-wrong-with-using-jwt-this-way"></a></h2>
+<p>...</p>
+<h2 id="providing-scalability">Providing Scalability<a aria-hidden="true" class="anchor-heading icon-link" href="#providing-scalability"></a></h2>
+<p>I can't close this article without mentioning that scalability can become an issue with server-side sessions.</p>
+<p>...</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6w36dgapan7eummy1q6jpx1">Back End</a></li>
+</ul>

@@ -1,0 +1,170 @@
+<h1 id="cube-css">Cube CSS<a aria-hidden="true" class="anchor-heading icon-link" href="#cube-css"></a></h1>
+<blockquote>
+<p><a href="https://piccalil.li/blog/cube-css/">https://piccalil.li/blog/cube-css/</a><br>
+<a href="https://cube.fy">https://cube.fy</a></p>
+</blockquote>
+<p><em>A CSS methodology oriented towards simplicity and consistency with a heavy dosage of pragmatism.</em></p>
+<hr>
+<p>If there’s one thing you can guarantee in tech, it’s that someone, somewhere, will declare that CSS isn’t up to the job of “big projects” and what will undoubtedly be recommended by those same people will be either a JavaScript-heavy approach or some sort of all-in utility class approach like Tailwind.</p>
+<p>There’s mostly nothing wrong with these approaches—I quite like Tailwind for early-stage prototyping—but often the context of an all-in JavaScript project, or at least a completely <a href="https://en.wikipedia.org/wiki/Greenfield_project">greenfield project</a> is conveniently <strong>left out</strong>, at the point of suggestion. The problem is, a <em>huge</em> number of projects are websites, so that advice normally doesn’t work for the <strong>vast majority</strong> of developers. For context, it’s estimated that <a href="https://w3techs.com/technologies/details/cm-wordpress">WordPress powers around 36% of the internet</a> and is <strong>still rising</strong>. Compare that to a <a href="https://w3techs.com/technologies/details/js-react">paltry <strong>0.3%</strong> of websites that use React</a>, for example. It’s important to keep those figures in mind.</p>
+<p>In this article, I’m going to tell you about how <strong>I like to write CSS</strong>, which I think could help a lot of folks—at least I hope so—because I’ve used this approach, or an earlier iteration of this approach, to power massive websites, tiny blogs, mobile apps and even intranet software! This methodology has roots in both huge projects that service millions of people all the way down to small websites and <a href="https://hylia.website/">starter kits</a>, thanks to its flexibility. This Flexibility has also enabled CUBE CSS to work in both very old and very new codebases.</p>
+<p>The focus of the methodology is utilising the power of CSS and the web platform as a whole, with some added <em>controls</em> and structures that help to keep things a bit more maintainable and predictable. The end-goal is shipping as little CSS as possible—leaning heavily into progressive enhancement and modern techniques. I hope by the end of the article, it’ll help you to re-think how maybe <strong>you write CSS</strong> in the future.</p>
+<h2 id="what-is-cube-css"><a href="https://piccalil.li/blog/cube-css/#heading-what-is-cube-css">What is CUBE CSS?</a><a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-cube-css"></a></h2>
+<p>CUBE stands for <strong>Composition Utility Block Exception</strong>, and CSS stands for, y’know, CSS (Cascading Style Sheets). As mentioned before, the CUBE methodology is very much an <strong>extension</strong> of good ol’ CSS, rather than a reinvention. This mantra is very seriously maintained too, as the cascade and inheritance particularity play a big role.</p>
+<h2 id="css"><a href="https://piccalil.li/blog/cube-css/#heading-css">CSS</a><a aria-hidden="true" class="anchor-heading icon-link" href="#css"></a></h2>
+<p>The most important part of this methodology is the language itself: CSS. It’s key to note its existence in the name because some alternative approaches, such as <a href="https://css-tricks.com/bem-101/">BEM</a>—which I have enjoyed for many years—can veer very far away from Cascading Style Sheets. I <em>love</em> CSS, though and think that it’s core capabilities are actually <strong>key</strong> to scalable CSS (sorry, I said it). This thinking has taken a <strong>long time and lots of experience to embrace</strong>, also. CSS is an incredibly complex programming language to learn because so much of the working knowledge is less of syntax and more <em>how</em> things work in specific domains, which is often browsers.</p>
+<p>The Cascade is itself, <em>magnificent</em>, because it enables us to write very little CSS and really isn’t as scary as people often make it out to be. Sure, in the old days of Internet Explorer, the cascade was a bit tricky, but using old knowledge and techniques as the base of a modern approach is like feeding horse feed to a car.</p>
+<p>The core of this methodology is that most of the work is <strong>already done for you with global and high-level styles</strong>. This means that before you even starting thinking about components—or the in the case of CUBE CSS—blocks, your typography is mostly set, your colours are working great and your elements are working harmoniously with each other. We use the rest of the methodology—CUBE—not to style <em>everything</em>, but instead, to provide contextual styles that deviate from the common, global system.</p>
+<p>CUBE CSS in essence, is a progressive enhancement approach, vs a fight against the grain of CSS or a pixel-pushing your project to within an inch of its life approach.</p>
+<h2 id="composition"><a href="https://piccalil.li/blog/cube-css/#heading-composition">Composition</a><a aria-hidden="true" class="anchor-heading icon-link" href="#composition"></a></h2>
+<p>Speaking of systems: let’s talk about <strong>design systems</strong>. I’m lucky that I’ve been around these for around half a decade now, and working with design systems has been one of the most valuable aspects of my career as a designer and front-end developer. This is mainly because a design system doesn’t just make you think at a <strong>micro-level</strong>, but also at a <strong>macro-level</strong>, because you have to make not just decisions about pixels, but also high-level organization decisions which the design system helps to solve. Design system work is actually <strong>diplomacy work</strong>, a lot of the time.</p>
+<p>This is often where I see narrow, component-only tunnel vision fall short and really, these approaches are less design systems, but more <strong>component libraries</strong> that solve a much narrower cohort of problems.</p>
+<p>Often, in more recent conversations (read: tweet threads) about design systems, stuff is <em>very</em> micro-optimized. This is fine, because if it works for folks, it works! I would issue a warning though: the LEGO blocks analogy isn’t that relevant in the wider context of design systems. It is very useful at explaining a component’s role in an overall project, though.</p>
+<p>I mention all of this, not to sound all smart about design systems, but because even if you break your design system into tiny molecules, it’s still going to be applied in a larger context at some point and that should never be forgotten, but so often is. I’ve found over many approaches, within many projects over the years, that wider composition often trumps micro-optimizations and the <strong>composition layer</strong> of CUBE CSS exists because of this</p>
+<p>What do I mean about composition though? Let’s take a look at this classic layout:</p>
+<p><img src="https://piccalilli.imgix.net/images/blog/cube-css/composition-1.svg?format=auto&#x26;q=60&#x26;w=1500" alt="A line illustration of a basic layout with components"></p>
+<p>A good ol’ classic hero and cards situation with a 3 column grid.</p>
+<p>We’ve got various elements here that themselves are individual components. The <strong>composition</strong> of this layout is what controls the overall layout and rhythm of elements. Think of the composition as a <strong>skeleton</strong>.</p>
+<p><img src="https://piccalilli.imgix.net/images/blog/cube-css/composition-2.svg?format=auto&#x26;q=60&#x26;w=1500" alt="The same illustration but the components are gone and a skeletal structure remains"></p>
+<p>As you can see, the composition handles how things stitch together, regardless of what component they happen to be.</p>
+<p>To illustrate this further, we can put whatever components we like in our <strong>skeleton</strong>. Like this example, we replace a card with a call to action instead:</p>
+<p><img src="https://piccalilli.imgix.net/images/blog/cube-css/composition-3.svg?format=auto&#x26;q=60&#x26;w=1500" alt="The initial illustration but one of the cards has been replaced with a new component"></p>
+<p>Our call to action isn’t out of place because the composition of this view handles all of the layout for us.</p>
+<p>Composition is also <strong>key within components</strong>. Take our card component as an example. You will probably have some flow content in there somewhere, just like in the illustrations, where a heading and summary hang out together. What you could do is add a class to every single element in there and micro-optimise how they behave, like you would with BEM, or you could do something like this:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.flow</span> <span class="token combinator">></span> * <span class="token combinator">+</span> *</span> <span class="token punctuation">{</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span><span class="token variable">--flow-space</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">em</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Then we’d apply it to our card markup like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>article</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card__image<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[ card__content ] [ flow ]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&#x3C;!-- our content in here will auto-flow now --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>article</span><span class="token punctuation">></span></span>
+</code></pre>
+<blockquote>
+<p>FYI<br>
+You might be wondering what the heck those brackets (<code>[]</code>) are doing in the <code>class</code> attribute. It’s a grouping mechanism that’s explained later in this article.<br>
+You can <a href="https://piccalil.li/blog/cube-css/#heading-grouping">skip straight to that section</a> too.</p>
+</blockquote>
+<p>We create a utility that provides us with a common flow and rhythm which in turn, helps us to compose our layouts <em>and</em> components. That seamlessly segues us in to the next section.</p>
+<h2 id="utilities"><a href="https://piccalil.li/blog/cube-css/#heading-utilities">Utilities</a><a aria-hidden="true" class="anchor-heading icon-link" href="#utilities"></a></h2>
+<p>If utilizing the cascade is the backbone of this methodology, then utilities are the shoes that help it to walk comfortably.</p>
+<p>A utility, in the context of CUBE CSS, is a <strong>CSS class that does one job and does that job well</strong>. This CSS class, more often than not, will have one CSS property defined, but it might also have a few, in a concise group, like this example of a wrapper utility:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.wrapper</span></span> <span class="token punctuation">{</span>
+  <span class="token property">margin-inline</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">padding-inline</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+  <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">60</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>FYI<br>
+The <code>margin-inline</code> and <code>padding-inline</code> properties are called <strong>logical properties</strong> and you can learn about them in <a href="https://piccalil.li/tutorial/css-logical-properties/">this tutorial: CSS Logical Properties</a>.</p>
+<p>These shorthand ways of writing are <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline">editor’s drafts</a> at the time of writing, so use with care and/or in a progressively enhanced way.</p>
+</blockquote>
+<p>This handy utility provides a consistent max width, padded container that sits in the middle of the viewport when the viewport is <strong>greater than 60rem wide</strong>.</p>
+<p><strong>One job: done well.</strong></p>
+<h3 id="design-tokens">Design tokens<a aria-hidden="true" class="anchor-heading icon-link" href="#design-tokens"></a></h3>
+<p>These are a concept by <a href="https://twitter.com/jina">Jina</a> which completely transformed how I think about design systems. Here’s a direct quote about what they are, by Jina:</p>
+<blockquote>
+<p>“Design Tokens are the visual atoms of the design system – specifically, they are named entities that store visual design attributes. We use them in place of hard–coded values in order to maintain a scalable and consistent visual system.”</p>
+</blockquote>
+<p>Design tokens are really useful because they allow our systems to be scalable (sorry I said it again). This is core with this methodology—CUBE CSS—because we take those abstracted values and apply them to our context with utility classes.</p>
+<p>For example, let’s say our primary colour is <code>#ff00ff</code>, which is a nice magenta colour. This could be defined outside of our context in a database or even a JSON file like this:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token string">"colours"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"primary"</span><span class="token operator">:</span> <span class="token string">"#ff00ff"</span><span class="token punctuation">,</span>
+    <span class="token string">"secondary"</span><span class="token operator">:</span> <span class="token string">"#ffbf81"</span><span class="token punctuation">,</span>
+    <span class="token string">"base"</span><span class="token operator">:</span> <span class="token string">"#252525"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>For me, there’s usually a step between that and CSS where design token utility classes are generated. You end up with something like this:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.bg-primary</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode color">#ff00ff</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.bg-secondary</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode color">#ffbf81</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.color-primary</span></span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode color">#ff00ff</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.color-secondary</span></span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode color">#ffbf81</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>With those classes generated, we would apply them like so:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>article</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-primary color-base<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>article</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Applying our design tokens like this allows us to define things once and apply them everywhere. It reduces repetition and most importantly: reduces overall bundle sizes!</p>
+<h2 id="block"><a href="https://piccalil.li/blog/cube-css/#heading-block">Block</a><a aria-hidden="true" class="anchor-heading icon-link" href="#block"></a></h2>
+<p>On to the next part of the methodology: Block. A block is your building block or your component. It’s your card or your button. If you’ve already used BEM before, the definition is almost <em>identical</em>. A block at this point is really a minor thing, though, because so much has been handled by the other parts covered: CSS, composition and utilities. If you choose to write your CSS with this sort of methodology, you’ll probably find that your block CSS is <strong>tiny</strong>, because of this.</p>
+<p>A major difference between BEM and CUBE is that whatever goes inside the block is <strong>open season</strong>. This is because—as mentioned previously—your global CSS, composition rules and utilities have most likely done most of the work for you, so having formal elements is sort of redundant.</p>
+<p>I still personally like to use the BEM syntax for elements though, like this:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.my-block__my-element</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* Cool CSS goes here */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This is mainly a preference that stems from <strong>years</strong> of working with BEM, so it’s how my brain is programmed now.</p>
+<p>You could quite comfortably give each element flat selectors or even apply HTML element styles, like this, too:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.my-block</span> <span class="token class">.title</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* Cool CSS goes here */</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.my-block</span> h2</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* Cool CSS goes here */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>It shouldn’t really matter because again, your global CSS, utilities and composition rules are doing the hard work for you already.</p>
+<h2 id="exception"><a href="https://piccalil.li/blog/cube-css/#heading-exception">Exception</a><a aria-hidden="true" class="anchor-heading icon-link" href="#exception"></a></h2>
+<p>Lastly in this tour: Exceptions. These are little variations to a block. For example, you might have a “reversed” state or an “inactive” state. For these: we use <strong>data attributes</strong>.</p>
+<p>Take this card as an example. By default, it’s a standard edition card:</p>
+<p><img src="https://piccalilli.imgix.net/images/blog/cube-css/exception-1.svg?format=auto&#x26;q=60&#x26;w=1500" alt="A card with image, heading and summary"></p>
+<p>Our standard edition card element</p>
+<p>But when we add a “reversed” state, the image is at the bottom and the content is at the top.</p>
+<p><img src="https://piccalilli.imgix.net/images/blog/cube-css/exception-2.svg?format=auto&#x26;q=60&#x26;w=1500" alt="The same card but flipped"></p>
+<p>Our exception gives it a flip.</p>
+<p>We add the exception using a data attribute like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>article</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span> <span class="token attr-name">data-state</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reversed<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>article</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>This provides a useful hook for both CSS <strong>and</strong> JavaScript! You can reverse the content like so:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.card</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">data-state</span><span class="token operator">=</span><span class="token attr-value">"reversed"</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-direction</span><span class="token punctuation">:</span> column-reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>FYI<br>
+Be very careful changing the source order of content—especially when there are focusable elements at play (<code>&#x3C;a></code>, <code>&#x3C;button></code>).</p>
+<p>This example is mostly ok because all we are doing is flipping an image. If we were to change the order of focusable content, it could be <em>very</em> confusing for keyboard users.</p>
+</blockquote>
+<h2 id="grouping"><a href="https://piccalil.li/blog/cube-css/#heading-grouping">Grouping</a><a aria-hidden="true" class="anchor-heading icon-link" href="#grouping"></a></h2>
+<p>There could be a lot of stuff going on with your <code>class</code> attribute with this methodology, so I like to group things with square brackets, like so:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>article</span>
+  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[ card ] [ section box ] [ bg-base color-primary ]<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-state</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reversed<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>article</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>I tend to follow this order:</p>
+<ol>
+<li>The main block class</li>
+<li>Any subsequent block classes</li>
+<li>Utility classes</li>
+</ol>
+<p>I might even split up the utilities into standard utilities and design tokens, depending on how many there are.</p>
+<p>I get asked about my use of brackets in class attributes <em>a lot</em> and quite a lot of the time, they get a very mixed reception. The important thing is clarity and I think they provide that.</p>
+<p>If you don’t like brackets, you could use something like pipes instead:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>article</span>
+  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card | section box | bg-base color-primary<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-state</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reversed<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>article</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>At the end of the day, it doesn’t matter what you do, because HTML and CSS are smart enough to ignore things either they don’t understand or things that have no meaning to them. They really are excellent programming languages because of this.</p>
+<h2 id="wrapping-up"><a href="https://piccalil.li/blog/cube-css/#heading-wrapping-up">Wrapping up</a><a aria-hidden="true" class="anchor-heading icon-link" href="#wrapping-up"></a></h2>
+<p>This isn’t a heavily documented, complex methodology. Well, not now, anyway. It’s more of a concept method of organizing CSS <em>just enough</em> to not pull to far away from the “classic” way of writing it. Really, it’s more of a thinking structure.</p>
+<p>I’ve been all the way down the micro-optimization rabbit hole and been down the “let’s build a library of skeletal components for all projects” (this almost never brings any benefit). On the opposite end of the scale, I’ve done all globals with direct HTML tag styling, too. <strong>Any method is extremely valid for your context</strong> and if this is how you write your CSS, <strong>keep doing what works for you and your team</strong>. All I would recommend is keeping other team’s <a href="https://hankchizljaw.com/wrote/context-and-caveats/">contexts and caveats</a> in mind before you recommend <strong>your way</strong> as absolute.</p>
+<p>I’m mainly presenting this methodology for folks who are taking my <a href="https://piccalil.li/courses/">courses</a> and are reading my <a href="https://piccalil.li/tutorials/0/">tutorials</a>, as supporting material, so they can understand <em>why</em> I’m doing things like I am, but equally, I hope it helps others too. If you like what you see and think more concise, formal documentation would be helpful: let me know!</p>

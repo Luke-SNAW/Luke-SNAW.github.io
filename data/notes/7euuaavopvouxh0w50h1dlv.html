@@ -1,0 +1,100 @@
+<h1 id="astro-view-transition과-spa-라우팅">Astro View Transition과 SPA 라우팅<a aria-hidden="true" class="anchor-heading icon-link" href="#astro-view-transition과-spa-라우팅"></a></h1>
+<blockquote>
+<p>작성일: 2026-03-27 | from Claude Opus 4.6</p>
+</blockquote>
+<h2 id="개요">개요<a aria-hidden="true" class="anchor-heading icon-link" href="#개요"></a></h2>
+<p>Astro 6의 <code>ClientRouter</code>를 사용한 View Transition 활성화 방법과, View Transition API 자체와 SPA 라우팅의 성능 이점을 구분하여 정리한다.</p>
+<h2 id="내용">내용<a aria-hidden="true" class="anchor-heading icon-link" href="#내용"></a></h2>
+<h3 id="전환-애니메이션-옵션">전환 애니메이션 옵션<a aria-hidden="true" class="anchor-heading icon-link" href="#전환-애니메이션-옵션"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>옵션</th><th>설명</th></tr></thead><tbody><tr><td><code>fade</code> (기본값)</td><td>페이드 인/아웃</td></tr><tr><td><code>slide</code></td><td>이전 페이지 밀려나고 새 페이지 슬라이드 인 (뒤로가기 시 반대 방향)</td></tr><tr><td><code>morph</code></td><td>동일 <code>transition:name</code> 요소 간 위치/크기 보간</td></tr><tr><td><code>none</code></td><td>시각적 전환 효과 없음</td></tr><tr><td>커스텀</td><td><code>@keyframes</code> 직접 정의 가능</td></tr></tbody></table></div>
+<p><code>transition:animate</code>는 <code>&#x3C;html></code> 등 HTML 요소에 디렉티브로 적용한다 (ClientRouter의 prop이 아님).</p>
+<h3 id="animatenone이어도-달라지는-점"><code>animate="none"</code>이어도 달라지는 점<a aria-hidden="true" class="anchor-heading icon-link" href="#animatenone이어도-달라지는-점"></a></h3>
+<p>시각적 애니메이션만 비활성화될 뿐, ClientRouter의 SPA 라우팅은 그대로 동작한다:</p>
+<ul>
+<li>전체 페이지 새로고침 없이 DOM 교체</li>
+<li><code>transition:name</code>이 같은 요소 간 morph 보간</li>
+<li><code>transition:persist</code> 지정 요소는 전환 시에도 유지</li>
+</ul>
+<h3 id="성능-이점의-출처-view-transition-vs-spa-라우팅">성능 이점의 출처: View Transition vs SPA 라우팅<a aria-hidden="true" class="anchor-heading icon-link" href="#성능-이점의-출처-view-transition-vs-spa-라우팅"></a></h3>
+<p><strong>View Transition API</strong> (브라우저 네이티브)는 DOM 스냅샷 간 시각적 애니메이션만 담당하며 성능 이점이 없다.</p>
+<p><strong>SPA 라우팅</strong>이 실제 성능 이점의 원천이다:</p>
+<ul>
+<li>공통 리소스(CSS, JS, 폰트) 재파싱/재실행 방지</li>
+<li>공통 레이아웃(header, footer) 리렌더 최소화</li>
+<li>브라우저 상태(스크롤, 미디어 재생, 포커스) 유지</li>
+</ul>
+<p>Astro의 <code>ClientRouter</code>는 View Transition API + SPA 라우터를 묶어서 제공하므로 둘이 함께 활성화된다. React Router, Next.js, Nuxt 등 다른 SPA 프레임워크는 이미 SPA 라우팅을 사용하고 있어 해당 성능 이점을 기본적으로 갖고 있다.</p>
+<h3 id="브라우저-미지원-시-fallback">브라우저 미지원 시 Fallback<a aria-hidden="true" class="anchor-heading icon-link" href="#브라우저-미지원-시-fallback"></a></h3>
+<p><code>ClientRouter</code>의 <code>fallback</code> prop으로 View Transition API를 지원하지 않는 브라우저의 동작을 제어한다.</p>
+<pre class="language-astro"><code class="language-astro">&#x3C;ClientRouter fallback="swap" />
+</code></pre>
+<p>아래 옵션은 <strong>View Transition API 미지원 브라우저에서의 동작</strong>만 제어하며, 지원 브라우저에서는 항상 SPA 라우팅이 정상 동작한다.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>값</th><th>미지원 브라우저에서의 동작</th></tr></thead><tbody><tr><td><code>animate</code> (기본값)</td><td>CSS 애니메이션으로 전환 효과를 모방한 뒤 DOM 교체</td></tr><tr><td><code>swap</code></td><td>애니메이션 없이 즉시 DOM 교체 (SPA 라우팅은 유지)</td></tr><tr><td><code>none</code></td><td>SPA 라우팅 비활성화, 일반 MPA처럼 전체 페이지 새로고침</td></tr></tbody></table></div>
+<p>View Transition API는 Chromium 기반 브라우저(Chrome, Edge, Opera)에서 지원되며, Firefox와 Safari는 미지원 또는 부분 지원 상태다. <code>animate="none"</code>을 사용하는 경우 <code>fallback="swap"</code>과 결과적으로 동일하므로 별도 설정이 필요 없다.</p>
+<h3 id="주의사항">주의사항<a aria-hidden="true" class="anchor-heading icon-link" href="#주의사항"></a></h3>
+<ul>
+<li>정적 콘텐츠 위주 사이트에서는 체감 차이가 크지 않으며, 네트워크가 느리거나 공통 JS가 무거울 때 효과가 두드러진다</li>
+</ul>
+<h3 id="clientrouter의-단점">ClientRouter의 단점<a aria-hidden="true" class="anchor-heading icon-link" href="#clientrouter의-단점"></a></h3>
+<ul>
+<li><strong>JS 필수</strong> — JavaScript가 비활성화된 환경에서는 네비게이션이 깨질 수 있다</li>
+<li><strong>번들 크기 증가</strong> — SPA 라우터 스크립트가 추가로 로드됨</li>
+<li><strong>서드파티 스크립트 호환성</strong> — 전체 페이지 로드를 가정하는 외부 스크립트(analytics, 광고 등)가 페이지 전환 시 정상 동작하지 않을 수 있다</li>
+<li><strong>스크립트 생명주기 관리</strong> — 모든 DOM 이벤트 바인딩을 <code>astro:page-load</code>로 감싸야 하고, cleanup이 필요한 경우 <code>astro:before-preparation</code> 등 추가 이벤트 처리 필요. 또한 <code>astro:page-load</code>는 <strong>모든 페이지 전환마다</strong> 발생하므로, 특정 페이지 전용 스크립트는 콜백 초입에 URL 체크(예: <code>if (!location.pathname.startsWith('/library')) return</code>)를 추가해야 한다. 없으면 다른 페이지로 전환 시 <code>Cannot read properties of null</code> 에러가 발생한다</li>
+<li><strong>디버깅 복잡도</strong> — MPA에서는 페이지 로드마다 상태가 초기화되지만, SPA에서는 이전 페이지의 메모리 누수나 상태 잔존이 문제가 될 수 있다</li>
+</ul>
+<h2 id="참고">참고<a aria-hidden="true" class="anchor-heading icon-link" href="#참고"></a></h2>
+<ul>
+<li><a href="https://docs.astro.build/en/guides/view-transitions/">Astro View Transitions</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API">View Transition API (MDN)</a></li>
+</ul>
