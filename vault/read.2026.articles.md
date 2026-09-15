@@ -2,9 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1789115853124
+updated: 1789456960765
 created: 1766965709816
 ---
+
+## Week 38, 2026
+
+- [The Configuration Complexity Clock](https://mikehadlow.blogspot.com/2012/05/configuration-complexity-clock.html) illustrates the lifecycle of software project requirements as they evolve from simple, hard-coded values to increasingly complex configuration systems. Initially, developers start with hard-coded values for speed, but as business needs shift, they migrate these values into configuration files. Eventually, this escalation leads to the adoption of sophisticated business rules engines and custom Domain Specific Languages (DSLs) to manage growing logic requirements. Despite these architectural efforts, projects often find themselves circling back to the original simplicity, realizing that complex configuration systems create their own bugs, learning curves, and maintenance burdens. Hadlow suggests that, at a certain level of complexity, hard-coding may remain the least painful option.
 
 ## Week 37, 2026
 

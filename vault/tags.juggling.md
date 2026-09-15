@@ -2,7 +2,7 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1788927710567
+updated: 1789458085270
 created: 1779352821282
 ---
 
@@ -28,6 +28,8 @@ created: 1779352821282
 - 오른쪽 2in1 circles (Level 1?) 100개 달성 - 2026-08-31
 - 왼쪽 2in1 circles (Level 1?) 시작. qualified - 2026-09-02
 - 왼쪽 2in1 circles (Level 1?) 30개 돌파 - 2026-09-09
+- 왼쪽 half shower (Level 3) 100개 달성 - 2026-09-13
+- 423 시작 (Level 2) - 2026-09-15
 
 ---
 
