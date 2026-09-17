@@ -2,12 +2,20 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1789456960765
+updated: 1789633241036
 created: 1766965709816
 ---
 
 ## Week 38, 2026
 
+- [Tell the speakers that you liked their talks](https://ohhelloana.blog/tell-the-speakers/)
+  - [HN](https://news.ycombinator.com/item?id=49710903)
+    - Many speakers struggle with performance anxiety, imposter syndrome, and the difficulty of gauging audience engagement, particularly in remote settings or with stony-faced crowds. Consequently, expressing genuine appreciation after a presentation serves as essential validation that helps combat these professional insecurities.
+    - Providing specific compliments or asking thoughtful questions transforms a simple interaction into a valuable connection for both parties. Contributors suggest that even constructive criticism is often welcomed by presenters as it indicates the audience was engaged and paying attention. Simple gestures, such as taking notes during a presentation, maintaining eye contact, or sending follow-up messages, can deeply improve the experience for anyone sharing their work publicly.
+- 행복을 '즐거움','만족', '의미'의 3대 영양소로 나눠서, 그 영양소가 풍부한 식단을 짜라. - [youtube](https://www.youtube.com/watch?v=hZWTGyXF0mI)
+- [There’s a 100% Chance AI Agents Are Already Ruining the Internet](https://www.404media.co/theres-a-100-chance-ai-agents-are-already-ruining-the-internet/)
+  - Agents are already involved in actions that go beyond private assistance and cause harm to other people and services.
+  - We were mad about bloated, unnecessarily large web pages taking 3 seconds to load. Now, it takes 8 seconds to first pass a "checking if you're a bot" page or worse - making you click on pictures of crosswalks. - [HN](https://news.ycombinator.com/item?id=49715664)
 - [The Configuration Complexity Clock](https://mikehadlow.blogspot.com/2012/05/configuration-complexity-clock.html) illustrates the lifecycle of software project requirements as they evolve from simple, hard-coded values to increasingly complex configuration systems. Initially, developers start with hard-coded values for speed, but as business needs shift, they migrate these values into configuration files. Eventually, this escalation leads to the adoption of sophisticated business rules engines and custom Domain Specific Languages (DSLs) to manage growing logic requirements. Despite these architectural efforts, projects often find themselves circling back to the original simplicity, realizing that complex configuration systems create their own bugs, learning curves, and maintenance burdens. Hadlow suggests that, at a certain level of complexity, hard-coding may remain the least painful option.
 
 ## Week 37, 2026
