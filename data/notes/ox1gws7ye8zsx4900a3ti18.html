@@ -1,0 +1,82 @@
+<h1 id="you-should-separate-your-billing-from-entitlements">You should separate your billing from entitlements<a aria-hidden="true" class="anchor-heading icon-link" href="#you-should-separate-your-billing-from-entitlements"></a></h1>
+<blockquote>
+<p><a href="https://arnon.dk/why-you-should-separate-your-billing-from-entitlement/">https://arnon.dk/why-you-should-separate-your-billing-from-entitlement/</a></p>
+</blockquote>
+<p>Building your own entitlement service is key for supporting a modern, flexible SaaS product.</p>
+<p>Whenever I read about billing systems, there’s a lot of talk about the billing aspects but not so much around entitlements. In the spirit of sharing, and since I haven’t found any good articles about it, I decided to tell you why we designed our own entitlement system at <a href="https://www.pleo.io/">Pleo</a>.</p>
+<p>But first:</p>
+<h2 id="what-is-an-entitlement">What is an entitlement?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-an-entitlement"></a></h2>
+<p>If you’re a pedant, look away because you may not like these definitions.</p>
+<blockquote>
+<p><strong>An entitlement is a customer’s access to a specific feature or product, within a given plan.</strong></p>
+</blockquote>
+<p>The question of just <em>how</em> a feature entitlement relates to the plan can be kind of difficult to explain, so here’s my attempt:</p>
+<p><a href="https://i0.wp.com/arnon.dk/wp-content/uploads/2022/02/image.png?ssl=1">entitlement</a></p>
+<p>Composition of pricing and feature entitlements</p>
+<ul>
+<li>1 – The <strong>plan level</strong>: Lots of products, and primarily SaaS products, include different plans or plan levels. You’ll also commonly see about 3 levels.</li>
+<li>2 – <strong>Payment terms</strong> – e.g., “monthly”, “yearly”. These could change the entitlements, but that is a bit unusual.</li>
+<li>3 – a set of <strong>entitlements</strong> that make up this plan or tier. These would commonly be called features, products, or services.</li>
+<li>4 – <strong>Entitlement limits</strong> – adjacent to controlling which features are included, an entitlement limit places a specific limit on some capabilities.</li>
+<li>5 – <strong>Geographic variations</strong> – not all features are available in all geographies, so some features may be limited to a specific market even within a specific plan level.</li>
+<li>6 – <strong>Entitlement variation –</strong> a variation of the service-level of a feature. For example, you may only get basic support with some plan levels, whereas a higher plan level would include a dedicated account manager.</li>
+</ul>
+<hr>
+<h2 id="why-entitlements-matter-for-saas-companies">Why entitlements matter for SaaS companies<a aria-hidden="true" class="anchor-heading icon-link" href="#why-entitlements-matter-for-saas-companies"></a></h2>
+<p>If you lay your products out just like I did in the example above, you may not need to care while things are simple and small.</p>
+<p>At Pleo, our plans are a bit more complex, but the general principle is mostly the same. In the past, we could get away with hard-coding checks, like this:</p>
+<pre><code>if plan == 'gold' then show_feature() else do_nothing()
+</code></pre>
+<p>In that horrible pseudocode, the “Gold” plan levels get all features, while lower levels will not see these more premium features.</p>
+<p><a href="https://i0.wp.com/arnon.dk/wp-content/uploads/2022/02/image-5.png?ssl=1">The classic flow for checking a customer’s entitlement goes through checking for the plan, and then matching features. Responses are in yellow.</a></p>
+<p>Overlaying the potential upgrades isn’t too hard either. <em>“Want to use feature 4? Upgrade to our Silver plan!”</em>. Easy peasy.</p>
+<p><em>Or so it may seem.</em></p>
+<h3 id="things-get-complex-when-changes-happen">Things get complex when changes happen<a aria-hidden="true" class="anchor-heading icon-link" href="#things-get-complex-when-changes-happen"></a></h3>
+<p>Suppose one day you want to modify your basic level to remove a feature that costs too much to be valuable. Now you must go through all places in your codebase and modify these hardcoded checks.</p>
+<p>Not only that, some of your customers may rely on this feature and won’t accept it being removed. If you remove these hardcoded checks, there is no sane way to let a subset of customers keep this feature once removed.</p>
+<blockquote>
+<p><strong>Pro tip: never hardcode customer names or IDs in your system.</strong></p>
+</blockquote>
+<p>You are faced with either force-upgrading them, or making another plan level that includes this feature, effectively “grandfathering” them into a plan that can’t be selected. That statement <em>alone</em> is enough to make anyone who’s worked on billing shiver with disgust.</p>
+<h2 id="why-you-should-separate-your-entitlements-from-billing">Why you should separate your entitlements from billing<a aria-hidden="true" class="anchor-heading icon-link" href="#why-you-should-separate-your-entitlements-from-billing"></a></h2>
+<p>So herein lies the problem: if you ever want to make any change to your company’s offering, or if you find yourself expanding to new territories, you really should have a separate mechanism to handle entitlements.</p>
+<p>In blunt terms:</p>
+<ol>
+<li><strong>If you will change what features are included in a plan</strong>, you should have a separate entitlement system.</li>
+<li><strong>If you think you won’t want to force customers onto new plans</strong>, you should have a separate entitlement system.</li>
+<li><strong>If some features are optional add-ons</strong>, you should have a separate entitlement system.</li>
+<li><strong>If you ever hope to expand to new countries and markets</strong>, you should have a separate entitlement system.</li>
+<li><strong>If you want to let customers experience features separately from their billing status</strong>, you guessed it… You should have a separate entitlement system!</li>
+</ol>
+<p>With an entitlement system, you manage each feature’s business logic in one central system, instead of in your applications.</p>
+<p>Using an entitlement service doesn’t do away with the billing system. This is a distinctly different concept, even though it seems semantic.</p>
+<p>You probably still need to know if the customer has paid and what price plan they paid for, what their billing status is (<em>paid</em> or <em>delinquent</em>), what phase they’re in (like <em>in trial</em> or <em>evergreen</em>) but now you’re letting the entitlement system decide if the user should gain access to features in the system.</p>
+<p><a href="https://i0.wp.com/arnon.dk/wp-content/uploads/2022/02/image-6.png?ssl=1">Responses in yellow indicate which features a user may have enabled, and which are possible as paid upgrades.</a> Please excuse the crude psuedo-code.</p>
+<h3 id="what-should-an-entitlement-system-know">What should an entitlement system know?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-should-an-entitlement-system-know"></a></h3>
+<p>This centralised system can contain answers for lots more combinations:</p>
+<ul>
+<li>For a specific user on a plan, what limits are there?</li>
+<li>For a specific user, what features should there be regardless of what plan they’re on?</li>
+<li>For a specific user on a plan (i.e., a user on the gold plan), what features are there?</li>
+<li>For a user on a plan in a specific country (i.e., a user on the gold plan in Finland), what features are there, and which upgrades are possible?</li>
+<li>For a specific customer, are they in their <em>trial</em> phase, or an <em>evergreen</em> phase?</li>
+<li>For a very specific user on plan, in a country (i.e., a grandfathered account who used to be on the silver plan, in Finland, which has extra features), what features are there?</li>
+<li>… and potentially more variations, depending on your setup.</li>
+</ul>
+<hr>
+<h2 id="a-modern-entitlementbilling-architecture--my-top-6-tips">A modern entitlement/billing architecture – my top 6 tips<a aria-hidden="true" class="anchor-heading icon-link" href="#a-modern-entitlementbilling-architecture--my-top-6-tips"></a></h2>
+<p><a href="https://i0.wp.com/arnon.dk/wp-content/uploads/2022/02/image-4.png?ssl=1">The modern billing architecture offloads the business logic into the entitlement system, instead of the front-end or the application.</a></p>
+<ol>
+<li><strong>Your modern application should rely on an entitlement service, instead of the billing system.</strong> The requests should go to the entitlement system, and then to the identity systems and billing systems, to understand a customer’s state.</li>
+<li><strong>You may be thinking “isn’t this causing a single point of failure?”</strong> – and yeah, you’re right. It is. But it’s not worse than checking the billing system directly. Any system can be down.</li>
+<li><strong>Have sane fallbacks for downtime.</strong> In case the entitlement system (or a downstream system) fails, you should have some sane defaults. You may not want to prevent access entirely, but you probably shouldn’t allow a customer to make changes that they won’t be able to undo once the system is fully functioning again.</li>
+<li><strong>Plan for overrides.</strong> Your entitlement service should be able to overlay or override any entitlement, should the need arise. For example, you may want to allow a customer that has not paid to access the system for a short duration, without restarting the billing relationship.</li>
+<li><strong>Plan for the future</strong>. Sometimes you know about a future change well ahead. Your system should be able to handle a future change without modifying the current status. By setting a <code>valid-from</code> and <code>valid-until</code> date, you can safely switch entitlements at a future time, while maintaining the current status-quo.</li>
+<li><strong>There is no 6.</strong></li>
+</ol>
+<hr>
+<h2 id="the-outcomes-of-having-a-separated-entitlement-system">The outcomes of having a separated entitlement system<a aria-hidden="true" class="anchor-heading icon-link" href="#the-outcomes-of-having-a-separated-entitlement-system"></a></h2>
+<p><strong>We can now launch features without redeploying.</strong> Instead of going through hundreds of lines of code, altering behaviour, and then redeploying our software – we schedule it with our entitlement service.</p>
+<p><strong>We can now plan for feature launches by scheduling the entitlement to go live for a specific market at a specific time-of-day.</strong> It has actually also partially replaced tools like LaunchDarkly (which was overkill for some of our use-cases).</p>
+<p><strong>Changing entitlements takes minutes, and is entirely predictable.</strong> As our company decided to expand to new markets, we found ourselves relying heavily on our entitlement service. We know exactly when things go live. Plus, we have a full view of all features and entitlements across all plans and geographies.</p>
+<p>Anyway, I hope you found this helpful. If you’d like to hear more or have any questions, do reach out!</p>

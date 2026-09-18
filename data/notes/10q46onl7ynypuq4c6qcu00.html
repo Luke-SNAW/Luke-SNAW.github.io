@@ -1,0 +1,271 @@
+<h1 id="understanding-javascript-memory-management-deep-dive-into-garbage-collection-techniques">Understanding JavaScript Memory Management: Deep Dive into Garbage Collection Techniques<a aria-hidden="true" class="anchor-heading icon-link" href="#understanding-javascript-memory-management-deep-dive-into-garbage-collection-techniques"></a></h1>
+<blockquote>
+<p><a href="https://jsdev.space/js-garbage-collection/">https://jsdev.space/js-garbage-collection/</a></p>
+</blockquote>
+<p>In JavaScript, memory management is vital for both performance and stability. The garbage collection (GC) mechanism handles automatic memory reclamation, but there are several algorithms employed to manage this efficiently. Below is an in-depth exploration of the three classic GC algorithms:</p>
+<h2 id="1-in-depth-analysis-of-three-garbage-collection-algorithms">1. In-depth Analysis of Three Garbage Collection Algorithms<a aria-hidden="true" class="anchor-heading icon-link" href="#1-in-depth-analysis-of-three-garbage-collection-algorithms"></a></h2>
+<h3 id="mark-and-sweep-algorithm">Mark-and-Sweep Algorithm<a aria-hidden="true" class="anchor-heading icon-link" href="#mark-and-sweep-algorithm"></a></h3>
+<p><strong>Core Principle</strong>: Identify surviving objects through reachability analysis. Process:</p>
+<ul>
+<li><strong>Marking</strong>: Start from GC roots, such as global objects and active function call stacks.</li>
+<li><strong>Tracking</strong>: Perform depth-first traversal to find all reachable objects.</li>
+<li><strong>Cleanup</strong>: Reclaim memory from unmarked objects.</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">markAndSweep</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Mark phase</span>
+  <span class="token keyword">let</span> worklist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>roots<span class="token punctuation">]</span>
+  <span class="token keyword control-flow">while</span> <span class="token punctuation">(</span>worklist<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> obj <span class="token operator">=</span> worklist<span class="token punctuation">.</span><span class="token method function property-access">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>obj<span class="token punctuation">.</span><span class="token property-access">marked</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      obj<span class="token punctuation">.</span><span class="token property-access">marked</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+      worklist<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token spread operator">...</span>obj<span class="token punctuation">.</span><span class="token property-access">references</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Sweep phase</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> obj <span class="token keyword">of</span> heap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>obj<span class="token punctuation">.</span><span class="token property-access">marked</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">freeMemory</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+      obj<span class="token punctuation">.</span><span class="token property-access">marked</span> <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token comment">// Reset marking</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Solves the circular reference problem.</li>
+<li>Efficient with large-scale memory management.</li>
+<li>High memory utilization.</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Memory fragmentation (though this can be optimized with mark-defragmentation).</li>
+<li>Full heap scan can cause Stop-the-World (STW) pauses.</li>
+</ul>
+<h3 id="reference-counting">Reference Counting<a aria-hidden="true" class="anchor-heading icon-link" href="#reference-counting"></a></h3>
+<p><strong>Core Principle</strong>: Track object lifecycle using a reference counter.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">RefCountedObject</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">count</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">// Initial reference count</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">references</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">addRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">count</span><span class="token operator">++</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">--</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">count</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">_destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">_destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">references</span><span class="token punctuation">.</span><span class="token method function property-access">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> obj<span class="token punctuation">.</span><span class="token method function property-access">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">freeMemory</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Pitfall:</strong></p>
+<ul>
+<li><strong>Circular Reference Issue</strong>: Objects that reference each other can never reach zero count, causing a memory leak.</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">createCycle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> objA <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RefCountedObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">let</span> objB <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RefCountedObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  objA<span class="token punctuation">.</span><span class="token property-access">ref</span> <span class="token operator">=</span> objB <span class="token comment">// objB.count = 2</span>
+  objB<span class="token punctuation">.</span><span class="token property-access">ref</span> <span class="token operator">=</span> objA <span class="token comment">// objA.count = 2</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">createCycle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// After execution: objA.count = 1, objB.count = 1 → Memory leak</span>
+</code></pre>
+<p><strong>Modern Usage:</strong></p>
+<ul>
+<li>Used in specialized cases (e.g., COM components).</li>
+<li>Forms the basis for APIs like <code>WeakRef</code>. read also <a href="https://jsdev.space/memory-management-js/">Master JavaScript WeakRef &#x26; FinalizationRegistry</a></li>
+<li>Often combined with mark-and-sweep for better efficiency.</li>
+</ul>
+<h3 id="generational-garbage-collection">Generational Garbage Collection<a aria-hidden="true" class="anchor-heading icon-link" href="#generational-garbage-collection"></a></h3>
+<p><strong>Core Principle</strong>: The Weak Generation Hypothesis suggests younger objects tend to die faster. <strong>V8 Specific Implementation</strong>: Objects that survive several GC cycles in the "new generation" are promoted to the "old generation."</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Example: New Space Memory Layout (Semispace)</span>
+<span class="token keyword">class</span> <span class="token class-name">NewSpace</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">fromSpace</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span> <span class="token comment">// 4MB</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">toSpace</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">allocPtr</span> <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">allocate</span><span class="token punctuation">(</span><span class="token parameter">size</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">allocPtr</span> <span class="token operator">+</span> size <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">fromSpace</span><span class="token punctuation">.</span><span class="token property-access">byteLength</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">doScavenge</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> ptr <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">allocPtr</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">allocPtr</span> <span class="token operator">+=</span> size
+    <span class="token keyword control-flow">return</span> ptr
+  <span class="token punctuation">}</span>
+
+  <span class="token function">doScavenge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Cheney's Algorithm to copy live objects</span>
+    <span class="token keyword">let</span> scanPtr <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">allocPtr</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword control-flow">while</span> <span class="token punctuation">(</span>scanPtr <span class="token operator">&#x3C;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">allocPtr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">toSpace</span><span class="token punctuation">[</span>scanPtr<span class="token punctuation">]</span>
+      <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> ref <span class="token keyword">of</span> obj<span class="token punctuation">.</span><span class="token property-access">references</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>ref<span class="token punctuation">.</span><span class="token method function property-access">isInFromSpace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">copyToNewSpace</span><span class="token punctuation">(</span>ref<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      scanPtr <span class="token operator">+=</span> obj<span class="token punctuation">.</span><span class="token property-access">size</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">;</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">fromSpace</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">toSpace</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">toSpace</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">fromSpace</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="comparison-of-generational-strategies">Comparison of generational strategies:<a aria-hidden="true" class="anchor-heading icon-link" href="#comparison-of-generational-strategies"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Generation</strong></th><th><strong>Proportion</strong></th><th><strong>GC Frequency</strong></th><th><strong>Algorithm</strong></th><th><strong>Optimization Target</strong></th></tr></thead><tbody><tr><td>Young Generation</td><td>5%</td><td>High frequency</td><td>Scavenge</td><td>Throughput</td></tr><tr><td>Old Generation</td><td>95%</td><td>Low frequency</td><td>Mark-sweep/collection</td><td>Latency control</td></tr></tbody></table></div>
+<h2 id="2-evolution-of-modern-gc-algorithms">2. Evolution of Modern GC Algorithms<a aria-hidden="true" class="anchor-heading icon-link" href="#2-evolution-of-modern-gc-algorithms"></a></h2>
+<h3 id="new-generation-scavenge-algorithm">New Generation Scavenge Algorithm<a aria-hidden="true" class="anchor-heading icon-link" href="#new-generation-scavenge-algorithm"></a></h3>
+<p>The Cheney algorithm facilitates fast recycling by alternating between "From" and "To" spaces:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">scavenge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> <span class="token keyword module">from</span> <span class="token operator">=</span> currentNewSpace
+  <span class="token keyword">let</span> to <span class="token operator">=</span> newNewSpace
+
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> obj <span class="token keyword">of</span> reachableObjects<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">copyObject</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> to<span class="token punctuation">)</span>
+    <span class="token function">forwardPointer</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> to<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">swapSpaces</span><span class="token punctuation">(</span><span class="token keyword module">from</span><span class="token punctuation">,</span> to<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="old-generation-mark-sweep-optimization">Old Generation Mark-Sweep Optimization<a aria-hidden="true" class="anchor-heading icon-link" href="#old-generation-mark-sweep-optimization"></a></h3>
+<p>V8 optimizes the old generation using a three-color marking method combined with incremental marking to avoid long STW pauses:</p>
+<ul>
+<li><strong>White</strong>: Unvisited objects</li>
+<li><strong>Gray</strong>: Objects being accessed</li>
+<li><strong>Black</strong>: Objects already visited</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">incrementalMarking</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> worklist <span class="token operator">=</span> <span class="token function">getGreyObjects</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token keyword control-flow">while</span> <span class="token punctuation">(</span>worklist<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&#x26;&#x26;</span> <span class="token operator">!</span><span class="token function">shouldYield</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> obj <span class="token operator">=</span> worklist<span class="token punctuation">.</span><span class="token method function property-access">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">markObject</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> ref <span class="token keyword">of</span> <span class="token function">getReferences</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isMarked</span><span class="token punctuation">(</span>ref<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">markGrey</span><span class="token punctuation">(</span>ref<span class="token punctuation">)</span>
+        worklist<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>ref<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>worklist<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">requestIdleCallback</span><span class="token punctuation">(</span>incrementalMarking<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="3-modern-forms-of-memory-leaks">3. Modern Forms of Memory Leaks<a aria-hidden="true" class="anchor-heading icon-link" href="#3-modern-forms-of-memory-leaks"></a></h2>
+<h3 id="closure-trap">Closure Trap<a aria-hidden="true" class="anchor-heading icon-link" href="#closure-trap"></a></h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">createClosureLeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> hugeData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">1e6</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">fill</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">)</span>
+  <span class="token keyword control-flow">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Closure inadvertently holds onto hugeData</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Closure executed"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> leakedClosure <span class="token operator">=</span> <span class="token function">createClosureLeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="reference-relics-in-modern-frameworks-react-example">Reference Relics in Modern Frameworks (React Example)<a aria-hidden="true" class="anchor-heading icon-link" href="#reference-relics-in-modern-frameworks-react-example"></a></h3>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Component</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>data<span class="token punctuation">,</span> setData<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">)</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+        <span class="token function">setData</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token comment">// May hold old references if missing dependencies</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">clearInterval</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// Missing dependency could cause memory leaks</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="4-gc-performance-optimization-strategies">4. GC Performance Optimization Strategies<a aria-hidden="true" class="anchor-heading icon-link" href="#4-gc-performance-optimization-strategies"></a></h2>
+<h3 id="object-pooling">Object Pooling<a aria-hidden="true" class="anchor-heading icon-link" href="#object-pooling"></a></h3>
+<p>By reusing memory through object pools, you can minimize the need for frequent garbage collection.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">VectorPool</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pool</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">create</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pool</span><span class="token punctuation">.</span><span class="token method function property-access">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">release</span><span class="token punctuation">(</span><span class="token parameter">vec</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    vec<span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+    vec<span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pool</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>vec<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage example</span>
+<span class="token keyword">const</span> pool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VectorPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> v1 <span class="token operator">=</span> pool<span class="token punctuation">.</span><span class="token method function property-access">create</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token comment">// After usage</span>
+pool<span class="token punctuation">.</span><span class="token method function property-access">release</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="optimizing-memory-access-patterns">Optimizing Memory Access Patterns<a aria-hidden="true" class="anchor-heading icon-link" href="#optimizing-memory-access-patterns"></a></h3>
+<p>Improving memory access patterns can lead to better cache utilization, reducing the performance impact of GC.</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Inefficient access pattern</span>
+<span class="token keyword">function</span> <span class="token function">processMatrix</span><span class="token punctuation">(</span><span class="token parameter">matrix</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> col <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> col <span class="token operator">&#x3C;</span> <span class="token number">1000</span><span class="token punctuation">;</span> col<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> row <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> row <span class="token operator">&#x3C;</span> <span class="token number">1000</span><span class="token punctuation">;</span> row<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">process</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// Breaks memory locality</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Optimized access pattern</span>
+<span class="token keyword">function</span> <span class="token function">optimizedProcess</span><span class="token punctuation">(</span><span class="token parameter">matrix</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> row <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> row <span class="token operator">&#x3C;</span> <span class="token number">1000</span><span class="token punctuation">;</span> row<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> rowData <span class="token operator">=</span> matrix<span class="token punctuation">[</span>row<span class="token punctuation">]</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> col <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> col <span class="token operator">&#x3C;</span> <span class="token number">1000</span><span class="token punctuation">;</span> col<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">process</span><span class="token punctuation">(</span>rowData<span class="token punctuation">[</span>col<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// Sequential access</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="conclusion">Conclusion<a aria-hidden="true" class="anchor-heading icon-link" href="#conclusion"></a></h2>
+<p>Garbage collection in JavaScript plays a critical role in optimizing both memory and performance. While automatic GC can help prevent memory leaks, understanding its mechanisms and strategically optimizing your code can lead to significant performance gains. The balance between automatic and manual memory management is key to developing high-performance web applications.</p>

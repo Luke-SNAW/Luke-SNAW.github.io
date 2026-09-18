@@ -1,0 +1,48 @@
+<h1 id="how-does-dan-abramov-optimize-betareactjsorg-after-be-complained-about-website-speed">How Does Dan Abramov Optimize beta.reactjs.org After Be Complained about Website Speed?<a aria-hidden="true" class="anchor-heading icon-link" href="#how-does-dan-abramov-optimize-betareactjsorg-after-be-complained-about-website-speed"></a></h1>
+<p>An interesting thing happened in the open-source community a few days ago, it was about React maintainer Dan Abramov and Vue creator Evan You.</p>
+<p>With the official release of React18, the React team has also created a new documentation website.</p>
+<p>[</p>
+<h2 id="react-docs-beta">React Docs Beta<a aria-hidden="true" class="anchor-heading icon-link" href="#react-docs-beta"></a></h2>
+<h3 id="we-are-rewriting-the-react-documentation-with-a-few-differences-all-explanations-are-written-using-hooks-rather-than">We are rewriting the React documentation with a few differences: All explanations are written using Hooks rather than…<a aria-hidden="true" class="anchor-heading icon-link" href="#we-are-rewriting-the-react-documentation-with-a-few-differences-all-explanations-are-written-using-hooks-rather-than"></a></h3>
+<p>beta.reactjs.org</p>
+<p>](<a href="https://beta.reactjs.org/">https://beta.reactjs.org/</a>)</p>
+<p>Then there are users who say that the user experience of the new website is great:</p>
+<p>But Evan You expressed a different opinion. After performing performance tests, Evan believes that Vue’s official website performs better than React.</p>
+<p><img src="https://miro.medium.com/max/946/1*54qqOPTYoXnoVmOIHyEuWQ.jpeg"></p>
+<p><img src="https://miro.medium.com/max/946/1*9GNaZxVxu598RiVhVfPq9Q.jpeg"></p>
+<p>←React vs Vue→</p>
+<p>Then Dan responded: it is only a beta website.</p>
+<p>Well, although Dan didn’t refute much in his mouth, he showed his importance to this matter with practical actions. After all, this is a question from Evan 😏 😏. React and Vue has been vying for the honor of being the best front-end framework for years.</p>
+<p>In the next 3 days, Dan submitted many commits in a row and optimized the new website from various aspects.</p>
+<p><img src="https://miro.medium.com/max/700/1*O9sN6c5nAgMnxRMoW6LiWg.png"></p>
+<p>Here let us learn how to improve the performance of a website from Dan’s commits.</p>
+<h1 id="website-optimization">Website Optimization<a aria-hidden="true" class="anchor-heading icon-link" href="#website-optimization"></a></h1>
+<p>There are two main aspects of Dan’s optimization:</p>
+<ul>
+<li>In the compilation, reduce the size of the packaged code.</li>
+<li>In the runtime, lazy-load if the code is not necessary for the First Contentful Paint(FCP).</li>
+</ul>
+<blockquote>
+<p>The First Contentful Paint (FCP) metric measures the time from when the page starts loading to when any part of the page’s content is rendered on the screen. For this metric, “content” refers to text, images (including background images), <code>&#x3C;svg></code> elements, or non-white <code>&#x3C;canvas></code> elements.</p>
+</blockquote>
+<h2 id="only-import-code-you-truly-need">Only import code you truly need<a aria-hidden="true" class="anchor-heading icon-link" href="#only-import-code-you-truly-need"></a></h2>
+<p>The previous code would import a file called <code>utils</code>. But not every function in <code>utils</code> will be used in the FCP, so Dan decided to split this file into different files and import them as needed, which can reduce the size of the bundle file.</p>
+<p><img src="https://miro.medium.com/max/700/1*7rn6x_u83IjlT4CU7pqutA.png"></p>
+<p><img src="https://miro.medium.com/max/700/1*JYu2SgDq9oIvodJRAIdhdQ.png"></p>
+<h2 id="build-for-modern-browsers">Build for modern browsers<a aria-hidden="true" class="anchor-heading icon-link" href="#build-for-modern-browsers"></a></h2>
+<p>This website uses the Nextjs framework under the hood, which is not optimized for modern browsers by default.</p>
+<p>And we know that in order to be compatible with old browsers, frameworks such as Nextjs will perform a lot of polyfills, which will increase the size of the packaged files.</p>
+<p>The audience of React’s documentation is all front-end developers, and they basically don’t use old browsers. So we can let Nextjs turn on optimizations for modern browsers.</p>
+<p>Dan enabled this feature with this configuration:</p>
+<p><img src="https://miro.medium.com/max/700/1*Kenb9o7TRGZ8sKPKBY8hAA.png"></p>
+<p>legacyBrowsers: false,</p>
+<p>browsersListForSwc: true,</p>
+<h2 id="lazy-loading-of-non-essential-resources">Lazy loading of non-essential resources<a aria-hidden="true" class="anchor-heading icon-link" href="#lazy-loading-of-non-essential-resources"></a></h2>
+<p>The new documentation embeds a lot of code examples from <code>codesandboxes</code> that rely on the <code>CodeMirror linter</code>, but this is not essential for FCP.</p>
+<p>So Dan lazy-loads this part of the resource:</p>
+<p><img src="https://miro.medium.com/max/700/1*8zuPNErMLhnB8AK9iugRQg.png"></p>
+<h1 id="result">Result<a aria-hidden="true" class="anchor-heading icon-link" href="#result"></a></h1>
+<p>After these optimizations, beta.reactjs.org is faster.</p>
+<p><img src="https://miro.medium.com/max/1990/1*DlxFSpojYN-TwFjeXAPYbQ.jpeg"></p>
+<p><img src="https://miro.medium.com/max/2016/1*bFCIJDknxch9YkDYrxI7MA.jpeg"></p>
+<p>←React vs Vue→</p>

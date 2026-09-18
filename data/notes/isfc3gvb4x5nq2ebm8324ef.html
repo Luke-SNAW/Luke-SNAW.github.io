@@ -1,0 +1,70 @@
+<h1 id="pdf">Pdf<a aria-hidden="true" class="anchor-heading icon-link" href="#pdf"></a></h1>
+<h2 id="user">User<a aria-hidden="true" class="anchor-heading icon-link" href="#user"></a></h2>
+<h3 id="permissions-policies">Permissions policies<a aria-hidden="true" class="anchor-heading icon-link" href="#permissions-policies"></a></h3>
+<h4 id="lambda__pdf-generator">lambda__pdf-generator<a aria-hidden="true" class="anchor-heading icon-link" href="#lambda__pdf-generator"></a></h4>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"Version"</span><span class="token operator">:</span> <span class="token string">"2012-10-17"</span><span class="token punctuation">,</span>
+  <span class="token property">"Statement"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Sid"</span><span class="token operator">:</span> <span class="token string">"VisualEditor0"</span><span class="token punctuation">,</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token string">"lambda:UpdateFunctionCode"</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"arn:aws:lambda:*:function:pdf-generator__test"</span><span class="token punctuation">,</span>
+        <span class="token string">"arn:aws:lambda:*:function:pdf-generator"</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="s3__pdf-resources">S3__pdf-resources<a aria-hidden="true" class="anchor-heading icon-link" href="#s3__pdf-resources"></a></h4>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"Version"</span><span class="token operator">:</span> <span class="token string">"2012-10-17"</span><span class="token punctuation">,</span>
+  <span class="token property">"Statement"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"s3:ListBucket"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"arn:aws:s3:::pdf-resources"</span><span class="token punctuation">,</span>
+        <span class="token string">"arn:aws:s3:::pdf-resources--test"</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"s3:GetObject"</span><span class="token punctuation">,</span> <span class="token string">"s3:DeleteObject"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"arn:aws:s3:::pdf-resources/*"</span><span class="token punctuation">,</span>
+        <span class="token string">"arn:aws:s3:::pdf-resources--test/*"</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="roles">Roles<a aria-hidden="true" class="anchor-heading icon-link" href="#roles"></a></h2>
+<h3 id="pdf-generator-role-">pdf-generator-role-*<a aria-hidden="true" class="anchor-heading icon-link" href="#pdf-generator-role-"></a></h3>
+<h4 id="list-bucket-for-presigned-url">list-Bucket-for-presigned-URL<a aria-hidden="true" class="anchor-heading icon-link" href="#list-bucket-for-presigned-url"></a></h4>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"Version"</span><span class="token operator">:</span> <span class="token string">"2012-10-17"</span><span class="token punctuation">,</span>
+  <span class="token property">"Statement"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Sid"</span><span class="token operator">:</span> <span class="token string">"VisualEditor0"</span><span class="token punctuation">,</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token string">"s3:ListBucket"</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token string">"arn:aws:s3:::*"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="save_pdf">save_PDF<a aria-hidden="true" class="anchor-heading icon-link" href="#save_pdf"></a></h4>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"Version"</span><span class="token operator">:</span> <span class="token string">"2012-10-17"</span><span class="token punctuation">,</span>
+  <span class="token property">"Statement"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Sid"</span><span class="token operator">:</span> <span class="token string">"VisualEditor0"</span><span class="token punctuation">,</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"s3:PutObject"</span><span class="token punctuation">,</span> <span class="token string">"s3:PutObjectAcl"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token string">"arn:aws:s3:::*/*"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>

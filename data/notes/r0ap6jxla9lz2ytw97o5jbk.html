@@ -1,0 +1,131 @@
+<h1 id="micro-frontend-synergy-techniques-for-effective-communication">Micro Frontend Synergy: Techniques for Effective Communication<a aria-hidden="true" class="anchor-heading icon-link" href="#micro-frontend-synergy-techniques-for-effective-communication"></a></h1>
+<blockquote>
+<p><a href="https://medium.com/@rk-tech/micro-frontend-synergy-techniques-for-effective-communication-97df104931ed">https://medium.com/@rk-tech/micro-frontend-synergy-techniques-for-effective-communication-97df104931ed</a></p>
+</blockquote>
+<p>In the evolving landscape of web development, the adoption of micro frontends has emerged as a game-changer, offering unparalleled flexibility and scalability. However, this modularity introduces a significant challenge to seamless communication between these disparate parts.</p>
+<p>The core problem lies in the inherent isolation of micro frontends. While each unit operates independently, they often need to share data and state or trigger actions in one another. Consider a travel booking website with separate micro frontends for flight search, hotel booking, and user profiles. Efficient communication between these components is crucial for a seamless user experience.</p>
+<p>Let’s embark on this journey to unlock the full potential of micro frontends through effective and efficient communication.</p>
+<h2 id="through-props">Through Props<a aria-hidden="true" class="anchor-heading icon-link" href="#through-props"></a></h2>
+<p>In this method, the main application (container) manages the state and passes it down to micro frontends. Imagine a dashboard application where the main container holds user preferences and propagates them to various micro frontends like settings panel, display panel, etc.</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// In the main container</span>
+<span class="token keyword">class</span> <span class="token class-name">Dashboard</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span> theme<span class="token operator">:</span> <span class="token string">'dark'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function-variable function">setTheme</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">theme</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> theme <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&#x3C;</span>div<span class="token operator">></span>
+        <span class="token operator">&#x3C;</span><span class="token maybe-class-name">SettingsPanel</span> setTheme<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">setTheme</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&#x3C;</span><span class="token maybe-class-name">DisplayPanel</span> theme<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">theme</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&#x3C;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// In SettingsPanel</span>
+<span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">SettingsPanel</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> setTheme <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span>
+  <span class="token operator">&#x3C;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">setTheme</span><span class="token punctuation">(</span><span class="token string">'light'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span><span class="token maybe-class-name">Light</span> <span class="token maybe-class-name">Theme</span><span class="token operator">&#x3C;</span><span class="token operator">/</span>button<span class="token operator">></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// In DisplayPanel</span>
+<span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">DisplayPanel</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> theme <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span>
+  <span class="token operator">&#x3C;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>\`theme<span class="token operator">-</span>$<span class="token punctuation">{</span>theme<span class="token punctuation">}</span>\`<span class="token punctuation">}</span><span class="token operator">></span><span class="token maybe-class-name">Display</span> <span class="token maybe-class-name">Content</span><span class="token operator">&#x3C;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Pros:</strong></p>
+<ul>
+<li><strong>Supported by Many Frameworks:</strong> Most modern front-end frameworks, like React, Vue, and Angular, have built-in support for props (or similar concepts).</li>
+<li><strong>Easy to Understand and Implement:</strong> Props represent a straightforward way to pass data from parent to child components, making the flow of data easy to trace and understand.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li><strong>Creates Tight Coupling:</strong> Using props for communication implies a direct dependency between the micro frontends. Changes in one component can necessitate changes in others, leading to a ripple effect.</li>
+<li><strong>Unnecessary Re-Renders</strong>: In some frameworks, passing props down a component tree can cause components to re-render unnecessarily, even if the data they consume hasn’t changed.</li>
+<li><strong>Framework dependent:</strong> In a micro frontend architecture, different teams might use different frameworks for each frontend. Props are framework-specific and can’t be used for inter-framework communication.</li>
+</ul>
+<h2 id="custom-events">Custom Events<a aria-hidden="true" class="anchor-heading icon-link" href="#custom-events"></a></h2>
+<p>This approach uses the browser’s custom event APIs. Consider a stock market dashboard where one micro frontend publishes stock updates, and another micro frontend listens to these updates to display real-time charts.</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// In StockUpdate Micro Frontend</span>
+<span class="token keyword">function</span> <span class="token function">publishStockUpdate</span><span class="token punctuation">(</span><span class="token parameter">stockData</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> event <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CustomEvent</span><span class="token punctuation">(</span><span class="token string">"stockUpdate"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> detail<span class="token operator">:</span> stockData <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">dispatchEvent</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// In StockDisplay Micro Frontend</span>
+<span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"stockUpdate"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token function">displayStockData</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token property-access">detail</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="pros"><strong>Pros:</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#pros"></a></h3>
+<ul>
+<li><strong>Decoupling of Components:</strong> Custom Events allow micro frontends to communicate without needing direct references to each other. This decoupling facilitates a more modular and maintainable codebase, where individual components can be developed, tested, and deployed independently.</li>
+<li><strong>Native Browser Support:</strong> Custom Events are supported natively by modern web browsers, eliminating the need for additional libraries or dependencies for event handling in web-based micro frontends.</li>
+</ul>
+<h3 id="cons"><strong>Cons:</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#cons"></a></h3>
+<ul>
+<li><strong>Browser Dependency</strong>: Custom Events are primarily a web browser feature. This reliance on browser capabilities can limit their use in environments outside of traditional web browsers, such as native mobile apps or server-side rendering scenarios</li>
+<li><strong>Potential for Memory Leaks</strong>: If not managed properly, custom event listeners can lead to memory leaks.</li>
+<li><strong>Global Scope Pollution</strong>: Custom Events typically operate at a global level (like the window object in a browser). This global scope can lead to naming conflicts and inadvertent triggering of events across unrelated parts of the application.</li>
+</ul>
+<h2 id="using-browser-storage-apis">Using Browser Storage APIs<a aria-hidden="true" class="anchor-heading icon-link" href="#using-browser-storage-apis"></a></h2>
+<p>This technique involves using browser storage (like sessionStorage) for communication. For example, a news portal could use this to store and share user preferences (like language or region) between its article listing and article detail micro frontends.</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// In ArticleListing</span>
+<span class="token keyword">function</span> <span class="token function">selectCategory</span><span class="token punctuation">(</span><span class="token parameter">category</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token dom variable">sessionStorage</span><span class="token punctuation">.</span><span class="token method function property-access">setItem</span><span class="token punctuation">(</span><span class="token string">"selectedCategory"</span><span class="token punctuation">,</span> category<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// In ArticleDetail</span>
+<span class="token keyword">function</span> <span class="token function">getSelectedCategory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token dom variable">sessionStorage</span><span class="token punctuation">.</span><span class="token method function property-access">getItem</span><span class="token punctuation">(</span><span class="token string">"selectedCategory"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Pros:</strong></p>
+<ul>
+<li><strong>Simplicity and Ease of Use</strong>: Requiring minimal code to store and retrieve data</li>
+<li><strong>No Server Interaction:</strong> Since the data is stored locally in the user’s browser, it doesn’t require server calls to fetch or save, which can improve performance and reduce server load.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li><strong>Limited scalability:</strong> Browser Storage APIs have a limited capacity (usually about 5MB), which is not suitable for storing large amounts of data.</li>
+<li><strong>Lack of Real-Time Sync:</strong> There’s no built-in mechanism to notify micro frontends of changes in stored data, making real-time synchronization challenging.</li>
+<li><strong>Not Suitable for Complex Data:</strong> These APIs are designed for key-value pairs and are not ideal for storing complex or hierarchical data.</li>
+</ul>
+<h2 id="custom-message-bus">Custom Message Bus<a aria-hidden="true" class="anchor-heading icon-link" href="#custom-message-bus"></a></h2>
+<p>Similar to custom events, but with a self-built pub-sub system. In a social media application, different micro frontends could use a message bus to update and display new messages or notifications.</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// MessageBus implementation</span>
+<span class="token keyword">const</span> <span class="token maybe-class-name">MessageBus</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+ events<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token function-variable function">subscribe</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">eventName<span class="token punctuation">,</span> fn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">events</span>\<span class="token punctuation">[</span>eventName\<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">events</span>\<span class="token punctuation">[</span>eventName\<span class="token punctuation">]</span> <span class="token operator">||</span> \<span class="token punctuation">[</span>\<span class="token punctuation">]</span><span class="token punctuation">;</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">events</span>\<span class="token punctuation">[</span>eventName\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token function-variable function">publish</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">eventName<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">events</span>\<span class="token punctuation">[</span>eventName\<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">events</span>\<span class="token punctuation">[</span>eventName\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">forEach</span><span class="token punctuation">(</span><span class="token parameter">fn</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// In MessageSender Micro Frontend</span>
+<span class="token maybe-class-name">MessageBus</span><span class="token punctuation">.</span><span class="token method function property-access">publish</span><span class="token punctuation">(</span><span class="token string">'newMessage'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> content<span class="token operator">:</span> <span class="token string">'Hello!'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// In MessageReceiver Micro Frontend</span>
+<span class="token maybe-class-name">MessageBus</span><span class="token punctuation">.</span><span class="token method function property-access">subscribe</span><span class="token punctuation">(</span><span class="token string">'newMessage'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+ <span class="token function">displayNewMessage</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Pros:</strong></p>
+<ul>
+<li><strong>Flexibility and Scalability:</strong> A custom message bus allows for tailored, scalable inter-component communication, fitting diverse application needs.</li>
+<li><strong>Framework Independence:</strong> It provides a framework-agnostic approach, enabling integration across different technologies within micro frontends.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li><strong>Complexity in Implementation:</strong> Setting up a custom message bus can be complex, requiring careful design and maintenance.</li>
+<li><strong>Consistency Challenges:</strong> Ensuring consistent use and understanding across different teams and micro frontends can be challenging.</li>
+</ul>
+<p>In conclusion, The key takeaway is the importance of carefully evaluating the communication needs of your micro frontend architecture. Factors such as framework compatibility, the need for scalability, performance considerations, and the level of coupling between components should guide the decision-making process. Embracing the right communication strategy not only enhances the functionality and user experience of the application but also ensures a maintainable and scalable codebase.</p>
+<p>Ultimately, effective communication in micro frontends is about striking the right balance between independence and integration, ensuring that each component functions seamlessly as part of a greater whole, without losing its standalone capabilities. As the field of web development continues to evolve, so too will the strategies for micro frontend communication, promising more innovative and efficient ways to tackle this complex yet crucial aspect of modern web architecture.</p>

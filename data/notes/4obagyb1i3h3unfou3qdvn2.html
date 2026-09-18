@@ -1,0 +1,18 @@
+<h1 id="mr-pr-submission-standard">MR (PR) submission standard<a aria-hidden="true" class="anchor-heading icon-link" href="#mr-pr-submission-standard"></a></h1>
+<p><a href="https://news.ycombinator.com/item?id=30578033">https://news.ycombinator.com/item?id=30578033</a></p>
+<h1 id="paradite">paradite<a aria-hidden="true" class="anchor-heading icon-link" href="#paradite"></a></h1>
+<p>I'm a senior frontend engineer doing a lot of code reviews and my team loves my MR (PR) submission standard:</p>
+<ul>
+<li>Require the author to attach screenshots of the feature in a markdown table format showing the before and after comparison. This is enforced using a MR template.</li>
+<li>Require the author to attach screen recording for complex user interactions.</li>
+</ul>
+<p>Overall effect is that it saves everyone's time.</p>
+<ul>
+<li>The author has to verify that the feature works anyway, so taking screenshots / recordings doesn't take much additional efforts.</li>
+<li>The reviewer can focus on code itself instead of checking whether the code works.</li>
+<li>Easy for both parties to spot design and UX issues/regressions visually.</li>
+</ul>
+<h2 id="bradwood">bradwood<a aria-hidden="true" class="anchor-heading icon-link" href="#bradwood"></a></h2>
+<p>Code review != Testing.
+A lot of people conflate these IMHO. Code review should not really be about whether it "works" or not. That's what tests are for.</p>
+<p>Code reviews are about checking for code complexity, good use of abstractions, readability, etc.</p>

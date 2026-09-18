@@ -1,0 +1,262 @@
+<h1 id="arrow-functions-vs-regular-functions-in-javascript--whats-the-difference">Arrow Functions vs Regular Functions in JavaScript – What's the Difference?<a aria-hidden="true" class="anchor-heading icon-link" href="#arrow-functions-vs-regular-functions-in-javascript--whats-the-difference"></a></h1>
+<blockquote>
+<p><a href="https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/">https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/</a></p>
+</blockquote>
+<p>In JavaScript, there are two types of functions. You have normal functions and arrow functions. Let's explore the difference between them in this article.</p>
+<p>Arrow functions was introduced in ES6. And it introduced a simple and shorter way to create functions.</p>
+<p>Here's how to create a normal function, with arguments, which returns something:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> num1 <span class="token operator">*</span> num2
+  <span class="token keyword control-flow">return</span> result
+<span class="token punctuation">}</span>
+</code></pre>
+<p>If you want to transform this into an arrow function, here's what you'll have:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">multiply</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> num1 <span class="token operator">*</span> num2
+  <span class="token keyword control-flow">return</span> result
+<span class="token punctuation">}</span>
+</code></pre>
+<p>If the <code>return</code> statement is the only statement in the function, you can even have a shorter function expression. For example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">multiply</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> num1 <span class="token operator">*</span> num2
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This function only contains the <code>return</code> statement. With arrow functions, we can have something shorter like this:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">multiply</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> num1 <span class="token operator">*</span> num2
+</code></pre>
+<p>We skip the curly braces and the <code>return</code> keyword. Shorter; one-liner.</p>
+<p>But the syntax of writing both types of functions is not the only difference. There's more, so let's look at them.</p>
+<p>I have a <a href="https://youtu.be/M10gzHpIUDw">video version of this topic</a> which you can also check out :)</p>
+<h2 id="1-no-arguments-object-in-arrow-functions">1. No <code>arguments</code> object in arrow functions<a aria-hidden="true" class="anchor-heading icon-link" href="#1-no-arguments-object-in-arrow-functions"></a></h2>
+<p>A normal function has an <code>arguments</code> object which you can access in the function:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The <code>arguments</code> object is a local variable that contains the arguments passed to the function when called. Let's try it out:</p>
+<pre class="language-js"><code class="language-js"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+
+<span class="token comment">// {</span>
+<span class="token comment">//   '0': 'hello',</span>
+<span class="token comment">//   '1': 400,</span>
+<span class="token comment">//   '2': false</span>
+<span class="token comment">// }</span>
+</code></pre>
+<p>As you can see here, the three arguments passed when calling <code>print()</code> are contained in the <code>arguments</code> object which we log to the console. We can access the first argument with <code>arguments[0]</code>, the second with <code>arguments[1]</code> and the third with <code>arguments[2]</code></p>
+<p>But this object does not exist in arrow functions. Let's try it out. Say we have <code>print</code> using an arrow function:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">print</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token comment">// Uncaught ReferenceError: arguments is not defined</span>
+</code></pre>
+<p>Now we have a reference error: <strong>arguments is not defined</strong>. That's because the <code>arguments</code> variable does not exist in arrow functions.</p>
+<h2 id="2-arrow-functions-do-not-create-their-own-this-binding">2. Arrow functions do not create their own <code>this</code> binding<a aria-hidden="true" class="anchor-heading icon-link" href="#2-arrow-functions-do-not-create-their-own-this-binding"></a></h2>
+<p>In normal functions, a <code>this</code> variable is created which references the objects that call them. For example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">"deeecode"</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">print</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+obj<span class="token punctuation">.</span><span class="token method function property-access">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// {</span>
+<span class="token comment">//   name: 'deeecode',</span>
+<span class="token comment">//   age: 200,</span>
+<span class="token comment">//   print: [Function: print]</span>
+<span class="token comment">// }</span>
+</code></pre>
+<p>As you can see here, the <code>this</code> in the <code>print</code> method points to <code>obj</code>, which is the object that calls the method.</p>
+<p>Here's another example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">"deeecode"</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">print</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">print2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">print2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+obj<span class="token punctuation">.</span><span class="token method function property-access">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Window</span>
+</code></pre>
+<p>Here, we have two functions. The first one is <code>print</code> which is a method of the <code>obj</code> object. The second is <code>print2</code> which is a function declared inside <code>print</code>. <code>print2()</code> is also called directly.</p>
+<p>In this case, <code>print</code> is called by <code>obj</code> (<code>obj.print()</code>) but no object calls <code>print2</code> (<code>print2()</code>). So the <code>this</code> in <code>print2</code> would reference the window object by default.</p>
+<p>Now let's see what happens with an arrow function.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">"deeecode"</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">print</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+obj<span class="token punctuation">.</span><span class="token method function property-access">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Window</span>
+</code></pre>
+<p>By using an arrow function for <code>print</code>, this function does not automatically create a <code>this</code> variable. As a result, any reference to <code>this</code> would point to what <code>this</code> was before the function was created.</p>
+<p>As you see in the result, <code>this</code> was pointing to the <code>Window</code> object before <code>print</code> was created.</p>
+<p>Let's see another example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">"deeecode"</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">print</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">print2</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">print2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+obj<span class="token punctuation">.</span><span class="token method function property-access">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// {</span>
+<span class="token comment">//   name: 'deeecode',</span>
+<span class="token comment">//   age: 200,</span>
+<span class="token comment">//   print: [Function: print]</span>
+<span class="token comment">// }</span>
+</code></pre>
+<p>Here, we have <code>print</code> as a normal function which means a <code>this</code> variable is automatically created in it. Then we have <code>print2</code> which is an arrow function.</p>
+<p>Because <code>obj</code> is calling <code>print</code> (as in <code>obj.print()</code>), the <code>this</code> in <code>print</code> would point to <code>obj</code>.</p>
+<p>Since <code>print2</code> is an arrow function, it doesn't create its own <code>this</code> variable. Therefore, any reference to <code>this</code> would point to what the value of <code>this</code> was before the function was created. In this case where <code>obj</code> calls <code>print</code>, <code>this</code> was pointing to <code>obj</code> before <code>print2</code> was created. As you can see in the results, by logging <code>this</code> from <code>print2</code>, <code>obj</code> is the result.</p>
+<p>You can learn more about <a href="https://dillionmegida.com/p/this-demystified/"><code>this</code> in my article here</a></p>
+<h2 id="3-arrow-functions-cannot-be-used-as-constructors">3. Arrow functions cannot be used as constructors<a aria-hidden="true" class="anchor-heading icon-link" href="#3-arrow-functions-cannot-be-used-as-constructors"></a></h2>
+<p>With normal functions, you can create constructors which serve as a special function for instantiating an object from a class.</p>
+<p>Here is an example of an <code>Animal</code> class which we instantiate two objects from:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> numOfLegs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">=</span> name
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">numOfLegs</span> <span class="token operator">=</span> numOfLegs
+  <span class="token punctuation">}</span>
+
+  <span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token maybe-class-name">Dog</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">"Bingo"</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token maybe-class-name">Bird</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">"Steer"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token maybe-class-name">Dog</span><span class="token punctuation">.</span><span class="token method function property-access">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// My name is Bingo</span>
+
+<span class="token maybe-class-name">Bird</span><span class="token punctuation">.</span><span class="token method function property-access">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// My name is Bird</span>
+</code></pre>
+<p>Here, we have the <code>Animal</code> constructor which can be instantiated with different parameters. In the constructor, two arguments are required: <code>name</code> and <code>noOfLegs</code>.</p>
+<p>In the case of <code>Dog</code>, we create a new instance of <code>Animal</code> using "Bingo" as the <code>name</code> and <strong>4</strong> as the <code>noOfLegs</code>.</p>
+<p>In the case of <code>Bird</code>, we create a new instance of <code>Animal</code> using "Steer" as the <code>name</code> and <strong>2</strong> as the <code>noOfLegs</code>.</p>
+<p>By calling <code>sayName</code> on <code>Dog</code> and <code>Bird</code>, you can see how the method works currently with each object. The <code>this</code> variable points to the objects and the <code>name</code> field is gotten from each of them.</p>
+<p>The <code>this</code> variable is very important for classes and constructors. In point 2, we saw that arrow functions cannot create their own <code>this</code>. For this reason, arrow functions also cannot be used as constructors.</p>
+<p>Let's attempt it and see what happens:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">constructor</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> numOfLegs</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">=</span> name
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">numOfLegs</span> <span class="token operator">=</span> numOfLegs
+  <span class="token punctuation">}</span>
+
+  <span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Uncaught SyntaxError: Classes may not have a field named 'constructor'</span>
+</code></pre>
+<p>Here, we have an arrow function used for the <code>constructor</code>. But, we get a SyntaxError: <strong>Classes may not have a field named 'constructor'</strong>.</p>
+<p>Because arrow functions involve expressions that are assigned variables, JavaScript now sees <code>constructor</code> as a field. And in classes, you cannot have a field named <code>constructor</code> as that is a reserved name.</p>
+<p>But, we can use arrow functions for the methods in the class without getting errors. For example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> numOfLegs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">=</span> name
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">numOfLegs</span> <span class="token operator">=</span> numOfLegs
+  <span class="token punctuation">}</span>
+
+  <span class="token function-variable function">sayName</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token maybe-class-name">Dog</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">"Bingo"</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+
+<span class="token maybe-class-name">Dog</span><span class="token punctuation">.</span><span class="token method function property-access">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// My name is Bingo</span>
+</code></pre>
+<p>Here, we have a normal function for the <code>constructor</code>, and an arrow function for the <code>sayName</code> method. <code>sayName</code> is a field. And we do not get errors.</p>
+<p>By calling <code>sayName()</code> on <code>Dog</code>, we still get "My name is Bingo". Though <code>sayName</code> as an arrow function does not create its own <code>this</code>, remember that any reference to <code>this</code> would point to the value of it before the arrow function was created. In this case, the value of <code>this</code> pointed to <code>Dog</code> before <code>sayName</code> was created.</p>
+<h2 id="4-arrow-functions-cannot-be-declared">4. Arrow functions cannot be declared<a aria-hidden="true" class="anchor-heading icon-link" href="#4-arrow-functions-cannot-be-declared"></a></h2>
+<p>When it comes to functions, you need to understand <strong>function declaration</strong> and <strong>function expression</strong>.</p>
+<p>Function declarations involve the <code>function</code> keyword and a name for the function. For example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">printHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>printHello</code> is a <strong>declared function</strong>. But, check out this example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">printHello</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In this case, <code>printHello</code> is not a declared function. We have an anonymous function (not named) on the right side of the assignment operator. This function is a <strong>function expression</strong>, which is assigned to the <code>printHello</code> variable.</p>
+<p>Though the <code>function</code> keyword is used, there is no name assigned, which makes it an expression and not a declaration. To prove that it is not a declaration, try the following:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Because this expression is not assigned to a variable, you get an error: <strong>SyntaxError: Function statements require a function name</strong></p>
+<p>Back to arrow functions. Normal functions can be declared when you use the function keyword and a name, but arrow functions cannot be declared. They can only be expressed because they are anonymous:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">printHello</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>As you see here, we have an anonymous function (starting from <code>() => ...</code>) which is assigned to the <code>printHello</code> variable. <code>printHello</code> is not a declared function here. It is a variable that holds the evaluated value from the function expression.</p>
+<h2 id="5-arrow-functions-cannot-be-accessed-before-initialization">5 Arrow functions cannot be accessed before initialization<a aria-hidden="true" class="anchor-heading icon-link" href="#5-arrow-functions-cannot-be-accessed-before-initialization"></a></h2>
+<p>Hoisting is a concept where a variable or function is lifted to the top of its global or local scope before the whole code is executed. This makes it possible for such a variable/function to be accessed before initialization. Here's a function example:</p>
+<pre class="language-js"><code class="language-js"><span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"i am dillion"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// i am dillion</span>
+<span class="token comment">// hello</span>
+</code></pre>
+<p>As you can see here, we called <code>printName</code> before it was actually declared in the code. But we don't get any errors. <code>printName()</code> is executed (logging "i am dillion" to the console) before <code>console.log("hello")</code>.</p>
+<p>What happens here is hoisting.</p>
+<p>The <code>printName</code> function is raised to the top of the global scope (the scope it is declared in) before the whole code is executed, thereby making it possible to execute the function earlier.</p>
+<p>But not all kinds of functions can be accessed before initialization. All functions and variables in JavaScript are hoisted, but <strong>only declared functions can be accessed before initialization</strong>.</p>
+<p>Here's an example with an arrow function:</p>
+<pre class="language-js"><code class="language-js"><span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">printName</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"i am dillion"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// ReferenceError: Cannot access 'printName' before initialization</span>
+</code></pre>
+<p>Running this code, you get an error: <strong>ReferenceError: Cannot access 'printName' before initialization</strong>.</p>
+<p>As we saw in point 4, <code>printName</code> is not a declared function. It is a variable, declared with <code>const</code> which is assigned a function expression. Variables declared with <code>let</code> and <code>const</code> are hoisted, but they cannot be accessed before the line they are initialized.</p>
+<p>Let's say we use <code>var</code> for our arrow function:</p>
+<pre class="language-js"><code class="language-js"><span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> <span class="token function-variable function">printName</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"i am dillion"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// TypeError: printName is not a function</span>
+</code></pre>
+<p>Here, we have declared the <code>printName</code> variable with <code>var</code>. The error we get now is <strong>TypeError: printName is not a function</strong>. The reason for this is that variables declared with <code>var</code> are hoisted and accessible, but they have a default value of <code>undefined</code>. So attempting to access <code>printName</code> before the line it was initialized with the function expression is interpreted as <code>undefined()</code>, and as you know, "undefined is not a function".</p>
+<p>You can learn more about <a href="https://www.freecodecamp.org/news/javascript-let-and-const-hoisting/">the hoisting differences between var, let, and const here</a></p>
+<h2 id="wrap-up">Wrap up<a aria-hidden="true" class="anchor-heading icon-link" href="#wrap-up"></a></h2>
+<p>Although arrow functions allow you to write functions more concisely, they also have limitations. As we have seen in this article, some of the behaviors that occur in normal functions do not happen in arrow functions.</p>
+<p>If you want to create constructors, retain the normal behavior of <code>this</code> or have your functions hoisted, then arrow functions are not the right approach.</p>

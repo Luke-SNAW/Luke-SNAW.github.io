@@ -1,0 +1,95 @@
+<h1 id="favour-typescript-types-over-interfaces">Favour TypeScript Types Over Interfaces<a aria-hidden="true" class="anchor-heading icon-link" href="#favour-typescript-types-over-interfaces"></a></h1>
+<blockquote>
+<p><a href="https://www.lloydatkinson.net/posts/2023/favour-typescript-types-over-interfaces/">https://www.lloydatkinson.net/posts/2023/favour-typescript-types-over-interfaces/</a></p>
+</blockquote>
+<p>Some time ago, I came to the conclusion that the TypeScript <code>type</code> keyword should almost always be favoured over the <code>interface</code> keyword. I arrived at this conclusion after considering the use cases and implications. Of course, there is a large overlap, but I personally believe that interfaces (in TypeScript) are a more restrictive and less useful construct than types.</p>
+<h2 id="overlapping-functionality">Overlapping functionality<a aria-hidden="true" class="anchor-heading icon-link" href="#overlapping-functionality"></a></h2>
+<p>When I first used TypeScript, I was surprised that two language features could be so similar as to appear almost indistinguishable.</p>
+<ul>
+<li>Both allow for declaring a contract or <em>shape</em> of a type<a id="fnref-1" class="fnref" href="#fn-1">1</a></li>
+<li>Both can be members of a union type</li>
+<li>Both can be extended to create derived types</li>
+<li>Both can be used for OO inheritance with classes and the <code>implements</code> keyword</li>
+</ul>
+<h2 id="types-are-more-widely-applicable">Types are more widely applicable<a aria-hidden="true" class="anchor-heading icon-link" href="#types-are-more-widely-applicable"></a></h2>
+<p>The type construct is more general purpose than interfaces. Consider the following code block.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Status</span></span> <span class="token operator">=</span> <span class="token string">"standard"</span> <span class="token operator">|</span> <span class="token string">"vip"</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">User</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span> status<span class="token operator">:</span> <span class="token maybe-class-name">Status</span> <span class="token punctuation">}</span>
+</code></pre>
+<p>Not only was a contract or <em>shape</em> of a user-defined, but a union type was also defined. A clear advantage is revealed; types can express multiple constructs and are more versatile than interfaces.</p>
+<p>Union types are also <em>explicitly</em> part of the syntax, such as <code>string | number.</code> That is, types are a more natural and everyday occurrence in TypeScript. For example, consider the following code block.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// This is not valid.</span>
+<span class="token comment">// interface Status = 'standard' | 'vip';</span>
+
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Status</span></span> <span class="token operator">=</span> <span class="token string">'standard'</span> <span class="token operator">|</span> <span class="token string">'vip'</span><span class="token punctuation">;</span>
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">User</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> status<span class="token operator">:</span> <span class="token maybe-class-name">Status</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>What has been achieved here compared to the first code block, other than extra characters and using two keywords and language features over one? Not much - other than confusion when revisiting the codebase and raising questions as to why both were used.</p>
+<h2 id="using-types-is-more-consistent">Using types is more consistent<a aria-hidden="true" class="anchor-heading icon-link" href="#using-types-is-more-consistent"></a></h2>
+<p>The previous section demonstrates that types are less restrictive and surpass the use cases of interfaces. Continuing to use both keywords is simply inconsistent for no good reason. Making the choice between them is not difficult. The stricter but more versatile keyword or the looser and less useful keyword?</p>
+<p><code>Type</code> wins.</p>
+<h2 id="interfaces-can-be-merged-thats-rarely-good">Interfaces can be merged (that’s rarely good)<a aria-hidden="true" class="anchor-heading icon-link" href="#interfaces-can-be-merged-thats-rarely-good"></a></h2>
+<p>Interfaces support <a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html">declaration merging</a>. This is definetly a “feature” to be cautious of. It has two good use cases - creating or extending the typings of third party libraries and declaring environment variables.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/// &#x3C;reference types="astro/client" /></span>
+
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">ImportMetaEnv</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">readonly</span> <span class="token constant">PLAUSIBLE_API_KEY</span><span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">ImportMeta</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">readonly</span> env<span class="token operator">:</span> <span class="token maybe-class-name">ImportMetaEnv</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Outside of those two use cases, I do not see any value in the following code block. It’s simply confusing, especially if multiple interfaces with the same name are created throughout the code base.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">Box</span></span> <span class="token punctuation">{</span>
+  height<span class="token operator">:</span> <span class="token builtin">number</span>
+  width<span class="token operator">:</span> <span class="token builtin">number</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">Box</span></span> <span class="token punctuation">{</span>
+  scale<span class="token operator">:</span> <span class="token builtin">number</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> box<span class="token operator">:</span> <span class="token maybe-class-name">Box</span> <span class="token operator">=</span> <span class="token punctuation">{</span> height<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> width<span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span> scale<span class="token operator">:</span> <span class="token number">10</span> <span class="token punctuation">}</span>
+</code></pre>
+<h2 id="interfaces-lean-more-towards-oo-thinking">Interfaces lean more towards OO thinking<a aria-hidden="true" class="anchor-heading icon-link" href="#interfaces-lean-more-towards-oo-thinking"></a></h2>
+<p>Interfaces are, by their nature, strongly tied to classes. I would even suggest that interfaces were added to TypeScript specifically to support the class-based OO paradigm.</p>
+<p><strong>To be clear</strong>, I’m not saying OO is bad (though I often favour functional concepts), but let’s be realistic - the TypeScript (and JavaScript) ecosystem leans strongly towards approximately two paradigms: non-class based object orientation and functional.</p>
+<p>I can only think of two examples where I used classes or OO with TypeScript recently. This strongly contrasts with a typical project using UI libraries like React, where simple functions + data (often in the form of hooks) and declarative patterns and concepts are commonplace<a id="fnref-2" class="fnref" href="#fn-2">2</a>.</p>
+<p>There are some common myths used to “sell” TypeScript to developers. I believe some of these myths are harmful and perpetuate this “let’s apply OO everywhere without considering the implications of the ecosystem”. One of these is that <a href="https://dev.to/macsikora/no-typescript-is-not-oop-version-of-javascript-3ed4">because TypeScript has classes, it is an OO language</a> - it’s a multi-paradigm language. Aside from the fact that JavaScript also has classes, this myth is popular amongst developers who have only experienced OO.</p>
+<p>This is a topic I’d like to expand on more in another article, so I’ll finish this section with an insightful talk from Douglas Crockford.</p>
+<blockquote>
+<p>There are a few we know are gonna be bad. The worst is class. Class was the most requested new feature in JavaScript and all of the requests came from Java programmers who have to program in JavaScript and don’t want to have to learn how to do that.</p>
+</blockquote>
+<h2 id="types-can-still-be-used-with-classes">Types can still be used with classes<a aria-hidden="true" class="anchor-heading icon-link" href="#types-can-still-be-used-with-classes"></a></h2>
+<p>Again demonstrating the versatility of types, I created a customer processor in a typical OO style. There are two types available for implementation, and both are examples of <a href="https://fsharpforfunandprofit.com/posts/dependency-injection-1/">higher-order functions</a> (or in OO terminology: <a href="https://blog.ploeh.dk/2017/01/27/from-dependency-injection-to-dependency-rejection/s">dependency injection</a>). No interfaces here, yet still featuring composition.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Trackable</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  onProgress<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>progress<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token keyword null nil">null</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">CustomerProcessor</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">processBatch</span><span class="token punctuation">(</span>customers<span class="token operator">:</span> <span class="token maybe-class-name">Customer</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name"><span class="token maybe-class-name">CustomerProcessorWithProgress</span></span> <span class="token keyword">implements</span> <span class="token class-name"><span class="token maybe-class-name">CustomerProcessor</span></span><span class="token punctuation">,</span> <span class="token maybe-class-name">Trackable</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> processed<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+  onProgress<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>progress<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token keyword null nil">null</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+
+  <span class="token function">processBatch</span><span class="token punctuation">(</span>customers<span class="token operator">:</span> <span class="token maybe-class-name">Customer</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">processed</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">processed</span> <span class="token operator">+</span> customers<span class="token punctuation">.</span><span class="token property-access">length</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">onProgress</span><span class="token operator">?.</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">processed</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><a href="https://www.typescriptlang.org/play?#code/C4TwDgpgBAwgrgZ2AewLYQE5QLxQEoQCGAJsgHYA2IAPAN4BQUTUZh6AXFEhgJZkDmAbkbMMEAMbIMxBJzJxUAI0wBtALrCAvgD5h9UJCgAVDIXEBrQoorRcDZlHIAFDMn5iEsqAApvYV+4QnnIKyhgAlDjaUABuyDzEkQA+LHAUFFp6BtDwSGiYLsjiQQhSOFD2zP5FJQBChMDiABbe4ogo6BheuR2qauGccQmZ9PTiFISesO35GIXFnlIA6jzATYWBUzyoYDboZMAI03md8yVSADTGphZWNhUiTP48MQ3Q1QsIEMQhSpjlAAZhA5Ho4yBsPF5fNVNl55H8IlFYvFElAUvJ0uUMRlRg4PnUGs1WjNOt0SX1IpUHEw1jwEAA6fGeb7lWkMplfYhQADUUDaJ0wDJsAjWwOpNKadPpzgCkIA-PTvGzGa5Pt9wmKmJp6Jo9JIyEgoByyrgyBAAO7HXpzVXnDArNYQkreDWjfWGgBmPC6wHqjSanB6s3U5RUoNoLDYEE4AHIAGLIZAxq5iSTSLwqADMAA4ACwAJiuuYAnABWbNqKCaC7hyMcKAx+oYZNQVNSGScFQARgBmeLVz75au2fzecr1drrHrjcIAC8W23052u6XMwA2cc1jRu8iGr764h+5qB8kYEO4MMOCNT6MNgCKcAAHguJO2M33cwCrj3M6XN5Oo1jB8nxfNMOygFRi1zAB2fN-23ehjQwaVwVlEpyj8NDPEibBokqd1kBsekKDcbwAAMnWCKAABJaBhSFNDI11dVGJCVRqTwjxaL0fS4102I5LjvH3chD0JJoNSAA">Playground Link (full version)</a></p>
+<h2 id="interface-hungarian-notation">Interface Hungarian Notation<a aria-hidden="true" class="anchor-heading icon-link" href="#interface-hungarian-notation"></a></h2>
+<p>Developers often bring conventions, patterns, and idioms from other languages they know. This can be good, as functional concepts like immutability, pure functions, and composition over inheritance work well in OO languages.</p>
+<p>However, using naming conventions from one language in definitely not something to bring across. For example, C# interfaces starting with “I” are not idiomatic in TypeScript, but they are idiomatic C#. The point of a naming convention is to make code more readable and consistent.</p>
+<h2 id="conclusion">Conclusion<a aria-hidden="true" class="anchor-heading icon-link" href="#conclusion"></a></h2>
+<p>I’ve explained my preference and why I believe type should be the default choice in your projects. It’s up to you which you use, but I hope you can see the benefits of types and why they are a better choice in most cases.</p>
+<p>The inevitable angry comments can be directed to <code>/dev/null</code>.</p>
+<hr>
+<h2 id="footnotes">Footnotes<a aria-hidden="true" class="anchor-heading icon-link" href="#footnotes"></a></h2>
+<ol>
+<li><span id="fn-1" style="width: 0; height: 0;"></span><p>The term “types” in TypeScript can refer to any object, be it a type alias or an interface. However, in the TypeScript ecosystem, the word “type” is typically usually used to specifically refer to the <code>type</code> keyword. This distinction is generally understood, even amongst pedants who are particular about precise language usage<a class="fn" href="#fnref-1">˄</a></p></li>
+<li><span id="fn-2" style="width: 0; height: 0;"></span><p>Angular being the opposite and the framework of choice for the “I don’t want to learn JavaScript/TypeScript” crowd.<a class="fn" href="#fnref-2">˄</a></p></li>
+</ol>

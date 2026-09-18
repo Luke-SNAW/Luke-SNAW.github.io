@@ -1,0 +1,330 @@
+<h1 id="have-you-mastered-these-9-vue-techniques">Have You Mastered These 9 Vue Techniques<a aria-hidden="true" class="anchor-heading icon-link" href="#have-you-mastered-these-9-vue-techniques"></a></h1>
+<blockquote>
+<p><a href="https://pitayan.com/posts/vue-techniques/">https://pitayan.com/posts/vue-techniques/</a></p>
+</blockquote>
+<h2 id="-1-functional-component"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#1-functional-component">#</a> 1. Functional Component<a aria-hidden="true" class="anchor-heading icon-link" href="#-1-functional-component"></a></h2>
+<p>A <a href="https://vuejs.org/v2/guide/render-function.html#Functional-Components">functional component</a> is <strong>stateless</strong> and has not <code>lifecycle</code> or <code>methods</code>. So it cannot be instantiated</p>
+<p>It’s very easy to create a functional component, all you need to do is to add a <code>functional: true</code> property to the SFC or adding <code>functional</code> to the template. Since it’s as light as a function and has no instance reference, the rendering performance is quite improved.</p>
+<p>Functional component relys on the <code>context</code> and mutates along with the given data within it.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span> <span class="token attr-name">functional</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>book<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{{book.name}} {{book.price}}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token maybe-class-name">Vue</span><span class="token punctuation">.</span><span class="token method function property-access">component</span><span class="token punctuation">(</span><span class="token string">"book"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    functional<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    props<span class="token operator">:</span> <span class="token punctuation">{</span>
+      books<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">type</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">render</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">createElement<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> <span class="token function">createElement</span><span class="token punctuation">(</span>
+        <span class="token string">"div"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          attrs<span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">"book"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span>context<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">.</span><span class="token property-access">book</span><span class="token punctuation">]</span>
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="-2-deep-selectors"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#2-deep-selectors">#</a> 2. Deep Selectors<a aria-hidden="true" class="anchor-heading icon-link" href="#-2-deep-selectors"></a></h2>
+<p>Sometimes you even need to cha the third party components CSS which are <code>scoped</code> styles. It’ impossbile to remove the <code>sc ope</code> or open a new style.</p>
+<p>Now the <a href="https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements">deep selectors</a> <code>>>></code> <code>/deep/</code> <code>::v-deep</code> come into the right place for help.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector"><span class="token combinator">></span><span class="token combinator">></span><span class="token combinator">></span> <span class="token class">.scoped-third-party-class</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">gray</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">/deep/ <span class="token class">.scoped-third-party-class</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">gray</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector"><span class="token pseudo-element">::v-deep</span> <span class="token class">.scoped-third-party-class</span></span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">gray</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="-3-advanced-watcher"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#3-advanced-watcher">#</a> 3. Advanced “watcher”<a aria-hidden="true" class="anchor-heading icon-link" href="#-3-advanced-watcher"></a></h2>
+<h4 id="-execute-immedately"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#execute-immedately">#</a> execute immedately<a aria-hidden="true" class="anchor-heading icon-link" href="#-execute-immedately"></a></h4>
+<p><code>watch</code> handler triggers when the monitered prop mutates. But sometimes, it’s expected right after the component icreated.</p>
+<p>Yea, there’s a simple solution: invoke the handler in the <code>created</code> hook. But that doesn’t look elegant and meanwhile levels up the complexity.</p>
+<p>Or you could add an <code>immediate</code> property to watcher:</p>
+<pre class="language-js"><code class="language-js">watch<span class="token operator">:</span> <span class="token punctuation">{</span>
+    value<span class="token operator">:</span> <span class="token punctuation">{</span>
+        handler<span class="token operator">:</span> <span class="token string">'printValue'</span><span class="token punctuation">,</span>
+        immediate<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+methods <span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token function">printValue</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="-deep-listening"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#deep-listening">#</a> deep listening<a aria-hidden="true" class="anchor-heading icon-link" href="#-deep-listening"></a></h4>
+<p>Sometimes the watcher prop is an <code>Object</code>. But its properties mutation cannot trigger the watcher handler. In this case, adding <code>deep: true</code> to watcher can make its properties’ mutation detectable.</p>
+<p><strong>Note</strong> that <code>deep</code> may cause some serious performance issues when your <code>Object</code> has many layers. It’s better to think about using a rather flatten data structure instead.</p>
+<pre class="language-js"><code class="language-js"><span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+    value<span class="token operator">:</span> <span class="token punctuation">{</span>
+      one<span class="token operator">:</span> <span class="token punctuation">{</span>
+        two<span class="token operator">:</span> <span class="token punctuation">{</span>
+          three<span class="token operator">:</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+watch<span class="token operator">:</span> <span class="token punctuation">{</span>
+  value<span class="token operator">:</span> <span class="token punctuation">{</span>
+    handler<span class="token operator">:</span> <span class="token string">'printValue'</span><span class="token punctuation">,</span>
+    deep<span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+methods <span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token function">printValue</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="-multiple-handlers"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#multiple-handlers">#</a> multiple handlers<a aria-hidden="true" class="anchor-heading icon-link" href="#-multiple-handlers"></a></h4>
+<p>Actually watcher can be set as an <code>Array</code>. Supported types are <code>String</code> | <code>Function</code> | <code>Object</code>. The registered watcher handlers will be invoked one by one when triggered.</p>
+<pre class="language-js"><code class="language-js">watch<span class="token operator">:</span> <span class="token punctuation">{</span>
+  value<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'printValue'</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">val<span class="token punctuation">,</span> oldVal</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      handler<span class="token operator">:</span> <span class="token string">'printValue'</span><span class="token punctuation">,</span>
+      deep<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+methods <span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token function">printValue</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="-subscribe-to-multiple-variables-mutation"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#subscribe-to-multiple-variables-mutation">#</a> subscribe to multiple variables mutation<a aria-hidden="true" class="anchor-heading icon-link" href="#-subscribe-to-multiple-variables-mutation"></a></h4>
+<p><code>watcher</code> cannot listen to multiple variables , but we could combine the targets together as a new <code>computed</code> and watch this new “variable”.</p>
+<pre class="language-js"><code class="language-js">computed<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token function">multipleValues</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+      value1<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">value1</span><span class="token punctuation">,</span>
+      value2<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">value2</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+watch<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token function">multipleValues</span> <span class="token punctuation">(</span><span class="token parameter">val<span class="token punctuation">,</span> oldVal</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="-4-event-argument-event"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#4-event-argument-event">#</a> 4. Event argument: $event<a aria-hidden="true" class="anchor-heading icon-link" href="#-4-event-argument-event"></a></h2>
+<p><code>$event</code> is a special variable of Event Object. It provides more optional arugment in some scenarios for the complex functionalities.</p>
+<h4 id="-native-events"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#native-events">#</a> native events<a aria-hidden="true" class="anchor-heading icon-link" href="#-native-events"></a></h4>
+<p>In native events, the value is the same to the default event (DOM event or window event).</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">@input</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>handleInput(<span class="token punctuation">'</span>hello<span class="token punctuation">'</span>, $event)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+    methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">handleInput</span><span class="token punctuation">(</span><span class="token parameter">val<span class="token punctuation">,</span> e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span> <span class="token comment">// hello</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<h4 id="-custom-events"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#custom-events">#</a> custom events<a aria-hidden="true" class="anchor-heading icon-link" href="#-custom-events"></a></h4>
+<p>In custom events, the value is what’s captured from its child component.</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- Child --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">@input</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$emit(<span class="token punctuation">'</span>custom-event<span class="token punctuation">'</span>, <span class="token punctuation">'</span>hello<span class="token punctuation">'</span>)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- Parent --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>Child</span> <span class="token attr-name">@custom-event</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>handleCustomevent<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+    methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">handleCustomevent</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token comment">// hello</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="-5-router-parameter-decoupling"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#5-router-parameter-decoupling">#</a> 5. Router Parameter Decoupling<a aria-hidden="true" class="anchor-heading icon-link" href="#-5-router-parameter-decoupling"></a></h2>
+<p>I believe this is how most people handle the router parameters in a component:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">getRouteParamsId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$route</span><span class="token punctuation">.</span><span class="token property-access">params</span><span class="token punctuation">.</span><span class="token property-access">id</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Using <code>$route</code> inside a component will generate a strong coupling for the certain URL. This limited the flexibility of a component.</p>
+<p>The correct solution is to add <code>props</code> to the <code>Router</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      path<span class="token operator">:</span> <span class="token string">"/:id"</span><span class="token punctuation">,</span>
+      component<span class="token operator">:</span> <span class="token maybe-class-name">Component</span><span class="token punctuation">,</span>
+      props<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>In this way, component can get <code>params</code> directly from props.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+  props<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">getParamsId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">id</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In addition, you can also pass in a function to return the <code>props</code> for customization purposes.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      path<span class="token operator">:</span> <span class="token string">"/:id"</span><span class="token punctuation">,</span>
+      component<span class="token operator">:</span> <span class="token maybe-class-name">Component</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">props</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">router</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span> id<span class="token operator">:</span> route<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">id</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="-6-two-way-binding-for-custom-components"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#6-two-way-binding-for-custom-components">#</a> 6. Two-way Binding for Custom Components<a aria-hidden="true" class="anchor-heading icon-link" href="#-6-two-way-binding-for-custom-components"></a></h2>
+<blockquote>
+<p>Allows a custom component to customize the prop and event used when it’s used with v-model. By default, v-model on a component uses value as the prop and input as the event, but some input types such as checkboxes and radio buttons may want to use the value prop for a different purpose. Using the model option can avoid the conflict in such cases.</p>
+</blockquote>
+<p><code>v-model</code> is well-known for two-way binding. <code>input</code> is the default update event. The value can be updated via <code>$emit</code>. The only limitation is that the component needs an <code>&#x3C;input></code> tag to bind with the <code>value</code> prop.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>my-checkbox</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>val<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>my-checkbox</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>value<span class="token punctuation">"</span></span> <span class="token attr-name">@input</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>handleInputChange(value)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+    props<span class="token operator">:</span> <span class="token punctuation">{</span>
+      value<span class="token operator">:</span> <span class="token punctuation">{</span>
+        type<span class="token operator">:</span> <span class="token known-class-name class-name">Boolean</span><span class="token punctuation">,</span>
+        <span class="token keyword module">default</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">handleInputChange</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>There’s another solution to two-way binding which is <code>sync</code> modifier. Different to <code>v-model</code>, it doesn’t require your component to have an <code>&#x3C;input></code> tag and bind the value to it. It only triggers <code>update:&#x3C;your_prop></code> to mutate the prop via event system.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>custom-component</span> <span class="token attr-name">:value.sync</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>value<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<h2 id="-7-component-lifecycle-hook"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#7-component-lifecycle-hook">#</a> 7. Component Lifecycle Hook<a aria-hidden="true" class="anchor-heading icon-link" href="#-7-component-lifecycle-hook"></a></h2>
+<p>Normally, you can listen to child component lifecycle (e.g <code>mounted</code>) like this</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- Child --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+    <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">$emit</span><span class="token punctuation">(</span><span class="token string">"onMounted"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- Parent --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>Child</span> <span class="token attr-name">@onMounted</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>handleOnMounted<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>There’s another simple solution to this. You can use the <code>@hook:mounted</code> instead. It’s used within the Vue internal system.</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- Parent --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>Child</span> <span class="token attr-name"><span class="token namespace">@hook:</span>mounted</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>handleOnMounted<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="-8-event-listener-apis"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#8-event-listener-apis">#</a> 8. Event Listener APIs<a aria-hidden="true" class="anchor-heading icon-link" href="#-8-event-listener-apis"></a></h2>
+<p>For instance, adding a timer when the page mounted but the timer needs to be cleared when destroyed. This looks good.</p>
+<p>Frankly speaking, <code>this.timer</code> only makes sense whenused within <code>beforeDestroy</code> to get the timer id. Not being mean, but fewer reative variables you have the better performance you’ll have.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+      timer<span class="token operator">:</span> <span class="token keyword null nil">null</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">timer</span> <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">beforeDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">clearInterval</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">timer</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Make it accessable only within the lifecycle hook. Using <code>$once</code> to let go of the unnecessary stuffs.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+
+    timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">$once</span><span class="token punctuation">(</span><span class="token string">"hook:beforeDestroy"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">clearInterval</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="-9-mount-components-programmatically"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#9-mount-components-programmatically">#</a> 9. Mount Components Programmatically<a aria-hidden="true" class="anchor-heading icon-link" href="#-9-mount-components-programmatically"></a></h2>
+<p>In some scenarios, it’s much more elegant to load a component programmatically. For instance, a popup window or modal can be open up via a global context <code>$popup()</code> or <code>$modal.open()</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Vue</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Popup</span></span> <span class="token keyword module">from</span> <span class="token string">"./popup"</span>
+
+<span class="token keyword">const</span> <span class="token maybe-class-name">PopupCtor</span> <span class="token operator">=</span> <span class="token maybe-class-name">Vue</span><span class="token punctuation">.</span><span class="token method function property-access">extend</span><span class="token punctuation">(</span><span class="token maybe-class-name">Popup</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token maybe-class-name">PopupIns</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PopupCtr</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token maybe-class-name">PopupIns</span><span class="token punctuation">.</span><span class="token method function property-access">$mount</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span><span class="token maybe-class-name">PopupIns</span><span class="token punctuation">.</span><span class="token property-access">$el</span><span class="token punctuation">)</span>
+
+<span class="token class-name">Vue</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token property-access">$popup</span> <span class="token operator">=</span> <span class="token maybe-class-name">Vue</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">$popup</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token maybe-class-name">PopupIns</span><span class="token punctuation">.</span><span class="token method function property-access">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><a href="https://github.com/ElemeFE/element/blob/dev/packages/message-box/src/main.js">Element UI</a> implemented a well structured modal component which allows to use custom APIs to control the lifecycle of the instance. The theory is pretty much the same to what I demo above.</p>
+<p>These are the 9 techniques about Vue 2.x. Hope throughout this artcile you can have a better vision of utilizing the framework. If you think this article is great, please share it on other social networks.</p>
+<p>Thank you reading!</p>
+<h2 id="-references"><a href="https://pitayan.com/posts/vue-techniques/?ref=medium#references">#</a> References<a aria-hidden="true" class="anchor-heading icon-link" href="#-references"></a></h2>
+<ul>
+<li><a href="https://vuejs.org/">https://vuejs.org</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/vuejs-add-v-model-support">https://www.digitalocean.com/community/tutorials/vuejs-add-v-model-support</a></li>
+<li><a href="https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements">https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements</a></li>
+</ul>

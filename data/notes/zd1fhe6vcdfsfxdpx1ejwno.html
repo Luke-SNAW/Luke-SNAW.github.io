@@ -1,0 +1,19 @@
+<h1 id="event-delegation">Event Delegation<a aria-hidden="true" class="anchor-heading icon-link" href="#event-delegation"></a></h1>
+<blockquote>
+<p><a href="https://gomakethings.com/listening-for-events-on-multiple-elements-using-javascript-event-delegation/">https://gomakethings.com/listening-for-events-on-multiple-elements-using-javascript-event-delegation/</a></p>
+</blockquote>
+<h1 id="why-wouldnt-you-just-loop-through-each-element-and-attach-an-event-listener">Why wouldn’t you just loop through each element and attach an event listener?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-wouldnt-you-just-loop-through-each-element-and-attach-an-event-listener"></a></h1>
+<p>You can attach event listeners to individual elements by looping over each one.\
+But if you have a lot of elements, it can actually be worse for performance than event delegation.\
+Every event listener you create uses memory in the browser. It’s “cheaper” for the browser to track one event and fire it on every click that it is to manage multiple events.</p>
+<h1 id="capturing-events-that-dont-bubble">Capturing events that don’t bubble<a aria-hidden="true" class="anchor-heading icon-link" href="#capturing-events-that-dont-bubble"></a></h1>
+<p>Certain events, like <code>focus</code>, don’t bubble. In order to use event delegation with events that don’t bubble, you can set an optional third argument on the EventTarget.addEventListener() method, called useCapture, to true.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// Listen for all focus events in the document</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span>
+  <span class="token string">"focus"</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Run functions whenever an element in the document comes into focus</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token boolean">true</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>

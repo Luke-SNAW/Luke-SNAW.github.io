@@ -1,0 +1,57 @@
+<h1 id="organizing-multiple-git-identities">Organizing multiple Git identities<a aria-hidden="true" class="anchor-heading icon-link" href="#organizing-multiple-git-identities"></a></h1>
+<blockquote>
+<p><a href="https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities">https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities</a></p>
+</blockquote>
+<p>Here's a quick tip on how to manage multiple Git identities (e.g. personal, work, client1, client2).</p>
+<p>I organize my Git repos in three levels. My personal projects live in a <code>~/sources</code> directory. All my work projects live in <code>~/work</code>. This is the first level.</p>
+<p>Level 2 is the client, e.g. <code>~/work/client1</code>. Naturally, level 3 is the project repository: <code>~/work/client1/foo-api</code>.</p>
+<p>This is how my work directory is organized:</p>
+<pre><code>/Users/garrit/work
+├── client1
+│   ├── foo-api
+│   ├── foo-ios
+│   └── foo-android
+└── client2
+    ├── bar-ios
+    └── bar-middleware
+</code></pre>
+<p>Now, say that <code>client2</code> demands that we commit with a different identity than our default work email. Besides that, you probably also have a personal email address for your own projects. How do you manage that?</p>
+<h2 id="gitconfig-includes">.gitconfig includes<a aria-hidden="true" class="anchor-heading icon-link" href="#gitconfig-includes"></a></h2>
+<p>The global configuration file for Git is <code>~/.gitconfig</code>. If you've ever set a parameter like <code>git config user.name "Foo Bar"</code>: this is where it ended up.</p>
+<p>One awesome feature of the .gitconfig file is that you can <strong>conditionally include other config files</strong>, and this is what does the trick. Here's my <code>~/.gitconfig</code> file:</p>
+<pre class="language-ini"><code class="language-ini"><span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">user</span><span class="token punctuation">]</span></span>
+    <span class="token key attr-name">name</span> <span class="token punctuation">=</span> <span class="token value attr-value">Garrit Franke</span>
+    <span class="token key attr-name">email</span> <span class="token punctuation">=</span> <span class="token value attr-value">garrit@slashdev.space</span>
+
+<span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">includeIf "gitdir:~/work/"</span><span class="token punctuation">]</span></span>
+    <span class="token key attr-name">path</span> <span class="token punctuation">=</span> <span class="token value attr-value">~/.gitconfig-work</span>
+
+<span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">includeIf "gitdir:~/work/client2/"</span><span class="token punctuation">]</span></span>
+    <span class="token key attr-name">path</span> <span class="token punctuation">=</span> <span class="token value attr-value">~/.gitconfig-client2</span>
+
+<span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">includeIf "gitdir:~/sources/"</span><span class="token punctuation">]</span></span>
+    <span class="token key attr-name">path</span> <span class="token punctuation">=</span> <span class="token value attr-value">~/.gitconfig-personal</span>
+
+<span class="token comment"># ...</span>
+</code></pre>
+<p>By default, my name and email are always set to my personal identity. I also store some other global settings here, but those are not relevant for this post. If the repository is located inside the <code>~/work</code> directory, a file named <code>~/.gitconfig-work</code> is included. This is just another gitconfig file. This is what that looks like in my case:</p>
+<pre class="language-ini"><code class="language-ini"><span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">user</span><span class="token punctuation">]</span></span>
+    <span class="token key attr-name">name</span> <span class="token punctuation">=</span> <span class="token value attr-value">Garrit Franke</span>
+    <span class="token key attr-name">signingkey</span> <span class="token punctuation">=</span> <span class="token value attr-value">12345678</span>
+    <span class="token key attr-name">email</span> <span class="token punctuation">=</span> <span class="token value attr-value">garrit@work.de</span>
+
+<span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">commit</span><span class="token punctuation">]</span></span>
+    <span class="token key attr-name">gpgsign</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span>
+</code></pre>
+<p>I hope you'll see where this is going. For every identity, you keep a separate gitconfig file and include it in the main <code>~/.gitconfig</code>. Crucially, this requires you to organize your repositories grouped by client.</p>
+<p>This trick has simplified my project onboarding quite a bit. No more "You forgot to update your Email Address" requests from clients!</p>
+<hr>
+<p><a href="https://news.ycombinator.com/item?id=37904125">You can also filter based on the remote URL!</a></p>
+<pre class="language-ini"><code class="language-ini"><span class="token comment">; include only if a remote with the given URL exists (note</span>
+<span class="token comment">; that such a URL may be provided later in a file or in a</span>
+<span class="token comment">; file read after this file is read, as seen in this example)</span>
+<span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">includeIf "hasconfig:remote.*.url:https://example.com/\*"</span><span class="token punctuation">]</span></span>
+    <span class="token key attr-name">path</span> <span class="token punctuation">=</span> <span class="token value attr-value">foo.inc</span>
+<span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">remote "origin"</span><span class="token punctuation">]</span></span>
+    <span class="token key attr-name">url</span> <span class="token punctuation">=</span> <span class="token value attr-value">https://example.com/git*</span>
+</code></pre>

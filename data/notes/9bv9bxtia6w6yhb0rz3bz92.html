@@ -1,0 +1,15 @@
+<h1 id="terminology">Terminology<a aria-hidden="true" class="anchor-heading icon-link" href="#terminology"></a></h1>
+<h2 id="barrel"><a href="https://basarat.gitbook.io/typescript/main-1/barrel">Barrel</a><a aria-hidden="true" class="anchor-heading icon-link" href="#barrel"></a></h2>
+<p>A barrel is a way to rollup exports from several modules into a single convenient module. The barrel itself is a module file that re-exports selected exports of other modules.</p>
+<h2 id="module-resolution"><a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html">Module Resolution</a><a aria-hidden="true" class="anchor-heading icon-link" href="#module-resolution"></a></h2>
+<p><em>Module resolution</em> is the process the compiler uses to figure out what an import refers to. Consider an import statement like <code>import { a } from "moduleA"</code>; in order to check any use of <code>a</code>, the compiler needs to know exactly what it represents, and will need to check its definition <code>moduleA</code>.</p>
+<p>At this point, the compiler will ask “what’s the shape of <code>moduleA</code>?” While this sounds straightforward, <code>moduleA</code> could be defined in one of your own <code>.ts</code>/<code>.tsx</code> files, or in a <code>.d.ts</code> that your code depends on.</p>
+<h2 id="type-coercion"><a href="https://www.geeksforgeeks.org/what-is-type-coercion-in-javascript/">Type Coercion</a><a aria-hidden="true" class="anchor-heading icon-link" href="#type-coercion"></a></h2>
+<p><strong>Type Coercion</strong> refers to the process of automatic or implicit conversion of values from one data type to another.</p>
+<h2 id="two-types-of-equalities-in-javascript"><a href="https://www.syncfusion.com/blogs/post/5-different-ways-to-deep-compare-javascript-objects.aspx#:~:text=Two%20types%20of%20equalities%20in%20JavaScript">Two types of equalities in JavaScript</a><a aria-hidden="true" class="anchor-heading icon-link" href="#two-types-of-equalities-in-javascript"></a></h2>
+<p>When discussing object comparisons in JavaScript, there are two types of equalities one must be aware of:</p>
+<ul>
+<li>Referential equality: Determines whether the two provided operands refer to the same reference/object instance.</li>
+<li>Deep equality: Determines whether objects are equal by comparing each property in the operands.</li>
+</ul>
+<p>Referential equality can be determined with equality operators such as strict equality (===) or coercive equality (==)</p>

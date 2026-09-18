@@ -1,0 +1,54 @@
+<h1 id="flexbox-dynamic-line-separator">Flexbox Dynamic Line Separator<a aria-hidden="true" class="anchor-heading icon-link" href="#flexbox-dynamic-line-separator"></a></h1>
+<p><a href="https://ishadeed.com/article/flexbox-separator/">https://ishadeed.com/article/flexbox-separator/</a></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>section<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>section__item section__item--start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&#x3C;!-- Content --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>section__item section__item--end<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&#x3C;!-- Content --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>section</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>I want to center the two items vertically, so I will use align-items on the parent.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.section</span></span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+  <span class="token comment">/* other styles */</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.section__item</span></span> <span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="adding-the-separator">Adding The Separator<a aria-hidden="true" class="anchor-heading icon-link" href="#adding-the-separator"></a></h1>
+<h1 id="why-the-separator-looks-like-a-square">Why The Separator Looks Like A Square?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-the-separator-looks-like-a-square"></a></h1>
+<p>Since we added align-items: center to center the child items vertically, we removed the default behavior of flexbox stretching child items (stretching vertically, in this case).</p>
+<p>To fix that, we need to reset the alignment of the pseudo-element to stretch.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.section</span><span class="token pseudo-element">:before</span></span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">0.5</span><span class="token unit">px</span> solid <span class="token hexcode color">#d3d3d3</span><span class="token punctuation">;</span>
+  <span class="token property">align-self</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Next, I need to reorder the flex items to make the divider appears between them.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.section__item--start</span></span> <span class="token punctuation">{</span>
+  <span class="token property">order</span><span class="token punctuation">:</span> <span class="token number">-1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="another-way-of-doing-it">Another Way Of Doing It<a aria-hidden="true" class="anchor-heading icon-link" href="#another-way-of-doing-it"></a></h1>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* On small sizes */</span>
+<span class="token selector"><span class="token class">.section</span><span class="token pseudo-element">:before</span></span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token color">lightgrey</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">700</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token class">.section</span><span class="token pseudo-element">:before</span></span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">150</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
