@@ -2,7 +2,7 @@
 id: scyurl1eklmxej9fev7q4fb
 title: CLI
 desc: ""
-updated: 1741135766718
+updated: 1790586838577
 created: 1730957314802
 ---
 
@@ -116,3 +116,13 @@ Link: [https://ss64.com/mac/uuidgen.html](https://ss64.com/mac/uuidgen.html)
 - `say`: This command makes your Mac speak the text you give it. [Link](https://ss64.com/mac/say.html)
 - `screencapture`: This command allows you to take screenshots and save them to a file. I prefer using `cmd-shift-5` for this. [Link](https://ss64.com/mac/screencapture.html)
 - `networksetup`: This command allows you to configure your network settings programmatically. I found its API very intimidating, and so I haven't really used it much. [Link](https://ss64.com/mac/networksetup.html)
+
+## 업데이트 알림 막기
+
+/etc/hosts에
+
+```bash
+127.0.0.1 gdmf.apple.com
+```
+
+을 추가. 업데이트할 때만 해당 항목을 지움.

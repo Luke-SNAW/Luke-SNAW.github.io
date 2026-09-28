@@ -2,7 +2,7 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1790138768752
+updated: 1790578824867
 created: 1779352821282
 ---
 
@@ -31,6 +31,8 @@ created: 1779352821282
 - 왼쪽 half shower (Level 3) 100개 달성 - 2026-09-13
 - 423 시작 (Level 2) - 2026-09-15
 - Juggler's Tennis (Level 2) 100개 달성 - 2026-09-23
+- 왼쪽 2in1 circles (Level 1?) 100개 달성 - 2026-09-28
+- 오른쪽 2in1 columns (Level 1?) 100개 달성 - 2026-09-28
 
 ---
 
@@ -39,3 +41,4 @@ created: 1779352821282
 - [[궤적이 어그러지지 않는 궁리도 가치 있지만, 어그러졌을 때 완화하려는 노력, 대처에 신경쏟는 행동이 재미있다.|daily.journal.2026.06.12#struggling]]
 - [[최상단 target 의식|daily.journal.2026.08.28#최상단-target-의식]]
 - [[익숙치 않으면 난이도 낮추자|daily.journal.2026.09.09#익숙치-않으면-난이도-낮추자]]
+- [[손가락, 손목 힘을 빼고 받아 많이 놓쳐 팔꿈치로 충격 흡수하도록 의식|daily.journal.2026.09.28#오른쪽-2in1-columns-level-1-100개-달성]]
