@@ -2,11 +2,13 @@
 id: pn49yygh5xmlbzk1yogqmyj
 title: "2026-09-28"
 desc: ""
-updated: 1790578742493
+updated: 1790673138100
 created: 1790558769060
 traitIds:
   - journalNote
 ---
+
+[[왼쪽 무릎 - 계단오르기 - 2026.09.28|body.posture-correction#왼쪽-무릎---계단오르기---20260928]]
 
 ## 왼쪽 2in1 circles (Level 1?) 100개 달성
 
