@@ -2,7 +2,7 @@
 id: 8modsw2sp3142owxlp8t1qr
 title: Web browser tools
 desc: ""
-updated: 1702977014542
+updated: 1790914161019
 created: 1646811472608
 ---
 
@@ -22,6 +22,7 @@ created: 1646811472608
 - [JavaScript Restrictor](https://polcak.github.io/jsrestrictor/) - Various websites collect information about users without their awareness.
 - [Copy as Markdown for Chrome & Firefox](https://github.com/yorkxin/copy-as-markdown)
 - [Live Stream Downloader](https://chrome.google.com/webstore/detail/live-stream-downloader/looepbdllpjgdmkpdcdffhdbmpbcfekj)
+- [DeArrow](https://dearrow.ajay.app/) is an open source browser extension for crowdsourcing better titles and thumbnails on YouTube. The goal is to make titles accurate and reduce sensationalism. No more arrows, ridiculous faces, and no more clickbait.
 
 ### Firefox add-ons
 

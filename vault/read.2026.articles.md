@@ -2,9 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1790648170289
+updated: 1790914148549
 created: 1766965709816
 ---
+
+## Week 40, 2026
+
+- [DeArrow](https://dearrow.ajay.app/) is an open source browser extension for crowdsourcing better titles and thumbnails on YouTube. The goal is to make titles accurate and reduce sensationalism. No more arrows, ridiculous faces, and no more clickbait.
 
 ## Week 39, 2026
 

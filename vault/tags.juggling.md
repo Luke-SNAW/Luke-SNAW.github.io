@@ -2,7 +2,7 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1790578824867
+updated: 1790917228419
 created: 1779352821282
 ---
 
@@ -33,6 +33,7 @@ created: 1779352821282
 - Juggler's Tennis (Level 2) 100개 달성 - 2026-09-23
 - 왼쪽 2in1 circles (Level 1?) 100개 달성 - 2026-09-28
 - 오른쪽 2in1 columns (Level 1?) 100개 달성 - 2026-09-28
+- 왼쪽 2in1 columns (Level 1?) 시작 - 2026-10-02
 
 ---
 
