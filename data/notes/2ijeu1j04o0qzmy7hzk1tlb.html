@@ -1,0 +1,154 @@
+<h1 id="typescript">TypeScript<a aria-hidden="true" class="anchor-heading icon-link" href="#typescript"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li>
+<p><a href="https://swizec.com/blog/stop-shouting-shouting/">Stop SHOUTING = 'shouting'</a></p>
+</li>
+<li>
+<p><a href="https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/#basic-prop-types-examples">Typing Component Props | React TypeScript Cheatsheets</a></p>
+</li>
+<li>
+<p><a href="https://javascript.plainenglish.io/typescript-generics-whats-with-the-angle-brackets-4e242c567269">TypeScript Generics: What’s with the Angle Brackets &#x3C;>?</a></p>
+</li>
+<li>
+<p><a href="https://dmitripavlutin.com/typescript-covariance-contravariance/">Covariance and Contravariance in TypeScript</a></p>
+</li>
+<li>
+<p><a href="https://dmitripavlutin.com/typescript-function-overloading/">A Simple Explanation of Function Overloading in TypeScript</a></p>
+</li>
+<li>
+<p><a href="https://www.executeprogram.com/blog/typescript-features-to-avoid">TypeScript Features to Avoid</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/javascript-scene/the-shocking-secret-about-static-types-514d39bf30a3">The Shocking Secret About Static Types</a></p>
+</li>
+<li>
+<p><a href="https://dmitripavlutin.com/typescript-index-signatures/">Index Signatures in TypeScript</a></p>
+<pre class="language-typescript"><code class="language-typescript"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">SpecificSalary</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Record</span><span class="token operator">&#x3C;</span><span class="token string">"yearlySalary"</span> <span class="token operator">|</span> <span class="token string">"yearlyBonus"</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span>
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">StringByString</span></span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token keyword nil">undefined</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> object<span class="token operator">:</span> <span class="token maybe-class-name">StringByString</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p><a href="https://spin.atomicobject.com/2021/05/11/3-useful-typescript-patterns/">3 Useful TypeScript Patterns to Keep in Your Back Pocket</a></p>
+<pre class="language-typescript"><code class="language-typescript"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Names</span></span> <span class="token operator">=</span> <span class="token string">"Bob"</span> <span class="token operator">|</span> <span class="token string">"Bill"</span> <span class="token operator">|</span> <span class="token string">"Ben"</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">JobTitles</span></span> <span class="token operator">=</span> <span class="token string">"Welder"</span> <span class="token operator">|</span> <span class="token string">"Carpenter"</span> <span class="token operator">|</span> <span class="token string">"Plumber"</span>
+
+<span class="token keyword">const</span> <span class="token maybe-class-name">JobAssignments</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span><span class="token maybe-class-name">Key</span> <span class="token keyword">in</span> <span class="token maybe-class-name">Names</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token maybe-class-name">JobTitles</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token maybe-class-name">Bob</span><span class="token operator">:</span> <span class="token string">"Welder"</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">Bill</span><span class="token operator">:</span> <span class="token string">"Carpenter"</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">Ben</span><span class="token operator">:</span> <span class="token string">"Plumber"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p><a href="https://blog.bitsrc.io/why-are-const-assertions-a-gem-in-typescript-e1d353f5d8ce">Why Are Const Assertions a Gem in TypeScript?</a></p>
+</li>
+<li>
+<p><a href="https://betterprogramming.pub/all-javascript-and-typescript-features-of-the-last-3-years-629c57e73e42">All JavaScript and TypeScript Features of the last 3 years</a></p>
+</li>
+</ul>
+<h2 id="overrated">Overrated?<a aria-hidden="true" class="anchor-heading icon-link" href="#overrated"></a></h2>
+<ul>
+<li><a href="https://buildtogether.tech/tooling/#:~:text=Static%20typing%20helps%2C%20but%20only%20a%20little.">Static typing helps, but only a little.</a></li>
+<li><a href="https://medium.com/javascript-scene/the-typescript-tax-132ff4cb175b">The TypeScript Tax</a></li>
+<li><a href="https://medium.com/javascript-scene/the-shocking-secret-about-static-types-514d39bf30a3">The Shocking Secret About Static Types</a></li>
+</ul>
+<h2 id="type-interface">Type, interface<a aria-hidden="true" class="anchor-heading icon-link" href="#type-interface"></a></h2>
+<ul>
+<li><a href="https://www.educba.com/typescript-type-vs-interface/">Differences Between TypeScript Type vs Interface</a></li>
+<li><a href="https://blog.bitsrc.io/type-vs-interface-in-typescript-cf3c00bc04ae">Type vs Interface in TypeScript</a>
+<ul>
+<li>Use interfaces when:
+<ul>
+<li>A new object or an object method needs to be defined.</li>
+<li>You wish to benefit from declaration merging.</li>
+</ul>
+</li>
+<li>Use types when:
+<ul>
+<li>You need to define a primitive-type alias</li>
+<li>Defining tuple types</li>
+<li>Defining a union</li>
+<li>You must create functions and attempt to overload them in object types through composition.</li>
+<li>Requiring the use of mapped types</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates">Using type predicates</a>
+<ul>
+<li><code>#4 Use type predicate to avoid type assertion</code> in <a href="https://dev.to/zenstack/11-tips-that-help-you-become-a-better-typescript-programmer-4ca1">11 Tips That Make You a Better Typescript Programmer</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="differences-between-type-aliases-and-interfaces"><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces">Differences Between Type Aliases and Interfaces</a><a aria-hidden="true" class="anchor-heading icon-link" href="#differences-between-type-aliases-and-interfaces"></a></h3>
+<p>Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an <code>interface</code> are available in <code>type</code>, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.</p>
+<h4 id="extending-an-interface">Extending an interface<a aria-hidden="true" class="anchor-heading icon-link" href="#extending-an-interface"></a></h4>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">Animal</span></span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">Bear</span></span> <span class="token keyword">extends</span> <span class="token class-name"><span class="token maybe-class-name">Animal</span></span> <span class="token punctuation">{</span>
+  honey<span class="token operator">:</span> <span class="token builtin">boolean</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> bear <span class="token operator">=</span> <span class="token function">getBear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+bear<span class="token punctuation">.</span><span class="token property-access">name</span>
+bear<span class="token punctuation">.</span><span class="token property-access">honey</span>
+</code></pre>
+<h4 id="extending-a-type-via-intersections">Extending a type via intersections<a aria-hidden="true" class="anchor-heading icon-link" href="#extending-a-type-via-intersections"></a></h4>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Animal</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Bear</span></span> <span class="token operator">=</span> <span class="token maybe-class-name">Animal</span> <span class="token operator">&#x26;</span> <span class="token punctuation">{</span> honey<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> bear <span class="token operator">=</span> <span class="token function">getBear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+bear<span class="token punctuation">.</span><span class="token property-access">name</span>
+bear<span class="token punctuation">.</span><span class="token property-access">honey</span>
+</code></pre>
+<h4 id="adding-new-fields-to-an-existing-interface">Adding new fields to an existing interface<a aria-hidden="true" class="anchor-heading icon-link" href="#adding-new-fields-to-an-existing-interface"></a></h4>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">Window</span></span> <span class="token punctuation">{</span>
+  title<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">Window</span></span> <span class="token punctuation">{</span>
+  ts<span class="token operator">:</span> <span class="token maybe-class-name">TypeScriptAPI</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> src <span class="token operator">=</span> <span class="token string">'const a = "Hello World"'</span>
+<span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">ts</span><span class="token punctuation">.</span><span class="token method function property-access">transpileModule</span><span class="token punctuation">(</span>src<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="a-type-cannot-be-changed-after-being-created">A type cannot be changed after being created<a aria-hidden="true" class="anchor-heading icon-link" href="#a-type-cannot-be-changed-after-being-created"></a></h4>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Window</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span> title<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">}</span>
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Window</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span> ts<span class="token operator">:</span> <span class="token maybe-class-name">TypeScriptAPI</span> <span class="token punctuation">}</span>
+<span class="token comment">// Error: Duplicate identifier 'Window'.</span>
+</code></pre>
+<h3 id="preferring-interfaces-over-intersections"><a href="https://github.com/microsoft/TypeScript/wiki/Performance#preferring-interfaces-over-intersections">Preferring Interfaces Over Intersections</a><a aria-hidden="true" class="anchor-heading icon-link" href="#preferring-interfaces-over-intersections"></a></h3>
+<p>Much of the time, a simple type alias to an object type acts very similarly to an interface.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token maybe-class-name">Foo</span></span> <span class="token punctuation">{</span>
+  prop<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name"><span class="token maybe-class-name">Bar</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span> prop<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">}</span>
+</code></pre>
+<p>However, and as soon as you need to compose two or more types, you have the option of extending those types with an interface, or intersecting them in a type alias, and that's when the differences start to matter.</p>
+<p>Interfaces create a single flat object type that detects property conflicts, which are usually important to resolve! Intersections on the other hand just recursively merge properties, and in some cases produce <code>never</code>. Interfaces also display consistently better, whereas type aliases to intersections can't be displayed in part of other intersections. Type relationships between interfaces are also cached, as opposed to intersection types as a whole. A final noteworthy difference is that when checking against a target intersection type, every constituent is checked before checking against the "effective"/"flattened" type.</p>
+<p>For this reason, extending types with <code>interface</code>s/<code>extends</code> is suggested over creating intersection types.</p>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> type Foo = Bar &#x26; Baz &#x26; {
+</span><span class="token prefix deleted">-</span><span class="token line">     someProp: string;
+</span><span class="token prefix deleted">-</span><span class="token line"> }
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> interface Foo extends Bar, Baz {
+</span><span class="token prefix inserted">+</span><span class="token line">     someProp: string;
+</span><span class="token prefix inserted">+</span><span class="token line"> }
+</span></span></code></pre>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/iobm3jmimhpok244jve1s4r">10 Advanced TypeScript Tips for Development</a></li>
+<li><a href="/notes/3m7eb64v72rnclmgwwuw5rh">11 Awesome TypeScript Utility Types You Should Know</a></li>
+<li><a href="/notes/2s24x5q1mo7d1hy2oauofwy">13 Typescript Utility - A Cheat Sheet for Developer</a></li>
+<li><a href="/notes/sdltx77jqmnlqumlnblxrpd">Favour TypeScript Types Over Interfaces</a></li>
+<li><a href="/notes/cm1g8es2dywuvjeprc5o0mk">No More Confusion About TypeScript’s Type and Interface</a></li>
+<li><a href="/notes/be1p3rxvx033q3qtlji9rov">Record Type in TypeScript</a></li>
+<li><a href="/notes/qz73ogfyumh4y5xr3g82c4z">Stop using {} in Typescript</a></li>
+<li><a href="/notes/uipeebh7appazcar64btre3">Tools</a></li>
+<li><a href="/notes/fj66638y9kuj7mqtn1pfsy3">TypeScript Advanced Types for Next.js: Examples and Best Practices In 2023</a></li>
+</ol>

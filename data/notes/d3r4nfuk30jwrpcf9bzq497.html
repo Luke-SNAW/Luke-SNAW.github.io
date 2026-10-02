@@ -1,0 +1,34 @@
+<h1 id="better-font-loading-with-the-font-displayswap-property">Better font loading with the font-display:swap property<a aria-hidden="true" class="anchor-heading icon-link" href="#better-font-loading-with-the-font-displayswap-property"></a></h1>
+<p><a href="https://gomakethings.com/better-font-loading-with-the-font-displayswap-property/">https://gomakethings.com/better-font-loading-with-the-font-displayswap-property/</a></p>
+<h1 id="the-font-display-swap-property">The font-display: swap property<a aria-hidden="true" class="anchor-heading icon-link" href="#the-font-display-swap-property"></a></h1>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">{</span>
+  <span class="token property">font-display</span><span class="token punctuation">:</span> swap<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"PT Sans"</span><span class="token punctuation">;</span>
+  <span class="token property">font-style</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> <span class="token number">400</span><span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token function">local</span><span class="token punctuation">(</span><span class="token string">"PT Sans"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">local</span><span class="token punctuation">(</span><span class="token string">"PTSerif-Regular"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"path/to/my/fonts/pt-sans-regular.woff2"</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"woff2"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"path/to/my/fonts/pt-sans-regular.woff"</span><span class="token punctuation">)</span></span>
+      <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"woff"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>There are two main phases or periods in a font’s loading process:</p>
+<ol>
+<li>Block Phase. If the font isn’t loaded yet, show invisible text.</li>
+<li>Swap Phase. If the font isn’t loaded yet, use a fallback font until it’s ready.</li>
+</ol>
+<p>The font-display property tells the browser what to do with a particular font file and how to display it. It has five values:</p>
+<ul>
+<li>auto - The browser uses the default behavior.</li>
+<li>block - Short block phase, infinite swap phase.</li>
+<li>swap - Extremely small block phase, infinite swap phase.</li>
+<li>fallback - Extremely small block phase, short swap phase.</li>
+<li>optional - Extremely small block phase, no swap phase.</li>
+</ul>
+<p>A value of <code>auto</code> is the same as omitting the font-display property altogether.</p>
+<p>The <code>block</code> and <code>swap</code> values will show a fallback font until custom typeface is ready. Of the two, swap is preferable, because it results in a shorter FOIT period.</p>
+<p>With a value of <code>fallback</code>, if the font takes too long to load, it may never get displayed as the browser will just keep using the fallback font. And a value of optional only shows the custom font if its available right away.</p>
+<h1 id="how-to-use-this-with-your-fonts">How to use this with your fonts<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-use-this-with-your-fonts"></a></h1>
+<p><a href="https://gomakethings.com/better-font-loading-with-the-font-displayswap-property/#how-to-use-this-with-your-fonts">https://gomakethings.com/better-font-loading-with-the-font-displayswap-property/#how-to-use-this-with-your-fonts</a></p>
+<h1 id="what-if-you-use-a-cdn-that-doesnt-support-font-display-swap">What if you use a CDN that doesn’t support font-display: swap?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-if-you-use-a-cdn-that-doesnt-support-font-display-swap"></a></h1>
+<p>Not all CDNs support the <code>font-display: swap</code> property.</p>
+<p>If that’s the case for you, <a href="https://gomakethings.com/preventing-foit-with-web-fonts-using-the-vanilla-js-fonts.load-method/">the fonts.loaded() method</a> is still a fantastic option that will create a better experience for your users.</p>

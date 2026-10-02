@@ -1,0 +1,44 @@
+<h1 id="css-about-font">CSS about font<a aria-hidden="true" class="anchor-heading icon-link" href="#css-about-font"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://www.stefanjudis.com/today-i-learned/the-relative-font-weight-axis-how-variable-fonts-ease-font-weight/">The relative font weight axis — how variable fonts ease font weight transitions</a></li>
+<li><a href="https://v-fonts.com/">Variable Fonts</a></li>
+<li><a href="https://developer.chrome.com/blog/css-i18n-features?hl=en">Introducing four new international features in CSS</a>
+<ul>
+<li>From Chrome 119: Japanese phrase line breaking with <code>word-break: auto-phrase</code>.</li>
+<li>Behind a flag from Chrome 120: Inter-script spacing with the <code>text-autospace</code> property.</li>
+<li>Under development: Chinese, Japanese, and Korean (CJK) punctuation kerning with the <code>text-spacing-trim</code> property.</li>
+</ul>
+</li>
+<li><a href="https://codersblock.com/blog/nicer-text-wrapping-with-css-text-wrap/">Generally speaking, you’ll want to use <code>text-wrap: balance</code> for headings and <code>text-wrap: pretty</code> for body text.</a></li>
+<li><a href="https://blog.stephaniestimac.com/posts/2023/10/css-text-wrap/">When to use CSS text-wrap: balance; vs text-wrap: pretty;</a>
+<blockquote>
+<p>Use text-wrap: balance; on headings and subheadings. And use text-wrap: pretty; on paragraphs of text to get rid of orphans on the last line. Despite the Chromium-only support, these would be a good candidate for progressive enhancement.</p>
+</blockquote>
+</li>
+<li><a href="https://ishadeed.com/article/css-cap-unit/">Cap Unit</a></li>
+<li><a href="https://clagnut.com/blog/2433/">Introducing TODS</a> – a typographic and OpenType default stylesheet</li>
+<li><a href="https://clagnut.com/blog/2434/">The problem with superscripts and subscripts</a></li>
+</ul>
+<h2 id="preventing-layout-shift-with-numbers-using-css"><a href="https://gomakethings.com/preventing-layout-shift-with-numbers-using-css/">Preventing layout shift with numbers using CSS</a><a aria-hidden="true" class="anchor-heading icon-link" href="#preventing-layout-shift-with-numbers-using-css"></a></h2>
+<h3 id="an-example">An example<a aria-hidden="true" class="anchor-heading icon-link" href="#an-example"></a></h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">data-count</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>down<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Decrease<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>count<span class="token punctuation">"</span></span> <span class="token attr-name">aria-live</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>polite<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	0/5
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">data-count</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>up<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Increase<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="the-font-variant-numeric-tabular-nums-property">The font-variant-numeric: tabular-nums property<a aria-hidden="true" class="anchor-heading icon-link" href="#the-font-variant-numeric-tabular-nums-property"></a></h3>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.count</span></span> <span class="token punctuation">{</span>
+  <span class="token property">font-variant-numeric</span><span class="token punctuation">:</span> tabular-nums<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/d3r4nfuk30jwrpcf9bzq497">Better font loading with the font-display:swap property</a></li>
+<li><a href="/notes/jlvky3aqhg65gfidokmjqkj">How to avoid layout shifts caused by web fonts</a></li>
+<li><a href="/notes/egjhlypvypsh4de9xu14mcm">Making Google Fonts Faster in 2022</a></li>
+</ol>

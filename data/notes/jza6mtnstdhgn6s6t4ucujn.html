@@ -1,0 +1,38 @@
+<h1 id="query">query<a aria-hidden="true" class="anchor-heading icon-link" href="#query"></a></h1>
+<h2 id="media-queries">Media Queries<a aria-hidden="true" class="anchor-heading icon-link" href="#media-queries"></a></h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover">media query: hover</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer">media query: pointer</a></li>
+</ul>
+<h2 id="container-queries">Container Queries<a aria-hidden="true" class="anchor-heading icon-link" href="#container-queries"></a></h2>
+<ul>
+<li>
+<p><a href="https://ishadeed.com/article/css-container-query-guide">An Interactive Guide to CSS Container Queries</a></p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Try to add more items and see what happens. */</span>
+<span class="token selector"><span class="token class">.timelineWrapper</span></span> <span class="token punctuation">{</span>
+  <span class="token property">container</span><span class="token punctuation">:</span> timeline <span class="token operator">/</span> inline-size<span class="token punctuation">;</span>
+  <span class="token variable">--force-vertical</span><span class="token punctuation">:</span> false<span class="token punctuation">;</span>
+
+  <span class="token selector">&#x26;<span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token class">.c-timeline__item</span><span class="token pseudo-class">:nth-last-child</span><span class="token punctuation">(</span><span class="token n-th"><span class="token number">n</span> <span class="token operator">+</span> <span class="token number">5</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token variable">--force-vertical</span><span class="token punctuation">:</span> true<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@container</span> timeline <span class="token punctuation">(</span>inline-size > <span class="token number">430</span><span class="token unit">px</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token function">style</span><span class="token punctuation">(</span><span class="token variable">--force-vertical</span><span class="token punctuation">:</span> false<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* Apply the full variation. */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p><a href="https://www.joshwcomeau.com/css/container-queries-introduction/">A Friendly Introduction to Container Queries</a></p>
+</li>
+</ul>
+<h2 id="style-queries">Style Queries<a aria-hidden="true" class="anchor-heading icon-link" href="#style-queries"></a></h2>
+<ul>
+<li><a href="https://ishadeed.com/article/css-container-style-queries/">CSS Style Queries</a></li>
+<li><a href="https://developer.chrome.com/docs/css-ui/style-queries?hl=en">Getting Started with Style Queries</a>
+<ul>
+<li>Can't you do it with attributes?</li>
+</ul>
+</li>
+</ul>

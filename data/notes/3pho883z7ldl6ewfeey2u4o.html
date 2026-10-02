@@ -1,0 +1,60 @@
+<h1 id="why-would-anyone-need-javascript-generator-functions">Why Would Anyone Need JavaScript Generator Functions<a aria-hidden="true" class="anchor-heading icon-link" href="#why-would-anyone-need-javascript-generator-functions"></a></h1>
+<blockquote>
+<p><a href="https://jrsinclair.com/articles/2022/why-would-anyone-need-javascript-generator-functions/">https://jrsinclair.com/articles/2022/why-would-anyone-need-javascript-generator-functions/</a></p>
+</blockquote>
+<p>Generators are an <em>odd</em> part of the JavaScript language. And some people find them a bit of a puzzle. You might be a successful developer for decades and never feel the need to reach for them. Which raises the question, if you can go so long without ever needing them, what are they good for?</p>
+<p>Generators have a funny syntax, too. They have these strange starred function definitions; you can’t define them with arrow functions; they add this mysterious <code>yield</code> keyword. If you’re not familiar with what they’re doing, they can make code impossible to read.</p>
+<p>Part of the trouble is that generators are a low-level construct. That is, they’re kind of like a tool for building tools. And it’s those tools we build that solve day-to-day problems. But if you’re looking at generator functions in isolation, it can be hard to see why you’d ever want them.</p>
+<p>Generators are quite a powerful construct, though. And they’re handy to have in your metaphorical toolbox. Like most tools, you might not need them for every single job. But for certain jobs, they make life much easier. Once you understand the tool better, you begin to see where they’re helpful. And, equally important, you begin to see when <em>not</em> to use them.</p>
+<p>What, then, are generators good for?</p>
+<h2 id="tim-tams-and-lazy-iterators">Tim Tams and lazy iterators<a aria-hidden="true" class="anchor-heading icon-link" href="#tim-tams-and-lazy-iterators"></a></h2>
+<p>Generators have <em>lots</em> of uses. But the most immediate and obvious application is to make <em>lazy iterators</em>.</p>
+<p>Now, I’m hoping you’re already familiar with JavaScript’s <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols">iteration protocols</a>. These protocols are another low-level language feature. They let us tell the JavaScript engine that some object can be used in a <code>for...of</code> loop or with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">spread syntax</a>.</p>
+<p>The simplest thing we can do is define a generator function that yields some values. We can then use a <code>for...of</code> loop to iterate over them:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">culturalAchievements</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">yield</span> <span class="token string">"Amazing coffee"</span>
+  <span class="token keyword control-flow">yield</span> <span class="token string">"The Sydney Opera House"</span>
+  <span class="token keyword control-flow">yield</span> <span class="token string">"The invention of Wi-Fi"</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span>achievement <span class="token keyword">of</span> <span class="token function">culturalAchievements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Australia is known for: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>achievement<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Australia is known for: Amazing coffee</span>
+<span class="token comment">// Australia is known for: The Sydney Opera House</span>
+<span class="token comment">// Australia is known for: The invention of Wi-Fi</span>
+</code></pre>
+<p>...</p>
+<h2 id="infinite-iterators">Infinite Iterators<a aria-hidden="true" class="anchor-heading icon-link" href="#infinite-iterators"></a></h2>
+<p>Back in the 1990s, Arnotts ran a series of commercials for Tim Tams. The first of these featured Cate Blanchett meeting a genie. And involved her character wishing for a packet of Tim Tams that never runs out.</p>
+<p>The <a href="https://www.youtube.com/watch?v=wz3hHxgDAnY">whole</a> <a href="https://www.youtube.com/watch?v=-p7thvWWLL0">series</a> of ads focussed around the concept of an infinite packet of Tim Tams. And, much like a packet of Tim Tams that never runs out, generators can create infinite iterators.</p>
+<p>We could, for example, create a generator function that gives us an infinite sequence of ones:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">allTheOnes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">yield</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token spread operator">...</span><span class="token method function property-access">take</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token function">allTheOnes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">// [ 1, 1, 1, 1, 1, 1, 1 ]</span>
+</code></pre>
+<p>Now, that might be interesting. But perhaps not so useful. We could, though, make this a little more general by specifying the value we want to repeat:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">repeat</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">yield</span> val
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token spread operator">...</span><span class="token method function property-access">take</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token function">repeat</span><span class="token punctuation">(</span><span class="token string">"Tim Tam"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">// [ 'Tim Tam', 'Tim Tam', 'Tim Tam' ]</span>
+</code></pre>
+<p>...</p>
+<h2 id="wrapping-up">Wrapping up<a aria-hidden="true" class="anchor-heading icon-link" href="#wrapping-up"></a></h2>
+<p>If you’re not familiar with Generators, they may seem a little weird at first. And because they’re so a low-level language, we can use them for <em>lots</em> of different applications. And that can make it difficult to see what you might want them for, day-to-day. But, as we’ve seen, they’re useful for tasks like:</p>
+<ul>
+<li>Efficiently processing large data sets;</li>
+<li>Working with infinite sequences; and</li>
+<li>Passing messages between two functions.</li>
+</ul>
+<p>Now, you may never feel the need to reach for generators. The kind of work you’re doing might not suit them. But, it’s still handy to have them in the toolbox, just in case. And if you start looking, you’ll find generators working away behind the scenes in lots of places. And now and then, you might need to dig into some library code to work out what it’s doing. In those cases, it’s good to have an idea of how they work.</p>

@@ -1,0 +1,14 @@
+<h1 id="10-react-interview-questions-you-should-know-in-2022">10 React Interview Questions You Should Know in 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#10-react-interview-questions-you-should-know-in-2022"></a></h1>
+<p><a href="https://www.freecodecamp.org/news/react-interview-questions-to-know/">https://www.freecodecamp.org/news/react-interview-questions-to-know/</a></p>
+<h1 id="what-is-the-difference-between-state-and-props">What is the difference between state and props?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-the-difference-between-state-and-props"></a></h1>
+<ul>
+<li>States are <strong>values we can read and update</strong> in our React components.</li>
+<li>Props are values that are <strong>passed to React components and are read only</strong> (they should not be updated).</li>
+</ul>
+<h1 id="what-are-react-fragments-used-for">What are React Fragments used for?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-are-react-fragments-used-for"></a></h1>
+<p>The fragment syntax looks like an empty set of tags &#x3C;>&#x3C;/> or are tags labeled React.Fragment.</p>
+<h1 id="why-do-we-need-keys-for-react-lists">Why do we need keys for React lists?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-do-we-need-keys-for-react-lists"></a></h1>
+<p>React takes care of all of the business of updating the DOM for us (using a virtual DOM), but keys are necessary for React to update it properly.</p>
+<h1 id="what-are-the-usecallback--usememo-hooks-used-for">What are the useCallback &#x26; useMemo hooks used for?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-are-the-usecallback--usememo-hooks-used-for"></a></h1>
+<p><code>useCallback</code> is to prevent functions that are declared within the body of function components from being recreated on every render.</p>
+<p>This can lead to unnecessary performance issues, especially for callback functions that are passed down to child components.</p>

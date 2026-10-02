@@ -1,0 +1,366 @@
+<h1 id="html-entities-diacritical-marks-and-emojis">HTML Entities, Diacritical Marks, And Emojis<a aria-hidden="true" class="anchor-heading icon-link" href="#html-entities-diacritical-marks-and-emojis"></a></h1>
+<blockquote>
+<p><a href="https://blog.openreplay.com/html-entities-marks-and-emojis/">https://blog.openreplay.com/html-entities-marks-and-emojis/</a></p>
+</blockquote>
+<p>There is always a need to display special characters as part of your web page content, especially those with pre-defined meanings in HTML. Simply typing these reserved characters within your webpage content will have HTML interpreting them as part of its syntax; hence it will not be rendered as intended. For example, the angular brackets <code>&#x3C;></code>, commonly known as less than and greater than signs, are part of the syntax for HTML tags.</p>
+<p>There is a need to ensure that HTML differentiates between these characters when used as HTML syntax and web content. HTML entities serve this purpose, and this article will show how to use them.</p>
+<h2 id="what-are-html-entities">What are HTML Entities?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-are-html-entities"></a></h2>
+<p>HTML Entities refer to the combination of characters/strings/digits that enable special characters, signs, and symbols with special meaning to HTML or not found on the standard keyboard keys to be displayed as web content. HTML Entities are needed in web development to display signs and symbols unavailable in the standard keyboard, such as the copyright symbol, trademark, Greek alphabet, etc. Web developers must observe the correct syntax to embed them within webpage content.</p>
+<h3 id="examples-of-html-entities">Examples of HTML Entities<a aria-hidden="true" class="anchor-heading icon-link" href="#examples-of-html-entities"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Symbol</th><th>Name</th><th>Entity name</th><th>Entity number</th><th>Unicode</th><th>CSS-code</th></tr></thead><tbody><tr><td><code>&#x3C;</code></td><td>Less than sign</td><td><code>&#x26;lt;</code></td><td><code>&#x26;#60;</code></td><td><code>U+003C</code></td><td><code>\003C</code></td></tr><tr><td><code>></code></td><td>Greater then sign</td><td><code>&#x26;gt;</code></td><td><code>&#x26;#62;</code></td><td><code>U+003E</code></td><td><code>\003D</code></td></tr><tr><td><code>©</code></td><td>Copyright sign</td><td><code>&#x26;copy;</code></td><td><code>&#x26;#169;</code></td><td><code>U+00A9</code></td><td><code>\00A9</code></td></tr><tr><td><code>®</code></td><td>Registered sign</td><td><code>&#x26;reg;</code></td><td><code>&#x26;#174;</code></td><td><code>U+00AE</code></td><td><code>\00AE</code></td></tr><tr><td><code>™</code></td><td>Trade mark sign</td><td><code>&#x26;trade;</code></td><td><code>&#x26;#8482;</code></td><td><code>U+2122</code></td><td><code>\2122</code></td></tr><tr><td><code>½</code></td><td>fraction one half</td><td><code>&#x26;frac12;</code></td><td><code>&#x26;#189;</code></td><td><code>U+00BD</code></td><td><code>\00BD</code></td></tr><tr><td><code>⅗</code></td><td>fraction three quarters</td><td><code>&#x26;frac34;</code></td><td><code>&#x26;#190;</code></td><td><code>U+00BE</code></td><td><code>\00BE</code></td></tr><tr><td><code>À</code></td><td>Capital A, grave accent</td><td><code>&#x26;Agrave;</code></td><td><code>&#x26;#192;</code></td><td><code>U+00C0</code></td><td><code>\00C0</code></td></tr><tr><td><code>à</code></td><td>Small a, grave accent</td><td><code>&#x26;agrave;</code></td><td><code>&#x26;#224;</code></td><td><code>U+00E0</code></td><td><code>\00E0</code></td></tr></tbody></table></div>
+<h2 id="six-encoding-formats-for-entities-and-special-characters">Six Encoding formats for entities and special characters<a aria-hidden="true" class="anchor-heading icon-link" href="#six-encoding-formats-for-entities-and-special-characters"></a></h2>
+<p>To render HTML Entities, web developers may use one of the following encoding formats:</p>
+<ul>
+<li>HTML entities characters or names: text-based and easy to remember.</li>
+<li>HTML entity number/numeric code: number-based and not so easy to remember</li>
+<li>Unicode: number based.</li>
+<li>Hexadecimal or Hex code: number based</li>
+<li>CSS entities: number-based and used when the code to display entities is within the CSS code.</li>
+<li>JS code: number based in octal(base 8) and placed within Javascript code.</li>
+</ul>
+<h3 id="html-entities-names-and-html-entities-number">HTML Entities Names and HTML Entities Number<a aria-hidden="true" class="anchor-heading icon-link" href="#html-entities-names-and-html-entities-number"></a></h3>
+<p>HTML Entities syntax starts with an ampersand (&#x26;) and ends with the semicolon (;) as in <code>&#x26;entityName;</code> or <code>&#x26;#entityNumber;</code>, as in <code>&#x26;lt;</code> or <code>&#x26;#060</code> for the less-than symbol. Every entity has an entity name and corresponding entity number. Therefore, just one is needed to render the required entity. The two HTML codes below give the same result, showing that the HTML entity names and numbers serve the same purpose.</p>
+<ul>
+<li>Text-based entity names are case-sensitive, so always use the correct letter case(upper or lower case).</li>
+<li>Entity names are easier to remember.</li>
+<li>Entity Numbers are greatly supported by most browsers, compared to entity names.</li>
+</ul>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Entities<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Less than sign <span class="token entity named-entity" title="<">&#x26;lt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Greater than sign <span class="token entity named-entity" title=">">&#x26;gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Copyright sign <span class="token entity named-entity" title="©">&#x26;copy;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Trademark sign <span class="token entity named-entity" title="™">&#x26;trade;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>footer</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="©">&#x26;copy;</span> Nasaski Consults 2022. All rights reserved<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>footer</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+&#x3C;/html
+</code></pre>
+<p>Or</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Entities<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Less than sign <span class="token entity" title="<">&#x26;#60;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Greater than sign <span class="token entity" title=">">&#x26;#62;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Copyright sign <span class="token entity" title="©">&#x26;#169;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Trademark sign <span class="token entity" title="™">&#x26;#8482;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>footer</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="©">&#x26;copy;</span> Nasaski Consults 2022. All rights reserved<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>footer</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+&#x3C;/html
+</code></pre>
+<p>Both will give the same output below:</p>
+<p><img src="/images/html-entities-marks-and-emojis/images/image01.png" alt="1"></p>
+<p>A comprehensive table of HTML entities and their corresponding names and numbers <a href="https://oinam.github.io/entities/">is here.</a></p>
+<h3 id="unicode-and-hex-code">Unicode and Hex code<a aria-hidden="true" class="anchor-heading icon-link" href="#unicode-and-hex-code"></a></h3>
+<p>Unicode is the unified and internationally accepted standard for different languages and scripts. It takes into consideration every language possible on Earth and ensures correct interpretation. Every letter, digit, sign, and symbol has assigned unique numeric values applicable across platforms, browsers, and software. For example, the Unicode number, also known as code point, is written thus: U+0398. The U+ signifies Unicode, while the numbers are hexadecimal.</p>
+<p>UTF-8 is the most popularly used Unicode encoding system, and it stands for Unicode Transformation Format-8. Its name stems from its ability to translate any Unicode character to its corresponding binary string and vice versa. The eight (8) stems from the fact that UTF-8 represents a character with one byte (8 bits).</p>
+<p>It is best practice to specify the encoding system to ensure the correct interpretation and display of strings and entities in the computer memory, files, email, or web page to the user.</p>
+<p>In HTML, this is done in the head section, using the meta tag thus:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>The syntax for the use of Unicode for entities starts with an ampersand (&#x26;), followed by the letter X, and ends with the semicolon (;) as in <code>&#x26;#XUnicode;</code></p>
+<ul>
+<li>The letter X or x is added before the Unicode to denote it is hexadecimal.</li>
+<li>Unicode and Hex Code for HTML entities use the same numbers for each HTML entity.</li>
+</ul>
+<p>Provided you use the correct character or code, these all serve the same purpose, as seen in <a href="https://unicode-table.com/en/html-entities/">this comprehensive table.</a></p>
+<p>The code below illustrates this:</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Entities<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Less than sign <span class="token entity" title="<">&#x26;#X003C;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Greater than sign <span class="token entity" title=">">&#x26;#X003E;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Copyright sign <span class="token entity" title="©">&#x26;#X00A9;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Trademark sign <span class="token entity" title="™">&#x26;#X2122;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>footer</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="©">&#x26;copy;</span> Nasaski Consults 2022. All rights reserved<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>footer</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+&#x3C;/html
+</code></pre>
+<p>Output:</p>
+<p><img src="/images/html-entities-marks-and-emojis/images/image02.png" alt="2"></p>
+<h3 id="css-entities">CSS Entities<a aria-hidden="true" class="anchor-heading icon-link" href="#css-entities"></a></h3>
+<p>You may use the CSS entity, also called CSS codes, to display HTML entities and special characters. In this case, the code is embedded in CSS script. For instance:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">h4<span class="token pseudo-element">:after</span></span> <span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" \002122"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>The output will be such that all <code>&#x3C;h4></code> elements will be displayed with the trademark character <code>™</code> at the end. Example:</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Entities<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>Style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+<span class="token selector">h4<span class="token pseudo-element">:after</span></span> <span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">' \002122'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>Style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h4</span><span class="token punctuation">></span></span>Written by Chinasa<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h4</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>footer</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="©">&#x26;copy;</span> Nasaski Consults 2022. All rights reserved<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>footer</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>This will produce the output such that all <code>h4</code> elements will have the trademark symbol after them.</p>
+<p><img src="/images/html-entities-marks-and-emojis/images/image03.png" alt="3"></p>
+<p>Here is the link to a comprehensive table of CSS entities <a href="https://www.w3schools.com/CSSref/css_entities.php">courtesy of w3school.</a></p>
+<h3 id="js-code">JS code<a aria-hidden="true" class="anchor-heading icon-link" href="#js-code"></a></h3>
+<p>Developers may use JavaScript code to encode HTML entities. For example, one may achieve this by creating a javascript function that takes the HTML entity name or number as the input parameter and returns the corresponding HTML entity character as output. The code below will return the copyright symbol ©.</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>HTML Entity with JS<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+      <span class="token comment">//a javascript function that returns html entity</span>
+      <span class="token keyword">function</span> <span class="token function">htmlentity</span><span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> parser <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DOMParser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">parseFromString</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token string">"text/html"</span><span class="token punctuation">)</span>
+        <span class="token keyword control-flow">return</span> parser<span class="token punctuation">.</span><span class="token property-access">documentElement</span><span class="token punctuation">.</span><span class="token property-access">textContent</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// to call the function</span>
+      <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">write</span><span class="token punctuation">(</span><span class="token function">htmlentity</span><span class="token punctuation">(</span><span class="token string">"&#x26;copy"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token comment">//this will return the copyright symbol</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="diacritical-marks">Diacritical marks<a aria-hidden="true" class="anchor-heading icon-link" href="#diacritical-marks"></a></h3>
+<p>Diacritical marks are little marks, strokes, straight or curvy lines, dots, or a pair of dots added to letters to indicate pronunciation, accent, tone, or stress.</p>
+<p><img src="/images/html-entities-marks-and-emojis/images/image04.png" alt="4"></p>
+<p>They are added above or below inside or between two letters. Some language alphabets, such as Latin and French, use diacritical marks, hence the need to render them correctly. For instance, <em>résumé</em> or <em>resumé</em> (career summary) has a different meaning from *resume (*to begin again). Words with diacritics in the English language are borrowings from other languages.</p>
+<p>You may use the corresponding HTML entity names, numbers, or Unicode to insert Diacritical marks.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Example</th><th>HTML entity name</th><th>HTML entity number</th><th>Unicode</th></tr></thead><tbody><tr><td>à</td><td>à</td><td>à</td><td>\u00E0</td></tr><tr><td>é</td><td>é</td><td>é</td><td>\u00E9</td></tr><tr><td>î</td><td>î</td><td>î</td><td>\u00EE</td></tr><tr><td>õ</td><td>õ</td><td>õ</td><td>\u00F5</td></tr><tr><td>ü</td><td>ü</td><td>ü</td><td>\u00FC</td></tr><tr><td>Å</td><td>Å</td><td>Å</td><td>\u00C5</td></tr><tr><td>ç</td><td>ç</td><td>ç</td><td>\u00E7</td></tr></tbody></table></div>
+<p>Here is a complete table of diacritical marks and their corresponding <a href="https://www.webatic.com/html-entities-table">HTML entity names, numbers, and Unicode.</a></p>
+<p>Illustration:</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Dicritical Marks<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="à">&#x26;agrave;</span> <span class="token entity named-entity" title="é">&#x26;eacute;</span> <span class="token entity named-entity" title="î">&#x26;icirc;</span> <span class="token entity named-entity" title="õ">&#x26;otilde;</span> <span class="token entity named-entity" title="ü">&#x26;uuml;</span> <span class="token entity named-entity" title="Å">&#x26;Aring;</span> <span class="token entity named-entity" title="ç">&#x26;ccedil;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity" title="à">&#x26;#224;</span> <span class="token entity" title="é">&#x26;#233;</span> <span class="token entity" title="î">&#x26;#238;</span> <span class="token entity" title="õ">&#x26;#245;</span> <span class="token entity" title="ü">&#x26;#252;</span> <span class="token entity" title="Å">&#x26;#197;</span> <span class="token entity" title="ç">&#x26;#231;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity" title="à">&#x26;#x00E0;</span> <span class="token entity" title="é">&#x26;#x00E9;</span> <span class="token entity" title="î">&#x26;#x00EE;</span> <span class="token entity" title="õ">&#x26;#x00F5;</span> <span class="token entity" title="ü">&#x26;#x00FC;</span> <span class="token entity" title="Å">&#x26;#x00C5;</span> <span class="token entity" title="ç">&#x26;#x00E7;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>footer</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="©">&#x26;copy;</span> Nasaski Consults 2022. All rights reserved<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>footer</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Output:</p>
+<p><img src="/images/html-entities-marks-and-emojis/images/image05.png" alt="5"></p>
+<h2 id="emojis">Emojis<a aria-hidden="true" class="anchor-heading icon-link" href="#emojis"></a></h2>
+<p>When sending messages electronically or on web pages, conveying emotion, body language, vocal tone, or passing information playfully without using words is necessary. These and more are the jobs of emojis. Examples of emojis are 😃, 🌍, 🚗, 📞 and ❤️. Note that emojis are used and embedded in text fields.</p>
+<p>In the 1990s, we had emoticons, made of punctuation marks used to depict jokes/smiley faces :-) and non-jokes/frowning face :-(. Emoticons upgraded to what we now know as Emojis.</p>
+<p>Emojis can be embedded in HTML documents using their corresponding HTML entity numbers or Unicode. Here is an emojis table and the corresponding <a href="https://www.w3schools.com/charsets/ref_emoji.asp">HTML Entity Number and Unicode.</a> and this is a <a href="https://www.w3schools.com/charsets/ref_emoji_smileys.asp">table of Emoji Smileys</a></p>
+<p>Illustration:</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Emojis<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h2</span><span class="token punctuation">></span></span>Emojis<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h2</span><span class="token punctuation">></span></span>
+    <span class="token comment">&#x3C;!--Using HTML Entity Numbers--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity" title="😀">&#x26;#128512;</span> <span class="token entity" title="⏰">&#x26;#9200;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token comment">&#x3C;!--Using Unicode or Hex--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token entity" title="😘">&#x26;#x1F618;</span> <span class="token entity" title="🌭">&#x26;#x1F32D;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Output:</p>
+<p><img src="/images/html-entities-marks-and-emojis/images/image06.png" alt="6"></p>
+<h3 id="use-of-on-screen-keyboard-or-emojis-keyboard">Use of on-screen Keyboard or Emojis Keyboard<a aria-hidden="true" class="anchor-heading icon-link" href="#use-of-on-screen-keyboard-or-emojis-keyboard"></a></h3>
+<p>An even more convenient way to insert HTML entities and special characters is using the on-screen or emoji keyboard, which is achievable in diverse ways, depending on the operating system.</p>
+<p>To launch the emoji keyboard on Mac OS,</p>
+<ul>
+<li>Method 1: use the keyboard shortcut: Command + Control + Space.</li>
+<li>Method 2: Press Option + Command + F5, Select Accessibility Keyboard and Select Done.</li>
+<li>Method 3: In the menu bar, click the Input menu, turn on the Accessibility Keyboard, then select Show Keyboard Viewer.</li>
+</ul>
+<p>On Windows 10:</p>
+<ul>
+<li>Method 1: Launch the Emoji keyboard using the keyboard shortcut WIN + full stop(.) or WIN + Semicolon(;)</li>
+</ul>
+<p><img src="/images/html-entities-marks-and-emojis/images/image12.png" alt="12 Emoji keyboard"></p>
+<ul>
+<li>Method 2: Right-click the taskbar and select the Show touch keyboard button from the pull-up menu.</li>
+</ul>
+<p><img src="/images/html-entities-marks-and-emojis/images/image07.png" alt="7"></p>
+<p>The on-screen keyboard icon appears on the taskbar.</p>
+<p><img src="/images/html-entities-marks-and-emojis/images/image08.png" alt="8"></p>
+<p>Click the icon to open the on-screen keyboard.</p>
+<p><img src="/images/html-entities-marks-and-emojis/images/image09.png" alt="9 On-screen keyboard"></p>
+<p>Before the space bar is the emoji button; click this button and select whatever emoji you need to insert at the cursor position.</p>
+<p><img src="/images/html-entities-marks-and-emojis/images/image10.png" alt="10"></p>
+<p>Click the Digits/Symbols button just before the Ctrl button for special characters, symbols, diacritics, and Unicode. For example, select the Ohms symbol Ω, and choose the sign you need.</p>

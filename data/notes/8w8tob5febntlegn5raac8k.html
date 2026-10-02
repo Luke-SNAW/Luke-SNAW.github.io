@@ -1,0 +1,79 @@
+<h1 id="tauri-vs-electron---real-world-application">Tauri VS Electron - Real world application<a aria-hidden="true" class="anchor-heading icon-link" href="#tauri-vs-electron---real-world-application"></a></h1>
+<blockquote>
+<p><a href="https://www.levminer.com/blog/tauri-vs-electron">https://www.levminer.com/blog/tauri-vs-electron</a></p>
+</blockquote>
+<h2 id="1-bundle">1. Bundle<a aria-hidden="true" class="anchor-heading icon-link" href="#1-bundle"></a></h2>
+<p>We have a clear winner here: Tauri</p>
+<p>The Tauri app installer is around ~2,5MB (!!!), while the Electron app installer is around ~85MB.</p>
+<p>One major advantage that Tauri has: The app is compiled to a binary, which means you have to be an expert at reverse engineering to be able to de-compile the app. With Electron you can unpack the app with a simple <a href="https://medium.com/how-to-electron/how-to-get-source-code-of-any-electron-application-cbb5c7726c37">NPM command</a>.</p>
+<p>And if your user has the correct runtime for the webview used by Tauri you can just send them a single executable, they don't have to install anything.</p>
+<h2 id="2-startup-time">2. Startup time<a aria-hidden="true" class="anchor-heading icon-link" href="#2-startup-time"></a></h2>
+<p>This is not a scientific test but running the apps and timing the startup yields a clear winner:</p>
+<ul>
+<li>Tauri: ~ 2 seconds</li>
+<li>Electron: ~ 4 seconds</li>
+</ul>
+<h2 id="3-performance">3. Performance<a aria-hidden="true" class="anchor-heading icon-link" href="#3-performance"></a></h2>
+<p>This is not a scientific test again, just a rough comparison. These tests are from my PC: i5-4570 CPU, 16GB RAM, GTX 1660 and Windows 11</p>
+<p>Honestly I expected more from Tauri, sure it uses less RAM, but not by much. Let's take a look at what's up on the Linux side.</p>
+<p>Tauri <img src="https://cdn.levminer.com/blog/tauri-vs-electron/tauri-linux.png" alt="Tauri"></p>
+<p>Electron <img src="https://cdn.levminer.com/blog/tauri-vs-electron/electron-linux.png" alt="Electron"></p>
+<p>Wow, thats a big win for Tauri!</p>
+<h2 id="4-app-backend">4. App backend<a aria-hidden="true" class="anchor-heading icon-link" href="#4-app-backend"></a></h2>
+<p>Now here comes one of the disadvantages of Tauri (or its biggest advantage, I guess it depends on you). In your Electron app you write your app backend in JavaScript, because Electron uses the Node.js runtime. Tauri on the other hand is written in Rust. Now if you know Rust your probably happy, but if you have to learn Rust from scratch (like me) you are going to face some issues.</p>
+<p>You have to rewrite your app's backend in Rust, so I think the winner in Electron here. For now. Alternative bindings for your backend are on Tauri's roadmap, like Python, C++, or Deno. Personally I'm excited for the Deno integration so I can write my app backend in JavaScript/TypeScript again.</p>
+<h2 id="5-rendering-your-app">5. Rendering your app<a aria-hidden="true" class="anchor-heading icon-link" href="#5-rendering-your-app"></a></h2>
+<p>Electron uses Chromium under the hood so your user sees the same on Windows, Linux and macOS. Tauri on the other hand uses the system webview: Edge Webview2 (Chromium) on Windows, WebKitGTK on Linux and WebKit on macOS. Now here comes the bad part, if you are a web developer you know that Safari (Based on WebKit) is always behind a step from every web browser. Just check out <a href="https://caniuse.com/">Can I Use</a>. There is always a bug that you are not seeing from Chrome, only your dear Safari users. The same issues exists in Tauri, and you can't do anything against it, you have include polyfills. The winner has to be Electron here.</p>
+<p>One issue I had while developing Tauri is that my CSS bundle didn't include <code>-webkit</code> prefixes, so my app's CSS was very buggy.</p>
+<h2 id="6-security">6. Security<a aria-hidden="true" class="anchor-heading icon-link" href="#6-security"></a></h2>
+<p>Tauri is very secure by default, on the other hand I can't say the same about Electron. Tauri has many <a href="https://tauri.app/about/security">security</a> features built-in by default. You can even explicitly enable or disable certain APIs. With Electron you have full access to Node APIs, so a hacker could easily exploit the very powerful Node APIs. This not the case with Tauri, you have to explicitly expose the Rust functions.</p>
+<h2 id="7-auto-update">7. Auto update<a aria-hidden="true" class="anchor-heading icon-link" href="#7-auto-update"></a></h2>
+<blockquote>
+<p><img src="https://imgs.xkcd.com/comics/update.png" alt="Auto update comic"> xkcd.com</p>
+</blockquote>
+<p>Shipping an app without auto update in 2022 is a no go. If your user has to manually download every update I don't think they are going to be happy. Both Electron and Tauri has a built-in auto updater, but the Tauri one is so much simpler. In Electron I think most people use <a href="https://www.npmjs.com/package/electron-updater">electron-updater</a>. In Tauri you can use the <a href="https://tauri.app/v1/guides/distribution/updater">built in</a> one, the one downside is you have to maintain your own <a href="https://github.com/KilleenCode/tauri-update-cloudflare">update server</a>. Electron updater pulls the binaries form GitHub releases, which is way more convenient.</p>
+<h2 id="8-developer-experience">8. Developer experience<a aria-hidden="true" class="anchor-heading icon-link" href="#8-developer-experience"></a></h2>
+<p>In Tauri you get the whole package just by installing the Tauri CLI: Hot reload, building your app for all platforms, generating app icons. Electron gives you nothing, just the framework itself. You have setup hot reloading, bundling your app etc... Tauri takes care of everything for you. And here comes the best: Tauri is compatible with every web framework on earth. It just expects a localhost url or a folder where all your bundled code lives.</p>
+<h2 id="summary">Summary<a aria-hidden="true" class="anchor-heading icon-link" href="#summary"></a></h2>
+<p>Electron is being replaced? Yes, Tauri is way better, but it still misses a lot. In a couple of years I'm sure the Tauri team will catch app to Electron. The things I'm excited for: Deno as the backend, better auto update and iOS/Android support.</p>
+<hr>
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=32550267">https://news.ycombinator.com/item?id=32550267</a></p>
+</blockquote>
+<hr>
+<p>"With Electron you have full access to Node APIs, so a hacker could easily exploit the very powerful Node APIs."</p>
+<p>This is not true, <code>nodeIntegration</code> has been disabled by default years ago in Electron 5.0 <sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup>. The default in Electron 20 will be a sandboxed renderer process that can't even read files from disk <sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup>. Security in Electron is great if you follow their security guidelines <sup id="fnref-3"><a href="#fn-3" class="footnote-ref">3</a></sup>.</p>
+<p><sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup> <a href="https://www.electronjs.org/docs/latest/breaking-changes#planned-breaking-api-changes-50">https://www.electronjs.org/docs/latest/breaking-changes#planned-breaking-api-changes-50</a></p>
+<p><sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup> <a href="https://www.electronjs.org/docs/latest/breaking-changes#planned-breaking-api-changes-200">https://www.electronjs.org/docs/latest/breaking-changes#planned-breaking-api-changes-200</a>)</p>
+<p><sup id="fnref-3"><a href="#fn-3" class="footnote-ref">3</a></sup> <a href="https://www.electronjs.org/docs/latest/tutorial/security">https://www.electronjs.org/docs/latest/tutorial/security</a>)</p>
+<hr>
+<p>A missing point of comparison is that Electron also has far more desktop APIs available. Electron also has support for some advanced primitives like BrowserViews which enable some very sophisticated use cases.</p>
+<hr>
+<p>As I see it, the difference between the Tauri approach and Electron becomes visible when you have multiple apps running.<br>
+Each Electron app will load its own browser back-end in RAM, while all tauri apps will share the same runtime on disk and in RAM.</p>
+<p>This makes for quite a big difference as the number of running apps grows.</p>
+<hr>
+<p>Tauri is more like Ionic or Cordova than Electron. You get a mostly web based developer experience, but without the browser matrix simplification so you're still at the whim of the system WebView capabilities for the view layer.<br>
+The good news is the built in webviews have come a long way since webcompat is much better across browsers, but it's still extra things to worry about and can produce problems on old MacOS or Windows pre-11.</p>
+<p>See also:</p>
+<p><a href="https://tauri.app/v1/guides/architecture/process-model">https://tauri.app/v1/guides/architecture/process-model</a></p>
+<p><a href="https://tauri.app/v1/api/js/">https://tauri.app/v1/api/js/</a></p>
+<hr>
+<p>Using Tauri for my most recent project, I have to say the Development experience was phenomenal.<br>
+Only downside that the article rightly points out us the knowledge of Rust, which was new to me.</p>
+<p>Also Tauri has Android &#x26; iOS targets on its roadmap too.</p>
+<hr>
+<p>I've evaluated both Tauri and Flutter + flutter_rust_bridge.<br>
+I immediately felt really productive in Tauri/Svelte/rust. It just kind of clicked with me (completely new to Svelte, but been doing SPAs and JS desktop apps for some time as well as being in the rust scene for years). It was like the ease of electron, but with a better build framework for bundling rust. Really a good setup, easy to get into, easy and fast to build in.</p>
+<p>I think Flutter is a really great UI framework. The way it's set up really makes sense and makes it fairly easy to structure the UI. That said, I really do not like Dart at all. I found it difficult to learn a new language and a new UI framework at the same time, and found myself pining for HTML/javascript again. flutter_rust_bridge obviously alleviated this a bit because it made it possible to move most of the logic into rust. I am honestly also worried about Flutter being a Google project. They tend to abandon projects quite a bit. I do like the promises of Flutter and didn't actually have any material issues with it. I think I might give it another go on the next app I build and see if I can get over the Dart hump.</p>
+<hr>
+<p>One thing I don't see mentioned is the horror of shipping for Windows. You'll need Windows to have the Edge runtime, which means you have to bundle it or install it as an add-on. People will complain about this, especially IT people, because Edge runtime runs some kind of stupid background service all the time for no clear reason. It's also brittle since you will have to constantly keep your installer up to date with new releases of the Edge runtime or use a fragile MS URL that could stop working at any time and that won't work behind some firewalls.<br>
+TL;DR: trying to use the native web view on Windows is horrible because there is no native web view and MS can't bundle software for their own platform.</p>
+<p>Of course I suppose shipping any software for Windows is horrible...</p>
+<blockquote>
+<p>Tauri has options to take care of that.<br>
+Microsoft's WebView2 has three distribution options: the "evergreen bootstrapper," the "evengreen standalone installer," and "fixed version" (where you embed a browser version in your installer).<br>
+<a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2/">https://developer.microsoft.com/en-us/microsoft-edge/webview2/</a><br>
+Tauri supports all three of those mechanisms. If you choose to embed the browser directly in your installer, it adds 100MB+ to your installer size, but it's guaranteed to work anywhere. (They even support Windows 7.)<br>
+<a href="https://tauri.app/v1/guides/building/windows#webview2-installation-options">https://tauri.app/v1/guides/building/windows#webview2-installation-options</a></p>
+</blockquote>

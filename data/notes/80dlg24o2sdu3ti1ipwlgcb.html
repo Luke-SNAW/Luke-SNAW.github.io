@@ -1,0 +1,113 @@
+<h1 id="feature-sliced-design">Feature Sliced Design<a aria-hidden="true" class="anchor-heading icon-link" href="#feature-sliced-design"></a></h1>
+<blockquote>
+<p><a href="https://feature-sliced.design/">https://feature-sliced.design/</a><br>
+<a href="https://github.com/feature-sliced/documentation">https://github.com/feature-sliced/documentation</a></p>
+</blockquote>
+<h2 id="overview">Overview<a aria-hidden="true" class="anchor-heading icon-link" href="#overview"></a></h2>
+<h3 id="is-it-right-for-me">Is it right for me?<a href="https://feature-sliced.design/docs/get-started/overview#is-it-right-for-me" title="Direct link to heading">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#is-it-right-for-me"></a></h3>
+<p>FSD can be implemented in projects and teams of any size, but there are a few things to keep in mind:</p>
+<ul>
+<li>This methodology is for front-end projects only. If you're looking for a back-end architecture, consider <a href="https://medium.com/codex/clean-architecture-for-dummies-df6561d42c94">Clean Architecture</a>.</li>
+<li>A very simple app of a single page might not need the benefits of FSD and suffer from the overhead. However, FSD promotes a nice way of thinking, so feel free to use on the tiniest projects if you want.</li>
+<li>A huge app, the size of the Google Cloud admin dashboard, will require a custom architecture. It could still be based on FSD, by the way.</li>
+</ul>
+<p>FSD doesn't enforce a particular programming language, UI framework or state manager — bring your own or see some <a href="https://feature-sliced.design/examples">examples</a>.</p>
+<p>If you have an existing project, fear not — FSD can be adopted incrementally. Just make sure that your team is <strong>in pain</strong> from the current architecture, otherwise a switch might not be worth it. For migration guidance, see the <a href="https://feature-sliced.design/docs/guides/migration">Migration section</a>.</p>
+<h3 id="basics">Basics<a href="https://feature-sliced.design/docs/get-started/overview#basics" title="Direct link to heading">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#basics"></a></h3>
+<p>In FSD, a <a href="https://feature-sliced.design/docs/reference/units/decomposition">project consists</a> of layers, each layer is made up of slices and each slice is made up of segments.</p>
+<p><img src="/assets/images/visual_schema-ca092cc631de8c129dfb48174d0a927a.jpg" alt="themed--scheme"></p>
+<p>The <strong>layers</strong> are standardized across all projects and vertically arranged. Modules on one layer can only interact with modules from the layers strictly below. There are currently seven of them (bottom to top):</p>
+<ol>
+<li><code>shared</code> — reusable functionality, detached from the specifics of the project/business.(e.g. UIKit, libs, API)</li>
+<li><code>entities</code> — business entities.(e.g., User, Product, Order)</li>
+<li><code>features</code> — user interactions, actions that bring business value to the user.(e.g. SendComment, AddToCart, UsersSearch)</li>
+<li><code>widgets</code> — compositional layer to combine entities and features into meaningful blocks.(e.g. IssuesList, UserProfile)</li>
+<li><code>pages</code> — compositional layer to construct full pages from entities, features and widgets.</li>
+<li><code>processes</code> — complex inter-page scenarios. (e.g., authentication)</li>
+<li><code>app</code> — app-wide settings, styles and providers.</li>
+</ol>
+<p>Then there are <strong>slices</strong>, which partition the code by business domain. This makes your codebase easy to navigate by keeping logically related modules close together. Slices cannot use other slices on the same layer, and that helps with high cohesion and low coupling.</p>
+<p>Each slice, in turn, consists of <strong>segments</strong>. These are tiny modules that are meant to help with separating code within a slice by its technical purpose. The most common segments are <code>ui</code>, <code>model</code> (store, actions), <code>api</code> and <code>lib</code> (utils/hooks), but you can omit some or add more, as you see fit.</p>
+<p>note</p>
+<p>In most cases, <a href="https://github.com/feature-sliced/documentation/discussions/66">it is recommended</a> to place <code>api</code> and <code>config</code> only in the shared layer</p>
+<h3 id="example">Example<a href="https://feature-sliced.design/docs/get-started/overview#example" title="Direct link to heading">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#example"></a></h3>
+<p>Let's consider a social network application.</p>
+<ul>
+<li><code>app/</code> contains setup of routing, store and global styles.</li>
+<li><code>processes/</code> contains the part of authentication that is responsible for reading/writing authentication tokens.</li>
+<li><code>pages/</code> contains the route components for each page in the app, mostly composition, hardly any logic.</li>
+</ul>
+<p>Within that application, let's consider a post card in a news feed.</p>
+<ul>
+<li><code>widgets/</code> contains the "assembled" post card, with content and interactive buttons that are wired up to the relevant calls on the back-end.</li>
+<li><code>features/</code> contains the interactivity of the card (e.g., like button) and the logic of processing those interactions.</li>
+<li><code>entities/</code> contains the shell of the card with slots for content and the interactive elements. The tile representing the post author is also here, but in a different slice.</li>
+</ul>
+<h3 id="advantages">Advantages<a href="https://feature-sliced.design/docs/get-started/overview#advantages" title="Direct link to heading">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#advantages"></a></h3>
+<ul>
+<li><strong>Uniformity</strong><br>
+The code is organized by scope of influence (layers), by domain (slices), and by technical purpose (segments).<br>
+This creates a standardized architecture that is easier to comprehend for newcomers.</li>
+<li><strong>Controlled reuse of logic</strong><br>
+Each architectural component has its purpose and predictable dependencies.<br>
+This keeps a balance between following the <strong>DRY</strong> principle and adaptation possibilities.</li>
+<li><strong>Stability in face of changes and refactoring</strong><br>
+A module on a particular layer cannot use other modules on the same layer, or the layers above.<br>
+This enables isolated modifications without unforeseen consequences.</li>
+<li><strong>Orientation to business and users needs</strong><br>
+App splitting by business domains help to deeper understand, structure and discovery project features.</li>
+</ul>
+<h3 id="incremental-adoption">Incremental adoption<a href="https://feature-sliced.design/docs/get-started/overview#incremental-adoption" title="Direct link to heading">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#incremental-adoption"></a></h3>
+<p>The power of FSD lies in <em>structured</em> decomposition. At its finest, it enables to locate any part of code near-deterministically. However, the level of decomposition is a parameter, and each team can tweak it to strike a balance between simple adoption and the amount of benefits.</p>
+<p>Here's a proposed strategy to migrate an existing codebase to FSD, based on experience:</p>
+<ol>
+<li>Start by outlining the <code>app</code> and <code>shared</code> layers to create a foundation. Usually, these layers are the smallest.</li>
+<li>Distribute all of the existing UI across <code>widgets</code> and <code>pages</code>, even if they have dependencies that violate the rules of FSD.</li>
+<li>Start gradually increasing the precision of decomposition by separating <code>features</code> and <code>entities</code>, turning pages and widgets from logic-bearing layers into purely compositional layers.</li>
+</ol>
+<p>It's advised to refrain from adding new large entities while refactoring or refactoring only certain parts of the project.</p>
+<h2 id="structure"><a href="https://github.com/feature-sliced/documentation/blob/master/README.md#structure">Structure</a><a aria-hidden="true" class="anchor-heading icon-link" href="#structure"></a></h2>
+<pre><code>└── src/
+    ├── app/                    # Layer: Application
+    |                           #
+    ├── processes/              # Layer: Processes (optional)
+    |   ├── {some-process}/     #     Slice: (e.g. CartPayment process)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   └── model/          #         Segment: Business Logic
+    |   ...                     #
+    |                           #
+    ├── pages/                  # Layer: Pages
+    |   ├── {some-page}/        #     Slice: (e.g. ProfilePage page)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   ├── model/          #         Segment: Business Logic
+    |   |   └── ui/             #         Segment: UI logic
+    |   ...                     #
+    |                           #
+    ├── widgets/                # Layer: Widgets
+    |   ├── {some-widget}/      #     Slice: (e.g. Header widget)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   ├── model/          #         Segment: Business Logic
+    |   |   └── ui/             #         Segment: UI logic
+    ├── features/               # Layer: Features
+    |   ├── {some-feature}/     #     Slice: (e.g. AuthByPhone feature)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   ├── model/          #         Segment: Business Logic
+    |   |   └── ui/             #         Segment: UI logic
+    |   ...                     #
+    |                           #
+    ├── entities/               # Layer: Business entities
+    |   ├── {some-entity}/      #     Slice: (e.g. entity User)
+    |   |   ├── lib/            #         Segment: Infrastructure-logic (helpers/utils)
+    |   |   ├── model/          #         Segment: Business Logic
+    |   |   └── ui/             #         Segment: UI logic
+    |   ...                     #
+    |                           #
+    ├── shared/                 # Layer: Reused resources
+    |   ├── api/                #         Segment: Logic of API requests
+    |   ├── config/             #         Segment: Application configuration
+    |   ├── lib/                #         Segment: Infrastructure-application logic
+    |   └── ui/                 #         Segment: UIKit of the application
+    |   ...                     #
+    |                           #
+    └── index.tsx/              #
+</code></pre>
