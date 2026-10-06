@@ -2,7 +2,7 @@
 id: uqzkvt7w0ohebcam30xvrbz
 title: "2026-10-03"
 desc: ""
-updated: 1791208211429
+updated: 1791262302008
 created: 1791206565079
 traitIds:
   - journalNote
@@ -22,3 +22,7 @@ traitIds:
    명상 후 그림 감상하니 스트레스가 다 사라져 근력 운동 루틴과 조깅을 함.
    그림 감상, 좋은 휴식 활동이 되겠군. 눈 휴식을 할 수 없지만, 잡생각하기 쉬운 명상보다 작품대상으로 생각의 방향을 정돈할 수 있다. 평소에 논리검토하느라 피곤한 영역을 피할 수 있음.
    자기 전에 해도 좋겠다.
+
+## 왼쪽 2in1 columns (Level 1?) 30개 돌파
+
+#juggling
