@@ -1,0 +1,78 @@
+<h1 id="when-to-use-grpc-vs-graphql">When to use gRPC vs GraphQL<a aria-hidden="true" class="anchor-heading icon-link" href="#when-to-use-grpc-vs-graphql"></a></h1>
+<blockquote>
+<p><a href="https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/">https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/</a></p>
+</blockquote>
+<p>TLDR: Use GraphQL for client-server communication and gRPC for server-to-server. See the Verdict section for exceptions to this rule.</p>
+<p>...</p>
+<h2 id="summary">Summary<a aria-hidden="true" class="anchor-heading icon-link" href="#summary"></a></h2>
+<p>Here’s a summary of the topics we’ve covered:</p>
+<h3 id="similarities-between-grpc-and-graphql">Similarities between gRPC and GraphQL<a aria-hidden="true" class="anchor-heading icon-link" href="#similarities-between-grpc-and-graphql"></a></h3>
+<ul>
+<li>Typed interfaces with codegen</li>
+<li>Abstract away the network layer</li>
+<li>Can have JSON responses</li>
+<li>Server streaming</li>
+<li>Good forward compatibility</li>
+<li>Can avoid overfetching</li>
+</ul>
+<h3 id="grpc">gRPC<a aria-hidden="true" class="anchor-heading icon-link" href="#grpc"></a></h3>
+<h4 id="strengths">Strengths<a aria-hidden="true" class="anchor-heading icon-link" href="#strengths"></a></h4>
+<ul>
+<li>Binary format:
+<ul>
+<li>Faster transfer over network</li>
+<li>Faster serializing, parsing, and validation</li>
+<li>However, harder to view and debug than JSON</li>
+</ul>
+</li>
+<li>HTTP/2:
+<ul>
+<li>Multiplexing</li>
+<li>Client and bidirectional streaming</li>
+</ul>
+</li>
+<li>Built-in retries and deadlines</li>
+</ul>
+<h4 id="weaknesses">Weaknesses<a aria-hidden="true" class="anchor-heading icon-link" href="#weaknesses"></a></h4>
+<ul>
+<li>Need proxy or <a href="https://connect.build/docs/protocol/">Connect</a> to use from the browser</li>
+<li>Unable to use most API proxies</li>
+<li>No standard way to know whether a method will mutate state</li>
+</ul>
+<h3 id="graphql">GraphQL<a aria-hidden="true" class="anchor-heading icon-link" href="#graphql"></a></h3>
+<h4 id="strengths-1">Strengths<a aria-hidden="true" class="anchor-heading icon-link" href="#strengths-1"></a></h4>
+<ul>
+<li>Client determines which data fields it wants returned. Results in:
+<ul>
+<li>No underfetching</li>
+<li>Team decoupling</li>
+<li>Increased visibility</li>
+</ul>
+</li>
+<li>Easier to combine data from multiple services</li>
+<li>Further developed introspection and tooling</li>
+<li>Declarative data fetching</li>
+<li>Reactive normalized client cache</li>
+</ul>
+<h4 id="weaknesses-1">Weaknesses<a aria-hidden="true" class="anchor-heading icon-link" href="#weaknesses-1"></a></h4>
+<ul>
+<li>If we already have gRPC services that can be exposed to the public, it takes more backend work to add a GraphQL server.</li>
+<li>HTTP GET caching doesn’t work by default.</li>
+<li>Rate limiting is more complex for public APIs.</li>
+<li>Maps aren’t supported.</li>
+<li>Inefficient text-based transport</li>
+</ul>
+<h2 id="verdict">Verdict<a aria-hidden="true" class="anchor-heading icon-link" href="#verdict"></a></h2>
+<h3 id="server-to-server">Server-to-server<a aria-hidden="true" class="anchor-heading icon-link" href="#server-to-server"></a></h3>
+<p>In server-to-server communication, where low latency is often important, and more types of streaming are sometimes necessary, gRPC is the clear standard. However, there are cases in which we may find some of the benefits of GraphQL more important:</p>
+<ul>
+<li>We’re using GraphQL <a href="https://www.apollographql.com/docs/federation/">federation</a> or schema stitching to create a supergraph of all our business data and decide to have GraphQL subgraphs published by each service. We create two supergraph endpoints: one external to be called by clients and one internal to be called by services. In this case, it may not be worth it for services to also expose a gRPC API, because they can all be conveniently reached through the supergraph.</li>
+<li>We know our services’ data fields are going to be changing and want field-level visibility on usage so that we can remove old deprecated fields (and aren’t stuck with maintaining them forever).</li>
+</ul>
+<p><em>There’s also the question of whether we should be doing server-to-server communication ourselves at all. For data fetching (GraphQL’s queries), it’s the fastest way to get a response, but for modifying data (mutations), things like Martin Fowler’s “synchronous calls considered harmful” (see <a href="https://www.martinfowler.com/articles/microservices.html?ref=wellarchitected#SynchronousCallsConsideredHarmful">sidebar here</a>) have led to using async, event-driven architecture with either choreography or orchestration between services. <a href="https://www.manning.com/books/microservices-patterns">Microservices Patterns</a> recommends using the latter in most cases, and to maintain DX and development speed, we need a <a href="https://www.youtube.com/watch?v=6lSuDRRFgyY">code-based orchestrator</a> instead of a DSL-based one. And once we’re working in a code-based orchestrator like Temporal, we no longer make network requests ourselves—the platform reliably handles it for us. In <a href="https://twitter.com/lorendsr/status/1419880024929415173">my opinion</a>, that’s the future.</em></p>
+<h3 id="client-server">Client-server<a aria-hidden="true" class="anchor-heading icon-link" href="#client-server"></a></h3>
+<p>In client-server communication, latency is high. We want to be able to get all the data we need in a single round trip, have flexibility in what data we fetch for different views, and have powerful caching, so GraphQL is the clear winner. However, there are cases in which we may choose to use gRPC instead:</p>
+<ul>
+<li>We already have a gRPC API that can be used, and the cost of adding a GraphQL server in front of that isn’t worth the benefits.</li>
+<li>JSON is not a good fit for the data (e.g. we’re sending a significant amount of binary data).</li>
+</ul>

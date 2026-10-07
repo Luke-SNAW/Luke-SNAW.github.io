@@ -1,0 +1,301 @@
+<h1 id="where-is-has-new-css-selectors-that-make-your-life-easier">:where() :is() :has()? New CSS selectors that make your life easier<a aria-hidden="true" class="anchor-heading icon-link" href="#where-is-has-new-css-selectors-that-make-your-life-easier"></a></h1>
+<blockquote>
+<p><a href="https://polypane.app/blog/where-is-has-new-css-selectors-that-make-your-life-easier/">https://polypane.app/blog/where-is-has-new-css-selectors-that-make-your-life-easier/</a></p>
+</blockquote>
+<blockquote>
+<p>This article is adapted from a talk Kilian gave at <a href="https://conffab.com/video/forced-colors-explained/">Web Directions Hover 2022</a>. You can <a href="https://polypane.app/support/">contact us</a> if you're interested in Kilian presenting this at your conference, meetup or organisation.</p>
+</blockquote>
+<h2 id="a-bit-of-history">A bit of history<a aria-hidden="true" class="anchor-heading icon-link" href="#a-bit-of-history"></a></h2>
+<p>Before there was the <code>:is()</code> pseudo-class, there was the <code>:matches()</code> pseudo-class. And before that there where the *-any pseudo-classes: <code>:-moz-any()</code> and <code>:-webkit-any()</code>.</p>
+<p>You might be surprised to learn that the *-any pseudo-class <strong>has been around since 2010</strong>. It was introduced in Firefox 4 as <code>:-moz-any()</code>, outside of any specification, and actually worked pretty much the same as the <code>:is()</code> class works now.</p>
+<p>Support in other browsers landed first as <code>:-webkit-any()</code>, and later it got added to the specification as <code>:matches()</code>, which also had support in various browsers.</p>
+<p>This <code>:matches()</code> pseudo-class came with a limitation though, like the <code>:not()</code> selector, it only supported "simple selectors".</p>
+<h3 id="what-are-simple-selectors">What are simple selectors?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-are-simple-selectors"></a></h3>
+<p>Simple selectors are selectors that only contain a single element or element property, like a class, attribute, id or pseudo-class. As soon as you add a combinator, like a space or ~ or +, or a pseudo-element (like <code>::first-letter</code> or <code>::after</code>), you add a <em>relation</em> to another element and it becomes a complex selector.</p>
+<p>The definition of "simple selector" changed between CSS2 and CSS3: in CSS3 there is now a difference between a "simple selector", which is one thing (<em>one</em> class, <em>one</em> element, etc) and a compound selector, which is any selector that does not have a combinator.</p>
+<p>That means that this CSS Selector is "simple" (though compound) :</p>
+<pre class="language-css"><code class="language-css">p.hover#<span class="token number">22</span>[chat~=active]<span class="token punctuation">:</span> focus<span class="token punctuation">;</span>
+</code></pre>
+<p>and this one is "complex":</p>
+<pre class="language-css"><code class="language-css">div p
+</code></pre>
+<p>This obviously put a limit on how useful both the <code>:matches()</code> and <code>:not()</code> selectors were, so luckily both of those got updated in later specifications and they now also support complex selectors, meaning we can use them to select elements based on their relations.</p>
+<p>And that's not the only thing the <code>:not()</code> selector contributed to this history. The CSS Working group renamed <code>:matches()</code> to <code>:is()</code> because, for one, it was shorter to type, but it also provided a good pairing with <code>:not()</code>.</p>
+<p>Is, and is not.</p>
+<h2 id="checking-for-support-for-is">Checking for support for <code>:is()</code><a aria-hidden="true" class="anchor-heading icon-link" href="#checking-for-support-for-is"></a></h2>
+<p>That brings us to the now, 2022. The <code>:is()</code> pseudo-class is supported in all evergreen browsers, with support only missing in IE11 and Opera mini.</p>
+<p><img src="https://caniuse.bitsofco.de/image/css-matches-pseudo.png" alt="Data on support for the css-matches-pseudo feature across the major browsers from caniuse.com"></p>
+<p>If you want to test for support you can use the <code>@supports</code> rule with the <code>selector()</code> function, which has been supported for slightly longer than <code>:is()</code> itself and works for all three pseudo-classes we're discussing in this article:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@supports</span> <span class="token function">selector</span><span class="token punctuation">(</span><span class="token selector-function-argument selector"><span class="token pseudo-class">:is</span><span class="token punctuation">(</span>*<span class="token punctuation">)</span></span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* your CSS */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="the-is-pseudo-class">The <code>:is()</code> pseudo-class<a aria-hidden="true" class="anchor-heading icon-link" href="#the-is-pseudo-class"></a></h2>
+<p>To target multiple paths in CSS, you can add a comma between multiple selectors. Each selector will then be used to select elements.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">nav <span class="token combinator">></span> ul a<span class="token pseudo-class">:hover</span><span class="token punctuation">,</span>
+footer <span class="token combinator">></span> ol a<span class="token pseudo-class">:hover</span><span class="token punctuation">,</span>
+aside <span class="token combinator">></span> p a<span class="token pseudo-class">:hover</span></span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">purple</span><span class="token punctuation">;</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline wavy <span class="token color">deeppink</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This is useful but for closely related selectors it usually leads to duplication. specifically, the <code>a:hover</code> part is the same in each of the selectors.</p>
+<p>This is annoying since if that ever changes, you have to fix that in three places at the same time, but there is something trickier going on with multiple selectors as well:</p>
+<p>If one of them is invalid, the entire block of CSS is discarded.</p>
+<p>Now you might think that it'd be pretty hard to write a selector that's invalid. Maybe one that never applies, like <code>:not(*)</code>, but an actual invalid one?</p>
+<p>Well, consider new CSS pseudo-states that are only supported in some browsers, like <code>:fullscreen</code> (Safari only supports <code>:-webkit-full-screen</code>):</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token pseudo-class">:fullscreen</span><span class="token punctuation">,</span>
+<span class="token pseudo-class">:-webkit-full-screen</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>To style a fullscreen element in Chrome and Firefox you need <code>:fullscreen</code>, but in Safari you need <code>:-webkit-full-screen</code>. If you put those together then Firefox will see the <code>:-webkit-full-screen</code> selector, deem it invalid and discard the entire thing, and likewise Safari will see <code>:fullscreen</code> and discard it as well.</p>
+<p>To style this in both browsers in a way that doesn't break, you would have to create two separate rule sets and duplicate the styling in both blocks. More duplication!</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token pseudo-class">:fullscreen</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:-webkit-full-screen</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>That means selector lists have two problems:</p>
+<ul>
+<li>Duplication in the selectors you write, making updating them frustrating</li>
+<li>If one of the selectors is invalid, everything is ignored</li>
+</ul>
+<h3 id="enter-is">Enter <code>:is()</code><a aria-hidden="true" class="anchor-heading icon-link" href="#enter-is"></a></h3>
+<p>Solving both these issues with a single two-letter pseudo-class.</p>
+<p>Firstly, the duplication, instead of creating a separate selector for each variant here, We can rewrite it to create mini selectors with the <code>:is()</code> pseudo-class, and then we only have to write the rest of the selector once:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token pseudo-class">:is</span><span class="token punctuation">(</span>nav <span class="token combinator">></span> ul<span class="token punctuation">,</span> footer <span class="token combinator">></span> ol<span class="token punctuation">,</span> aside <span class="token combinator">></span> p<span class="token punctuation">)</span> a<span class="token pseudo-class">:hover</span></span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">purple</span><span class="token punctuation">;</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline wavy <span class="token color">deeppink</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Do you see how we essentially create a smaller list of selectors inside the <code>:is()</code>? By inlining the parts of the selectors that are different, we can make the entire selector much smaller and more readable.</p>
+<p>And the <code>:is()</code> pseudo-class solves the second issue by creating a new type of list of selectors: the <code>&#x3C;forgiving-selector-list></code>. This will parse each selector individually and discard the ones it doesn't understand.</p>
+<p>This means we can wrap our slider track pseudo classes in an <code>:is()</code> and browsers will just pick the ones they understand and ignore the rest:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token pseudo-class">:is</span><span class="token punctuation">(</span><span class="token pseudo-class">:fullscreen</span><span class="token punctuation">,</span> <span class="token pseudo-class">:-webkit-full-screen</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>That's great! The <code>:is()</code> selector saves us typing the same thing in multiple selectors, and also makes our CSS more resilient by introducing a forgiving selector list.</p>
+<h3 id="filtering-elements-by-their-parents">Filtering elements by their parents<a aria-hidden="true" class="anchor-heading icon-link" href="#filtering-elements-by-their-parents"></a></h3>
+<p>A cool feature I learned from <a href="https://thinkdobecreate.com/">Stephanie Eckles</a> in her <a href="https://codepen.io/5t3ph/pen/LYzvrGv">Modern CSS Toolkit presentation</a> (you can find the tips mentioned there on <a href="https://smolcss.dev/">SmolCSS</a> too). Because the <code>:is()</code> pseudo-class can take complex selectors, you can also add a list of ancestors and then select your element with a <code>*</code>. That means these two selectors target the same element:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">a<span class="token pseudo-class">:is</span><span class="token punctuation">(</span>nav *<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">nav a</span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This works because the browser will look for all elements that match both <code>a</code> <em>and</em> that match <code>nav *</code>. The end result being that you're actually selecting <code>nav a</code>, the a element matching both <code>a</code> and <code>*</code>.</p>
+<h3 id="nesting-pseudo-classes">Nesting pseudo-classes<a aria-hidden="true" class="anchor-heading icon-link" href="#nesting-pseudo-classes"></a></h3>
+<p>Another consequence of complex selectors being supported, is that you can nest pseudo classes:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token pseudo-class">:is</span><span class="token punctuation">(</span>div<span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token class">.demo</span><span class="token punctuation">)</span> nav<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>What this selector selects is:</p>
+<ol>
+<li>All <code>nav</code> elements,</li>
+<li>That are in a <code>div</code>,</li>
+<li>But only if that <code>div</code> does <em>not</em> have a class of "demo".</li>
+</ol>
+<h4 id="about-not">About <code>:not()</code>...<a aria-hidden="true" class="anchor-heading icon-link" href="#about-not"></a></h4>
+<p><code>:not()</code> <em>will</em> break if it contains invalid selectors because the specification states it should use a "regular" selector list, not a "forgiving" selector list like <code>:is()</code>.</p>
+<p>The workaround for that is to nest an <code>:is()</code> selector in your <code>:not()</code> selector, though it would be better if the specification got updated so that the not selector also uses a forgiving selector list.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* breaks */</span>
+<span class="token selector">not<span class="token punctuation">(</span><span class="token pseudo-class">:fullscreen</span><span class="token punctuation">,</span> <span class="token pseudo-class">:-webkit-full-screen</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* works */</span>
+<span class="token selector">not<span class="token punctuation">(</span><span class="token pseudo-class">:is</span><span class="token punctuation">(</span><span class="token pseudo-class">:fullscreen</span><span class="token punctuation">,</span> <span class="token pseudo-class">:-webkit-full-screen</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="things-to-look-out-for-with-is">Things to look out for with <code>:is()</code><a aria-hidden="true" class="anchor-heading icon-link" href="#things-to-look-out-for-with-is"></a></h3>
+<p>The <code>:is()</code> pseudo-class itself also comes with a few gotchas:</p>
+<h4 id="no-support-for-pseudo-elements">No support for pseudo-elements<a aria-hidden="true" class="anchor-heading icon-link" href="#no-support-for-pseudo-elements"></a></h4>
+<p>You can not select pseudo-elements like <code>::before</code> and <code>::after</code>, since they aren't elements present in the DOM and so can't "match".</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* won't work */</span>
+<span class="token selector">a<span class="token pseudo-class">:is</span><span class="token punctuation">(</span><span class="token pseudo-element">::before</span><span class="token punctuation">,</span> <span class="token pseudo-element">::after</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* You have to write */</span>
+<span class="token selector">a<span class="token pseudo-element">::before</span><span class="token punctuation">,</span>
+a<span class="token pseudo-element">::after</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="spaces-are-significant">Spaces are significant<a aria-hidden="true" class="anchor-heading icon-link" href="#spaces-are-significant"></a></h4>
+<p>The space is part of the selector, so you have to keep that in mind.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">h1<span class="token pseudo-class">:is</span><span class="token punctuation">(</span><span class="token pseudo-class">:hover</span><span class="token punctuation">,</span> <span class="token pseudo-class">:focus</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* h1:hover, h1:focus { ... } */</span>
+
+<span class="token selector">h1 <span class="token pseudo-class">:is</span><span class="token punctuation">(</span><span class="token pseudo-class">:hover</span><span class="token punctuation">,</span> <span class="token pseudo-class">:focus</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* h1 *:hover, h1 *:focus { ... } */</span>
+</code></pre>
+<p>In the above example, the top line <code>h1:is(:hover, :focus)</code> will evaluate to the hover and focus applying to the <code>h1</code> but adding a space between the h1 and the is selector evaluates to the hover and focus applying to any descendant. The universal selector (<code>*</code>) is added implicitly.</p>
+<h4 id="specificity">Specificity<a aria-hidden="true" class="anchor-heading icon-link" href="#specificity"></a></h4>
+<p>Everybody's favorite CSS topic, and <code>:is()</code> does something interesting with it.</p>
+<p>Specificity in selectors is expressed as three numbers: the first is for IDs, the second for classes and pseudo-classes and the third for elements and pseudo-elements. Any number will prevail over the ones after it, so you can have a hundred classes and still a single ID would win in terms of specificity.</p>
+<ul>
+<li><code>#id</code> = (1,0,0)</li>
+<li><code>.class</code> = (0,1,0)</li>
+<li><code>div</code> = (0,0,1)</li>
+</ul>
+<blockquote>
+<p>If you want to explore this for yourself, We made an <a href="https://polypane.app/css-specificity-calculator/">online specificity calculator</a> that visually explains which parts your selector is built up from and explains the scoring.</p>
+</blockquote>
+<p>To determine the specificity of an <code>:is()</code> selector, browsers don't just take the default value of a pseudo-class (0,1,0), but they take the value of the most specific selector in the is pseudo-class. This means you can easily blow out your specificity without paying attention to it.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* regular pseudo-class */</span>
+<span class="token selector"><span class="token pseudo-class">:first-child</span></span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span> <span class="token comment">/* (0,1,0) */</span>
+
+<span class="token comment">/* :is pseudo-class */</span>
+<span class="token selector"><span class="token pseudo-class">:is</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> ul<span class="token class">.nav</span><span class="token punctuation">,</span> <span class="token id">#message</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span> <span class="token comment">/* (1,0,0) */</span>
+</code></pre>
+<p>The specificity of that second example ends up being (1,0,0) because of that one ID selector, even if that selector doesnt actually match any element in your DOM.</p>
+<p>The most specific selector determines the specificity.</p>
+<p>What if there's no way around using a high-specificity selector? That brings us to the next pseudo class on our list.</p>
+<h2 id="the-where-pseudo-class">The <code>:where()</code> pseudo-class<a aria-hidden="true" class="anchor-heading icon-link" href="#the-where-pseudo-class"></a></h2>
+<p><code>:where()</code> was introduced a little later but is now as well supported as the <code>is()</code> selector: all evergreen browsers, but no support in IE11 or Opera mini.</p>
+<p>It was created to solve this issue of specificity. It works exactly the same as the <code>:is()</code> pseudo class with one key difference: its specificity will always resolve to (0,0,0), regardless of the selectors inside it.</p>
+<pre class="language-css"><code class="language-css"><span class="token punctuation">:</span><span class="token function">where</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span> <span class="token comment">/* (0,0,0) */</span>
+<span class="token punctuation">:</span><span class="token function">where</span><span class="token punctuation">(</span>.class<span class="token punctuation">)</span> <span class="token comment">/* (0,0,0) */</span>
+<span class="token punctuation">:</span><span class="token function">where</span><span class="token punctuation">(</span>#id<span class="token punctuation">)</span> <span class="token comment">/* (0,0,0) */</span>
+</code></pre>
+<p>This can help you escape out of issues where your only recourse would've been an even more specific selector or adding an <code>!important</code> to a CSS rule.</p>
+<p>While useful for specificity issues, there is another area where I think the <code>:where()</code> pseudo class will hopefully make a big impact: in CSS libraries and resets.</p>
+<h3 id="a-simpler-alternative-for-cascade-layers">A simpler alternative for cascade layers<a aria-hidden="true" class="anchor-heading icon-link" href="#a-simpler-alternative-for-cascade-layers"></a></h3>
+<p>With the <code>:where()</code> pseudo class, libraries can ship their styling with zero specificity. You get all the benefits of a library without having to deal with specificity to overwrite its styling. <a href="https://open-props.style/">Open Props</a> is a CSS Library that already applies this pattern.</p>
+<p>While cascade layers may be getting more attention lately as a potential solution for the same problem of specificity and CSS frameworks, I think the effectiveness of <code>:where()</code> should not be underestimated. `:where() can be applied at a selector level, and doesn't require you to change and keep in mind your entire CSS architecture in the way cascade layers do.</p>
+<p>So that's <code>:is()</code> and <code>:where()</code>. These two pseudo classes help us cut down on selector duplication, are forgiving when it comes to invalid selectors, something that can be particularly helpful in cross-browser support and in the case of <code>:where()</code>, help us manage the specificity of a selector.</p>
+<p>Both <code>:is()</code> and <code>:where()</code> are supported in all evergreen browsers and have been for quite a few versions, so they are safe to use if you no longer have to support Internet Explorer, which I hope you don't.</p>
+<p>That brings us to the last pseudo-class of this article. It's the newest and most unsupported one, but it's one that developers have been asking for since, well, since forever:</p>
+<h2 id="the-has-pseudo-class-the-parent-selector">The <code>:has()</code> pseudo-class: the parent selector.<a aria-hidden="true" class="anchor-heading icon-link" href="#the-has-pseudo-class-the-parent-selector"></a></h2>
+<p>Let me explain "parent selector" a little bit. With CSS selectors you <em>already</em> style elements by their parents, but what people mean when they say a parent selector is that they want to style an element based on what other elements are inside of it. For example, they want to say something like this:</p>
+<pre class="language-css"><code class="language-css">  <span class="token comment">/* ↓ Select this */</span>
+<span class="token function">this</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span> img
+        <span class="token comment">/* ↑ not this */</span>
+</code></pre>
+<p>to specify they want to select divs, but only if they contain images.</p>
+<p>While there have been many proposals over the years, this was long thought impossible or too performance-intensive to implement because of the way CSS selectors are parsed: they start at the end.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Starts here ↓ */</span>
+<span class="token selector">header h1<span class="token id">#sitetitle</span> <span class="token combinator">></span> <span class="token class">.logo</span> a</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* ↑ Not here  */</span>
+</code></pre>
+<p>They are parsed this way because browsers start with the element and try and find all the CSS that applies to it.</p>
+<p>It's faster to invalidate rules that don't apply to a given element when you start at the end of a selector, because you don't have to loop over all potential descendants only to find out that the element at the end doesn't match.</p>
+<p>By starting at the end, you can begin by discarding all elements that are not <code>a</code> elements (in this case). That lowers the total number of elements you will need to consider. From there, you can walk up the tree one ancestor at a time to discard any further non-matching elements.</p>
+<p>While some veterans might now have flashbacks to old arguments about performance, jQuery plugins and the like, it's 2022 and the <code>:has()</code> pseudo-class lets us select elements depending on their descendants, natively in the browser, without any noticeable performance implications.</p>
+<p>So first the bad news:</p>
+<h3 id="browser-support">Browser support<a aria-hidden="true" class="anchor-heading icon-link" href="#browser-support"></a></h3>
+<p>The <code>:has()</code> selector is available in Safari, in Polypane and in other Chromium browsers but only with experimental web platform features turned on. So it's not yet available in Chrome or Firefox.</p>
+<p><img src="https://caniuse.bitsofco.de/image/css-has.png" alt="Data on support for the css-has feature across the major browsers from caniuse.com"></p>
+<p>Firefox has, from what I can tell, not started work on it yet. So don't expect to be able to use this in the wild in the near future.</p>
+<p>When I said that there are no performance implications, what I meant was that there were no performance implications in Webkit and Blink. Each rendering engine has different optimizations, so the implementation in Firefox's gecko engine might end up being more difficult.</p>
+<p>Of course, that won't stop us from exploring its many possibilities, because like Bramus said, the CSS Has pseudo class is <a href="https://www.bram.us/2021/12/21/the-css-has-selector-is-way-more-than-a-parent-selector/">way more than a parent selector</a>. In the specification it's referred to as the relational pseudo class, and we'll see why in a bit.</p>
+<h3 id="the-syntax">The syntax<a aria-hidden="true" class="anchor-heading icon-link" href="#the-syntax"></a></h3>
+<p>First though, the syntax. To get back to the example I just gave, of selecting all divs that contain an image, here's what that looks like with <code>:has()</code>. We select all the divs, but add a conditional that they need to have images inside them.</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* ↓ Select this */</span>
+<span class="token property">div</span><span class="token punctuation">:</span> <span class="token function">has</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/* ↑ not this */</span>
+</code></pre>
+<p>Like <code>:is()</code> and <code>:where()</code>, you can also use complex selectors. Like divs that have images as siblings.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">div<span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token combinator">~</span> img<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>or multiple selectors, like divs that have images, videos or svgs as descendants.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">div<span class="token pseudo-class">:has</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> video<span class="token punctuation">,</span> svg<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Also like <code>:is()</code> and <code>:where()</code> the selector list is forgiving. So <code>div:has(img, video, svg:undefined)</code>, with a ":undefined" pseudo that doesn't exist, will still select all divs that have images or video elements in them.</p>
+<h3 id="specificity-1">Specificity<a aria-hidden="true" class="anchor-heading icon-link" href="#specificity-1"></a></h3>
+<p>The specificity of a <code>:has</code> pseudo class is determined in the same way as for the <code>:is()</code> and <code>:not()</code> pseudo-classes: the most specific element determines the specificity of the entire pseudo-class.</p>
+<pre class="language-css"><code class="language-css"><span class="token property">div</span><span class="token punctuation">:</span> <span class="token function">has</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> .logo<span class="token punctuation">,</span> #brand<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* (1,0,0) */</span>
+</code></pre>
+<h3 id="using-has-as-part-of-a-selector">Using <code>:has()</code> as part of a selector<a aria-hidden="true" class="anchor-heading icon-link" href="#using-has-as-part-of-a-selector"></a></h3>
+<p>By using <code>:has()</code> in different parts of your selector you can not just select elements based on their descendants, but also select elements based on their sibling or even cousin elements.</p>
+<p>Or in other words, we can select elements based on their relation to a different part of the DOM the relational pseudo class.</p>
+<p>For example, lets say you have a card element and you want to style the h3 differently if the card image is present:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>imagecontainer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>textcontainer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h3</span><span class="token punctuation">></span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h3</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>We can do that by making <code>:has()</code> part of the selector that targets that <code>h3</code>. To target the <code>h3</code> we'd normally write <code>.card h3</code>. Next, we add a conditional <code>:has()</code> to the card:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.card</span><span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token class">.imagecontainer</span> img<span class="token punctuation">)</span> h3</span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This selector matches:</p>
+<ol>
+<li>All h3 elements,</li>
+<li>That are in elements with the class card,</li>
+<li>But only if that card element also has:
+<ol>
+<li>An image</li>
+<li>In an element with the class imagecontainer.</li>
+</ol>
+</li>
+</ol>
+<p>We can also invert that: style the <code>h3</code> differently if there is <em>no image</em> present, by nesting a `:not() pseudo-class.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.card</span><span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token class">.imagecontainer</span> img<span class="token punctuation">)</span><span class="token punctuation">)</span> h3</span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This gives you a lot more styling options for situations where you would've previously added something like <code>class="has_image"</code> to your card.</p>
+<h3 id="re-implementing-focus-within">Re-implementing <code>:focus-within</code><a aria-hidden="true" class="anchor-heading icon-link" href="#re-implementing-focus-within"></a></h3>
+<p>You can also use <code>:has()</code> to implement <code>:focus-within</code>, which lets you target element if any of their descendants have focus. Both of these act the same:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">form<span class="token pseudo-class">:focus-within</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">form<span class="token pseudo-class">:has</span><span class="token punctuation">(</span>*<span class="token pseudo-class">:focus</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Though with <code>:has()</code> we can go one step further, like only styling the form if it's a <strong>specific</strong> element that has focus. This is not possible with focus-within:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">form<span class="token pseudo-class">:has</span><span class="token punctuation">(</span>input<span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">type</span><span class="token operator">=</span><span class="token attr-value">"radio"</span><span class="token punctuation">]</span></span><span class="token pseudo-class">:focus</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  ...<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="showing-an-other-input-field-without-js">Showing an "other" input field without JS<a aria-hidden="true" class="anchor-heading icon-link" href="#showing-an-other-input-field-without-js"></a></h3>
+<p>It works for other pseudos as well, like <code>:checked</code>. With this we can implement an "other" input field that appears when a specific option is checked without writing a single line of JS:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">form<span class="token pseudo-class">:has</span><span class="token punctuation">(</span>input<span class="token class">.my-checkbox</span><span class="token pseudo-class">:checker</span><span class="token punctuation">)</span> input<span class="token class">.my-textfield</span></span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="styling-forms-if-they-have-errors">Styling forms if they have errors<a aria-hidden="true" class="anchor-heading icon-link" href="#styling-forms-if-they-have-errors"></a></h3>
+<p>You can also pull up things like the <code>:valid</code>, <code>:invalid</code> and <code>:user-invalid</code> pseudo-classes to style a form differently:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">form<span class="token pseudo-class">:has</span><span class="token punctuation">(</span>input<span class="token pseudo-class">:user-invalid</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token unit">px</span> dashed <span class="token color">red</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Or even to show a list of invalid or missing form fields at the top or bottom of the form:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">form<span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token class">.name</span><span class="token pseudo-class">:user-invalid</span><span class="token punctuation">)</span> li<span class="token class">.name-warning</span></span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>There are many more examples you can think of, but I hope this has given you a good idea of the potential the <code>:has()</code> pseudo-class brings.</p>
+<h2 id="the-future-for-css-selectors">The future for CSS selectors<a aria-hidden="true" class="anchor-heading icon-link" href="#the-future-for-css-selectors"></a></h2>
+<p>I very much look forward to all the clever things people will come up with using <code>:is()</code>, <code>:where()</code> and <code>:has()</code>, and don't think the examples above even scratches the surface.</p>
+<p>Especially <code>:has()</code> is going to have a very large impage on the CSS selectors you will be writing in the coming years.</p>
+<p>If you want to play around with the <code>:has()</code> selector ahead of general availability, you can <a href="https://dashboard.polypane.app/register/">start a free Polypane trial</a> which has it enabled by default.</p>

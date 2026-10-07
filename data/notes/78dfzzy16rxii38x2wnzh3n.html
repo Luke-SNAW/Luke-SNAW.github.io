@@ -1,0 +1,182 @@
+<h1 id="tailwind-is-an-anti-pattern">tailwind-is-an-anti-pattern<a aria-hidden="true" class="anchor-heading icon-link" href="#tailwind-is-an-anti-pattern"></a></h1>
+<blockquote>
+<p><a href="https://javascript.plainenglish.io/tailwind-is-an-anti-pattern-ed3f64f565f0">https://javascript.plainenglish.io/tailwind-is-an-anti-pattern-ed3f64f565f0</a></p>
+</blockquote>
+<p><em>Let us open Schrödinger’s Box to see what’s inside. Spoiler: It’s a dead cat.</em></p>
+<p>Many people like Tailwind’s so-called “utility-first” approach, and I understand why. However, you should know that this technique is nothing new. As a matter of fact, there were small CSS snippets that existed way before Bootstrap that came with classes like <code>.p-8</code>. They were not considered a library or framework; they were merely snippets copied from project to project. Nevertheless, the technique itself is <em>not new</em>. With the rise of Bootstrap, however, we stopped doing that. One reason — of course — is that Bootstrap came with its own utility classes, but there’s another reason, and you should be aware of that before starting to use Tailwind in every project.</p>
+<h2 id="what-does-tailwind-do">What does Tailwind do?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-does-tailwind-do"></a></h2>
+<p>Since I couldn’t find any better way to insult Tailwind than using their own examples, let’s stick to that. Note that I have a TailwindUI account, as some of my customers insist on using that. So, I don’t just blame the free examples, but you literally pay for broken code. But let us stick to the free “Hero Section” example so that everybody can access it and follow my thoughts (<a href="https://tailwindui.com/components/marketing/sections/heroes">https://tailwindui.com/components/marketing/sections/heroes</a>).</p>
+<p><strong>Problem one, bloated HTML:</strong></p>
+<p>Just look at the button:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span>
+  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span>
+  <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500<span class="token punctuation">"</span></span>
+  <span class="token attr-name">**</span>
+  <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sr-only<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Open main menu<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>span</span><span class="token punctuation">></span></span>
+
+  <span class="token comment">&#x3C;!-- Heroicon name: outline/menu --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>svg</span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h-6 w-6<span class="token punctuation">"</span></span>
+    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)<span class="token punctuation">"</span></span>
+    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span>
+    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 24 24<span class="token punctuation">"</span></span>
+    <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span>
+    <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span>
+    <span class="token attr-name">aria-hidden</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>path</span>
+      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span>
+      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span>
+      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M4 6h16M4 12h16M4 18h16<span class="token punctuation">"</span></span>
+    <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>svg</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Holy smokes, what a list of classes. What does it look like? What does the button do? Well, it’s hard to figure out. Here’s the same example without Tailwind:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button-menu-toggle<span class="token punctuation">"</span></span> <span class="token attr-name">**</span> <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sr-only<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Open main menu<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>span</span><span class="token punctuation">></span></span>
+
+  <span class="token comment">&#x3C;!-- Heroicon name: outline/menu --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>svg</span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h-6 w-6<span class="token punctuation">"</span></span>
+    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)<span class="token punctuation">"</span></span>
+    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span>
+    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 24 24<span class="token punctuation">"</span></span>
+    <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span>
+    <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span>
+    <span class="token attr-name">aria-hidden</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>path</span>
+      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span>
+      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span>
+      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M4 6h16M4 12h16M4 18h16<span class="token punctuation">"</span></span>
+    <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>svg</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>At first glance, we know this is the button responsible for toggling the menu (note that I don’t use BEM, which is an Anti-Pattern, too). Code is read much more often than it is written; consider that when thinking about Tailwind.</p>
+<p>Now, every time I bring this up, there’s at least one developer who blames me for not knowing about <code>@apply</code>. Trust me, I know. But it defeats Tailwind’s own purpose as you will then just write regular CSS. Of course, you may mix both techniques, but then again, you have two ways of writing CSS. If you’re also inlining some CSS, then it’s even three. <code>@apply</code> makes everything worse.</p>
+<p><strong>Problem two, naming things</strong></p>
+<p>Tailwind claims</p>
+<blockquote>
+<p>You have to think up class names all the time — nothing will slow you down or drain your energy like coming up with a class name for something that doesn’t deserve to be named. — <a href="https://tailwindcss.com/docs/reusing-styles">https://tailwindcss.com/docs/reusing-styles</a></p>
+</blockquote>
+<p>“Something that doesn’t deserve to be named” also doesn’t deserve utility classes. As a matter of fact, CSS got you covered. Take a look at another snippet of the Hero Section:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden md:block md:ml-10 md:pr-4 md:space-x-8<span class="token punctuation">"</span></span> <span class="token attr-name">**\</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>font-medium text-gray-500 hover:text-gray-900<span class="token punctuation">"</span></span> <span class="token attr-name">**\</span>
+    <span class="token punctuation">></span></span>Product<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+  <span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>font-medium text-gray-500 hover:text-gray-900<span class="token punctuation">"</span></span> <span class="token attr-name">**\</span>
+    <span class="token punctuation">></span></span>Features<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+  <span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>font-medium text-gray-500 hover:text-gray-900<span class="token punctuation">"</span></span> <span class="token attr-name">**\</span>
+    <span class="token punctuation">></span></span>Marketplace<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+  <span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>font-medium text-gray-500 hover:text-gray-900<span class="token punctuation">"</span></span> <span class="token attr-name">**\</span>
+    <span class="token punctuation">></span></span>Company<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+  <span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>font-medium text-indigo-600 hover:text-indigo-500<span class="token punctuation">"</span></span> <span class="token attr-name">**\</span>
+    <span class="token punctuation">></span></span>Log in<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span>
+  <span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Here’s how to do it with CSS:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span>
+  <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navigation-desktop<span class="token punctuation">"</span></span>
+  <span class="token attr-name">**</span>
+  <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navigation<span class="token punctuation">"</span></span>
+  <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Main Navigation<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Product<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Features<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Marketplace<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Company<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Log in<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>It shows the marketing gibberish they push on you to make you buy their rubbish. Of course, the CSS would be in its own stylesheet, cut the CSS in JS (which is also an Anti-Pattern).</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.navigation-desktop</span></span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.navigation-desktop</span> <span class="token combinator">></span> a</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> <span class="token number">500</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">107</span> <span class="token number">114</span> <span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.navigation-desktop</span> <span class="token combinator">></span> a<span class="token pseudo-class">:hover</span></span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">17</span> <span class="token number">24</span> <span class="token number">39</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+[<span class="token atrule"><span class="token rule">@media</span>]<span class="token punctuation">(</span><span class="token property">http</span><span class="token punctuation">:</span>//twitter.com/media<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">768</span><span class="token unit">px</span><span class="token punctuation">)</span></span>
+<span class="token punctuation">{</span>
+  <span class="token selector"><span class="token class">.navigation-desktop</span></span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">2.5</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+    <span class="token property">padding-right</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token selector"><span class="token class">.navigation-desktop</span> <span class="token combinator">></span> \* <span class="token combinator">+</span> \*</span> <span class="token punctuation">{</span>
+    <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>I didn’t have to come up with a class name for my anchor tags; everybody knows from the parent element that this is supposed to be the desktop nav (why they are using a div is beyond me, but I am not going to fix their broken markup now). Looking at the Tailwind code, you will just be overwhelmed and surrender to your fate. And you know another great thing about my solution: It works in any project; it doesn’t depend on any library.</p>
+<p>Most vital for you as a developer: The HTML markup stays readable and is not bloated. It’s the first thing you ship to your users, after all.</p>
+<p><strong>Problem three, jumping around files</strong></p>
+<p>Tailwind claims</p>
+<blockquote>
+<p>You have to jump between multiple files to make changes — which is a way bigger workflow killer than you’d think before co-locating everything together. — <a href="https://tailwindcss.com/docs/reusing-styles">https://tailwindcss.com/docs/reusing-styles</a></p>
+</blockquote>
+<p>This defeats the whole purpose of having CSS in the first place. Before Tailwind, we could have also just inlined every style. However, separating styles from markup is an important feature. Without Tailwind, you can learn to write much more usable code since Tailwind tightly couples your CSS to its markup. Again, I am aware of @apply, but then I could just stick to common CSS and throw the whole Tailwind toolchain right out the window — where it belongs.</p>
+<p><strong>Problem four, changing CSS is scary</strong></p>
+<p>Tailwind claims</p>
+<blockquote>
+<p>Changing styles is scarier — CSS is global, are you <em>sure</em> you can change the min-width value in that class without breaking something in another part of the site? — <a href="https://tailwindcss.com/docs/reusing-styles">https://tailwindcss.com/docs/reusing-styles</a></p>
+</blockquote>
+<p>CSS is not necessarily global. With ShadowDOM and CSS Modules, we have two strong tools at our disposal that take care of CSS classes that would otherwise be problematic. We don’t have to come up with crazy names anymore (which makes BEM obsolete, too). Also, is 30 different classes slapped into an HTML element’s class attribute supposed to be any better? How so? Offical example incoming:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span>
+  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span>
+  <span class="token attr-name">**class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500<span class="token punctuation">"</span></span>
+  <span class="token attr-name">**\</span>
+<span class="token punctuation">></span></span>
+  _<span class="token comment">&#x3C;!-- Heroicon name: solid/check --></span>_
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>svg</span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-ml-1 mr-2 h-5 w-5<span class="token punctuation">"</span></span>
+    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span>
+    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 20 20<span class="token punctuation">"</span></span>
+    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span>
+    <span class="token attr-name">aria-hidden</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>path</span>
+      <span class="token attr-name">fill-rule</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>evenodd<span class="token punctuation">"</span></span>
+      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z<span class="token punctuation">"</span></span>
+      <span class="token attr-name">clip-rule</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>evenodd<span class="token punctuation">"</span></span>
+    <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>svg</span><span class="token punctuation">></span></span>
+  Publish
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>The above gibberish will render this button:</p>
+<p><img src="https://miro.medium.com/max/189/1*TX_F7o3Mq5DwP438FsGYnA.png"></p>
+<p><a href="https://tailwindui.com/components/application-ui/headings/page-headings">https://tailwindui.com/components/application-ui/headings/page-headings</a></p>
+<p>First, note the <code>&#x3C;button type="button"</code> which is redundant since this button is outside of a form element. Other than that, it’s an awful lot of classes to render a simple purple button. It probably wouldn’t be as problematic if the HTML file only contained this one button, but every element looks like that in Tailwind. Behold the TailwindUI source code:</p>
+<p><img src="https://miro.medium.com/max/700/1*B_-tu67LyUD9r08_5Z-J_Q.png"></p>
+<p>Why? <a href="https://tailwindui.com/">https://tailwindui.com/</a> source…</p>
+<p>Don’t repeat yourself (DRY)? I’d say, You Ain’t Gonna Need It. I find this one scarier than having a <code>.button-action</code> class where <em>I know</em> what happens. It’s <em>not scary</em> to change it because it’s my architecture, and <em>I can rely on it</em>. I also don’t have to write something like <code>scale-[calc(204/299)]</code>I would be scared to change it, though. Magic numbers, anyone? THAT code smells.</p>
+<p><strong>Problem five, big bundles</strong></p>
+<p>Tailwind claims</p>
+<blockquote>
+<p>Your CSS bundle will be bigger — oof. — <a href="https://tailwindcss.com/docs/reusing-styles">https://tailwindcss.com/docs/reusing-styles</a></p>
+</blockquote>
+<p>That’s a straight-up lie. Tailwind doesn’t magically reduce your bundle size. You just shift part of the size to your HTML file. Also, you might declare redundant properties in classes, which would ultimately increase bundle size. But you don’t have to ship all the properties that you’re using in your project. In Tailwind, you do. The toolchain scans your project, then creates the Tailwind bundle. This bundle contains any property that you’re using throughout the project. Even if the user never visits any site with that specific property. An issue you don’t have with CSS Modules or Web Components. Tailwind removes one problem and replaces it with another—nothing more, nothing less.</p>
+<p>The landing page of tailwindui.com uses about 20% of the CSS it initially ships to your browser.</p>
+<p><img src="https://miro.medium.com/max/700/1*OsgBkHEj_NJij4qWr2sEtQ.png"></p>
+<p>Unfortunately, that’s nothing quite unusual. Most websites ship a lot of unused CSS — Tailwind or not. We as developers should work on it, but Tailwind certainly won’t help solve it. It’s also a matter of protecting our scarce resources: Saving bytes ultimately means saving power. Every effort — and be it so little — counts.</p>
+<p>CSS has improved since the dark ages of Bootstrap and the likes. Because we have native variables, grids, and CSS Modules at our disposal, there’s little to no reason to use SCSS, Bootstrap, or Tailwind.</p>
+<p>Another issue is that you’re not learning CSS patterns by using Tailwind. E.g., what does <code>space-x-8</code> do? It will translate to <code>.your-element > * + * { margin-left: 2rem; }</code> which is a typical design pattern in CSS. Do you know what it does? It is so common that you should be able to recognize this pattern at first glance!</p>
+<p>If you’re a beginner in CSS, Tailwind is the safest way that you will remain a beginner. And even more than that, adapting their broken HTML semantics leaves you with a website that doesn’t live up to modern standards—even the ones you pay for at TailwindUI. They’re using divs where they’re supposed to be using more semantic tags; also, they don’t always add aria-roles needed to provide an accessible website. Examples? Random h2, h3, h4 tags, hilarious ul/li footer navigations without any role or semantic tags, unequal font sizes for headlines of the same level, using spans for subheadlines, … And they charge an awful lot of money for that. Unfortunately, I cannot hand you the code for the examples, as you have to <strong>pay</strong> for them.</p>
+<p>Yes, there’s a lot of personal pain and a lot of personal opinions. I am aware of that. Separation of concerns and skipping to learn important CSS patterns remain problematic, though. Where are you gonna go when Tailwind is obsolete? CSS is here to stay. I can use both. I am forced to use Tailwind for some clients because it’s simply part of their toolchain. And who am I to change their decisions as an external developer? I still find it problematic.</p>
+<p>The problems outlined were also the reason why we ditched that “utility classes” approach in the first place. It’s not flexible enough. When there are new CSS features, will you wait until Tailwind implements them? Your projects will end up having several escape hatches: Using <code>@apply</code>, creating custom classes because you cannot remember the <code>background-image</code> syntax of Tailwind, or even overriding Tailwind classes instead of extending the configuration file — because it’s CSS, so why not, right?</p>
+<p>That’s all, folks!</p>
+<p>Consider leaving a like or follow so I know which kind of articles you like to read more. Thank you so much for reading.</p>
+<p><strong>Disclaimer:</strong> No cats have been harmed during the writing of this article.</p>

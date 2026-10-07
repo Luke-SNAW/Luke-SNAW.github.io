@@ -1,0 +1,130 @@
+<h1 id="data-as-a-mediator-between-computation-and-state">Data as a mediator between computation and state<a aria-hidden="true" class="anchor-heading icon-link" href="#data-as-a-mediator-between-computation-and-state"></a></h1>
+<p><a href="https://www.tedinski.com/2018/08/28/using-data-to-mutate-state.html">원 글</a>을 읽고 sonnet과 문답 정리</p>
+<h1 id="액션을-데이터-타입으로-표현하는-설계-기법">액션을 데이터 타입으로 표현하는 설계 기법<a aria-hidden="true" class="anchor-heading icon-link" href="#액션을-데이터-타입으로-표현하는-설계-기법"></a></h1>
+<h2 id="1-핵심-문제-oo와-멀티-오브젝트-시스템">1. 핵심 문제: OO와 멀티 오브젝트 시스템<a aria-hidden="true" class="anchor-heading icon-link" href="#1-핵심-문제-oo와-멀티-오브젝트-시스템"></a></h2>
+<p>OO(객체지향)는 단일 객체의 상태를 캡슐화하는 데는 강하지만, <strong>여러 객체를 동시에 변경해야 하는 상황</strong>에서 설계가 어색해진다. OO 이데올로기가 "데이터 타입으로 생각하기"를 억제하기 때문에, 멀티 오브젝트 시스템에서 설계 선택지가 좁아진다.</p>
+<hr>
+<h2 id="2-제안하는-해결책-액션을-데이터로-표현">2. 제안하는 해결책: 액션을 데이터로 표현<a aria-hidden="true" class="anchor-heading icon-link" href="#2-제안하는-해결책-액션을-데이터로-표현"></a></h2>
+<p>함수가 직접 상태를 바꾸는 대신, <strong>"무엇을 해야 하는지"를 기술하는 데이터</strong>를 반환하게 하고, 실제 실행은 별도의 <strong>인터프리터</strong>가 담당하게 한다.</p>
+<pre><code>기존 방식:  함수 → 직접 상태 변경
+제안 방식:  함수 → 액션 기술(data) → 인터프리터 → 상태 변경
+</code></pre>
+<h3 id="코드-예시">코드 예시<a aria-hidden="true" class="anchor-heading icon-link" href="#코드-예시"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// 기존: 함수가 직접 상태를 변경</span>
+<span class="token keyword">function</span> <span class="token function">transfer</span><span class="token punctuation">(</span><span class="token parameter"><span class="token keyword module">from</span><span class="token punctuation">,</span> to<span class="token punctuation">,</span> amount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword module">from</span><span class="token punctuation">.</span><span class="token property-access">balance</span> <span class="token operator">-=</span> amount <span class="token comment">// 직접 변경</span>
+  to<span class="token punctuation">.</span><span class="token property-access">balance</span> <span class="token operator">+=</span> amount <span class="token comment">// 직접 변경</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 제안: 함수가 "설명 데이터"를 반환</span>
+<span class="token keyword">function</span> <span class="token function">transfer</span><span class="token punctuation">(</span><span class="token parameter"><span class="token keyword module">from</span><span class="token punctuation">,</span> to<span class="token punctuation">,</span> amount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">"DEBIT"</span><span class="token punctuation">,</span> accountId<span class="token operator">:</span> <span class="token keyword module">from</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">,</span> amount <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">"CREDIT"</span><span class="token punctuation">,</span> accountId<span class="token operator">:</span> to<span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">,</span> amount <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 인터프리터가 실제 변경을 담당</span>
+<span class="token keyword">function</span> <span class="token function">interpret</span><span class="token punctuation">(</span><span class="token parameter">actions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> action <span class="token keyword">of</span> actions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">===</span> <span class="token string">"DEBIT"</span><span class="token punctuation">)</span> db<span class="token punctuation">.</span><span class="token method function property-access">update</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span><span class="token property-access">accountId</span><span class="token punctuation">,</span> <span class="token operator">-</span>action<span class="token punctuation">.</span><span class="token property-access">amount</span><span class="token punctuation">)</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">===</span> <span class="token string">"CREDIT"</span><span class="token punctuation">)</span> db<span class="token punctuation">.</span><span class="token method function property-access">update</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span><span class="token property-access">accountId</span><span class="token punctuation">,</span> <span class="token operator">+</span>action<span class="token punctuation">.</span><span class="token property-access">amount</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>이 패턴은 함수형 프로그래밍의 <strong>Command 패턴</strong>, Haskell의 <strong>IO 모나드</strong>, Redux의 <strong>Action/Reducer</strong> 구조와 맥락이 같다.</p>
+<hr>
+<h2 id="3-4가지-장점">3. 4가지 장점<a aria-hidden="true" class="anchor-heading icon-link" href="#3-4가지-장점"></a></h2>
+<ol>
+<li>
+<p><strong>테스트가 쉬워진다</strong> — 함수가 상태를 직접 바꾸지 않고 데이터를 반환하므로, 복잡한 상태 셋업 없이 출력값만 검사하면 된다. 사실상 순수 함수처럼 테스트할 수 있다.</p>
+</li>
+<li>
+<p><strong>불변식(invariant) 보장이 쉬워진다</strong> — 실제 상태 변경은 인터프리터 한 곳에서만 일어나므로, 시스템 전체 규칙을 한 곳에서만 강제하면 된다.</p>
+</li>
+<li>
+<p><strong>인터프리터 자체도 테스트하기 쉬워진다</strong> — 가장 위험한 코드(실제 멀티 오브젝트 변경)가 한 곳에 모여 있으므로 집중적으로 테스트할 수 있다.</p>
+</li>
+<li>
+<p><strong>디커플링(decoupling)이 강화된다</strong> — 액션을 생성하는 코드와 실제 시스템이 분리되어 있으므로, 나중에 시스템 구조를 바꿔도 액션 생성 로직은 건드리지 않아도 된다.</p>
+</li>
+</ol>
+<p>There are of course, several disadvantages:</p>
+<ol>
+<li>Many of our programming languages lack good support for representing data (in particular, algebraic data types), making it overly verbose to create such a data type, and so more more costly and difficult than it should be.</li>
+<li>Designing the intermediate data type describing actions can be hard. Non-trivial data types can become akin to miniature programming languages (hence my choice of the term “interpreter”), and keeping the abstractions sensible is tricky.</li>
+</ol>
+<hr>
+<h2 id="4-qa-인터프리터-vs-각-객체의-public-method">4. Q&#x26;A: 인터프리터 vs 각 객체의 public method<a aria-hidden="true" class="anchor-heading icon-link" href="#4-qa-인터프리터-vs-각-객체의-public-method"></a></h2>
+<h3 id="q-각-객체의-public-method를-사용하는-것이-더-견고하지-않나">Q. 각 객체의 public method를 사용하는 것이 더 견고하지 않나?<a aria-hidden="true" class="anchor-heading icon-link" href="#q-각-객체의-public-method를-사용하는-것이-더-견고하지-않나"></a></h3>
+<p><strong>두 가지를 구분해야 한다.</strong></p>
+<ul>
+<li><strong>각 객체의 public method</strong>: 그 객체 자신의 불변식(예: 잔고 음수 방지)을 보장한다.</li>
+<li><strong>인터프리터</strong>: 여러 객체에 걸친 시스템 수준의 불변식(예: debit과 credit의 원자성)을 보장한다.</li>
+</ul>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>불변식</th><th>담당자</th></tr></thead><tbody><tr><td>잔고가 음수가 되면 안 된다</td><td>Account 객체의 public method</td></tr><tr><td>debit과 credit은 반드시 함께 성공/실패해야 한다</td><td>인터프리터</td></tr></tbody></table></div>
+<p><strong>둘은 경쟁 관계가 아니라 상호 보완 관계다.</strong> 인터프리터 내부에서 각 객체의 public method를 호출하는 방식으로 조합할 수 있다.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">interpret</span><span class="token punctuation">(</span><span class="token parameter">actions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword control-flow">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> action <span class="token keyword">of</span> actions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 객체 자신의 불변식은 객체가 보장</span>
+      accounts<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">debit</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span><span class="token property-access">amount</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">catch</span> <span class="token punctuation">{</span>
+    <span class="token function">rollback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 멀티 객체 원자성은 인터프리터가 보장</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>OO의 캡슐화는 객체 내부를 보호하는 데 탁월하지만, <strong>객체 간 조율이 필요한 불변식</strong>은 애초에 어느 객체의 책임도 아니다. 인터프리터는 그 공백을 메운다.</p>
+<hr>
+<h2 id="5-인터프리터와-프로퍼티-테스팅의-시너지">5. 인터프리터와 프로퍼티 테스팅의 시너지<a aria-hidden="true" class="anchor-heading icon-link" href="#5-인터프리터와-프로퍼티-테스팅의-시너지"></a></h2>
+<p>액션이 데이터로 표현되기 때문에, <strong>랜덤한 액션 시퀀스를 자동 생성하기 쉽다.</strong></p>
+<h3 id="전략-1-모델-기반-검증-model-based-testing">전략 1: 모델 기반 검증 (Model-based Testing)<a aria-hidden="true" class="anchor-heading icon-link" href="#전략-1-모델-기반-검증-model-based-testing"></a></h3>
+<p>실제 시스템과 동작이 동일해야 하는 단순화된 모델을 만들어 둘의 결과를 비교한다.</p>
+<pre><code>랜덤 액션 시퀀스
+    ↓              ↓
+실제 인터프리터   단순 모델(예: Map으로 구현한 가짜 DB)
+    ↓              ↓
+결과 A    ==?    결과 B
+</code></pre>
+<h3 id="전략-2-불변식-검사와의-시너지">전략 2: 불변식 검사와의 시너지<a aria-hidden="true" class="anchor-heading icon-link" href="#전략-2-불변식-검사와의-시너지"></a></h3>
+<p>랜덤 액션을 실행한 후 시스템 불변식이 깨지지 않았는지 확인하는 것만으로도 강력한 테스트가 된다.</p>
+<pre><code>랜덤 액션 시퀀스 실행
+    ↓
+불변식 체크:
+  - 모든 잔고의 합이 일정한가?
+  - 음수 잔고가 존재하지 않는가?
+  - 트랜잭션이 원자적으로 처리되었는가?
+</code></pre>
+<p>개발자가 미처 생각하지 못한 엣지 케이스 조합을 자동으로 발견해준다.</p>
+<h3 id="시너지의-이유">시너지의 이유<a aria-hidden="true" class="anchor-heading icon-link" href="#시너지의-이유"></a></h3>
+<ul>
+<li>액션이 데이터라서 → 랜덤 생성이 쉽고</li>
+<li>변경이 인터프리터에 집중되어 있어서 → 불변식 검사 지점이 명확하고</li>
+<li>인터프리터가 격리되어 있어서 → 테스트 설정이 단순하다</li>
+</ul>
+<p>세 가지가 맞물려 단순히 "테스트하기 편하다" 수준을 넘어, <strong>버그를 자동으로 찾아내는 테스트 체계</strong>를 구축하기 훨씬 수월해진다.</p>
+<hr>
+<h2 id="한-줄-요약">한 줄 요약<a aria-hidden="true" class="anchor-heading icon-link" href="#한-줄-요약"></a></h2>
+<blockquote>
+<p><strong>"상태를 바꾸는 코드"와 "무엇을 바꿀지 결정하는 코드"를 분리하면, 복잡한 멀티 오브젝트 시스템도 테스트 가능하고 안전하게 관리할 수 있다.</strong></p>
+</blockquote>

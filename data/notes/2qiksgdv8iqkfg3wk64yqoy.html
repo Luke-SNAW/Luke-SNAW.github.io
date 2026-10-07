@@ -1,0 +1,29 @@
+<h1 id="the-role-of-devops">The Role of Devops<a aria-hidden="true" class="anchor-heading icon-link" href="#the-role-of-devops"></a></h1>
+<p><a href="https://medium.com/pragmatic-programmers/the-role-of-devops-33a2171c004d">https://medium.com/pragmatic-programmers/the-role-of-devops-33a2171c004d</a></p>
+<p>Three practices cover the role of DevOps in deploying your app:</p>
+<ul>
+<li>Continuous integration</li>
+<li>Continuous delivery</li>
+<li>Continuous deployment</li>
+</ul>
+<p>They form a kind of ladder of DevOps maturity or advancement. Each rung of that ladder has a set of goals as well as a set of costs or challenges.
+<img src="/assets/images/the-role-of-devops.webp" alt="ladder of devops"></p>
+<h2 id="continuous-integration">Continuous Integration<a aria-hidden="true" class="anchor-heading icon-link" href="#continuous-integration"></a></h2>
+<p>The first step on the ladder to more successful and reliable deployments is continuous integration. At this stage, everyone on the team adopts the practice of checking the code into the repository often. This means merging any changes into the master branch (or main trunk) of the repo. This is the practice I covered in Chapter 1, <a href="https://medium.com/@pragprog/chapter-1-getting-started-with-api-first-c48ac3a7186">Getting Started with API First</a>. Those check-ins should kick off automated tests too. We saw how to do that using Postman and Newman in Chapter 9, <a href="https://medium.com/@pragprog/chapter-9-testing-apis-d8684ba54e56">Testing APIs</a>.</p>
+<p>By checking in your changes often and running automated tests for every check-in, you end up validating the project quite a few times and getting immediate success/fail feedback on each small set of changes. This means you catch problems early, when they’re easier to fix. Using scripted/automated tests means your tests are more consistent and the results are more reliable.</p>
+<p>Continuous integration handles the coding, check-in, and testing steps.</p>
+<h2 id="continuous-delivery">Continuous Delivery<a aria-hidden="true" class="anchor-heading icon-link" href="#continuous-delivery"></a></h2>
+<p>At this point, the process of releasing into final staging is automated through scripting. That means deployment is reduced to making some selections (or configurations) and pressing a button. Now, along with scripted testing from continuous integration you also have scripted deployment to the staging level.</p>
+<p>Continuous delivery handles the coding, check-in, testing, and staging steps.</p>
+<h2 id="continuous-deployment">Continuous Deployment<a aria-hidden="true" class="anchor-heading icon-link" href="#continuous-deployment"></a></h2>
+<p>At this stage, we’re not just scripting testing and staging deployment. We’re also making deployment into production automatic. That means making the entire process of testing and deploying your app completely driven by scripts and other tooling without the need for a human to “press a button.” Typically this is done by setting up your source code check-in process to handle the entire test-and-deploy process.</p>
+<p>The test-and-deploy process usually looks like this:</p>
+<ul>
+<li>A developer checks code into the repository.</li>
+<li>That check-in kicks off a series of local tests.</li>
+<li>If the tests pass, the code is built into a release package.</li>
+<li>If the build succeeds, the build is deployed to a staging server.</li>
+<li>If the staging server deployment succeeds, another set of integration tests are run.</li>
+<li>If the integration tests succeed, the build is deployed on a production server.</li>
+<li>If the production deployment succeeds, the job is done.</li>
+</ul>

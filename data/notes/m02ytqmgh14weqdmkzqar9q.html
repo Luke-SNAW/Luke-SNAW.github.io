@@ -1,0 +1,109 @@
+<h1 id="url-explained---the-fundamentals">URL explained - The Fundamentals<a aria-hidden="true" class="anchor-heading icon-link" href="#url-explained---the-fundamentals"></a></h1>
+<blockquote>
+<p><a href="https://ittavern.com/url-explained-the-fundamentals/">https://ittavern.com/url-explained-the-fundamentals/</a></p>
+</blockquote>
+<p>In this post, I'll try to explain the syntax and use of an URL and the difference between URI, URL, URN, and URC.</p>
+<h2 id="url-explained-">URL explained <a href="https://ittavern.com/url-explained-the-fundamentals/#url-explained">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#url-explained-"></a></h2>
+<p><a href="/../images/blog/url-explained.png">url-explained</a></p>
+<p>This will be our example for this post:</p>
+<p><code>https://username:password@www.example.com:443/path/to/page.html?query=file#fragment</code></p>
+<p>The format of this URL is built upon the URI generic syntax that looks like this <a id="fnref-2" class="fnref" href="#fn-2">2</a>:</p>
+<p><code>URI = scheme ":" ["//" authority] path ["?" query] ["#" fragment]</code></p>
+<p>Noted that the 'authority' can have the following syntax:</p>
+<p><code>authority = [userinfo "@"] host [":" port]</code></p>
+<p>More information follow in the following sections.</p>
+<h3 id="uri-scheme-">URI Scheme <a href="https://ittavern.com/url-explained-the-fundamentals/#scheme">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#uri-scheme-"></a></h3>
+<p>Always required, but often hidden by the application, e.x. most commonly in browsers as <code>http</code> or <code>https</code> is the default and implied.</p>
+<p><code>https://</code> <code>ssh://</code> <code>tel://</code></p>
+<p>Also commonly called 'protocol', which is an indicator of how the resource can be accessed.</p>
+<p>The official register of URI scheme names is maintained by IANA at <a href="http://www.iana.org/assignments/uri-schemes">http://www.iana.org/assignments/uri-schemes</a>. IANA will show registered and reserved schemes that were never registered [1].</p>
+<p>There is a large - but now retired - list of <a href="https://www.w3.org/Addressing/schemes">Public registered and un-registered Schemes</a> by Dan Connolly. And a large and unknown number of private schemes are used for internal use within companies only.</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc4395.txt">RFC4395</a> explains the registration procedures and provides some guidelines. The old versions were <a href="https://www.ietf.org/rfc/rfc2717.txt">RFC2717</a> for the registrations and <a href="https://www.ietf.org/rfc/rfc2718.txt">RFC2718</a> for the guidelines.</p>
+<p>As a side note, the double slashes were a choice of <a href="https://archive.nytimes.com/bits.blogs.nytimes.com/2009/10/12/the-webs-inventor-regrets-one-small-thing/?partner=rss&#x26;emc=rss">Tim Berners-Lee, which he regrets since they have no other purpose</a>.</p>
+<h3 id="userinfo-">UserInfo <a href="https://ittavern.com/url-explained-the-fundamentals/#userinfo">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#userinfo-"></a></h3>
+<p>The UserInfo is optional, and often enough gets discarded by applications. Most browsers will ignore that information or warn you since it is a security risk.</p>
+<p>An example where it is used normally:</p>
+<p><code>ssh://username@example.com:2222</code></p>
+<h3 id="host-">Host <a href="https://ittavern.com/url-explained-the-fundamentals/#host">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#host-"></a></h3>
+<p>This is the host section. It can be the <strong>same system, a hostname, an IP, or a domain</strong>.</p>
+<p>Examples:</p>
+<p><code>ldap://[2001:db8::10]/c=GB?objectClass?one</code> # it is required to put the IPv6 address into square brackets</p>
+<p><code>https://ittavern.com/url-explained-the-fundamentals/</code></p>
+<p><code>vnc://10.10.20.57:5900</code></p>
+<h5 id="domains-">Domains <a href="https://ittavern.com/url-explained-the-fundamentals/#domains">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#domains-"></a></h5>
+<p>Just a short digression into the world of domains.</p>
+<p>Example:</p>
+<p><code>www.example.com</code> # <strong>full domain name</strong></p>
+<p><code>www</code> # <strong>subdomain</strong></p>
+<p><code>example</code> # second-level domain (<strong>SDL</strong>)</p>
+<p><code>com</code> # top-level domain (<strong>TDL</strong>), also called domain suffixe” or “domain extension.”</p>
+<p><code>.</code> # reference: <strong>root zone</strong>, won't go into detail</p>
+<p>A second-level domain must only contain letters (a-z), numbers (0-9), and dashes ('-'), but must not start with a dash. Furthermore, domains are case-insensitive, which means <code>ITTAVERN.COM</code> is the same as <code>ittavern.com</code>. The max length of the second-level domain is 63 characters. Subdomans are subject to the same rules, but can additionally contain underscores (<code>_</code>) - it is not recommended, but some services requiere it. For example some SRV DNS of Microsoft `_sipfederationtls._tcp.example.com. Browser can accept it, but there is no guarantee.</p>
+<p>Each string between the dots is called <strong>label</strong>, and the maximum length of one label is 63 characters. The <strong>max length of a full domain name is 253 characters</strong>, including the dots.</p>
+<p>There are currently almost 1500 TLDs registered. <strong>1470 TLDs</strong> at the time of the creation of this post, to be more specific.</p>
+<p>kuser@pleasejustwork:~$ curl <a href="https://data.iana.org/TLD/tlds-alpha-by-domain.txt">https://data.iana.org/TLD/tlds-alpha-by-domain.txt</a> | sed '1d' | wc -l
+% Total % Received % Xferd Average Speed Time Time Time Current
+Dload Upload Total Spent Left Speed
+100 9828 100 9828 0 0 11506 0 --:--:-- --:--:-- --:--:-- 11494
+1470</p>
+<p>The <strong>list of all TLDs</strong> can be found in the <a href="https://data.iana.org/TLD/tlds-alpha-by-domain.txt">docs of IANA</a>.</p>
+<p>There are two kinds of TLDs - <strong>Generic top-level domain (gTLD)</strong> like .com .info .net and <strong>Country-code top-level domain (ccTLD)</strong> like .nl .de .us and some <strong>combinations</strong> like .co.uk or .com.au.</p>
+<h3 id="port-">Port <a href="https://ittavern.com/url-explained-the-fundamentals/#port">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#port-"></a></h3>
+<p>Many schemes have a default port number, allowing most programs to hide the port number to avoid confusion for their users. <code>http</code> has port 80, <code>https</code> has port 443, <code>ssh</code> has port 22, and so on. The same applies to the transport protocol, for example, <code>TCP</code> or <code>UDP</code>. They are required, but most applications hide them, if the default port is being used, e.x. browsers hide the <code>:443</code> and show <code>:10443</code> if the used protocol is <code>https</code>.</p>
+<h3 id="path-">Path <a href="https://ittavern.com/url-explained-the-fundamentals/#path">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#path-"></a></h3>
+<p>The path is a hierarchical naming system of <strong>subdirectories or subfolders and files</strong>, goes from left to right and is required. Unlike domains, <strong>the path is case-sensitive</strong>!</p>
+<p>Examples:</p>
+<p><code>https://ittavern.com/images/logo.png</code></p>
+<p><code>https://ittavern.com/random-post/</code></p>
+<p><code>https://duckduckgo.com</code> # the path is missing, but implies the root directory <code>/</code></p>
+<p>As a side note, the first example leads to an image, and in the second example, you might have noticed that the file is missing. The browser will open the <code>random-post</code> subfolder and the webserver is so configured that it provides the browser with a pre-definded file. Those files are Usually called index.html, but that can vary from setup to setup. That is also called 'Pretty URLs.'</p>
+<h3 id="queries-">Queries <a href="https://ittavern.com/url-explained-the-fundamentals/#queries">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#queries-"></a></h3>
+<p>Carries optional parameters that can be used on the server or client site. Commonly use cases are referrer information, variables, option settings, and so on. The delimiters between parameters are <code>&#x26;</code> and <code>;</code>.</p>
+<p>Examples:</p>
+<p><code>https://www.twitch.tv/randomstream1231?referrer=raid</code> <em># on Twitch it shows where the viewer is coming from</em></p>
+<p><code>https://youtu.be/dQw4w9WgXcQ?t=4</code> <em># on Youtube, it tells the client where to start the video</em></p>
+<p><code>https://youtu.be/dQw4w9WgXcQ?list=PLi9drqP&#x26;t=9</code> # multiple parameters containing the playlist and timestamp</p>
+<h3 id="fragments-">Fragments <a href="https://ittavern.com/url-explained-the-fundamentals/#fragments">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#fragments-"></a></h3>
+<p>Fragments are optional references for a specific location within a resource. For example, HTML anchors like <a href="https://ittavern.com/url-explained-the-fundamentals/#fragments">this</a> in HTML files.</p>
+<p><code>https://ittavern.com/url-explained-the-fundamentals/#fragments</code></p>
+<h5 id="difference-between-absolute-and-relative-url-">Difference between Absolute and Relative URL <a href="https://ittavern.com/url-explained-the-fundamentals/#relative-url">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#difference-between-absolute-and-relative-url-"></a></h5>
+<p>Until now, every URL was an absolute URL. Relative URLs are often enough just the <code>Path</code> and require a reference or base URL to work.</p>
+<p>Examples:</p>
+<p><code>/de-DE/same-page-different-lang</code></p>
+<p><code>/img/logo.png</code></p>
+<h2 id="difference-between-uri-and-url-and-urn-and-urc-">Difference between URI and URL and URN and URC <a href="https://ittavern.com/url-explained-the-fundamentals/#difference-uri">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#difference-between-uri-and-url-and-urn-and-urc-"></a></h2>
+<p>URI stands for Uniform Resource Identifier and is a unique string of characters to identify anything and is used by web technologies. URIs may be used to identify anything logical or physical, from places and names to concepts and information. [2]</p>
+<p>URIs are the superset of URLs (Uniform Resource Locator), URNs (Uniform Resource Name), and URCs (Uniform Resource Characteristic). For example, every URL is a URI, but not every URI is an URL. That being said, in practice, URI and URL are often used interchangeably.</p>
+<p>The different subsets have different tasks: an URN identifies an item, an URL lets you know how to locate and access an item, and URC points to specific metadata of this item. Examples can be found in the specific sections.</p>
+<h5 id="url">URL<a aria-hidden="true" class="anchor-heading icon-link" href="#url"></a></h5>
+<p>URL stands for Uniform Resource Locator and specifies where an identified resource is available and the mechanism for accessing it. Further details can be found above.</p>
+<h5 id="urn-">URN <a href="https://ittavern.com/url-explained-the-fundamentals/#urn">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#urn-"></a></h5>
+<p>Identifies a resource by a unique and persistent name without any location</p>
+<p>Examples:</p>
+<p><code>urn:isbn:n-nn-nnnnnn-n</code> <em># to identify a book by its ISBN number</em></p>
+<p><code>urn:uuid:39ab000da-3f9a-abe2-1337-123456789abc</code> <em># globally unique identifier</em></p>
+<p><code>urn:publishing:book</code> <em># an XML namespace that identifies the document as a type of book</em></p>
+<p><strong>Side note</strong>: <code>isbn</code> - like in the first example - is an URN namespace identifier (NID) and not an URN scheme nor a URI scheme <a id="fnref-1" class="fnref" href="#fn-1">1</a>. It was mentioned that some people would call the <code>NID</code> (see the following list) an URI scheme, equivalent to the URL, which is not correct.</p>
+<p>Every URN should have the following structure:</p>
+<p><strong>URN</strong> <em># scheme specification prefix.</em></p>
+<p><strong>NID</strong> <em># namespace identifier (letters, digits, dashes)</em></p>
+<p><strong>NSS</strong> <em># namespace-specific string that identifies the resource (can contain ASCII codes, digits, punctuation marks and special characters)</em></p>
+<h5 id="urc-">URC <a href="https://ittavern.com/url-explained-the-fundamentals/#urc">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#urc-"></a></h5>
+<p>URC stands for Uniform Resource Characteristic or Uniform Resource Citation. According to <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Characteristic">Wikipedia</a>, the former is the currently used name.</p>
+<p>An URC points to the metadata of a resource rather than the resource itself. A quick example would be an URC that points to the source code of a homepage:</p>
+<p><code>view-source:http://example.com/</code></p>
+<p>That said, there was never a final standard produced, and URCs were never widely adopted.</p>
+<hr>
+<h2 id="references-">References <a href="https://ittavern.com/url-explained-the-fundamentals/#reference">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#references-"></a></h2>
+<ul>
+<li><a href="https://cv.jeyrey.net/img?equivocal-urls">https://cv.jeyrey.net/img?equivocal-urls</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL">https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL</a></li>
+<li><a href="https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn">https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn</a></li>
+<li><a href="http://www.ietf.org/rfc/rfc3986.txt">http://www.ietf.org/rfc/rfc3986.txt</a></li>
+</ul>
+<hr>
+<h2 id="footnotes">Footnotes<a aria-hidden="true" class="anchor-heading icon-link" href="#footnotes"></a></h2>
+<ol>
+<li><span id="fn-2" style="width: 0; height: 0;"></span><p><a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">https://en.wikipedia.org/wiki/Uniform_Resource_Identifier</a><a class="fn" href="#fnref-2">˄</a></p></li>
+<li><span id="fn-1" style="width: 0; height: 0;"></span><p><a href="https://www.w3.org/TR/uri-clarification/">https://www.w3.org/TR/uri-clarification/</a><a class="fn" href="#fnref-1">˄</a></p></li>
+</ol>

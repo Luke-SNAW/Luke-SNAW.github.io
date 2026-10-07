@@ -1,0 +1,12 @@
+<h1 id="s3">S3<a aria-hidden="true" class="anchor-heading icon-link" href="#s3"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<h3 id="how-can-i-use-wildcards-to-cp-a-group-of-files-with-the-aws-cli"><a href="https://stackoverflow.com/a/38834779/5163033">How can I use wildcards to <code>cp</code> a group of files with the AWS CLI?</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-can-i-use-wildcards-to-cp-a-group-of-files-with-the-aws-cli"></a></h3>
+<pre class="language-sh"><code class="language-sh">aws s3 cp s3://data/ . --recursive --exclude "*" --include "2016-08*"
+</code></pre>
+<p>I'd like to point out the <code>--exclude "*"</code> isn't a typo. <em>If you don't add it, the include will match anything</em>.</p>
+<h3 id="managing-the-lifecycle-of-objects--expiring-objects"><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-expire-general-considerations.html">Managing the lifecycle of objects > Expiring objects</a><a aria-hidden="true" class="anchor-heading icon-link" href="#managing-the-lifecycle-of-objects--expiring-objects"></a></h3>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/jc12ch4ruj1eak2p8fj2m7h">Presigned URL</a></li>
+</ol>

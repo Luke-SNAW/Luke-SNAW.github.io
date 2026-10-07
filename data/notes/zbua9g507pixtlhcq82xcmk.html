@@ -1,0 +1,17 @@
+<h1 id="scroll">Scroll<a aria-hidden="true" class="anchor-heading icon-link" href="#scroll"></a></h1>
+<h2 id="smooth-scrolling-links-with-only-css"><a href="https://gomakethings.com/smooth-scrolling-links-with-only-css/">Smooth scrolling links with only CSS</a><a aria-hidden="true" class="anchor-heading icon-link" href="#smooth-scrolling-links-with-only-css"></a></h2>
+<h3 id="scroll-behavior"><a href="https://gomakethings.com/smooth-scrolling-links-with-only-css/#scroll-behavior">Scroll Behavior</a><a aria-hidden="true" class="anchor-heading icon-link" href="#scroll-behavior"></a></h3>
+<h3 id="why-you-might-still-want-to-use-a-javascript-solution"><a href="https://gomakethings.com/smooth-scrolling-links-with-only-css/#why-you-might-still-want-to-use-a-javascript-solution">Why you might still want to use a JavaScript solution</a><a aria-hidden="true" class="anchor-heading icon-link" href="#why-you-might-still-want-to-use-a-javascript-solution"></a></h3>
+<p>I actually expect to use this approach more and more, <a href="https://github.com/cferdinandi/smooth-scroll">my Smooth Scroll plugin</a> less and less.</p>
+<ol>
+<li>I’ve found that, for long scrolls, the animation with scroll-behavior can be janky. This is surprising. I would have expected the CSS to tie into the browser’s frame refresh rate to prevent that from happening.</li>
+<li>The scroll-behavior property has no easing or timing support. If you want to control how fast the animation runs, or the easing pattern in which it animates, you need JavaScript.</li>
+<li>You always want to it work across browsers. A JavaScript solution can get you more broad browser support.</li>
+</ol>
+<h2 id="scroll-driven-animations-you-want-overflow-clip-not-overflow-hidden"><a href="https://www.bram.us/2024/02/14/scroll-driven-animations-you-want-overflow-clip-not-overflow-hidden/">Scroll-Driven Animations: You want overflow: clip, not overflow: hidden</a><a aria-hidden="true" class="anchor-heading icon-link" href="#scroll-driven-animations-you-want-overflow-clip-not-overflow-hidden"></a></h2>
+<p>Because <code>overflow: hidden</code> creates a scroll container it can interfere with the Scroll-Driven Animations scroller lookup mechanism. The fix is to use <code>overflow: clip</code> instead.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/qx0n6bekbbmeuzfa557rprr">Anchor Links and How to Make Them Awesome</a></li>
+</ol>

@@ -1,0 +1,172 @@
+<h1 id="htmx-is-the-future">HTMX is the Future<a aria-hidden="true" class="anchor-heading icon-link" href="#htmx-is-the-future"></a></h1>
+<blockquote>
+<p><a href="https://quii.dev/HTMX_is_the_Future">https://quii.dev/HTMX_is_the_Future</a></p>
+</blockquote>
+<h2 id="the-costs-of-spa">The costs of SPA<a aria-hidden="true" class="anchor-heading icon-link" href="#the-costs-of-spa"></a></h2>
+<p>SPAs have allowed engineers to create some great web applications, but they come with a cost:</p>
+<ul>
+<li>
+<p>Hugely increased complexity both in terms of architecture and developer experience. You have to spend considerable time learning about frameworks.</p>
+<ul>
+<li>Tooling is an ever-shifting landscape in terms of building and packaging code.</li>
+<li>Managing state on both the client and server</li>
+<li>Frameworks, on top of libraries, on top of other libraries, on top of polyfills. <a href="https://react.dev/">React even recommend using a framework on top of their tech</a>:
+<blockquote>
+<p>React is a library. It lets you put components together, but it doesn’t prescribe how to do routing and data fetching. To build an entire app with React, we recommend a full-stack React framework.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>By their nature, a fat client requires the client to execute a lot of JavaScript. If you have modern hardware, this is fine, but these applications will be unusable &#x26; slow for those on older hardware or in locations with slow and unreliable internet connections.</p>
+<ul>
+<li>It is very easy to make an SPA incorrectly, where you need to use the right approach with hooks to avoid ending up with abysmal client-side performance.</li>
+</ul>
+</li>
+<li>
+<p>Some SPA implementations of SPA throw away progressive enhancement (a notable and noble exception is <a href="https://remix.run/">Remix</a>). Therefore, you <em>must</em> have JavaScript turned on for most SPAs.</p>
+</li>
+<li>
+<p>If you wish to use something other than JavaScript or TypeScript, you must traverse the treacherous road of transpilation.</p>
+</li>
+<li>
+<p>It has created backend and frontend silos in many companies, carrying high coordination costs.</p>
+</li>
+</ul>
+<p>Before SPAs, you'd choose your preferred language and deliver HTML to a user's browser in response to HTTP requests. This is <em>fine</em>, but it offers little interactivity and, in some cases, could make an annoying-to-use UI, especially regarding having the page fully reload on every interaction. To get around this, you'd typically sprinkle varying amounts of JS to grease the UX wheels.</p>
+<p>Whilst this approach can feel old-fashioned to some, this approach is what inspired the <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">original paper of <strong>REST</strong></a>, especially concerning <strong>hypermedia</strong>. The hypermedia approach of building websites led to the world-wide-web being an incredible success.</p>
+<h3 id="hypermedia">Hypermedia?<a aria-hidden="true" class="anchor-heading icon-link" href="#hypermedia"></a></h3>
+<p>The following is a response from a data API, not hypermedia.</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"sort"</span><span class="token operator">:</span> <span class="token string">"12-34-56"</span><span class="token punctuation">,</span>
+  <span class="token property">"number"</span><span class="token operator">:</span> <span class="token string">"87654321"</span><span class="token punctuation">,</span>
+  <span class="token property">"balance"</span><span class="token operator">:</span> <span class="token string">"123.45"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>To make this data useful in an SPA, the client code must understand the structure and decide what to render and what controls to make available.</p>
+<p>REST describes the use of hypermedia. Hypermedia is where your responses are not just raw data but are instead a payload describing the media (think HTML tags like <code>&#x3C;p></code>, headers, etc.) <em>and</em> how to manipulate it (like <code>form</code>, <code>input</code>).</p>
+<p>A server returning HTML describing a bank account, with some form of controls to work with the resource, is an example of hypermedia. The server is now responsible for deciding how to render the data (with the slight caveat of CSS) and <em>what</em> controls should be displayed.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>dl</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>dt</span><span class="token punctuation">></span></span>Sort<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>dt</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>dd</span><span class="token punctuation">></span></span>12-34-56<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>dd</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>dt</span><span class="token punctuation">></span></span>Number<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>dt</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>dd</span><span class="token punctuation">></span></span>87654321<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>dd</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>dt</span><span class="token punctuation">></span></span>Balance<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>dt</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>dd</span><span class="token punctuation">></span></span>£123.45<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>dd</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>dl</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>POST<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/transfer-funds<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>label</span><span class="token punctuation">></span></span>Amount <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token comment">&#x3C;!-- etc --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Do transfer<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>form</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>The approach means you have one universal client, the web browser; it understands how to display the hypermedia responses and lets the user work with the "controls" to do whatever they need.</p>
+<p><a href="https://changelog.com/gotime/266">Carson Gross on The Go Time podcast</a></p>
+<blockquote>
+<p>...when browsers first came out, this idea of one universal network client that could talk to any application over this crazy hypermedia technology was really, really novel. And it still is.</p>
+<p>If you told someone in 1980, “You know what - you’re gonna be using the same piece of software to access your news, your bank, your calendar, this stuff called email, and all this stuff”, they would have looked at you cross-eyed, they wouldn't know what you were talking about, unless they happened to be in one of the small research groups that was looking into this sort of stuff.</p>
+</blockquote>
+<p>Before the World Wide Web, before web browsers, the prevailing patterns of apps were bespoke, and often "thick", clients.</p>
+<p>Whilst ostensibly, people building SPAs talk about using "RESTful" APIs to provide data exchange to their client-side code, the approach is not RESTful in the purist sense because it does not use hypermedia.</p>
+<p>Instead of one universal client, <em>scores of developers create bespoke clients</em>, which have to understand the raw data they fetch from web servers and then render controls according to the data. With this approach, the browser is more of a JavaScript, HTML and CSS runtime.</p>
+<p>By definition, a fatter client will carry more effort and cost than a thin one. However, the "original" hypermedia approach arguably is not good enough for all of today's needs; the controls that the browser can work with and the way it requires a full page refresh to use them mean the user experience isn't good enough for many types of web-app we need to make.</p>
+<h3 id="htmx-and-hypermedia">HTMX and hypermedia<a aria-hidden="true" class="anchor-heading icon-link" href="#htmx-and-hypermedia"></a></h3>
+<p>Unlike SPAs, HTMX <strong>doesn't throw away the architectural approach of REST</strong>; it <em>augments the browser</em>, <strong>improving its hypermedia capabilities</strong> and making it simpler to deliver a rich client experience without having to write much JavaScript if any at all.</p>
+<p>You can use <strong>whatever programming language you like</strong> to deliver HTML, just like we used to. This means you can use battle-tested, mature tooling, using a "true RESTful" approach, resulting in a far more straightforward development approach with less accidental complexity.</p>
+<p>HTMX allows you to design pages that fetch <strong>fragments of HTML</strong> from your server to update the user's page as needed without the annoying full-page load refresh.</p>
+<h2 id="clojure-htmx-todo">Clojure HTMX TODO<a aria-hidden="true" class="anchor-heading icon-link" href="#clojure-htmx-todo"></a></h2>
+<p>...</p>
+<h2 id="embracing-the-web">Embracing the web<a aria-hidden="true" class="anchor-heading icon-link" href="#embracing-the-web"></a></h2>
+<p>There's more to HTMX, but this is the crux of the approach, which is the same as the approach that most websites were made before SPAs became popular.</p>
+<ul>
+<li>The user goes to a <code>URL</code></li>
+<li>The server returns hypermedia (HTML), which is content with controls.</li>
+<li>Browser renders hypermedia</li>
+<li>Users can use the controls to do work, which results in an HTTP request sent from the browser to the server.</li>
+<li>The server does business logic, and then returns new hypermedia for the user to work with</li>
+</ul>
+<p>All HTMX does, is make the browser <strong>better</strong> at hypermedia by giving us more options regarding <strong>what can trigger an HTTP request</strong> and <strong>allowing us to update a part of the page rather than a full page reload</strong>.</p>
+<p>By embracing the hypermedia and not viewing the browser as merely a JavaScript runtime, we get a lot of simplicity benefits:</p>
+<ul>
+<li>We can use any programming language on the server side.</li>
+<li>We don't need lots of libraries and other cruft to maintain what were basic benefits of web development.
+<ul>
+<li>Caching</li>
+<li>SEO-friendliness</li>
+<li>The back button working as you'd expect</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>It is very easy to support users who do not wish to, or cannot use JavaScript</li>
+</ul>
+<p>This final point is crucial to me and to my current employer. I work for a company that works on products used worldwide, and our content and tools must be as usable by as many people as possible. It is unacceptable for us to exclude people through poor technical choices.</p>
+<p>This is why we adopt the approach of <a href="https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement"><strong>progressive enhancement</strong></a>.</p>
+<blockquote>
+<p><strong>Progressive enhancement</strong> is a design philosophy that provides a baseline of essential content and functionality to as many users as possible, while delivering the best possible experience only to users of the most modern browsers that can run all the required code.</p>
+</blockquote>
+<h3 id="how-it-supports-non-javascript">How it supports non-JavaScript<a aria-hidden="true" class="anchor-heading icon-link" href="#how-it-supports-non-javascript"></a></h3>
+<p>...</p>
+<h2 id="why-is-it-the-future-">Why is it <em>The Future</em> ?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-is-it-the-future-"></a></h2>
+<p>Obviously, I cannot predict the future, but I do believe HTMX (or something like it) will become an increasingly popular approach for making web applications in the following years.</p>
+<p>Recently, <a href="https://github.blog/2023-04-12-github-accelerator-our-first-cohort-and-whats-next/">HTMX was announced as one of 20 projects in the GitHub Accelerator</a></p>
+<h3 id="it-makes-the-frontend-more-accessible">It makes "the frontend" more accessible.<a aria-hidden="true" class="anchor-heading icon-link" href="#it-makes-the-frontend-more-accessible"></a></h3>
+<p>Learning React is an industry in itself. It moves quickly and changes, and there are tons to learn. I sympathise with developers who <em>used</em> to make fully-fledged applications being put off by modern frontend development and instead were happy to be pigeonholed into being a "backend" dev.</p>
+<p>I've made reasonably complex systems in React, and whilst some of it was pretty fun, <strong>the amount you have to learn to be effective is unreasonable for most applications</strong>. React has its place, but it's overkill for many web applications.</p>
+<p>The hypermedia approach with HTMX is not hard to grasp, especially if you have some REST fundamentals (which many "backend" devs should have). It opens up making rich websites to a broader group of people who don't want to learn how to use a framework and then keep up with its constantly shifting landscape.</p>
+<h3 id="less-churn">Less churn<a aria-hidden="true" class="anchor-heading icon-link" href="#less-churn"></a></h3>
+<p>Even after over 10 years of React being around, it still doesn't feel settled and mature. A few years ago, hooks were the new-fangled thing that everyone had to learn and re-write all their components with. In the last six months, my Twitter feed has been awash with debates and tutorials about this new-fangled "RSC" - react server components. Joy emoji.</p>
+<p>Working with HTMX has allowed me to leverage things I learned 15-20 years ago <strong>that still work</strong>, <a href="https://quii.dev/How_my_website_works">like my website</a>. The approach is also well-understood and documented, and the best practices are independent of programming languages and frameworks.</p>
+<p>I have made the example app in Go <em>and</em> Clojure with no trouble at all, and I am a complete Clojure novice. Once you've figured out the basic syntax of a language and learned how to respond to HTTP requests with hypermedia, you have enough to get going; and you can re-use the architectural and design best practices without having to learn a new approach over and over again.</p>
+<p>How much of your skills would be transferable from React if you had to work with Angular? Is it easy to switch from one react framework to another? How did you feel when class components became "bad", and everyone wanted you to use hooks instead?</p>
+<h3 id="cheaper">Cheaper<a aria-hidden="true" class="anchor-heading icon-link" href="#cheaper"></a></h3>
+<p>It's just less effort!</p>
+<p><a href="https://hotwired.dev/">Hotwire</a> is a library with similar goals to HTMX, driven by the Ruby on Rails world. DHH tweeted the following.</p>
+<blockquote>
+<p><a href="https://twitter.com/dhh/status/1341758748717510659">Hotwiring Rails expresses the desire to gift a lone full-stack developer all the tools they need to build the next Basecamp, GitHub, or Shopify. Not what a team of dozens or hundreds can do if they have millions in VC to buy specialists. Renaissance tech for renaissance people.</a></p>
+<p>That's why it's so depressing to hear the term "full stack" be used as a derogative. Or an impossible mission. That we HAVE to be a scattered band of frontend vs backend vs services vs whatever group of specialists to do cool shit. Absolutely fucking not.</p>
+</blockquote>
+<p>Without the cognitive overload of understanding a vast framework from the SPA world and the inherent complexities of making a fat client, you can realistically create rich web applications with far fewer engineers.</p>
+<h3 id="more-resilient">More resilient<a aria-hidden="true" class="anchor-heading icon-link" href="#more-resilient"></a></h3>
+<p>As described earlier, using the hypermedia approach, making a web application that works without JavaScript is relatively simple.</p>
+<p>It's also important to remember that the browser is an <strong>untrusted environment</strong>, so when you build a SPA, you have to work extremely defensively. You have to implement lots of business logic client side; but because of the architecture, this same logic needs to be replicated on the server too.</p>
+<p>For instance, let's say we wanted a rule saying you cannot edit a to-do if it is marked as done. In an SPA world, I'd get raw JSON, and I'd have to have business logic to determine whether to render the edit button on the client code somewhere. However, if we wanted to ensure a user couldn't circumvent this, I'd have to have this same protection on the server. This sounds low-stakes and simple, but this complexity adds up, and the chance of misalignment increases.</p>
+<p>With a hypermedia approach, the browser is "dumb" and doesn't need to worry about this. As a developer, I can capture this rule in one place, the server.</p>
+<h3 id="reduced-coordination-complexity">Reduced coordination complexity<a aria-hidden="true" class="anchor-heading icon-link" href="#reduced-coordination-complexity"></a></h3>
+<p><strong>The complexity of SPAs has created a shift into backend and frontend silos</strong>, which carries a cost.</p>
+<p>The typical backend/frontend team divide causes a lot of inefficiencies in terms of teamwork, with hand-offs and miscommunication, and <strong>makes getting stuff done harder</strong>. Many people mistake individual efficiencies as the most critical metric and use that as justification for these silos. They see lots of PRs being merged, and lots of heat being generated, but ignoring the coordination costs.</p>
+<p>For example, let's assume you want to add a new piece of data to a page or add a new button. For many teams, that'll involve meetings between teams to discuss and agree on the new API, creating fakes for the frontend team to use and finally coordinating releases.</p>
+<p>In the hypermedia approach, you <strong>don't have this complexity at all</strong>. If you wish to add a button to the page, you can add it, and you don't need to coordinate efforts. You don't have to worry so much about API design. You are free to change the markup and content as you please.</p>
+<p>Teams exchanging data via JSON can be <strong>extremely brittle</strong> without care and always carries a coordination cost. Tools like consumer-driven contracts can help, but this is just <em>another</em> tool, <em>another</em> thing to understand and <em>another</em> thing that goes wrong. The overheads, support and complexity of API versioning are <strong>inherently not an issue</strong> with a hypermedia approach, you are free to change the markup as you please.</p>
+<p>This is not to say there is no room for specialisation. I've worked on teams where the engineers built the web application "end to end", but we had people who were experts on semantic, accessible markup who helped us make sure the work we did was of good quality. It is incredibly freeing not to have to negotiate APIs and hand off work to one another to build a website.</p>
+<h3 id="more-options">More options<a aria-hidden="true" class="anchor-heading icon-link" href="#more-options"></a></h3>
+<p>Rendering HTML on the server is a very well-trodden road. Many battle-tested and mature tools and libraries are available to generate HTML from the server in every mainstream programming language and most of the more niche ones.</p>
+<h2 id="further-reading-and-listening">Further reading and listening<a aria-hidden="true" class="anchor-heading icon-link" href="#further-reading-and-listening"></a></h2>
+<ul>
+<li>The author of HTMX has written an excellent, <a href="https://hypermedia.systems/">free book, explaining hypermedia</a>. It's an easy read and will challenge your beliefs on how to build web applications. If you've only ever created SPAs, this is an essential read.</li>
+<li><a href="https://htmx.org/">HTMX</a>. The examples section, in particular, is very good in showing you what's possible. The essays are also great.</li>
+<li>I was lucky enough to be invited onto <a href="https://changelog.com/gotime/266">The GoTime podcast with the creator of HTMX, Carson Gross to discuss it</a>! Even though it's a Go podcast, the majority of the conversation was about the hypermedia approach.</li>
+<li><a href="https://github.com/quii/todo">The Go version</a> was my first adventure with HTMX, creating the same todo list app described in this post</li>
+<li>I worked on <a href="https://github.com/ndchorley/todo">The Clojure version</a> with my colleague, Nicky</li>
+<li><a href="https://world.hey.com/dhh/the-time-is-right-for-hotwire-ecdb9b33">DHH on Hotwire</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement">Progressive enhancement</a></li>
+<li>Five years ago, I wrote <a href="https://quii.dev/The_Web_I_Want">The Web I Want</a>, where I bemoaned the spiralling costs of SPAs. It was originally prompted by watching my partner's 2-year-old ChromeBook grind to a halt on a popular website that really could've been static HTML. In the article, I discussed how I wished more of the web stuck to the basic hypermedia approach, rendering HTML on the server and using progressive enhancement to improve the experience. Reading back on this has made me very relieved the likes of HTMX have arrived.</li>
+</ul>
+<hr>
+<h2 id="obpe"><a href="https://news.ycombinator.com/item?id=35830823">obpe</a><a aria-hidden="true" class="anchor-heading icon-link" href="#obpe"></a></h2>
+<p>It's kinda funny to me that many of the "pros" of this approach are the exact reasons so many abandoned MPAs in the first place.
+For instance, a major selling point of Node was running JS on both the client and server so you can write the code once. It's a pretty shitty client experience if you have to do a network request for each and every validation of user input.</p>
+<p>Also, there was a push to move the shitty code from the server to the client to free up server resources and prevent your servers from ruining the experience for everyone.</p>
+<p>We moved away for MPAs because they were bloated, slow and difficult to work with. SPAs have definitely become what they sought to replace.</p>
+<p>But that isn't because of the technology, it's because all the devs writing shitty MPAs are now writing shitty SPAs. If this becomes popular, they will start writing shitty MPAs again. Nothing about this technology will stop that.</p>
+<h3 id="berkes"><a href="https://news.ycombinator.com/item?id=35834893">berkes</a><a aria-hidden="true" class="anchor-heading icon-link" href="#berkes"></a></h3>
+<p>Even worse: Client-side validation and server-side validation (and database integrity validation) are all their own domains! I call all of these "domain logic" or domain validation just to be sure.
+Yes, they overlap. Sure, you'll need some repetition and maybe, indeed, some DSL or tooling to share some of the overlapping ones across the boundaries.</p>
+<p>But no! They are not the same. A "this email is already in use" is serverside, (it depends on the case). A "this doesn't look like an email-address, did you mean gmail.com instead of gamil.com" is client side and a "unique-key-constraint: contactemail already used" is even more down.</p>
+<p>My point is, that the more you sit down (with customers! domain experts!) and talk or think all this through, the less it's a technical problem that has to be solved with DSLs, SPAs, MPAs or "same language for backend and UI". And the more you (I) realize it really often hardly matters.</p>
+<p>You quite probably don't even need that email-uniqueness validation at all. In any layer. If you just care to speak to the business.</p>
+<h2 id="brushfoot"><a href="https://news.ycombinator.com/item?id=35831051">brushfoot</a><a aria-hidden="true" class="anchor-heading icon-link" href="#brushfoot"></a></h2>
+<p>I use tech like HTMX because, as a team of one, I have no other choice.
+I tried using Angular in 2019, and it nearly sank me. The dependency graph was so convoluted that updates were basically impossible. Having a separate API meant that I had to write everything twice. My productivity plummeted.</p>
+<p>After that experience, I realized that what works for a front-end team may not work for me, and I went back to MPAs with JavaScript sprinkled in.</p>
+<p>This year, I've looked at Node again now that frameworks like Next offer a middle ground with server-side rendering, but I'm still put off by the dependency graphs and tooling, which seems to be in a constant state of flux. It seems to offer great benefits for front-end teams that have the time to deal with it, but that's not me.</p>
+<p>All this to say pick the right tool for the job. For me, and for teams going fuller stack as shops tighten their belts, that's tech like HTMX, sprinkled JavaScript, and sometimes lightweight frameworks like Alpine.</p>

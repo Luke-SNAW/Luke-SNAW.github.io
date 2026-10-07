@@ -1,0 +1,13 @@
+<h1 id="what-order-do-files-load-in-the-browser">What order do files load in the browser?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-order-do-files-load-in-the-browser"></a></h1>
+<p><a href="https://gomakethings.com/what-order-do-files-load-in-the-browser/">https://gomakethings.com/what-order-do-files-load-in-the-browser/</a></p>
+<p>Here’s an over-simplified, handwavy explanation of how browsers load files…</p>
+<ol>
+<li>The HTML file downloads.</li>
+<li>The browser starts reading it, and rendering stuff in it in real time as it does.</li>
+<li>If it finds remote assets, it starts downloading them, two at a time, as it comes across them. Once they’re downloaded, they render.</li>
+</ol>
+<p>Step 3 is where stuff gets “weird.”</p>
+<p>Browsers are optimized to avoid repainting the UI whenever they can. If the browser finds a CSS file, it keeps downloading stuff but stops rendering until the CSS file is downloaded and parsed.</p>
+<p>If the browser finds a JavaScript file, it stops rendering and stops downloading other files. Because JS can add and remove elements from the UI, the browser wants to know what the final layout is before continuing.</p>
+<p>JavaScript files can also be loaded with <code>async</code> and <code>defer</code> attributes.</p>
+<p>The <code>defer</code> attribute tells the browser to download the file, but wait until all of the other stuff is done before running the file. The <code>async</code> attribute tells the browser to download this file, but don’t stop downloading others while you do. The two can be used together.</p>

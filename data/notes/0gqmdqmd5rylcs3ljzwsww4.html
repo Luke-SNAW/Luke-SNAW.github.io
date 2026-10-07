@@ -1,0 +1,81 @@
+<h1 id="react">React<a aria-hidden="true" class="anchor-heading icon-link" href="#react"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://alexsidorenko.com/blog/useeffect/">A Visual Guide to useEffect</a>
+<blockquote>
+<p>Side effects shouldn’t happen during component render. Therefore they do not belong to the body of a functional component. React has a special place for them.
+<img src="/assets/images/language/react-side-effect.webp" alt="side effect"></p>
+</blockquote>
+</li>
+<li>🌠 <a href="https://blog.bitsrc.io/some-reasons-for-disliking-react-hooks-80f1e18eb9b3">Some reasons for disliking react hooks</a></li>
+<li><a href="https://acko.net/blog/react-the-missing-parts/">React - The Missing Parts</a></li>
+<li><a href="https://react-etc.net/entry/microsoft-office-rewrite-to-react-js-nears-completion">Microsoft Office rewrite in React.js nears completion</a></li>
+<li><a href="https://www.joshwcomeau.com/react/the-perils-of-rehydration/">The Perils of Rehydration: Understanding how Gatsby/Next manage server-side rendering and rehydration</a></li>
+<li><a href="https://alexsidorenko.com/blog/react-render-cheat-sheet/">A Visual Guide to React Rendering - Cheat Sheet</a></li>
+<li><a href="https://blog.bitsrc.io/react-with-typescript-cheatsheet-9dd891dc5bfe">React with TypeScript Cheatsheet. An answer to all your React typing…</a></li>
+<li><a href="https://blog.bitsrc.io/avoid-react-re-renders-with-automatic-batching-dc8a76ce6de4">Avoid React Re-Renders with Automatic Batching</a>: batching is not applied to cases like promises, setTimeout, native event handlers, and so on by default. Starting from React 18, there is a new root API called createRoot which allows you to use all the concurrent features of React 18.</li>
+<li><a href="https://tasoskakour.com/blog/react-use-state-vs-use-reducer">REACT: USESTATE VS USEREDUCER</a>: see section of <code>Comparing the two implementations</code></li>
+<li><a href="https://www.freecodecamp.org/news/the-react-cheatsheet">The React Cheatsheet for 2022</a></li>
+<li><a href="https://news.ycombinator.com/item?id=30753127">Hooks Considered Harmful (factorialhr.com)</a></li>
+<li><a href="https://www.joshwcomeau.com/react/why-react-re-renders/">Why React Re-Renders</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=32485460">https://news.ycombinator.com/item?id=32485460</a></li>
+</ul>
+</li>
+<li><a href="https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/">Blogged Answers: A (Mostly) Complete Guide to React Rendering Behavior</a></li>
+<li><a href="https://medium.com/codex/can-we-all-just-admit-react-hooks-were-a-bad-idea-c48120c5188d">Can We All Just Admit React Hooks Were a Bad Idea?</a></li>
+<li><a href="https://www.infoxicator.com/is-react-going-anywhere">Is React going anywhere?</a>
+<ul>
+<li><a href="https://app.daily.dev/posts/kk7qnX1Wi">Aghiles Ait lounis</a>
+<blockquote>
+<p>The real question is not about React going somewhere, some of the alternatives are not “slightly better” rather immensely better, you know that a big company in Brazil is using Svlete for embedded UI for arduino devices not so powerful, performance is a big thing, as devs we want to build the best application possible, we are not business mens looking for turnover, I’m a React developer myself and work as a freelance on a big React project, and let me tell you, if the project was written in Solid it will be 10x easier to maintain, just because of the app re-rendering all the time due to useEffects() thrown everywhere and non memoized functions, objets…it’s a complete mess, anyone that think it’s not big for me it’s because they didn’t work on a big project.</p>
+<p>Thus said i might be completely wrong, but for me i found that Svlete, Solid and Qwik are a superior alternatives, especially Solid, they offer you free optimized code without you thinking about anything, your app will be fully optimized out the box ! it’s huge</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><a href="https://www.zachleat.com/web/react-criticism/">A HISTORICAL REFERENCE OF REACT CRITICISM</a></li>
+<li><a href="https://github.com/reactjs/reactjs.org/pull/5487#issuecomment-1409720741">Why Create React App exists</a></li>
+<li><a href="https://wasp-lang.dev/blog/2023/03/17/new-react-docs-pretend-spas-dont-exist">New React docs pretend SPAs don't exist anymore</a>
+<blockquote>
+<p>The strongly recommended way to start a new React project is to use a framework such as Next.js, while the traditional route of using bundlers like Vite or CRA is fairly strongly discouraged.</p>
+</blockquote>
+</li>
+<li><a href="https://ui.dev/why-react-renders">The Interactive Guide to Rendering in React</a></li>
+<li><a href="https://alexkondov.com/an-ode-to-effects/">An Ode to React Effects</a>
+<blockquote>
+<p>Most of the problems with <code>useEffect</code> are rooted in bad software design, not the hook’s API.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="performance">Performance<a aria-hidden="true" class="anchor-heading icon-link" href="#performance"></a></h2>
+<ul>
+<li><a href="https://overreacted.io/before-you-memo/">Before You memo()</a>
+<ul>
+<li>Solution 1: Move State Down</li>
+<li>Solution 2: Lift Content Up</li>
+</ul>
+</li>
+<li><a href="https://www.bbss.dev/posts/react-concurrency/">Understanding React Concurrency</a>
+<ul>
+<li>The basic premise of React concurrency is to rework the rendering process such that while rendering the next view, the current view is kept responsive.</li>
+</ul>
+</li>
+<li><a href="https://vercel.com/blog/how-react-18-improves-application-performance">How React 18 Improves Application Performance</a></li>
+</ul>
+<h2 id="opinions">Opinions<a aria-hidden="true" class="anchor-heading icon-link" href="#opinions"></a></h2>
+<h3 id="youll-write-less-code-with-svelte-50-promises-rich-harris"><a href="https://thenewstack.io/youll-write-less-code-with-svelte-5-0-promises-rich-harris/">You’ll Write Less Code With Svelte 5.0, Promises Rich Harris</a><a aria-hidden="true" class="anchor-heading icon-link" href="#youll-write-less-code-with-svelte-50-promises-rich-harris"></a></h3>
+<p>Harris discussed his perspective on React Server Components (RSCs), seeing them as the logical next step in the journey of co-locating HTML, CSS, and JavaScript within components.
+However, the separation of server and client components in RSCs can be confusing for developers, as it creates two distinct mental models within the same application.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/fa39h3w7jxhu96h0khge7jj">10 React Interview Questions You Should Know in 2022</a></li>
+<li><a href="/notes/hm36adzh3a0gkny73k330am">Components render twice</a></li>
+<li><a href="/notes/v7zet6zxl73bs63kf6kagio">Making Sense of React Server Components</a></li>
+<li><a href="/notes/dvjc48q2a8tm8n0yvqtgylf">React I Love You, But You're Bringing Me Down</a></li>
+<li><a href="/notes/EfWFJ0GbhOHhtxxDdrbIl">React tools</a></li>
+<li><a href="/notes/8orzcrnp9ojmuu6p7g22ktx">Tao of React</a></li>
+<li><a href="/notes/e8t0zochj5qg52oa7mf56a6">This Pattern Will Make Your React Hooks Cleaner</a></li>
+<li><a href="/notes/94pcbxczg6umu6h5x0khd8r">When Does React Render Your Component?</a></li>
+</ol>

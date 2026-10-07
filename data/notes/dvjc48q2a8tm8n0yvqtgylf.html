@@ -1,0 +1,491 @@
+<h1 id="react-i-love-you-but-youre-bringing-me-down">React I Love You, But You're Bringing Me Down<a aria-hidden="true" class="anchor-heading icon-link" href="#react-i-love-you-but-youre-bringing-me-down"></a></h1>
+<blockquote>
+<p>François Zaninotto<br>
+September 20, 2022<br>
+<a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html">https://marmelab.com/blog/2022/09/20/react-i-love-you.html</a><br>
+<a href="https://news.ycombinator.com/item?id=32911492">https://news.ycombinator.com/item?id=32911492</a></p>
+</blockquote>
+<p>Dear <a href="https://reactjs.org/">React.js</a>,</p>
+<p>We've been together for almost 10 years. We've come <a href="https://marmelab.com/react-admin/">a long way</a>. But things are getting out of hand. We need to talk.</p>
+<p>It's embarrassing, I know. Nobody wants to have that conversation. So instead, I'll say it in songs.</p>
+<h2 id="you-were-the-one"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#you-were-the-one">You Were The One</a><a aria-hidden="true" class="anchor-heading icon-link" href="#you-were-the-one"></a></h2>
+<p>I'm not a first-time JS lover. I've had long adventures with jQuery, Backbone.js, and Angular.js before you. I knew what I could expect from a relationship with a JavaScript framework: Better UIs, more productivity, and a smoother developer experience - but also the frustrations of having to constantly change the way I think about my code to match the framework's mindset.</p>
+<p>And when I met you, I was just out of a long relationship with <a href="https://angularjs.org/">Angular.js</a>. I was exhausted by <code>watch</code> and <code>digest</code>, not to mention <code>scope</code>. I was looking for something that didn't make me feel miserable.</p>
+<p>It was love at first sight. Your <a href="https://reactjs.org/docs/thinking-in-react.html#step-5-add-inverse-data-flow">one-way data binding</a> was so refreshing compared to all I knew at the time. An entire category of problems I had with data synchronization and performance simply didn't exist with you. You were pure JavaScript, not a poor imitation expressed as a string in an HTML element. You had this thing, the "declarative component", which was so beautiful that everyone kept looking at you.</p>
+<p>You were not the easy type. I had to work on my coding habits to get along with you, but boy was it worth it! At first, I was so happy with you that I kept telling everyone about you.</p>
+<h2 id="heroes-of-new-forms"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#heroes-of-new-forms">Heroes Of New Forms</a><a aria-hidden="true" class="anchor-heading icon-link" href="#heroes-of-new-forms"></a></h2>
+<p>Things started getting weird when I asked you to handle forms. Forms and input are hard to cope with in vanilla JS. With React, they're even <em>harder</em>.</p>
+<p>First, developers have to choose between <a href="https://reactjs.org/docs/uncontrolled-components.html">controlled and uncontrolled inputs</a>. Both have drawbacks and bugs in corner cases. But why do I have to make a choice in the first place? Two form strategies are one too many.</p>
+<p>The "recommended" way, controlled components, is super verbose. This is the code I need for an addition form:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">React</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> setA<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>b<span class="token punctuation">,</span> setB<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">handleChangeA</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setA</span><span class="token punctuation">(</span><span class="token operator">+</span>event<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">handleChangeB</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setB</span><span class="token punctuation">(</span><span class="token operator">+</span>event<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>a<span class="token punctuation">}</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleChangeA<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>b<span class="token punctuation">}</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleChangeB<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token punctuation">{</span>a<span class="token punctuation">}</span><span class="token plain-text"> + </span><span class="token punctuation">{</span>b<span class="token punctuation">}</span><span class="token plain-text"> = </span><span class="token punctuation">{</span>a <span class="token operator">+</span> b<span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>And if there were only two ways, I'd be happy. But because of the huge amount of code required to build a real-life form with default values, validation, dependent inputs, and error messages, I have to use a third-party form framework. And they all fall short one way or another.</p>
+<ul>
+<li><a href="https://redux-form.com/8.3.0/">Redux-form</a> looked like a natural choice when we used Redux, but then his lead developer abandoned it to build</li>
+<li><a href="https://final-form.org/react/">React-final-form</a>, which is full of unfixed bugs, and the lead developer left again. So I looked at</li>
+<li><a href="https://formik.org/">Formik</a>, popular but heavyweight, slow for large forms, and limited in terms of features. So we decided to use</li>
+<li><a href="https://react-hook-form.com/">React-hook-form</a>, which is fast, but has hidden bugs and has documentation structured like a maze.</li>
+</ul>
+<p>After years of building forms with React, I still struggle to make robust user experiences with legible code. When I look at how <a href="https://svelte.dev/blog/write-less-code">Svelte</a> deals with forms, I can't help but feel I'm tied with the wrong abstraction. Look at this addition form:</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">&#x3C;</span>script<span class="token operator">></span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token operator">&#x3C;</span><span class="token operator">/</span>script<span class="token operator">></span>
+
+<span class="token operator">&#x3C;</span>input type<span class="token operator">=</span><span class="token string">"number"</span> bind<span class="token operator">:</span>value<span class="token operator">=</span><span class="token punctuation">{</span>a<span class="token punctuation">}</span><span class="token operator">></span>
+<span class="token operator">&#x3C;</span>input type<span class="token operator">=</span><span class="token string">"number"</span> bind<span class="token operator">:</span>value<span class="token operator">=</span><span class="token punctuation">{</span>b<span class="token punctuation">}</span><span class="token operator">></span>
+
+<span class="token operator">&#x3C;</span>p<span class="token operator">></span><span class="token punctuation">{</span>a<span class="token punctuation">}</span> <span class="token operator">+</span> <span class="token punctuation">{</span>b<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>a <span class="token operator">+</span> b<span class="token punctuation">}</span><span class="token operator">&#x3C;</span><span class="token operator">/</span>p<span class="token operator">></span>
+</code></pre>
+<h2 id="youre-too-context-sensitive"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#youre-too-context-sensitive">You're Too Context Sensitive</a><a aria-hidden="true" class="anchor-heading icon-link" href="#youre-too-context-sensitive"></a></h2>
+<p>Shortly after we first met, you introduced me to your puppy <a href="https://redux.js.org/">Redux</a>. You couldn't go anywhere without it. I didn't mind at first, because it was cute. But then I realized that the world was spinning around it. Also, it made things harder when building a framework - other developers couldn't easily tweak an app with existing reducers.</p>
+<p>But you noticed it, too, and you decided to get rid of Redux in favor of your own <code>useContext</code>. Except that <code>useContext</code> lacks a crucial feature of Redux: the ability to react to changes in parts of the context. These two are NOT equivalent in terms of performance:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token comment">// Redux</span>
+<span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token function">useSelector</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> state<span class="token punctuation">.</span><span class="token property-access">user</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// React context</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> name <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useContext</span><span class="token punctuation">(</span><span class="token maybe-class-name">UserContext</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Because in the first example, the component will only rerender if the user name changes. In the second example, the component will rerender when <em>any</em> part of the user changes. This matters a lot, to the point that we have to split contexts to avoid unnecessary rerenders.</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token comment">// this is crazy but we can't do otherwise</span>
+<span class="token keyword module">export</span> <span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">CoreAdminContext</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>
+    authProvider<span class="token punctuation">,</span>
+    basename<span class="token punctuation">,</span>
+    dataProvider<span class="token punctuation">,</span>
+    i18nProvider<span class="token punctuation">,</span>
+    store<span class="token punctuation">,</span>
+    children<span class="token punctuation">,</span>
+    history<span class="token punctuation">,</span>
+    queryClient<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">AuthContext.Provider</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>authProvider<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">DataProviderContext.Provider</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>dataProvider<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">StoreContextProvider</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">QueryClientProvider</span></span> <span class="token attr-name">client</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>queryClient<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">AdminRouter</span></span> <span class="token attr-name">history</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>history<span class="token punctuation">}</span></span> <span class="token attr-name">basename</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>basename<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+              </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">I18nContextProvider</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>i18nProvider<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+                </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">NotificationContextProvider</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+                  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">ResourceDefinitionContextProvider</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+                    </span><span class="token punctuation">{</span>children<span class="token punctuation">}</span><span class="token plain-text">
+                  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span><span class="token class-name">ResourceDefinitionContextProvider</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+                </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span><span class="token class-name">NotificationContextProvider</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+              </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span><span class="token class-name">I18nContextProvider</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span><span class="token class-name">AdminRouter</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span><span class="token class-name">QueryClientProvider</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span><span class="token class-name">StoreContextProvider</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span><span class="token class-name">DataProviderContext.Provider</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span><span class="token class-name">AuthContext.Provider</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Most of the time, when I have a performance problem with you, it's because of a large context, and I have no choice but to split it.</p>
+<p>I don't want to use <code>useMemo</code> or <code>useCallback</code>. Useless rerenders is <em>your</em> problem, not <em>mine</em>. But you force me to do it. Look at how I'm supposed to build a simple form input to make it reasonably fast:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token comment">// from https://react-hook-form.com/advanced-usage/#FormProviderPerformance</span>
+<span class="token keyword">const</span> <span class="token maybe-class-name">NestedInput</span> <span class="token operator">=</span> <span class="token function">memo</span><span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> register<span class="token punctuation">,</span> formState<span class="token operator">:</span> <span class="token punctuation">{</span> isDirty <span class="token punctuation">}</span> <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token spread"><span class="token punctuation">{</span><span class="token spread operator">...</span><span class="token method function property-access">register</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token punctuation">{</span>isDirty <span class="token operator">&#x26;&#x26;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">This field is dirty</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token parameter">prevProps<span class="token punctuation">,</span> nextProps</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span>
+    prevProps<span class="token punctuation">.</span><span class="token property-access">formState</span><span class="token punctuation">.</span><span class="token property-access">isDirty</span> <span class="token operator">===</span> nextProps<span class="token punctuation">.</span><span class="token property-access">formState</span><span class="token punctuation">.</span><span class="token property-access">isDirty</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword module">export</span> <span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">NestedInputContainer</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> children <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> methods <span class="token operator">=</span> <span class="token function">useFormContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">NestedInput</span></span> <span class="token spread"><span class="token punctuation">{</span><span class="token spread operator">...</span>methods<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>It's been 10 years, and you still have that flaw. How hard is it to offer a <code>useContextSelector</code>?</p>
+<p><a href="https://github.com/reactjs/rfcs/pull/118">You're aware of this</a>, of course. But you're looking elsewhere, even though it's probably your most important performance bottleneck.</p>
+<h2 id="i-want-none-of-this"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#i-want-none-of-this">I Want None Of This</a><a aria-hidden="true" class="anchor-heading icon-link" href="#i-want-none-of-this"></a></h2>
+<p>You've explained to me that I shouldn't access DOM nodes directly, for my own good. I never thought that the DOM was dirty, but as it disturbed you, I stopped doing it. Now I use <a href="https://en.reactjs.org/docs/refs-and-the-dom.html">refs</a>, as you asked me to.</p>
+<p>But this ref stuff spreads like a virus. Most of the time, when a component uses a ref, it passes it to a child component. If that second component is a React component, it must forward the ref to another component, and so on, until one component in the tree finally renders an HTML element. So the codebase ends up forwarding refs everywhere, reducing the legibility in the process.</p>
+<p>Forwarding refs could be as simple as this:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">MyComponent</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span><span class="token property-access">ref</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Hello, </span><span class="token punctuation">{</span>props<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">}</span><span class="token plain-text">!</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+</code></pre>
+<p>But no, that would be too easy. Instead, you've invented this <code>react.forwardRef</code> abomination:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token maybe-class-name">MyComponent</span> <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">forwardRef</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> ref</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>ref<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Hello, </span><span class="token punctuation">{</span>props<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">}</span><span class="token plain-text">!</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Why is it so hard, you may ask? Because <a href="https://stackoverflow.com/questions/58469229/react-with-typescript-generics-while-using-react-forwardref">you simply can't make a generic component (in the sense of Typescript) with <code>forwardRef</code></a>.</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token comment">// how am I supposed to forwardRef to this?</span>
+<span class="token keyword">const</span> <span class="token maybe-class-name">MyComponent</span> <span class="token operator">=</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">T</span></span><span class="token punctuation">></span></span><span class="token plain-text">(props: &#x3C;ComponentProps&#x3C;T>) => (
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token comment">/* pass ref here */</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Hello, </span><span class="token punctuation">{</span>props<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">}</span><span class="token plain-text">!</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+);
+</span></code></pre>
+<p>Besides, you've decided that refs are not only DOM nodes, they're the equivalent of <code>this</code> for function components. Or, to put it otherwise, "state that doesn't trigger a rerender". In my experience, each time I have to use such a ref, it's because of you - because your <code>useEffect</code> API is too weird. In other terms, <code>refs</code> are a solution to a problem you created.</p>
+<h2 id="the-butterfly-use-effect"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#the-butterfly-use-effect">The Butterfly (use) Effect</a><a aria-hidden="true" class="anchor-heading icon-link" href="#the-butterfly-use-effect"></a></h2>
+<p>Speaking of <code>useEffect</code>, I have a personal problem with it. I recognize that it's an elegant innovation that covers mount, unmount and update events in one unified API. But how is this supposed to count as progress?</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token comment">// with lifecycle callbacks</span>
+<span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">componentWillUnmount</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// do something</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// with useEffect</span>
+<span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">MyComponent</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// do something</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>You see, this line alone represents the griefs I have with your <code>useEffect</code>:</p>
+<pre class="language-text"><code class="language-text">    }, []);
+</code></pre>
+<p>I see such cryptic suites of cabalistic signs all over my code, and they're all because of <code>useEffect</code>. Plus, you force me to keep track of dependencies, like in this code:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token comment">// change page if there is no data</span>
+<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>
+    query<span class="token punctuation">.</span><span class="token property-access">page</span> <span class="token operator">&#x3C;=</span> <span class="token number">0</span> <span class="token operator">||</span>
+    <span class="token punctuation">(</span><span class="token operator">!</span>isFetching <span class="token operator">&#x26;&#x26;</span> query<span class="token punctuation">.</span><span class="token property-access">page</span> <span class="token operator">></span> <span class="token number">1</span> <span class="token operator">&#x26;&#x26;</span> data<span class="token operator">?.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Query for a page that doesn't exist, set page to 1</span>
+    queryModifiers<span class="token punctuation">.</span><span class="token method function property-access">setPage</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>total <span class="token operator">==</span> <span class="token keyword null nil">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> totalPages <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">ceil</span><span class="token punctuation">(</span>total <span class="token operator">/</span> query<span class="token punctuation">.</span><span class="token property-access">perPage</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isFetching <span class="token operator">&#x26;&#x26;</span> query<span class="token punctuation">.</span><span class="token property-access">page</span> <span class="token operator">></span> totalPages<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Query for a page out of bounds, set page to the last existing page</span>
+    <span class="token comment">// It occurs when deleting the last element of the last page</span>
+    queryModifiers<span class="token punctuation">.</span><span class="token method function property-access">setPage</span><span class="token punctuation">(</span>totalPages<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>isFetching<span class="token punctuation">,</span> query<span class="token punctuation">.</span><span class="token property-access">page</span><span class="token punctuation">,</span> query<span class="token punctuation">.</span><span class="token property-access">perPage</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> queryModifiers<span class="token punctuation">,</span> total<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>See this last line? I have to make sure I include all reactive variables in the dependency array. And I thought that <a href="https://en.wikipedia.org/wiki/Reference_counting">reference counting</a> was a native feature of all languages with a garbage collector. But no, I have to micromanage dependencies myself because you don't know how to do it.</p>
+<blockquote>
+<p>Seriously?</p>
+</blockquote>
+<p>And very often, one of these dependencies is a function that I created. Because you don't make the difference between a variable and a function, I have to tell you, using <code>useCallback</code>, that you shouldn't rerender for anything. Same consequence, same final cryptic signature:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> handleClick <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span>
+  <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    event<span class="token punctuation">.</span><span class="token method function property-access">persist</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> type <span class="token operator">=</span>
+      <span class="token keyword">typeof</span> rowClick <span class="token operator">===</span> <span class="token string">"function"</span>
+        <span class="token operator">?</span> <span class="token keyword control-flow">await</span> <span class="token function">rowClick</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> resource<span class="token punctuation">,</span> record<span class="token punctuation">)</span>
+        <span class="token operator">:</span> rowClick<span class="token punctuation">;</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token boolean">false</span> <span class="token operator">||</span> type <span class="token operator">==</span> <span class="token keyword null nil">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"edit"</span><span class="token punctuation">,</span> <span class="token string">"show"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token function">createPath</span><span class="token punctuation">(</span><span class="token punctuation">{</span> resource<span class="token punctuation">,</span> id<span class="token punctuation">,</span> type <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">"expand"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">handleToggleExpand</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">"toggleSelection"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">handleToggleSelection</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">navigate</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>
+    <span class="token comment">// oh god, please no</span>
+    rowClick<span class="token punctuation">,</span>
+    id<span class="token punctuation">,</span>
+    resource<span class="token punctuation">,</span>
+    record<span class="token punctuation">,</span>
+    navigate<span class="token punctuation">,</span>
+    createPath<span class="token punctuation">,</span>
+    handleToggleExpand<span class="token punctuation">,</span>
+    handleToggleSelection<span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>A simple component with a few event handlers and lifecycle callbacks becomes a pile of gibberish code just because I have to manage this dependency hell. All that is because you've decided that a component may execute an arbitrary number of times.</p>
+<p>So for example, if I want to make a counter that increases every second and every time the user clicks on a button, I have to do this:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Counter</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> handleClick <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">count</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>setCount<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">count</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">clearInterval</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>setCount<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"The count is now"</span><span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>count<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Click Me</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>While if you knew how to keep track of dependencies, I could simply write:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Counter</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">createSignal</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">onCleanup</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">clearInterval</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">createEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"The count is now"</span><span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Click Me</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>That's valid <a href="https://www.solidjs.com/">Solid.js</a> code, by the way.</p>
+<p>Finally, using <code>useEffect</code> wisely requires reading <a href="https://overreacted.io/a-complete-guide-to-useeffect/">a 53 pages dissertation</a>. I must say, that is a terrific piece of documentation. But if a library requires me to go through dozens of pages to use it properly, isn't it a sign that it's not well designed?</p>
+<h2 id="makeup-your-mind"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#makeup-your-mind">Makeup Your Mind</a><a aria-hidden="true" class="anchor-heading icon-link" href="#makeup-your-mind"></a></h2>
+<p>Since we've already talked about the leaky abstraction that is <code>useEffect</code>, you've tried to improve it. You've introduced me to <a href="https://github.com/reactjs/rfcs/blob/useevent/text/0000-useevent.md"><code>useEvent</code></a>, <a href="https://reactjs.org/docs/hooks-reference.html#useinsertioneffect"><code>useInsertionEffect</code></a>, <a href="https://reactjs.org/docs/hooks-reference.html#usedeferredvalue"><code>useDeferredValue</code></a>, <a href="https://reactjs.org/docs/hooks-reference.html#usesyncexternalstore"><code>useSyncWithExternalStore</code></a>, and other gimmicks.</p>
+<p>And they do make you look beautiful:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"online"</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"offline"</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">removeEventListener</span><span class="token punctuation">(</span><span class="token string">"online"</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">removeEventListener</span><span class="token punctuation">(</span><span class="token string">"offline"</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">useOnlineStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token function">useSyncExternalStore</span><span class="token punctuation">(</span>
+    subscribe<span class="token punctuation">,</span> <span class="token comment">// React won't resubscribe for as long as you pass the same function</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token dom variable">navigator</span><span class="token punctuation">.</span><span class="token property-access">onLine</span><span class="token punctuation">,</span> <span class="token comment">// How to get the value on the client</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token boolean">true</span> <span class="token comment">// How to get the value on the server</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>But to me, this is lipstick on a pig. If reactive effects were easier to use, you wouldn't need all these other hooks.</p>
+<p>To put it otherwise: you have no other solution than to grow the core API more and more over time. For people like me, who have to maintain huge codebases, this constant API inflation is a nightmare. Seing you wear more and more makeup everyday is a constant reminder of what you're trying to hide.</p>
+<h2 id="strict-machine"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#strict-machine">Strict Machine</a><a aria-hidden="true" class="anchor-heading icon-link" href="#strict-machine"></a></h2>
+<p>Your hooks are a great idea, but they come at a cost. And this cost is the <a href="https://reactjs.org/docs/hooks-rules.html">Rules of Hooks</a>. They aren't easy to memorize, they aren't easy to put into practice. But they force me to spend time on code that shouldn't need it.</p>
+<p>For instance, I have an "inspector" component that can be dragged around by the end user. Users can also hide the inspector. When hidden, the inspector component renders nothing. So I would very much like to "leave early", and avoid registering event listeners for nothing.</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">Inspector</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> isVisible <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isVisible<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// leave early</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// Register event listeners</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// Unregister event listeners</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">...</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>But no, that's against the Rules of Hooks, as the <code>useEffect</code> hook may or may not be executed depending on props. Instead, I have to add a condition to all effects so that they leave early when the <code>isVisible</code> prop is false:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">Inspector</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> isVisible <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isVisible<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// Register event listeners</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// Unregister event listeners</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>isVisible<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isVisible<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// leave not so early</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">...</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>As a consequence, all the effects will have the <code>isVisible</code> prop in their dependencies and potentially run too often (which can harm performance). I know, I should create an intermediate component that just rendrs nothing if <code>isVisible</code> is false. But why? This is only one example of the Rules of Hooks getting in my way - there are many others. One consequence is that a significant portion of the code of my React codebases is spent <em>satisfying the Rules of Hooks</em>.</p>
+<p>The Rules of Hooks are a consequence of implementation detail - the implementation you chose for your hooks. But it doesn't have to be like that.</p>
+<h2 id="youve-been-gone-too-long"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#youve-been-gone-too-long">You've Been Gone Too Long</a><a aria-hidden="true" class="anchor-heading icon-link" href="#youve-been-gone-too-long"></a></h2>
+<p>You've been around since 2013, and you've made a point of keeping backward compatibility as long as possible. And I thank you for that - that's one of the reasons why I've been able to build a huge codebase with you. But this backward compatibility comes at a cost: documentation and community resources are, at best outdated, at worst, misleading.</p>
+<p>For instance, when I search for "React mouse position" on StackOverflow, the first result suggests this solution, which was already outdated React a century ago:</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">ContextMenu</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    visible<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>canvas</span>
+        <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>canvas<span class="token punctuation">"</span></span>
+        <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DrawReflect<span class="token punctuation">"</span></span>
+        <span class="token attr-name">onMouseDown</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">startDrawing</span><span class="token punctuation">}</span></span>
+      <span class="token punctuation">/></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">startDrawing</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>
+      e<span class="token punctuation">.</span><span class="token property-access">clientX</span> <span class="token operator">-</span> e<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">offsetLeft</span><span class="token punctuation">,</span>
+      e<span class="token punctuation">.</span><span class="token property-access">clientY</span> <span class="token operator">-</span> e<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">offsetTop</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">drawPen</span><span class="token punctuation">(</span><span class="token parameter">cursorX<span class="token punctuation">,</span> cursorY</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Just for showing drawing information in a label</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">context</span><span class="token punctuation">.</span><span class="token method function property-access">updateDrawInfo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      cursorX<span class="token operator">:</span> cursorX<span class="token punctuation">,</span>
+      cursorY<span class="token operator">:</span> cursorY<span class="token punctuation">,</span>
+      drawingNow<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Draw something</span>
+    <span class="token keyword">const</span> canvas <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">refs</span><span class="token punctuation">.</span><span class="token property-access">canvas</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> canvasContext <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token method function property-access">getContext</span><span class="token punctuation">(</span><span class="token string">"2d"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    canvasContext<span class="token punctuation">.</span><span class="token method function property-access">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    canvasContext<span class="token punctuation">.</span><span class="token method function property-access">arc</span><span class="token punctuation">(</span>
+      cursorX<span class="token punctuation">,</span>
+      cursorY <span class="token comment">/* start position */</span><span class="token punctuation">,</span>
+      <span class="token number">1</span> <span class="token comment">/* radius */</span><span class="token punctuation">,</span>
+      <span class="token number">0</span> <span class="token comment">/* start angle */</span><span class="token punctuation">,</span>
+      <span class="token number">2</span> <span class="token operator">*</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token comment">/* end angle */</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    canvasContext<span class="token punctuation">.</span><span class="token method function property-access">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>Yuck</p>
+</blockquote>
+<p>When I look for an npm package for a particular React feature, I mostly find abandoned packages with old, outdated syntax. Take <a href="https://github.com/react-grid-layout/react-draggable">react-draggable</a> for instance. It's the de facto standard for implementing drag and drop with React. It has <a href="https://github.com/react-grid-layout/react-draggable/issues">many open issues</a>, and <a href="https://github.com/react-grid-layout/react-draggable/graphs/contributors">low development activity</a>. Perhaps it's because it's still class components based - it's hard to attract contributors when the codebase is so old.</p>
+<p>As for your <a href="https://reactjs.org/docs/state-and-lifecycle.html">official docs</a>, they still recommend using <code>componentDidMount</code> and <code>componentWillUnmount</code> instead of <code>useEffect</code>. The core team has been working on a new version, called <a href="https://beta.reactjs.org/">Beta docs</a>, <a href="https://github.com/reactjs/reactjs.org/issues/3308">for the last two years</a>. They're still not ready for prime time.</p>
+<p>All in all, the loooong migration to hooks is still not finished, and it has produced a notable fragmentation in the community. New developers struggle to find their way in the React ecosystem, and old developers strive to keep up with the latest developments.</p>
+<h2 id="family-affair"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#family-affair">Family Affair</a><a aria-hidden="true" class="anchor-heading icon-link" href="#family-affair"></a></h2>
+<p>At first, your father Facebook looked super cool. Facebook wanted to "Bring people closer together" - count me in! Whenever I visited your parents, I met new friends.</p>
+<p>But then things got messy. Your parents enrolled in a <a href="https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal">crowd manipulation scheme</a>. They invented the concept of "Fake News". They started keeping files on everyone, without their consent. Visiting your parents became scary - to the point that I've <a href="https://www.facebook.com/help/delete_account">deleted my own Facebook account</a> a few years ago.</p>
+<p>I know - you can't hold children accountable for the actions of their parents. But you still live with them. They fund your development. They're your biggest users. <strong>You depend on them</strong>. If one day, they fall because of their behavior, you'll fall with them.</p>
+<p>Other major JS frameworks have been able to break free from their parents. They became independent and joined a foundation called <a href="https://openjsf.org/">The OpenJS Foundation</a>. Node.js, Electron, webpack, lodash, eslint, and even Jest are now funded by a collective of companies and individuals. Since they can, you can, too. But you don't. You're stuck with your parents. Why?</p>
+<h2 id="its-not-me-its-you"><a href="https://marmelab.com/blog/2022/09/20/react-i-love-you.html#its-not-me-its-you">It's Not Me, It's You</a><a aria-hidden="true" class="anchor-heading icon-link" href="#its-not-me-its-you"></a></h2>
+<p>You and I have the same purpose in life: to help developers build better UIs. I'm doing it with <a href="https://marmelab.com/react-admin/">React-admin</a>. So I understand your challenges, and the tradeoffs you have to make. Your job is not an easy one, and you're probably solving tons of problems I even have no idea of.</p>
+<hr>
+<h1 id="hacker-news"><a href="https://news.ycombinator.com/item?id=32911492">Hacker News</a><a aria-hidden="true" class="anchor-heading icon-link" href="#hacker-news"></a></h1>
+<h2 id="bilalbudhani">BilalBudhani<a aria-hidden="true" class="anchor-heading icon-link" href="#bilalbudhani"></a></h2>
+<p>I ditched React soon after they released hooks, mainly because I couldn't relate to the tradeoff React roadmap was taking from there. They went in a different direction from that point onwards, it seem like whatever code you write will become obsolete with the new set of best practices in the next release cycle.
+More importantly, I realized React is trying to tame Facebook level of problems and hence their design decision steams from those data points. I develop small/medium type of frontend apps which doesn't need to apply solutions developed for such a scale.</p>
+<p>These days I'm using Hotwire<sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup> (Turbo + Stimulus) with fair amount of vanilla javascript libraries in my apps. Occasionally, when I need to develop a reactive piece of UI I reach out for Svelte<sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup></p>
+<p>I'm quite happy after making the move. My apps complexity has reduced drastically and there is huge boost in my overall productivity.</p>
+<p><sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup> <a href="https://hotwired.dev">https://hotwired.dev</a><br>
+<sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup> <a href="https://svelte.dev">https://svelte.dev</a></p>
+<h3 id="buscoquadnary">buscoquadnary<a aria-hidden="true" class="anchor-heading icon-link" href="#buscoquadnary"></a></h3>
+<p>Step 1: The existing tooling is too clunky, big and a major PITA to work with, Developers spend most of their time fighting their framework and tooling to do simple things.<br>
+Step 2: Someone gets fed up with this writes a framework that "does things right" and is designed for "simplicity"<br>
+Step 3: People start loving the new tool because it is so much easier to work with.<br>
+Step 4: People start to do things the tool wasn't designed to do. They start making "minor feature enhancements" to the tool so that it can fit more use cases.<br>
+Alternative Step 4: Tool becomes "industry standard" so everyone starts using it because it is "the right way", regardless of whether or not it is a good fit.<br>
+Step 5: The new tool becomes massive and bloated and overwhelmed with too many features, configurations, and options.<br>
+Step 6: Return to step 1.</p>
+<blockquote>
+<p>The Wheel of Time turns, and Ages come and pass, leaving memories that become legend. Legend fades to myth, and even myth is long forgotten when the Age that gave it birth comes again. In one Age, called the Web 2.0 Age by some, an Age yet to come, an Age long past, a wind rose above the great mountainous island of FANNG. The wind was not the beginning. There are neither beginnings nor endings to the Wheel of Time. But it was a beginning.”</p>
+</blockquote>
+<h4 id="bilalbudhani-1">BilalBudhani<a aria-hidden="true" class="anchor-heading icon-link" href="#bilalbudhani-1"></a></h4>
+<p>I don't agree with you.<br>
+I have been doing Rails development for past 10 years now and I never faced a dilemma where the framework took a direction which isn't aligned with its core vision.<br>
+I have been just trying to find a similar tool for frontend where I don't have to keep rewriting the entire codebase.</p>
+<h2 id="gherkinnn">gherkinnn<a aria-hidden="true" class="anchor-heading icon-link" href="#gherkinnn"></a></h2>
+<p>They absolutely do not have their place. Just about everything is worse with class components. I’ll take a dozen useEffects over a single class component any day.
+That said, the hooks model is far from perfect. They give you a lot of rope to hang yourself with and were badly introduced. Within weeks the internet was ablaze with terrible advice.</p>
+<p>When so many people get it wrong, the library is to blame. And I wish hooks were as robust as Solid.js’ signals model.</p>
+<h3 id="mmis1000">mmis1000<a aria-hidden="true" class="anchor-heading icon-link" href="#mmis1000"></a></h3>
+<p>I don't think hook themselves are a bad thing. But the way react implements hook probably is. The react team invented their hook format the suite themselves the most, but that probably isn't for other.
+Vue 3 also has hook now. But none of these defects in the article exist.</p>
+<p>In vue.</p>
+<p>To use some value in a effect, you just use it and it is tracked.</p>
+<p>If you need to clear up your code. You cut some code into a useXxx function, and your reusable utility is done. You can use it everywhere now. You don't really need to specify dependency of whatever by yourself.</p>
+<p>If you must manipulate a dom, you just manipulate it. It will work as long as you revert the change before vue want to update it again.(And vue do provide a hook for you to attach a handler when these happen)</p>
+<p>These restrictions are added by the way react implements hook, but not hook themselves. Hooks are just more user friendly services (by allow the hook to attach to component instance without all the glue codes(addListener or whatever))</p>
+<h4 id="kronislv">KronisLV<a aria-hidden="true" class="anchor-heading icon-link" href="#kronislv"></a></h4>
+<blockquote>
+<p>Vue 3 with the composition API looks fantastic on paper. (I haven’t used it in any meaningful way)</p>
+</blockquote>
+<p>Recently worked on migrating a large codebase over from a legacy solution to Vue 3 with composition API, it was a pretty enjoyable experience, especially with Pinia!</p>
+<p>Though I'd say that the problem was that most component libraries/frameworks out there actually don't support Vue 3 well enough. Last I checked, only the following were viable with Vue 3:</p>
+<ul>
+<li>Ant Design</li>
+<li>Element Plus</li>
+<li>PrimeVue (went with this, also has icons and a layout solution; also alternatives available for React and Angular)</li>
+</ul>
+<p>Most of the other ones considered weren't quite there yet:</p>
+<ul>
+<li>Vuetify</li>
+<li>Quasar</li>
+<li>BootstrapVue</li>
+<li>Vue Material</li>
+<li>Buefy</li>
+<li>View UI</li>
+<li>Vuikit</li>
+<li>Chakra UI</li>
+</ul>
+<p>I mean, is it really so hard to get a bunch of pre-built components for Vue 3 with Bootstrap, or Bulma? It feels a bit like the Python 2 to Python 3 migration in some respects.</p>
+<h4 id="mmis1000-1">mmis1000<a aria-hidden="true" class="anchor-heading icon-link" href="#mmis1000-1"></a></h4>
+<p>I used it in a few project. And it reduces the code by a lot.
+For example. To make a mutex to prevent duplicate submit of form. You use need to declare a instance field and wraps the code that do the submit. That alone is 3 lines of code but don't even include error handling.</p>
+<p>But now I sealed it into a one line hook</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> wrap <span class="token operator">=</span> <span class="token function">useMutex</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> submit <span class="token operator">=</span> <span class="token function">wrap</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span> … <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>And then the submit can't run in parallel now.</p>
+<h1 id="throwaway284534">throwaway284534<a aria-hidden="true" class="anchor-heading icon-link" href="#throwaway284534"></a></h1>
+<p>As a developer who’s been working with React since the beta, I can confidently say that the author is speaking the truth. Especially so near the end of the article where they can’t seem to quit React.<br>
+For all the annoyances of Hooks, they really are a godsend when it comes to composing state. And refs do indeed suck, but they sucked even more with class based components. I can’t tell you how many times I was able to solve a complex DOM state issue with custom hooks wrapped around refs.</p>
+<p>Newer tools like Svelte and Solid do look promising as far as removing boilerplate, but they personally feel a step too far off the path of “it’s just JavaScript.”</p>
+<p>Has anyone else here successfully left for greener JS pastures?</p>
+<h2 id="nophunphil">nophunphil<a aria-hidden="true" class="anchor-heading icon-link" href="#nophunphil"></a></h2>
+<p>I’m also a developer and tech lead who’s been working with React since the beta. Agreed with all your points about React. I’m not sure I would say Svelte and Solid are a farther step off the “just JavaScript” path than React given JSX though.</p>
+<p>I haven’t tried Solid, but Svelte has already paid considerable dividends for our team. Frontend feature development pace is faster, the code is generally leaner, and the developers love working with it.</p>
+<h3 id="egeozcan">egeozcan<a aria-hidden="true" class="anchor-heading icon-link" href="#egeozcan"></a></h3>
+<p>I'm also a TL (which makes me a teaspoon here in Germany, which I like more than the tech lead title). I understand how the development can be faster with Svelte, but ecosystem argument really hits home. You'd get to 80% with Svelte perhaps much faster than React, but that missing library for, say, drag-and-drop makes that last 20% itself plus "hey let's develop our own drag-and-drop library in-house which should be easy and opinionated and maybe it gets open-sourced" (it will be hard, with crazy high budget, as it will try to cover many use-cases you will never have and it still won't be open-sourced because now it's your "core competency" and five months later someone will realize your component has terrible a11y and etc. and one million bug fixes later it is a monster code-base that none wants to touch and maybe rewrite? oh here we go again).</p>
+<h2 id="fabian2k">fabian2k<a aria-hidden="true" class="anchor-heading icon-link" href="#fabian2k"></a></h2>
+<p>The part about Redux and Context seems to be a complete misinterpretation of what Context is meant for. It was never meant to replace Redux, and as far as I know nobody from the React team has ever claimed something like that. State management in React is a topic discussed to death, there are plenty of options if you have specific tastes or requirements but plain old React state works perfectly fine as well (especially when coupled to server-side state libraries like React Query). But Context is not about state management, it does not seem useful to complain that it doesn't do a job well it was never meant to do.</p>
+<p>The part about the Inspector component and the rules of hooks I don't understand. I would have put the visibility state outside the Inspector component, and then there is no need for any conditional calling of hooks.</p>
+<h2 id="joshribakoff">joshribakoff<a aria-hidden="true" class="anchor-heading icon-link" href="#joshribakoff"></a></h2>
+<p>Concurrent react actually makes your app less concurrent: <a href="https://github.com/facebook/react/issues/21668">https://github.com/facebook/react/issues/21668</a></p>
+<p>5yrs in progress, it’s still not documented let alone fixed. I tried to look at the code, and they make giant PRs and are experimenting with priority queues and bitmasks, which seemed pretty off in the weeds to me.</p>
+<h2 id="sergiotapia">sergiotapia<a aria-hidden="true" class="anchor-heading icon-link" href="#sergiotapia"></a></h2>
+<p>Since quitting React I've been happier with my day to day. Phoenix Liveview came in clutch and showed me I don't have to put up with these kinds of self-inflicted problems.</p>
+<p>If you're tired of React and the npm lunacy, I recommend you take a dip into Elixir and Phoenix Liveview. Take it for a spin, see how much better it is for you and your users. It's <em>sane</em>. You don't have to "split the context" anymore. xD</p>
+<h3 id="azemetre">azemetre<a aria-hidden="true" class="anchor-heading icon-link" href="#azemetre"></a></h3>
+<p>What are some resources (book or courses or videos or blogs) you'd recommend for learning Elixir and Phoenix?</p>
+<h4 id="jnsaff2">jnsaff2<a aria-hidden="true" class="anchor-heading icon-link" href="#jnsaff2"></a></h4>
+<p>I can recommend this book currently in beta, that has been pretty good at keeping up to date with most developments in LiveView.
+<a href="https://pragprog.com/titles/liveview/programming-phoenix-liveview/">https://pragprog.com/titles/liveview/programming-phoenix-liveview/</a></p>
+<h4 id="krnsi">krnsi<a aria-hidden="true" class="anchor-heading icon-link" href="#krnsi"></a></h4>
+<p>Better be fast: <a href="https://www.humblebundle.com/books/elixir-programming-pragmatic-programmers-books">https://www.humblebundle.com/books/elixir-programming-pragmatic-programmers-books</a></p>
+<h4 id="sergiotapia-1">sergiotapia<a aria-hidden="true" class="anchor-heading icon-link" href="#sergiotapia-1"></a></h4>
+<p>Easily these three courses: <a href="https://pragmaticstudio.com/">https://pragmaticstudio.com/</a>
+Phoenix Liveview, Elixir &#x26; OTP, and Full-stack Graphql with Phoenix.</p>
+<p>Best way to learn Liveview.</p>

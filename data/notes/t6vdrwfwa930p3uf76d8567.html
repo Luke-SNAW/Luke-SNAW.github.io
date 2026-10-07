@@ -1,0 +1,50 @@
+<h1 id="vuejs-2의-router-link-pointer-events-none--custom-component-g-button-조합-시-cordova에서-file-이동-문제">Vuejs 2의 router-link pointer-events-none + custom component g-button 조합 시 Cordova에서 file:/// 이동 문제<a aria-hidden="true" class="anchor-heading icon-link" href="#vuejs-2의-router-link-pointer-events-none--custom-component-g-button-조합-시-cordova에서-file-이동-문제"></a></h1>
+<h2 id="현상">현상<a aria-hidden="true" class="anchor-heading icon-link" href="#현상"></a></h2>
+<p>Cordova 앱에서 <code>pointer-events-none</code>인 <code>&#x3C;router-link></code> 안에 g-button을 중첩하면,
+g-button 클릭 시 <code>$router.push</code>가 호출됨에도 불구하고 WKWebView(iOS)가 <code>file:///path</code>로 실제 파일 내비게이션을 시도해 빈 화면이나 에러가 발생한다.</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- 문제 코드 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>router-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>guidePath<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pointer-events-none lg:pointer-events-auto<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>g-button</span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pointer-events-auto lg:pointer-events-none<span class="token punctuation">"</span></span>
+    <span class="token attr-name">:click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>() => $router.push(guidePath)<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>
+    詳しく
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>g-button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>router-link</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>웹(데스크탑)에서는 <code>lg:pointer-events-auto</code>로 인해 router-link가 정상 동작하므로 동일 증상이 없다.</p>
+<h2 id="원인">원인<a aria-hidden="true" class="anchor-heading icon-link" href="#원인"></a></h2>
+<h3 id="왜-file-가-되는가">왜 file:/// 가 되는가<a aria-hidden="true" class="anchor-heading icon-link" href="#왜-file-가-되는가"></a></h3>
+<p>Cordova 앱은 <code>history</code> 모드 라우터를 <code>file://</code> 프로토콜 위에서 실행한다. <code>router.base</code>가 <code>''</code>(빈 문자열)이므로 <code>router-link :to="/dna-guide-old-kit"</code>가 렌더링하는 <code>&#x3C;a></code> 태그의 <code>href</code> 속성은 <code>/dna-guide-old-kit</code>이 되고, 브라우저 DOM에서는 이를 <code>file:///dna-guide-old-kit</code>으로 해석한다.</p>
+<p><code>$router.push</code>는 <code>history.pushState</code>를 통해 올바르게 컴포넌트를 전환하지만, 브라우저가 동시에 <code>&#x3C;a></code> href를 따라가면 덮어쓰인다.</p>
+<h3 id="왜-g-button-클릭이-a-href를-따라가는가">왜 g-button 클릭이 <code>&#x3C;a></code> href를 따라가는가<a aria-hidden="true" class="anchor-heading icon-link" href="#왜-g-button-클릭이-a-href를-따라가는가"></a></h3>
+<p><code>&#x3C;a></code> href를 따라가는 기본 동작은 <code>event.defaultPrevented === false</code>일 때 발생한다.</p>
+<ul>
+<li><strong>정상 동작하는 router-link(<code>pointer-events-auto</code>)</strong>: 클릭 시 Vue Router의 내장 click handler가 <code>event.preventDefault()</code>를 호출 → <code>defaultPrevented = true</code> → 브라우저가 href를 따라가지 않음</li>
+<li><strong>문제 상황(<code>pointer-events-none</code>)</strong>: Vue Router의 click handler가 실행되지 않음 → <code>preventDefault()</code> 미호출 → <code>defaultPrevented = false</code> 유지</li>
+</ul>
+<p>g-button의 <code>@click.stop</code>은 <code>stopPropagation()</code>만 호출한다. 이벤트가 <code>&#x3C;a></code>까지 버블링되지 않더라도, 브라우저는 이벤트 dispatch 완료 후 <code>defaultPrevented</code>를 확인해 기본 동작을 결정한다. <code>stopPropagation()</code>은 이 판단에 영향을 주지 않는다.</p>
+<h3 id="footer-gpjvue의-동일-패턴이-정상인-이유">footer-gpj.vue의 동일 패턴이 정상인 이유<a aria-hidden="true" class="anchor-heading icon-link" href="#footer-gpjvue의-동일-패턴이-정상인-이유"></a></h3>
+<p><code>footer-gpj.vue</code>의 <code>router-link :to="{ name: 'GpjDna' }"</code>는 <code>pointer-events-none</code>이 없다. 클릭 시 Vue Router click handler가 <code>preventDefault()</code>를 호출하므로 href 이동이 차단된다.</p>
+<h2 id="대처-방법">대처 방법<a aria-hidden="true" class="anchor-heading icon-link" href="#대처-방법"></a></h2>
+<p><strong>g-button</strong> 사용부에 <code>@click.native.prevent</code>를 추가한다. <code>&#x3C;button></code> 요소에서 <code>preventDefault()</code>를 먼저 호출해 <code>event.defaultPrevented = true</code>로 만들면, 이후 <code>@click.stop</code>의 <code>stopPropagation()</code>과 무관하게 브라우저가 <code>&#x3C;a></code> href를 따라가지 않는다.</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- 수정 코드 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>router-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>guidePath<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pointer-events-none lg:pointer-events-auto<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>g-button</span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pointer-events-auto lg:pointer-events-none<span class="token punctuation">"</span></span>
+    <span class="token attr-name">:click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>() => $router.push(guidePath)<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@click.native.prevent</span>
+  <span class="token punctuation">></span></span>
+    詳しく
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>g-button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>router-link</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="router-link에-붙이면-안-되는-이유">router-link에 붙이면 안 되는 이유<a aria-hidden="true" class="anchor-heading icon-link" href="#router-link에-붙이면-안-되는-이유"></a></h3>
+<p><code>router-link</code>에 <code>@click.native.prevent</code>를 붙이면 동작하지 않는다. g-button의 <code>@click.stop</code>이 이미 이벤트를 막아 <code>&#x3C;a></code>까지 이벤트가 전달되지 않기 때문에, <code>&#x3C;a></code>에 붙인 native listener는 실행되지 않는다.</p>
+<h3 id="g-button-전역-수정이-위험한-이유">g-button 전역 수정이 위험한 이유<a aria-hidden="true" class="anchor-heading icon-link" href="#g-button-전역-수정이-위험한-이유"></a></h3>
+<p>g-button 템플릿의 <code>@click.stop</code>을 <code>@click.stop.prevent</code>로 바꾸면 전역에서 <code>preventDefault()</code>가 호출되어, g-button이 <code>&#x3C;form></code> 안에서 쓰일 경우 form submit이 차단되는 부작용이 생긴다. 지역 한정 처리를 권장한다.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6645fjtiqxtko03nuccgjj2">What I struggled 🧗/📣 brag In / TIL</a></li>
+</ul>

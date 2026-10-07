@@ -1,0 +1,97 @@
+<h1 id="how-to-search-files-effectively-in-the-linux-terminal">How to Search Files Effectively in the Linux Terminal<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-search-files-effectively-in-the-linux-terminal"></a></h1>
+<blockquote>
+<p><a href="https://www.freecodecamp.org/news/how-to-search-files-in-the-linux-terminal/">https://www.freecodecamp.org/news/how-to-search-files-in-the-linux-terminal/</a></p>
+</blockquote>
+<h2 id="how-to-search-a-file-by-name">How to Search a File by Name<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-search-a-file-by-name"></a></h2>
+<p>Let’s say you saved a file called <code>hello_world.html</code> somewhere and you don’t even remember the directory name. But your boss is asking you to send them the file immediately.</p>
+<p>Usually, if you forgot where you stored a file, you'd begin by going through folder after folder and checking if the file exists.</p>
+<p>This is when the <code>find</code> command does a great job. Instead of searching the file manually on your computer, you can use the <code>find</code> command to automate the process.</p>
+<p>By passing the name of the file using the <code>-name</code> flag, the <code>find</code> command searches and returns the location of the file.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> -name <span class="token operator">&#x3C;</span>file_name<span class="token operator">></span>
+</code></pre>
+<p>But remember the <code>-name</code> flag performs a case-sensitive search. If you are looking to do a case-insensitive search, you can use the <code>-iname</code> flag instead.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> -iname <span class="token operator">&#x3C;</span>file_name<span class="token operator">></span>
+</code></pre>
+<p>You can also use the <code>find</code> command as an alternative to the <code>ls</code> command in some places. Let's assume you need to find all the files ending with the <code>.txt</code> extension. You can do so with the <code>find</code> command using the regex pattern (<code>*.txt</code>).</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> /path/to/search -name <span class="token string">"*.txt"</span>
+</code></pre>
+<p>This command will list all the <code>.txt</code> files in your current directory and its sub-directories.</p>
+<p>To find <code>.txt</code> files in a particular directory and sub-directory, you can replace the <code>/path/to/search</code> with the path of your directory.</p>
+<h2 id="how-to-find-a-directory-in-linux">How to Find a Directory in Linux<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-find-a-directory-in-linux"></a></h2>
+<p>Searching for a directory is possible by passing the <code>d</code> to the <code>-type</code> parameter in the <code>find</code> command.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> /path/to/search -type d
+</code></pre>
+<p>In the above screenshot, we're finding a directory named <code>zip</code> from our current directory.</p>
+<p>Similarly the <code>-type</code> option accepts other parameter options to simplify our finding process.</p>
+<ul>
+<li><code>f</code> finds the list of regular files</li>
+<li><code>b</code> finds the list of block devices</li>
+<li><code>c</code> finds the list of character devices</li>
+<li><code>l</code> finds the list of symbolic links</li>
+<li><code>s</code> finds the list of sockets</li>
+<li><code>p</code> finds the named pipes</li>
+</ul>
+<h2 id="how-to-search-a-file-by-size-in-linux">How to Search a File by Size in Linux<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-search-a-file-by-size-in-linux"></a></h2>
+<p>Adding the <code>-size</code> option along with the <code>find</code> command helps you find files based on size. Prepend a <code>+</code> or <code>-</code> to the size to represent greater than and less than, respectively.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> /path/to/search -size <span class="token operator">&#x3C;</span>size_of_the_file<span class="token operator">></span>
+</code></pre>
+<p>You can also search for all files that fall within a specific size range.</p>
+<p>For example, if you want to find all the files that are above 50 MB and below 100 MB, you can run the following command:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> /path/to/search -size +50M -size -100M
+</code></pre>
+<p>You can specify the size in your preferred notation. A few of the available notations are:</p>
+<ol>
+<li>K represents KB</li>
+<li>M represents MB</li>
+<li>G represents GB</li>
+<li>b represents bytes</li>
+<li>c represents blocks</li>
+</ol>
+<h2 id="how-to-search-a-file-based-on-time-modified">How to Search a File Based on Time Modified<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-search-a-file-based-on-time-modified"></a></h2>
+<p>Every file has a created and last updated time associated with it. Let's assume you have thousands of files in your directory. You edited a file in the past couple of days and forgot its name. You're sure that you have edited only a couple of files after that.</p>
+<p>In such cases, you can find all the files that were modified within the past 7 days. This limits your search from 1000+ files to a more manageable amount. You'll be able to find the file you edited in seconds after running the command.</p>
+<p>This is possible by passing <code>-mtime</code> parameter with the <code>find</code> command.</p>
+<pre><code>find /path/to/search -mtime &#x3C;-number_of_days_ago>
+</code></pre>
+<p>Let's assume another scenario, where today's date is February 10, 2023. You modified a file before Feb 3, 2023. After Feb 3, 2023, you modified a lot of files. You have to find the file which you modified before Feb 3, 2023. So, basically, you need the files that were modified before Feb 3, 2023.</p>
+<p>Strange scenario, right?</p>
+<p>But, you can also run this query using the <code>find</code> command. You can achieve this by exchanging the negative sign (-) with the positive sign (+).</p>
+<p>Here's the modified command for you:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> /path/to/search -mtime +7
+</code></pre>
+<p><code>find</code> command syntax to search files modified before certain days</p>
+<h2 id="how-to-execute-a-command-on-files-filtered-from-the-find-command">How to Execute a Command on Files Filtered from the <code>find</code> Command<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-execute-a-command-on-files-filtered-from-the-find-command"></a></h2>
+<p>This question may confuse you. Before revealing the answer, let's understand the question clearly with a real scenario.</p>
+<p>Let's assume you have 1000 files in a directory, and running the <code>find</code> command returns 20 matching files. You want to move these 20 files into a different directory. How can you achieve that?</p>
+<p>Simply put, we have to run a command over each of the filtered files.</p>
+<p>You can do this by passing the <code>-exec</code> option with the <code>find</code> command.</p>
+<p>The <code>-exec</code> option executes a command on each file that is found in the search. The <code>-exec</code> option is followed by a command and its arguments, with the <code>{}</code> symbols representing the path of the file being processed.</p>
+<p>To represent the end of the <code>-exec</code> command, we have to add <code>\;</code> (a backward slash and a semi-colon).</p>
+<p>Here's the syntax:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> /path/to/search -name  -exec  <span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token punctuation">\</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Let’s try to move the filtered files from the <code>5minslearn</code> directory to the <code>zip</code> directory.</p>
+<p>Here’s the command:</p>
+<pre><code>find ./5minslearn -name "*.zip" -exec mv {} ./5minslearn/zip \;
+</code></pre>
+<p>This command searches for all files ending with a <code>.zip</code> in the <code>./5minslearn</code> directory and then moves each file to the <code>./5minslearn/zip</code> directory.</p>
+<p>The <code>-exec</code> option allows you to perform a wide range of operations on the files that are found. You can replace the move command from the above example by copying, deleting, or even changing the file permission command.</p>
+<h2 id="how-to-execute-a-command-on-files-filtered-with-a-confirmation">How to Execute a Command on Files Filtered with a Confirmation<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-execute-a-command-on-files-filtered-with-a-confirmation"></a></h2>
+<p>Most people will prefer to use this if they're not sure about whether to apply the operation on each file.</p>
+<p>The <code>-ok</code> option is similar to the <strong><code>-exec</code></strong> option except that it will ask for confirmation before executing the operation on each file. This command is super helpful to review files that will be affected before executing the specific operation. You also have the option to decline if you're not sure or don't wish to apply the command.</p>
+<p>For example, this time let's try to move the <code>.txt</code> files to the other directory.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> /path/to/search -name <span class="token string">"*.txt"</span> -ok <span class="token function">mv</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> /path/to/destination <span class="token punctuation">\</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The above command searches for all files with a <code>.txt</code> extension in the <code>./5minslearn</code> directory and then prompts the user to confirm before moving each file to the <code>./5minslearn/text_files</code> directory.</p>
+<p>To approve the operation, enter <code>yes</code> and <code>no</code> to decline the operation and skip to the next file.</p>
+<p>The <code>-ok</code> option is useful when you want to be cautious about the files you are modifying, as it allows you to inspect each file and its location before executing the specified command.</p>
+<h2 id="how-to-find-a-file-with-detailed-information">How to Find a File with Detailed Information<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-find-a-file-with-detailed-information"></a></h2>
+<p>The <code>-ls</code> option in the find command is used to display information about the files found in the search, in the format of the ls command. This option provides detailed information about the files, such as their permissions, owner, size, and last modified time.</p>
+<pre><code>find /path/to/search -name "*.&#x3C;file-extension>" -ls
+</code></pre>
+<h2 id="how-to-find-and-remove-files">How to Find and Remove Files<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-find-and-remove-files"></a></h2>
+<p>Have you ever needed to find files and remove them from your computer? The <code>-delete</code> option in the find command does this for you. It allows you to delete files that match the specified criteria.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">find</span> <span class="token builtin class-name">.</span> -name <span class="token string">"*.&#x3C;extension>"</span> -delete
+</code></pre>
+<p>Note: This operation is irreversible. Be 100% sure when you run the delete operation.</p>
+<p>I would advise running the <code>find</code> command without the <code>-delete</code> flag at first and ensure that only the files that need to be deleted are shown. Once you're sure, you can execute the same command appending <code>-delete</code> flag.</p>
