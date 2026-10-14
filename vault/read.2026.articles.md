@@ -2,9 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1790914148549
+updated: 1791855804944
 created: 1766965709816
 ---
+
+## Week 42, 2026
+
+- [Lobbying](https://geohot.github.io/blog/jekyll/update/2026/10/10/lobbying.html)
+- [florian.photo](https://florian.photo/) A blog where [Florian](https://florianziegler.com/) _tries_ to post one photo per day.
 
 ## Week 40, 2026
 
