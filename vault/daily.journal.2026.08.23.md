@@ -2,7 +2,7 @@
 id: d0f1ejqnc6ps1wuskki1mak
 title: "2026-08-23"
 desc: ""
-updated: 1787810418886
+updated: 1792034846464
 created: 1787559751980
 traitIds:
   - journalNote
@@ -57,9 +57,7 @@ traitIds:
 
 오늘 1만보 걸었는데 조깅해야하나? 근력운동만? 고민되니 눈감고 염주 굴리며 생각해보자. -> 하체근력운동만 했음
 
-## DJ Max Respect
-
-얼마나 여유있게 즐기며 치는가. 여유없는 구간은 확실히 정확도가 떨어진다. 눈깜빡임은 여유챙기기 너무 힘듦 #djmax
+## [[2026-08-23|diary.dj-max#2026-08-23]]
 
 ## 내일 출근하기 싫음
 
