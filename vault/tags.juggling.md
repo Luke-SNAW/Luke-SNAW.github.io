@@ -2,12 +2,13 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1791262324327
+updated: 1792124982265
 created: 1779352821282
 ---
 
 - 시작 - 2026-04-18
 - [Tricks By Difficulty](https://libraryofjuggling.com/TricksByDifficulty.html)
+- 30개(어려운 트릭/4볼 이상: 20개) × 연속 3~5번 시도 중 80% 이상 성공 + 폼 무너짐 없음 + 전환 가능이면 그 트릭은 완성으로 치고 다음으로 - 2026-10-16
 
 ## Achievement
 

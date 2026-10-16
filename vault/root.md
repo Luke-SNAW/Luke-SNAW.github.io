@@ -2,7 +2,7 @@
 id: Iy0MoL0KnL55Br3AfTS2C
 title: Luke
 desc: ""
-updated: 1787116542460
+updated: 1792142762783
 created: 1644449449778
 ---
 
@@ -62,6 +62,8 @@ from [ralphammer](https://ralphammer.com/how-to-get-started/)
 ### [Hedged Bets](https://longform.asmartbear.com/predict-the-future/#hedged-bets)
 
 - trading slightly less maximum upside for predictable, net-positive outcomes.
+
+### Something is better than nothing
 
 ### “Motivation often comes after starting, not before. Action produces momentum.”
 

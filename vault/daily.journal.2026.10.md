@@ -2,7 +2,7 @@
 id: kwbkir4wkociz0teiwqzqpr
 title: "10"
 desc: ""
-updated: 1792057292212
+updated: 1792143449486
 created: 1791206539791
 ---
 
@@ -12,3 +12,8 @@ created: 1791206539791
 - [[업무도 그림처럼 느리게 감상?|daily.journal.2026.10.07#업무도-느리게-감상]]
 - [[소비활동 대신 여유시간을 가지는 비중이 늘어남|daily.journal.2026.10.07#소비활동-대신-여유시간을-가지는-비중이-늘어남]]
 - [[시작이 절반이라더니|daily.journal.2026.10.09#시작이-절반이라더니]]
+- [[Something is better than nothing|daily.journal.2026.10.12#something-is-better-than-nothing]]
+
+## fin
+
+- [[포트폴리오 기반 장기 시계열 운영이니 단기매매 때보다 스트레스를 덜 받음|daily.journal.2026.10.16#포트폴리오-기반-장기-시계열-운영이니-단기매매-때보다-스트레스를-덜-받음]]
