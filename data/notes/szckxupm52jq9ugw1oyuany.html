@@ -1,0 +1,32 @@
+<h1 id="new-css-features-in-2022">New CSS Features In 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#new-css-features-in-2022"></a></h1>
+<blockquote>
+<p><a href="https://www.smashingmagazine.com/2022/03/new-css-features-2022/">https://www.smashingmagazine.com/2022/03/new-css-features-2022/</a></p>
+</blockquote>
+<p>2022 is shaping up to be a pretty great year for CSS, with a plethora of new features on the horizon. Some are already starting to land in browsers, others are likely to gain widespread browser support in 2022, while for one or two the process may be a little longer. In this article we’ll take a look at a few of them.</p>
+<hr>
+<h2 id="container-queries">Container Queries<a aria-hidden="true" class="anchor-heading icon-link" href="#container-queries"></a></h2>
+<p>Container queries enable us to style an element depending on the size of its parent — a crucial difference from media queries, which only query the viewport.</p>
+<h2 id="has">:has()<a aria-hidden="true" class="anchor-heading icon-link" href="#has"></a></h2>
+<p>Often known as the “parent selector”, this pseudo-class enables us to select an element depending on its descendants.</p>
+<h2 id="whenelse">@when/@else<a aria-hidden="true" class="anchor-heading icon-link" href="#whenelse"></a></h2>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@when</span> <span class="token function">media</span><span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">em</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token function">supports</span><span class="token punctuation">(</span><span class="token property">display</span><span class="token punctuation">:</span> subgrid<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* Styles for viewports over 30em, where the browser also supports subgrid */</span>
+<span class="token punctuation">}</span> <span class="token atrule"><span class="token rule">@else</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* Styles for browsers that do not meet the condition */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="accent-color">accent-color<a aria-hidden="true" class="anchor-heading icon-link" href="#accent-color"></a></h2>
+<h2 id="new-css-color-functions">New CSS Color Functions<a aria-hidden="true" class="anchor-heading icon-link" href="#new-css-color-functions"></a></h2>
+<ul>
+<li>hwb(): Hue, Whiteness, Blackness.</li>
+<li>lab(): Lightness, along with a and b values, which determine the hue.</li>
+<li>lch(): Lightness, Chroma, Hue.</li>
+<li>color-mix(): Mix two colors together.</li>
+<li>color-contrast(): From a list of colors, output the one with the highest contrast compared to the first argument.</li>
+<li>color(): Specify a color in a different color space (e.g.display-p3).</li>
+</ul>
+<h2 id="cascade-layers">Cascade Layers<a aria-hidden="true" class="anchor-heading icon-link" href="#cascade-layers"></a></h2>
+<h2 id="subgrid">Subgrid<a aria-hidden="true" class="anchor-heading icon-link" href="#subgrid"></a></h2>
+<h2 id="scroll-timeline">Scroll Timeline<a aria-hidden="true" class="anchor-heading icon-link" href="#scroll-timeline"></a></h2>
+<p>You’ve probably seen a lot of cool websites that implement fancy scroll-linked animations. There are plenty of JS libraries to help us implement this kind of thing — I’m a big fan of [Greensock]’s ScrollTrigger plugin. Imagine if we could do all of that within CSS? With <code>@scroll-timeline</code> we can!</p>
+<h2 id="nesting">Nesting<a aria-hidden="true" class="anchor-heading icon-link" href="#nesting"></a></h2>

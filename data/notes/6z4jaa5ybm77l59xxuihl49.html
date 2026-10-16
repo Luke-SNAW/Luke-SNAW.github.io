@@ -1,0 +1,244 @@
+<h1 id="yaml-보안-취약점-정리">YAML 보안 취약점 정리<a aria-hidden="true" class="anchor-heading icon-link" href="#yaml-보안-취약점-정리"></a></h1>
+<h2 id="개요">개요<a aria-hidden="true" class="anchor-heading icon-link" href="#개요"></a></h2>
+<p>YAML은 "사람이 읽기 편한" 포맷을 목표로 설계되었지만, 그 과정에서 추가된 수많은 암묵적 규칙과 기능들이 오히려 <strong>보안 취약점의 원인</strong>이 되었다. 복잡한 DSL일수록 파서 구현이 어렵고 잘못 구성된 파서는 심각한 보안 문제를 야기한다.</p>
+<hr>
+<h2 id="주요-취약점">주요 취약점<a aria-hidden="true" class="anchor-heading icon-link" href="#주요-취약점"></a></h2>
+<h3 id="1-역직렬화deserialization-공격--원격-코드-실행rce">1. 역직렬화(Deserialization) 공격 — 원격 코드 실행(RCE)<a aria-hidden="true" class="anchor-heading icon-link" href="#1-역직렬화deserialization-공격--원격-코드-실행rce"></a></h3>
+<p>YAML의 가장 치명적인 취약점. 많은 YAML 파서가 기본적으로 <strong>임의 객체를 역직렬화</strong>할 수 있어, 공격자가 YAML 파일을 통해 서버에서 코드를 실행시킬 수 있다.</p>
+<p><strong>공격 예시 (PyYAML 기본 설정)</strong></p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token comment"># 파싱 시 os.system("rm -rf /") 실행됨</span>
+<span class="token tag">!!python/object/apply:os.system</span>
+<span class="token punctuation">-</span> <span class="token string">"rm -rf /"</span>
+</code></pre>
+<p><strong>Ruby (Psych 파서)</strong></p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token tag">!ruby/object:Gem::Installer</span>
+<span class="token key atrule">i</span><span class="token punctuation">:</span> <span class="token tag">!ruby/object:Gem::Package::TarReader</span>
+  <span class="token key atrule">io</span><span class="token punctuation">:</span> <span class="token tag">!ruby/object:Net::BufferedIO</span>
+    <span class="token key atrule">io</span><span class="token punctuation">:</span> <span class="token tag">!ruby/object:Gem::Package::TarReader::Entry</span>
+      <span class="token key atrule">read</span><span class="token punctuation">:</span> <span class="token number">0</span>
+      <span class="token key atrule">header</span><span class="token punctuation">:</span> <span class="token string">"aa"</span>
+</code></pre>
+<p><strong>원인</strong>: <code>yaml.load()</code> 함수가 타입 태그(<code>!!</code>)를 통해 임의 Python/Ruby 객체를 인스턴스화함</p>
+<p><strong>대응책</strong>:</p>
+<ul>
+<li>Python: <code>yaml.load()</code> ❌ → <code>yaml.safe_load()</code> ✅</li>
+<li>Ruby: <code>YAML.safe_load()</code> 사용</li>
+<li>Java (SnakeYAML): <code>new SafeConstructor()</code> 사용</li>
+</ul>
+<p><strong>관련 CVE 및 참고자료</strong>:</p>
+<ul>
+<li><a href="https://www.cvedetails.com/cve/CVE-2017-18342/">CVE-2017-18342</a> — PyYAML 최초 주요 보안 권고 (RCE)</li>
+<li><a href="https://www.huntress.com/threat-library/vulnerabilities/cve-2022-1471">CVE-2022-1471</a> — SnakeYAML (Java) Critical RCE, Kubernetes·Spring Boot 등 광범위 영향</li>
+<li><a href="https://rubysec.com/advisories/CVE-2022-32224/">CVE-2022-32224</a> — Ruby on Rails Active Record YAML 역직렬화 RCE</li>
+<li><a href="https://securitylab.github.com/research/swagger-yaml-parser-vulnerability/">GitHub Security Lab: Swagger YAML Parser (CVE-2017-1000207, CVE-2017-1000208)</a> — SnakeYAML 악용 사례 심층 분석</li>
+<li><a href="https://0d-amr.medium.com/from-yaml-to-rce-the-pyyaml-deserialization-story-4a7d1dfe4f43">From YAML to RCE: The PyYAML Deserialization Story</a> — PyYAML CVE 계보 및 우회 기법 정리</li>
+<li><a href="https://www.exploit-db.com/docs/47655">YAML Deserialization Attack in Python (Exploit-DB)</a> — PyYAML 역직렬화 공격 기술 문서</li>
+<li><a href="https://www.labs.greynoise.io/grimoire/2024-01-03-snakeyaml-deserialization/">Panic!! At the YAML — GreyNoise Labs</a> — SnakeYAML 취약점 실습 분석</li>
+<li><a href="https://trailofbits.github.io/rubysec/yaml/index.html">Ruby Security Field Guide: YAML</a> — Ruby YAML 취약점 상세 가이드</li>
+</ul>
+<hr>
+<h3 id="2-앨리어스-폭탄-billion-laughs--yaml-bomb">2. 앨리어스 폭탄 (Billion Laughs / YAML Bomb)<a aria-hidden="true" class="anchor-heading icon-link" href="#2-앨리어스-폭탄-billion-laughs--yaml-bomb"></a></h3>
+<p>XML의 "Billion Laughs" 공격과 동일한 원리. 앵커(<code>&#x26;</code>)와 앨리어스(<code>*</code>)를 중첩시켜 <strong>지수적으로 메모리를 소모</strong>시키는 DoS 공격.</p>
+<p><strong>공격 예시</strong></p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">a</span><span class="token punctuation">:</span> <span class="token important">&#x26;a</span> <span class="token punctuation">[</span><span class="token string">"lol"</span><span class="token punctuation">,</span> <span class="token string">"lol"</span><span class="token punctuation">,</span> <span class="token string">"lol"</span><span class="token punctuation">,</span> <span class="token string">"lol"</span><span class="token punctuation">,</span> <span class="token string">"lol"</span><span class="token punctuation">,</span> <span class="token string">"lol"</span><span class="token punctuation">,</span> <span class="token string">"lol"</span><span class="token punctuation">,</span> <span class="token string">"lol"</span><span class="token punctuation">,</span> <span class="token string">"lol"</span><span class="token punctuation">]</span>
+<span class="token key atrule">b</span><span class="token punctuation">:</span> <span class="token important">&#x26;b</span> <span class="token punctuation">[</span><span class="token important">*a</span><span class="token punctuation">,</span> <span class="token important">*a</span><span class="token punctuation">,</span> <span class="token important">*a</span><span class="token punctuation">,</span> <span class="token important">*a</span><span class="token punctuation">,</span> <span class="token important">*a</span><span class="token punctuation">,</span> <span class="token important">*a</span><span class="token punctuation">,</span> <span class="token important">*a</span><span class="token punctuation">,</span> <span class="token important">*a</span><span class="token punctuation">,</span> <span class="token important">*a</span><span class="token punctuation">]</span>
+<span class="token key atrule">c</span><span class="token punctuation">:</span> <span class="token important">&#x26;c</span> <span class="token punctuation">[</span><span class="token important">*b</span><span class="token punctuation">,</span> <span class="token important">*b</span><span class="token punctuation">,</span> <span class="token important">*b</span><span class="token punctuation">,</span> <span class="token important">*b</span><span class="token punctuation">,</span> <span class="token important">*b</span><span class="token punctuation">,</span> <span class="token important">*b</span><span class="token punctuation">,</span> <span class="token important">*b</span><span class="token punctuation">,</span> <span class="token important">*b</span><span class="token punctuation">,</span> <span class="token important">*b</span><span class="token punctuation">]</span>
+<span class="token key atrule">d</span><span class="token punctuation">:</span> <span class="token important">&#x26;d</span> <span class="token punctuation">[</span><span class="token important">*c</span><span class="token punctuation">,</span> <span class="token important">*c</span><span class="token punctuation">,</span> <span class="token important">*c</span><span class="token punctuation">,</span> <span class="token important">*c</span><span class="token punctuation">,</span> <span class="token important">*c</span><span class="token punctuation">,</span> <span class="token important">*c</span><span class="token punctuation">,</span> <span class="token important">*c</span><span class="token punctuation">,</span> <span class="token important">*c</span><span class="token punctuation">,</span> <span class="token important">*c</span><span class="token punctuation">]</span>
+<span class="token key atrule">e</span><span class="token punctuation">:</span> <span class="token important">&#x26;e</span> <span class="token punctuation">[</span><span class="token important">*d</span><span class="token punctuation">,</span> <span class="token important">*d</span><span class="token punctuation">,</span> <span class="token important">*d</span><span class="token punctuation">,</span> <span class="token important">*d</span><span class="token punctuation">,</span> <span class="token important">*d</span><span class="token punctuation">,</span> <span class="token important">*d</span><span class="token punctuation">,</span> <span class="token important">*d</span><span class="token punctuation">,</span> <span class="token important">*d</span><span class="token punctuation">,</span> <span class="token important">*d</span><span class="token punctuation">]</span>
+<span class="token comment"># 파싱 시 메모리 수 GB 소모 → 서비스 다운</span>
+</code></pre>
+<p><strong>원인</strong>: 앨리어스 확장 시 깊이/크기 제한이 없는 파서</p>
+<p><strong>대응책</strong>:</p>
+<ul>
+<li>앨리어스 확장 깊이 및 노드 수 제한 설정</li>
+<li>외부 입력 YAML에서 앨리어스 기능 비활성화</li>
+</ul>
+<p><strong>관련 CVE 및 참고자료</strong>:</p>
+<ul>
+<li><a href="https://github.com/kubernetes/kubernetes/issues/83253">CVE-2019-11253</a> — Kubernetes API Server YAML 파싱 DoS (Billion Laughs). kube-apiserver가 매니페스트 크기 제한 없이 파싱해 발생</li>
+<li><a href="https://www.miggo.io/vulnerability-database/cve/CVE-2023-47163">CVE-2023-47163</a> — Remarshal YAML 파서 앨리어스 무한 확장 DoS</li>
+<li><a href="https://en.wikipedia.org/wiki/Billion_laughs_attack">Wikipedia: Billion Laughs Attack</a> — 공격 원리 및 YAML bomb 예시 포함</li>
+<li><a href="https://www.paloaltonetworks.com/blog/2019/10/cloud-kubernetes-vulnerabilities/">Palo Alto Networks: Kubernetes Billion Laughs 취약점 분석</a> — CVE-2019-11253 심층 분석</li>
+<li><a href="https://www.researchgate.net/publication/333505459_Laughter_in_the_Wild_A_Study_into_DoS_Vulnerabilities_in_YAML_Libraries">Laughter in the Wild: DoS Vulnerabilities in YAML Libraries (논문)</a> — 10개 언어 14개 YAML 라이브러리 DoS 취약점 체계적 연구</li>
+</ul>
+<hr>
+<h3 id="3-타입-강제-변환-type-coercion--예측-불가능한-파싱">3. 타입 강제 변환 (Type Coercion) — 예측 불가능한 파싱<a aria-hidden="true" class="anchor-heading icon-link" href="#3-타입-강제-변환-type-coercion--예측-불가능한-파싱"></a></h3>
+<p>YAML은 값의 타입을 자동으로 추론하는데, 이 과정에서 <strong>의도치 않은 값 변환</strong>이 발생한다.</p>
+<p><strong>문제 예시</strong></p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token comment"># 개발자가 문자열을 의도했지만...</span>
+<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">080</span>          <span class="token comment"># 8진수로 해석 → 64 (YAML 1.1)</span>
+<span class="token key atrule">enabled</span><span class="token punctuation">:</span> yes       <span class="token comment"># true로 해석</span>
+<span class="token key atrule">api_key</span><span class="token punctuation">:</span> <span class="token number">1234e5</span>    <span class="token comment"># 부동소수점으로 해석 → 123400.0</span>
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token number">1.0</span>       <span class="token comment"># float으로 해석 → 문자열 "1.0" 비교 실패</span>
+<span class="token key atrule">country_code</span><span class="token punctuation">:</span> NO   <span class="token comment"># false로 해석 ← "Norway Problem"</span>
+<span class="token key atrule">country_code</span><span class="token punctuation">:</span> ON   <span class="token comment"># true로 해석</span>
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-15</span>   <span class="token comment"># Date 객체로 해석</span>
+</code></pre>
+<p><strong>Norway Problem</strong>: 국가 코드 <code>NO</code>(노르웨이)가 <code>false</code>로 파싱되는 실제 버그. ISO 국가 코드 목록을 YAML로 관리할 때 발생.</p>
+<p><strong>대응책</strong>:</p>
+<ul>
+<li>모든 값에 명시적 따옴표 사용: <code>country_code: "NO"</code></li>
+<li>YAML 1.2 스펙을 지원하는 파서 사용 (타입 추론 규칙이 개선됨)</li>
+</ul>
+<p><strong>관련 참고자료</strong>:</p>
+<ul>
+<li><a href="https://hitchdev.com/strictyaml/why/implicit-typing-removed/">The Norway Problem — StrictYAML 공식 문서</a> — <code>NO</code>가 <code>false</code>로 파싱되는 실제 사례 및 원인 분석</li>
+<li><a href="https://ruudvanasseldonk.com/2023/01/11/the-yaml-document-from-hell">The YAML document from hell</a> — YAML 타입 강제 변환의 다양한 함정 총정리 (필독)</li>
+<li><a href="https://lab174.com/blog/202601-yaml-norway/">YAML? That's Norway problem (lab174.com)</a> — 2026년 1월 기준 주요 라이브러리 대부분이 여전히 YAML 1.1을 사용한다는 최신 분석</li>
+<li><a href="https://www.bram.us/2022/01/11/yaml-the-norway-problem/">YAML: The Norway Problem — Bram.us</a> — 개요 및 bool 타입 파싱 regex 설명</li>
+</ul>
+<hr>
+<h3 id="4-xxe--ssrf-파서-설정-오류">4. XXE / SSRF (파서 설정 오류)<a aria-hidden="true" class="anchor-heading icon-link" href="#4-xxe--ssrf-파서-설정-오류"></a></h3>
+<p>일부 YAML 파서는 내부적으로 XML을 사용하거나, 외부 엔티티·리소스 로딩을 지원하는 경우가 있다.</p>
+<p><strong>공격 시나리오</strong></p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token comment"># 특정 파서에서 외부 파일 참조 가능</span>
+<span class="token key atrule">data</span><span class="token punctuation">:</span> <span class="token tag">!include</span> file<span class="token punctuation">:</span>///etc/passwd
+
+<span class="token comment"># SSRF — 내부 네트워크 요청 유발</span>
+<span class="token key atrule">config</span><span class="token punctuation">:</span> <span class="token tag">!include</span> http<span class="token punctuation">:</span>//169.254.169.254/latest/meta<span class="token punctuation">-</span>data/
+</code></pre>
+<p><strong>대응책</strong>:</p>
+<ul>
+<li>외부 리소스 로딩 기능 비활성화</li>
+<li>파서의 <code>safe</code> 모드 사용</li>
+</ul>
+<p><strong>관련 CVE 및 참고자료</strong>:</p>
+<ul>
+<li><a href="https://www.jenkins.io/security/advisory/2020-04-16/">Jenkins Security Advisory 2020-04-16</a> — Yaml Axis Plugin, AWS SAM Plugin, OpenShift Pipeline Plugin 등 YAML 파서 설정 오류로 인한 다수 RCE CVE 포함</li>
+<li><a href="https://www.jenkins.io/security/advisory/2020-03-25/">Jenkins Security Advisory 2020-03-25</a> — Pipeline AWS Steps Plugin(CVE-2020-2168), Azure Container Service Plugin(CVE-2020-2169) 등 임의 타입 인스턴스화 취약점</li>
+<li><a href="https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-perform-ssrf">PortSwigger Web Security Academy: XXE to SSRF</a> — XXE→SSRF 공격 실습 (EC2 메타데이터 탈취)</li>
+</ul>
+<hr>
+<h3 id="5-파서-구현체별-동작-불일치-parser-differential-attack">5. 파서 구현체별 동작 불일치 (Parser Differential Attack)<a aria-hidden="true" class="anchor-heading icon-link" href="#5-파서-구현체별-동작-불일치-parser-differential-attack"></a></h3>
+<p>YAML 스펙이 복잡하여 각 언어의 파서마다 <strong>동일한 입력에 다른 결과</strong>를 반환할 수 있다. 이를 이용해 앞단 검증을 우회할 수 있다.</p>
+<p><strong>공격 시나리오</strong></p>
+<pre><code>[입력 YAML] → [검증 파서 A: 무해한 값으로 해석] → 통과
+                     ↓
+              [실행 파서 B: 악성 값으로 해석] → 피해 발생
+</code></pre>
+<p><strong>실제 사례</strong>: WAF나 보안 검증 레이어가 Ruby YAML로 파싱하고, 실제 앱은 Python YAML로 파싱할 때 결과 불일치 발생.</p>
+<p><strong>대응책</strong>:</p>
+<ul>
+<li>파이프라인 내 모든 단계에서 동일한 파서 사용</li>
+<li>검증과 실행에 서로 다른 파서 사용 금지</li>
+</ul>
+<p><strong>관련 참고자료</strong>:</p>
+<ul>
+<li><a href="https://blog.trailofbits.com/2025/06/17/unexpected-security-footguns-in-gos-parsers/">Trail of Bits: Unexpected Security Footguns in Go's Parsers</a> — Go의 JSON/XML/YAML 파서 차이를 이용한 인증 우회 공격 (CVE-2020-16250 포함) 심층 분석. JSON·XML·YAML 세 파서가 서로 다른 값을 반환하는 polyglot 구성 방법 설명</li>
+<li><a href="https://securitylab.github.com/research/swagger-yaml-parser-vulnerability/">Swagger YAML Parser (CVE-2017-1000207, CVE-2017-1000208)</a> — 서로 다른 언어·버전의 SnakeYAML 파서가 동일 입력을 다르게 해석하여 발생한 RCE 사례 (파서 불일치의 실제 보안 영향을 보여주는 사례)</li>
+</ul>
+<hr>
+<h3 id="6-템플릿-인젝션과의-결합">6. 템플릿 인젝션과의 결합<a aria-hidden="true" class="anchor-heading icon-link" href="#6-템플릿-인젝션과의-결합"></a></h3>
+<p>YAML은 Jinja2, Go 템플릿 등의 템플릿 언어와 자주 혼용된다. 이 경우 <strong>YAML 파싱 전에 템플릿이 먼저 평가</strong>되므로, 템플릿 인젝션과 결합된 공격이 가능하다.</p>
+<p><strong>공격 예시 (Ansible/Helm)</strong></p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token comment"># 사용자 입력값이 템플릿에 삽입되는 경우</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token punctuation">{</span> user_input <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+
+<span class="token comment"># 공격자 입력: {{ ''.__class__.__mro__[2].__subclasses__() }}</span>
+</code></pre>
+<p><strong>대응책</strong>:</p>
+<ul>
+<li>사용자 입력을 템플릿 변수에 직접 삽입 금지</li>
+<li>입력값 이스케이프 처리</li>
+<li>템플릿 샌드박스 모드 사용</li>
+</ul>
+<p><strong>관련 CVE 및 참고자료</strong>:</p>
+<ul>
+<li><a href="https://jfrog.com/blog/23andmes-yamale-python-code-injection-and-properly-sanitizing-eval/">CVE-2021-38305</a> — Yamale YAML 스키마 검증기 코드 인젝션 (JFrog 분석). <code>eval()</code> 잘못 사용으로 스키마 파일을 통해 임의 Python 코드 실행 가능</li>
+<li><a href="https://snyk.io/blog/finding-yaml-injection-with-snyk-code/">Finding YAML Deserialization with Snyk Code</a> — geokit-rails 등 실제 오픈소스 프로젝트의 YAML 인젝션 사례</li>
+</ul>
+<hr>
+<h2 id="취약점-요약표">취약점 요약표<a aria-hidden="true" class="anchor-heading icon-link" href="#취약점-요약표"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>취약점</th><th>심각도</th><th>영향</th><th>주요 대응책</th></tr></thead><tbody><tr><td>역직렬화 (RCE)</td><td>🔴 Critical</td><td>원격 코드 실행</td><td><code>safe_load()</code> 사용</td></tr><tr><td>앨리어스 폭탄</td><td>🟠 High</td><td>서비스 중단 (DoS)</td><td>앨리어스 깊이 제한</td></tr><tr><td>타입 강제 변환</td><td>🟡 Medium</td><td>로직 우회, 인증 오류</td><td>명시적 따옴표 사용</td></tr><tr><td>XXE / SSRF</td><td>🟠 High</td><td>내부 정보 유출</td><td>외부 로딩 비활성화</td></tr><tr><td>파서 불일치</td><td>🟡 Medium</td><td>검증 우회</td><td>단일 파서 통일</td></tr><tr><td>템플릿 인젝션</td><td>🔴 Critical</td><td>코드 실행, 데이터 탈취</td><td>입력값 이스케이프</td></tr></tbody></table></div>
+<hr>
+<h2 id="근본-원인">근본 원인<a aria-hidden="true" class="anchor-heading icon-link" href="#근본-원인"></a></h2>
+<p>YAML의 보안 문제는 기능 과잉(feature bloat)에서 비롯된다:</p>
+<ol>
+<li><strong>암묵적 타입 변환</strong> — 개발자의 의도와 다르게 동작</li>
+<li><strong>Turing-complete에 가까운 복잡성</strong> — 앵커/앨리어스, 태그, 다양한 스칼라 타입</li>
+<li><strong>파서 구현 난이도</strong> — 스펙이 복잡해 파서마다 동작이 달라짐</li>
+<li><strong>기본 설정의 위험성</strong> — 안전한 옵션이 기본이 아닌 경우가 많음</li>
+</ol>
+<hr>
+<h2 id="대안-검토">대안 검토<a aria-hidden="true" class="anchor-heading icon-link" href="#대안-검토"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>용도</th><th>권장 대안</th></tr></thead><tbody><tr><td>설정 파일</td><td><strong>TOML</strong> — 명시적 타입, 단순한 스펙</td></tr><tr><td>데이터 교환</td><td><strong>JSON</strong> — 타입 강제 변환 없음</td></tr><tr><td>복잡한 설정</td><td><strong>HCL</strong> (Terraform), <strong>Dhall</strong> — 타입 안전성</td></tr><tr><td>간단한 키-값</td><td><strong>.env</strong> / <strong>INI</strong></td></tr></tbody></table></div>
+<hr>
+<p><em>작성일: 2026-03-16</em> with Sonnet 4.6</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/hygjiuqdwh7wqbydrzpct91">Chitchat</a></li>
+</ul>

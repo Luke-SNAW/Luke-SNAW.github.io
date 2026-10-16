@@ -1,0 +1,404 @@
+<h1 id="oauth-20-grant-types-비교">OAuth 2.0 Grant Types 비교<a aria-hidden="true" class="anchor-heading icon-link" href="#oauth-20-grant-types-비교"></a></h1>
+<h1 id="oauth-20-grant-types-비교-1">OAuth 2.0 Grant Types 비교<a aria-hidden="true" class="anchor-heading icon-link" href="#oauth-20-grant-types-비교-1"></a></h1>
+<p><strong>작성일:</strong> 2026-07-16<br>
+<strong>목적:</strong> Implicit Grant, Authorization Code Grant, PKCE의 차이와 보안 고려사항 이해</p>
+<h2 id="개요">개요<a aria-hidden="true" class="anchor-heading icon-link" href="#개요"></a></h2>
+<p>OAuth 2.0은 앱 유형에 따라 다른 인증 플로우(Grant Type)를 제공합니다. 각 방식은 보안과 편의성 간의 트레이드오프가 있으며, 클라이언트 환경(백엔드 유무)에 따라 적합한 방식이 다릅니다.</p>
+<h2 id="1-implicit-grant-deprecated">1. Implicit Grant (Deprecated)<a aria-hidden="true" class="anchor-heading icon-link" href="#1-implicit-grant-deprecated"></a></h2>
+<h3 id="개념">개념<a aria-hidden="true" class="anchor-heading icon-link" href="#개념"></a></h3>
+<p>가장 간단한 OAuth 플로우로, <strong>authorization code 없이 바로 access_token을 반환</strong>합니다.</p>
+<h3 id="플로우">플로우<a aria-hidden="true" class="anchor-heading icon-link" href="#플로우"></a></h3>
+<pre><code>1. 사용자 → OAuth 서버 로그인
+   GET https://oauth.provider.com/authorize?
+     response_type=token          ← 핵심: token 직접 요청
+     &#x26;client_id=xxx
+     &#x26;redirect_uri=https://myapp.com/callback
+     &#x26;state=random123
+
+2. 로그인 성공 → 즉시 access_token 반환
+   https://myapp.com/callback#access_token=ya29.xxx&#x26;token_type=Bearer&#x26;expires_in=3600
+                             ↑ URL Fragment (#) 사용
+
+3. JavaScript로 token 추출 및 사용
+   const token = new URLSearchParams(window.location.hash.slice(1)).get('access_token')
+</code></pre>
+<h3 id="특징">특징<a aria-hidden="true" class="anchor-heading icon-link" href="#특징"></a></h3>
+<ul>
+<li>✅ <strong>간단함</strong>: 한 번의 요청으로 완료</li>
+<li>✅ <strong>client_secret 불필요</strong>: 프론트엔드에서 완결</li>
+<li>✅ <strong>백엔드 불필요</strong>: SPA에 적합</li>
+<li>❌ <strong>보안 취약</strong>: access_token이 URL에 노출</li>
+<li>❌ <strong>브라우저 히스토리에 저장</strong>: 탈취 위험</li>
+<li>❌ <strong>Refresh token 미지원</strong>: 장기 인증 불가</li>
+</ul>
+<h3 id="보안-문제">보안 문제<a aria-hidden="true" class="anchor-heading icon-link" href="#보안-문제"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// ❌ 위험 1: URL에 token 노출</span>
+https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>myapp<span class="token punctuation">.</span><span class="token property-access">com</span><span class="token operator">/</span>callback#access_token<span class="token operator">=</span><span class="token constant">SENSITIVE_TOKEN</span>
+<span class="token comment">// → 브라우저 히스토리, 로그, Referer 헤더에 남을 수 있음</span>
+
+<span class="token comment">// ❌ 위험 2: XSS 공격에 취약</span>
+<span class="token comment">// 악성 스크립트가 window.location.hash에서 바로 추출 가능</span>
+
+<span class="token comment">// ❌ 위험 3: 브라우저 확장 프로그램</span>
+<span class="token comment">// 모든 URL에 접근 가능한 확장 프로그램이 token 탈취 가능</span>
+</code></pre>
+<h3 id="상태">상태<a aria-hidden="true" class="anchor-heading icon-link" href="#상태"></a></h3>
+<ul>
+<li><strong>2012년 (RFC 6749)</strong>: SPA를 위한 권장 방식 ✅</li>
+<li><strong>2019년</strong>: OAuth 2.0 Security Best Practices에서 deprecated ⚠️</li>
+<li><strong>2020년+</strong>: 사용 금지 권고 🚫</li>
+</ul>
+<h2 id="2-authorization-code-grant">2. Authorization Code Grant<a aria-hidden="true" class="anchor-heading icon-link" href="#2-authorization-code-grant"></a></h2>
+<h3 id="개념-1">개념<a aria-hidden="true" class="anchor-heading icon-link" href="#개념-1"></a></h3>
+<p><strong>2단계 인증 플로우</strong>로, 먼저 authorization code를 받은 후 이를 access_token으로 교환합니다. <code>client_secret</code>이 필수이며, <strong>백엔드 처리를 강제</strong>합니다.</p>
+<h3 id="플로우-1">플로우<a aria-hidden="true" class="anchor-heading icon-link" href="#플로우-1"></a></h3>
+<pre><code>1. 사용자 → OAuth 서버 로그인 (프론트엔드)
+   GET https://oauth.provider.com/authorize?
+     response_type=code           ← 핵심: code 요청
+     &#x26;client_id=xxx
+     &#x26;redirect_uri=https://myapp.com/callback
+     &#x26;state=random123
+
+2. 로그인 성공 → authorization code 반환
+   https://myapp.com/callback?code=SplxlOBeZQQ&#x26;state=random123
+                             ↑ Query parameter (?) 사용
+                             ↑ 짧은 수명 (10분), 일회용
+
+3. Code를 access_token으로 교환 (백엔드)
+   POST https://oauth.provider.com/token
+   Headers:
+     Content-Type: application/x-www-form-urlencoded
+   Body:
+     grant_type=authorization_code
+     &#x26;client_id=xxx
+     &#x26;client_secret=SECRET_KEY    ← 백엔드에만 존재!
+     &#x26;code=SplxlOBeZQQ
+     &#x26;redirect_uri=https://myapp.com/callback
+
+   Response:
+   {
+     "access_token": "ya29.xxx",
+     "refresh_token": "refresh_xxx",
+     "token_type": "Bearer",
+     "expires_in": 3600
+   }
+
+4. API 호출
+   (access_token은 백엔드에서 관리하거나 안전하게 프론트엔드로 전달)
+</code></pre>
+<h3 id="특징-1">특징<a aria-hidden="true" class="anchor-heading icon-link" href="#특징-1"></a></h3>
+<ul>
+<li>✅ <strong>안전</strong>: access_token이 URL에 노출 안 됨</li>
+<li>✅ <strong>Refresh token 지원</strong>: 장기 인증 가능</li>
+<li>✅ <strong>앱 검증</strong>: client_secret으로 등록된 앱인지 확인</li>
+<li>✅ <strong>보안 계층 분리</strong>: 프론트엔드(공개)/백엔드(비공개)</li>
+<li>❌ <strong>복잡함</strong>: 두 번의 요청 필요</li>
+<li>❌ <strong>백엔드 필수</strong>: client_secret 안전 보관 필요</li>
+</ul>
+<h3 id="보안-설계-의도">보안 설계 의도<a aria-hidden="true" class="anchor-heading icon-link" href="#보안-설계-의도"></a></h3>
+<pre><code>┌─────────────────────────────────────────────┐
+│ 프론트엔드 (공개 채널)                       │
+├─────────────────────────────────────────────┤
+│ ✓ 사용자 인증                                │
+│ ✓ authorization code 수신                   │
+│   └─ 짧은 수명 (10분)                        │
+│   └─ 일회용 (재사용 불가)                     │
+│   └─ 노출되어도 상대적으로 안전                │
+└─────────────────────────────────────────────┘
+              ↓ code 전달
+┌─────────────────────────────────────────────┐
+│ 백엔드 (비공개 채널)                         │
+├─────────────────────────────────────────────┤
+│ ✓ code + client_secret → token 교환         │
+│   └─ client_secret: 절대 노출 안 됨          │
+│   └─ access_token: URL 거치지 않음           │
+│   └─ refresh_token: 서버에만 보관            │
+│ ✓ 민감 정보는 백엔드에만 존재                 │
+└─────────────────────────────────────────────┘
+</code></pre>
+<h3 id="client_secret의-역할">client_secret의 역할<a aria-hidden="true" class="anchor-heading icon-link" href="#client_secret의-역할"></a></h3>
+<p><strong>1. 앱 인증 (App Authentication)</strong></p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// OAuth 서버 입장에서의 검증</span>
+<span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token property-access">client_secret</span> <span class="token operator">===</span> registered_secret<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ✅ 등록된 앱에서 온 요청이 맞음</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span> access_token<span class="token operator">:</span> <span class="token string">"..."</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ❌ code를 탈취해서 악용하려는 시도</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span> error<span class="token operator">:</span> <span class="token string">"invalid_client"</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>2. 백엔드 강제 (Force Backend)</strong></p>
+<ul>
+<li>client_secret을 안전하게 보관하려면 → <strong>백엔드 서버 필수</strong></li>
+<li>프론트엔드에서는 절대 사용 불가 (노출되면 보안 위협)</li>
+</ul>
+<p><strong>3. 보안 계층 분리</strong></p>
+<ul>
+<li>프론트엔드: code만 다룸 (노출되어도 덜 위험)</li>
+<li>백엔드: secret + token 관리 (완전 비공개)</li>
+</ul>
+<h2 id="3-pkce-proof-key-for-code-exchange">3. PKCE (Proof Key for Code Exchange)<a aria-hidden="true" class="anchor-heading icon-link" href="#3-pkce-proof-key-for-code-exchange"></a></h2>
+<h3 id="개념-2">개념<a aria-hidden="true" class="anchor-heading icon-link" href="#개념-2"></a></h3>
+<p>Authorization Code Grant의 <strong>개선 버전</strong>으로, <strong>client_secret 없이도 안전한 인증</strong>을 제공합니다. SPA와 모바일 앱을 위한 최신 권장 방식입니다.</p>
+<h3 id="핵심-아이디어">핵심 아이디어<a aria-hidden="true" class="anchor-heading icon-link" href="#핵심-아이디어"></a></h3>
+<pre><code>client_secret 대신 "동적으로 생성한 비밀키"를 사용
+→ 매 로그인마다 새로운 키 생성
+→ code를 탈취해도 비밀키 없으면 무용지물
+</code></pre>
+<h3 id="플로우-2">플로우<a aria-hidden="true" class="anchor-heading icon-link" href="#플로우-2"></a></h3>
+<pre><code>1. code_verifier 생성 (랜덤 문자열)
+   const codeVerifier = generateRandomString(128)
+   // 예: "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
+
+2. code_challenge 생성 (SHA-256 해시)
+   const codeChallenge = base64url(sha256(codeVerifier))
+   // 예: "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"
+   sessionStorage.setItem('pkce_verifier', codeVerifier)
+
+3. 로그인 요청 (code_challenge 포함)
+   GET https://oauth.provider.com/authorize?
+     response_type=code
+     &#x26;client_id=xxx
+     &#x26;redirect_uri=https://myapp.com/callback
+     &#x26;code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM
+     &#x26;code_challenge_method=S256   ← SHA-256 사용
+     &#x26;state=random123
+
+4. Authorization code 수신
+   https://myapp.com/callback?code=SplxlOBeZQQ&#x26;state=random123
+
+5. Token 교환 (code_verifier로 검증)
+   POST https://oauth.provider.com/token
+   Body:
+     grant_type=authorization_code
+     &#x26;client_id=xxx
+     &#x26;code=SplxlOBeZQQ
+     &#x26;redirect_uri=https://myapp.com/callback
+     &#x26;code_verifier=dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk
+
+   서버 검증:
+   if (sha256(code_verifier) === stored_code_challenge) {
+     // ✅ 동일한 앱에서 온 요청 확인
+     return { access_token: '...' }
+   }
+</code></pre>
+<h3 id="특징-2">특징<a aria-hidden="true" class="anchor-heading icon-link" href="#특징-2"></a></h3>
+<ul>
+<li>✅ <strong>client_secret 불필요</strong>: 프론트엔드에서 완결</li>
+<li>✅ <strong>안전</strong>: Authorization Code Grant 수준의 보안</li>
+<li>✅ <strong>Refresh token 지원</strong>: 장기 인증 가능</li>
+<li>✅ <strong>XSS 방어</strong>: code를 탈취해도 verifier 없으면 무용지물</li>
+<li>✅ <strong>백엔드 불필요</strong>: SPA/모바일 앱에 적합</li>
+<li>⚠️ <strong>OAuth 서버 지원 필요</strong>: 모든 제공자가 지원하는 것은 아님</li>
+</ul>
+<h3 id="보안-원리">보안 원리<a aria-hidden="true" class="anchor-heading icon-link" href="#보안-원리"></a></h3>
+<pre><code>공격자가 authorization code를 탈취했다고 가정:
+
+❌ Implicit Grant:
+   code 없음 → token이 URL에 바로 노출 → 탈취 성공
+
+❌ Auth Code (without PKCE):
+   code만으로 token 교환 가능 → 탈취 성공
+
+✅ PKCE:
+   code를 탈취해도 code_verifier가 없으면 교환 실패
+   → code_verifier는 sessionStorage에만 존재
+   → 공격자는 token 획득 불가
+</code></pre>
+<h3 id="kakaonaver-지원-여부">Kakao/Naver 지원 여부<a aria-hidden="true" class="anchor-heading icon-link" href="#kakaonaver-지원-여부"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Provider</th><th>PKCE 지원</th><th>Implicit Grant</th><th>비고</th></tr></thead><tbody><tr><td><strong>Kakao</strong></td><td>❌ 미지원</td><td>❌ 기본 비활성화</td><td>Authorization Code만 강제</td></tr><tr><td><strong>Naver</strong></td><td>❌ 미지원</td><td>✅ 지원</td><td>Implicit Grant 허용됨</td></tr><tr><td><strong>Google</strong></td><td>✅ 지원</td><td>Deprecated</td><td>PKCE 권장</td></tr><tr><td><strong>GitHub</strong></td><td>✅ 지원</td><td>Deprecated</td><td>PKCE 권장</td></tr></tbody></table></div>
+<h2 id="비교-표">비교 표<a aria-hidden="true" class="anchor-heading icon-link" href="#비교-표"></a></h2>
+<h3 id="기본-비교">기본 비교<a aria-hidden="true" class="anchor-heading icon-link" href="#기본-비교"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>Implicit Grant</th><th>Auth Code Grant</th><th>PKCE</th></tr></thead><tbody><tr><td><strong>response_type</strong></td><td><code>token</code></td><td><code>code</code></td><td><code>code</code></td></tr><tr><td><strong>client_secret</strong></td><td>불필요</td><td><strong>필수</strong></td><td>불필요</td></tr><tr><td><strong>백엔드 필요</strong></td><td>❌</td><td>✅</td><td>❌</td></tr><tr><td><strong>보안 수준</strong></td><td>❌ 낮음</td><td>✅ 높음 (백엔드 시)</td><td>✅ 높음</td></tr><tr><td><strong>브라우저 노출</strong></td><td>Token 노출</td><td>Code만 노출</td><td>Code만 노출</td></tr><tr><td><strong>Refresh Token</strong></td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td><strong>상태</strong></td><td>Deprecated</td><td>표준</td><td>최신 권장</td></tr></tbody></table></div>
+<h3 id="보안-비교">보안 비교<a aria-hidden="true" class="anchor-heading icon-link" href="#보안-비교"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>공격 벡터</th><th>Implicit</th><th>Auth Code</th><th>PKCE</th></tr></thead><tbody><tr><td><strong>URL 노출</strong></td><td>❌ Token 노출</td><td>✅ Code만 (안전)</td><td>✅ Code만 (안전)</td></tr><tr><td><strong>XSS 공격</strong></td><td>❌ 취약</td><td>⚠️ 백엔드 시 안전</td><td>✅ 안전</td></tr><tr><td><strong>Code 탈취</strong></td><td>N/A</td><td>⚠️ Secret 없으면 취약</td><td>✅ Verifier 필요</td></tr><tr><td><strong>브라우저 히스토리</strong></td><td>❌ Token 저장됨</td><td>✅ Code만</td><td>✅ Code만</td></tr><tr><td><strong>중간자 공격</strong></td><td>❌ 취약</td><td>✅ HTTPS 필수</td><td>✅ HTTPS 필수</td></tr></tbody></table></div>
+<h3 id="사용-사례">사용 사례<a aria-hidden="true" class="anchor-heading icon-link" href="#사용-사례"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>앱 유형</th><th>권장 방식</th><th>이유</th></tr></thead><tbody><tr><td><strong>전통적인 웹앱</strong> (백엔드 有)</td><td>Auth Code Grant</td><td>client_secret 안전 보관 가능</td></tr><tr><td><strong>SPA</strong> (백엔드 無)</td><td><strong>PKCE</strong></td><td>client_secret 없이 안전</td></tr><tr><td><strong>모바일 앱</strong></td><td><strong>PKCE</strong></td><td>코드 디컴파일 위험</td></tr><tr><td><strong>데스크톱 앱</strong></td><td>PKCE</td><td>설치 파일에서 secret 추출 가능</td></tr><tr><td><strong>레거시 SPA</strong></td><td><del>Implicit Grant</del></td><td>Deprecated - PKCE로 마이그레이션</td></tr></tbody></table></div>
+<h2 id="권장-사항">권장 사항<a aria-hidden="true" class="anchor-heading icon-link" href="#권장-사항"></a></h2>
+<p><strong>SPA / 모바일 앱:</strong></p>
+<pre><code>✅ PKCE (Authorization Code Grant with PKCE)
+   - client_secret 불필요
+   - 안전함
+   - 최신 권장 방식
+</code></pre>
+<p><strong>전통적인 웹앱 (백엔드 有):</strong></p>
+<pre><code>✅ Authorization Code Grant (백엔드에서 처리)
+   - client_secret은 서버 환경변수로 관리
+   - Token 교환은 백엔드에서만
+</code></pre>
+<h2 id="참고-자료">참고 자료<a aria-hidden="true" class="anchor-heading icon-link" href="#참고-자료"></a></h2>
+<h3 id="oauth-20-스펙">OAuth 2.0 스펙<a aria-hidden="true" class="anchor-heading icon-link" href="#oauth-20-스펙"></a></h3>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc6749">RFC 6749 - OAuth 2.0 Framework</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7636">RFC 7636 - PKCE</a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics">OAuth 2.0 Security Best Current Practice</a></li>
+</ul>
+<h3 id="kakao-관련">Kakao 관련<a aria-hidden="true" class="anchor-heading icon-link" href="#kakao-관련"></a></h3>
+<ul>
+<li><a href="https://developers.kakao.com/docs/ko/kakaologin/rest-api">Kakao OAuth 공식 문서</a></li>
+<li><a href="https://developers.kakao.com/docs/ko/javascript/migration">Kakao SDK v2 마이그레이션</a></li>
+</ul>

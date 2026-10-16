@@ -1,0 +1,23 @@
+<h1 id="reasons-to-prefer-blake3-over-sha256">Reasons to prefer blake3 over sha256<a aria-hidden="true" class="anchor-heading icon-link" href="#reasons-to-prefer-blake3-over-sha256"></a></h1>
+<blockquote>
+<p><a href="https://peergos.org/posts/blake3">https://peergos.org/posts/blake3</a></p>
+<p><a href="https://github.com/BLAKE3-team/BLAKE3">https://github.com/BLAKE3-team/BLAKE3</a></p>
+</blockquote>
+<p>SHA256 was designed by the NSA. BLAKE (the original) and BLAKE3 were designed by Jean-Philippe Aumasson and others (including me, but Jean-Philippe and the other contributors did a lot more of the cryptographic heavy lifting than I did).</p>
+<p>SHA256 was based on SHA1 (which is weak). BLAKE was based on ChaCha20, which was based on Salsa20 (which are both strong).</p>
+<p>NIST/NSA have repeatedly signaled lack of confidence in SHA256: first by hastily organising the SHA3 contest in the aftermath of Wang's break of SHA1, then by making "Don't be like SHA256" a goal for the algorithms of that contest, and then by banning SHA256 from new designs to be used by the USA government (except for in one specific cryptosystem that protects from weaknesses in the hash function <a href="https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF">https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF</a>).</p>
+<p>BLAKE (the original) was very well-studied during the SHA3 competition. In NIST's final report on the SHA3 process, they stated that the depth of scientific analysis applied to BLAKE exceeded even that applied to Keccak (the final SHA3 winner).</p>
+<p><a href="https://peergos.org//theme/img/blog/blake3-analysis.jpeg">blake3 analysis</a></p>
+<p>Known, feasible attacks can break 31 out of 64 rounds of SHA256 (48% of the rounds). Known, feasible attacks can break only 2 out of 7 rounds of BLAKE3 (29% of the rounds).</p>
+<p>BLAKE3 comes “out of the box” with security features that can protect users in common use cases, such as protection against length-extension attack, a standard method of keying, "personalization tags" to guarantee domain separation, etc.</p>
+<p>BLAKE3 is <em>much</em> more efficient (in time and energy) than SHA256, like 14 <em>times</em> as efficient in typical use cases on typical platforms.</p>
+<p><a href="https://peergos.org/theme/img/blog/blake3-performance.jpeg">blake3 performance</a></p>
+<p>BLAKE3 also offers performance that is competitive against SHA256 in a lot of different use cases and platforms, including some that might surprise you, such as sometimes being more efficient than SHA256 <em>even</em> when your CPU comes with SHA256 acceleration circuits built into it!</p>
+<p>BLAKE3 is highly parallelizable. This provides two performance advantages, only the first of which most people think about.</p>
+<ul>
+<li>The first is big data + big multicore: if the size of your data inputs scale up 100X but the number of CPU cores in your platform also scale up 100X, BLAKE3 takes only a little longer, but SHA256 takes approximately 100X times as long.</li>
+<li>The other advantage, less widely understood, is that inside a single compute device, new tech improvements provide more and more parallel power. This is true in FPGAs and GPUs, and it is true in CPUs because of vectorization upgrades.</li>
+</ul>
+<p>AVX in Intel/AMD, Neon and Scalable Vector Extensions in Arm, and RISC-V Vector computing in RISC-V. BLAKE3 can take advantage of all of it.</p>
+<p>When you upgrade to a newer CPU/platform/device, BLAKE3 typically <em>further extends</em> its performance advantage over SHA256 compared to the performance advantage it already had on the previous platform!</p>
+<p>Finally, BLAKE3 was designed and implemented by both cryptographers <em>and</em> software engineers. The reference implementations are super efficient and well-engineered for security, thanks to Jack O'Connor, Samuel Neves, and Jean-Philippe Aumasson: <a href="https://github.com/BLAKE3-team/BLAKE3">https://github.com/BLAKE3-team/BLAKE3</a></p>

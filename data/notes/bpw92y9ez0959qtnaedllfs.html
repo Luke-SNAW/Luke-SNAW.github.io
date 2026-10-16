@@ -1,0 +1,153 @@
+<h1 id="how-pinterest-scaled-to-11-million-users-with-only-6-engineers">How Pinterest scaled to 11 million users with only 6 engineers<a aria-hidden="true" class="anchor-heading icon-link" href="#how-pinterest-scaled-to-11-million-users-with-only-6-engineers"></a></h1>
+<blockquote>
+<p><a href="https://read.engineerscodex.com/p/how-pinterest-scaled-to-11-million">https://read.engineerscodex.com/p/how-pinterest-scaled-to-11-million</a></p>
+</blockquote>
+<p>In January 2012, Pinterest hit 11.7 million monthly unique users with only 6 engineers.</p>
+<p>Having launched in March 2010, it was <a href="https://techcrunch.com/2012/02/07/pinterest-monthly-uniques/#:~:text=11.7%20million%20unique%20monthly%20U.S.%20visitors%2C%20crossing%20the%2010%20million%20mark%20faster%20than%20any%20other%20standalone%20site%20in%20history.">the fastest company to race past 10 million monthly users at the time</a>.</p>
+<p><a href="https://pinterest.com/">Pinterest</a> is an image-heavy social network, where users can save or “pin” images to their boards.</p>
+<blockquote>
+<p>When I say “users” below, I mean “monthly active users” (MAUs).</p>
+</blockquote>
+<h2 id="lessons-from-scaling-pinterest"><strong>Lessons from Scaling Pinterest</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#lessons-from-scaling-pinterest"></a></h2>
+<ul>
+<li><strong>Use known, proven technologies.</strong> Pinterest’s dive into newer technologies at the time led to issues like data corruption.</li>
+<li><strong>Keep it simple.</strong> (A recurring theme!)</li>
+<li><strong>Don’t get too creative.</strong> The team settled on an architecture where they could add more of the same nodes to scale.</li>
+<li><strong>Limit your options</strong>.</li>
+<li><strong>Sharding databases > clustering.</strong> It reduced data transfer across nodes, which was a good thing.</li>
+<li><strong>Have fun!</strong> New engineers would contribute code in their first week.</li>
+</ul>
+<p><a href="https://engineercodex.substack.com/p/how-instagram-scaled-to-14-million">The Instagram team had similar lessons from scaling to 14 million users with 3 engineers</a>.</p>
+<h2 id="march-2010-closed-beta-launch-1-engineer"><strong>March 2010: Closed beta launch, 1 engineer</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#march-2010-closed-beta-launch-1-engineer"></a></h2>
+<p>Pinterest launched in March 2010 with 1 small MySQL database, 1 small web server, and 1 engineer (along with the 2 co-founders).</p>
+<p><a href="https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F19d5d064-82c0-4d31-916d-70bfeb1527a9_1124x448.png">https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F19d5d064-82c0-4d31-916d-70bfeb1527a9_1124x448.png</a></p>
+<h2 id="january-2011-10000-users-2-engineers"><strong>January 2011: 10,000 users, 2 engineers</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#january-2011-10000-users-2-engineers"></a></h2>
+<p>Nine months later in January 2011, Pinterest’s architecture had evolved to handle more users. They were still invite-only and had 2 engineers.</p>
+<p>They had:</p>
+<ul>
+<li>a basic web server stack (Amazon EC2, S3, and CloudFront)
+<ul>
+<li>Django (Python) for their backend</li>
+</ul>
+</li>
+<li>4 web servers for redundancy</li>
+<li>NGINX as their reverse proxy and load balancer.</li>
+<li>1 MySQL database at this point + 1 read-only secondary</li>
+<li>MongoDB for counters</li>
+<li>1 task queue and 2 task processors for asynchronous tasks</li>
+</ul>
+<p><a href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8cd7c12c-bdc0-494d-ac86-b65f09b2a2f6_1255x615.png">https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8cd7c12c-bdc0-494d-ac86-b65f09b2a2f6_1255x615.png</a></p>
+<h2 id="october-2011-32-million-users-3-engineers"><strong>October 2011: 3.2 million users, 3 engineers</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#october-2011-32-million-users-3-engineers"></a></h2>
+<p>From January 2011 to October 2011, Pinterest grew extremely fast, doubling users every month and a half.</p>
+<p>Their iPhone app launch in March 2011 was one of the factors fueling this growth.</p>
+<p>When things grow fast, technology breaks more often than you expect.</p>
+<p>Pinterest made a mistake: <strong>they over-complicated their architecture immensely.</strong></p>
+<p>They had only 3 engineers, but 5 different database technologies for their data.</p>
+<p>They were both manually sharding their MySQL databases and clustering their data using Cassandra and Membase (now Couchbase).</p>
+<p><strong><a href="https://www.infoq.com/presentations/Pinterest/">Their “overcomplicated stack"</a>:</strong></p>
+<ul>
+<li>Web server stack (EC2 + S3 + CloudFront)
+<ul>
+<li><a href="https://www.quora.com/What-challenges-has-Pinterest-encountered-with-Flask">Pinterest started moving to Flask (Python) for their backend</a></li>
+</ul>
+</li>
+<li>16 web servers</li>
+<li>2 API engines</li>
+<li>2 NGINX proxies</li>
+<li>5 manually-sharded MySQL DBs + 9 read-only secondaries</li>
+<li>4 Cassandra Nodes</li>
+<li>15 Membase Nodes (3 separate clusters)</li>
+<li>8 Memcache Nodes</li>
+<li>10 Redis Nodes</li>
+<li>3 Task Routers + 4 Task Processors</li>
+<li>4 Elastic Search Nodes</li>
+<li>3 Mongo Clusters</li>
+</ul>
+<p><a href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F386fd87b-f932-4310-82cf-07860bc36e98_1357x1047.png">https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F386fd87b-f932-4310-82cf-07860bc36e98_1357x1047.png</a></p>
+<p>Subscribe</p>
+<h3 id="️-clustering-gone-wrong">⚠️ Clustering gone wrong<a aria-hidden="true" class="anchor-heading icon-link" href="#️-clustering-gone-wrong"></a></h3>
+<blockquote>
+<p><strong>Database clustering</strong> is the process of connecting multiple database servers to work together as a single system.</p>
+</blockquote>
+<p>In theory, clustering automatically scales datastores, provides high availability, free load balancing, and doesn’t have a single point of failure.</p>
+<p>Unfortunately, in practice, clustering was overly complex, had difficult upgrade mechanisms, and <strong>it had a big single point of failure.</strong></p>
+<p><a href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb2198073-6421-434e-be2f-2904aa5ff975_1462x645.png">https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb2198073-6421-434e-be2f-2904aa5ff975_1462x645.png</a></p>
+<p>Each DB has a Cluster Management Algorithm that routes from DB to DB.</p>
+<p>When something goes wrong with a DB, a new DB is added to replace it.</p>
+<p>In theory, the Cluster Management Algorithm should handle this just fine.</p>
+<p>In reality, there was a bug in Pinterest’s Cluster Management Algorithm that <strong>corrupted data on all their nodes, broke their data rebalancing, and created some unfixable problems</strong>.</p>
+<p><a href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffabc91cd-53b2-47f2-9d71-c50e7a3824aa_1306x538.png">https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffabc91cd-53b2-47f2-9d71-c50e7a3824aa_1306x538.png</a></p>
+<p>Pinterest’s solution? <strong>Remove all clustering tech (Cassandra, Membase) from the system. Go all-in with MySQL + Memcached (more proven).</strong></p>
+<p>MySQL and Memcached are well-proven technologies. <a href="https://engineercodex.substack.com/p/how-facebook-scaled-memcached">Facebook used the two to create the largest Memcached system in the world, which handled billions of requests per second for them with ease.</a></p>
+<p>Subscribe</p>
+<h2 id="january-2012-11-million-users-6-engineers"><strong>January 2012: 11 million users, 6 engineers</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#january-2012-11-million-users-6-engineers"></a></h2>
+<p>In January 2012, Pinterest was handling ~11 million monthly active users, with anywhere between 12 million to 21 million daily users.</p>
+<p>At this point, Pinterest had taken the time to simplify their architecture.</p>
+<p>They removed less-proven ideas, like clustering and Cassandra at the time, and replaced them with proven ones, like MySQL, Memcache, and sharding.</p>
+<p><strong>Their simplified stack:</strong></p>
+<ul>
+<li>Amazon EC2 + S3 + <a href="https://www.akamai.com/">Akamai</a> (replaced CloudFront)</li>
+<li><a href="https://aws.amazon.com/elasticloadbalancing/">AWS ELB (Elastic Load Balancing)</a></li>
+<li>90 Web Engines + 50 API Engines (<a href="https://www.quora.com/What-challenges-has-Pinterest-encountered-with-Flask">using Flask</a>)</li>
+<li>66 MySQL DBs + 66 secondaries</li>
+<li>59 Redis Instances</li>
+<li>51 Memcache Instances</li>
+<li>1 Redis Task Manager + 25 Task Processors</li>
+<li>Sharded <a href="https://solr.apache.org/">Apache Solr</a> (replaced Elasticsearch)</li>
+<li><strong>Removed Cassanda, Membase, Elasticsearch, MongoDB, NGINX</strong></li>
+</ul>
+<p><a href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F34e259af-7bfe-4734-ab56-f793dabe2cb2_1608x767.png">https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F34e259af-7bfe-4734-ab56-f793dabe2cb2_1608x767.png</a></p>
+<h3 id="how-pinterest-manually-sharded-their-databases">How Pinterest manually sharded their databases<a aria-hidden="true" class="anchor-heading icon-link" href="#how-pinterest-manually-sharded-their-databases"></a></h3>
+<blockquote>
+<p><strong>Database sharding</strong> is a method of splitting a single dataset into multiple databases.</p>
+<p><strong>Benefits:</strong> high availability, load balancing, simple algorithm for placing data, easy to split databases to add more capacity, easy to locate data</p>
+</blockquote>
+<p>When Pinterest first sharded their databases, they had a feature freeze. Over the span of a few months, <strong>they sharded their databases incrementally and manually:</strong></p>
+<p><a href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F33d7cfda-8807-4adf-a927-7e7f3e9faaf5_789x443.png">https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F33d7cfda-8807-4adf-a927-7e7f3e9faaf5_789x443.png</a></p>
+<p><a href="https://www.infoq.com/presentations/Pinterest/">Source: Scaling Pinterest</a></p>
+<p>The team removed table joins and complex queries from the database layer. They added lots of caching.</p>
+<p>Since it was extra effort to maintain unique constraints across databases, they kept data like usernames and emails in a huge, unsharded database.</p>
+<p>All their tables existed on all their shards.</p>
+<h4 id="an-small-example-of-manual-sharding">An small example of manual sharding<a aria-hidden="true" class="anchor-heading icon-link" href="#an-small-example-of-manual-sharding"></a></h4>
+<p>Since they had billions of “pins”, their database indexes ran out of memory.</p>
+<p>They would take the largest table on the database and move it to its own database.</p>
+<p>Then, when that database ran out of space, they would shard.</p>
+<p>Subscribe</p>
+<h2 id="october-2012-22-million-users-40-engineers"><strong>October 2012: 22 million users, 40 engineers</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#october-2012-22-million-users-40-engineers"></a></h2>
+<p>In October 2012, Pinterest had around 22 million monthly users, but their engineering team had quadrupled to 40 engineers.</p>
+<p><strong>The architecture was the same. They just added more of the same systems.</strong></p>
+<ul>
+<li>Amazon EC2 + S3 + CDNs (EdgeCast, Akamai, Level 3)</li>
+<li>180 web servers + 240 API engines (using Flask)</li>
+<li>88 MySQL DBs + 88 secondaries each</li>
+<li>110 Redis instances</li>
+<li>200 Memcache instances</li>
+<li>4 Redis Task Managers + 80 Task Processors</li>
+<li>Sharded Apache Solr</li>
+</ul>
+<p><a href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fff18b5dd-2d71-4d8b-864a-4455e374bc62_1608x767.png">https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fff18b5dd-2d71-4d8b-864a-4455e374bc62_1608x767.png</a></p>
+<p>They started moving from hard disk drives to SSDs.</p>
+<p>An important lesson learned: <strong>limited, proven choices was a good thing</strong>.</p>
+<p>Sticking with EC2 and S3 meant they had limited configuration choices, leading to less headaches and more simplicity.</p>
+<p><strong>However, new instances could be ready in seconds.</strong> This meant that they could add 10 Memcache instances in a matter of minutes.</p>
+<p>Subscribe</p>
+<h2 id="pinterests-database-structuring"><strong>Pinterest’s Database Structuring</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#pinterests-database-structuring"></a></h2>
+<h3 id="ids">IDs<a aria-hidden="true" class="anchor-heading icon-link" href="#ids"></a></h3>
+<p><a href="https://engineercodex.substack.com/p/how-instagram-scaled-to-14-million">Like Instagram</a>, Pinterest had a unique ID structure because they had sharded databases.</p>
+<p>Their 64-bit ID looked like:</p>
+<p><a href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F269be284-a074-4898-857b-2a8903ba4b48_590x110.png">https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F269be284-a074-4898-857b-2a8903ba4b48_590x110.png</a></p>
+<p><a href="https://www.infoq.com/presentations/Pinterest/">Source: Scaling Pinterest</a></p>
+<blockquote>
+<p><strong>Shard ID:</strong> which shard (16 bits)</p>
+<p><strong>Type:</strong> object type, such as pins (10 bits)</p>
+<p><strong>Local ID:</strong> position in table (38 bits)</p>
+</blockquote>
+<p>The lookup structure for these IDs was <strong>a simple Python dictionary.</strong></p>
+<hr>
+<h3 id="tables">Tables<a aria-hidden="true" class="anchor-heading icon-link" href="#tables"></a></h3>
+<p>They had Object tables and Mapping tables.</p>
+<p><strong>Object tables were for pins, boards, comments, users, and more.</strong> They had a Local ID mapped to a MySQL blob, like JSON.</p>
+<p><strong>Mapping tables were for relational data between objects, like mapping boards to a user or likes to a pin.</strong> They had a Full ID mapped to a Full ID and a timestamp.</p>
+<p>All queries were PK (primary key) or index lookups for efficiency. They cut out all JOINs.</p>
+<hr>
+<p><strong>This article is based on <a href="https://www.infoq.com/presentations/Pinterest/">Scaling Pinterest</a>, a talk given by the Pinterest team in 2012.</strong></p>

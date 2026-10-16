@@ -1,0 +1,602 @@
+<h1 id="articles-i-read-in-2022">Articles I read in 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#articles-i-read-in-2022"></a></h1>
+<h2 id="week-52-2022">Week 52, 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#week-52-2022"></a></h2>
+<ul>
+<li><a href="https://12daysofweb.dev/2022/css-image/#image-fragments">CSS Image fragments - image()</a>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.hero</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">image</span><span class="token punctuation">(</span><span class="token string">"images/my-image.jpg#xywh=150,50,500,300"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><a href="https://blog.logrocket.com/guide-image-overlays-css/">Guide to image overlays in CSS</a></li>
+<li><a href="https://medium.com/codex/the-true-power-of-css-columns-2e620ad66282">The True Power Of CSS Columns</a></li>
+<li><a href="https://css-tricks.com/unchain-my-inaccessibly-labelled-heart/">Unchain My Inaccessibly-Labelled Heart</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#a11y (Private)</a></li>
+<li><a href="https://calendar.perfplanet.com/2022/web-performance-apis-appreciation-post/">Web Performance APIs Appreciation Post</a></li>
+<li><a href="https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt">git commit --fixup=[(amend|reword):]<commit></commit></a></li>
+<li><a href="https://stackoverflow.com/questions/41181942/git-commit-with-template-message">git commit with offered message editing</a>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> commit -em <span class="token string">"some string"</span>
+</code></pre>
+</li>
+<li><a href="https://tailwindcss.com/docs/content-configuration#dynamic-class-names">Tailwind - Dynamic class names</a>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bg-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> zero <span class="token operator">?</span> pageColor <span class="token operator">:</span> baseColor<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span> <span class="token comment">// not work</span>
+<span class="token keyword">class</span> <span class="token operator">=</span> zero <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bg-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>pageColor<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span> <span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bg-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>baseColor<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span> <span class="token comment">// not work</span>
+</code></pre>
+</li>
+<li><a href="https://developers.google.com/search/docs/crawling-indexing/control-what-you-share">Control what you share with Google</a></li>
+<li><a href="https://github.com/wanjohiryan/qwantify">qwantify</a> - Play games with your friends right from the browser.</li>
+<li><a href="https://github.com/DioxusLabs/dioxus">Dioxus</a> is a portable, performant, and ergonomic framework for building cross-platform user interfaces in Rust.</li>
+<li><a href="https://github.com/leandromoreira/cdn-up-and-running">CDN Up and Running</a> - Building a CDN from Scratch to Learn</li>
+<li><a href="https://www.debugbear.com/blog/2022-in-web-performance">2022 In Review: What’s New In Web Performance?</a></li>
+<li><a href="https://webaim.org/techniques/screenreader/">Designing for Screen Reader Compatibility</a></li>
+<li><a href="https://www.htmhell.dev/adventcalendar/2022/14/">Table Like It's 2023</a></li>
+<li><a href="https://www.franzoni.eu/password-requirements-myths-madness/">Password requirements: myths and madness</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34098369">https://news.ycombinator.com/item?id=34098369</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="week-51-2022">Week 51, 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#week-51-2022"></a></h2>
+<ul>
+<li>
+<p><a href="https://calendar.perfplanet.com/2022/using-inline-javascript-modules-to-prevent-css-blockage/">Using inline JavaScript modules to prevent CSS blockage</a></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">async</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+</li>
+<li>
+<p><a href="https://ishadeed.com/article/css-container-style-queries/">CSS Style Queries</a></p>
+</li>
+<li>
+<p><a href="https://alexsidorenko.com/blog/useeffect/">A Visual Guide to useEffect</a></p>
+<blockquote>
+<p>Side effects shouldn’t happen during component render. Therefore they do not belong to the body of a functional component. React has a special place for them.</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://austingil.com/css-has-with-html-forms/">4 ways CSS :has() can make your HTML forms even better</a></p>
+</li>
+<li>
+<p><a href="https://javascript.plainenglish.io/15-useful-javascript-tips-814eeba1f4fd">15 Useful JavaScript Tips</a></p>
+<ul>
+<li>Event listeners run only once</li>
+</ul>
+<pre class="language-js"><code class="language-js">element<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"I run only once"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  once<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>element’s dataset</li>
+</ul>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user<span class="token punctuation">"</span></span> <span class="token attr-name">data-name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Maxwell<span class="token punctuation">"</span></span> <span class="token attr-name">data-age</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>32<span class="token punctuation">"</span></span> <span class="token attr-name">data-something</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Some Data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  Hello Maxwell
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">)</span>
+
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token property-access">dataset</span><span class="token punctuation">)</span>
+  <span class="token comment">// { name: "Maxwell", age: "32", something: "Some Data" }</span>
+
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token property-access">dataset</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">)</span> <span class="token comment">// "Maxwell"</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token property-access">dataset</span><span class="token punctuation">.</span><span class="token property-access">age</span><span class="token punctuation">)</span> <span class="token comment">// "32"</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token property-access">dataset</span><span class="token punctuation">.</span><span class="token property-access">something</span><span class="token punctuation">)</span> <span class="token comment">// "Some Data"</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+</li>
+<li>
+<p><a href="https://glebbahmutov.com/blog/run-failed-tests/">Run Just The Failed Tests In Cypress</a></p>
+</li>
+<li>
+<p><a href="https://github.com/elsewhencode/project-guidelines">Project Guidelines</a></p>
+</li>
+<li>
+<p><a href="https://towardsdev.com/most-usefull-queries-for-sql-server-596dda5742c1">Most Usefull Queries for Sql Server</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/codex/lets-make-a-better-light-dark-toggle-760499a8bc82">Let’s Make A Better “Light / Dark” Toggle</a></p>
+</li>
+<li>
+<p><a href="https://css-tricks.com/does-www-still-belong-in-urls/">Does WWW still belong in URLs?</a></p>
+<ul>
+<li>WWW-less domain concern 1: Leaking cookies to subdomains</li>
+<li>WWW-less domain concern 2: DNS headaches</li>
+<li><a href="https://css-tricks.com/does-www-still-belong-in-urls/#aa-www-less-benefits">WWW-less benefits</a></li>
+<li><a href="https://css-tricks.com/does-www-still-belong-in-urls/#aa-www-benefits">WWW benefits</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://web.dev/website-navigation/">Building the main navigation for a website</a></p>
+</li>
+<li>
+<p><a href="https://validator.w3.org/">The W3C Markup Validation Service</a></p>
+</li>
+<li>
+<p><a href="https://www.htmhell.dev/adventcalendar/2022/1/">How to transfigure wireframes into HTML</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/a/20907647/5163033">How do I commit case-sensitive only filename changes in Git?</a></p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">git</span> <span class="token function">mv</span> -f yOuRfIlEnAmE yourfilename
+</code></pre>
+</li>
+</ul>
+<h2 id="week-50-2022">Week 50, 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#week-50-2022"></a></h2>
+<ul>
+<li><a href="https://readera.org/en/book-reader">ReadEra</a> - ReadEra is an Android application for reading books and viewing documents, free and without ads.</li>
+<li><a href="https://github.com/jawj/zapatos">Zapatos</a> - Zero-abstraction Postgres for TypeScript: a non-ORM database library</li>
+<li><a href="https://cloudfour.com/thinks/responsive-images-101-part-4-srcset-width-descriptors/">Responsive Images 101, Part 4: Srcset Width Descriptors</a></li>
+<li><a href="https://mars.nasa.gov/explore/mars-now/">Mars Now | Explore – NASA Mars Exploration</a></li>
+<li><a href="https://buildtogether.tech/process/#:~:text=A%20schedule%27s%20primary%20purpose%20is%20not%20to%20tell%20you%20what%20you%27re%20supposed%20to%20be%20doing%20on%20any%20given%20day%2C%20but%20to%20tell%20you%20when%20you%20should%20start%20cutting%20corners.">A schedule's primary purpose is not to tell you what you're supposed to be doing on any given day, but to tell you when you should start cutting corners.</a></li>
+<li><a href="https://github.blog/2022-12-12-highlights-from-git-2-39/">Highlights from Git 2.39</a></li>
+<li><a href="https://glebbahmutov.com/blog/cypress-v12/">How Cypress version 12 retries the chains of multiple query commands.</a></li>
+<li><a href="https://dev.to/jacobherrington/how-to-write-useful-commit-messages-my-commit-message-template-20n9">How to Write Useful Commit Messages</a>
+<ul>
+<li>This commit will <code>What</code></li>
+<li><code>Why</code></li>
+</ul>
+</li>
+<li><a href="https://news.ycombinator.com/item?id=33942558">Ask HN: Those with money-making side projects,how did you come up with the idea?</a></li>
+<li><a href="https://www.amazingcto.com/postgres-for-everything/">Just Use Postgres for Everything</a> - How to reduce complexity and move faster
+<blockquote>
+<p>Postgres can replace - up to millions of users - many backend technologies, Kafka, RabbitMQ, Mongo and Redis among them.</p>
+<p><a href="https://news.ycombinator.com/item?id=33936703">Each component has its own debugging requirements and tooling. Each component adds a bunch of complexity. Sometimes it's worth it, sometimes it's not.</a></p>
+</blockquote>
+</li>
+<li><a href="http://www.radicalsimpli.city/">Radical Simplicity</a></li>
+<li><a href="https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/">When to use gRPC vs GraphQL</a>
+<blockquote>
+<p>Use GraphQL for client-server communication and gRPC for server-to-server. See the Verdict section for exceptions to this rule.</p>
+</blockquote>
+</li>
+<li><a href="https://blog.logrocket.com/npm-query-better-dependency-management/">Using <code>npm query</code> for better dependency management</a></li>
+<li><a href="https://calendar.perfplanet.com/2022/make-sense-of-flame-charts-in-performance-tab-by-example/">Make sense of flame charts in Performance Tab by example</a>
+<blockquote>
+<p>During sampling profiling, a browser forces an engine to stop every 1 ms, and record the call stack at that moment.</p>
+</blockquote>
+</li>
+<li><a href="https://medium.com/codex/so-hgroup-is-back-in-html-5-and-dumb-as-ever-c81e00f6320d">So <code>&#x3C;HGROUP></code> Is Back In HTML 5, And Dumb As Ever!</a></li>
+<li><a href="https://blog.openreplay.com/html-entities-marks-and-emojis/">HTML Entities, Diacritical Marks, And Emojis</a></li>
+<li><a href="https://numverify.com/">numverify</a> - Global Phone Number Validation &#x26; Lookup JSON API: Real-time REST API supporting 232 countries</li>
+<li><a href="https://glebbahmutov.com/blog/skip-before-each-hook/">Cypress: Skip Before Each Hook</a></li>
+<li><a href="https://blog.bitsrc.io/functional-programming-oh-functors-5e670d8eeb8d">Functional Programming: Part 5 - Functors</a></li>
+</ul>
+<h2 id="week-49-2022">Week 49, 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#week-49-2022"></a></h2>
+<ul>
+<li><a href="https://apps.amandaghassaei.com/gpu-io/examples/">gpu-io</a> - A GPU-accelerated computing library for physics simulations and other mathematical calculations</li>
+<li><a href="https://2ality.com/2017/08/typing-import-statements.html">Tips for typing import statements in JavaScript</a></li>
+<li><a href="https://dzone.com/articles/5-books-for-qa-engineers">5 Books for QA Engineers</a></li>
+<li><a href="https://smartynames.com/">Domain Name Search with AI</a> - <a href="https://news.ycombinator.com/item?id=33882497">https://news.ycombinator.com/item?id=33882497</a></li>
+<li><a href="https://dev.to/lissy93/awesome-dev-tool-tips-32oo">Awesome Dev Tool Tips</a>
+<ul>
+<li>Easily identify which bundles are the largest, and how much of their code is actually used, and what the load impact of each file is, using the <a href="https://developer.chrome.com/docs/devtools/coverage/">Coverage</a> tool.</li>
+</ul>
+</li>
+<li><a href="https://dev.to/lissy93/super-useful-css-resources-1ba3">Super Useful CSS Resources</a></li>
+<li><a href="https://letsencrypt.org/2022/12/05/ed-letter-2022.html">A Year-End Letter from our Executive Director</a>
+<blockquote>
+<p>Let’s Encrypt surpassed 300,000,000 websites served.</p>
+</blockquote>
+</li>
+<li><a href="https://github.com/greggman/twgl.js">TWGL: A Tiny WebGL helper Library</a></li>
+<li><a href="https://www.smashingmagazine.com/2022/11/document-object-model-geometry-guide/">Document Object Model (DOM) Geometry: A Beginner’s Introduction And Guide</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#terminology (Private)</a></li>
+<li><a href="https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/">An Interactive Guide to Flexbox</a></li>
+<li><a href="https://www.gov.uk/government/consultations/mobile-browsers-and-cloud-gaming-proposal-to-make-a-market-reference">Mobile browsers and cloud gaming: Proposal to make a market reference</a></li>
+<li><a href="https://shkspr.mobi/blog/2022/11/the-bbcs-15-web-principles-15-years-later/">The BBC's 15 Web Principles - 15 years later</a></li>
+<li><a href="https://lethain.com/company-team-self/">Company, team, self.</a>
+<blockquote>
+<ul>
+<li>This company/team/self framework proved itself a helpful decision-making tool, and almost always led to the “correct” outcome.</li>
+<li>Burn out by following this advice too loyally.</li>
+<li>People are complex, and they get energy in complex ways. Folks will accomplish more if you let them do some energizing work, even if that work itself isn’t very important.</li>
+</ul>
+</blockquote>
+</li>
+<li><a href="https://the.scapegoat.dev/why-i-am-learning-category-theory-1/">Why I am learning category theory</a></li>
+<li><a href="https://github.com/charlax/engineering-management">Engineering management</a> - A collection of inspiring resources related to engineering management and tech leadership <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://youtu.be/6Xw-OUcLp4s?t=185">Stretch between desk works</a></li>
+</ul>
+<h2 id="week-48-2022">Week 48, 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#week-48-2022"></a></h2>
+<ul>
+<li><a href="https://pitayan.com/posts/vue-techniques/">Have You Mastered These 9 Vue Techniques?</a></li>
+<li><a href="https://workflowy.com/systems/getting-things-done/">GTD</a></li>
+<li><a href="https://tkdodo.eu/blog/practical-react-query">Practical React Query by TkDodo</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://vimeo.com/28885655">Hibernate should be to programmers what cake mixes are to bakers</a> - This is a talk about the problems of creating convoluted abstractions and how not understanding what happens underneath makes things more complex instead of simplifying them.</li>
+<li><a href="https://www.youtube.com/shorts/zQWXe7vqk0A">The BEST Stretch You're Not Doing!</a>
+<ul>
+<li>duration: [30, 60]</li>
+<li>sets: [3, 5]</li>
+<li>training days: [3, 5]</li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/shorts/EDVV0YMkQKQ">Can't Do a Push-Up? Here's Where to Start!</a>
+<ul>
+<li>repeat: [5, 12]</li>
+<li>sets for week: [10, 20]</li>
+<li>training days: [3, 5]</li>
+</ul>
+</li>
+<li><a href="https://github.com/estruyf/vscode-front-matter">Front Matter</a> a CMS running straight in Visual Studio Code</li>
+<li><a href="https://www.infoxicator.com/is-react-going-anywhere">Is React going anywhere?</a>
+<ul>
+<li><a href="https://app.daily.dev/posts/kk7qnX1Wi">Aghiles Ait lounis</a></li>
+</ul>
+</li>
+<li><a href="https://javascript.plainenglish.io/as-a-front-end-engineer-8-useful-npm-coding-techniques-that-you-should-use-bc30b8503ba4">As a Front-End Engineer: 8 Useful Npm Coding Techniques That You Should Use</a></li>
+<li><a href="https://marvinh.dev/blog/speeding-up-javascript-ecosystem/">Speeding up the JavaScript ecosystem</a></li>
+<li><a href="https://anlucas.neocities.org/88x31Buttons.html">A collection of 88x31 pixel web buttons from the 1990s and 2000s</a></li>
+<li><a href="https://github.com/WasmEdge/WasmEdge">WasmEdge</a> is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, edge, and decentralized applications. It powers serverless apps, embedded functions, microservices, smart contracts, and IoT devices.</li>
+<li><a href="https://www.themosaad.com/blog/two-years-of-tailwind-css">Working with Tailwind CSS every day for 2 years</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=33787719">https://news.ycombinator.com/item?id=33787719</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/refined-github/refined-github">Refined GitHub</a> - Browser extension that simplifies the GitHub interface and adds useful features
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/refined-github/hlepfoohegkhhmjieoechaddaejaokhf/">Web store link</a></li>
+</ul>
+</li>
+<li><a href="https://apyhub.com/search?query=">ApyHub</a> - The Developer API Utility Belt</li>
+<li><a href="https://digitalsynopsis.com/design/miniature-dioramas/">Japanese Artist Creates Amazing Miniature Dioramas Every Day For 10 Years</a></li>
+<li><a href="https://www.neelnanda.io/blog/43-making-friends">Intentionally Making Close Friends</a></li>
+<li><a href="https://www.sqlite.org/np1queryprob.html">Many Small Queries Are Efficient In SQLite</a></li>
+<li><a href="https://github.com/hashicorp/consul">Consul</a> is a distributed, highly available, and data center aware solution to connect and configure applications across dynamic, distributed infrastructure.</li>
+<li><a href="https://github.com/benbjohnson/litestream">Litestream</a> is a standalone disaster recovery tool for SQLite. It runs as a background process and safely replicates changes incrementally to another file or S3.</li>
+<li><a href="https://1tools.co/">1Tools</a> - 100% Free Online tools for Everyday Needs</li>
+<li><a href="https://github.com/yorkxin/copy-as-markdown">Copy as Markdown for Chrome &#x26; Firefox</a></li>
+<li><a href="https://infiniteconversation.com/">An AI generated, never-ending discussion between Werner Herzog and Slavoj ŽIžek</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=33437296">https://news.ycombinator.com/item?id=33437296</a></li>
+</ul>
+</li>
+<li><a href="https://devathon.com/blog/elixir-vs-erlang-programming-language/">Elixir vs Erlang: A comparison</a></li>
+<li><a href="https://www.make.com/en">make</a> for no-code automation.</li>
+<li><a href="https://github.com/nitrictech/nitric">Nitric</a> is a framework for rapid development of cloud-native and serverless applications.</li>
+<li><a href="https://www.gpsrchive.com/Shared/Satellites/GPS%20vs%20GLONASS%20vs%20Galileo.html">GPS vs GLONASS vs Galileo</a></li>
+<li><a href="https://sirupsen.com/index-merges">Index Merges vs Composite Indexes in Postgres and MySQL</a>
+<blockquote>
+<p>Composite indexes are about 10x faster than index merges. In Postgres, the gap is larger than in MySQL because Postgres doesn't support index-only scans for queries that involve index merges.</p>
+</blockquote>
+</li>
+<li><a href="https://survey.stackoverflow.co/2022/#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages">https://survey.stackoverflow.co/2022/#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages</a></li>
+<li><a href="https://ecostack.dev/posts/wasm-tinygo-vs-rust-vs-assemblyscript/">WebAssembly: TinyGo vs Rust vs AssemblyScript</a></li>
+<li><a href="https://github.com/p8952/bocker">Bocker</a> - Docker implemented in around 100 lines of bash.</li>
+<li><a href="https://github.com/WiseLibs/better-sqlite3">better-sqlite3</a> - The fastest and simplest library for SQLite3 in Node.js.</li>
+<li>Dittytoy: JavaScript-Based Generative Music Sandbox
+<ul>
+<li><a href="https://dittytoy.net/ditty/6f30b0885d">https://dittytoy.net/ditty/6f30b0885d</a></li>
+<li><a href="https://dittytoy.net/ditty/2a0acbb94b">https://dittytoy.net/ditty/2a0acbb94b</a></li>
+</ul>
+</li>
+<li><a href="https://restfulapi.net/richardson-maturity-model/">Richardson Maturity Model</a></li>
+<li><a href="https://medium.com/@trgoodwill/api-bites-payload-conventions-76ffde7f5eb2">API Bites — Payload Conventions</a></li>
+<li><a href="https://css-tricks.com/making-static-noise-from-a-weird-css-gradient-bug/">Making Static Noise From a Weird CSS Gradient Bug</a></li>
+<li><a href="https://www.bram.us/2022/11/17/style-a-parent-element-based-on-its-number-of-children-using-css-has/">Style a parent element based on its number of children using CSS :has()</a></li>
+<li><a href="https://medium.com/codex/scripted-input-matching-with-native-error-reporting-8287dd7ac40a">Scripted <code>&#x3C;INPUT></code> Matching With Native Error Reporting</a>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity">https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity</a></li>
+</ul>
+</li>
+<li><a href="https://www.wiktorwisniewski.dev/blog/exploring-declarative-shadow-dom">Exploring Declarative Shadow DOM</a></li>
+<li><a href="https://itnext.io/the-hidden-power-of-custom-states-for-web-components-dcae5b048e20">The Hidden Power of Custom States For Web Components</a></li>
+<li><a href="https://medium.com/@trgoodwill/api-lifecycle-management-9fb0caaa41de">API Lifecycle Management</a></li>
+<li><a href="https://github.com/ScoopInstaller/Scoop">Scoop</a> - A command-line installer for Windows.</li>
+<li><a href="https://github.com/nektos/act">act</a> - Run your GitHub Actions locally 🚀</li>
+</ul>
+<h2 id="week-47-2022">Week 47, 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#week-47-2022"></a></h2>
+<ul>
+<li><a href="https://github.com/30-seconds/30-seconds-of-code">30 seconds of code</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://www.washingtonpost.com/technology/interactive/2022/amazon-shopping-ads/">Everything on Amazon is becoming an ad</a></li>
+<li>📚 <a href="https://github.com/EbookFoundation/free-programming-books">List of Free Learning Resources In Many Languages</a> - Freely available programming books <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://news.ycombinator.com/item?id=33732763">PDF vulnerability</a>
+<ul>
+<li><a href="https://github.com/freedomofpress/dangerzone">Dangerzone</a> - Take potentially dangerous PDFs, office documents, or images and convert them to a safe PDF.</li>
+</ul>
+</li>
+<li><a href="https://kevin.burke.dev/kevin/invalid-username-or-password-useless/">“Invalid Username or Password”: a useless security measure</a></li>
+<li><a href="https://www.syncfusion.com/blogs/post/5-different-ways-to-deep-compare-javascript-objects.aspx#:~:text=Two%20types%20of%20equalities%20in%20JavaScript">Two types of equalities in JavaScript</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#terminology (Private)</a></li>
+<li>✨ <a href="https://github.com/Simonwep/selection">Viselect</a> - A high performance and lightweight library to add a visual way of selecting elements, just like on your Desktop.</li>
+<li><a href="https://stackoverflow.blog/2022/11/23/why-writing-by-hand-is-still-the-best-way-to-retain-information/">Writing by hand is still the best way to retain information</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=33721068">headbee</a>: I can attest to this and took all of my notes on paper in college. However, once I started a real job I realized that this strategy doesn't scale to all situations. In college, I needed to be able to recall all of the information I had ingested: it was low-write, high-read. In the workplace, there's much more information, but I'm unlikely to need most of it: it's high-write, low-read. I need to be able to reference the information, but not necessarily recall it. Taking paper notes became too much of a burden and I moved to a wiki of markdown notes.</li>
+</ul>
+</li>
+<li><a href="https://dzone.com/articles/a-poor-mans-api">A Poor Man’s API</a>
+<ul>
+<li><a href="https://postgrest.org/en/stable/index.html">PostgREST</a> is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations.</li>
+</ul>
+</li>
+<li><a href="https://wundergraph.com/blog/solving_the_double_quintuple_declaration_problem_in_graphql_applications_how_to_not_repeat_yourself">Solving the double (quintuple) declaration Problem in GraphQL Applications: How to not repeat yourself!</a></li>
+<li><a href="https://echobind.com/post/why-we-ditched-graphql-for-trpc/">Why we ditched GraphQL for tRPC</a>
+<ul>
+<li><a href="https://github.com/trpc/trpc">tRPC</a> allows you to easily build &#x26; consume fully typesafe APIs, without schemas or code generation.</li>
+</ul>
+</li>
+<li><a href="https://asteriskmag.com/">Asterisk Magazine</a> - <a href="/dev.interesting#asterisk-magazine">site UI</a></li>
+<li><a href="https://blog.logrocket.com/css-vs-css-in-js/">CSS vs. CSS-in-JS: How and why to use each</a></li>
+<li><a href="https://github.com/microsoft/api-guidelines">Microsoft API Guidelines</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a>
+<ul>
+<li><a href="https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md">Microsoft REST API Guidelines</a></li>
+<li><a href="https://github.com/microsoft/api-guidelines/blob/vNext/graph/GuidelinesGraph.md">Graph REST API Guidelines</a></li>
+</ul>
+</li>
+<li><a href="https://www.taniarascia.com/understanding-map-and-set-javascript/">Understanding Map and Set in JavaScript</a></li>
+<li><a href="https://text-to-diagram.com/">https://text-to-diagram.com/</a></li>
+<li><a href="https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html">Why numbering should start at zero</a></li>
+<li><a href="https://www.syncfusion.com/blogs/post/vue-composition-api-vs-react-hooks.aspx#:~:text=Note%3A%20The%20main%20difference%20is%20that%20the%20watchEffect%20starts%20instantly%20while%20the%20watch()%20runs%20lazily">Note: The main difference is that the watchEffect starts instantly while the watch() runs lazily</a></li>
+<li>👑 <a href="https://design-system.service.gov.uk/">GOV.UK Design System</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a>
+<ul>
+<li><a href="https://design-system.service.gov.uk/accessibility/">https://design-system.service.gov.uk/accessibility/</a> explains how the team works to ensure the Design System and Frontend are accessible.</li>
+<li><a href="https://github.com/alphagov/govuk-frontend#readme">https://github.com/alphagov/govuk-frontend#readme</a></li>
+</ul>
+</li>
+<li><a href="https://a11y-solutions.stevenwoodson.com/">Accessibility Solutions</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://www.smashingmagazine.com/2022/11/guide-keyboard-accessibility-javascript-part2/">A Guide To Keyboard Accessibility: JavaScript (Part 2)</a></li>
+<li><a href="https://medium.com/@anthonyjdella/how-a-rogue-developer-ruined-millions-of-software-happened-this-weekend-8602af1f8e07">How a Rogue Developer Ruined Millions of Software (happened this weekend)</a></li>
+<li><a href="https://medium.com/javascript-scene/whats-up-with-serverless-1b9bfa80f21f">What’s Up With Serverless?</a></li>
+<li><a href="https://blog.openreplay.com/all-about-javascript-events/">All About JavaScript Events</a>
+<ul>
+<li><strong>Browser Events</strong> These events occur in the browser <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a> rather than the HTML page. Event handlers are bound to the window object, not to the element. E.g., load, error, scroll, resize, etc.</li>
+<li><strong>HTML Events</strong> This is the inverse of the browser event. They are the event that occurs in the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">element</a>, and the event handlers are bound to the element. E.g., click, mouseover, mouseenter, etc.</li>
+</ul>
+</li>
+<li><a href="https://jessbudd.com/blog/screen-reader-usability-testing-observations/">5 takeaways from screen reader usability interviews</a>
+<ul>
+<li>Usually when we think of alt text, we think "What is this a picture of?" - but in the case of links where the only content is an image, the alt text needs to describe the function of that link. Not the image itself.</li>
+</ul>
+</li>
+<li><a href="https://github.com/automerge/automerge">Automerge</a> - A JSON-like data structure (a CRDT) that can be modified concurrently by different users, and merged again automatically.</li>
+<li><a href="https://github.com/yjs/yjs">Yjs</a> is a <a href="https://github.com/yjs/yjs#Yjs-CRDT-Algorithm">CRDT implementation</a> that exposes its internal data structure as <em>shared types</em>. Shared types are common data types like <code>Map</code> or <code>Array</code> with superpowers: changes are automatically distributed to other peers and merged without merge conflicts.</li>
+<li><a href="https://arantius.github.io/web-color-wheel/">Named Colors Wheel</a>
+<ul>
+<li><a href="https://yeun.github.io/open-color/">https://yeun.github.io/open-color/</a></li>
+<li><a href="https://open-props.style/">https://open-props.style/</a></li>
+</ul>
+</li>
+<li><a href="https://youtu.be/YWEeAqrECqI?t=885">If you exercise without correction due to the fascia relaxation and stretching, it becomes asymmetric.</a></li>
+<li><a href="https://youtu.be/qYCueSueEmY?t=527">The ratio of relaxation to contraction is 2:1</a></li>
+<li><a href="https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html">Inclusively Hidden</a></li>
+<li><a href="https://www.smashingmagazine.com/2022/11/guide-keyboard-accessibility-html-css-part1/">A Guide To Keyboard Accessibility: HTML And CSS (Part 1)</a></li>
+<li><a href="https://frontendmastery.com/posts/the-evolution-of-scalable-css/">The evolution of scalable CSS</a></li>
+<li><a href="https://weizman.github.io/page-what-is-a-realm-in-js/">What is a realm in JavaScript?</a>
+<ul>
+<li><a href="https://github.com/lavamoat/snow/wiki/Introducing-Snow">Introducing Snow</a></li>
+</ul>
+</li>
+<li><a href="https://medium.com/@trgoodwill/writing-api-design-standards-84cb7cbb3fd7/">Writing API Design Standards</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://iamkate.com/code/tree-views/">Tree views in css</a> - <code>details open</code>
+<ul>
+<li><a href="https://elisehe.in/2022/10/16/attribute-selectors">The wasted potential of CSS attribute selectors</a></li>
+</ul>
+</li>
+<li><a href="https://news.ycombinator.com/item?id=33659852">Ask HN: What is the most impactful thing you've built?</a></li>
+<li><a href="https://google.github.io/styleguide/">Google Style Guides</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://www.okta.com/au/identity-101/40-hour-work-week/">Is 40 hours a week too much? Here’s what history and science say</a>
+<ul>
+<li><a href="http://blog.approache.com/2010/11/rules-of-productivity.html">Rules of Productivity</a></li>
+<li><a href="https://www.7pace.com/blog/overtime-kills">Overtime Kills</a></li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=n4eLwAgf_ps">Even if you stay on the plank for a long time, your core muscles won't get better</a>
+<ul>
+<li><a href="https://youtu.be/n4eLwAgf_ps?t=397">Spit out your breath</a> - While stopping breathing, you can't use your core muscles properly.</li>
+</ul>
+</li>
+</ul>
+<h2 id="week-46-2022">Week 46, 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#week-46-2022"></a></h2>
+<ul>
+<li><a href="https://jnielson.com/git-rebase-with-merges">Git Rebase... with Merges?</a></li>
+<li><a href="https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/">How I became a better CTO using these 8 resources</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://builtin.com/software-engineering-perspectives/5-computer-science-papers-changed-how-write-code">5 Computer Science Papers That Changed How I Write Code</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://opensource.com/article/22/11/navigate-linux-terminal-faster">My favorite tricks for navigating the Linux terminal faster</a></li>
+<li><a href="https://vitejs.dev/blog/announcing-vite3.html">Vite 3.0 is out!</a>
+<blockquote>
+<p><a href="https://kit.svelte.dev/">SvelteKit</a>, <a href="https://astro.build/">Astro</a>, <a href="https://hydrogen.shopify.dev/">Hydrogen</a>, and <a href="https://docs.solidjs.com/start">SolidStart</a> are all built with Vite. <a href="https://laravel.com/docs/9.x/vite">Laravel has now decided to use Vite by default</a>. <a href="https://vite-ruby.netlify.app/">Vite Ruby</a> shows how Vite can improve Rails DX. <a href="https://vitest.dev/">Vitest</a> is making strides as a Vite-native alternative to Jest. Vite is behind <a href="https://docs.cypress.io/guides/component-testing/writing-your-first-component-test">Cypress</a> and <a href="https://playwright.dev/docs/test-components">Playwright</a>'s new Component Testing features, Storybook has <a href="https://github.com/storybookjs/builder-vite">Vite as an official builder</a>. And <a href="https://patak.dev/vite/ecosystem.html">the list goes on</a>.</p>
+</blockquote>
+</li>
+<li><a href="https://www.eversql.com/how-i-became-a-better-cto-using-these-8-resources/">How I became a better CTO using these 8 resources</a></li>
+<li><a href="https://news.ycombinator.com/item?id=33574491">Solving problems, learning and building new things all day can be very mentally exhausting. Cardio, sports, lifting; helps re-balance the physical with the mental.</a></li>
+<li><a href="https://www.qualtrics.com/core-xm/survey-software/">https://www.qualtrics.com/core-xm/survey-software/</a> - used by Google play store feedback</li>
+<li><a href="https://ipv4.dev.sarl/">Map of the Internet</a></li>
+<li><a href="https://new.pythonforengineers.com/blog/web-automation-dont-use-selenium-use-playwright/">Web Automation: Don't Use Selenium, Use Playwright</a>
+<blockquote>
+<p>The killer feature of Playwright is: You can <a href="https://playwright.dev/python/docs/codegen-intro">automatically generate tests</a> by opening a web browser and manually running through the steps you want.</p>
+</blockquote>
+</li>
+<li><a href="https://dev.to/qbentil/5-websites-to-learn-frontend-web-development-faster-3cid">5 websites to learn Frontend-web development faster</a>
+<ul>
+<li><a href="https://keyframes.app/">Keyframes.app</a> - It does not only help you to learn through experimenting with CSS animations attributes with real-time visualizer, but also helps you generate cool animations and shadows that best fit your design.</li>
+</ul>
+</li>
+<li>🤖 <a href="https://github.com/TanStack/query">TanStack query</a> Powerful asynchronous state management, server-state utilities and data fetching for TS/JS, React, Solid, Svelte and Vue.</li>
+<li><a href="https://css-tricks.com/using-web-components-with-next-or-any-ssr-framework/">Using Web Components With Next (or Any SSR Framework)</a></li>
+<li><a href="https://github.com/dendronhq/dendron/discussions/2118">awesome-dendron: A Dendron awesome list of extensions, vaults, and more</a></li>
+<li><a href="https://www.smashingmagazine.com/2022/11/navigation-design-mobile-ux/">Designing The Perfect Mobile Navigation UX</a></li>
+<li><a href="https://jamstack.org/survey/2022/#frameworks-by-usage-and-satisfaction">Jamstack Community Survey 2022</a> - outstanding vite's satisfaction score</li>
+<li><a href="https://github.com/laurent22/joplin">Joplin</a> - an open source note taking and to-do application with synchronisation capabilities for Windows, macOS, Linux, Android and iOS.
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=39375119">That was the reason why I gave up Joplin very quickly. The last Joplin thread, here on Hacker News, has also shown once again that some still do not understand why "But Joplin can export Markdown from the database!" is not the same as simple, flat Markdown files.</a></li>
+</ul>
+</li>
+<li><a href="https://fly.io/blog/love-letter-react/">A Love Letter to React</a> - Phoenix and LiveView creator was inspired by React</li>
+<li><a href="https://fly.io/blog/how-we-got-to-liveview/">How We Got to LiveView</a></li>
+<li><a href="https://hidde.blog/dialog-modal-popover-differences/">Dialogs, modality and popovers seem similar. How are they different?</a></li>
+</ul>
+<h2 id="week-45-2022">Week 45, 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#week-45-2022"></a></h2>
+<ul>
+<li><a href="https://blog.wesleyac.com/posts/why-not-javascript-cdn">Reasons to avoid Javascript CDNs</a></li>
+<li><a href="https://www.stefanjudis.com/notes/say-goodbye-to-resource-caching-across-sites-and-domains/">Say goodbye to resource-caching across sites and domains</a></li>
+<li><a href="https://jvns.ca/blog/brag-documents/">Get your work recognized: write a brag document</a></li>
+<li><strong>Type Coercion</strong> refers to the process of automatic or implicit conversion of values from one data type to another. <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#terminology (Private)</a></li>
+<li><a href="https://shrtco.de/">https://shrtco.de/</a> - The privacy-friendly URL Shortener. on free.</li>
+<li><a href="https://django-htmx-alpine.nicholasmoen.com/">HTMX + Alpine.JS</a></li>
+<li><a href="https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/">Django, HTMX and Alpine.js: Modern websites, JavaScript optional</a>
+<blockquote>
+<p>Alpine focuses on client-side state and operations, HTMX focuses on interaction with your server.</p>
+</blockquote>
+</li>
+<li><a href="https://www.infoq.com/news/2022/10/htmx-web-app-no-javascript/">Dynamic Web Apps without JavaScript - HTMX Showcase at DjangoCon and Devoxx</a></li>
+<li><a href="https://rework.withgoogle.com/">re:Work</a> is a collection of practices, research, and ideas from Google and others to help you put people first.</li>
+<li><a href="https://gizmodo.com/11-tech-hacks-to-support-your-health-and-wellness-1849739570">Apple Is Tracking You Even When Its Own Privacy Settings Say It’s Not, New Research Says</a>
+<ul>
+<li><a href="https://twitter.com/mysk_co/status/1588308341780262912">https://twitter.com/mysk_co/status/1588308341780262912</a></li>
+</ul>
+</li>
+<li><a href="https://www.priceintelligently.com/developing-your-saas-pricing-strategy">The Anatomy of SaaS PRICING STRATEGY</a></li>
+<li><a href="https://jrsinclair.com/articles/2022/why-would-anyone-need-javascript-generator-functions/">WHY WOULD ANYONE NEED JAVASCRIPT GENERATOR FUNCTIONS?</a></li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html">Module Resolution</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#terminology (Private)</a></li>
+<li><a href="https://basarat.gitbook.io/typescript/main-1/barrel">Barrel</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#terminology (Private)</a></li>
+<li><a href="https://www.potaroo.net/ispcol/2022-11/quicvtcp.html">Comparing TCP and QUIC</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#network (Private)</a></li>
+<li><a href="https://github.com/jzillmann/pdf-to-markdown">PDF-To-Markdown Converter</a> - Javascript tool to parse PDF files and convert them into Markdown format. Online version at <a href="http://pdf2md.morethan.io/">http://pdf2md.morethan.io</a>!</li>
+<li><a href="https://renatopozzi.me/articles/your-nextjs-bundle-will-thank-you">Your Next.js Bundle Will Thank You</a> <a class="color-tag" style="--tag-color: #ffffc2;" href="/notes/rxxnmv9rpms3ot9mw99cuxw">#divops</a> <a class="color-tag" style="--tag-color: #04f489;" href="/notes/7hjo94zlze8pcpwotiabncq">#performance</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#bundler (Private)</a></li>
+<li><a href="https://blog.openreplay.com/implementing-claymorphism-with-css">Implementing Claymorphism with CSS</a></li>
+<li><a href="https://medium.com/the-code-less-travelled/sass-the-map-merge-pattern-b948dc518d29">Sass — the map-merge pattern</a></li>
+<li><a href="https://pepelsbey.dev/articles/conditionally-adaptive/">CONDITIONALLY ADAPTIVE CSS</a>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mobile.css<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(max-width: 767px)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dark.css<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(prefers-color-scheme: dark)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>link</span>
+  <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
+  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>animation.css<span class="token punctuation">"</span></span>
+  <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(prefers-reduced-motion: no-preference)<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre>
+<ul>
+<li><a href="https://github.com/SassNinja/media-query-plugin">https://github.com/SassNinja/media-query-plugin</a></li>
+</ul>
+</li>
+<li><a href="https://nolanlawson.com/2022/10/26/a-beginners-guide-to-chrome-tracing/">A beginner’s guide to Chrome tracing</a> <a class="color-tag" style="--tag-color: #04f489;" href="/notes/7hjo94zlze8pcpwotiabncq">#performance</a></li>
+<li><a href="https://codepen.io/alvaromontoro/pen/gjWPNW">CSS Snake &#x26; Ladders: a multiplayer game developed in HTML+CSS with no JS</a></li>
+<li><a href="https://bespoyasov.me/blog/clean-architecture-on-frontend/">Clean Architecture on Frontend</a> <a class="color-tag" style="--tag-color: #b66325;" href="/notes/qqlu2qbieklqf58kzwklnio">#architecture</a></li>
+<li><a href="https://medium.com/codex/clean-architecture-for-dummies-df6561d42c94">Domain-centric Architectures (Clean and Hexagonal) for Dummies</a> <a class="color-tag" style="--tag-color: #b66325;" href="/notes/qqlu2qbieklqf58kzwklnio">#architecture</a></li>
+<li><a href="https://feature-sliced.design/">Feature-Sliced Design</a> <a class="color-tag" style="--tag-color: #b66325;" href="/notes/qqlu2qbieklqf58kzwklnio">#architecture</a> <a class="color-tag" style="--tag-color: #c77986;" href="/notes/0ce4gh9w22elz738jbxchfo">#bookshelf</a></li>
+<li><a href="https://simonwillison.net/2020/Jul/10/self-updating-profile-readme/">Building a self-updating profile README for GitHub</a>
+<ul>
+<li><a href="https://simonwillison.net/2020/Apr/20/self-rewriting-readme/">Using a self-rewriting README powered by GitHub Actions to track TILs</a></li>
+</ul>
+</li>
+<li><a href="https://simonwillison.net/2022/Nov/6/what-to-blog-about/">What to blog about</a>
+<ul>
+<li><a href="https://til.simonwillison.net/">https://til.simonwillison.net/</a></li>
+<li>📝 <a href="https://github.com/jbranchaud/til">Today I Learned</a></li>
+<li><a href="https://dev.to/jbranchaud/how-i-built-a-learning-machine-45k9#:~:text=Writing%20daily%20TIL%20posts%20became%20a%20habit%20that%20I%20could%20stick%20with.">How I Built a Learning Machine</a></li>
+</ul>
+</li>
+<li><a href="https://bodydoubling.com/">Body Doubling</a> - It’s merely being in the same room with another person who is having trouble getting things done on their own.
+<ul>
+<li>I work better in office. Maybe it works based on this.</li>
+<li><a href="https://news.ycombinator.com/item?id=33495310">I think this is the reason why in-person work environments will be more productive over the longer term for any larger organization. Not saying I’m against remote work, as I actually prefer it myself.</a></li>
+<li><a href="https://news.ycombinator.com/item?id=33496800">https://news.ycombinator.com/item?id=33496800</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Social_facilitation">https://en.wikipedia.org/wiki/Social_facilitation</a></li>
+</ul>
+</li>
+<li><a href="https://news.ycombinator.com/item?id=33490314">Does anyone else finds AWS and other Amazon services overly complicated?</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=33491010">JAMstack walk-through</a></li>
+<li><a href="https://news.ycombinator.com/item?id=33491658">AWS is basically a "construct your own custom infrastructure" service and does that well.</a></li>
+<li><a href="https://news.ycombinator.com/item?id=33494968">We have both tried and are unable to figure out how to tie payment info to our AWS organization.</a></li>
+</ul>
+</li>
+<li><a href="https://openwebdocs.org/content/posts/markdown-conversion/">MDN converted to Markdown</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=33478392">https://news.ycombinator.com/item?id=33478392</a></li>
+</ul>
+</li>
+<li><a href="https://betterprogramming.pub/true-seniority-67b2e01cce81">True Seniority in Software Careers</a>
+<ul>
+<li><a href="https://skamille.medium.com/the-senior-shift-315f56b79d5">The Senior Shift</a> - It’s now about your impact, not just your abilities.</li>
+</ul>
+</li>
+<li><a href="https://nodejs.org/en/blog/vulnerability/november-2022-security-releases/">Nov 3 2022 Security Releases</a></li>
+</ul>
+<h2 id="week-44-2022">Week 44, 2022<a aria-hidden="true" class="anchor-heading icon-link" href="#week-44-2022"></a></h2>
+<ul>
+<li><a href="https://youtu.be/-W7qjQItBPw">Cracker test to find out the characteristics of diabetic obese people in 30 seconds</a></li>
+<li><a href="https://github.com/bespoyasov/refactor-like-a-superhero/blob/main/manuscript-en/README.md">Refactor Like a Superhero</a></li>
+<li><a href="https://betterhumans.pub/icebreakers-you-can-steal-for-a-better-meeting-i-promise-cc259d81bea6">Icebreakers You Can Steal For a Better Meeting (I Promise)</a></li>
+<li><a href="https://github.com/github/relative-time-element"><code>&#x3C;relative-time></code> element</a> - Web component extensions to the standard <time> element. <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#localization (Private)</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#web-components (Private)</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#timezone (Private)</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#custom-elements (Private)</a></time></li>
+<li><a href="https://gpeal.medium.com/how-i-use-slack-b0dbf06d9a18">How I Use Slack</a></li>
+<li><a href="https://buildtogether.tech/tooling/#:~:text=Static%20typing%20helps%2C%20but%20only%20a%20little.">Static typing helps, but only a little.</a>
+<blockquote>
+<p>A <a href="https://buildtogether.tech/glossary/#static_typing">statically-typed</a> language like Java requires programmers to specify the data type of each variable; a <a href="https://buildtogether.tech/glossary/#dynamic_typing">dynamically-typed</a> one like Python doesn't require them, though you can add them if you want, while TypeScript adds types as a layer on top of JavaScript. endrikat2014<a id="fnref-endrikat2014" class="fnref" href="#fn-endrikat2014">endrikat2014</a> found that declaring types does add complexity to programs, but it pays off fairly quickly by acting as documentation and by making <a href="https://buildtogether.tech/glossary/#auto_completion">auto-completion</a> more accurate.</p>
+</blockquote>
+</li>
+<li><a href="https://aws.amazon.com/ko/blogs/mobile/new-build-responsive-figma-to-react-components-with-almost-no-code/">NEW: Build responsive Figma-to-React components with almost no code</a></li>
+<li><a href="https://docusaurus.io/blog/releases/2.2">Docusaurus 2.2</a>
+<ul>
+<li>I prefer dendron.
+<ol>
+<li>Hierarchy with flat file name (dev.tools.md) not sub directory</li>
+<li>Search page</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><a href="https://spectrum.ieee.org/functional-programming">Why Functional Programming Should Be the Future of Software Development</a></li>
+<li>🎉 <a href="https://github.com/catdad/canvas-confetti">Canvas Confetti</a> - on-demand confetti gun <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#worker (Private)</a> <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">#canvas (Private)</a></li>
+<li><a href="https://github.com/toss/slash">Slash libraries</a>
+<ul>
+<li><a href="https://slash.page/libraries/common/hangul/readme.i18n/">@toss/hangul</a></li>
+</ul>
+</li>
+<li>Google apps script of sheets for exporting i18n json
+<ul>
+<li><a href="https://thenewstack.io/how-to-convert-google-spreadsheet-to-json-formatted-text/">https://thenewstack.io/how-to-convert-google-spreadsheet-to-json-formatted-text/</a></li>
+<li><a href="https://stackoverflow.com/a/66308417/5163033">https://stackoverflow.com/a/66308417/5163033</a></li>
+<li><a href="https://github.com/liddiard/google-sheet-s3">https://github.com/liddiard/google-sheet-s3</a></li>
+</ul>
+</li>
+<li><a href="https://almanac.httparchive.org/en/2022/table-of-contents">Web Almanac - HTTP Archive’s annual state of the web report 2022</a> - HTTP Archive’s annual <strong>state of the web</strong> report</li>
+<li><a href="https://bitsofco.de/web-performance-metrics-cheatsheet/">Web Performance Metrics Cheatsheet</a></li>
+<li><a href="https://github.com/markdoc/markdoc">Markdoc</a> is a <a href="https://commonmark.org/">Markdown</a>-based syntax and toolchain for creating custom documentation sites and experiences.</li>
+<li><a href="https://scribehow.com/">Scribe</a> - Turn any process into a
+step-by-step guide, instantly.</li>
+<li><a href="https://github.com/yyx990803/vite-vs-next-turbo-hmr/discussions/8">Is Turbopack really 10x Faster than Vite?</a></li>
+<li><a href="https://github.com/capricorn86/happy-dom">Happy DOM</a> is a JavaScript implementation of a web browser without its graphical user interface. It includes many web standards from WHATWG <a href="https://dom.spec.whatwg.org/">DOM</a> and <a href="https://html.spec.whatwg.org/multipage/">HTML</a>.
+<ul>
+<li>The goal of <a href="https://github.com/capricorn86/happy-dom">Happy DOM</a> is to emulate enough of a web browser to be useful for testing, scraping web sites and server-side rendering.</li>
+<li><a href="https://github.com/capricorn86/happy-dom">Happy DOM</a> focuses heavily on performance and can be used as an alternative to <a href="https://github.com/jsdom/jsdom">JSDOM</a>.</li>
+<li><a href="https://github.com/capricorn86/happy-dom/tree/master/packages/happy-dom">Read more about how to use Happy DOM</a></li>
+</ul>
+</li>
+<li><a href="https://medium.com/codex/i-bet-you-didnt-know-about-these-15-html-features-9b0824dba28f">I bet you didn't know about these 15 HTML features.</a></li>
+<li><a href="https://github.com/mame/quine-relay">Quine Relay</a> is a Ruby program that generates Rust program that generates Scala program that generates ...(through 128 languages in total)... REXX program that generates the original Ruby code again.</li>
+<li><a href="https://www.smashingmagazine.com/2022/10/motion-controls-browser/">Motion Controls In The Browser</a></li>
+<li><a href="https://github.com/FiloSottile/mkcert">mkcert</a> is a simple tool for making locally-trusted development certificates. It requires no configuration.</li>
+<li>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/env">env()</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> can be used to insert the value of a user-agent defined environment variable into your CSS, in a similar fashion to the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var"><code>var()</code></a> function and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">custom properties</a>.</li>
+<li><a href="https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows">Events that trigger workflows</a>
+<ul>
+<li><a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-only-when-a-push-of-specific-tags-occurs">Running your workflow only when a push of specific tags occurs</a></li>
+<li><a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-only-when-a-push-affects-specific-files">Running your workflow only when a push affects specific files</a></li>
+</ul>
+</li>
+<li>💯 <a href="https://github.com/yangshun/tech-interview-handbook">Tech Interview Handbook</a> - Curated coding interview preparation materials for busy software engineers</li>
+<li>🛁 <a href="https://github.com/ryanmcdermott/clean-code-javascript">clean-code-javascript</a> - Clean Code concepts adapted for JavaScript</li>
+<li><a href="https://github.com/BuilderIO/mitosis">Mitosis</a> - Write components once, run everywhere. Compiles to Vue, React, Solid, Angular, Svelte, and more.</li>
+<li><a href="https://github.com/codecrafters-io/build-your-own-x">Build your own x</a> - Master programming by recreating your favorite technologies from scratch.</li>
+<li><a href="https://github.com/jwasham/coding-interview-university">Coding Interview University</a> - A complete computer science study plan to become a software engineer.</li>
+<li><a href="https://github.com/donnemartin/system-design-primer">The System Design Primer</a> - Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.</li>
+<li><a href="https://news.ycombinator.com/item?id=1084127">Superstar</a></li>
+<li><a href="https://github.com/jlevy/the-art-of-command-line">The Art of Command Line</a></li>
+<li><a href="https://github.com/ripienaar/free-for-dev">free-for.dev</a> - A list of SaaS, PaaS and IaaS offerings that have free tiers of interest to devops and infradev</li>
+<li><a href="https://github.com/trimstray/the-book-of-secret-knowledge">The Book of Secret Knowledge</a> - A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.</li>
+<li>✨😂 <a href="https://github.com/sw-yx/spark-joy">Spark Joy!</a> - 2000+ ways to add design flair, user delight, and whimsy to your product.</li>
+<li><a href="https://github.com/nanostores/nanostores">Nano Stores</a> - A tiny (258 bytes) state manager for React/RN/Preact/Vue/Svelte with many atomic tree-shakable stores
+<ul>
+<li><a href="https://docs.astro.build/en/core-concepts/sharing-state/#why-nano-stores">https://docs.astro.build/en/core-concepts/sharing-state/#why-nano-stores</a></li>
+</ul>
+</li>
+<li><a href="https://blog.openreplay.com/comparing-astro-and-next-for-react-apps">Comparing Astro and Next for React apps</a>
+<blockquote>
+<p>Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast,
+Astro is best used for static websites like a portfolio or a personal blog.</p>
+</blockquote>
+</li>
+<li><a href="https://github.com/dinerojs/dinero.js">Dinero.js</a>: Create, calculate, and format money in JavaScript and TypeScript.</li>
+<li><a href="https://github.com/dimsemenov/photoswipe">PhotoSwipe</a> — JavaScript image gallery and lightbox</li>
+<li><a href="https://javascript.plainenglish.io/how-to-create-page-transitions-in-next-js-with-framer-motion-47642c462c62">Create Page Transitions in Next.js with Framer Motion</a></li>
+</ul>
+<hr>
+<h2 id="footnotes">Footnotes<a aria-hidden="true" class="anchor-heading icon-link" href="#footnotes"></a></h2>
+<ol>
+<li><span id="fn-endrikat2014" style="width: 0; height: 0;"></span><p><code>endrikat2014</code>: Stefan Endrikat, Stefan Hanenberg, Romain Robbes, and Andreas Stefik. How do api documentation and static typing affect api usability? In <em>Proc. ICSE'14</em>. ACM Press, 2014. URL: <a href="https://doi.org/10.1145/2568225.2568299">https://doi.org/10.1145/2568225.2568299</a>, <a href="https://doi.org/10.1145/2568225.2568299">doi:10.1145/2568225.2568299</a>.<a class="fn" href="#fnref-endrikat2014">˄</a></p></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/">Luke</a></li>
+</ul>
