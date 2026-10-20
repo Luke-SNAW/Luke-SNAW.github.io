@@ -2,7 +2,7 @@
 id: w77gehwkjrgvg8j2rf049te
 title: Journal
 desc: ""
-updated: 1730026691807
+updated: 1792487219757
 created: 1655603296818
 published: false
 ---
@@ -23,4 +23,3 @@ published: false
 4. 물가 상승
 5. 금리 인상
 6. 주식 하락
-
