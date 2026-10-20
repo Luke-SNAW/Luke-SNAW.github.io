@@ -1,0 +1,27 @@
+<h1 id="a-simple-explanation-of-javascript-variables-const-let-var">A Simple Explanation of JavaScript Variables: const, let, var<a aria-hidden="true" class="anchor-heading icon-link" href="#a-simple-explanation-of-javascript-variables-const-let-var"></a></h1>
+<blockquote>
+<p><a href="https://dmitripavlutin.com/javascript-variables-const-let-var/">https://dmitripavlutin.com/javascript-variables-const-let-var/</a></p>
+</blockquote>
+<p>In contrast to const and let, the scope of the var variables is defined only by the function body:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">welcomeTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Function scope</span>
+  <span class="token keyword">var</span> city <span class="token operator">=</span> <span class="token string">"Gotham"</span><span class="token punctuation">;</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Welcome to </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>city<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs 'Welcome to Gotham!'</span>
+<span class="token punctuation">}</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Welcome to </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>city<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// throws ReferenceError</span>
+
+<span class="token function">welcomeTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>A code block doesn’t create a scope for var variables:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Code block scope</span>
+  <span class="token keyword">var</span> city <span class="token operator">=</span> <span class="token string">"Gotham"</span><span class="token punctuation">;</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>city<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs 'Gotham'</span>
+<span class="token punctuation">}</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>city<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs 'Gotham'</span>
+</code></pre>
+<p>Normally, you won’t access a var variable before the declaration statement. But if you do, JavaScript won’t throw a reference error, but rather evaluate the variable to undefined:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>city<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs undefined</span>
+<span class="token keyword">var</span> city <span class="token operator">=</span> <span class="token string">"Gotham"</span><span class="token punctuation">;</span>
+</code></pre>
+<p>It happens because a var variables hoists up to the top of the scope.</p>

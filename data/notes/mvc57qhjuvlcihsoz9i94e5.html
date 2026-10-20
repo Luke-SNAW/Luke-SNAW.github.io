@@ -1,0 +1,82 @@
+<h1 id="css-vs-css-in-js-how-and-why-to-use-each">CSS vs. CSS-in-JS: How and why to use each<a aria-hidden="true" class="anchor-heading icon-link" href="#css-vs-css-in-js-how-and-why-to-use-each"></a></h1>
+<blockquote>
+<p><a href="https://blog.logrocket.com/css-vs-css-in-js/">https://blog.logrocket.com/css-vs-css-in-js/</a></p>
+</blockquote>
+<h2 id="pros-of-css-in-js">Pros of CSS-in-JS<a aria-hidden="true" class="anchor-heading icon-link" href="#pros-of-css-in-js"></a></h2>
+<p>A JavaScript developer may prefer to style things with CSS-in-JS rather than going through CSS classes. The biggest problem the CSS-in-JS approach solves is the global scope. It also has some other advantages that make a lot of sense if you are a JavaScript developer.</p>
+<p>Let’s explore some of these benefits now.</p>
+<h3 id="no-scoping-and-specificity-problems">No scoping and specificity problems<a aria-hidden="true" class="anchor-heading icon-link" href="#no-scoping-and-specificity-problems"></a></h3>
+<p>Since styles are available in a local scope, they are not prone to clashing with the styles of other components. You don’t even have to worry about naming things strictly to avoid style clashes.</p>
+<p>Styles are written exclusively for one component without prepending child selectors, so specificity issues are rare.</p>
+<h3 id="dynamic-styling">Dynamic styling<a aria-hidden="true" class="anchor-heading icon-link" href="#dynamic-styling"></a></h3>
+<p>Conditional CSS is another highlight of CSS-in-JS. As the button example above demonstrates, checking for prop values and adding suitable styles is way cooler than writing separate CSS styles for each variation.</p>
+<h3 id="less-css-specificity">Less CSS specificity<a aria-hidden="true" class="anchor-heading icon-link" href="#less-css-specificity"></a></h3>
+<p>CSS-in-JS helps you keep the specificity of CSS declarations to the lowest, as the only thing you style with it is the element itself. The same applies to creating component variations, where you can check for prop object values and add dynamic styling when required.</p>
+<h3 id="easy-theming">Easy theming<a aria-hidden="true" class="anchor-heading icon-link" href="#easy-theming"></a></h3>
+<p><a href="https://blog.logrocket.com/a-guide-to-theming-in-css/">Theming apps with custom CSS properties</a> makes sense. In the end, you will have to move to the JavaScript side and write the logic to switch and remember the theme based on user input.</p>
+<p>CSS-in-JS allows you to write theming logic entirely in JavaScript. With the styled-components <code>ThemeProvider</code> wrapper, you can quickly color-code themes for components. Take a look at <a href="https://codepen.io/_rahul/pen/qBKXevo">this CodePen example</a> to see component theming with styled-components in action:</p>
+<h3 id="painless-maintenance">Painless maintenance<a aria-hidden="true" class="anchor-heading icon-link" href="#painless-maintenance"></a></h3>
+<p>Considering the features and advantages CSS-in-JS offers, a JavaScript developer may find CSS-in-JS more convenient than managing hundreds of CSS files.</p>
+<p>The fact remains, however, that one must have a good understanding of both JavaScript and CSS to effectively manage and maintain huge projects powered by CSS-in-JS.</p>
+<h2 id="cons-of-css-in-js">Cons of CSS-in-JS<a aria-hidden="true" class="anchor-heading icon-link" href="#cons-of-css-in-js"></a></h2>
+<p>CSS-in-JS does solve the scoping problem very well. But as we discussed initially, we have much bigger challenges — like render-blocking — that directly affect the user experience. Along with that, there are some other issues that the concept of CSS-in-JS still has to address.</p>
+<h3 id="delayed-rendering">Delayed rendering<a aria-hidden="true" class="anchor-heading icon-link" href="#delayed-rendering"></a></h3>
+<p>CSS-in-JS will execute JavaScript to parse CSS from JavaScript components, and then inject these parsed styles into the DOM. The more components more will be the more time taken by the browser for the first paint.</p>
+<h3 id="caching-problem">Caching problem<a aria-hidden="true" class="anchor-heading icon-link" href="#caching-problem"></a></h3>
+<p>CSS caching is often used to improve successive page load times. Since no CSS files are involved when using CSS-in-JS, caching is a big problem. Also, dynamically generated CSS class names make this issue even more complicated.</p>
+<h3 id="no-css-preprocessor-support">No CSS preprocessor support<a aria-hidden="true" class="anchor-heading icon-link" href="#no-css-preprocessor-support"></a></h3>
+<p>With the regular componentized CSS approach, it’s easy to add support for <a href="https://blog.logrocket.com/how-to-write-reusable-css-with-sass/">preprocessors like SASS</a>, Less, PostCSS, and others. The same is not possible with CSS-in-JS.</p>
+<h3 id="messy-dom">Messy DOM<a aria-hidden="true" class="anchor-heading icon-link" href="#messy-dom"></a></h3>
+<p>CSS-in-JS is based on the idea of parsing all style definitions from JavaScript into vanilla CSS and then injecting the styles into the DOM using style blocks.</p>
+<p>For each component styled with CSS-in-JS, there could be 100 style blocks that must be parsed first, then injected. Simply put, there will be more overhead costs.</p>
+<h3 id="library-dependency">Library dependency<a aria-hidden="true" class="anchor-heading icon-link" href="#library-dependency"></a></h3>
+<p>As we already know, we can add CSS-in-JS functionality with an external library. A lot of JavaScript will be included and run before actual CSS parsing, as parsing styles from JavaScript to CSS styles depends on a library like styled-components.</p>
+<h3 id="learning-curve">Learning curve<a aria-hidden="true" class="anchor-heading icon-link" href="#learning-curve"></a></h3>
+<p>A lot of native CSS and SCSS features are missing with CSS-in-JS. It may be very challenging for developers who are used to CSS and SCSS to adapt to CSS-in-JS.</p>
+<h3 id="no-extensive-support">No extensive support<a aria-hidden="true" class="anchor-heading icon-link" href="#no-extensive-support"></a></h3>
+<p>Most of the UI and component libraries don’t support the CSS-in-JS approach right now, as it still has a lot of issues to address.</p>
+<p>The problems discussed above may collectively contribute to a low-performant, hard-to-maintain product with several UI and UX inconsistencies.</p>
+<h2 id="recommendations-for-where-to-use-css-in-js">Recommendations for where to use CSS-in-JS<a aria-hidden="true" class="anchor-heading icon-link" href="#recommendations-for-where-to-use-css-in-js"></a></h2>
+<p>The CSS-in-JS solution is ideal when you are dealing with a smaller application for which performance is a lower priority. It may not be ideal when dealing with a performance-critical application with a huge design system.</p>
+<p>As an app grows bigger, using CSS-in-JS can get complicated easily, considering all the drawbacks of this concept. A lot of work goes into converting a design system into CSS-in-JS, and in my opinion, no JavaScript developer would want to deal with that.</p>
+<h2 id="pros-of-css-module">Pros of CSS Module<a aria-hidden="true" class="anchor-heading icon-link" href="#pros-of-css-module"></a></h2>
+<p>The most significant benefit that CSS Module offers is removing the reliance on CSS-in-JS to fix the scoping and specificity problems. If we can fix the scoping and specificity problems by keeping CSS as traditional as possible, CSS-in-JS will be more work than necessary.</p>
+<h3 id="no-scoping-and-specificity-issues">No scoping and specificity issues<a aria-hidden="true" class="anchor-heading icon-link" href="#no-scoping-and-specificity-issues"></a></h3>
+<p>As demonstrated in the example above, CSS Module successfully solves the scoping problem we have with traditional, old-style CSS. As the rules are loosely written in CSS Module files, it’s rare to observe any specificity problems.</p>
+<h3 id="organized-code">Organized code<a aria-hidden="true" class="anchor-heading icon-link" href="#organized-code"></a></h3>
+<p>Keeping separate CSS files may appear to be a limitation. However, this method actually promotes better organization. For example, here’s how I organize components by separating them into their own folders:</p>
+<pre><code>- Project
+  - src
+    - components
+      - Button
+          - Button.jsx
+          - Button.modules.css
+      - Carousel
+          - Carousel.jsx
+          - Carousel.modules.css
+</code></pre>
+<h3 id="caching-possibilities">Caching possibilities<a aria-hidden="true" class="anchor-heading icon-link" href="#caching-possibilities"></a></h3>
+<p>The minified CSS files generated with the final build can be cached by the browser to improve the successive page load times.</p>
+<h3 id="css-preprocessing">CSS preprocessing<a aria-hidden="true" class="anchor-heading icon-link" href="#css-preprocessing"></a></h3>
+<p>It’s easy to add support for <a href="https://blog.logrocket.com/using-postcss-media-queries-level4/">CSS preprocessors like PostCSS</a>, SASS, Less, and others. However, you have to rely on additional packages to do so.</p>
+<h3 id="zero-learning-curve">Zero learning curve<a aria-hidden="true" class="anchor-heading icon-link" href="#zero-learning-curve"></a></h3>
+<p>If you know how CSS works, you can use CSS Module without learning anything new besides the few points that we discussed above in the intro segment.</p>
+<h3 id="great-support">Great support<a aria-hidden="true" class="anchor-heading icon-link" href="#great-support"></a></h3>
+<p>You won’t need to add additional packages to use CSS Modules. All major frameworks and libraries provide inbuilt support.</p>
+<h2 id="cons-of-css-module">Cons of CSS Module<a aria-hidden="true" class="anchor-heading icon-link" href="#cons-of-css-module"></a></h2>
+<p>While CSS Module offers many benefits, it’s not a perfect solution. Below are some considerations to keep in mind.</p>
+<h3 id="the-nonstandard-global-property">The nonstandard <code>:global</code> property<a aria-hidden="true" class="anchor-heading icon-link" href="#the-nonstandard-global-property"></a></h3>
+<p>When targeting selectors in the global scope, you must use the <code>:global</code> rule. This not a part of CSS specifications but is used by JavaScript to label global styles.</p>
+<h3 id="no-dynamic-styles">No dynamic styles<a aria-hidden="true" class="anchor-heading icon-link" href="#no-dynamic-styles"></a></h3>
+<p>With CSS Module, all the declarations go into separate CSS files. It’s therefore impossible to implement dynamic styles like CSS-in-JS, as we can’t implement any JavaScript in CSS files.</p>
+<h3 id="external-css-files">External CSS files<a aria-hidden="true" class="anchor-heading icon-link" href="#external-css-files"></a></h3>
+<p>You can’t omit the usage of CSS files with CSS modules in your components. The only possible way to use CSS modules is to maintain and import external CSS files.</p>
+<h3 id="typescript-limitation">TypeScript limitation<a aria-hidden="true" class="anchor-heading icon-link" href="#typescript-limitation"></a></h3>
+<p>To use CSS Modules with TypeScript, you have to add module definitions in the <code>index.d.ts</code> file or <a href="https://blog.logrocket.com/how-to-configure-css-modules-webpack/">use a webpack loader</a>:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token doc-comment comment">/** index.d.ts **/</span>
+<span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">"*.module.css"</span> <span class="token comment">// TS module for CSS Module files</span>
+<span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">"*.module.scss"</span> <span class="token comment">// TS module for CSS Module files in SCSS format</span>
+</code></pre>
+<h2 id="recommendations-for-where-to-use-css-module">Recommendations for where to use CSS Module<a aria-hidden="true" class="anchor-heading icon-link" href="#recommendations-for-where-to-use-css-module"></a></h2>
+<p>Using CSS Module is a good choice if you have a performance-critical application with a large UI. Since everything offered by CSS Module is ultimately based on traditional, non-experimental usage, this method makes it easier to monitor and fix performance.</p>
+<p>The CSS Module files are simple to adapt code from any CSS framework of your choice since all you’re dealing with is CSS. Some basic knowledge of CSS is sufficient for this task, as discussed previously.</p>

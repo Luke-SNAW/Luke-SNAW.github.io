@@ -1,0 +1,163 @@
+<h1 id="cache-your-cors-for-performance--profit">Cache your CORS, for performance &#x26; profit<a aria-hidden="true" class="anchor-heading icon-link" href="#cache-your-cors-for-performance--profit"></a></h1>
+<blockquote>
+<p><a href="https://httptoolkit.tech/blog/cache-your-cors/">https://httptoolkit.tech/blog/cache-your-cors/</a></p>
+</blockquote>
+<p>CORS is a necessity for many APIs, but basic configurations can create a huge number of extra requests, slowing down every browser API client, and sending unnecessary traffic to your backend.</p>
+<p>This can be a problem with a traditional API, but becomes a much larger issue with serverless platforms, where your billing is often directly tied to the number of requests received, so this can easily double your API costs.</p>
+<p>All of this is unnecessary: it's happening because you don't know how caching works for CORS requests. Let's fix that.</p>
+<h2 id="what-are-cors-preflight-requests"><a href="https://httptoolkit.tech/blog/cache-your-cors/#what-are-cors-preflight-requests">What are CORS preflight requests?</a><a aria-hidden="true" class="anchor-heading icon-link" href="#what-are-cors-preflight-requests"></a></h2>
+<p>Before your browser makes any request that crosses origins (e.g. example.com to api.example.com) if it's not a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests">simple request</a> then the browser sends a preflight request first, and waits for a successful response before it sends the real request.</p>
+<p>This preflight request is an OPTIONS request to the server, describing the request the browser wants to send, and asking permission first. It looks something like:</p>
+<pre class="language-text"><code class="language-text">OPTIONS /v1/documents
+Host: https://api.example.com
+Origin: https://example.com
+Access-Control-Request-Method: PUT
+Access-Control-Request-Headers: origin, x-requested-with
+</code></pre>
+<p>The server has to respond with headers that confirm it's happy to accept the request, and the browser will wait to send the real request until this happens.</p>
+<p>If you want to check exactly how these CORS rules work, and how you should respond, play around with <a href="https://httptoolkit.tech/will-it-cors/">Will it CORS?</a> to test out the possibilities.</p>
+<p>In practice, almost all cross-origin API requests will require these preflight requests, notably including:</p>
+<ul>
+<li>Any request with a JSON or XML body</li>
+<li>Any request including credentials</li>
+<li>Any request that isn't GET, POST or HEAD</li>
+<li>Any exchange that streams the request or response body</li>
+<li>Use of any headers other than <code>Accept</code>, <code>Accept-Language</code>, <code>Content-Language</code> and <code>Content-Type</code></li>
+</ul>
+<h2 id="why-is-this-bad"><a href="https://httptoolkit.tech/blog/cache-your-cors/#why-is-this-bad">Why is this bad?</a><a aria-hidden="true" class="anchor-heading icon-link" href="#why-is-this-bad"></a></h2>
+<p>Each of these requests blocks your real request for at least the round-trip time to your server. OPTIONS requests aren't cacheable by default, so your CDN won't usually handle them, and this will have to hit your server every time.</p>
+<p>They are cached in clients, but only for 5 seconds by default. If a web page polls your API, making a request every 10 seconds, it'll repeat the preflight check every 10 seconds too.</p>
+<p>In many cases this effectively doubles the latency of your API for all browser clients. From the end user's point of view, your performance is halved! And as I'm sure you've heard a hundred times, a few hundred milliseconds of delay translates to big differences in conversion rates &#x26; user satisfaction. This is pretty bad.</p>
+<p>In addition, it can add meaningful extra load &#x26; cost to your API servers.</p>
+<p>This applies especially with serverless billing models. Platforms including AWS Lambda, Netlify Functions, Cloudflare Workers and Google Cloud Functions all bill based on the number of function invocations, and these preflight requests count towards that like any other. Serverless can be free when you're small, but becomes more expensive once large production systems are in play, and potentially doubling your costs is a huge hit!</p>
+<p>Even without serverless, this can still catch you out badly. If you expect a large percentage of your APIs requests to be handled by your CDN, it can be a major surprise when adding a custom header to browser requests creates an extra request right through to your backend servers for every single client request.</p>
+<h2 id="how-can-you-cache-preflight-responses"><a href="https://httptoolkit.tech/blog/cache-your-cors/#how-can-you-cache-preflight-responses">How can you cache preflight responses?</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-can-you-cache-preflight-responses"></a></h2>
+<p>There two steps of caching you should put in place for these:</p>
+<ul>
+<li>Caching in the browser, so individual clients don't repeat the same preflight request unnecessarily.</li>
+<li>Caching in your CDN layer, where possible, to treat these as constant responses so your backend servers/functions don't have to handle them.</li>
+</ul>
+<h3 id="cors-caching-for-browsers"><a href="https://httptoolkit.tech/blog/cache-your-cors/#cors-caching-for-browsers">CORS caching for browsers</a><a aria-hidden="true" class="anchor-heading icon-link" href="#cors-caching-for-browsers"></a></h3>
+<p>To cache CORS responses in browsers, just add this header to your preflight responses:</p>
+<pre class="language-text"><code class="language-text">Access-Control-Max-Age: 86400
+</code></pre>
+<p>This is a cache time in seconds.</p>
+<p>Browser limit this: Firefox caps the value at 86400 (24 hours) while all Chromium-based browsers cap it at 7200 (2 hours). Making this request once every 2 hours instead of before every API request can be a big improvement in user experience though, and setting the value higher to ensure that even longer lifetimes apply where possible is an easy win.</p>
+<h3 id="caching-for-cdnscors"><a href="https://httptoolkit.tech/blog/cache-your-cors/#cors-caching-for-cdns">caching for CDNs</a>CORS<a aria-hidden="true" class="anchor-heading icon-link" href="#caching-for-cdnscors"></a></h3>
+<p>To cache CORS responses in CDNs and other proxies between the browser and your API server, add:</p>
+<pre class="language-text"><code class="language-text">Cache-Control: public, max-age=86400
+Vary: origin
+</code></pre>
+<p>This caches the response in public caches (e.g. CDNs) for 24 hours, which should be enough for most cases without risking cache invalidation becoming a problem. For initial testing, you might want to set the cache time shorter, and increase it once you're happy that everything is set up correctly.</p>
+<p>It's important to note that this <em>isn't</em> standard (OPTIONS is defined as not cacheable by default) but it does appear to be widely supported by most CDNs, who will happily cache OPTIONS responses that explicitly opt-in like this. Some may require this to be manually enabled, so do test this in your configuration.</p>
+<p>In the worst case, if this is not supported by your CDN it will just be ignored, so there's no real downside.</p>
+<p>The <code>Vary</code> header here is important: this tells the cache to use this response only for other requests with the same <code>Origin</code> header (requests from the same cross-origin source), in addition to using the same URL.</p>
+<p>If you don't set a <code>Vary</code> header, you can have big problems. Preflight responses often include an <code>Access-Control-Allow-Origin</code> header that matches the incoming <code>Origin</code> value. If you cache the response without setting <code>Vary</code> then the response with one origin might be used for a request with a different origin, which will fail the CORS checks and block the request completely.</p>
+<p>If you're using other CORS response headers that depend on the request, you should include them here too, e.g:</p>
+<pre class="language-text"><code class="language-text">Access-Control-Allow-Headers: my-custom-header
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE
+Vary: Access-Control-Request-Headers, Access-Control-Request-Method
+</code></pre>
+<p>If you want to test any of this this out right now, install <strong><a href="https://httptoolkit.tech/">HTTP Toolkit</a></strong>, add a rule that matches your requests, launch an intercepted browser, and you can try manually injecting these headers into API responses to see exactly how browsers handle them.</p>
+<h2 id="configuration-examples"><a href="https://httptoolkit.tech/blog/cache-your-cors/#configuration-examples">Configuration examples</a><a aria-hidden="true" class="anchor-heading icon-link" href="#configuration-examples"></a></h2>
+<p>How do you configure this in your case? There's some some helpful ready-to-go examples below. In each case, I'm assuming you already have preflight CORS handling set up, so we're just thinking about how to add caching on top of this.</p>
+<h3 id="caching-cors-with-aws-lambda"><a href="https://httptoolkit.tech/blog/cache-your-cors/#caching-cors-with-aws-lambda">Caching CORS with AWS Lambda</a><a aria-hidden="true" class="anchor-heading icon-link" href="#caching-cors-with-aws-lambda"></a></h3>
+<p>To enable CORS with AWS Lambda, you can either manually return the headers above in your HTTP response, or you can <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html">configure API Gateway</a> to handle CORS for you.</p>
+<p>If you use API Gateway's configuration, this allows you to configure the <code>Access-Control-Max-Age</code> header, but will not set <code>Cache-Control</code> by default, so if you're using CloudFront or another CDN, you should manually configure that and <code>Vary</code> too.</p>
+<p>Alternatively, you can control this all yourself in a preflight lambda handler, like so:</p>
+<pre class="language-javascript"><code class="language-javascript">exports<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">handler</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token punctuation">{</span>
+    statusCode<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    headers<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Keep your existing CORS headers:</span>
+      <span class="token string">"Access-Control-Allow-Origin"</span><span class="token operator">:</span> event<span class="token punctuation">.</span><span class="token property-access">headers</span><span class="token punctuation">[</span><span class="token string">"origin"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token comment">// ...</span>
+
+      <span class="token comment">// And add these:</span>
+      <span class="token string">"Access-Control-Max-Age"</span><span class="token operator">:</span> <span class="token number">86400</span><span class="token punctuation">,</span>
+      <span class="token string">"Cache-Control"</span><span class="token operator">:</span> <span class="token string">"public, max-age=86400"</span><span class="token punctuation">,</span>
+      <span class="token maybe-class-name">Vary</span><span class="token operator">:</span> <span class="token string">"origin"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">return</span> response<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>CloudFront specifically includes <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CachedMethods.html">separate configuration</a> that enables caching for OPTIONS responses, so you should ensure this is enabled if you're using <code>Cache-Control</code> here.</p>
+<p>If you're using the <a href="https://www.serverless.com/">Serverless framework</a>, you can do this automatically in your <code>serverless.yml</code> instead, for example:</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">functions</span><span class="token punctuation">:</span>
+  <span class="token key atrule">hello</span><span class="token punctuation">:</span>
+    <span class="token key atrule">handler</span><span class="token punctuation">:</span> handler.hello
+    <span class="token key atrule">events</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">http</span><span class="token punctuation">:</span>
+          <span class="token key atrule">path</span><span class="token punctuation">:</span> hello
+          <span class="token key atrule">method</span><span class="token punctuation">:</span> get
+          <span class="token key atrule">cors</span><span class="token punctuation">:</span>
+            <span class="token key atrule">origin</span><span class="token punctuation">:</span> <span class="token string">"*"</span>
+            <span class="token key atrule">maxAge</span><span class="token punctuation">:</span> <span class="token number">86400</span>
+            <span class="token key atrule">cacheControl</span><span class="token punctuation">:</span> <span class="token string">"public, max-age=86400"</span>
+</code></pre>
+<h3 id="caching-cors-in-nodejs"><a href="https://httptoolkit.tech/blog/cache-your-cors/#caching-cors-in-nodejs">Caching CORS in Node.js</a><a aria-hidden="true" class="anchor-heading icon-link" href="#caching-cors-in-nodejs"></a></h3>
+<p>If you're using Express, Connect, or a framework based on them, then you're probably using the <a href="https://www.npmjs.com/package/cors">cors</a> module to handle CORS.</p>
+<p>By default this doesn't enable any kind of caching at all, but you can configure <code>Access-Control-Max-Age</code> by passing a <code>maxAge</code> value.</p>
+<p>You can't easily configure <code>Cache-Control</code>, so if you're using a CDN you probably want to do something slightly more complicated:</p>
+<pre class="language-javascript"><code class="language-javascript">app<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span>
+  <span class="token function">cors</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment">// Set the browser cache time for preflight responses</span>
+    maxAge<span class="token operator">:</span> <span class="token number">86400</span><span class="token punctuation">,</span>
+    preflightContinue<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// Allow us to manually add to preflights</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Add cache-control to preflight responses in a separate middleware:</span>
+app<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">method</span> <span class="token operator">===</span> <span class="token string">"OPTIONS"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token method function property-access">setHeader</span><span class="token punctuation">(</span><span class="token string">"Cache-Control"</span><span class="token punctuation">,</span> <span class="token string">"public, max-age=86400"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// No Vary required: cors sets it already set automatically</span>
+    res<span class="token punctuation">.</span><span class="token method function property-access">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="caching-cors-in-python"><a href="https://httptoolkit.tech/blog/cache-your-cors/#caching-cors-in-python">Caching CORS in Python</a><a aria-hidden="true" class="anchor-heading icon-link" href="#caching-cors-in-python"></a></h3>
+<p>Django's <a href="https://pypi.org/project/django-cors-headers/">django-cors-headers</a> module includes a reasonable default of 86400 as its <code>Access-Control-Max-Age</code> value.</p>
+<p>Meanwhile Flask's <a href="https://pypi.org/project/Flask-Cors/">Flask-Cors</a> module enables no caching at all by default, but it can be enabled by passing <code>max_age=86400</code> as an option in your existing configuration</p>
+<p>With that, you can ensure that browser properly cache these responses. If you want CDN caching too then you'll need to manually configure <code>Cache-Control</code>. Unfortunately, as far as I can tell, neither module supports custom configuration or an easy workaround for this, so if CDN caching is important to you then you'll probably need to manually handle preflight requests, or wrap these modules yourself.</p>
+<h3 id="caching-cors-with-java-spring"><a href="https://httptoolkit.tech/blog/cache-your-cors/#caching-cors-with-java-spring">Caching CORS with Java Spring</a><a aria-hidden="true" class="anchor-heading icon-link" href="#caching-cors-with-java-spring"></a></h3>
+<p>With Spring, you're probably already using the <code>@CrossOrigin</code> annotation to handle CORS requests.</p>
+<p>By default Spring will set a 30 minutes <code>Access-Control-Max-Age</code> header with this, adding relatively short caching in each individual browser, but won't set a <code>Cache-Control</code> header.</p>
+<p>I'd suggest you increase the max age to 24 hours (86400 seconds, the maximum used by any browser) by setting the <code>maxAge</code> option, and also add the <code>Cache-Control</code> header if you're using a CDN. Spring's built-in CORS configuration doesn't have support for doing the latter automatically, but you can easily add the header yourself using a response filter:</p>
+<pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AddPreflightCacheControlWebFilter</span> <span class="token keyword">implements</span> <span class="token class-name">WebFilter</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Mono</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Void</span><span class="token punctuation">></span></span> <span class="token function">filter</span><span class="token punctuation">(</span><span class="token class-name">ServerWebExchange</span> exchange<span class="token punctuation">,</span> <span class="token class-name">WebFilterChain</span> chain<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">CorsUtils</span><span class="token punctuation">.</span><span class="token function">isPreFlightRequest</span><span class="token punctuation">(</span>exchange<span class="token punctuation">.</span><span class="token function">getRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            exchange<span class="token punctuation">.</span><span class="token function">getResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">getHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Cache-Control"</span><span class="token punctuation">,</span> <span class="token string">"public, max-age=86400"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> chain<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>exchange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<p>I hope this helps improve your CORS performance and reduce your API traffic! Have thoughts or questions? Feel free to in touch on <a href="https://twitter.com/pimterry">Twitter</a> or <a href="https://httptoolkit.tech/contact">directly</a>.</p>
+<p><strong>Debugging APIs and want to inspect, rewrite &#x26; mock live traffic? Try out <a href="https://httptoolkit.tech/javascript/">HTTP Toolkit</a> right now. Open-source one-click HTTP(S) interception &#x26; debugging for web, Android, servers &#x26; more.</strong></p>
+<hr>
+<h1 id="hacker-news"><a href="https://news.ycombinator.com/item?id=32907234">Hacker News</a><a aria-hidden="true" class="anchor-heading icon-link" href="#hacker-news"></a></h1>
+<p>Unfortunately this caching is still per-path. For example:</p>
+<pre><code>    GET /v1/document/{document-id}/comments/{comment-id}
+</code></pre>
+<p>For every new document-id or comment-id, there will be a new pre-flight request.</p>
+<p>Alternative hacks: Offer a variant of your API format that either</p>
+<ol>
+<li>
+<p>Moves the resource path to the request body (or to a header that is included in "Vary"). Mke sure the rest of your stack (load balancing, observability, redaction) is ok with this, e.g. do your WAF rules support matching on the request body? You also will no longer get automatic path-based caching for GET requests.</p>
+</li>
+<li>
+<p>Conforms to the rules of a CORS "simple" request <sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup>, which doesn't trigger a pre-flight request. This is what we did on the Dropbox API <sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup>. You'll need to move the auth information from the Authorization header to a query parameter or the body, which can be dangerous wrt redaction, e.g. many tools automatically redact the Authorization header but not query parameters.</p>
+</li>
+</ol>
+<p><sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests">https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests</a><br>
+<sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup> <a href="https://www.dropbox.com/developers/documentation/http/documentation">https://www.dropbox.com/developers/documentation/http/documentation</a> (see "Browser-based JavaScript and CORS pre-flight requests")</p>

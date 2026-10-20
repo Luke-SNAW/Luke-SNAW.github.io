@@ -1,0 +1,106 @@
+<h1 id="functional-programming---how-and-why">Functional Programming - How and Why<a aria-hidden="true" class="anchor-heading icon-link" href="#functional-programming---how-and-why"></a></h1>
+<blockquote>
+<p><a href="https://onsclom.bearblog.dev/functional-programming-how-and-why/">functional-programming-how-and-why</a><br>
+<a href="https://news.ycombinator.com/item?id=34214150">https://news.ycombinator.com/item?id=34214150</a></p>
+</blockquote>
+<p>Let's start with an example. In <a href="https://adventofcode.com/2022/day/1">Advent of Code 2022 day 1</a> we get groups of numbers as input like:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token number">1000</span>
+<span class="token number">2000</span>
+<span class="token number">3000</span>
+
+<span class="token number">4000</span>
+
+<span class="token number">5000</span>
+<span class="token number">6000</span>
+
+<span class="token number">7000</span>
+<span class="token number">8000</span>
+<span class="token number">9000</span>
+
+<span class="token number">10000</span>
+</code></pre>
+<p>We want a program that sums up each group and returns the largest. The largest in this example is the 4th group, 24000.</p>
+<p>Here is an imperative solution:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> input <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"pre"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">innerText</span>
+<span class="token keyword">let</span> runningMax <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> group <span class="token keyword">of</span> input<span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">"\n\n"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> runningSum <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> num <span class="token keyword">of</span> group<span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> runningSum <span class="token operator">+=</span> <span class="token known-class-name class-name">Number</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+  runningMax <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">max</span><span class="token punctuation">(</span>runningMax<span class="token punctuation">,</span> runningSum<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>runningMax<span class="token punctuation">)</span>
+</code></pre>
+<p>Here is a functional solution:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> input <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"pre"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">innerText</span>
+<span class="token keyword">function</span> <span class="token function">sumGroup</span><span class="token punctuation">(</span><span class="token parameter">group</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> group
+    <span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Number</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token method function property-access">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> a <span class="token operator">+</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> sortedGroups <span class="token operator">=</span> input
+  <span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">"\n\n"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span>sumGroup<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token method function property-access">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> a <span class="token operator">-</span> b<span class="token punctuation">)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>sortedGroups<span class="token punctuation">.</span><span class="token method function property-access">at</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The imperative solution:</p>
+<ul>
+<li>We declare variables called <code>runningMax</code> and <code>runningSum</code> that we mutate throughout the program</li>
+<li>We use <code>for</code> loops to iterate</li>
+</ul>
+<p>The functional solution:</p>
+<ul>
+<li>We avoid declaring mutable variables</li>
+<li>Instead of iterating with <code>for</code> loops, we use <em>higher order functions</em> like <code>map</code>, <code>reduce</code>, and <code>sort</code></li>
+</ul>
+<p><em>Higher order functions</em> are functions that operate on other functions. <code>map</code>, <code>reduce</code>, and <code>sort</code> take a function as an argument.</p>
+<p>How exactly does one do functional programming?</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Avoid</th><th>Favor</th></tr></thead><tbody><tr><td>mutable state</td><td>function parameters and immutable data</td></tr><tr><td>iterative steps</td><td>transforming data</td></tr><tr><td>loop statements</td><td>recursion or higher order functions</td></tr><tr><td>intertwined data and behavior</td><td>separated data and behavior</td></tr></tbody></table></div>
+<p>Often times functional programming looks like using higher level functions. You might be wondering, "Functions like <code>map</code> are basically fancy loops! What if <code>map</code> did not already exist?" A functional programmer would write map themself using recursion. Anything written with loop statements can be rewritten with recursion.</p>
+<p>Imagine we want a <code>range</code> function where <code>range(5)</code> returns <code>[1,2,3,4,5]</code>.</p>
+<p>Imperative solution:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token parameter">end</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;=</span> end<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> nums<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+  <span class="token keyword control-flow">return</span> nums
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Functional solution:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token parameter">end<span class="token punctuation">,</span> cur <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>cur<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">>=</span> end<span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> cur
+  <span class="token keyword control-flow">return</span> <span class="token function">range</span><span class="token punctuation">(</span>end<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>cur<span class="token punctuation">,</span> cur<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><em>This recursive solution suffers performance penalties however. See <a href="https://news.ycombinator.com/item?id=34214150#34215700">this HN comment</a> for more info.</em></p>
+<p>I would have never thought to use recursion for this function before learning about functional programming. Now I might actually prefer the recursive solution.</p>
+<h2 id="why-use-functional-programming">Why use functional programming<a aria-hidden="true" class="anchor-heading icon-link" href="#why-use-functional-programming"></a></h2>
+<p>Functional programming has some amazing benefits:</p>
+<p><strong>Avoid bugs related to mutable state.</strong> Static typing removes the class of bugs caused by type errors. Similarly, functional programming removes the class of bugs caused by mutation. Every programmer has copied an array, modified the copy, then spent way too long trying to figure out how the original got modified (aka shallow copies vs. deep copies). Mutable state causes especially tricky bugs in large code bases. What shallow copy made the mutation? It could be anywhere!</p>
+<p><strong>Write declarative code.</strong> Imperative code describes <em>how</em> to do things. Declarative code describes <em>what</em> we are doing. Because of this, declarative code is easier to understand and modify. Think about how the original imperative solution has variables named <code>runningMax</code> and <code>runningSum</code>. It's tempting to name these variables <code>maxGroup</code> and <code>sum</code>, but that would be lying. They start at 0 and change over the course of the program. We are stuck with variable names describing <em>how</em> we do things. In the functional solution, <code>sortedGroups</code> describes exactly <em>what</em> we are doing.</p>
+<p><strong>Write code that is easier to test.</strong> In imperative code it is common to write void functions which mutate state. Games tend to define <code>update()</code> functions which mutate some state each tick. We can avoid mutation by taking game state as an argument and returning new state. Now our game is much easier to test too! We simply call <code>update</code> with some game state and assert that the result is what we expect. Imagine how hard it would be test the imperative <code>update</code> function!</p>

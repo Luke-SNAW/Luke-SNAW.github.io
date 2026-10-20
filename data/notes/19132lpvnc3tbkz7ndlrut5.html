@@ -1,0 +1,72 @@
+<h1 id="strikethrough-accessibility">Strikethrough Accessibility<a aria-hidden="true" class="anchor-heading icon-link" href="#strikethrough-accessibility"></a></h1>
+<blockquote>
+<p><a href="https://www.webaxe.org/strikethrough-html-accessibility/">https://www.webaxe.org/strikethrough-html-accessibility/</a></p>
+</blockquote>
+<p>Strikethrough <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-s-element"><code>&#x3C;s></code></a> is an HTML element to indicate text that is crossed out – usually indicated visually with a line through the middle of the text. The W3C definition is:</p>
+<blockquote>
+<p>The s element represents contents that are no longer accurate or no longer relevant.</p>
+</blockquote>
+<p>On e-commerce websites, a strikethrough element is often used to indicate a price is no longer valid and often has a reduced price next to it.</p>
+<blockquote>
+<p><a href="http://www.webaxe.org/wp-content/uploads/2023/10/ex-price-strike-udemy-1024x608.png">Screenshot of two similar examples of a product with an active and crossed out price. A red arrow points to each of the crossed out prices.</a></p>
+</blockquote>
+<p>The problem is that most screen readers don’t output the strikethrough semantics. This can be very problematic to the blind user since they won’t know which price is valid. Most in-line semantic elements such as <code>&#x3C;em></code> and <code>&#x3C;mark></code> are not conveyed to screen readers actually. For more on that, reference the article <a href="https://www.tpgi.com/screen-readers-support-for-text-level-html-semantics/">Screen Readers support for text level HTML semantics</a> by TPGi.</p>
+<p>Let’s examine four test cases and the level of support. Note that the strikethrough element is <a href="https://w3c.github.io/html-aam/#el-s">mapped to the deletion ARIA role</a> which we’ll use in test Scenario 2.</p>
+<h3 id="test-cases">Test Cases<a aria-hidden="true" class="anchor-heading icon-link" href="#test-cases"></a></h3>
+<p>Four code scenarios were tested against 6 screen reader/browser/OS combinations including VoiceOver, NVDA, JAWS, and TalkBack. The actual test cases used are in the second portion of the CodePen <a href="https://codepen.io/weboverhauls/full/vYvPxOM">Negative number and strikethru tests</a>.</p>
+<h4 id="scenario-1-strikethrough-element-only">Scenario 1: strikethrough element only<a aria-hidden="true" class="anchor-heading icon-link" href="#scenario-1-strikethrough-element-only"></a></h4>
+<p>Price: <del>$200</del> $100</p>
+<p><code>Price: &#x3C;s>$200&#x3C;/s> $100</code></p>
+<p>The plain old semantic HTML—an S element around the text. This is obviously the ideal code, but support isn’t quite there yet. Only NVDA and TalkBack passed.</p>
+<h4 id="scenario-2-strikethrough-with-aria-deletion-role">Scenario 2: strikethrough with ARIA ‘deletion’ role<a aria-hidden="true" class="anchor-heading icon-link" href="#scenario-2-strikethrough-with-aria-deletion-role"></a></h4>
+<p>Price: <del>$200</del> $100</p>
+<p><code>Price: &#x3C;s role="deletion">$200&#x3C;/s> $100</code></p>
+<p>This is similar to Scenario 1, but with the addition of role=”deletion”. The test results were similar to without the role. The only difference is that VoiceOver on iOS also passed.</p>
+<h4 id="scenario-3-strikethrough-with-visually-hidden-text">Scenario 3: strikethrough with visually hidden text<a aria-hidden="true" class="anchor-heading icon-link" href="#scenario-3-strikethrough-with-visually-hidden-text"></a></h4>
+<p>Price: original price<del>$200</del> sale price$100</p>
+<p><code>Price: &#x3C;span class="visually-hidden">original price&#x3C;/span>&#x3C;s>$200&#x3C;/s> &#x3C;span class="visually-hidden">sale price&#x3C;/span>$100</code></p>
+<p>This test case uses the old school technique of visually hiding text via CSS. “Original price” outputs before the price with the strikethrough, and “Sale price” outputs before the valid price.</p>
+<p>All screen readers passed this scenario.</p>
+<h4 id="scenario-4-strikethrough-with-visually-hidden-pseudo-content">Scenario 4: strikethrough with visually hidden pseudo-content<a aria-hidden="true" class="anchor-heading icon-link" href="#scenario-4-strikethrough-with-visually-hidden-pseudo-content"></a></h4>
+<p>Price: <del>$200</del> $100</p>
+<p><code>Price: &#x3C;s>$200&#x3C;/s> $100</code></p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token id">#pseudo</span> s<span class="token pseudo-element">::before</span></span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" [start of stricken text] "</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token id">#pseudo</span> s<span class="token pseudo-element">::after</span></span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" [end stricken text] "</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token id">#pseudo</span> s<span class="token pseudo-element">::before</span><span class="token punctuation">,</span>
+<span class="token id">#pseudo</span> s<span class="token pseudo-element">::after</span></span> <span class="token punctuation">{</span>
+  <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">inset</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">clip</span><span class="token punctuation">:</span> <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The fourth test case has the same HTML has Scenario 1. But then applies a brilliant method by Adrian Roselli introduced in 2017 in the article <a href="https://adrianroselli.com/2017/12/tweaking-text-level-styles.html#S">Tweaking Text Level Styles</a>. Pseudo-content (creating a textual phrase via CSS) is used to indicate when the strikethrough starts and ends.</p>
+<p>There are a couple issues to mention with this approach:</p>
+<ol>
+<li>Since NVDA now supports the strikethrough tag, it indicates the semantics twice — both the S element semantics (“deleted”) and the pseudo-content (“start of stricken text”) which creates ambiguity for the user.
+<ol>
+<li>Oddly, the double semantics is <em>not</em> conveyed by TalkBack which <em>did</em> pass the previous three scenarios.</li>
+</ol>
+</li>
+<li>With JAWS, the output is broken up with multiple stops which makes it difficult to follow. (Changing the brackets to parentheses might help.)</li>
+</ol>
+<p>This technique technically works for all screen readers, but the user experience is very confusing for NVDA users.</p>
+<h3 id="test-results">Test Results<a aria-hidden="true" class="anchor-heading icon-link" href="#test-results"></a></h3>
+<p>Does screen reader output “deleted”, “stricken”, or similar?</p>
+<table style="font-size: .8em; min-width: 44em;"><tbody><tr><td></td><th>iOS + Safari + VO</th><th>MacOS + Safari + VO</th><th>Android + Chrome + TalkBack</th><th>Win + Chrome + NVDA</th><th>Win + Firefox + NVDA</th><th>Win + Chrome + JAWS</th></tr><tr><th style="min-width: 7em;">Scenario 1</th><td>No</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr><tr style="background: rgba(239, 239, 239, .7);"><th>Scenario 2</th><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr><tr><th>Scenario 3</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr style="background: rgba(239, 239, 239, .7);"><th>Scenario 4</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr></tbody></table>
+<h3 id="conclusion">Conclusion<a aria-hidden="true" class="anchor-heading icon-link" href="#conclusion"></a></h3>
+<p>NVDA has the best support for <code>&#x3C;s></code>, the strikethrough element. For now, to best support screen readers overall, we should continue to use Scenario 3 — strikethrough with visually hidden text — to programmatically convey strikethrough semantics. Doing so will ensure that everyone understands strikethrough semantics while browsing the web which often means knowing the correct price of a product or service.</p>
+<h3 id="further-reading">Further reading<a aria-hidden="true" class="anchor-heading icon-link" href="#further-reading"></a></h3>
+<ul>
+<li><a href="https://www.deque.com/blog/ensuring-negative-numbers-are-available-for-everyone/">Ensuring negative numbers are available for everyone</a> via Deque Systems</li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-inline-level-and-block-level-elements-in-html">How To Use Inline-level and Block-level Elements in HTML</a> by DigitalOcean</li>
+</ul>

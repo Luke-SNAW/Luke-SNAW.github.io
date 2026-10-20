@@ -1,0 +1,23 @@
+<h1 id="practices-of-reliable-software-design">Practices of Reliable Software Design<a aria-hidden="true" class="anchor-heading icon-link" href="#practices-of-reliable-software-design"></a></h1>
+<blockquote>
+<p><a href="https://entropicthoughts.com/practices-of-reliable-software-design">https://entropicthoughts.com/practices-of-reliable-software-design</a></p>
+</blockquote>
+<p>The article discusses eight essential practices for designing reliable software, illustrated through the example of creating an in-memory cache. It emphasizes the importance of considering off-the-shelf solutions first, advocating for simplicity over complexity in design. The author suggests that minimal upfront design can often lead to faster development, with production deployment revealing necessary features. Complicated data structures are discouraged due to their potential for misuse, and a straightforward array is recommended for storing cache items. Early resource allocation is highlighted as beneficial for identifying issues promptly and aiding capacity planning. The article also advises setting limits on data storage to prevent memory overuse. To ensure expected behavior and facilitate testing, the cache accepts commands via standard input, allowing for automated verification. Performance monitoring through embedded counters is suggested as a way to understand system behavior over time. Overall, these insights aim to enhance software engineering practices and reliability.</p>
+<hr>
+<p><strong>Practices of Reliable Software Design</strong> outlines several key insights for effective software engineering, particularly in the context of building an in-memory cache:</p>
+<ul>
+<li><strong>Leverage Off-the-Shelf Solutions</strong>: Prioritize using existing tools like Redis unless a custom solution is essential, as this simplifies development and reduces complexity.</li>
+<li><strong>Start Simple</strong>: Focus on creating a cheap and reliable product with minimal features before considering more complex additions.</li>
+<li><strong>Minimize Upfront Design</strong>: Avoid extensive pre-development design phases; instead, use initial analysis to clarify requirements and streamline the development process.</li>
+<li><strong>Production Feedback</strong>: Deploy a basic version to production to discover necessary features through actual usage rather than assumptions.</li>
+<li><strong>Avoid Complicated Data Structures</strong>: Stick to simple data structures to reduce the risk of misuse and performance issues.</li>
+<li><strong>Early Resource Allocation</strong>: Allocating resources upfront can prevent runtime failures and facilitate better capacity planning.</li>
+<li><strong>Set Limits</strong>: Implement limits on data storage and operation times to avoid memory overload and ensure predictable performance.</li>
+<li><strong>Command Line Testing</strong>: Allow interaction through standard input for testing, enabling automated verification of functionality via scripts.</li>
+<li><strong>Performance Monitoring</strong>: Use performance counters to gather data on system behavior, which helps identify issues and optimize performance.</li>
+<li><strong>Iterative Improvement</strong>: Emphasize learning from production experiences to refine and enhance the software over time.</li>
+</ul>
+<hr>
+<p><a href="https://entropicthoughts.com/build-vs-buy">High cost, tightly integrated, and difficult to design? Build, don’t buy. Everything else? Buy.</a></p>
+<hr>
+<p><a href="https://news.ycombinator.com/item?id=41787260">Fail early, and fail noisily. Don't fail silently.</a></p>
