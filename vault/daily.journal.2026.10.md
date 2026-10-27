@@ -2,19 +2,20 @@
 id: kwbkir4wkociz0teiwqzqpr
 title: "10"
 desc: ""
-updated: 1792488343019
+updated: 1793235866703
 created: 1791206539791
 ---
 
 - [[chore는 더 나은 타이밍이 있다|daily.journal.2026.10.03#r5c-사당역-삼육가]]
 - [[그림 감상, 좋은 휴식 활동|daily.journal.2026.10.03#r5c-사당역-삼육가]]
-- [[명상에 조금 익숙해져 방법론을 생략하고 바로 생각비우기 상태에 닿으려 하는데 방법론으로 일정 상태에 진입 후 모두 비우는 쪽이 성공률이 압도적|book-report.slow-looking]]
-- [[업무도 그림처럼 느리게 감상?|daily.journal.2026.10.07#업무도-느리게-감상]]
-- [[소비활동 대신 여유시간을 가지는 비중이 늘어남|daily.journal.2026.10.07#소비활동-대신-여유시간을-가지는-비중이-늘어남]]
-- [[시작이 절반이라더니|daily.journal.2026.10.09#시작이-절반이라더니]]
-- [[Something is better than nothing|daily.journal.2026.10.12#something-is-better-than-nothing]]
-- [[기계를 조정하는 기계가 된 듯하여 우울함|daily.journal.2026.10.17#기계를-조정하는-기계가-된-듯하여-우울함]]
-- [[시작할 때는 기준을 확 낮춰 거부감을 줄이자|daily.journal.2026.10.17#시작할-때는-기준을-확-낮춰-거부감을-줄이자]]
+  - [[업무도 그림처럼 느리게 감상?|daily.journal.2026.10.07#업무도-느리게-감상]]
+  - [[소비활동 대신 여유시간을 가지는 비중이 늘어남|daily.journal.2026.10.07#소비활동-대신-여유시간을-가지는-비중이-늘어남]]
+- [[불씨|knowledge.mental.behavioral-activation#불씨-비유와의-연결]]
+  - [[명상에 조금 익숙해져 방법론을 생략하고 바로 생각비우기 상태에 닿으려 하는데 방법론으로 일정 상태에 진입 후 모두 비우는 쪽이 성공률이 압도적|book-report.slow-looking]]
+  - [[시작이 절반이라더니|daily.journal.2026.10.09#시작이-절반이라더니]]
+  - [[Something is better than nothing|daily.journal.2026.10.12#something-is-better-than-nothing]]
+  - [[기계를 조정하는 기계가 된 듯하여 우울함|daily.journal.2026.10.17#기계를-조정하는-기계가-된-듯하여-우울함]]
+  - [[시작할 때는 기준을 확 낮춰 거부감을 줄이자|daily.journal.2026.10.17#시작할-때는-기준을-확-낮춰-거부감을-줄이자]]
 
 ## fin
 
