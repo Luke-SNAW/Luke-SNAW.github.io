@@ -1,0 +1,34 @@
+<h1 id="advice-from-a-senior-dev-stop-using-the-implicit-else">Advice from a Senior Dev Stop Using the Implicit Else<a aria-hidden="true" class="anchor-heading icon-link" href="#advice-from-a-senior-dev-stop-using-the-implicit-else"></a></h1>
+<blockquote>
+<p><a href="https://javascript.plainenglish.io/advice-from-a-senior-dev-stop-using-the-implicit-else-2a2ecf0a3583">https://javascript.plainenglish.io/advice-from-a-senior-dev-stop-using-the-implicit-else-2a2ecf0a3583</a></p>
+</blockquote>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">checkCountryCodeImplicit</span><span class="token punctuation">(</span><span class="token parameter">country</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>country <span class="token operator">===</span> <span class="token string">"United States"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token string">"+1"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>country <span class="token operator">===</span> <span class="token string">"Uruguay"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token string">"+598"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>country <span class="token operator">===</span> <span class="token string">"Uzbekistan"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token string">"+998"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// It's easy to forget what the condition for this return is!</span>
+  <span class="token keyword control-flow">return</span> <span class="token string">"+44"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>-></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">checkCountryCode</span><span class="token punctuation">(</span><span class="token parameter">country</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>country <span class="token operator">===</span> <span class="token string">"United States"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token string">"+1"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>country <span class="token operator">===</span> <span class="token string">"Uzbekistan"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token string">"+998"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>country <span class="token operator">===</span> <span class="token string">"Uruguay"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token string">"+598"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>country <span class="token operator">===</span> <span class="token string">"United Kingdom"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token string">"+44"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// This alerts us if a country is passed in that our function hasn't handled</span>
+    <span class="token keyword control-flow">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"This input is not supported at the moment."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>

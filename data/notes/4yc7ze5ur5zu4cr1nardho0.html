@@ -1,0 +1,177 @@
+<h1 id="things-you-should-know-about-databases">Things You Should Know About Databases<a aria-hidden="true" class="anchor-heading icon-link" href="#things-you-should-know-about-databases"></a></h1>
+<blockquote>
+<p><a href="https://architecturenotes.co/things-you-should-know-about-databases/">https://architecturenotes.co/things-you-should-know-about-databases/</a><br>
+<a href="https://news.ycombinator.com/item?id=31895623">https://news.ycombinator.com/item?id=31895623</a></p>
+</blockquote>
+<p>It is often surprising how little is known about how databases operate at a surface level, considering they store almost all of the states in our applications. Yet, it's foundational to the overall success of most systems. So today, I will explain the two most important topics when working with RDBMSs indexes and transactions.</p>
+<p>So, without fully getting into the weeds on database-specific quirks, I will cover everything you <em>should</em> understand about RDBMS indexes. I will touch briefly on transactions and isolation levels and how they can impact your reasoning about specific transactions.</p>
+<p><img src="https://architecturenotes.co/content/images/2022/07/Databases-01-1.jpg" alt="Things you should know about databases"></p>
+<p>Things you should know about databases</p>
+<h4 id="what-is-an-rdbms">What is an RDBMS?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-an-rdbms"></a></h4>
+<p>A relational database is a digital database based on the relational data model, as proposed by E. F. Codd in 1970. A <strong>relational database management system</strong> (RDBMS) is used to maintain relational databases. Many relational database systems have an option of using the SQL (Structured Query Language) for querying and maintaining the database. Examples include MySQL and PostgreSQL.</p>
+<h2 id="what-is-an-index">What is an index?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-an-index"></a></h2>
+<p>Indexes are a data structure that helps decrease the look-up time of requested data. Indexes achieve this with the additional costs of storage, memory, and keeping it up to date (slower writes), which allows us to skip the tedious task of checking every table row.</p>
+<p>Like an index in the back of a textbook, it helps you get to the right page. I am not a great fan of the book analogy, it quickly falls apart as we dig deeper into database indexes, but it is an excellent way to introduce the topic.</p>
+<h3 id="why-do-we-need-indexes">Why do we need indexes?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-do-we-need-indexes"></a></h3>
+<p>Small amounts of data are manageable but, (think of an attendance list for a small class) when they get larger (think birth registry for a large city) less so. Everything that used to be quick gets slower, too slow.</p>
+<p>Think about how your strategy would change if you had to find something on 1 page vs. thousand pages of names. No, <strong>seriously</strong>, take a second and think.</p>
+<p>Some database has implemented almost all the good strategies you can come up with at some point. As they grow, systems collect and store more data, eventually leading to the problem above.</p>
+<p>We need indexes to help us get the relevant data we need as quickly as possible.</p>
+<h3 id="how-do-indexes-work">How do indexes work?<a aria-hidden="true" class="anchor-heading icon-link" href="#how-do-indexes-work"></a></h3>
+<p><img src="https://architecturenotes.co/content/images/2022/06/Databases-01-3.jpg" alt="Read performance increases as you index the data, but that comes at the cost of write performance since you need to keep index up to date."></p>
+<p>Read performance increases as you index the data, but that comes at the cost of write performance since you need to keep index up to date.</p>
+<p>So one of the solutions question that is often posed above is to store this data logically on how you would search it. Meaning if you want to search the list by name you would sort the list by first name. There are few issues with that strategy. I will pose them mostly as questions for the reader here:</p>
+<ol>
+<li>What if you want to search the data in multiple ways?</li>
+<li>How would you deal with adding new data to the list? Is that fast?</li>
+<li>How would you deal with updates?</li>
+<li>Whats is the O notation on these tasks?</li>
+</ol>
+<p>Something to <strong>think</strong> about. Regardless of your original strategy we definitely need a way to maintain order so we can quickly get relevant unordered data (more on that soon)</p>
+<p>🐦</p>
+<p>We are hoping to build the largest system design community on the internet! We would love for you to join us. You can find us here on <a href="https://twitter.com/arcnotes">Twitter</a>. You can reach the author <a href="https://twitter.com/myusuf3">here</a> too for feedback.</p>
+<p>Lets take the Figure 1.1 below.</p>
+<pre class="language-sql"><code class="language-sql"><span class="token operator">+</span>─────<span class="token operator">+</span>─────────<span class="token operator">+</span>──────────────<span class="token operator">+</span>
+<span class="token operator">|</span> id  <span class="token operator">|</span> name    <span class="token operator">|</span> city         <span class="token operator">|</span>
+<span class="token operator">+</span>─────<span class="token operator">+</span>─────────<span class="token operator">+</span>──────────────<span class="token operator">+</span>
+<span class="token operator">|</span> <span class="token number">1</span>   <span class="token operator">|</span> Mahdi   <span class="token operator">|</span> Ottawa       <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">2</span>   <span class="token operator">|</span> Elon    <span class="token operator">|</span> Mars         <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">3</span>   <span class="token operator">|</span> Jeff    <span class="token operator">|</span> Orbit        <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">4</span>   <span class="token operator">|</span> Klay    <span class="token operator">|</span> Oakland      <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">5</span>   <span class="token operator">|</span> Lebron  <span class="token operator">|</span> Los Angeles  <span class="token operator">|</span>
+<span class="token operator">+</span>─────<span class="token operator">+</span>─────────<span class="token operator">+</span>──────────────<span class="token operator">+</span>
+</code></pre>
+<p>Figure 1.1 Small table that is easily read from disk quickly.</p>
+<p>The underlying data is spread around storage with no order and allocated perceivably randomly. Nowadays, most production servers come with SSDs, but there are some cases where you would want (HDD) spinning disks, but honestly, the reasons are getting less and less as prices for SSDs come down significantly.</p>
+<h4 id="ssd-vs-hdd">SSD vs. HDD<a aria-hidden="true" class="anchor-heading icon-link" href="#ssd-vs-hdd"></a></h4>
+<p>The main difference between a solid-state drive (SSD) and a hard disk drive (HDD) is how data is stored and accessed. HDDs use mechanical spinning disks and a moving read/write head to access data (latency), while SSDs use much faster memory chips, especially when reading many small files. Therefore, if the price isn’t an issue, SSDs are a better option — especially since modern SSDs are just about as reliable as HDDs.</p>
+<p>Now reading in that small amount of data into memory is quite fast and relatively trivial to scan. Now what if the data we are searching across can't be cached entirely in memory? or the time to read all the data from disk is taking too long?</p>
+<pre class="language-sql"><code class="language-sql"><span class="token operator">+</span>──────────<span class="token operator">+</span>─────────<span class="token operator">+</span>───────────────────<span class="token operator">+</span>
+<span class="token operator">|</span> id       <span class="token operator">|</span> name    <span class="token operator">|</span> city              <span class="token operator">|</span>
+<span class="token operator">+</span>──────────<span class="token operator">+</span>─────────<span class="token operator">+</span>───────────────────<span class="token operator">+</span>
+<span class="token operator">|</span> <span class="token number">1</span>        <span class="token operator">|</span> Mahdi   <span class="token operator">|</span> Ottawa            <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">2</span>        <span class="token operator">|</span> Elon    <span class="token operator">|</span> Mars              <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">3</span>        <span class="token operator">|</span> Jeff    <span class="token operator">|</span> Orbit             <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">4</span>        <span class="token operator">|</span> Klay    <span class="token operator">|</span> Oakland           <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">5</span>        <span class="token operator">|</span> Lebron  <span class="token operator">|</span> Los Angeles       <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>      <span class="token operator">|</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token operator">|</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>               <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">1000000</span>  <span class="token operator">|</span> Steph   <span class="token operator">|</span> San Francisco     <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">1001000</span>  <span class="token operator">|</span> Linus   <span class="token operator">|</span> Portland          <span class="token operator">|</span>
+<span class="token operator">+</span>───────<span class="token operator">+</span>─────────<span class="token operator">+</span>──────────────────────<span class="token operator">+</span>
+</code></pre>
+<p>Figure 1.2 Large Table that doesn't fit entirely in memory and is spread across disk.</p>
+<p>So here is where most developers go – I have seen this problem before; we need some dictionary (hash map) and a way to get to the specific row we are looking for without having to scan the slow disk, reading tons of blocks to see if the data we need is there.</p>
+<p>These are called <strong>index leaf nodes</strong> are given a specific column to index, they can store the location of the matching row(s)</p>
+<p><img src="https://architecturenotes.co/content/images/2022/06/Databases-02-1.jpg"></p>
+<p>These index leaf nodes are the mapping between the indexed column and where the corresponding row lives on the disk. This gives us a quick way to get to a specific row if you reference it by indexed column. Scanning the index can be much faster since it is a compact representation (fewer bytes) of the column you are searching by. It saves you time reading a bunch of blocks looking for the requested data and is much more convenient to cache, further speeding up the entire process.</p>
+<h2 id="scale-of-data-often-works-against-you-and-balanced-trees-are-the-first-tool-in-your-arsenal-against-it">Scale of data often works against you, and balanced trees are the first tool in your arsenal against it.<a aria-hidden="true" class="anchor-heading icon-link" href="#scale-of-data-often-works-against-you-and-balanced-trees-are-the-first-tool-in-your-arsenal-against-it"></a></h2>
+<p>These indexes leaf nodes are of uniform size, and we are trying to store as many of these leaf nodes as a possible per block. Since this structure requires things to be sorted (logically, not physically on disk), we need to solve the problem of having to add and remove data quickly; the good ol' linked list manages this, more specifically, a doubly linked list.</p>
+<h4 id="blocks">Blocks<a aria-hidden="true" class="anchor-heading icon-link" href="#blocks"></a></h4>
+<p>In computing, blocks are a grouping of bytes that usually contain a fixed number of records which are limited by a total length (block length). So if we were to calculate the number of bytes it would take to store a row divided by the block length, it would give us how many rows could be read from a specific block.</p>
+<p>At a very low level you can use this to reason about how performant your systems can be. Quick Maths™ can be very powerful when you are capacity planning.</p>
+<p>The benefits here are twofold: it allows us to read the index leaf nodes both forward and backward and quickly rebuild the index structure when we remove or add new rows since we are just modifying pointers—potent stuff.</p>
+<h4 id="linked-list">Linked List<a aria-hidden="true" class="anchor-heading icon-link" href="#linked-list"></a></h4>
+<p>A <strong>linked list</strong> is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each piece points to the next. It is a data structure consisting of a collection of nodes representing a sequence together. In its most basic form, each node contains data and a reference (in other words, a <em>link</em>) to the next node in the series.</p>
+<p>Since these leaf nodes aren't arranged physically on disk in order (remember pointers maintain the sorting in the doubly linked list), we need a way to get to the correct index leaf nodes.</p>
+<h3 id="balanced-trees-b-trees">Balanced Trees (B-Trees)<a aria-hidden="true" class="anchor-heading icon-link" href="#balanced-trees-b-trees"></a></h3>
+<p><img src="https://architecturenotes.co/content/images/2022/06/Databases-06-3.jpg"></p>
+<p>Structual difference BTrees vs. B+Trees</p>
+<p>So you might wonder where you made a massive error to find yourself reading about B-Trees you hated from school. I get it these things are boring, but they are powerful and worth understanding.</p>
+<p>B+Trees allows us to build a tree structure where each intermediate node points to the highest node value of its respective leaf nodes. It gives us a clear path to find the index leaf node that will point to the necessary data.</p>
+<p>This structure is built from the bottom up so that an intermediate node covers all leaf nodes until we reach the root node at the top. This tree structure gets its name <em>balanced</em> because the depth is uniform across the entire tree.</p>
+<h4 id="b-tree-vs-btree">B-Tree vs. B+Tree<a aria-hidden="true" class="anchor-heading icon-link" href="#b-tree-vs-btree"></a></h4>
+<p>The main difference B+ Trees show off is that intermediate nodes don't store any data on them. Instead, all the data references are linked to the leaf nodes, which allows for better caching of the tree structure.</p>
+<p>Secondly, the leaf nodes are linked, so if you need to do an index scan, you can do a single linear pass rather than traversing the entire tree up and down and loading more index data from the disk.</p>
+<p><img src="https://architecturenotes.co/content/images/2022/06/Databases-03-3.jpg" alt="How B+Trees are used in RDBMSs"></p>
+<p>How B+Trees are used in RDBMSs</p>
+<h3 id="logarithmic-scalability">Logarithmic Scalability<a aria-hidden="true" class="anchor-heading icon-link" href="#logarithmic-scalability"></a></h3>
+<p>I want to take a brief aside here to hit home the power of this structure. Of course, most developers are aware of the exponential growth of data and, ideally, your company's valuations. But unfortunately, scale of data often works against you, and balanced trees are the first tool in your arsenal against it.</p>
+<p>Depending on the number of items the intermediate nodes can reference (M) plus the overall tree (N) depth, we can reference M to the N objects.</p>
+<p>Here is a table illustrating the concept with an M value of 5.</p>
+<p>Tree Height (N)</p>
+<p>Index Leaf Nodes</p>
+<p>3</p>
+<p>125</p>
+<p>4</p>
+<p>625</p>
+<p>5</p>
+<p>3125</p>
+<p>6</p>
+<p>15625</p>
+<p>7</p>
+<p>78125</p>
+<p>8</p>
+<p>390625</p>
+<p>9</p>
+<p>1953125</p>
+<p>So as the number of index leaf nodes increases exponentially, the tree height grows incredibly slowly (logarithmically) relative to the number of index leaf nodes. This coupled with balanced tree height, allows for almost instant identification of relevant index leaf nodes that point to actual data on disk.</p>
+<p>Ain't that a beautiful sight!</p>
+<h2 id="what-is-a-transaction">What is a transaction?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-a-transaction"></a></h2>
+<p>A transaction is a unit of work you want to treat as a single unit. Therefore, it has to either happen in full or not at all. I would argue most systems don't need to manage transactions manually, but there are situations where the increased flexibility is instrumental in achieving the desired effect. Transactions mainly deal with the <strong>I</strong> in <strong>ACID,</strong> Isolation.</p>
+<h4 id="what-is-acid">What is ACID?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-acid"></a></h4>
+<p>In computer science, <strong>ACID</strong> (atomicity, consistency, isolation, durability) is a set of properties of database transactions intended to guarantee data validity despite errors, power failures, and other mishaps.</p>
+<ul>
+<li>A guarantee of <strong>Atomicity</strong> prevents updates to the database from occurring only partially, which can cause more significant problems than rejecting the whole series outright.</li>
+<li><strong>Consistency</strong> guarantees that transaction can move database from one valid state to the next. This ensures these all adhere to all defined database rules. Also preventing corruption by illegal transaction.</li>
+<li><strong>Isolation</strong> determines how a particular action is shown to other concurrent system users.</li>
+<li><strong>Durability</strong> is the property that guarantees that transactions that have been committed will survive permanently.</li>
+</ul>
+<p>These concepts are generally well understood, but their definitions may not be consistent from system to system depending on the database system. So be sure to read up on each one for your production database.</p>
+<p>These can be done automatically for you so you aren't even aware they are taking place, or you can create them manually like so:</p>
+<pre class="language-sql"><code class="language-sql"><span class="token comment">-- Manual transaction with commit.</span>
+<span class="token keyword">BEGIN</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> people <span class="token keyword">WHERE</span> id <span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">COMMIT</span> <span class="token operator">or</span> <span class="token keyword">ROLLBACK</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Figure 1.3 How to create a manual transaction.</p>
+<p>We will focus on the time between <strong>BEGIN</strong> and <strong>COMMIT</strong> or <strong>ROLLBACK</strong> and what happens to various other transactions acting on the same data.</p>
+<h4 id="commitrollback">COMMIT/ROLLBACK<a aria-hidden="true" class="anchor-heading icon-link" href="#commitrollback"></a></h4>
+<p>All manual transactions either end in successful COMMIT or ROLLBACK.</p>
+<ul>
+<li>COMMIT durability persists the changes made by the current transaction.</li>
+<li>ROLLBACK undoes the changes made by the current transaction.</li>
+</ul>
+<p>When you aren't manually managing transactions, if all queries within a transaction are completed successfully, they are COMMITTED. If there is any failure, the changes during that transaction are ROLLED BACK to ensure the atomicity of the entire action.</p>
+<h3 id="read-phenomena">Read Phenomena<a aria-hidden="true" class="anchor-heading icon-link" href="#read-phenomena"></a></h3>
+<p>Several read phenomena can occur in these isolations, and understanding them is essential in debugging your systems and honestly helping understand what kind of inconsistencies your system can tolerate.</p>
+<p><strong>Non-repeatable reads</strong></p>
+<p><img src="https://architecturenotes.co/content/images/2022/06/Databases-08.jpg" alt="Non-repeatable reads example"></p>
+<p>Non-repeatable reads example</p>
+<p>As in the image above, non-repeatable reads occur if you cannot get a consistent view of the data between two subsequent reads during your transaction. In specific modes, concurrent database modification is possible, and there can be scenarios where the value you just read can be modified, resulting in a non-repeatable read.</p>
+<p><strong>Dirty reads</strong></p>
+<p><img src="https://architecturenotes.co/content/images/2022/07/dirty-reads.png" alt="Dirty read example"></p>
+<p>Dirty read example</p>
+<p>Similarly, a dirty read occurs when you perform a read, and another transaction updates the same row but doesn't commit the work, you perform another read, and you can access the uncommitted (dirty) value, which isn't a durable state change and is inconsistent with the state of the database.</p>
+<p><strong>Phantom reads</strong></p>
+<p><img src="https://architecturenotes.co/content/images/2022/06/Databases-10.jpg" alt="Phantom read example"></p>
+<p>Phantom read example</p>
+<p>Phantom reads are another committed read phenomena, which occurs when you are most commonly dealing with aggregates. For example, you ask for the number of customers in a specific transaction. Between the two subsequent reads, another customer signs up or deletes their account (committed), which results in you getting two different values if your database doesn't support range locks for these transactions.</p>
+<h4 id="range-locks">Range Locks<a aria-hidden="true" class="anchor-heading icon-link" href="#range-locks"></a></h4>
+<p>Range locks are best described by illustrating all the possible lock levels.</p>
+<ol>
+<li>Serialized Database Access — Making the database run queries one by one—terrible concurrency, the highest level of consistency, though.</li>
+<li>Table Lock — lock the table for your transaction with slightly better concurrency, but concurrent table writes are still slowed.</li>
+<li>Row Lock — Locks the row you are working on even better than table locks, but if multiple transactions need this row, they will need to wait.</li>
+</ol>
+<p>Range locks are between the last two levels of locks; they lock the range of values captured by the transaction and don't allow inserts or updates within the range captured by the transaction.</p>
+<h3 id="isolation-levels">Isolation Levels<a aria-hidden="true" class="anchor-heading icon-link" href="#isolation-levels"></a></h3>
+<p><img src="https://architecturenotes.co/content/images/2022/06/Databases-05-2.jpg" alt="4 Isolation levels for SQL Standard"></p>
+<p>4 Isolation levels for SQL Standard</p>
+<p>The SQL standard defines 4 standard isolation levels these can and should be configured globally (insidious things can happen if we can't reliably reason about isolation levels).</p>
+<h3 id="repeatable-read">REPEATABLE READ<a aria-hidden="true" class="anchor-heading icon-link" href="#repeatable-read"></a></h3>
+<p>Let's start with <em>REPEATABLE READ.</em> It is relatively straightforward to understand and sets the table for the remainder of the isolation levels. This isolation level ensures consistent reads within the transaction established by the first read. This view is maintained in several ways; some affect the overall system's performance, others don't, but outside this post's scope.</p>
+<p>See the graphic above; once we do our first read, that view is locked for the duration of the transaction, so anything that happens outside the context of this transaction is of no consequence, committed or otherwise.</p>
+<p>This isolation level protects us from several known isolation issues, mainly non-repeatable and dirty reads. It does have the minor data inconsistency while its locked to specific view of the database; keeping transactions short-lived as possible here is beneficial.</p>
+<h3 id="serializable">SERIALIZABLE<a aria-hidden="true" class="anchor-heading icon-link" href="#serializable"></a></h3>
+<p>This operating mode can be the most restrictive and consistent since it allows only one query to be run at a time.</p>
+<p>All types of reading phenomena are no longer possible since the database runs the queries one by one, transitioning from one stable state to the next. There is more nuance here, but more or less accurate.</p>
+<p><em>It is essential to note in this mode to have some retry mechanism since queries can fail due to concurrency issues.</em></p>
+<p>Newer distributed databases take advantage of this isolation level for consistency guarantees. <a href="https://www.cockroachlabs.com/">CockroachDB</a> is an example of such a database. Worth a look.</p>
+<h3 id="read-committed">READ COMMITTED<a aria-hidden="true" class="anchor-heading icon-link" href="#read-committed"></a></h3>
+<p>This isolation mode is different from <em>REPEATABLE READ</em> in that each read creates its own consistent (committed) snapshot of time. As a result, this isolation mode is susceptible to <em>phantom reads</em> if we execute multiple reads within the same transaction.</p>
+<h3 id="read-uncommitted">READ UNCOMMITTED<a aria-hidden="true" class="anchor-heading icon-link" href="#read-uncommitted"></a></h3>
+<p>Alternatively, <em>the READ UNCOMMITTED</em> isolation level doesn't maintain any transaction locking and can see uncommitted data as it happens, leading to dirty reads. The stuff of nightmares... in some systems.</p>
+<p>There you have it, The <strong>Things You Should Know</strong> About Databases</p>
+<p>If you enjoyed this, we have a ton more content like this on the way! We strive to make all these detailed and nuanced topics understandable and highlight where you would run into them!</p>
+<p>Signing up or sharing it with someone who you think could benefit from this write up would be really appreciated.</p>
+<p>Feedback is appreciate and can be directed at @<a href="https://twitter.com/myusuf3">myusuf3</a> on Twitter!</p>

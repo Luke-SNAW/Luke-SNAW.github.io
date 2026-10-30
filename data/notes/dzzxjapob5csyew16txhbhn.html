@@ -1,0 +1,77 @@
+<h1 id="why-i-love-basic-auth">Why I Love Basic Auth<a aria-hidden="true" class="anchor-heading icon-link" href="#why-i-love-basic-auth"></a></h1>
+<blockquote>
+<p><a href="https://www.rdegges.com/2015/why-i-love-basic-auth/">https://www.rdegges.com/2015/why-i-love-basic-auth/</a></p>
+</blockquote>
+<p>It’s a <em>bad thing</em> because OAuth (<em>as popular as it is</em>) is a huge pain in the ass – for both the people building the API services as well as the developers consuming them.</p>
+<p>OAuth is complex, misunderstood, widely misused, and lacking universal implementations. It most definitely has its uses, but in many cases feels burdensome.</p>
+<p>Basic Auth, on the other hand, is simple, very well understood, and has been well supported in every language and framework since the 1990’s.</p>
+<h2 id="how-basic-auth-works">How Basic Auth Works<a aria-hidden="true" class="anchor-heading icon-link" href="#how-basic-auth-works"></a></h2>
+<p>Let’s talk about Basic Auth:</p>
+<ul>
+<li>It’s a well and clearly defined <a href="http://tools.ietf.org/html/rfc2617" title="HTTP Basic Auth / Digest Auth Spec">specification</a>.</li>
+<li>It’s been around since ~1996.</li>
+<li>It’s super simple.</li>
+</ul>
+<p>Here’s the short version of how it works.</p>
+<ul>
+<li>You are a developer.</li>
+<li>You have an API key pair: an <em>API Key ID</em> and an <em>API Key Secret</em>. Each of these is a randomly generated string (<em>usually a <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier" title="UUID on Wikipedia">uuid</a></em>).</li>
+<li>To authenticate against an API service, all you need to do is put your credentials into the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" title="HTTP Headers Spec">HTTP Authorization header</a>.</li>
+</ul>
+<h2 id="its-simple">It’s Simple<a aria-hidden="true" class="anchor-heading icon-link" href="#its-simple"></a></h2>
+<p>My favorite thing about Basic Auth is that it’s <em>simple</em>.</p>
+<p>Unlike OAuth, there’s no intermediary steps you need to go through to get an access token: all you need are your API keys.</p>
+<p>This makes a <em>huge</em> difference in development speed.</p>
+<p>Instead of spending a lot of time figuring out what permissions and scopes you need granted, setting up redirect URIs, web servers, and all this crap that only serves to complicate matters – all you need to do is put your damn API keys into the HTTP Authorization header and <em>BAM</em>, shit works.</p>
+<p>Because it’s so simple, you can get a lot of work and testing done faster.</p>
+<p>You also don’t need to worry about things like:</p>
+<ul>
+<li>Token expiration. <em>Cough, cough OAUTH!</em></li>
+<li>Providers changing their implementations. <em>Just about every single OAuth provider has changed their implementations numerous times, breaking thousands of developer applications.</em></li>
+<li>Complex workflows for getting access to your data. <em>OAuth2 has 4 different grant types, each of which is used in a different way and for different purposes.</em></li>
+</ul>
+<p>Every time I use a service like <a href="https://www.twilio.com/" title="Twilio">Twilio</a>, I’m reminded how convenient Basic Auth is to use: it’s truly a pleasure to be able to:</p>
+<ul>
+<li>Generate and destroy API keys on command.</li>
+<li>Easily throw API keys into whatever apps I’m currently hacking on.</li>
+<li>Easily test my API requests out via the command line or an API explorer like <a href="https://www.runscope.com/" title="Runscope">Runscope</a>.</li>
+</ul>
+<p>I just love it.</p>
+<h2 id="its-secure">It’s Secure<a aria-hidden="true" class="anchor-heading icon-link" href="#its-secure"></a></h2>
+<p>Basic Auth gets a bad reputation for being <em>“insecure”</em>, but this isn’t necessarily true.</p>
+<p>There are several things you can do to ensure that your API service (<em>secured by Basic Auth</em>) is as secure as possible:</p>
+<ul>
+<li>Always run all requests over HTTPs. If you’re not using SSL, than no matter what authentication protocol you use, you’ll never be secure. Unless you’re using HTTPs, all of your credentials will be sent in plain-text over the wire: <em>a horrible idea</em>.</li>
+<li>Give your developers the ability to generate as many API key pairs as they’d like. This makes it easy for developers to <em>isolate</em> their usage of an API key pair to a single application or service.</li>
+<li>Give your developers the ability to revoke API key access when they need to. For instance: if a developer accidentally leaks his API keys on Github, he should be able to revoke that API key pair, thereby guaranteeing it can’t be used by anyone else.</li>
+<li>Generate random API key pairs using <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier" title="UUID on Wikipedia">uuids</a>. This ensures API key pairs aren’t <em>guessable</em>.</li>
+</ul>
+<p>Furthermore, for developers <em>using Basic Auth</em>, there are a few things you should always keep in mind:</p>
+<ul>
+<li>Store your API keys securely. If you’re using an API service that supports Basic Auth, be sure to not do things like store your API keys in your public Github repo.</li>
+<li>Don’t use an API service that isn’t run over HTTPs – you’re guaranteed to have problems in the future.</li>
+<li>Use a unique API key pair for each application you write. This way, if you accidentally lose an API key or leak it publicly, you only need to revoke <em>that specific API key</em>, and you only need to update <em>a single codebase that relied on that API key</em>. This will make your life much easier in the long run.</li>
+</ul>
+<p>If you’re looking for a good example of an API company that handles API keys the right way, check out <a href="http://aws.amazon.com/" title="Amazon Web Services">AWS</a>.</p>
+<h2 id="universally-supported">Universally Supported<a aria-hidden="true" class="anchor-heading icon-link" href="#universally-supported"></a></h2>
+<p>Another great thing about Basic Auth is that there’s only one implementation everyone uses – this means that there’s never any ambiguity about how to craft requests or server-side components: it’s always the same.</p>
+<p>The way it works is like this:</p>
+<ul>
+<li>You take the API Key ID and the API Key Secret, and you put them into a colon-separated string like so: <code>'xxx:yyy'</code>.</li>
+<li>You then prepend the word <code>'Basic '</code> to the string, so that you have: <code>'Basic xxx:yyy'</code>.</li>
+<li>You then <a href="http://en.wikipedia.org/wiki/Base64" title="Base64 on Wikipedia">base64</a> encode the API key portion of the string, so you end up with: <code>'Basic eHh4Onl5eQ=='</code>.</li>
+<li>Lastly, you set this value as your HTTP Authorization header when you make your HTTP requests.</li>
+</ul>
+<p>When the web server receives your request, it then:</p>
+<ul>
+<li>base64 decodes the header value.</li>
+<li>Splits the string by the colon character.</li>
+<li>The left-hand portion is the API Key ID, the right hand portion is the API Key Secret.</li>
+<li>The server then validates these credentials, and either allows you access or returns an <em>HTTP 401 UNAUTHORIZED</em> response.</li>
+</ul>
+<p>There’s nothing ambiguous about Basic Auth. This means every programming language has top-notch support for the standard, and it’s easy to find well audited libraries for using Basic Auth as both a producer and consumer.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/6w36dgapan7eummy1q6jpx1">Back End</a></li>
+</ul>

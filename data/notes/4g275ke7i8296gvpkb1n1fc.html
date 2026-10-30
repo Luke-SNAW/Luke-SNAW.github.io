@@ -1,0 +1,30 @@
+<h1 id="lightsail--bitnami">Lightsail + Bitnami<a aria-hidden="true" class="anchor-heading icon-link" href="#lightsail--bitnami"></a></h1>
+<h1 id="인증서">인증서<a aria-hidden="true" class="anchor-heading icon-link" href="#인증서"></a></h1>
+<h2 id="설치">설치<a aria-hidden="true" class="anchor-heading icon-link" href="#설치"></a></h2>
+<blockquote>
+<p><a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/linux-lightsail-ssl-bitnami/">https://aws.amazon.com/ko/premiumsupport/knowledge-center/linux-lightsail-ssl-bitnami/</a><br>
+<a href="https://docs.bitnami.com/aws/faq/administration/generate-configure-certificate-letsencrypt/">https://docs.bitnami.com/aws/faq/administration/generate-configure-certificate-letsencrypt/</a></p>
+</blockquote>
+<pre class="language-shell"><code class="language-shell"><span class="token function">sudo</span> /opt/bitnami/bncert-tool
+</code></pre>
+<h2 id="bncert-tool-또는-lego-도구를-사용하여-설치한-lets-encrypt-인증서-갱신하기">bncert-tool 또는 Lego 도구를 사용하여 설치한 Let's Encrypt 인증서 갱신하기<a aria-hidden="true" class="anchor-heading icon-link" href="#bncert-tool-또는-lego-도구를-사용하여-설치한-lets-encrypt-인증서-갱신하기"></a></h2>
+<blockquote>
+<p><a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/lightsail-bitnami-renew-ssl-certificate/">https://aws.amazon.com/ko/premiumsupport/knowledge-center/lightsail-bitnami-renew-ssl-certificate/</a></p>
+</blockquote>
+<pre class="language-shell"><code class="language-shell"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh stop
+<span class="token function">sudo</span> /opt/bitnami/letsencrypt/lego --tls --email<span class="token operator">=</span><span class="token string">"EMAIL-ADDRESS"</span> --domains<span class="token operator">=</span><span class="token string">"DOMAIN"</span> --path<span class="token operator">=</span><span class="token string">"/opt/bitnami/letsencrypt"</span> renew --days <span class="token number">90</span>
+<span class="token function">sudo</span> /opt/bitnami/ctlscript.sh start
+</code></pre>
+<h2 id="lets-encrypt---expiration-emails"><a href="https://letsencrypt.org/docs/expiration-emails/">Let's Encrypt - Expiration Emails</a><a aria-hidden="true" class="anchor-heading icon-link" href="#lets-encrypt---expiration-emails"></a></h2>
+<p>However, you can change the email address on your account, which effectively re-subscribes you. Many common email services treat <code>yourname+1@example.com</code> the same as <code>yourname@example.com</code>. So if you update your email address to <code>yourname+1@example.com</code>, you can start getting expiry mail again. With Certbot, use:</p>
+<pre class="language-shell"><code class="language-shell">certbot update_account --email yourname+1@example.com
+</code></pre>
+<h2 id="새-email-등록">새 email 등록<a aria-hidden="true" class="anchor-heading icon-link" href="#새-email-등록"></a></h2>
+<pre class="language-shell"><code class="language-shell"><span class="token function">sudo</span> /opt/bitnami/letsencrypt/lego --tls --email<span class="token operator">=</span><span class="token string">"new+1@genoplan.com"</span> --domains<span class="token operator">=</span><span class="token string">"DOMAIN"</span> --path<span class="token operator">=</span><span class="token string">"/opt/bitnami/letsencrypt"</span> --http run
+</code></pre>
+<h3 id="등록-과정-중에-apache가-이미-실행-중이라-error-발생하면">등록 과정 중에 apache가 이미 실행 중이라 Error 발생하면<a aria-hidden="true" class="anchor-heading icon-link" href="#등록-과정-중에-apache가-이미-실행-중이라-error-발생하면"></a></h3>
+<p>443 port를 써서 인증 시도했지만 이미 사용 중이라 실패 했다는 메시지 떴음</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh stop apache
+<span class="token comment"># 등록 후</span>
+<span class="token function">sudo</span> /opt/bitnami/ctlscript.sh start apache
+</code></pre>

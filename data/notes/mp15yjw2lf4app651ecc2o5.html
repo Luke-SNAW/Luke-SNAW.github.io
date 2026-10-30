@@ -1,0 +1,217 @@
+<h1 id="demystifying-fresh--build-your-own-islands-of-interactivity">Demystifying Fresh — Build Your own Islands of Interactivity<a aria-hidden="true" class="anchor-heading icon-link" href="#demystifying-fresh--build-your-own-islands-of-interactivity"></a></h1>
+<blockquote>
+<p><a href="https://blog.bitsrc.io/demystifying-fresh-building-your-own-islands-of-interactivity-4b774cc30393">https://blog.bitsrc.io/demystifying-fresh-building-your-own-islands-of-interactivity-4b774cc30393</a></p>
+</blockquote>
+<p>The concept of “Islands of interactivity” is a very interesting one, because it poses the premise that the website should only send interactive code to the browser when it’s absolutely needed.</p>
+<p>Otherwise, the rest of the HTML should be rendered statically on the server.</p>
+<p>This helps speed things up and provides a faster experience for users. But so far, we’ve only seen a few frameworks implement this architecture, Fresh being one of the main ones, but Astro, for example, also has this concept even though they don’t make a lot of noise about it.</p>
+<p>In this article I’m going to show you a way to implement this method using Preact, the React-like library with a tiny footprint. I’m also going to be using Express to build the server and something called “importmaps”, which if you haven’t heard about it yet, it’ll blow your mind.</p>
+<p>So keep reading!</p>
+<h2 id="understanding-islands">Understanding Islands<a aria-hidden="true" class="anchor-heading icon-link" href="#understanding-islands"></a></h2>
+<p>The first thing to understand is that “islands” are nothing more than components that need to be rendered on the client side within the context of a server-side rendered website.</p>
+<p>In other words, in a sea of static code, we have an interactive island (see what I did there?).</p>
+<p>I’ve written about <a href="https://blog.bitsrc.io/islands-of-interactivity-what-are-they-and-why-is-fresh-using-them-1806fc67a07">the islands of interactivity design pattern</a> in the past, so if you want to know more, check it out.</p>
+<p>But at this point, all you need to care about, is that we’re going to build a server-side rendered site and inside it, we’ll add a component that because it provides interactivity, will need to be rendered on the client side.</p>
+<p>If you think about it like that, it’s not that complicated of a concept, is it?</p>
+<p>The problem lies in the fact that splitting these two worlds (the server-side rendered one, and the dynamic one) is not that easy.</p>
+<p>The following GIF shows you what we’re going to build:</p>
+<p><img src="https://miro.medium.com/max/700/1*kxs_BmfQBXEvhePjRGa8_A.gif"></p>
+<p>And the following screenshot shows you where the static part ends and where the island begins:</p>
+<p><img src="https://miro.medium.com/max/700/1*Dcj3jJTZF-xUGMSLTdBOfw.png"></p>
+<p>Don’t worry about the code on the island part, we’ll look at it in more detail in a second. The screenshot is to show you that indeed, we have a server-side rendered base site, that adds a bit of JS when required.</p>
+<p>Let’s look at the implementation now.</p>
+<h2 id="creating-our-server-side-rendered-site">Creating our server-side rendered site<a aria-hidden="true" class="anchor-heading icon-link" href="#creating-our-server-side-rendered-site"></a></h2>
+<p>For this task, we’re going to be using Express, since it’s still one of the most popular choices for creating barebone web servers.</p>
+<p>This server is going to render the base static template for our site, and it’ll also render the base <code>App</code> component.</p>
+<p>For the <code>App</code> component, we’re going to use Preact.</p>
+<p>BTW, I’m using Node 19 for this example, and it all works as long as I keep the file extensions under control. This means that our server is actually going to be called <code>server.cjs</code> because it’s going to use <code>require</code> statements:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> compression <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"compression"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> render <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"preact-render-to-string"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> html <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"htm/preact"</span><span class="token punctuation">)</span> <span class="token comment">// use the provided preact binding</span>
+
+<span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> cors <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"cors"</span><span class="token punctuation">)</span>
+  <span class="token keyword">let</span> <span class="token maybe-class-name">App</span> <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">"./components/App.js"</span><span class="token punctuation">)</span>
+
+  <span class="token maybe-class-name">App</span> <span class="token operator">=</span> <span class="token maybe-class-name">App</span><span class="token punctuation">.</span><span class="token keyword module">default</span>
+
+  <span class="token keyword">const</span> body <span class="token operator">=</span> <span class="token function">render</span><span class="token punctuation">(</span>html<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html"> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token maybe-class-name">App</span><span class="token interpolation-punctuation punctuation">}</span></span></span> <span class="token punctuation">/></span></span> </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// create the express app</span>
+  app<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token function">cors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  app<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token function">compression</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// use gzip for all requests</span>
+
+  <span class="token comment">// some basic html to show</span>
+  <span class="token keyword">const</span> layout <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  &#x3C;!DOCTYPE html>
+  &#x3C;html>
+    &#x3C;head>
+      &#x3C;script type="importmap">
+      { 
+        "imports": {
+          "preact": "//unpkg.com/preact?module",
+          "htm/preact": "//unpkg.com/htm/preact/index.mjs?module",
+          "preact-render-to-string": "//cdn.skypack.dev/preact-render-to-string"
+        }
+      }
+      &#x3C;/script>
+    &#x3C;/head>
+    &#x3C;body>
+      </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>body<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+    &#x3C;/body>
+  &#x3C;/html>
+</span><span class="token template-punctuation string">`</span></span>
+  app<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token method function property-access">static</span><span class="token punctuation">(</span><span class="token string">"src"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  app<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">request<span class="token punctuation">,</span> response</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// listen for requests to the root path</span>
+    response<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>layout<span class="token punctuation">)</span> <span class="token comment">// send the HTML string</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  app<span class="token punctuation">.</span><span class="token method function property-access">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span> <span class="token comment">// listen for requests on port 3000</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>There are several things to unpack here:</p>
+<ol>
+<li>The server is sending static HTML back on the <code>/</code> route.</li>
+<li>That HTML has a <code>script</code> tag of type “importmap”, this map tells the browser where to get these imports from. So I can write <code>import {Component} from 'preact'</code> and the browser will know to get this library from <code>"http://unpkg.com/preact?module"</code> . <strong>And at the same</strong> <strong>time</strong>, the same code works on the server, because I already have Preact installed as a dependency.</li>
+<li>That HTML also has the content of the <code>body</code> variable, which contains HTML. That HTML comes from calling the <code>render</code> function (line 14) from “preact-render-to-string”. This function renders a VNode and returns the HTML as a string. The VNode we’re rendering is the main App component. We can write it like that, because we’re also using the <code>html</code> function from <code>htm/preact</code> which helps us write code that looks very much like JSX and call our components by name (see line 15).</li>
+<li>I’m setting the <code>src</code> folder as my static files folder, because I’ll be doing <code>import</code> statements in my browser-land JavaScript, and that’s where all my source code files are located (more on this in a minute).</li>
+</ol>
+<p>And that’s about it for our server. To summarize, we’re taking the <code>App</code> component and rendering it into a string, which we then concatenate to our main HTML template and return that final string from the server.</p>
+<p>As part of that template HTML, we’re sending back an importmap for the browser to know where to get the packages that we reference when we use the <code>import</code> statement (we’ll use those in a minute).</p>
+<p>Let’s take a look at our components now.</p>
+<h2 id="the-main-app-component">The main App component<a aria-hidden="true" class="anchor-heading icon-link" href="#the-main-app-component"></a></h2>
+<p>The main application, as I already mentioned, is static, so our component is simply going to print some text out and insert the dynamic one.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> html <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"htm/preact"</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">List</span></span> <span class="token keyword module">from</span> <span class="token string">"./List.js"</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">PreactApp</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> html<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span><span class="token punctuation">></span></span>This is a static component<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span>
+    But the following list is dynamic...
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token maybe-class-name">List</span><span class="token interpolation-punctuation punctuation">}</span></span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>List of items<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  </span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token maybe-class-name">PreactApp</span>
+</code></pre>
+<p>Once again, I’m making use of the <code>html</code> function to parse my code and make sure I properly render the <code>List</code> component.</p>
+<h2 id="the-dynamic-list-component">The dynamic List component<a aria-hidden="true" class="anchor-heading icon-link" href="#the-dynamic-list-component"></a></h2>
+<p>This one is interesting, because instead of being a functional component, I chose to use a class for it.</p>
+<p>Why a class component? Because they allow you to use the lifecycle method and change the way they’re rendered, while I could find a way to do the same thing with functional components (if you know of a way to do this, please share it in the comments, I’d love to know).</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Island</span></span> <span class="token keyword module">from</span> <span class="token string">"./Island.js"</span>
+
+<span class="token keyword">class</span> <span class="token class-name">List</span> <span class="token keyword">extends</span> <span class="token class-name">Island</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span> <span class="token operator">=</span> <span class="token punctuation">{</span> items<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">handleInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> textField <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"enter-text"</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> newItems <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">items</span><span class="token punctuation">,</span> textField<span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">]</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> items<span class="token operator">:</span> newItems <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">html</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>enter-text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onClick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token value javascript language-javascript"><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">handleInput</span><span class="token punctuation">.</span><span class="token method function property-access">bind</span><span class="token punctuation">(</span>
+              <span class="token keyword">this</span>
+            <span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span></span></span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Add item<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h2</span><span class="token punctuation">></span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>props<span class="token punctuation">.</span><span class="token property-access">title</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h2</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>ul</span><span class="token punctuation">></span></span>
+            <span class="token comment">&#x3C;!-- loop over data array --></span>
+            <span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">items</span><span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span>
+              <span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">html</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span> <span class="token comment">&#x3C;!-- render out each item --></span>
+                <span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span>
+            </span><span class="token template-punctuation string">`</span></span>
+            <span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>ul</span><span class="token punctuation">></span></span>
+  </span><span class="token template-punctuation string">`</span></span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token maybe-class-name">List</span>
+</code></pre>
+<p>At a first glance, there is nothing too special about this component. It’s your standard class component except for one minor detail (maybe not so minor now that I think about it): I’m not extending <code>Component</code> , instead I’m extending a custom class: <code>Island</code> .</p>
+<p>This new class will behave differently if the component is rendered on the back-end (as part of the server-side rendering phase) or if it’s rendered on the browser.</p>
+<p>Let’s take a look a the actual star of the show, the <code>Island</code> class.</p>
+<h2 id="the-behavior-of-our-island-class">The behavior of our Island class<a aria-hidden="true" class="anchor-heading icon-link" href="#the-behavior-of-our-island-class"></a></h2>
+<p>This class will make use of one particular lifecycle event method called <code>componentWillMount</code> which gets executed right before the VNode is added to the virtual DOM.</p>
+<p>The point is that we can inject code (or logic) before the component gets rendered. So in this case, if the component is being rendered on the back-end, we’ll overwrite its <code>render</code> method to make sure we generate the code needed to hydrate the component.</p>
+<p>In other words, this code will take care of importing the actual component, and triggering its rendering phase.</p>
+<p>Let’s take a look at the code to understand how we can do that:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">Component</span><span class="token punctuation">,</span> html <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"htm/preact"</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Island</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">html</span> <span class="token operator">=</span> html
+  <span class="token punctuation">}</span>
+
+  <span class="token function">componentWillMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token dom variable">window</span> <span class="token operator">!=</span> <span class="token string">"undefined"</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token boolean">true</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">renderMethod</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">render</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">render</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">customRender</span>
+    <span class="token keyword control-flow">return</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">customRender</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> propNames <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">keys</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> compName <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">constructor</span><span class="token punctuation">.</span><span class="token property-access">name</span>
+    <span class="token keyword">let</span> containerID <span class="token operator">=</span> <span class="token string">"comp-container-"</span> <span class="token operator">+</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10000</span>
+    <span class="token keyword control-flow">return</span> html<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>containerID<span class="token interpolation-punctuation punctuation">}</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> h<span class="token punctuation">,</span> render <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"preact"</span>
+        <span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">List</span></span> <span class="token keyword module">from</span> <span class="token string">"/components/<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>compName<span class="token interpolation-punctuation punctuation">}</span></span>.js"</span>
+        <span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> myComp <span class="token operator">=</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>compName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>propNames<span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span>
+              <span class="token punctuation">(</span><span class="token parameter">pn</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>pn<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">propValueToString</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">[</span>pn<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">,</span><span class="token template-punctuation string">`</span></span>
+            <span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token function">render</span><span class="token punctuation">(</span>myComp<span class="token punctuation">,</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>containerID<span class="token interpolation-punctuation punctuation">}</span></span>"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+    </span><span class="token template-punctuation string">`</span></span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">propValueToString</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token known-class-name class-name">Array</span><span class="token punctuation">.</span><span class="token method function property-access">isArray</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">['</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span><span class="token string">"','"</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">']</span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> value <span class="token operator">==</span> <span class="token string">"string"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">'</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'</span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> value <span class="token operator">==</span> <span class="token string">"number"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> value
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token maybe-class-name">Island</span>
+</code></pre>
+<p>Look at the <code>componentWillMount</code> method (line 11), I’m checking to see if I’m working on the front or on the back. If it’s the latter, then we replace the original <code>render</code> method with a custom one. The new method will write some JS code (see line 21) to import the component, and render it using Preact’s own <code>render</code> function. This code will first run on the back-end because our server is rendering the <code>App</code> component, which as you’ve seen already, is importing and using our <code>List</code> .</p>
+<p>The <code>propValueToString</code> method is simply a utility to make sure we properly render the values of our props.</p>
+<p>In the case of our sample component, this is the output we get from this method:</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">&#x3C;</span>div id<span class="token operator">=</span><span class="token string">"comp-container-7899.516599841189"</span><span class="token operator">></span>
+<span class="token operator">&#x3C;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&#x3C;</span>script type<span class="token operator">=</span><span class="token string">"module"</span><span class="token operator">></span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span>h<span class="token punctuation">,</span> render<span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'preact'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">List</span></span> <span class="token keyword module">from</span> <span class="token string">'/components/List.js'</span>
+<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> myComp <span class="token operator">=</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token maybe-class-name">List</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>title<span class="token operator">:</span> <span class="token string">'List of items'</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token function">render</span><span class="token punctuation">(</span>myComp<span class="token punctuation">,</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">'comp-container-7899.516599841189'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&#x3C;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>When this code runs on the browser, our <code>List</code> component will be executed again (because I’m importing it and manually rendering it again), but the logic from the <code>componentWillMount</code> will now find that there is a <code>window</code> object, so it won’t overwrite the default <code>render</code> method.</p>
+<p>This in turn will cause our dynamic component to be finally rendered and usable on screen.</p>
+<p>And that’s all there is to this class.</p>
+<p>All you need to build your own island is essentially code that will understand when it’s running on the front and when it’s on the back. If it’s on the back, then generate the code required to load the file from the browser.</p>
+<p>If on the other hand, you’re running it from the browser, then the code from before will load the file and trigger its rendering routine.</p>
+<p>I used Preact for this example because it’s lightweight and it gave me all the tools I needed to overwrite the default behavior of my island components. If there are other frameworks (probably like React) that give you the same flexibility and control over everything, then I’m sure you’ll be able to port the logic there.</p>

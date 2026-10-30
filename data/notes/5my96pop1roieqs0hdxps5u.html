@@ -1,0 +1,47 @@
+<h1 id="regression-test">Regression Test<a aria-hidden="true" class="anchor-heading icon-link" href="#regression-test"></a></h1>
+<p>from Claude Opus 4.6</p>
+<h2 id="회귀regression의-의미">회귀(Regression)의 의미<a aria-hidden="true" class="anchor-heading icon-link" href="#회귀regression의-의미"></a></h2>
+<p>소프트웨어에서 <strong>regression</strong>은 "이전의 버그 상태로 되돌아감", 즉 <strong>퇴행/후퇴</strong>를 뜻한다. 코드를 수정·추가한 후 이전에 정상 동작하던 기능이 다시 망가지는 현상을 가리킨다.</p>
+<p>예를 들어 회원가입 코드를 수정했는데 로그인 기능이 깨졌다면, 이것이 regression이다. 이런 현상을 방지하기 위해 기존 기능들을 다시 검증하는 것이 <strong>회귀 테스트</strong>다.</p>
+<h2 id="일반-테스트와의-차이">일반 테스트와의 차이<a aria-hidden="true" class="anchor-heading icon-link" href="#일반-테스트와의-차이"></a></h2>
+<p>실제 수행하는 행위(기존 테스트를 다시 돌리는 것)는 거의 같지만, <strong>의도와 맥락</strong>이 다르기 때문에 별도 용어로 구분한다.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th>일반 단위/기능 테스트</th><th>회귀 테스트</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>이 기능이 스펙대로 동작하는가?</td><td>변경 이후에도 기존 기능이 여전히 동작하는가?</td></tr><tr><td><strong>범위</strong></td><td>해당 기능에 집중</td><td>변경과 관련 없어 보이는 기능까지 포함</td></tr><tr><td><strong>시점</strong></td><td>개발 중 작성·실행</td><td>배포 전, PR 머지 전 등 변경 이후 시점</td></tr><tr><td><strong>구성</strong></td><td>기능별 테스트</td><td>핵심 경로를 추려 별도 스위트로 관리하기도 함</td></tr></tbody></table></div>
+<h2 id="회귀-테스트-스위트">회귀 테스트 스위트<a aria-hidden="true" class="anchor-heading icon-link" href="#회귀-테스트-스위트"></a></h2>
+<p>실무에서는 전체 테스트를 매번 돌리기엔 시간이 너무 오래 걸리기 때문에, 핵심 경로(critical path)만 추려서 <strong>회귀 테스트 스위트</strong>로 별도 관리하는 경우가 많다. 로그인, 결제, 핵심 비즈니스 플로우 등 깨지면 치명적인 시나리오 위주로 구성하여 빠르게 검증할 수 있도록 한다.</p>
+<h2 id="ci와-회귀-테스트">CI와 회귀 테스트<a aria-hidden="true" class="anchor-heading icon-link" href="#ci와-회귀-테스트"></a></h2>
+<p>CI에서 PR마다 전체 테스트를 돌리는 것도 회귀 테스트의 자동화라고 볼 수 있다. 변경이 기존 기능을 깨뜨리지 않는지 자동으로 검증하는 것이 핵심 목적이기 때문이다.</p>
+<h2 id="참고">참고<a aria-hidden="true" class="anchor-heading icon-link" href="#참고"></a></h2>
+<ul>
+<li><a href="https://martinfowler.com/bliki/RegressionTesting.html">Martin Fowler - Regression Testing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Regression_testing">Wikipedia - Regression testing</a></li>
+</ul>

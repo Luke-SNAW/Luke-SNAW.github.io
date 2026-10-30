@@ -1,0 +1,78 @@
+<h1 id="7-web-component-tricks">7 Web Component Tricks<a aria-hidden="true" class="anchor-heading icon-link" href="#7-web-component-tricks"></a></h1>
+<p><a href="https://daverupert.com/2022/04/7-web-component-tricks/">https://daverupert.com/2022/04/7-web-component-tricks/</a></p>
+<h1 id="1-you-can-manipulate-props-right-on-a-lit-element">1. You can manipulate props right on a Lit element<a aria-hidden="true" class="anchor-heading icon-link" href="#1-you-can-manipulate-props-right-on-a-lit-element"></a></h1>
+<p>This may be something only I would do, but if you make an element with Lit that exposes its properties, you can edit those props externally using <code>querySelector</code>.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>my-counter</span> <span class="token attr-name">counter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>my-counter</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">const</span> myCounter <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"my-counter"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  myCounter<span class="token punctuation">.</span><span class="token property-access">counter</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<h1 id="2-host-context-lets-you-style-an-element-based-on-its-parent">2. :host-context let’s you style an element based on its parent<a aria-hidden="true" class="anchor-heading icon-link" href="#2-host-context-lets-you-style-an-element-based-on-its-parent"></a></h1>
+<p>You can use <code>:host-context()</code> to style an element based on its parent. Your HTML may look like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>my-element</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>my-element</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>my-element</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>my-element</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>In your CSS inside the Web Component, you have something like this:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token pseudo-class">:host-context</span><span class="token punctuation">(</span><span class="token class">.card</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">pink</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token pseudo-class">:host-context</span><span class="token punctuation">(</span><span class="token class">.card</span><span class="token punctuation">)</span><span class="token pseudo-element">::after</span></span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"I’m in a card"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><a href="https://codepen.io/davatron5000/pen/jOYKKPN">See Example</a></p>
+<h1 id="3-declarative-shadowdom">3. Declarative ShadowDOM<a aria-hidden="true" class="anchor-heading icon-link" href="#3-declarative-shadowdom"></a></h1>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>my-element</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span> <span class="token attr-name">shadowroot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>open<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>I'm a spooky skeleton screen 💀<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>my-element</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Declarative Shadow DOM enables server-side rendering of Web Components, but one thing that’s not clear is your inlined template and the components actual template can be totally different.</p>
+<p><a href="https://codepen.io/davatron5000/pen/PoEBezm">See Example</a></p>
+<h1 id="4-open-wc-has-a-project-starter">4. Open WC has a project starter<a aria-hidden="true" class="anchor-heading icon-link" href="#4-open-wc-has-a-project-starter"></a></h1>
+<p>If you’re looking for a <code>create-react-app</code> for Web Components, the folks at Open WC have you covered.</p>
+<pre class="language-html"><code class="language-html">npm init @open-wc
+</code></pre>
+<p>You get so much from this (local server, testing configs, a storybook, production rollup config, etc) but my favorite bit is from the sample component’s test file: it runs an <a href="https://open-wc.org/docs/testing/chai-a11y-axe/">accessibility audit</a> on your Shadow DOM!</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"passes the a11y audit"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> el <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fixture</span><span class="token punctuation">(</span>html<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>custom-element</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>custom-element</span><span class="token punctuation">></span></span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">await</span> <span class="token function">expect</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">shadowDom</span><span class="token punctuation">.</span><span class="token property-access">to</span><span class="token punctuation">.</span><span class="token property-access">be</span><span class="token punctuation">.</span><span class="token method function property-access">accessible</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Accessibility out of the box! Nice.</p>
+<h1 id="5-you-can-rebrand-other-peoples-components">5. You can “rebrand” other people’s components.<a aria-hidden="true" class="anchor-heading icon-link" href="#5-you-can-rebrand-other-peoples-components"></a></h1>
+<p>Want to mix and match components from different design systems but keep a consistent naming structure in your company? You can import a component and “rebrand” it or even add functionality.</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">CoolButton</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'cool-design-system'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OurButton</span> <span class="token keyword">extends</span> <span class="token class-name">CoolButton</span> <span class="token punctuation">{</span>
+	constructor <span class="token punctuation">{</span> <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+customElements<span class="token punctuation">.</span><span class="token method function property-access">define</span><span class="token punctuation">(</span><span class="token string">'our-button'</span><span class="token punctuation">,</span> <span class="token maybe-class-name">OurButton</span><span class="token punctuation">)</span>
+</code></pre>
+<h1 id="6-the-open-wc-publishing-guides-are-cool">6. The Open WC Publishing Guides are cool<a aria-hidden="true" class="anchor-heading icon-link" href="#6-the-open-wc-publishing-guides-are-cool"></a></h1>
+<p>The OpenWC group also has some nice <a href="https://open-wc.org/guides/developing-components/publishing/">community guidelines for publishing Web Components</a>.</p>
+<blockquote>
+<p>✅ Do publish latest standard EcmaScript<br>
+✅ Do publish standard es modules<br>
+✅ Do include <code>"main": "index.js"</code> and <code>"module": "index.js"</code> in your <code>package.json</code><br>
+✅ Do export element classes<br>
+✅ Do export side effects separately<br>
+✅ Do import 3rd party node modules with “bare” import specifiers<br>
+✅ Do include file extensions in import specifiers</p>
+<p>❌ Do not optimize<br>
+❌ Do not bundle<br>
+❌ Do not minify<br>
+❌ Do not use <code>.mjs</code> file extensions<br>
+❌ Do not import polyfills</p>
+</blockquote>
+<p>That’s helpful and hopefully provides a consistent experience, allowing for a consistent bundling story, and preventing weird footguns that might occur when trying to use other people’s Web Components in your project.</p>
+<h1 id="7-you-dont-need-build-tools-until-the-very-very-end">7. You don’t need build tools until the very, very end.<a aria-hidden="true" class="anchor-heading icon-link" href="#7-you-dont-need-build-tools-until-the-very-very-end"></a></h1>
+<p>If you want to write Web Components, you can write vanilla web components and use ES Modules to join them together. You can use a web component library like Lit with an <code>import</code> statement pointed at <code>skypack.dev</code> or <code>unpkg.com</code>. It’s super handy to get started with zero tooling.</p>
+<p>If you want to install packages off of <code>npm</code> … you could try <a href="https://github.com/WICG/import-maps">Import Maps</a> … but otherwise you’ll need a local dev server (<code>vite</code> or <code>@web/dev-server</code>) that supports “bare import specifiers”.</p>
+<p>It’s only when going to production that you need tooling specific to your site’s needs. TypeScript is optional, bundling is optional, minifying code is optional. From a Web Component perspective, these are all considered “application-level concerns” that happen at deployment time.</p>
+<p><a href="https://open-wc.org/docs/building/rollup/">Rollup build script examples</a> are out there, but Web Components don’t prescribe how to build your application, they don’t hitch you to an architecture. It could be a whole tree-shaken SPA (single page app), but Web Components also work well in a MPA (multi-page app) architecture. It’s up to you and your application to figure out what fits best.</p>

@@ -1,0 +1,36 @@
+<h1 id="dynamic-component-props">Dynamic Component Props<a aria-hidden="true" class="anchor-heading icon-link" href="#dynamic-component-props"></a></h1>
+<pre class="language-vue"><code class="language-vue">&#x3C;Faq class="mt48 mt56d" :list="FAQS" :open-title-key="faqTitleKey" />
+</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">FAQS</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    titleKey<span class="token operator">:</span> <span class="token string">"family-negative"</span><span class="token punctuation">,</span>
+    component<span class="token operator">:</span> <span class="token maybe-class-name">FaqContents</span><span class="token punctuation">,</span>
+    componentProps<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">"negative"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    titleKey<span class="token operator">:</span> <span class="token string">"family-positive-autosomal"</span><span class="token punctuation">,</span>
+    component<span class="token operator">:</span> <span class="token maybe-class-name">FaqContents</span><span class="token punctuation">,</span>
+    componentProps<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">"positive-autosomal"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    titleKey<span class="token operator">:</span> <span class="token string">"family-positive-xlinked"</span><span class="token punctuation">,</span>
+    component<span class="token operator">:</span> <span class="token maybe-class-name">FaqContents</span><span class="token punctuation">,</span>
+    componentProps<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">"positive-xlinked"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-vue"><code class="language-vue">&#x3C;!-- FAQ component -->
+&#x3C;div v-for="item in list">
+  &#x3C;component :is="item.component" v-bind="item.componentProps" />
+&#x3C;/div>
+</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// FAQ component</span>
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+  props<span class="token operator">:</span> <span class="token punctuation">{</span>
+    type<span class="token operator">:</span> <span class="token punctuation">{</span>
+      type<span class="token operator">:</span> <span class="token string">"negative"</span> <span class="token operator">|</span> <span class="token string">"positive-autosomal"</span> <span class="token operator">|</span> <span class="token string">"positive-xlinked"</span><span class="token punctuation">,</span>
+      required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>

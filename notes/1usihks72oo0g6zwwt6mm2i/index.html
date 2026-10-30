@@ -1,0 +1,471 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><link rel="icon" href="/favicon.ico"/><title>Backup Comparison</title><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="description" content="Personal knowledge space"/><meta property="og:title" content="Backup Comparison"/><meta property="og:description" content="Personal knowledge space"/><meta property="og:url" content="https://luke-snaw.github.io//notes/1usihks72oo0g6zwwt6mm2i/"/><meta property="og:type" content="article"/><meta property="article:published_time" content="10/27/2026"/><meta property="article:modified_time" content="10/27/2026"/><link rel="canonical" href="https://luke-snaw.github.io//notes/1usihks72oo0g6zwwt6mm2i/"/><meta name="next-head-count" content="14"/><link rel="preload" href="/_next/static/css/8e7b7e4bce421c0a.css" as="style"/><link rel="stylesheet" href="/_next/static/css/8e7b7e4bce421c0a.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-3d209faeb64f2f97.js" defer=""></script><script src="/_next/static/chunks/framework-28c999baf2863c3d.js" defer=""></script><script src="/_next/static/chunks/main-104451f3d1a5c4bc.js" defer=""></script><script src="/_next/static/chunks/pages/_app-9d8e0603730b15a3.js" defer=""></script><script src="/_next/static/chunks/935-4dee79e80b8641c6.js" defer=""></script><script src="/_next/static/chunks/6-50972def09142ee2.js" defer=""></script><script src="/_next/static/chunks/pages/notes/%5Bid%5D-78d472fa3b924116.js" defer=""></script><script src="/_next/static/tOLyTdfay6cgPhrzUC8Wf/_buildManifest.js" defer=""></script><script src="/_next/static/tOLyTdfay6cgPhrzUC8Wf/_ssgManifest.js" defer=""></script></head><body><div id="__next" data-reactroot=""><section class="ant-layout" style="width:100%;min-height:100%"><header class="ant-layout-header" style="position:fixed;isolation:isolate;z-index:1;width:100%;border-bottom:1px solid #d4dadf;height:64px;padding:0 24px 0 2px"><div class="ant-row ant-row-center" style="max-width:992px;justify-content:space-between;margin:0 auto"><div style="display:flex" class="ant-col ant-col-xs-20 ant-col-sm-4"></div><div class="ant-col gutter-row ant-col-xs-0 ant-col-sm-20 ant-col-md-20 ant-col-lg-19"><div class="ant-select ant-select-lg ant-select-auto-complete ant-select-single ant-select-allow-clear ant-select-show-search" style="width:100%"><div class="ant-select-selector"><span class="ant-select-selection-search"><input type="search" autoComplete="off" class="ant-select-selection-search-input" role="combobox" aria-haspopup="listbox" aria-owns="undefined_list" aria-autocomplete="list" aria-controls="undefined_list" aria-activedescendant="undefined_list_0" value=""/></span><span class="ant-select-selection-placeholder">For full text search please use the &#x27;?&#x27; prefix. e.g. ? Onboarding</span></div></div></div><div style="display:none;align-items:center;justify-content:center" class="ant-col ant-col-xs-4 ant-col-sm-4 ant-col-md-0 ant-col-lg-0"><span role="img" aria-label="menu" style="font-size:24px" tabindex="-1" class="anticon anticon-menu"><svg viewBox="64 64 896 896" focusable="false" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path></svg></span></div></div></header><section class="ant-layout" style="margin-top:64px;display:flex;flex-direction:row"><div class="site-layout-sidebar" style="flex:0 0 auto;width:calc(max((100% - 992px) / 2, 0px) + 200px);min-width:200px;padding-left:calc((100% - 992px) / 2)"><aside class="ant-layout-sider ant-layout-sider-dark" style="position:fixed;overflow:auto;height:calc(100vh - 64px);background-color:transparent;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"><div class="ant-layout-sider-children"></div></aside></div><main class="ant-layout-content side-layout-main" style="max-width:1200px;min-width:0;display:block"><div style="padding:0 24px"><div class="main-content" role="main"><div class="ant-row"><div class="ant-col ant-col-24"><div class="ant-row" style="margin-left:-10px;margin-right:-10px"><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-24 ant-col-md-18"><div><h1 id="backup-comparison">Backup Comparison<a aria-hidden="true" class="anchor-heading icon-link" href="#backup-comparison"></a></h1>
+<h1 id="제로노하우zk-백업-서비스-비교">제로노하우(ZK) 백업 서비스 비교<a aria-hidden="true" class="anchor-heading icon-link" href="#제로노하우zk-백업-서비스-비교"></a></h1>
+<blockquote>
+<p><strong>수정 원칙:</strong> 문서 내부 모순을 정리하고, 근거가 약한 수치는 삭제하거나 완화했습니다. 시점에 따라 바뀌는 항목에는 "확인 필요"를 표시했습니다.</p>
+<p><strong>등급 기준:</strong> 암호 설계(AEAD 여부, 키 길이) 40%, 독립 감사 30%, 클라이언트 코드 검증 가능성 20%, 관할권 10%</p>
+</blockquote>
+<h2 id="먼저-짚을-것-백업과-제로노하우는-좀처럼-같이-오지-않습니다">먼저 짚을 것: "백업"과 "제로노하우"는 좀처럼 같이 오지 않습니다<a aria-hidden="true" class="anchor-heading icon-link" href="#먼저-짚을-것-백업과-제로노하우는-좀처럼-같이-오지-않습니다"></a></h2>
+<p>시중의 제로노하우 서비스 대부분은 <strong>동기화 클라우드</strong>입니다. 진짜 백업이 요구하는 것은 불변 스냅샷, 장기 버전 보관, 스케줄과 재시도, 오프사이트 3-2-1입니다. 이것을 모두 갖춘 제로노하우 제품은 드뭅니다.</p>
+<h2 id="a-관리형-서비스">A. 관리형 서비스<a aria-hidden="true" class="anchor-heading icon-link" href="#a-관리형-서비스"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>서비스</th><th>관할</th><th>ZK 범위</th><th>파일 암호</th><th>독립 감사·인증</th><th>클라이언트 소스</th><th>등급</th></tr></thead><tbody><tr><td><strong>Proton Drive</strong></td><td>스위스</td><td>전 파일·이름</td><td>OpenPGP (Curve25519 + AES-256)</td><td>✅ Securitum 감사</td><td>공개</td><td><strong>A</strong></td></tr><tr><td><strong>Tresorit</strong></td><td>스위스</td><td>전 파일·이름</td><td>AES-256 + RSA-4096</td><td>✅ ISO 27001 (기타 인증은 확인 필요)</td><td>비공개</td><td><strong>A−</strong></td></tr><tr><td><strong>Sync.com</strong></td><td>캐나다 (5 Eyes)</td><td>전 파일·이름</td><td>AES-256 + RSA</td><td>⚠️ SOC 인증은 데이터센터 기준일 가능성</td><td>비공개</td><td><strong>B+</strong> (백서 2015년)</td></tr><tr><td><strong>Filen</strong></td><td>독일 (EU)</td><td>전 파일·이름</td><td>AES-256-GCM</td><td>❌ 확인된 제3자 감사 없음 (시점 확인 필요)</td><td>AGPLv3</td><td><strong>A−</strong></td></tr><tr><td><strong>Internxt</strong></td><td>스페인 (EU)</td><td>전 파일</td><td>AES-256 / Kyber-512 하이브리드(계정·공유 키만, 최저 보안 등급)</td><td>✅ Securitum 침투테스트, ISO 27001</td><td>공개</td><td><strong>B+</strong></td></tr><tr><td><strong>SpiderOak ONE</strong></td><td>미국</td><td>전 파일·이름</td><td>RSA-2048 + AES-256 (비AEAD)</td><td>❌</td><td>비공개</td><td><strong>B</strong> (현재 유지보수 상태 확인 필요)</td></tr><tr><td><strong>NordLocker</strong></td><td>파나마</td><td>전 파일</td><td>AES-256, XChaCha20, Ed25519</td><td>❌</td><td>비공개</td><td><strong>B+</strong></td></tr></tbody></table></div>
+<p><strong>용도별 선택:</strong></p>
+<ul>
+<li><strong>Proton Drive: 감사, 제로노하우, 생태계를 한 번에 원할 때.</strong> 파일당 최대 200개 버전을 최대 10년까지 보관하므로(유료 플랜 기준) 랜섬웨어에서 롤백할 수 있습니다. 다만 개수 상한 때문에 자주 바뀌는 파일은 오래된 버전부터 밀려나고, 기록은 삭제할 수 있어 불변이 아닙니다. 사진·문서 백업에는 적합하고 시스템 이미지 백업에는 부적합합니다. (동기화 기능 범위는 확인 필요)</li>
+<li><strong>Tresorit: 규제 산업·기업용.</strong> 인증 수준은 높지만 클라이언트가 폐쇄소스라 구현을 직접 검증할 수 없습니다.</li>
+<li><strong>Filen 또는 Internxt: 코드를 직접 검증하고 싶을 때.</strong> Filen은 전체 코드가 공개돼 있지만 감사 이력이 약합니다. Internxt는 감사와 공개 코드를 모두 갖췄지만 PQ 적용 범위가 제한적입니다.</li>
+<li><strong>SpiderOak: 오래된 백업 전문 서비스.</strong> 2007년부터 클라이언트측 암호화를 유지해 왔고, 2017년에 "zero knowledge" 대신 "no knowledge"로 표현을 바꿨습니다. 다만 암호 세대가 한 단계 뒤처지고, 웹 로그인 경로는 신뢰 경계를 깹니다.</li>
+</ul>
+<h2 id="b-목록에서-빼야-할-것-마케팅-함정">B. 목록에서 빼야 할 것 (마케팅 함정)<a aria-hidden="true" class="anchor-heading icon-link" href="#b-목록에서-빼야-할-것-마케팅-함정"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>서비스</th><th>제외 이유</th></tr></thead><tbody><tr><td><strong>pCloud</strong></td><td>기본 저장소는 서버측 암호화입니다. ZK는 유료 Crypto 폴더 안에서만 적용됩니다</td></tr><tr><td><strong>Icedrive</strong></td><td>ZK는 유료 Encrypted 폴더에만 적용됩니다. 암호는 Twofish(비AEAD)이고 감사가 없습니다</td></tr><tr><td><strong>IDrive / Backblaze Personal</strong></td><td>private key는 가입 시 1회만 선택할 수 있습니다. Backblaze는 웹 복원 시 키가 서버에 전달됩니다</td></tr><tr><td><strong>MEGA</strong></td><td>ZK는 맞지만 AES-128을 쓰고, 2022년 ETH 연구진이 취약점을 발표했습니다(이후 패치). 5 Eyes 관할입니다. 무료 보조 백업 정도가 한계입니다</td></tr><tr><td><strong>ShieldFive</strong></td><td>ML-KEM-1024를 기본 적용한다고 주장하지만 제3자 감사가 완료되지 않았습니다. 자사를 1위로 둔 비교 자료를 발행한 벤더입니다</td></tr></tbody></table></div>
+<h2 id="c-암호-강도-최우선이라면-클라이언트측-백업-도구--불변-스토리지">C. 암호 강도 최우선이라면: 클라이언트측 백업 도구 + 불변 스토리지<a aria-hidden="true" class="anchor-heading icon-link" href="#c-암호-강도-최우선이라면-클라이언트측-백업-도구--불변-스토리지"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구성</th><th>방식</th><th>암호</th><th>장점</th><th>단점</th></tr></thead><tbody><tr><td><strong>Kopia</strong> + B2/S3</td><td>스냅샷</td><td>AES-256-GCM 또는 ChaCha20-Poly1305, scrypt</td><td>현대 AEAD, <strong>Object Lock 보존을 네이티브로 지원</strong>, 압축·중복제거</td><td>restic보다 사용자층이 얇음</td></tr><tr><td><strong>restic</strong> + B2/S3/rsync.net</td><td>스냅샷</td><td>AES-256-CTR + Poly1305-AES, scrypt</td><td>오랜 실전 검증, 2017년 외부 암호 리뷰(공식 감사는 아님)</td><td>Object Lock 직접 지원이 제한적이라 rest-server append-only 모드나 버킷 정책으로 우회해야 함</td></tr><tr><td><strong>Arq Backup</strong></td><td>스냅샷</td><td>AES-256-CBC + HMAC</td><td>macOS/Windows 통합, 버전 백업</td><td>유료, 비AEAD</td></tr><tr><td><strong>Duplicati</strong></td><td>스냅샷</td><td>AES-256 (AESCrypt)</td><td>GUI 친화적, 다양한 백엔드</td><td>대규모 환경에서 신뢰성 이슈 이력</td></tr><tr><td><strong>Cryptomator + 클라우드</strong></td><td>동기화</td><td>AES-256-GCM (파일별), 이름 암호화</td><td>서비스를 자유롭게 교체 가능</td><td>자체 버전 관리 없음(클라우드 버전 기록에 의존), 파일명 암호화로 복원 시 파일 식별이 번거로움, 볼트 설정 파일(<code>masterkey.cryptomator</code>, <code>vault.cryptomator</code>) 손상 시 볼트 전체 접근 불가 위험(마스터키 별도 오프라인 백업 권장)</td></tr></tbody></table></div>
+<p><strong>동기화형과 스냅샷형의 차이 (랜섬웨어 관점):</strong></p>
+<ul>
+<li><strong>동기화형</strong> (Cryptomator, Proton Drive, Tresorit, Sync.com 등): 로컬이 감염되면 그 변경이 클라우드로 그대로 전파됩니다. 이는 특정 제품이 아닌 동기화 방식 공통의 한계입니다. 복원은 클라우드의 버전 기록에 의존하며, 이 기록은 보존 기간이나 개수가 제한되고 삭제할 수도 있습니다.</li>
+<li><strong>스냅샷형</strong> (Kopia, restic, Arq 등): 과거 스냅샷은 새 백업으로 덮어써지지 않습니다. 다만 랜섬웨어가 저장소 접근 권한까지 탈취하면 스냅샷을 지울 수 있으므로, Object Lock이나 append-only 설정이 함께 있어야 완전합니다.</li>
+</ul>
+<p><strong>핵심:</strong> 버전 기록만으로는 부족합니다. 진짜 방어는 <strong>삭제와 덮어쓰기가 불가능한 시점(Object Lock / 불변 보존)</strong>입니다.</p>
+<h2 id="d-최종-추천">D. 최종 추천<a aria-hidden="true" class="anchor-heading icon-link" href="#d-최종-추천"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>상황</th><th>선택</th></tr></thead><tbody><tr><td>개인·소규모, 설치 최소화</td><td><strong>Proton Drive</strong>: 사진·문서 백업용</td></tr><tr><td>기업·규제 대응</td><td><strong>Tresorit</strong>: 폐쇄소스는 감수</td></tr><tr><td>코드 검증이 필수</td><td><strong>Filen</strong> 또는 <strong>Internxt</strong></td></tr><tr><td>대용량·장기 보관, 최고 강도</td><td><strong>Kopia + B2/S3 Object Lock</strong>, 또는 restic + append-only 구성</td></tr><tr><td>구조적으로 제로노하우를 원할 때</td><td>위 구성에 키 오프라인 보관과 분기 1회 복구 리허설 추가</td></tr></tbody></table></div>
+<h2 id="e-공통-한계">E. 공통 한계<a aria-hidden="true" class="anchor-heading icon-link" href="#e-공통-한계"></a></h2>
+<ul>
+<li><strong>양자내성은 아직 초기 단계입니다.</strong> 독립 감사를 마친 주요 서비스 중 저장 파일에 PQ를 기본 적용한 곳은 확인되지 않습니다.
+<ul>
+<li>Proton은 OpenPGP 기반 PQ 하이브리드(ML-KEM + X25519)를 발표했지만, Drive 적용 여부는 확인이 필요합니다.</li>
+<li>Tresorit의 PQ 적용 상태도 확인이 필요합니다.</li>
+<li>Internxt의 Kyber-512는 계정 키와 공유 키에만 적용됩니다.</li>
+<li>ShieldFive는 기본 적용을 주장하지만 감사가 없습니다.</li>
+</ul>
+</li>
+<li><strong>웹 앱은 신뢰 경계입니다.</strong> 브라우저는 매번 서버에서 받은 JS로 복호화하므로, 제공자가 악성 코드를 배포하면 보호 모델이 무너집니다. 가능하면 오픈소스 네이티브 앱을 쓰세요.</li>
+<li><strong>비밀번호를 잃으면 데이터도 사라집니다.</strong> 복구 키는 오프라인에 보관하세요.</li>
+<li><strong>"제로노하우"라는 단어를 그대로 믿지 마세요.</strong> 다음 네 가지를 확인해야 합니다.
+<ol>
+<li>모든 파일에 기본 적용되는가 (opt-in 폴더가 아닌가)</li>
+<li>파일명까지 암호화되는가</li>
+<li>완료된 제3자 감사가 있는가</li>
+<li>클라이언트 코드를 읽을 수 있는가</li>
+</ol>
+</li>
+</ul>
+<h2 id="출처-및-주의">출처 및 주의<a aria-hidden="true" class="anchor-heading icon-link" href="#출처-및-주의"></a></h2>
+<ul>
+<li>원문 수치의 상당 부분은 벤더 발행 자료(ShieldFive 비교 페이지)에 의존했습니다. 최종 사용 전에 각사 보안 백서, 감사 보고서, 요금제 페이지 같은 1차 출처로 교차 확인하세요.</li>
+<li>참고 출처:
+<ul>
+<li><a href="https://shieldfive.com/resources/best-zero-knowledge-cloud-storage">ShieldFive 비교 페이지</a> (벤더 자료)</li>
+<li><a href="https://stateofsurveillance.org/resources/spideroak/">SpiderOak 리뷰</a></li>
+<li><a href="https://www.reddit.com/r/ProtonDrive/comments/1sn3kkh/proton_drives_strong_start_to_2026/">r/ProtonDrive</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="f-kopia--b2--s3-운영-메모">F. Kopia + B2 / S3 운영 메모<a aria-hidden="true" class="anchor-heading icon-link" href="#f-kopia--b2--s3-운영-메모"></a></h2>
+<blockquote>
+<p>가격은 2026년 10월 기준 제3자 자료와 us-east-1 단가입니다. 서울 리전은 더 비쌉니다. 사용 전 각사 요금 페이지에서 확인하세요.</p>
+</blockquote>
+<h3 id="저장소-선택">저장소 선택<a aria-hidden="true" class="anchor-heading icon-link" href="#저장소-선택"></a></h3>
+<ul>
+<li><strong>공식 추천은 없습니다.</strong> Kopia 문서는 지원 저장소를 나열만 합니다.
+<ul>
+<li>안정 지원: S3·S3 호환, B2, Azure, GCS, SFTP, WebDAV, 파일시스템</li>
+<li>실험적 지원: Google Drive, Rclone</li>
+</ul>
+</li>
+<li><strong>커뮤니티 합의도 없습니다.</strong> Kopia + Object Lock 사례로 확인된 것은 다음 두 가지입니다.
+<ul>
+<li>B2: S3 호환 방식으로 연결해야 Object Lock을 쓸 수 있습니다.</li>
+<li>IDrive e2: Object Lock까지 잘 동작한다는 사용자 후기가 있습니다.</li>
+</ul>
+</li>
+<li><strong>Wasabi와 R2는 Kopia 사례를 찾지 못했습니다.</strong></li>
+</ul>
+<h3 id="kopia-저장소-구조">Kopia 저장소 구조<a aria-hidden="true" class="anchor-heading icon-link" href="#kopia-저장소-구조"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>접두어</th><th>내용</th><th>특성</th></tr></thead><tbody><tr><td><code>kopia.repository</code></td><td>저장소 설정 (암호화 형식 등)</td><td>연결할 때마다 읽음</td></tr><tr><td><code>x</code></td><td>인덱스 (내용이 어느 묶음에 있는지)</td><td>자주 읽고, 자주 생성·삭제됨</td></tr><tr><td><code>q</code></td><td>메타데이터 묶음 (디렉터리, 스냅샷)</td><td>탐색할 때 읽음</td></tr><tr><td><code>p</code></td><td>데이터 묶음 (파일 내용, 약 20MB)</td><td>복구할 때만 읽음, 용량 대부분</td></tr></tbody></table></div>
+<ul>
+<li><strong>저장소는 그 자체로 완결돼 있습니다.</strong> 버킷 접속 정보와 비밀번호만 있으면 새 컴퓨터에서도 복구할 수 있습니다.</li>
+<li><strong>로컬에는 원본이 남지 않습니다.</strong>
+<ul>
+<li>캐시: <code>~/Library/Caches/kopia</code></li>
+<li>연결 설정: <code>~/Library/Application Support/kopia/repository.config</code></li>
+<li>비밀번호: macOS 키체인</li>
+</ul>
+</li>
+<li><strong>비밀번호를 잃으면 복구할 수 없습니다.</strong> 오프라인에 따로 보관하세요.</li>
+<li><strong>파일 수가 많아도 불리하지 않습니다.</strong> 작은 파일은 묶음으로 올라가므로, 객체 수는 묶음 수로 정해집니다. 2TB면 약 10만 개입니다.</li>
+</ul>
+<h3 id="storageconfig로-접두어별-저장-등급-지정"><code>.storageconfig</code>로 접두어별 저장 등급 지정<a aria-hidden="true" class="anchor-heading icon-link" href="#storageconfig로-접두어별-저장-등급-지정"></a></h3>
+<p>저장소 루트에 <code>.storageconfig</code>를 두면 접두어마다 S3 저장 등급을 다르게 정할 수 있습니다. 용량 대부분인 <code>p</code>만 싼 등급에 두고, 자주 읽는 메타데이터는 Standard에 두는 식입니다.</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"blobOptions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token string">"p"</span><span class="token punctuation">,</span> <span class="token property">"storageClass"</span><span class="token operator">:</span> <span class="token string">"DEEP_ARCHIVE"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token property">"storageClass"</span><span class="token operator">:</span> <span class="token string">"STANDARD"</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li><strong>위 예시는 문법 확인이 필요합니다.</strong> 쓰기 전에 공식 문서에서 확인하세요.</li>
+<li><strong><code>x</code>, <code>q</code>, <code>kopia.repository</code>는 바로 읽을 수 있는 등급이어야 합니다.</strong> 아카이브 등급에 들어가면 저장소를 열 수 없습니다.</li>
+<li><strong>Glacier IR을 쓸 때도 유용합니다.</strong> <code>x</code>, <code>q</code>를 Standard에 두면 다음 비용이 줄어듭니다.
+<ul>
+<li>메타데이터를 읽을 때마다 붙는 꺼내기 비용</li>
+<li>작은 인덱스에 적용되는 128KB 최소 과금과 90일 최소 보관</li>
+</ul>
+</li>
+<li><strong>저장소를 옮길 때도 필요합니다.</strong> <code>sync-to</code>로 복사한 파일은 기본 등급(Standard)으로 들어가므로, 복사 전에 이 파일이나 S3 수명 주기 규칙을 준비해야 합니다.</li>
+</ul>
+<h3 id="b2-vs-glacier-instant-retrieval-2tb-기준">B2 vs Glacier Instant Retrieval (2TB 기준)<a aria-hidden="true" class="anchor-heading icon-link" href="#b2-vs-glacier-instant-retrieval-2tb-기준"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>Backblaze B2</th><th>Glacier Instant Retrieval</th></tr></thead><tbody><tr><td>보관 단가</td><td>$6.95/TB·월</td><td>$4/TB·월</td></tr><tr><td>월 보관료</td><td>약 $14</td><td>약 $8.2</td></tr><tr><td>꺼내기 비용</td><td>없음</td><td>$0.03/GB</td></tr><tr><td>인터넷 전송료</td><td>월 보관량의 3배까지 무료</td><td>약 $0.09/GB (월 100GB 무료)</td></tr><tr><td>전체 복구 1회</td><td><strong>$0</strong></td><td><strong>약 $236</strong> ($61 + $175)</td></tr><tr><td>최소 보관 기간</td><td>없음</td><td>90일</td></tr><tr><td>최소 과금 크기</td><td>없음</td><td>객체당 128KB</td></tr><tr><td>Object Lock</td><td>지원 (S3 호환 방식으로 연결)</td><td>지원</td></tr></tbody></table></div>
+<ul>
+<li><strong>손익분기점:</strong> 월 보관료 차이는 약 $6입니다. 전체 복구 한 번 비용이 약 3년치 보관료 차이와 비슷합니다.</li>
+<li><strong>B2가 Kopia와 더 편합니다.</strong>
+<ul>
+<li>정리 작업과 검증을 자주 돌려도 추가 비용이 거의 없습니다.</li>
+<li>정리 작업이 묶음을 다시 써도 조기 삭제 요금이 없습니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="glacier-flexible--deep-archive를-쓸-때">Glacier Flexible / Deep Archive를 쓸 때<a aria-hidden="true" class="anchor-heading icon-link" href="#glacier-flexible--deep-archive를-쓸-때"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>등급</th><th>월 보관료 (2TB)</th><th>최소 보관</th><th>전체 복구 꺼내기 비용</th></tr></thead><tbody><tr><td>Flexible Retrieval</td><td>약 $7.4</td><td>90일</td><td>표준 약 $20 (3~5시간), 대량 무료 (5~12시간)</td></tr><tr><td>Deep Archive</td><td>약 $2.0</td><td>180일</td><td>표준 약 $51 (약 12시간), 대량 약 $8 (약 48시간)</td></tr></tbody></table></div>
+<ul>
+<li>전체 복구에는 위 비용에 더해 인터넷 전송료 약 $175와 복원 중 임시 사본 보관료가 듭니다.</li>
+<li>비용은 가장 싸지만 운영 부담이 큽니다.
+<ul>
+<li><strong>바로 읽을 수 없습니다.</strong> <code>p</code>를 읽을 수 없으므로 <code>kopia snapshot verify</code>로 실제 데이터를 검증할 수 없습니다.</li>
+<li><strong>복구 단계가 깁니다.</strong> 필요한 묶음 파일을 찾고, AWS에 복원 요청을 넣고, 12~48시간 기다린 뒤에야 Kopia로 복구할 수 있습니다.</li>
+<li><strong>정리 작업을 직접 관리해야 합니다.</strong> 정리 주기가 최소 보관 기간보다 짧으면 조기 삭제 요금이 쌓입니다.</li>
+<li><strong>설정 실수가 치명적입니다.</strong> <code>.storageconfig</code>가 틀려서 메타데이터가 아카이브 등급에 들어가면 저장소를 열 수 없습니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="일부-파일-복구와-삭제">일부 파일 복구와 삭제<a aria-hidden="true" class="anchor-heading icon-link" href="#일부-파일-복구와-삭제"></a></h3>
+<ul>
+<li><strong>일부 파일 복구</strong>
+<ul>
+<li>CLI: <code>kopia restore &#x3C;스냅샷ID>/경로 ./복구할곳</code></li>
+<li>마운트: <code>kopia mount</code>로 스냅샷을 폴더처럼 열어 필요한 파일만 복사</li>
+<li>KopiaUI: 스냅샷을 탐색하며 파일 단위로 복구</li>
+<li>받는 데이터는 메타데이터와 해당 파일이 든 묶음뿐입니다.</li>
+</ul>
+</li>
+<li><strong>일부 파일 삭제</strong>
+<ol>
+<li><code>kopia snapshot fix remove-files --filename='패턴' --commit</code>으로 기존 스냅샷에서 파일을 뺍니다.</li>
+<li><code>kopia maintenance run --full</code>을 돌리면, 참조가 사라진 데이터가 안전 대기 시간 뒤에 지워집니다.</li>
+</ol>
+<ul>
+<li>Object Lock 보존 기간 안에는 실제로 지워지지 않습니다.</li>
+<li>같은 내용이 다른 경로에도 있으면 데이터가 남습니다(중복 제거).</li>
+<li>앞으로 백업에서 빼려면 <code>.kopiaignore</code>나 <code>kopia policy set --add-ignore</code>로 제외합니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="b2에서-s3로-옮기기">B2에서 S3로 옮기기<a aria-hidden="true" class="anchor-heading icon-link" href="#b2에서-s3로-옮기기"></a></h3>
+<p>B2로 시작해 실제 사용량과 복구 패턴을 본 뒤 S3로 옮기는 계획은 무리가 없습니다.</p>
+<ol>
+<li>S3 버킷을 만듭니다. Object Lock은 <strong>버킷을 만들 때</strong> 켜야 합니다.</li>
+<li>접두어별 저장 등급을 정합니다. <code>.storageconfig</code>나 수명 주기 규칙을 쓰고, 정하지 않으면 Standard로 들어갑니다.</li>
+<li>B2 저장소에 연결된 상태에서 <code>kopia repository sync-to s3 --bucket=… --parallel=8</code>로 복사합니다. 비밀번호, 암호화 형식, 스냅샷 기록이 그대로 유지됩니다.</li>
+<li><code>kopia repository connect s3 …</code>로 새 저장소에 연결합니다.</li>
+<li><code>kopia snapshot verify</code>와 실제 복구 테스트로 검증합니다.</li>
+<li>S3 저장소에서 Object Lock 관련 정리 설정(<code>--extend-object-locks</code> 등)을 다시 확인합니다.</li>
+</ol>
+<p><strong>비용과 주의할 점:</strong></p>
+<ul>
+<li><strong>이전 비용:</strong> B2 전송료는 월 보관량의 3배까지 무료이고, S3 업로드 전송료도 무료입니다. 요청비만 조금 듭니다.</li>
+<li><strong>시간:</strong> 데이터가 <code>sync-to</code>를 실행하는 컴퓨터를 거쳐 가므로 회선 속도에 따라 수 TB면 며칠이 걸릴 수 있습니다.</li>
+<li><strong>보존 기간:</strong> B2의 Object Lock 보존 기간이 남아 있으면 그동안 두 곳에 요금을 함께 냅니다. 처음부터 보존 기간을 짧게(예: 30일) 잡는 것이 좋습니다.</li>
+</ul>
+<h3 id="출처">출처<a aria-hidden="true" class="anchor-heading icon-link" href="#출처"></a></h3>
+<ul>
+<li><a href="https://kopia.io/docs/repositories/">Kopia Repositories 문서</a></li>
+<li><a href="https://kopia.discourse.group/t/backblaze-b2-vs-s3/2343">Kopia 포럼: Backblaze - b2 vs s3</a></li>
+<li><a href="https://kopia.discourse.group/t/idrive-e2-works-well-with-kopia/1171">Kopia 포럼: iDrive e2 works well with Kopia</a></li>
+<li><a href="https://upstash.com/blog/backblaze-b2-pricing-explained-2026">Backblaze B2 Pricing Explained (October 2026) – Upstash</a></li>
+<li><a href="https://upstash.com/blog/aws-s3-pricing-explained-2026">AWS S3 Pricing Explained (2026) – Upstash</a></li>
+<li><a href="https://www.cloudforecast.io/amazon-s3-pricing-and-optimization-guide/">Amazon S3 Pricing Guide (2026) – CloudForecast</a></li>
+</ul></div></div><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-0 ant-col-md-6"><div><div class=""><div class="ant-anchor-wrapper dendron-toc" style="max-height:calc(100vh - 64px);z-index:1"><div class="ant-anchor"><div class="ant-anchor-ink"><span class="ant-anchor-ink-ball"></span></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#제로노하우zk-백업-서비스-비교" title="제로노하우(ZK) 백업 서비스 비교">제로노하우(ZK) 백업 서비스 비교</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#먼저-짚을-것-백업과-제로노하우는-좀처럼-같이-오지-않습니다" title="먼저 짚을 것: &quot;백업&quot;과 &quot;제로노하우&quot;는 좀처럼 같이 오지 않습니다">먼저 짚을 것: &quot;백업&quot;과 &quot;제로노하우&quot;는 좀처럼 같이 오지 않습니다</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#a-관리형-서비스" title="A. 관리형 서비스">A. 관리형 서비스</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#b-목록에서-빼야-할-것-마케팅-함정" title="B. 목록에서 빼야 할 것 (마케팅 함정)">B. 목록에서 빼야 할 것 (마케팅 함정)</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#c-암호-강도-최우선이라면-클라이언트측-백업-도구--불변-스토리지" title="C. 암호 강도 최우선이라면: 클라이언트측 백업 도구 + 불변 스토리지">C. 암호 강도 최우선이라면: 클라이언트측 백업 도구 + 불변 스토리지</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#d-최종-추천" title="D. 최종 추천">D. 최종 추천</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#e-공통-한계" title="E. 공통 한계">E. 공통 한계</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#출처-및-주의" title="출처 및 주의">출처 및 주의</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#f-kopia--b2--s3-운영-메모" title="F. Kopia + B2 / S3 운영 메모">F. Kopia + B2 / S3 운영 메모</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#저장소-선택" title="저장소 선택">저장소 선택</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#kopia-저장소-구조" title="Kopia 저장소 구조">Kopia 저장소 구조</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#storageconfig로-접두어별-저장-등급-지정" title=".storageconfig로 접두어별 저장 등급 지정">.storageconfig로 접두어별 저장 등급 지정</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#b2-vs-glacier-instant-retrieval-2tb-기준" title="B2 vs Glacier Instant Retrieval (2TB 기준)">B2 vs Glacier Instant Retrieval (2TB 기준)</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#glacier-flexible--deep-archive를-쓸-때" title="Glacier Flexible / Deep Archive를 쓸 때">Glacier Flexible / Deep Archive를 쓸 때</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#일부-파일-복구와-삭제" title="일부 파일 복구와 삭제">일부 파일 복구와 삭제</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#b2에서-s3로-옮기기" title="B2에서 S3로 옮기기">B2에서 S3로 옮기기</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#출처" title="출처">출처</a></div></div></div></div></div></div></div></div></div></div></div><div class="ant-divider ant-divider-horizontal" role="separator"></div><footer class="ant-layout-footer" style="padding:0 24px 24px"></footer></main></section></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"note":{"id":"1usihks72oo0g6zwwt6mm2i","title":"Backup Comparison","desc":"","updated":1793087008078,"created":1793086859024,"custom":{},"fname":"tools.backup-comparison","type":"note","vault":{"fsPath":"vault"},"contentHash":"10e24468079be988fc3518fd28151193","links":[],"anchors":{"제로노하우zk-백업-서비스-비교":{"type":"header","text":"제로노하우(ZK) 백업 서비스 비교","value":"제로노하우zk-백업-서비스-비교","line":8,"column":0,"depth":1},"먼저-짚을-것-백업과-제로노하우는-좀처럼-같이-오지-않습니다":{"type":"header","text":"먼저 짚을 것: \"백업\"과 \"제로노하우\"는 좀처럼 같이 오지 않습니다","value":"먼저-짚을-것-백업과-제로노하우는-좀처럼-같이-오지-않습니다","line":14,"column":0,"depth":2},"a-관리형-서비스":{"type":"header","text":"A. 관리형 서비스","value":"a-관리형-서비스","line":18,"column":0,"depth":2},"b-목록에서-빼야-할-것-마케팅-함정":{"type":"header","text":"B. 목록에서 빼야 할 것 (마케팅 함정)","value":"b-목록에서-빼야-할-것-마케팅-함정","line":37,"column":0,"depth":2},"c-암호-강도-최우선이라면-클라이언트측-백업-도구--불변-스토리지":{"type":"header","text":"C. 암호 강도 최우선이라면: 클라이언트측 백업 도구 + 불변 스토리지","value":"c-암호-강도-최우선이라면-클라이언트측-백업-도구--불변-스토리지","line":47,"column":0,"depth":2},"d-최종-추천":{"type":"header","text":"D. 최종 추천","value":"d-최종-추천","line":64,"column":0,"depth":2},"e-공통-한계":{"type":"header","text":"E. 공통 한계","value":"e-공통-한계","line":74,"column":0,"depth":2},"출처-및-주의":{"type":"header","text":"출처 및 주의","value":"출처-및-주의","line":89,"column":0,"depth":2},"f-kopia--b2--s3-운영-메모":{"type":"header","text":"F. Kopia + B2 / S3 운영 메모","value":"f-kopia--b2--s3-운영-메모","line":97,"column":0,"depth":2},"저장소-선택":{"type":"header","text":"저장소 선택","value":"저장소-선택","line":101,"column":0,"depth":3},"kopia-저장소-구조":{"type":"header","text":"Kopia 저장소 구조","value":"kopia-저장소-구조","line":111,"column":0,"depth":3},"storageconfig로-접두어별-저장-등급-지정":{"type":"header","text":".storageconfig로 접두어별 저장 등급 지정","value":"storageconfig로-접두어별-저장-등급-지정","line":128,"column":0,"depth":3},"b2-vs-glacier-instant-retrieval-2tb-기준":{"type":"header","text":"B2 vs Glacier Instant Retrieval (2TB 기준)","value":"b2-vs-glacier-instant-retrieval-2tb-기준","line":148,"column":0,"depth":3},"glacier-flexible--deep-archive를-쓸-때":{"type":"header","text":"Glacier Flexible / Deep Archive를 쓸 때","value":"glacier-flexible--deep-archive를-쓸-때","line":166,"column":0,"depth":3},"일부-파일-복구와-삭제":{"type":"header","text":"일부 파일 복구와 삭제","value":"일부-파일-복구와-삭제","line":180,"column":0,"depth":3},"b2에서-s3로-옮기기":{"type":"header","text":"B2에서 S3로 옮기기","value":"b2에서-s3로-옮기기","line":194,"column":0,"depth":3},"출처":{"type":"header","text":"출처","value":"출처","line":211,"column":0,"depth":3}},"children":[],"parent":"SQqYupi6EFddTerBA8RRD","data":{}},"body":"\u003ch1 id=\"backup-comparison\"\u003eBackup Comparison\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#backup-comparison\"\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003ch1 id=\"제로노하우zk-백업-서비스-비교\"\u003e제로노하우(ZK) 백업 서비스 비교\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#제로노하우zk-백업-서비스-비교\"\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003e수정 원칙:\u003c/strong\u003e 문서 내부 모순을 정리하고, 근거가 약한 수치는 삭제하거나 완화했습니다. 시점에 따라 바뀌는 항목에는 \"확인 필요\"를 표시했습니다.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e등급 기준:\u003c/strong\u003e 암호 설계(AEAD 여부, 키 길이) 40%, 독립 감사 30%, 클라이언트 코드 검증 가능성 20%, 관할권 10%\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch2 id=\"먼저-짚을-것-백업과-제로노하우는-좀처럼-같이-오지-않습니다\"\u003e먼저 짚을 것: \"백업\"과 \"제로노하우\"는 좀처럼 같이 오지 않습니다\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#먼저-짚을-것-백업과-제로노하우는-좀처럼-같이-오지-않습니다\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e시중의 제로노하우 서비스 대부분은 \u003cstrong\u003e동기화 클라우드\u003c/strong\u003e입니다. 진짜 백업이 요구하는 것은 불변 스냅샷, 장기 버전 보관, 스케줄과 재시도, 오프사이트 3-2-1입니다. 이것을 모두 갖춘 제로노하우 제품은 드뭅니다.\u003c/p\u003e\n\u003ch2 id=\"a-관리형-서비스\"\u003eA. 관리형 서비스\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#a-관리형-서비스\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e서비스\u003c/th\u003e\u003cth\u003e관할\u003c/th\u003e\u003cth\u003eZK 범위\u003c/th\u003e\u003cth\u003e파일 암호\u003c/th\u003e\u003cth\u003e독립 감사·인증\u003c/th\u003e\u003cth\u003e클라이언트 소스\u003c/th\u003e\u003cth\u003e등급\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eProton Drive\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e스위스\u003c/td\u003e\u003ctd\u003e전 파일·이름\u003c/td\u003e\u003ctd\u003eOpenPGP (Curve25519 + AES-256)\u003c/td\u003e\u003ctd\u003e✅ Securitum 감사\u003c/td\u003e\u003ctd\u003e공개\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eA\u003c/strong\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eTresorit\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e스위스\u003c/td\u003e\u003ctd\u003e전 파일·이름\u003c/td\u003e\u003ctd\u003eAES-256 + RSA-4096\u003c/td\u003e\u003ctd\u003e✅ ISO 27001 (기타 인증은 확인 필요)\u003c/td\u003e\u003ctd\u003e비공개\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eA−\u003c/strong\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eSync.com\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e캐나다 (5 Eyes)\u003c/td\u003e\u003ctd\u003e전 파일·이름\u003c/td\u003e\u003ctd\u003eAES-256 + RSA\u003c/td\u003e\u003ctd\u003e⚠️ SOC 인증은 데이터센터 기준일 가능성\u003c/td\u003e\u003ctd\u003e비공개\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eB+\u003c/strong\u003e (백서 2015년)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eFilen\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e독일 (EU)\u003c/td\u003e\u003ctd\u003e전 파일·이름\u003c/td\u003e\u003ctd\u003eAES-256-GCM\u003c/td\u003e\u003ctd\u003e❌ 확인된 제3자 감사 없음 (시점 확인 필요)\u003c/td\u003e\u003ctd\u003eAGPLv3\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eA−\u003c/strong\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eInternxt\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e스페인 (EU)\u003c/td\u003e\u003ctd\u003e전 파일\u003c/td\u003e\u003ctd\u003eAES-256 / Kyber-512 하이브리드(계정·공유 키만, 최저 보안 등급)\u003c/td\u003e\u003ctd\u003e✅ Securitum 침투테스트, ISO 27001\u003c/td\u003e\u003ctd\u003e공개\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eB+\u003c/strong\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eSpiderOak ONE\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e미국\u003c/td\u003e\u003ctd\u003e전 파일·이름\u003c/td\u003e\u003ctd\u003eRSA-2048 + AES-256 (비AEAD)\u003c/td\u003e\u003ctd\u003e❌\u003c/td\u003e\u003ctd\u003e비공개\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eB\u003c/strong\u003e (현재 유지보수 상태 확인 필요)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eNordLocker\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e파나마\u003c/td\u003e\u003ctd\u003e전 파일\u003c/td\u003e\u003ctd\u003eAES-256, XChaCha20, Ed25519\u003c/td\u003e\u003ctd\u003e❌\u003c/td\u003e\u003ctd\u003e비공개\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eB+\u003c/strong\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003cp\u003e\u003cstrong\u003e용도별 선택:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eProton Drive: 감사, 제로노하우, 생태계를 한 번에 원할 때.\u003c/strong\u003e 파일당 최대 200개 버전을 최대 10년까지 보관하므로(유료 플랜 기준) 랜섬웨어에서 롤백할 수 있습니다. 다만 개수 상한 때문에 자주 바뀌는 파일은 오래된 버전부터 밀려나고, 기록은 삭제할 수 있어 불변이 아닙니다. 사진·문서 백업에는 적합하고 시스템 이미지 백업에는 부적합합니다. (동기화 기능 범위는 확인 필요)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eTresorit: 규제 산업·기업용.\u003c/strong\u003e 인증 수준은 높지만 클라이언트가 폐쇄소스라 구현을 직접 검증할 수 없습니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eFilen 또는 Internxt: 코드를 직접 검증하고 싶을 때.\u003c/strong\u003e Filen은 전체 코드가 공개돼 있지만 감사 이력이 약합니다. Internxt는 감사와 공개 코드를 모두 갖췄지만 PQ 적용 범위가 제한적입니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSpiderOak: 오래된 백업 전문 서비스.\u003c/strong\u003e 2007년부터 클라이언트측 암호화를 유지해 왔고, 2017년에 \"zero knowledge\" 대신 \"no knowledge\"로 표현을 바꿨습니다. 다만 암호 세대가 한 단계 뒤처지고, 웹 로그인 경로는 신뢰 경계를 깹니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"b-목록에서-빼야-할-것-마케팅-함정\"\u003eB. 목록에서 빼야 할 것 (마케팅 함정)\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#b-목록에서-빼야-할-것-마케팅-함정\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e서비스\u003c/th\u003e\u003cth\u003e제외 이유\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003epCloud\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e기본 저장소는 서버측 암호화입니다. ZK는 유료 Crypto 폴더 안에서만 적용됩니다\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eIcedrive\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003eZK는 유료 Encrypted 폴더에만 적용됩니다. 암호는 Twofish(비AEAD)이고 감사가 없습니다\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eIDrive / Backblaze Personal\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003eprivate key는 가입 시 1회만 선택할 수 있습니다. Backblaze는 웹 복원 시 키가 서버에 전달됩니다\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eMEGA\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003eZK는 맞지만 AES-128을 쓰고, 2022년 ETH 연구진이 취약점을 발표했습니다(이후 패치). 5 Eyes 관할입니다. 무료 보조 백업 정도가 한계입니다\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eShieldFive\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003eML-KEM-1024를 기본 적용한다고 주장하지만 제3자 감사가 완료되지 않았습니다. 자사를 1위로 둔 비교 자료를 발행한 벤더입니다\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003ch2 id=\"c-암호-강도-최우선이라면-클라이언트측-백업-도구--불변-스토리지\"\u003eC. 암호 강도 최우선이라면: 클라이언트측 백업 도구 + 불변 스토리지\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#c-암호-강도-최우선이라면-클라이언트측-백업-도구--불변-스토리지\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e구성\u003c/th\u003e\u003cth\u003e방식\u003c/th\u003e\u003cth\u003e암호\u003c/th\u003e\u003cth\u003e장점\u003c/th\u003e\u003cth\u003e단점\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eKopia\u003c/strong\u003e + B2/S3\u003c/td\u003e\u003ctd\u003e스냅샷\u003c/td\u003e\u003ctd\u003eAES-256-GCM 또는 ChaCha20-Poly1305, scrypt\u003c/td\u003e\u003ctd\u003e현대 AEAD, \u003cstrong\u003eObject Lock 보존을 네이티브로 지원\u003c/strong\u003e, 압축·중복제거\u003c/td\u003e\u003ctd\u003erestic보다 사용자층이 얇음\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003erestic\u003c/strong\u003e + B2/S3/rsync.net\u003c/td\u003e\u003ctd\u003e스냅샷\u003c/td\u003e\u003ctd\u003eAES-256-CTR + Poly1305-AES, scrypt\u003c/td\u003e\u003ctd\u003e오랜 실전 검증, 2017년 외부 암호 리뷰(공식 감사는 아님)\u003c/td\u003e\u003ctd\u003eObject Lock 직접 지원이 제한적이라 rest-server append-only 모드나 버킷 정책으로 우회해야 함\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eArq Backup\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e스냅샷\u003c/td\u003e\u003ctd\u003eAES-256-CBC + HMAC\u003c/td\u003e\u003ctd\u003emacOS/Windows 통합, 버전 백업\u003c/td\u003e\u003ctd\u003e유료, 비AEAD\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eDuplicati\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e스냅샷\u003c/td\u003e\u003ctd\u003eAES-256 (AESCrypt)\u003c/td\u003e\u003ctd\u003eGUI 친화적, 다양한 백엔드\u003c/td\u003e\u003ctd\u003e대규모 환경에서 신뢰성 이슈 이력\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eCryptomator + 클라우드\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e동기화\u003c/td\u003e\u003ctd\u003eAES-256-GCM (파일별), 이름 암호화\u003c/td\u003e\u003ctd\u003e서비스를 자유롭게 교체 가능\u003c/td\u003e\u003ctd\u003e자체 버전 관리 없음(클라우드 버전 기록에 의존), 파일명 암호화로 복원 시 파일 식별이 번거로움, 볼트 설정 파일(\u003ccode\u003emasterkey.cryptomator\u003c/code\u003e, \u003ccode\u003evault.cryptomator\u003c/code\u003e) 손상 시 볼트 전체 접근 불가 위험(마스터키 별도 오프라인 백업 권장)\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003cp\u003e\u003cstrong\u003e동기화형과 스냅샷형의 차이 (랜섬웨어 관점):\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e동기화형\u003c/strong\u003e (Cryptomator, Proton Drive, Tresorit, Sync.com 등): 로컬이 감염되면 그 변경이 클라우드로 그대로 전파됩니다. 이는 특정 제품이 아닌 동기화 방식 공통의 한계입니다. 복원은 클라우드의 버전 기록에 의존하며, 이 기록은 보존 기간이나 개수가 제한되고 삭제할 수도 있습니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e스냅샷형\u003c/strong\u003e (Kopia, restic, Arq 등): 과거 스냅샷은 새 백업으로 덮어써지지 않습니다. 다만 랜섬웨어가 저장소 접근 권한까지 탈취하면 스냅샷을 지울 수 있으므로, Object Lock이나 append-only 설정이 함께 있어야 완전합니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e핵심:\u003c/strong\u003e 버전 기록만으로는 부족합니다. 진짜 방어는 \u003cstrong\u003e삭제와 덮어쓰기가 불가능한 시점(Object Lock / 불변 보존)\u003c/strong\u003e입니다.\u003c/p\u003e\n\u003ch2 id=\"d-최종-추천\"\u003eD. 최종 추천\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#d-최종-추천\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e상황\u003c/th\u003e\u003cth\u003e선택\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e개인·소규모, 설치 최소화\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eProton Drive\u003c/strong\u003e: 사진·문서 백업용\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e기업·규제 대응\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eTresorit\u003c/strong\u003e: 폐쇄소스는 감수\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e코드 검증이 필수\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eFilen\u003c/strong\u003e 또는 \u003cstrong\u003eInternxt\u003c/strong\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e대용량·장기 보관, 최고 강도\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eKopia + B2/S3 Object Lock\u003c/strong\u003e, 또는 restic + append-only 구성\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e구조적으로 제로노하우를 원할 때\u003c/td\u003e\u003ctd\u003e위 구성에 키 오프라인 보관과 분기 1회 복구 리허설 추가\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003ch2 id=\"e-공통-한계\"\u003eE. 공통 한계\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#e-공통-한계\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e양자내성은 아직 초기 단계입니다.\u003c/strong\u003e 독립 감사를 마친 주요 서비스 중 저장 파일에 PQ를 기본 적용한 곳은 확인되지 않습니다.\n\u003cul\u003e\n\u003cli\u003eProton은 OpenPGP 기반 PQ 하이브리드(ML-KEM + X25519)를 발표했지만, Drive 적용 여부는 확인이 필요합니다.\u003c/li\u003e\n\u003cli\u003eTresorit의 PQ 적용 상태도 확인이 필요합니다.\u003c/li\u003e\n\u003cli\u003eInternxt의 Kyber-512는 계정 키와 공유 키에만 적용됩니다.\u003c/li\u003e\n\u003cli\u003eShieldFive는 기본 적용을 주장하지만 감사가 없습니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e웹 앱은 신뢰 경계입니다.\u003c/strong\u003e 브라우저는 매번 서버에서 받은 JS로 복호화하므로, 제공자가 악성 코드를 배포하면 보호 모델이 무너집니다. 가능하면 오픈소스 네이티브 앱을 쓰세요.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e비밀번호를 잃으면 데이터도 사라집니다.\u003c/strong\u003e 복구 키는 오프라인에 보관하세요.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e\"제로노하우\"라는 단어를 그대로 믿지 마세요.\u003c/strong\u003e 다음 네 가지를 확인해야 합니다.\n\u003col\u003e\n\u003cli\u003e모든 파일에 기본 적용되는가 (opt-in 폴더가 아닌가)\u003c/li\u003e\n\u003cli\u003e파일명까지 암호화되는가\u003c/li\u003e\n\u003cli\u003e완료된 제3자 감사가 있는가\u003c/li\u003e\n\u003cli\u003e클라이언트 코드를 읽을 수 있는가\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"출처-및-주의\"\u003e출처 및 주의\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#출처-및-주의\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e원문 수치의 상당 부분은 벤더 발행 자료(ShieldFive 비교 페이지)에 의존했습니다. 최종 사용 전에 각사 보안 백서, 감사 보고서, 요금제 페이지 같은 1차 출처로 교차 확인하세요.\u003c/li\u003e\n\u003cli\u003e참고 출처:\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://shieldfive.com/resources/best-zero-knowledge-cloud-storage\"\u003eShieldFive 비교 페이지\u003c/a\u003e (벤더 자료)\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://stateofsurveillance.org/resources/spideroak/\"\u003eSpiderOak 리뷰\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.reddit.com/r/ProtonDrive/comments/1sn3kkh/proton_drives_strong_start_to_2026/\"\u003er/ProtonDrive\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"f-kopia--b2--s3-운영-메모\"\u003eF. Kopia + B2 / S3 운영 메모\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#f-kopia--b2--s3-운영-메모\"\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cblockquote\u003e\n\u003cp\u003e가격은 2026년 10월 기준 제3자 자료와 us-east-1 단가입니다. 서울 리전은 더 비쌉니다. 사용 전 각사 요금 페이지에서 확인하세요.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch3 id=\"저장소-선택\"\u003e저장소 선택\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#저장소-선택\"\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e공식 추천은 없습니다.\u003c/strong\u003e Kopia 문서는 지원 저장소를 나열만 합니다.\n\u003cul\u003e\n\u003cli\u003e안정 지원: S3·S3 호환, B2, Azure, GCS, SFTP, WebDAV, 파일시스템\u003c/li\u003e\n\u003cli\u003e실험적 지원: Google Drive, Rclone\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e커뮤니티 합의도 없습니다.\u003c/strong\u003e Kopia + Object Lock 사례로 확인된 것은 다음 두 가지입니다.\n\u003cul\u003e\n\u003cli\u003eB2: S3 호환 방식으로 연결해야 Object Lock을 쓸 수 있습니다.\u003c/li\u003e\n\u003cli\u003eIDrive e2: Object Lock까지 잘 동작한다는 사용자 후기가 있습니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eWasabi와 R2는 Kopia 사례를 찾지 못했습니다.\u003c/strong\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"kopia-저장소-구조\"\u003eKopia 저장소 구조\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#kopia-저장소-구조\"\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e접두어\u003c/th\u003e\u003cth\u003e내용\u003c/th\u003e\u003cth\u003e특성\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ekopia.repository\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e저장소 설정 (암호화 형식 등)\u003c/td\u003e\u003ctd\u003e연결할 때마다 읽음\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ex\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e인덱스 (내용이 어느 묶음에 있는지)\u003c/td\u003e\u003ctd\u003e자주 읽고, 자주 생성·삭제됨\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003eq\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e메타데이터 묶음 (디렉터리, 스냅샷)\u003c/td\u003e\u003ctd\u003e탐색할 때 읽음\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ccode\u003ep\u003c/code\u003e\u003c/td\u003e\u003ctd\u003e데이터 묶음 (파일 내용, 약 20MB)\u003c/td\u003e\u003ctd\u003e복구할 때만 읽음, 용량 대부분\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e저장소는 그 자체로 완결돼 있습니다.\u003c/strong\u003e 버킷 접속 정보와 비밀번호만 있으면 새 컴퓨터에서도 복구할 수 있습니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e로컬에는 원본이 남지 않습니다.\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003e캐시: \u003ccode\u003e~/Library/Caches/kopia\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e연결 설정: \u003ccode\u003e~/Library/Application Support/kopia/repository.config\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e비밀번호: macOS 키체인\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e비밀번호를 잃으면 복구할 수 없습니다.\u003c/strong\u003e 오프라인에 따로 보관하세요.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e파일 수가 많아도 불리하지 않습니다.\u003c/strong\u003e 작은 파일은 묶음으로 올라가므로, 객체 수는 묶음 수로 정해집니다. 2TB면 약 10만 개입니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"storageconfig로-접두어별-저장-등급-지정\"\u003e\u003ccode\u003e.storageconfig\u003c/code\u003e로 접두어별 저장 등급 지정\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#storageconfig로-접두어별-저장-등급-지정\"\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003e저장소 루트에 \u003ccode\u003e.storageconfig\u003c/code\u003e를 두면 접두어마다 S3 저장 등급을 다르게 정할 수 있습니다. 용량 대부분인 \u003ccode\u003ep\u003c/code\u003e만 싼 등급에 두고, 자주 읽는 메타데이터는 Standard에 두는 식입니다.\u003c/p\u003e\n\u003cpre class=\"language-json\"\u003e\u003ccode class=\"language-json\"\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token property\"\u003e\"blobOptions\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token property\"\u003e\"prefix\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"p\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token property\"\u003e\"storageClass\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"DEEP_ARCHIVE\"\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token property\"\u003e\"storageClass\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"STANDARD\"\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e위 예시는 문법 확인이 필요합니다.\u003c/strong\u003e 쓰기 전에 공식 문서에서 확인하세요.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e\u003ccode\u003ex\u003c/code\u003e, \u003ccode\u003eq\u003c/code\u003e, \u003ccode\u003ekopia.repository\u003c/code\u003e는 바로 읽을 수 있는 등급이어야 합니다.\u003c/strong\u003e 아카이브 등급에 들어가면 저장소를 열 수 없습니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eGlacier IR을 쓸 때도 유용합니다.\u003c/strong\u003e \u003ccode\u003ex\u003c/code\u003e, \u003ccode\u003eq\u003c/code\u003e를 Standard에 두면 다음 비용이 줄어듭니다.\n\u003cul\u003e\n\u003cli\u003e메타데이터를 읽을 때마다 붙는 꺼내기 비용\u003c/li\u003e\n\u003cli\u003e작은 인덱스에 적용되는 128KB 최소 과금과 90일 최소 보관\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e저장소를 옮길 때도 필요합니다.\u003c/strong\u003e \u003ccode\u003esync-to\u003c/code\u003e로 복사한 파일은 기본 등급(Standard)으로 들어가므로, 복사 전에 이 파일이나 S3 수명 주기 규칙을 준비해야 합니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"b2-vs-glacier-instant-retrieval-2tb-기준\"\u003eB2 vs Glacier Instant Retrieval (2TB 기준)\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#b2-vs-glacier-instant-retrieval-2tb-기준\"\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e항목\u003c/th\u003e\u003cth\u003eBackblaze B2\u003c/th\u003e\u003cth\u003eGlacier Instant Retrieval\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e보관 단가\u003c/td\u003e\u003ctd\u003e$6.95/TB·월\u003c/td\u003e\u003ctd\u003e$4/TB·월\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e월 보관료\u003c/td\u003e\u003ctd\u003e약 $14\u003c/td\u003e\u003ctd\u003e약 $8.2\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e꺼내기 비용\u003c/td\u003e\u003ctd\u003e없음\u003c/td\u003e\u003ctd\u003e$0.03/GB\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e인터넷 전송료\u003c/td\u003e\u003ctd\u003e월 보관량의 3배까지 무료\u003c/td\u003e\u003ctd\u003e약 $0.09/GB (월 100GB 무료)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e전체 복구 1회\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003e$0\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003e약 $236\u003c/strong\u003e ($61 + $175)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e최소 보관 기간\u003c/td\u003e\u003ctd\u003e없음\u003c/td\u003e\u003ctd\u003e90일\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e최소 과금 크기\u003c/td\u003e\u003ctd\u003e없음\u003c/td\u003e\u003ctd\u003e객체당 128KB\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eObject Lock\u003c/td\u003e\u003ctd\u003e지원 (S3 호환 방식으로 연결)\u003c/td\u003e\u003ctd\u003e지원\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e손익분기점:\u003c/strong\u003e 월 보관료 차이는 약 $6입니다. 전체 복구 한 번 비용이 약 3년치 보관료 차이와 비슷합니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eB2가 Kopia와 더 편합니다.\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003e정리 작업과 검증을 자주 돌려도 추가 비용이 거의 없습니다.\u003c/li\u003e\n\u003cli\u003e정리 작업이 묶음을 다시 써도 조기 삭제 요금이 없습니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"glacier-flexible--deep-archive를-쓸-때\"\u003eGlacier Flexible / Deep Archive를 쓸 때\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#glacier-flexible--deep-archive를-쓸-때\"\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cdiv class=\"table-responsive\"\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003e등급\u003c/th\u003e\u003cth\u003e월 보관료 (2TB)\u003c/th\u003e\u003cth\u003e최소 보관\u003c/th\u003e\u003cth\u003e전체 복구 꺼내기 비용\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eFlexible Retrieval\u003c/td\u003e\u003ctd\u003e약 $7.4\u003c/td\u003e\u003ctd\u003e90일\u003c/td\u003e\u003ctd\u003e표준 약 $20 (3~5시간), 대량 무료 (5~12시간)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eDeep Archive\u003c/td\u003e\u003ctd\u003e약 $2.0\u003c/td\u003e\u003ctd\u003e180일\u003c/td\u003e\u003ctd\u003e표준 약 $51 (약 12시간), 대량 약 $8 (약 48시간)\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\n\u003cul\u003e\n\u003cli\u003e전체 복구에는 위 비용에 더해 인터넷 전송료 약 $175와 복원 중 임시 사본 보관료가 듭니다.\u003c/li\u003e\n\u003cli\u003e비용은 가장 싸지만 운영 부담이 큽니다.\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e바로 읽을 수 없습니다.\u003c/strong\u003e \u003ccode\u003ep\u003c/code\u003e를 읽을 수 없으므로 \u003ccode\u003ekopia snapshot verify\u003c/code\u003e로 실제 데이터를 검증할 수 없습니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e복구 단계가 깁니다.\u003c/strong\u003e 필요한 묶음 파일을 찾고, AWS에 복원 요청을 넣고, 12~48시간 기다린 뒤에야 Kopia로 복구할 수 있습니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e정리 작업을 직접 관리해야 합니다.\u003c/strong\u003e 정리 주기가 최소 보관 기간보다 짧으면 조기 삭제 요금이 쌓입니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e설정 실수가 치명적입니다.\u003c/strong\u003e \u003ccode\u003e.storageconfig\u003c/code\u003e가 틀려서 메타데이터가 아카이브 등급에 들어가면 저장소를 열 수 없습니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"일부-파일-복구와-삭제\"\u003e일부 파일 복구와 삭제\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#일부-파일-복구와-삭제\"\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e일부 파일 복구\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003eCLI: \u003ccode\u003ekopia restore \u0026#x3C;스냅샷ID\u003e/경로 ./복구할곳\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e마운트: \u003ccode\u003ekopia mount\u003c/code\u003e로 스냅샷을 폴더처럼 열어 필요한 파일만 복사\u003c/li\u003e\n\u003cli\u003eKopiaUI: 스냅샷을 탐색하며 파일 단위로 복구\u003c/li\u003e\n\u003cli\u003e받는 데이터는 메타데이터와 해당 파일이 든 묶음뿐입니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e일부 파일 삭제\u003c/strong\u003e\n\u003col\u003e\n\u003cli\u003e\u003ccode\u003ekopia snapshot fix remove-files --filename='패턴' --commit\u003c/code\u003e으로 기존 스냅샷에서 파일을 뺍니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ekopia maintenance run --full\u003c/code\u003e을 돌리면, 참조가 사라진 데이터가 안전 대기 시간 뒤에 지워집니다.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cul\u003e\n\u003cli\u003eObject Lock 보존 기간 안에는 실제로 지워지지 않습니다.\u003c/li\u003e\n\u003cli\u003e같은 내용이 다른 경로에도 있으면 데이터가 남습니다(중복 제거).\u003c/li\u003e\n\u003cli\u003e앞으로 백업에서 빼려면 \u003ccode\u003e.kopiaignore\u003c/code\u003e나 \u003ccode\u003ekopia policy set --add-ignore\u003c/code\u003e로 제외합니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"b2에서-s3로-옮기기\"\u003eB2에서 S3로 옮기기\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#b2에서-s3로-옮기기\"\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eB2로 시작해 실제 사용량과 복구 패턴을 본 뒤 S3로 옮기는 계획은 무리가 없습니다.\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eS3 버킷을 만듭니다. Object Lock은 \u003cstrong\u003e버킷을 만들 때\u003c/strong\u003e 켜야 합니다.\u003c/li\u003e\n\u003cli\u003e접두어별 저장 등급을 정합니다. \u003ccode\u003e.storageconfig\u003c/code\u003e나 수명 주기 규칙을 쓰고, 정하지 않으면 Standard로 들어갑니다.\u003c/li\u003e\n\u003cli\u003eB2 저장소에 연결된 상태에서 \u003ccode\u003ekopia repository sync-to s3 --bucket=… --parallel=8\u003c/code\u003e로 복사합니다. 비밀번호, 암호화 형식, 스냅샷 기록이 그대로 유지됩니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ekopia repository connect s3 …\u003c/code\u003e로 새 저장소에 연결합니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ekopia snapshot verify\u003c/code\u003e와 실제 복구 테스트로 검증합니다.\u003c/li\u003e\n\u003cli\u003eS3 저장소에서 Object Lock 관련 정리 설정(\u003ccode\u003e--extend-object-locks\u003c/code\u003e 등)을 다시 확인합니다.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cstrong\u003e비용과 주의할 점:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e이전 비용:\u003c/strong\u003e B2 전송료는 월 보관량의 3배까지 무료이고, S3 업로드 전송료도 무료입니다. 요청비만 조금 듭니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e시간:\u003c/strong\u003e 데이터가 \u003ccode\u003esync-to\u003c/code\u003e를 실행하는 컴퓨터를 거쳐 가므로 회선 속도에 따라 수 TB면 며칠이 걸릴 수 있습니다.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e보존 기간:\u003c/strong\u003e B2의 Object Lock 보존 기간이 남아 있으면 그동안 두 곳에 요금을 함께 냅니다. 처음부터 보존 기간을 짧게(예: 30일) 잡는 것이 좋습니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"출처\"\u003e출처\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#출처\"\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://kopia.io/docs/repositories/\"\u003eKopia Repositories 문서\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://kopia.discourse.group/t/backblaze-b2-vs-s3/2343\"\u003eKopia 포럼: Backblaze - b2 vs s3\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://kopia.discourse.group/t/idrive-e2-works-well-with-kopia/1171\"\u003eKopia 포럼: iDrive e2 works well with Kopia\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://upstash.com/blog/backblaze-b2-pricing-explained-2026\"\u003eBackblaze B2 Pricing Explained (October 2026) – Upstash\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://upstash.com/blog/aws-s3-pricing-explained-2026\"\u003eAWS S3 Pricing Explained (2026) – Upstash\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.cloudforecast.io/amazon-s3-pricing-and-optimization-guide/\"\u003eAmazon S3 Pricing Guide (2026) – CloudForecast\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e","noteIndex":{"id":"Iy0MoL0KnL55Br3AfTS2C","title":"Luke","desc":"","updated":1792142762783,"created":1644449449778,"custom":{"nav_order":0,"permalink":"/"},"fname":"root","type":"note","vault":{"fsPath":"vault"},"contentHash":"e33784e7836d7af465a80f3ec71caeca","links":[{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"tags.공","alias":"#공","position":{"start":{"line":8,"column":62,"offset":119},"end":{"line":8,"column":64,"offset":121},"indent":[]},"xvault":false,"to":{"fname":"tags.공"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"tags.공","alias":"#공","position":{"start":{"line":28,"column":70,"offset":1363},"end":{"line":28,"column":72,"offset":1365},"indent":[]},"xvault":false,"to":{"fname":"tags.공"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"life-tips","position":{"start":{"line":67,"column":33,"offset":3199},"end":{"line":67,"column":57,"offset":3223},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"life-tips","anchorHeader":"wodenokoto"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2026.articles","alias":"What I read in 2026","position":{"start":{"line":101,"column":3,"offset":4942},"end":{"line":101,"column":45,"offset":4984},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2026.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2025.articles","alias":"2025","position":{"start":{"line":102,"column":5,"offset":4989},"end":{"line":102,"column":32,"offset":5016},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2025.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2024.articles","alias":"2024","position":{"start":{"line":103,"column":5,"offset":5021},"end":{"line":103,"column":32,"offset":5048},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2024.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2023.articles","alias":"2023","position":{"start":{"line":104,"column":5,"offset":5053},"end":{"line":104,"column":32,"offset":5080},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2023.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"read.2022.articles","alias":"2022","position":{"start":{"line":105,"column":5,"offset":5085},"end":{"line":105,"column":32,"offset":5112},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"read.2022.articles"}},{"type":"wiki","from":{"fname":"root","id":"Iy0MoL0KnL55Br3AfTS2C","vaultName":"vault"},"value":"journal.what-i-struggled-brag-til-in","position":{"start":{"line":111,"column":3,"offset":5248},"end":{"line":111,"column":43,"offset":5288},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"journal.what-i-struggled-brag-til-in"}},{"from":{"fname":"well-being.diary.training","id":"9fp3juqfks6477fg71yio1f","vaultName":"vault"},"type":"backlink","position":{"start":{"line":62,"column":1,"offset":1810},"end":{"line":62,"column":162,"offset":1971},"indent":[]},"value":"root"},{"from":{"fname":"daily.journal.2026.08.01","id":"hhkpsczmcd4b42ufv37th5y","vaultName":"vault"},"type":"backlink","position":{"start":{"line":9,"column":28,"offset":200},"end":{"line":9,"column":189,"offset":361},"indent":[]},"value":"root"},{"from":{"fname":"daily.journal.2026.08.05","id":"mfegkthvvys4tt6olfuijgv","vaultName":"vault"},"type":"backlink","position":{"start":{"line":15,"column":104,"offset":625},"end":{"line":15,"column":646,"offset":1167},"indent":[]},"value":"root"}],"anchors":{"quotes":{"type":"header","text":"Quotes","value":"quotes","line":12,"column":0,"depth":2},"아늑함을-즐김-空-공":{"type":"header","text":"아늑함을 즐김 空 #공","value":"아늑함을-즐김-空-공","line":14,"column":0,"depth":3},"we-love-to-see-the-process-not-just-the-result-the-imperfections-in-your-work-can-be-beautiful-if-they-show-your-struggle-for-perfection-not-a-lack-of-care":{"type":"header","text":"We love to see the process, not just the result. The imperfections in your work can be beautiful if they show your struggle for perfection, not a lack of care.","value":"we-love-to-see-the-process-not-just-the-result-the-imperfections-in-your-work-can-be-beautiful-if-they-show-your-struggle-for-perfection-not-a-lack-of-care","line":16,"column":0,"depth":3},"현실은-인간의-연산으로-완전히-파악할-수-없는-복잡계-주어진-상황과-능력으로-할-수-있는-최선의-적응은-단순함과-꾸준함":{"type":"header","text":"현실은 인간의 연산으로 완전히 파악할 수 없는 복잡계. 주어진 상황과 능력으로 할 수 있는 최선의 적응은 단순함과 꾸준함.","value":"현실은-인간의-연산으로-완전히-파악할-수-없는-복잡계-주어진-상황과-능력으로-할-수-있는-최선의-적응은-단순함과-꾸준함","line":20,"column":0,"depth":3},"------on-the-death-of-daydreaming":{"type":"header","text":"🥱 -\u003e 🤔💡🌱 - On The Death of Daydreaming","value":"------on-the-death-of-daydreaming","line":24,"column":0,"depth":3},"ive-often-described-my-motivation-for-building-software-to-others-using-imagery-i-like-to-go-find-a-secluded-beach-build-a-large-magnificent-sand-castle-and-then-walk-away-will-anyone-notice-probably-not-will-the-waves-eventually-destroy-it-yep-did-i-still-get-immense-satisfaction-absolutely":{"type":"header","text":"I've often described my motivation for building software to others using imagery: I like to go find a secluded beach, build a large, magnificent sand castle, and then walk away. Will anyone notice? Probably not. Will the waves eventually destroy it? Yep. Did I still get immense satisfaction? Absolutely.","value":"ive-often-described-my-motivation-for-building-software-to-others-using-imagery-i-like-to-go-find-a-secluded-beach-build-a-large-magnificent-sand-castle-and-then-walk-away-will-anyone-notice-probably-not-will-the-waves-eventually-destroy-it-yep-did-i-still-get-immense-satisfaction-absolutely","line":28,"column":0,"depth":3},"the-texture-the-juiciness-the-complexity-of-the-flavor-the-imperfections-the-joy-of-finding-a-particularly-good-one-the-cosmic-horror-of-eating-a-wormy-one-the-nostalgia-of-having-your-grandmas-strawberry-jam-with-dozens-of-individually-unique-strawberries-in-it":{"type":"header","text":"The texture, the juiciness, the complexity of the flavor, the imperfections, the joy of finding a particularly good one, the cosmic horror of eating a wormy one, the nostalgia of having your grandma's strawberry jam with dozens of individually unique strawberries in it.","value":"the-texture-the-juiciness-the-complexity-of-the-flavor-the-imperfections-the-joy-of-finding-a-particularly-good-one-the-cosmic-horror-of-eating-a-wormy-one-the-nostalgia-of-having-your-grandmas-strawberry-jam-with-dozens-of-individually-unique-strawberries-in-it","line":32,"column":0,"depth":3},"simplicity-even-if-it-sacrifices-some-ideal-functionality-has-better-survival-characteristics-than-the-right-thing":{"type":"header","text":"Simplicity, even if it sacrifices some ideal functionality has better survival characteristics than the-right-thing.","value":"simplicity-even-if-it-sacrifices-some-ideal-functionality-has-better-survival-characteristics-than-the-right-thing","line":36,"column":0,"depth":3},"roberto-blake-was-talking-about-making-100-crappy-videos-to-get-better-over-time":{"type":"header","text":"Roberto Blake was talking about making 100 crappy videos to get better over time.","value":"roberto-blake-was-talking-about-making-100-crappy-videos-to-get-better-over-time","line":40,"column":0,"depth":3},"make-the-difficult-habitual-the-habitual-easy-and-the-easy-beautiful":{"type":"header","text":"Make the difficult habitual, the habitual easy, and the easy beautiful.","value":"make-the-difficult-habitual-the-habitual-easy-and-the-easy-beautiful","line":48,"column":0,"depth":3},"a-good-match-is-a-structured-dance-where-players-aim-to-score-while-they-are-following-well-defined-rules-this-freedom-within-a-structure-is-what-makes-it-fun":{"type":"header","text":"A good match is a structured dance, where players aim to score while they are following well-defined rules. This freedom within a structure is what makes it fun.","value":"a-good-match-is-a-structured-dance-where-players-aim-to-score-while-they-are-following-well-defined-rules-this-freedom-within-a-structure-is-what-makes-it-fun","line":52,"column":0,"depth":3},"pivot-points":{"type":"header","text":"Pivot Points","value":"pivot-points","line":56,"column":0,"depth":3},"hedged-bets":{"type":"header","text":"Hedged Bets","value":"hedged-bets","line":61,"column":0,"depth":3},"something-is-better-than-nothing":{"type":"header","text":"Something is better than nothing","value":"something-is-better-than-nothing","line":65,"column":0,"depth":3},"motivation-often-comes-after-starting-not-before-action-produces-momentum":{"type":"header","text":"“Motivation often comes after starting, not before. Action produces momentum.”","value":"motivation-often-comes-after-starting-not-before-action-produces-momentum","line":67,"column":0,"depth":3},"focus-is-more-about-not-keeping-busy-when-you-need-to-wait-for-something":{"type":"header","text":"Focus is more about not keeping busy when you need to wait for something.","value":"focus-is-more-about-not-keeping-busy-when-you-need-to-wait-for-something","line":71,"column":0,"depth":3},"4-minutes-run-hard-enough-to-push-heart-rate-to-90-3-minutes-recover-repeat-4-times":{"type":"header","text":"4 minutes run hard enough to push heart rate to 90%, 3 minutes recover, repeat 4 times","value":"4-minutes-run-hard-enough-to-push-heart-rate-to-90-3-minutes-recover-repeat-4-times","line":75,"column":0,"depth":3},"recommended-routine---bodyweightfitness---i-dont-have-this-much-time":{"type":"header","text":"recommended routine - bodyweightfitness - I Don't Have This Much Time!","value":"recommended-routine---bodyweightfitness---i-dont-have-this-much-time","line":80,"column":0,"depth":3},"도무지-읽히지-않는-책-앞에서-내가-택한-방법은-펼쳐진-페이지-앞에서-멍때리기이다":{"type":"header","text":"도무지 읽히지 않는 책 앞에서 내가 택한 방법은 펼쳐진 페이지 앞에서 멍때리기이다.","value":"도무지-읽히지-않는-책-앞에서-내가-택한-방법은-펼쳐진-페이지-앞에서-멍때리기이다","line":84,"column":0,"depth":3},"i-think-it-should-be-everyones-primary-focus-to-sleep-well-drink-water-get-outside-get-active-and-eat-generally-decently-i-hate-to-say-it-but-if-youre-not-eating-a-good-amount-of-vegetables-and-fruit-decent-protein-sleep-etc-no-amount-of-xyz-will-catch-up-to-that-detriment":{"type":"header","text":"I think it should be everyone's primary focus to sleep well, drink water, get outside, get active, and eat generally decently. I hate to say it, but if you're not eating a good amount of vegetables and fruit, decent protein, sleep, etc, no amount of XYZ will catch up to that detriment.","value":"i-think-it-should-be-everyones-primary-focus-to-sleep-well-drink-water-get-outside-get-active-and-eat-generally-decently-i-hate-to-say-it-but-if-youre-not-eating-a-good-amount-of-vegetables-and-fruit-decent-protein-sleep-etc-no-amount-of-xyz-will-catch-up-to-that-detriment","line":89,"column":0,"depth":3},"my-real-battle-is-doing-good-versus-doing-nothing":{"type":"header","text":"My real battle is doing good versus doing nothing.","value":"my-real-battle-is-doing-good-versus-doing-nothing","line":93,"column":0,"depth":3},"kind-engineering---how-to-engineer-kindness":{"type":"header","text":"Kind Engineering - How To Engineer Kindness","value":"kind-engineering---how-to-engineer-kindness","line":97,"column":0,"depth":3},"sometimes-magic-is-just-someone-spending-more-time-on-something-than-anyone-else-might-reasonably-expect":{"type":"header","text":"Sometimes magic is just someone spending more time on something than anyone else might reasonably expect.","value":"sometimes-magic-is-just-someone-spending-more-time-on-something-than-anyone-else-might-reasonably-expect","line":99,"column":0,"depth":3},"what-i-read-in-past":{"type":"header","text":"What I read in past","value":"what-i-read-in-past","line":105,"column":0,"depth":2}},"children":["zd4mq442jike0pr0wba1u3m","6hzeqsofq67gdk88flxlkhp","778ijii93yu5uwnrwmn5zi4","hygjiuqdwh7wqbydrzpct91","g1fngdjl25nes6fs3lip602","ZbdkdApFqLdks4Moq92R9","uoc5hhki3o4py15cesddu8q","9qf7j06jtdkm6rnx9ymvwb0","5zn10cvj7ajy2gh2is5nqmg","4qo9ma0z0yu1czns6pxl7y5","ok0e729ho7o09xetujkxc0m","GR5x8HnNFEN6fU2UBSEIK","yirtnlj8q24yutcf3ss1xqy","eq0wc6t7wl2wv221yb68ro4","7x2fnv4j6gxts08qk0jguny","hkp250wsayzadxqah7d4gwc","ettkt3iClONnxpbGwBVLl","7l4knev6v613tbuoskvmbdg","hvh5bud6yp7dc89tuh95tr9","lke9v8vn1gbdw37ol1sqrzp","4fvoqrplw0cweo554usbjos","f8qsfql0a9v8thpeo82udfa","1swsbrhqi9jk41v9eodyi5q","SQqYupi6EFddTerBA8RRD","hjNeNc1F2JUh0lTWanH4h","qf0l4wbrc9jgooyzexmbq5v","r68rdcjgls6nz3hg5sbonte","bpbabch5kg3cdv6zj5iz4yt","ekw6s1rle63p0w3fvi6uxza","rfllhyojmapaemo2yaba91w","9mibtgku9fyro4fiupwgyhm","qtsuppo45aasxy87b4a8qrm","9y0sg5rnmeorywj0ol191zy","d3d8apq1zb8fc1sr43bxeoa","ipicuerz6vp61jpgqf53fy1","y50lfgxryw7cwbqa67w1jxu","pqx9k3f5pb4jeo62vzio249","qbuw02p4w38i64n29iy9d18"],"parent":null,"data":{},"body":"\nHi there 👋. I'm a Front-end developer.\n\n---\n\n## Quotes\n\n### [아늑함을 즐김](https://www.youtube.com/watch?v=Gcd0uIZwUSI) 空 #공\n\n### We love to see the process, not just the result. The imperfections in your work can be beautiful if they show your **struggle for perfection**, not a lack of care.\n\nfrom [ralphammer](https://ralphammer.com/is-perfection-boring/)\n\n### 현실은 인간의 연산으로 완전히 파악할 수 없는 복잡계. 주어진 상황과 능력으로 할 수 있는 최선의 적응은 단순함과 꾸준함.\n\n파산을 면하는 선에서 여러가지를 해보고 자신에게 맞는 걸 위주로 꾸준히. 그를 위해 단순, 편안, 쾌적함이 필요.\n\n### 🥱 -\u003e 🤔💡🌱 - [On The Death of Daydreaming](https://www.afterbabel.com/p/on-the-death-of-daydreaming)\n\nboredom -\u003e easy fun -\u003e art -\u003e profit?\n\n### I've often described my motivation for building software to others using imagery: I like to go find a secluded beach, build a large, magnificent sand castle, and then walk away. Will anyone notice? Probably not. Will the waves eventually destroy it? Yep. Did I still get immense satisfaction? Absolutely.\n\nfrom [aliasxneo](https://news.ycombinator.com/item?id=41497113)\n\n### The texture, the juiciness, the complexity of the flavor, the imperfections, the joy of finding a particularly good one, the cosmic horror of eating a wormy one, the nostalgia of having your grandma's strawberry jam with dozens of individually unique strawberries in it.\n\nfrom [Dopamine Fracking](https://igerman.cc/blog/dopamine-fracking/) #공\n\n### Simplicity, even if it sacrifices some ideal functionality has better survival characteristics than the-right-thing.\n\nfrom [The Rise of Worse is Better](https://www.dreamsongs.com/RiseOfWorseIsBetter.html)\n\n### [Roberto Blake was talking about making 100 crappy videos](https://www.youtube.com/watch?v=OnUBaQ1Sp_E) to get better over time.\n\nPutting in the reps and improving a little bit each time.\n\nPutting in the work without expecting any external reward at first (eg views, followers, likes, etc) will pay off in the long run.\n\nfrom [100 Scrappy Things](https://www.florin-pop.com/blog/100-scrappy-things/)\n\n### Make the difficult habitual, the habitual easy, and the easy beautiful.\n\nfrom [Constantin S. Stanislavski](https://www.goodreads.com/quotes/7102271-make-the-difficult-habitual-the-habitual-easy-and-the-easy)\n\n### A good match is a **structured** dance, where players aim to **score** while they are following well-defined **rules**. This **freedom within a structure** is what makes it fun.\n\nfrom [ralphammer](https://ralphammer.com/how-to-get-started/)\n\n### [Pivot Points](https://longform.asmartbear.com/pivot-points/)\n\n- non-judgmental aspects of personality that can be strengths in some contexts and weaknesses in others\n- Pivot Points are fixed in the short term\n\n### [Hedged Bets](https://longform.asmartbear.com/predict-the-future/#hedged-bets)\n\n- trading slightly less maximum upside for predictable, net-positive outcomes.\n\n### Something is better than nothing\n\n### “Motivation often comes after starting, not before. Action produces momentum.”\n\n[When you start a new habit, it should take less than two minutes to do.](https://jamesclear.com/how-to-stop-procrastinating) - James Clear\n\n### Focus is more about **not** keeping busy when you need to wait for something.\n\nEat the boredom for a minute. - [[life-tips#wodenokoto]]\n\n### [4 minutes run hard enough to push heart rate to 90%, 3 minutes recover, repeat 4 times](https://news.ycombinator.com/item?id=34213181)\n\n- https://www.ntnu.edu/cerg/advice\n- [Get running with Couch to 5K](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/)\n\n### [recommended routine - bodyweightfitness](https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/) - I Don't Have This Much Time!\n\nDon't workout at all (saves anywhere from 20 to 60 minutes, but really, really, really, really, really, really, really, really, really not recommended)\n\n### 도무지 읽히지 않는 책 앞에서 내가 택한 방법은 펼쳐진 페이지 앞에서 멍때리기이다.\n\n다르게 표현하면 이렇다. 펼쳐진 두 페이지 앞에서 오래 머물기.  \n책을 펼쳐놓는 것으로 충분하다. 읽지 못해도 좋다. 매일 정해진 진도를 나가야 하는 학교 수업이 아니니까. 하지만 읽지 않아도 괜찮다고 해서 펼쳐두지조차 않으면 곤란하다. 가능한 한 자주 책을 펼쳐두도록 하자. 전혀 읽지 않고 멍하니 바라보고 있다가 다시 덮게 되더라도 - 막막한 독서. 시로군. P.10~13\n\n### I think it should be everyone's primary focus to sleep well, drink water, get outside, get active, and eat generally decently. I hate to say it, but if you're not eating a good amount of vegetables and fruit, decent protein, sleep, etc, no amount of XYZ will catch up to that detriment.\n\nfrom [CE02](https://news.ycombinator.com/item?id=35056071)\n\n### My real battle is doing good versus doing nothing.\n\nfrom [Deirdre Sullivan](https://www.npr.org/2005/08/08/4785079/always-go-to-the-funeral)\n\n### [Kind Engineering](https://kind.engineering/) - How To Engineer Kindness\n\n### Sometimes magic is just someone spending more time on something than anyone else might reasonably expect.\n\nfrom [Teller](https://www.goodreads.com/quotes/6641527-sometimes-magic-is-just-someone-spending-more-time-on-something)\n\n---\n\n## What I read in past\n\n- [[What I read in 2026|read.2026.articles]]\n  - [[2025|read.2025.articles]]\n  - [[2024|read.2024.articles]]\n  - [[2023|read.2023.articles]]\n  - [[2022|read.2022.articles]]\n- 📝 [Gists](https://gist.github.com/Luke-SNAW)\n- 📜 [Journals](https://luke-snaw.github.io/Luke-SNAW__netlify-CMS.github.io/)\n\n---\n\n- [[journal.what-i-struggled-brag-til-in]]\n"},"collectionChildren":null,"customHeadContent":null,"config":{"version":5,"dev":{"enablePreviewV2":true},"commands":{"lookup":{"note":{"selectionMode":"extract","confirmVaultOnCreate":true,"vaultSelectionModeOnCreate":"smart","leaveTrace":false,"bubbleUpCreateNew":true,"fuzzThreshold":0.2}},"randomNote":{},"insertNoteLink":{"aliasMode":"none","enableMultiSelect":false},"insertNoteIndex":{"enableMarker":false},"copyNoteLink":{"aliasMode":"title"},"templateHierarchy":"template"},"workspace":{"vaults":[{"fsPath":"vault"}],"journal":{"dailyDomain":"daily","name":"journal","dateFormat":"y.MM.dd","addBehavior":"childOfDomain"},"scratch":{"name":"scratch","dateFormat":"y.MM.dd.HHmmss","addBehavior":"asOwnDomain"},"task":{"name":"","dateFormat":"","addBehavior":"childOfCurrent","statusSymbols":{"":" ","wip":"w","done":"x","assigned":"a","moved":"m","blocked":"b","delegated":"l","dropped":"d","pending":"y"},"prioritySymbols":{"H":"high","M":"medium","L":"low"},"todoIntegration":false,"createTaskSelectionType":"selection2link","taskCompleteStatus":["done","x"]},"graph":{"zoomSpeed":1,"createStub":false},"enableAutoCreateOnDefinition":false,"enableXVaultWikiLink":false,"enableRemoteVaultInit":true,"enableUserTags":false,"enableHashTags":true,"workspaceVaultSyncMode":"noCommit","enableAutoFoldFrontmatter":false,"enableEditorDecorations":true,"maxPreviewsCached":10,"maxNoteLength":204800,"dendronVersion":"0.115.0","enableFullHierarchyNoteTitle":false,"enablePersistentHistory":false},"preview":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enablePrettyRefs":true,"enableKatex":true,"automaticallyShowPreview":false,"enableFrontmatterTags":true,"enableHashesForFMTags":false},"publishing":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enablePrettyRefs":true,"enableKatex":true,"copyAssets":true,"siteHierarchies":["root"],"writeStubs":false,"siteRootDir":"docs","seo":{"title":"Luke SNAW","description":"Personal knowledge space"},"github":{"enableEditLink":false,"editLinkText":"Edit this page on GitHub","editBranch":"main","editViewMode":"tree"},"enableSiteLastModified":true,"enableFrontmatterTags":true,"enableHashesForFMTags":false,"enableRandomlyColoredTags":true,"enableTaskNotes":true,"enablePrettyLinks":true,"searchMode":"lookup","hierarchy":{"daily":{"publishByDefault":false,"customFrontmatter":[]},"dendron":{"publishByDefault":false,"customFrontmatter":[]},"templates":{"publishByDefault":false,"customFrontmatter":[]}},"siteUrl":"https://luke-snaw.github.io/","duplicateNoteBehavior":{"action":"useVault","payload":["vault"]},"siteFaviconPath":"favicon.ico","siteIndex":"root"}}},"__N_SSG":true},"page":"/notes/[id]","query":{"id":"1usihks72oo0g6zwwt6mm2i"},"buildId":"tOLyTdfay6cgPhrzUC8Wf","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
