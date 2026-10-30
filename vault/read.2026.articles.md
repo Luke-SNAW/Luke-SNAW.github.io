@@ -2,9 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1791855804944
+updated: 1793327164618
 created: 1766965709816
 ---
+
+## Week 44, 2026
+
+- [Why Is This Fingerprinting Script Creating Bioweapons?](https://nullpt.rs/fingerprinting-bioweapons) - **Servicepipe** browser fingerprinting script are actually a sophisticated form of **anti-LLM obfuscation**. This technique uses provocative terminology and sensitive political references to intentionally trigger safety guardrails and prevent AI-assisted deobfuscation of the code.
 
 ## Week 42, 2026
 
