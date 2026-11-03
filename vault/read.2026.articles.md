@@ -2,9 +2,14 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1793327164618
+updated: 1793671525455
 created: 1766965709816
 ---
+
+## Week 45, 2026
+
+- [Lenovo's 'encrypted' fingerprint USB drive is just an unencrypted SD card in a fancy case](https://www.tomshardware.com/tech-industry/cyber-security/lenovo-fingerprint-usb-stick-sold-as-aes-256-encrypted-had-a-plain-sd-card-inside-ai-assisted-follow-up-finds-a-backdoor-and-hardcoded-keys-in-other-secure-usb-products)
+  - https://en.wikipedia.org/wiki/Levono#Security_and_privacy_incidents
 
 ## Week 44, 2026
 

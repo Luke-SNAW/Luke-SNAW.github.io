@@ -2,7 +2,7 @@
 id: keq5k3pcw4htf9c31okrido
 title: Lenovo
 desc: ""
-updated: 1775785997954
+updated: 1793671568707
 created: 1775785801940
 ---
 
@@ -190,6 +190,10 @@ Windows 7, 8, 8.1이 설치된 다음 시리즈:
 **관련 링크:**
 
 - [Legion Cyberworks - Lenovo Security Failures](https://legioncyber.com/lenovos-security-failures-and-hidden-risks/)
+
+---
+
+## 7. [Lenovo's 'encrypted' fingerprint USB drive is just an unencrypted SD card in a fancy case](https://www.tomshardware.com/tech-industry/cyber-security/lenovo-fingerprint-usb-stick-sold-as-aes-256-encrypted-had-a-plain-sd-card-inside-ai-assisted-follow-up-finds-a-backdoor-and-hardcoded-keys-in-other-secure-usb-products)
 
 ---
 
