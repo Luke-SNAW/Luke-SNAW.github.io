@@ -2,12 +2,21 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1793671525455
+updated: 1793956281791
 created: 1766965709816
 ---
 
 ## Week 45, 2026
 
+- [I wish tech companies knew more about me](https://rakhim.exotext.com/i-wish-tech-companies-knew-more-about-me)
+  > I get shown ads for products I just purchased. All this spying, machine learning, big data result in "he bought a mattress, show him more mattresses".
+  >
+  > - [HN](https://news.ycombinator.com/item?id=50383127)
+  >   - I've asked people at Amazon on the recommendation algorithm side about this, since it comes up so often in discussions.
+  >   - Their answer is that, surprisingly, it is a good heuristic. If you just bought something, you've shown intent, and there's a small probability that you're going to be unhappy with your initial purchase and back on the market soon, for whatever reason.
+  >   - Is the posterior probability that you'll buy a mattress again shortly after buying one, a small chance? Yes, undoubtedly. But is it smaller than the prior probability of a random person who hasn't bought any mattress at all recently, suddenly being on the market for a mattress? Apparently not.
+- [It wasn't AI that flipped Proton's charge](https://blog.raed.dev/posts/proton-loser-thinking/)
+  > The detail that made the rounds came from the security Slack channel: an engineer asked for a few days to pentest new code before shipping it, and CEO [Andy Yen answered](https://www.404media.co/manifestos-fear-and-loser-thinking-inside-protons-ai-reckoning/) that it was _“bullshit and loser thinking”_, then told the team to stop _lovingly handcrafting code_ and use AI more.
 - [Lenovo's 'encrypted' fingerprint USB drive is just an unencrypted SD card in a fancy case](https://www.tomshardware.com/tech-industry/cyber-security/lenovo-fingerprint-usb-stick-sold-as-aes-256-encrypted-had-a-plain-sd-card-inside-ai-assisted-follow-up-finds-a-backdoor-and-hardcoded-keys-in-other-secure-usb-products)
   - https://en.wikipedia.org/wiki/Levono#Security_and_privacy_incidents
 
