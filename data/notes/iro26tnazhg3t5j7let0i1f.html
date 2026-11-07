@@ -1,0 +1,92 @@
+<h1 id="new-alternatives-to-innerhtml">New alternatives to innerHTML<a aria-hidden="true" class="anchor-heading icon-link" href="#new-alternatives-to-innerhtml"></a></h1>
+<blockquote>
+<p><a href="https://fullystacked.net/innerhtml-alternatives/">https://fullystacked.net/innerhtml-alternatives/</a></p>
+</blockquote>
+<p><strong>Browser support note</strong>: <code>setHTMLUnsafe</code> is supported in <a href="https://caniuse.com/mdn-api_element_sethtmlunsafe">all browsers</a>. <code>setHTML</code> is still being standardised and is only available in Firefox behind a flag. <a href="https://caniuse.com/mdn-api_element_gethtml"><code>getHTML</code></a> is supported in Chrome and Edge since version 125.</p>
+<p>Browsers recently implemented a new <code>setHTMLUnsafe</code> method. <em>Unsafe</em> in this context means that, just like <code>innerHTML</code>, it does not perform input sanitization. This naming is not consistent with previous browser APIs: we have <code>innerHTML</code>, not <code>innerHTMLUnsafe</code>; <code>eval()</code> not <code>evalUnsafe()</code>, etc. <code>setHTMLUnsafe</code> is certainly no more dangerous than these older methods. Unlike the older methods though, there is both a safe version (<code>setHTML</code>) and an unsafe version (<code>setHTMLUnsafe</code>) — hence the naming.</p>
+<p>Here’s what the <a href="https://wicg.github.io/sanitizer-api/">Sanitizer API spec</a> has to say:</p>
+<blockquote>
+<p>The “safe” methods will not generate any markup that executes script. That is, they should be safe from XSS.</p>
+</blockquote>
+<p>Let’s imagine we have a HTML form with a text <code>&#x3C;input></code> and some JavaScript code that changes the DOM based on the user-supplied value:</p>
+<pre class="language-js"><code class="language-js">form<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"submit"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  event<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> markup <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&#x3C;h2></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>input<span class="token punctuation">.</span><span class="token property-access">value</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&#x3C;/h2></span><span class="token template-punctuation string">`</span></span>
+  div<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> markup
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>If a user entered <code>&#x3C;img src=doesnotexist onerror="alert('Potential XSS Attack')"></code> into the input, that JavaScript code would run in the browser. <code>.setHTMLUnsafe()</code> has the same problem.</p>
+<p>In this simplistic example the code is only running in the users own browser, but if this sort of user input is stored in a database and used to display dynamic content to others, arbitrary and potentially malicious JavaScript could run in the browsers of other users.</p>
+<p>Using <code>setHTML</code>, the only thing inserted into the DOM is <code>&#x3C;img src="doesnotexist"></code>. The image is still injected into the page, but the JavaScript is stripped out.</p>
+<p>The Sanitizer API is still a work in progress, but it helps put the naming of <code>setHTMLUnsafe</code> in context.</p>
+<h2 id="sethtmlunsafe">setHTMLUnsafe<a aria-hidden="true" class="anchor-heading icon-link" href="#sethtmlunsafe"></a></h2>
+<p>If we’re (hopefully) getting <code>setHTML</code>, and we already have <code>innerHTML</code>, why do we even need <code>setHTMLUnsafe</code>? The answer is declarative shadow DOM.</p>
+<p>The HTML <code>&#x3C;template></code> element can be used in two different ways:</p>
+<ul>
+<li>To hold a HTML fragment which is not rendered but that can be used later via JavaScript.</li>
+<li>To immediately generate a shadow DOM. If the <code>&#x3C;template></code> contains the <code>shadowrootmode</code> attribute, the element is replaced in the DOM by its content, inside a shadow root.</li>
+</ul>
+<p><code>innerHTML</code> plays nicely with the first use case, but can’t handle the second.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">)</span>
+main<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h2</span><span class="token punctuation">></span></span>I am in the Light DOM<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h2</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span> <span class="token attr-name">shadowrootmode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>open<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+        <span class="token selector">h2</span> <span class="token punctuation">{</span> <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h2</span><span class="token punctuation">></span></span>Shadow DOM<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h2</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span></span><span class="token template-punctuation string">`</span></span>
+</code></pre>
+<p><code>innerHTML</code> does inject the <code>&#x3C;template></code> into the page, but it remains a <code>&#x3C;template></code> element — it does not get turned into shadow DOM and its contents do not get rendered, regardless of the <code>shadowrootmode</code> attribute.</p>
+<p><code>setHTML</code> will purposefully remove the <code>template</code> and its contents:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">)</span>
+main<span class="token punctuation">.</span><span class="token method function property-access">setHTML</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+     &#x3C;h2>I am in the Light DOM&#x3C;/h2>
+    &#x3C;div>
+    &#x3C;template shadowrootmode="open">
+        &#x3C;style>
+        h2 { color: blue; }
+        &#x3C;/style>
+        &#x3C;h2>Shadow DOM&#x3C;/h2>
+    &#x3C;/template>
+    &#x3C;/div></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+</code></pre>
+<p>In the above example, the contents of the <code>main</code> is now a <code>h2</code> and an empty <code>div</code>. The template is treated as an “unsafe node”.</p>
+<p>This is why browsers added <code>setHTMLUnsafe</code>, as a way to dynamically add declarative shadow DOM to the page.</p>
+<pre class="language-js"><code class="language-js">main<span class="token punctuation">.</span><span class="token method function property-access">setHTMLUnsafe</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+    &#x3C;h2>I am in the Light DOM&#x3C;/h2>
+    &#x3C;div>
+    &#x3C;template shadowrootmode="open">
+        &#x3C;style>
+        h2 { color: blue; }
+        &#x3C;/style>
+        &#x3C;h2>Shadow DOM&#x3C;/h2>
+    &#x3C;/template>
+    &#x3C;/div>
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+</code></pre>
+<p>When using <code>setHTMLUnsafe</code>, the contents of the <code>&#x3C;template></code> will be rendered inside of shadow DOM.</p>
+<h2 id="gethtml">getHTML<a aria-hidden="true" class="anchor-heading icon-link" href="#gethtml"></a></h2>
+<p><code>setHTML</code> and <code>setHTMLUnsafe</code> aren’t, by themselves, a full replacement for <code>innerHTML</code>. <code>innerHTML</code> can both <em>set</em> and <em>get</em> HTML. The complementary function to <code>setHTML</code> and <code>setHTMLUnsafe</code> is <a href="https://html.spec.whatwg.org/multipage/dynamic-markup-insertion.html#html-serialization-methods"><code>getHTML</code></a> (there is no unsafe version).</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> html <span class="token operator">=</span> main<span class="token punctuation">.</span><span class="token method function property-access">getHTML</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>By default <code>getHTML</code> won’t return any markup from within a shadow DOM, but it is configurable.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> html <span class="token operator">=</span> main<span class="token punctuation">.</span><span class="token method function property-access">getHTML</span><span class="token punctuation">(</span><span class="token punctuation">{</span> serializableShadowRoots<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Setting <code>serializableShadowRoots</code> to true will serialize all shadow DOM trees that have opted-in to serialization.</p>
+<p>A <code>template</code> element can opt-in using the <code>shadowrootserializable</code> attribute:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span> <span class="token attr-name">shadowrootmode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>open<span class="token punctuation">"</span></span> <span class="token attr-name">shadowrootserializable</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Similarly, in JavaScript, the <code>attachShadow</code> method has a boolean <code>serializable</code> option.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">attachShadow</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mode<span class="token operator">:</span> <span class="token string">"open"</span><span class="token punctuation">,</span> serializable<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>It’s also possible to serialize only certain specified shadow DOM trees by passing an array of shadow roots:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> markup <span class="token operator">=</span> main<span class="token punctuation">.</span><span class="token method function property-access">getHTML</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  shadowRoots<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">".example"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">shadowRoot</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>All shadow roots in the array will be serialized, <em>even if they are not marked as serializable</em>.</p>

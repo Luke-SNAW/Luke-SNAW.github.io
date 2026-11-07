@@ -1,0 +1,232 @@
+<h1 id="tailscale--mullvad-exit-node-세팅-가이드">Tailscale + Mullvad Exit Node 세팅 가이드<a aria-hidden="true" class="anchor-heading icon-link" href="#tailscale--mullvad-exit-node-세팅-가이드"></a></h1>
+<p>Tailscale과 Mullvad VPN을 연동하여 프라이버시 보호 인터넷 브라우징 환경을 구축하는 방법을 설명합니다.</p>
+<hr>
+<h2 id="개요">개요<a aria-hidden="true" class="anchor-heading icon-link" href="#개요"></a></h2>
+<p>Tailscale은 Mullvad와 파트너십을 맺어 Mullvad의 전 세계 VPN 서버를 Tailscale의 <strong>exit node</strong>로 사용할 수 있게 했습니다. 이를 통해 다음이 가능합니다.</p>
+<ul>
+<li>집이나 외출 중 인터넷을 안전하고 프라이빗하게 브라우징</li>
+<li>공용 Wi-Fi에서 도청 방지</li>
+<li>전 세계 특정 지역을 통한 인터넷 접속</li>
+<li>비표준 포트 트래픽을 Mullvad 네트워크 엣지를 통해 전달</li>
+</ul>
+<h3 id="tailscale-vs-mullvad--무엇이-다른가">Tailscale vs Mullvad — 무엇이 다른가?<a aria-hidden="true" class="anchor-heading icon-link" href="#tailscale-vs-mullvad--무엇이-다른가"></a></h3>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th>Tailscale</th><th>Mullvad</th></tr></thead><tbody><tr><td>역할</td><td>기기 간 연결 (개인 사설 인터넷)</td><td>인터넷 익명 브라우징</td></tr><tr><td>목적</td><td>내가 소유한 서비스/기기에 안전하게 접근</td><td>광고주, ISP, 위협 행위자로부터 보호</td></tr><tr><td>암호화</td><td>end-to-end WireGuard 암호화</td><td>WireGuard 기반 트래픽 마스킹</td></tr></tbody></table></div>
+<p>두 서비스를 함께 사용하면 <strong>Tailscale의 강력한 암호화 + Mullvad의 익명 브라우징</strong>을 동시에 누릴 수 있습니다.</p>
+<hr>
+<h2 id="요구-사항-및-제한-사항">요구 사항 및 제한 사항<a aria-hidden="true" class="anchor-heading icon-link" href="#요구-사항-및-제한-사항"></a></h2>
+<ul>
+<li><strong>Tailscale v1.48.2 이상</strong> 필요 (현재 베타 기능)</li>
+<li>Mullvad VPN 애드온을 별도로 구매해야 함</li>
+<li>아래 기능과는 호환되지 않음:
+<ul>
+<li>커스텀 DERP 서버</li>
+<li>Google-synced 그룹을 이용한 ACL 정책</li>
+</ul>
+</li>
+<li>Windows 클라이언트에서는 전체 Mullvad exit node 목록을 UI에서 볼 수 없음 (CLI 사용 필요)</li>
+<li>Admin console과 tailnet policy file 중 <strong>하나</strong>로만 Mullvad 접근을 관리해야 함</li>
+</ul>
+<hr>
+<h2 id="라이선스-및-요금">라이선스 및 요금<a aria-hidden="true" class="anchor-heading icon-link" href="#라이선스-및-요금"></a></h2>
+<ul>
+<li>기본 애드온: <strong>5개 디바이스 슬롯</strong> 포함</li>
+<li>가격: <strong>디바이스 5개당 월 $5</strong></li>
+<li>이용 가능 플랜:
+<ul>
+<li>Personal Pro / GitHub Community: 월간 또는 연간 구독 가능</li>
+<li>Personal / Standard / Premium: 월간 구독만 가능</li>
+<li>Enterprise: 계정 팀에 별도 문의</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="step-1-mullvad-애드온-활성화">Step 1. Mullvad 애드온 활성화<a aria-hidden="true" class="anchor-heading icon-link" href="#step-1-mullvad-애드온-활성화"></a></h2>
+<ol>
+<li><a href="https://login.tailscale.com/admin/settings/general">Tailscale Admin Console</a> → <strong>General</strong> 설정 페이지로 이동</li>
+<li><strong>Mullvad VPN</strong> 섹션까지 스크롤</li>
+<li><strong>Configure</strong> 버튼 클릭</li>
+<li>결제 플로우를 따라 Mullvad 라이선스 구매</li>
+</ol>
+<blockquote>
+<p><strong>GitOps 사용자 주의:</strong> tailnet policy file로 관리 중인 경우 결제 플로우가 잠길 수 있습니다. 이 경우 <a href="https://login.tailscale.com/admin/settings/billing">Billing</a> 페이지 → <strong>Manage add-ons</strong>에서 라이선스를 구매하세요.</p>
+</blockquote>
+<hr>
+<h2 id="step-2-디바이스에-mullvad-접근-권한-부여">Step 2. 디바이스에 Mullvad 접근 권한 부여<a aria-hidden="true" class="anchor-heading icon-link" href="#step-2-디바이스에-mullvad-접근-권한-부여"></a></h2>
+<p>두 가지 방법 중 하나를 선택하세요. <strong>혼용은 불가</strong>합니다.</p>
+<h3 id="방법-a-admin-console-ui">방법 A: Admin Console (UI)<a aria-hidden="true" class="anchor-heading icon-link" href="#방법-a-admin-console-ui"></a></h3>
+<ol>
+<li><strong>General</strong> 설정 → <strong>Mullvad VPN</strong> → <strong>Configure</strong></li>
+<li><strong>Add devices</strong> 클릭</li>
+<li>Mullvad를 사용할 디바이스 선택 후 저장</li>
+</ol>
+<blockquote>
+<p>디바이스 1개당 라이선스 슬롯 1개를 사용합니다. 디바이스를 추가/제거하면 청구 금액이 자동으로 조정됩니다.</p>
+</blockquote>
+<h3 id="방법-b-tailnet-policy-file-acl">방법 B: Tailnet Policy File (ACL)<a aria-hidden="true" class="anchor-heading icon-link" href="#방법-b-tailnet-policy-file-acl"></a></h3>
+<p>Admin Console → <strong>Access controls</strong> 페이지에서 <code>nodeAttrs</code> 섹션을 추가합니다.</p>
+<p><strong>특정 사용자에게 부여:</strong></p>
+<pre class="language-json"><code class="language-json"><span class="token property">"nodeAttrs"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">"target"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"joe@example.com"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"attr"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"mullvad"</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p><strong>그룹 단위로 부여 (라이선스 풀 공유):</strong></p>
+<pre class="language-json"><code class="language-json"><span class="token property">"nodeAttrs"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">"target"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"group:mullvad"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"attr"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"mullvad"</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<blockquote>
+<p><strong>라이선스 풀 공유 시 주의사항:</strong><br>
+디바이스가 tailnet에 <strong>접속하는 순간</strong> 라이선스가 선착순으로 할당됩니다 (Mullvad 서버에 연결하는 시점이 아님). 구매한 슬롯이 모두 사용 중이면 이후 디바이스는 Mullvad exit node를 사용할 수 없습니다.</p>
+</blockquote>
+<hr>
+<h2 id="step-3-mullvad-exit-node-사용하기">Step 3. Mullvad Exit Node 사용하기<a aria-hidden="true" class="anchor-heading icon-link" href="#step-3-mullvad-exit-node-사용하기"></a></h2>
+<p>디바이스에 Mullvad 접근 권한이 부여된 후, 각 디바이스에서 개별적으로 exit node를 활성화해야 합니다.<br>
+처음 사용 시 또는 몇 주간 미사용 후 재사용 시 동기화에 최대 <strong>2분</strong> 정도 소요될 수 있습니다.</p>
+<h3 id="android--ios">Android / iOS<a aria-hidden="true" class="anchor-heading icon-link" href="#android--ios"></a></h3>
+<ol>
+<li>메뉴(⋯) → <strong>Use exit node</strong> 선택</li>
+<li>원하는 Mullvad exit node 선택</li>
+<li>(선택) 로컬 네트워크 접근 허용 시 <strong>Allow LAN access</strong> 체크</li>
+</ol>
+<h3 id="macos">macOS<a aria-hidden="true" class="anchor-heading icon-link" href="#macos"></a></h3>
+<ol>
+<li>메뉴바의 Tailscale 아이콘 클릭</li>
+<li><strong>Use exit node</strong> → Mullvad 서버 선택</li>
+</ol>
+<h3 id="windows">Windows<a aria-hidden="true" class="anchor-heading icon-link" href="#windows"></a></h3>
+<p>Windows UI에서는 전체 목록이 표시되지 않습니다. CLI를 사용하세요.</p>
+<h3 id="linux-cli">Linux (CLI)<a aria-hidden="true" class="anchor-heading icon-link" href="#linux-cli"></a></h3>
+<pre class="language-bash"><code class="language-bash"><span class="token comment"># 사용 가능한 Mullvad exit node 목록 확인</span>
+tailscale exit-node list
+
+<span class="token comment"># exit node 설정</span>
+tailscale <span class="token builtin class-name">set</span> --exit-node<span class="token operator">=</span><span class="token operator">&#x3C;</span>mullvad-exit-node-hostname<span class="token operator">></span>
+
+<span class="token comment"># exit node 해제</span>
+tailscale <span class="token builtin class-name">set</span> --exit-node<span class="token operator">=</span>
+</code></pre>
+<h3 id="apple-tv-tvos">Apple TV (tvOS)<a aria-hidden="true" class="anchor-heading icon-link" href="#apple-tv-tvos"></a></h3>
+<p>설정 앱 → Tailscale → <strong>Use exit node</strong>에서 Mullvad 서버 선택</p>
+<hr>
+<h2 id="dns-설정-중요">DNS 설정 (중요)<a aria-hidden="true" class="anchor-heading icon-link" href="#dns-설정-중요"></a></h2>
+<p>Tailscale <strong>v1.48.3 이상</strong>은 추가 DNS 설정이 필요 없습니다.</p>
+<p>v1.48.1 ~ v1.48.2를 사용 중이라면 아래 중 하나를 설정해야 합니다.</p>
+<p><strong>옵션 1: Allow local network access 활성화</strong></p>
+<ul>
+<li>exit node 사용 시 <strong>Allow LAN access</strong>를 활성화하면 로컬 DNS를 계속 사용할 수 있습니다.</li>
+<li>단, DNS 리크가 발생할 수 있습니다.</li>
+</ul>
+<p><strong>옵션 2: 글로벌 네임서버 설정 (권장)</strong></p>
+<ul>
+<li>Admin Console → DNS 설정에서 Mullvad의 Public DNS를 글로벌 네임서버로 추가</li>
+<li><strong>Override DNS servers</strong> 활성화</li>
+<li><a href="https://mullvad.net/en/check">mullvad.net/check</a>에서 DNS 리크 없음을 확인할 수 있습니다.</li>
+</ul>
+<hr>
+<h2 id="mullvad-사용-해제">Mullvad 사용 해제<a aria-hidden="true" class="anchor-heading icon-link" href="#mullvad-사용-해제"></a></h2>
+<h3 id="특정-디바이스-접근-권한-제거-admin-console">특정 디바이스 접근 권한 제거 (Admin Console)<a aria-hidden="true" class="anchor-heading icon-link" href="#특정-디바이스-접근-권한-제거-admin-console"></a></h3>
+<ol>
+<li><strong>General</strong> → <strong>Mullvad VPN</strong> → <strong>Configure</strong></li>
+<li>해당 디바이스 옆 <strong>Remove</strong> → <strong>Save</strong></li>
+</ol>
+<h3 id="tailnet-policy-file에서-제거">Tailnet Policy File에서 제거<a aria-hidden="true" class="anchor-heading icon-link" href="#tailnet-policy-file에서-제거"></a></h3>
+<p><code>nodeAttrs</code>에서 해당 사용자 또는 그룹의 <code>mullvad</code> 속성을 제거합니다.</p>
+<h3 id="애드온-완전-제거">애드온 완전 제거<a aria-hidden="true" class="anchor-heading icon-link" href="#애드온-완전-제거"></a></h3>
+<ol>
+<li><strong>Billing</strong> 페이지 → <strong>Manage add-ons</strong></li>
+<li><strong>Mullvad VPN</strong> → <strong>Remove add-on</strong></li>
+</ol>
+<hr>
+<h2 id="기존-mullvad-앱에서-마이그레이션하는-경우">기존 Mullvad 앱에서 마이그레이션하는 경우<a aria-hidden="true" class="anchor-heading icon-link" href="#기존-mullvad-앱에서-마이그레이션하는-경우"></a></h2>
+<p>Mullvad 단독 앱을 사용하다가 Tailscale 연동으로 전환하는 경우:</p>
+<ol>
+<li>Mullvad VPN 앱 실행</li>
+<li>Mullvad VPN <strong>비활성화</strong></li>
+<li><strong>Block connections without VPN</strong> 설정 <strong>끄기</strong></li>
+</ol>
+<p>이후 Tailscale에서 Mullvad exit node를 정상적으로 사용할 수 있습니다.</p>
+<hr>
+<h2 id="tailnet-lock-사용-시-mullvad-exit-node-서명">Tailnet Lock 사용 시: Mullvad Exit Node 서명<a aria-hidden="true" class="anchor-heading icon-link" href="#tailnet-lock-사용-시-mullvad-exit-node-서명"></a></h2>
+<p><a href="https://tailscale.com/docs/features/tailnet-lock">Tailnet Lock</a>을 사용하는 경우 각 Mullvad exit node에 서명이 필요합니다. 서명하는 디바이스에도 유효한 Mullvad 라이선스가 있어야 합니다.</p>
+<p><strong>단일 exit node 서명:</strong></p>
+<pre class="language-bash"><code class="language-bash"><span class="token comment"># jq 설치 필요</span>
+
+<span class="token comment"># 1. Mullvad exit node의 NodeKey 확인</span>
+tailscale lock status --json <span class="token operator">|</span> jq <span class="token string">'[.FilteredPeers[] | select(.DNSName | contains("mullvad.ts.net")) | {DNSName, NodeKey: .NodeKey}] | sort_by(.DNSName)'</span>
+
+<span class="token comment"># 2. 서명</span>
+tailscale lock sign nodekey <span class="token operator">&#x3C;</span>nodekey-of-exit-node<span class="token operator">></span>
+</code></pre>
+<p><strong>여러 exit node 자동 서명 (스크립트):</strong></p>
+<p>Linux, macOS, Windows에서 사용 가능한 자동화 스크립트:<br>
+→ <a href="https://github.com/tailscale-support/mullvad-script">github.com/tailscale-support/mullvad-script</a></p>
+<p>특정 국가 코드(두 글자) 또는 <code>..</code>(마침표 두 개)를 입력해 전체 노드를 서명할 수 있습니다.</p>
+<hr>
+<h2 id="프라이버시-및-익명성-참고-사항">프라이버시 및 익명성 참고 사항<a aria-hidden="true" class="anchor-heading icon-link" href="#프라이버시-및-익명성-참고-사항"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>Tailscale이 아는 정보</td><td>사용자 신원, 어떤 Mullvad 서버에 연결했는지</td></tr><tr><td>Mullvad가 아는 정보</td><td>어떤 기기가 연결됐는지만 (사용자 신원은 전달되지 않음)</td></tr><tr><td>트래픽 내용</td><td>WireGuard end-to-end 암호화로 Tailscale도 볼 수 없음</td></tr></tbody></table></div>
+<p>완전한 익명성이 필요한 경우 <a href="https://ssd.eff.org/">EFF의 Surveillance Self-Defense 가이드</a>를 참고하세요.</p>
+<hr>
+<h2 id="관련-링크">관련 링크<a aria-hidden="true" class="anchor-heading icon-link" href="#관련-링크"></a></h2>
+<ul>
+<li><a href="https://tailscale.com/blog/mullvad-integration">Tailscale Blog: Mullvad Integration</a></li>
+<li><a href="https://tailscale.com/docs/features/exit-nodes/mullvad-exit-nodes">Tailscale Docs: Mullvad Exit Nodes</a></li>
+<li><a href="https://mullvad.net/en/servers">Mullvad 서버 목록</a></li>
+<li><a href="https://mullvad.net/en/check">Mullvad DNS 리크 체크</a></li>
+<li><a href="https://login.tailscale.com/admin/settings/general">Tailscale Admin Console</a></li>
+</ul>

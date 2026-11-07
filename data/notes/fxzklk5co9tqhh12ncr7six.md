@@ -1,0 +1,186 @@
+
+> https://longform.asmartbear.com/posts/extreme-questions/
+
+How do you come up with fresh, transformative ideas?
+
+“Brainstorming” is hard—staring at a blank whiteboard, wondering whether someone could make a real-life “dark mode” whiteboard, then realizing that’s what a blackboard is, only dustier.
+
+Or the modern version, seventeen pointers flying around a Miro board, zooming to 2000% to read that auto-scaled-down text in each standard-sized virtual sticky-note.
+
+We’re blinded by our daily work: No forest, all trees. It’s too easy to glom onto an idea that’s been knocking around for year, its importance undeservedly increased by the familiarity of repetition. It’s hard to think past the last seven customer interviews or support tickets or sales calls. Those are great for generating tactical ideas that fuel our roadmaps, but they are tiny incrementalisms that cement us into tiny thinking.
+
+**The following prompts jostle you out of tiny thinking.** Each stretches some dimension of reality to an extreme. So extreme that it is nearly nonsense. But dramatically different perspectives can reveal distinctly new ideas. An idea that would be a 60% solution in an extreme hypothetical case, could be a 2x or even a 10x idea in reality.
+
+Sometimes the extreme is surprisingly appropriate. Unique business models emerge when at least one dimension is so extreme that it defies critics and competitors to even conceive of its possibility<sup class="footnote-ref character-overhang">1</sup>. A fantastic idea fulfilling the right extreme can be a company’s entire strategy, unlocking a long-term competitive moat.
+
+<sup class="footnote-num">1</sup> All of these were considered impossible barriers or business models, until a company did it anyway and won because of it: Zappos’ free shoe returns 364 days after purchase, Robinhood’s $0 trading fees, Amazon’s free delivery with Prime, Netflix’s mail-order DVD rental, open-source software companies charging for something that’s 100% free and 0% secret intellectual property (now hundreds of billions of dollars in combined public-company value), AirBnB, Uber, and Lyft banking on strangers trusting strangers in the intimate spaces of cars and homes.
+
+It’s worth a try.
+
+## 10x prices [#](https://longform.asmartbear.com/posts/extreme-questions/#10x-prices)
+
+If you were forced to increase your prices by 10x, what would you have to do to justify it?
+
+What sort of brand looks and feels like something that expensive? What positioning would you take? How would the design of both the website and the product need to change?
+
+What subset of your market would you have to target? Do they have different problems that need solving, or different needs? Would they consider the high price a positive, because it feeds a need to be seen as someone who is successful, or because they feel “buying from the best” lowers the risk of their decision? What would you need to do for them to be able to display that badge? What sort of relationship would you want to cultivate with each customer?
+
+What expensive services might you need to supply? Human support? Infrastructure? Is it possible for those costs to be “only” 2x or 3x more than today, so that the net impact is massive profitability?
+
+_Often early startups charge too little, and established companies struggle to charge more to existing customers. Thinking about what could justify a massive hike, you might be able to do some of those things and justify at least 2x._
+
+## No customers [#](https://longform.asmartbear.com/posts/extreme-questions/#no-customers)
+
+If all our customers vanished, and we had to earn our growth and brand from scratch, what would we do?
+
+How would we distinguish ourselves with a unique compelling message, as a fresh competitor in our market? What would we put on our home page? Would we use a different pricing model to compete better? Would our brand need to change to align with the message?
+
+Would we throw out some features that take a lot of work but not many people actually use (since there’s no pesky customers hanging on to the expectation of the old features)? Would we build some new feature that would make us more competitive? Would we change our infrastructure or architecture or UX dramatically because of what we now know, since we’re not ladened with existing customers?
+
+_Often we don’t make important changes because we’ve gotten complacent with our marketing, or we never got around to having a truly compelling unique positioning statement, or we don’t want to incur the penalty of big changes on our customer base, even if it means we’re doing the wrong thing today from a competitive standpoint, and the wrong thing for the future. We don’t want to make even 5% of our customers mad, even if it would be better for the other 95%. There will be 10x more customers in the future than there are now, but only if we build for them, today._
+
+## No tech support [#](https://longform.asmartbear.com/posts/extreme-questions/#no-tech-support)
+
+[(source)](https://andertoons.com/meeting/cartoon/512/so-as-you-can-see-customer-satisfaction-up-considerably-since-phasing-out-complaint-forms)
+
+If you were never allowed to provide tech support, in any form, what would have to change?
+
+How would on-boarding need to be improved, to the point where customers would self-serve and be happy doing it? This might be the hardest step, because the customer is least-familiar with your product, and least-motivated to power through barriers to their success. And setup stuff often has to be done only once, so you might not learn how to improve those things from existing customers.
+
+Where would the product need provide the user with more control, since they can’t ask Support to do it for them? What information requires better visibility, since they can’t ask Support to look it up for them? What actions would need to be become more intuitive, because they can’t ask Support how to use functionality that they know “is in here somewhere?”
+
+_Self-service isn’t just better for your costs and scaling, it also makes customers happier and [more loyal](https://www.amazon.com/Effortless-Experience-Conquering-Battleground-Customer/dp/1591845815). Therefore, dramatically improving self-service is often profitable for both the top- and bottom-line._
+
+## Maximize fun [#](https://longform.asmartbear.com/posts/extreme-questions/#maximize-fun)
+
+What would be the most _fun_ thing to build?
+
+It has to be something that makes our product better, not a random technology or unrelated market. Aside from that constraint, it can be anything—building a feature you just think would be cool for customers to use, developing a technology that would be fun to work on (that happens to deliver a feature customers want), refactoring infrastructure or architecture using some interesting modern technology that would also improve something like cost-efficiency, scalability, testability, or maintainability.
+
+What if you held a one-week hackathon and actually tried to build one of those things?
+
+_When we work on things that are fun, we work better and harder, yet are happy to do it. Therefore, biasing towards fun is also biasing towards productivity and long-term fulfillment, which is practical and logical, not merely indulgent as it first appears. Ultimately, work still needs to advance the strategy while improving something substantial for the customer or the team, but typical prioritization under-appreciates the power of fun._
+
+## Complete rip-off [#](https://longform.asmartbear.com/posts/extreme-questions/#complete-rip-off)
+
+If our biggest competitor copied every single feature we have, how do we still win?
+
+Is the answer inside our product, in something other than the utility of the features? What is something, and how could we make more of that, so we’re differentiated even in the face of a copy-cat? Is it ease of use, ease of sharing, pleasure of great design? Is it building the next feature quickly that no competitor has, and no competitors knows it’s valuable (since in this hypothetical they’re just copying us rather than being insightful on their own), and if so, what is that killer next feature that would leap-frog us from a customer’s perspective?
+
+If the answer is outside of our product, where is it? A higher purpose or brand-promise that our customers buy into, aside from the product? Is that because we are good at communicating how we make the world better, or because our customers are “rooting for David against Goliath,” or how our culture is special, or because our brand is distinctive (even if just “it’s the best” or “it’s the biggest”), or because our customers trust us, because we were our word, or because of our customer service, or because of how we handle situations that go poorly, or because we “give back” in forms like open-source or community-building or significant philanthropy?
+
+_All your good ideas will be copied; it’s just a question of when. Competing only on features results in bullet-point battles; this is the weakest way to win sales. Creating bigger and more emotional distinction is a powerful way to win, and breaks us of the habit of believing that incremental product updates will dramatically increase differentiation, or growth._
+
+## No time [#](https://longform.asmartbear.com/posts/extreme-questions/#no-time)
+
+What if we are forced to ship a full, completed (at least MVP) new feature, in just two weeks, that would delight and surprise some fraction of our customers.
+
+> “To achieve great things, two things are needed: a plan, and not quite enough time.”
+>
+> —Leonard Bernstein
+
+Every bit of complexity has to be stripped out—we can add it back later. Scope has to be reduced to a minimum, which reduces how many people can use it on day one, but increases how much we’ll learn on day one.
+
+Can we stub out an API, implementing it manually for now? Can we hook up some 3rd-party system, implementing something more efficient later? Can we skip documentation and internal support training and perfect error handling, not forever, but just long enough to see how people like this new functionality?
+
+A 1000-page book can be summarized in a 40-page Cliff’s Notes. The key lessons of Cliff’s Notes can be summarized in a 1-page blog post. The main theme and one unique perspective of the book can be summarized in one sentence. It can always be smaller, if we trade things off.
+
+_Hackathons prove that we can code really cool things in a short time, when we want to, and if we make certain trade-offs. It’s not fully finished, not polished, not ready to scale, but it’s something substantial and far more “agile” than teams normally are. If you feel like you’ve lapsed into a waterfall with two-week report-outs, this might be the shake-up everyone needs._
+
+## Flipped business model [#](https://longform.asmartbear.com/posts/extreme-questions/#flipped-business-model)
+
+[(source)](https://andertoons.com/subscription/cartoon/6535/instead-of-allowance-how-about-subscription-model)
+
+What if you were forced to charge customers in a completely different manner? The product isn’t free, but somehow you have to justify value (and costs) differently. If you’re usage-based, you’re forced to charge a flat monthly rate; if monthly with tiers, you’re forced to measure and charge daily with some formula.
+
+How would you have to change how you position the value you deliver? Would you have different kinds of customers due to prices effectively being much higher or lower, and how would that affect brand, messaging, marketing, or sales?
+
+How would costs have to change, so that the vast majority of customers were still profitable? Would software architectures need to change? Would marketing or sales structures change? Is tech support suddenly much more or much less possible?
+
+Are there features which you’d need to build (e.g. so customers could control their costs), or features you’d now be able to supply (e.g. because customers would now see the utility in it, or would be happy to pay more because of it)? Would you create features which caused higher prices, but in concert with additional value, so that customers would be happy to grow with you?
+
+_Business models force you into certain frames of thinking about how to monetize value that you create, and how costs need to scale with sales and infrastructure. The general idea for any company is to generate far more value than it charges for, so customers are genuinely better off in the exchange, and are happy to be long-term customers. Shaking up the business model shakes up the value/cost equation; sometimes a different business model is actually better for everyone._
+
+## No website [#](https://longform.asmartbear.com/posts/extreme-questions/#no-website)
+
+If you were not allowed to have a website, how would you still grow your business?
+
+Could you grow by word-of-mouth? Does the product help people do that proactively?
+
+Could you create advocacy, as in channel partners or ambassadors? Could your social media be so good, someone would sign up for the product without needing to know more?
+
+Could your product _be_ marketing? Could you cheat, where your “website” is inside the product, where potential customers are caught up learning more and trying things in the moment, so that they become users before they realize what’s happening?
+
+_Your advocates are already using your product, yet so often we leave “getting more customers” to the marketing department, rather than realizing the product is already a platform for growth. Truly viral products know this already (e.g. you can’t use a chat service unless you invite other people to the chat service), but non-viral products can still create growth machines from inside the product. What if “in-product marketing” is more impactful on growth than any useful feature?_
+
+## No meetings [#](https://longform.asmartbear.com/posts/extreme-questions/#no-meetings)
+
+What if you made your most introverted teammates’ dreams come true: No more synchronous meetings, ever again?
+
+What if you had to on-board new employees without meetings? Or operate the software, deploy the software, find where things are located? What systems would need to exist, and what materials would need to go in there? What format would allow you to update that easily?
+
+What if you had to make decisions without meetings—the process as well as the result of that decision? Deciding what to build, prioritizing big or small things, brainstorming new things? Is it possible that brainstormed ideas could be even better without meetings (because people aren’t being influenced by other people, ahead of having their own thoughts) or that decisions could be even stronger without meetings (because people have the time and space to think, to research, to try things out, thus more completely exploring the solution space?).
+
+How would you create social ties and inside jokes and 1:1 as well as group relationships, if you’re never in the same space at the same time?
+
+_Meetings are still the best way to accomplish certain things: Social bonding, deep discussions where ideas rapidly ricochet off each other, decisions where it’s important to “look in everyone’s eyes” to get the final agreement, and more. But one of the most common complaints in any company is “too many meetings,” or at least, “too many useless/bad/wasteful/inefficient/boring meetings.” Besides the usual admonitions about meeting hygiene, a bigger question is whether your systems and processes can not only prevent them, but increase utility beyond that. For example, how much faster could a new team member get up-to-speed if they could read “the why” behind the last 20 major decisions?_
+
+## No customer contact [#](https://longform.asmartbear.com/posts/extreme-questions/#no-customer-contact)
+
+If we could never talk to our customers again, how would we figure out what to build?
+
+Could you measure their behavior so well that you could quickly measure whether any change was positive or negative, so at least you could iterate your way to a better product? Are there clear signs of value or happiness that you could use like marketers use conversion with A/B testing?
+
+Could you be even faster at testing new ideas? Could a feature start out as just a button that says “coming soon” or asks “why did you want this” or “what did you expect to happen” or “get emailed when we make this feature,” so you could directly measure what people are likely to use, before you invest in building it?
+
+What could you analyze online, in what customers or competitors or observers are saying, that would inform your strategy or even product roadmap? Could you do better than just copying what others are doing? Could you analyze what people are saying about us or competitors online, understanding that the loudest voices aren’t a random sample of the population, but still might have something useful to tell us, even when they’re not being constructive about it?
+
+_Sometimes you interview customers and come away with the wrong feature ideas anyway. Sometimes you ask them whether they’d use something, and they say yes, and they even meant it, but after spending five months building it, they don’t actually use it. Stretching your ability to get empirical signal helps you avoid those issues, and might even create breakthrough ideas, or avoid ideas that seem great, but aren’t._
+
+## Cost is no object [#](https://longform.asmartbear.com/posts/extreme-questions/#cost-is-no-object)
+
+What if it didn’t matter how unprofitable you were?
+
+Maybe prices stay the same but you can spend 10x or 100x more, even if that’s wildly unprofitable. Or maybe the product is free, too<sup class="footnote-ref character-overhang">2</sup>. What would you spend it on? How much value could you deliver, if you thought of the product as an exercise in philanthropy?
+
+<sup class="footnote-num">2</sup> Sometimes people under-value things only because they are free, so even if profitability is irrelevant, charging can still be useful. Try it both ways!
+
+It could be infrastructure or software, but what about the personal touch? What would a dedicated, personal concierge do? If software could do just 30% of that job, but at 1/100th of the cost, that could be a good feature.
+
+_It can be surprisingly difficult to convert money to real customer or business value, even when money is free. If there is a way, it might lead to a new pricing tier, leveraging that idea but adding back a sustainable business model._
+
+## Sociopathic CEO [#](https://longform.asmartbear.com/posts/extreme-questions/#sociopathic-ceo)
+
+[(source)](https://andertoons.com/business/cartoon/7278/restructuring-im-tom-tom-anne-anne-copier-copier-in-charge)
+
+What if you could change anything, regardless of what anyone thinks or feels?
+
+Terminating an entire product line would shake the organization, and possibly incur layoffs in multiple departments. But what if it’s the best thing to do, despite that? What if you allowed yourself to explore what that would be like? What if it turns out you can make that pivot by reorganization rather than layoffs, and now company is executing a much better strategy?
+
+Pivoting the entire company could break the organization, destroy trust in leadership, cause people to leave, and piss off investors. But what if that’s exactly the transformation required to fix the strategy? Is there anything that might actually be worth such a move?
+
+_You never want to contemplate catastrophic actions like layoffs, whole-company pivots, terminating an entire product line, and for good reason—the consequences are dire, arguably even inhumane. At the same time, that aversion prevents you from thinking certain thoughts. You should at least be able to explore the thoughts. The very best ideas should not be avoided only because they are hard._
+
+## Mortal wound [#](https://longform.asmartbear.com/posts/extreme-questions/#mortal-wound)
+
+What externality has the potential to kill the entire company?
+
+Is there a company X, which released product Y, at price Z, that would reduce your new sales to a trickle, and would mean half your customers leave within a year? Can you think of a security breech so significant, most of the customer base leaves within a year? How could the economy change, in which no one would buy your software?
+
+Now, is there something you could do to mitigate that effect? Or something that pivots the company such that it is no longer a threat?
+
+_I ran this exercise at WP Engine and we came up with 35 existential threats; it’s not wise to worry about all of them, and try to negate all of them. Sometimes, however, you find an idea which is wise to do anyway, that also shores up your defenses. Or, one threat sticks out as being so likely that it warrants acting ahead of time._
+
+## Only one thing this year [#](https://longform.asmartbear.com/posts/extreme-questions/#only-one-thing-this-year)
+
+What if you could only ship one thing this year?
+
+What single initiative would make the most difference? What’s so impactful that it would actually be OK if we shipped nothing else? You get the entire year, so there’s time for a release, and fixes, and enhancements, but it has to be only one topic.
+
+What would generate the most revenue? What would be so differentiated in the market, and so desirable, that customers still buy and stay even with your lack of any other substantial product changes? What would be so exciting that customers would stay even if other things are missing or have on-going bugs?
+
+_When you look back over years of a business, often the whole trajectory comes down to 1-2 big decisions per year. A critical product launch, a key decision to enter a market for expansion or exit one market to focus on a healthier one, a key hire, a competitive insight. It’s difficult to know in the moment which will be seminal, but thinking this way forces you to think of only the absolutely most impactful ideas, which are probably the ones you should be focused on regardless._
+
+> “The dangerous man is the one who has only one idea, because then he’ll fight and die for it. The way real science goes is that you come up with lots of ideas, and most of them will be wrong.”
+>
+> —Francis Crick

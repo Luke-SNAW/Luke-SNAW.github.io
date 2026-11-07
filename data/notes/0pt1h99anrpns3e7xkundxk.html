@@ -1,0 +1,932 @@
+<h1 id="draggable-objects">Draggable objects<a aria-hidden="true" class="anchor-heading icon-link" href="#draggable-objects"></a></h1>
+<blockquote>
+<p><a href="https://www.redblobgames.com/making-of/draggable/">from Red Blob Games</a></p>
+</blockquote>
+<p>Many of my interactive pages have a <em>draggable object</em>. I want the reader to move the object around, and I want the diagram to respond in some way. Here I’ll document the code I use to make this work with both mouse and touch input, using browser features that are widely supported since 2020. Here’s a common case I want to support:</p>
+<p>Drag me</p>
+<p>Drag the circle with mouse or touch</p>
+<p>This is the simple model in my head:</p>
+<p><a href="https://www.redblobgames.com/making-of/draggable/build/state.svg">state.svg</a></p>
+<p>However it’s not so simple! Mouses have multiple buttons. Touch events can include multiple fingers. Events can go to multiple destinations. Right click can trigger the context menu. I ended up with this basic recipe:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> x <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span> y<span class="token operator">:</span> y <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Text inside draggable</li>
+<li class="task-list-item"><input type="checkbox" disabled> Multiple fingers on same draggable</li>
+<li class="task-list-item"><input type="checkbox" disabled> Nested draggable elements</li>
+</ul>
+<p>Like other recipes, it’s something that works for many cases, but is <strong>meant to be modified</strong>. On the rest of the page I’ll show how I got here and then variants of this recipe, including <a href="https://www.redblobgames.com/making-of/draggable/#variant-text">how to handle text selection</a>. I also use this same recipe to handle situations where I’m <em>not</em> dragging an object around, like dragging this number left/right: <code>123</code>, or <a href="https://www.redblobgames.com/making-of/draggable/targets.html#canvas-drag-to-paint">painting on a canvas</a>.</p>
+<p>I’ve tested this code on Gecko/Firefox (Mac, Windows, Linux, Android), Blink/Chrome (Mac, Windows, Linux, Android), and WebKit/Safari (Mac, iPhone, iPad). I have <em>not</em> tested on hoverable stylus, hybrid touch+mouse devices, or voice input.</p>
+<p>Also see my other pages:</p>
+<ol>
+<li><a href="https://www.redblobgames.com/making-of/draggable/targets.html">List of edge cases and list of dragging tests</a></li>
+<li><a href="https://www.redblobgames.com/x/2251-draggable/">Test page to log the events, and unorganized notes</a></li>
+<li><a href="https://www.redblobgames.com/x/1845-draggable/">How I handled dragging events 2015–2018</a></li>
+</ol>
+<p>Note that this is <em>not</em> the HTML <a href="https://www.redblobgames.com/x/2310-drag-drop-api/">Drag and Drop API</a>, which involves dragging an element <em>onto</em> another element. For my diagrams, I’m dragging but <em>not</em> dropping, and the scrubbable number example shows how I’m not necessarily even moving something around. So I need to read the mouse/touch events directly.</p>
+<h2 id="1-️-mouse-events-only">1 <a href="https://www.redblobgames.com/making-of/draggable/#mouse-events">🖱️ Mouse events only</a><a href="https://www.redblobgames.com/making-of/draggable/#mouse-events">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#1-️-mouse-events-only"></a></h2>
+<p>When I first started implementing interactive diagrams ~20 years ago, touch devices weren’t common. I used <code>mousedown</code>, <code>mouseup</code>, and <code>mousemove</code> event handlers on the draggable element. If the move occurs while dragging, move the circle to the mouse position.</p>
+<p><a href="https://www.redblobgames.com/making-of/draggable/build/mouse-local.svg">mouse-local.svg</a></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggableMouseLocal</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">mousedown</span><span class="token punctuation">(</span><span class="token parameter">_event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">function</span> <span class="token function">mouseup</span><span class="token punctuation">(</span><span class="token parameter">_event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">function</span> <span class="token function">mousemove</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mousedown"</span><span class="token punctuation">,</span> mousedown<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mouseup"</span><span class="token punctuation">,</span> mouseup<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mousemove"</span><span class="token punctuation">,</span> mousemove<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Try</strong> the demo with a mouse:</p>
+<p>Drag me</p>
+<p>Drag using mouse events on circle</p>
+<p>This might seem like it works but it works poorly.</p>
+<ul>
+<li>If you move the pointer quickly it is no longer over the circle, it stops receiving events.</li>
+<li>If you release the button while not on the circle, it will get stuck in the “dragging” state.</li>
+</ul>
+<p>To fix these problems use <code>mousedown</code> on the circle to add <code>mousemove</code> and <code>mouseup</code> on the <em>document</em>. Then on <code>mouseup</code> remove the <code>mousemove</code> and <code>mouseup</code> from the document.</p>
+<p><a href="https://www.redblobgames.com/making-of/draggable/build/mouse-document.svg">mouse-document.svg</a></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggableMouseGlobal</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">globalMousemove</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">function</span> <span class="token function">globalMouseup</span><span class="token punctuation">(</span><span class="token parameter">_event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">removeEventListener</span><span class="token punctuation">(</span><span class="token string">"mousemove"</span><span class="token punctuation">,</span> globalMousemove<span class="token punctuation">)</span>
+    <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">removeEventListener</span><span class="token punctuation">(</span><span class="token string">"mouseup"</span><span class="token punctuation">,</span> globalMouseup<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">mousedown</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mousemove"</span><span class="token punctuation">,</span> globalMousemove<span class="token punctuation">)</span>
+    <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mouseup"</span><span class="token punctuation">,</span> globalMouseup<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mousedown"</span><span class="token punctuation">,</span> mousedown<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Try it out. It works better.</p>
+<p>Drag me</p>
+<p>Drag using mouse events on document</p>
+<p>This code doesn’t handle touch events.</p>
+<h2 id="2--touch-events">2 <a href="https://www.redblobgames.com/making-of/draggable/#touch-events">👆 Touch events</a><a href="https://www.redblobgames.com/making-of/draggable/#touch-events">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#2--touch-events"></a></h2>
+<p>Mouse events use <code>mousedown</code>, <code>mouseup</code>, <code>mousemove</code>. Touch events instead use <code>touchstart</code>, <code>touchend</code>, <code>touchmove</code>. They behave a little differently. Touch events automatically <em>capture</em> on <code>touchstart</code> and direct all <code>touchmove</code> events to the original element. This means we <em>don’t</em> have to temporarily put an event handler on <code>document</code>. We can go back to the simpler logic in the first mouse example. If for any reason the browser needs to cancel the touch sequence, it sends <code>touchcancel</code>.</p>
+<p><a href="https://www.redblobgames.com/making-of/draggable/build/touch.svg">touch.svg</a></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggableTouch</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    event<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// prevent scrolling</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">_event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">changedTouches</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchend"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchcancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchmove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Try</strong> the demo with a touch device:</p>
+<p>Drag me</p>
+<p>Drag using touch events</p>
+<p>This code doesn’t handle mouse events.</p>
+<h2 id="3-️-pointer-events">3 <a href="https://www.redblobgames.com/making-of/draggable/#pointer-events">🖱️👆 Pointer events</a><a href="https://www.redblobgames.com/making-of/draggable/#pointer-events">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#3-️-pointer-events"></a></h2>
+<p>Handling both mouse and touch events requires lots of event handlers, and that’s what I used before 2021. Details→</p>
+<p>From 2011 to 2014 I used <a href="https://github.com/d3/d3-drag">d3-drag</a><sup class="print-endnote">[1]</sup> in projects where I used d3. For my non-d3 projects, I ended up developing my own mouse+touch code, which I wrote about <a href="https://www.redblobgames.com/x/1845-draggable/">in 2018</a>.</p>
+<p>By 2012 MS IE had added support for <a href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events">pointer events</a><sup class="print-endnote">[2]</sup> which unify and simplify mouse+touch handling. <a href="https://caniuse.com/pointer">Chrome added support in 2017; Firefox in 2018; Safari in 2020</a><sup class="print-endnote">[3]</sup>.</p>
+<p>Over the years browsers have changed the rules, including in 2017 when <a href="https://developer.chrome.com/blog/scrolling-intervention/">Chrome changed some events to default to passive mode</a><sup class="print-endnote">[4]</sup> which causes the page to scroll while trying to drag the object. This <a href="https://github.com/WICG/interventions/issues/18#issuecomment-276531695">broke some pages</a><sup class="print-endnote">[5]</sup>. Safari <a href="https://github.com/WICG/interventions/issues/18#issuecomment-368703063">made this change in 2018</a><sup class="print-endnote">[6]</sup>. Firefox also <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1449268">made this change in 2018</a><sup class="print-endnote">[7]</sup>.</p>
+<p><a href="https://www.redblobgames.com/making-of/draggable/build/mouse-and-touch.svg">mouse-and-touch.svg</a></p>
+<p>Pointer events attempt to unify mouse and touch events. The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setPointerCapture">pointer capture</a><sup class="print-endnote">[8]</sup> feature lets us use the simpler logic that doesn’t require us to add/remove global event handlers to the document like we had to with mouse events.</p>
+<p><a href="https://www.redblobgames.com/making-of/draggable/build/pointer.svg">pointer.svg</a></p>
+<p>This recipe is the starting point:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Much simpler! However, I almost always want to handle some extras, so I start with this instead:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> x <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span> y<span class="token operator">:</span> y <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Try</strong> the demo with either a mouse or touch device:</p>
+<p>Drag me</p>
+<p>Drag using pointer events</p>
+<p>Let’s look at each of the extras.</p>
+<h3 id="31-️-fix-capture-the-mouse">3.1. 🖱️ Fix: capture the mouse<a href="https://www.redblobgames.com/making-of/draggable/#fix-capture">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#31-️-fix-capture-the-mouse"></a></h3>
+<p>The pointer capture feature lets us track the pointer even when it’s not on the circle, the diagram, or even the browser window. With mouse events we had to put event handlers on <code>document</code>, but pointer capture is simpler.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Try this</th><th>Watch for</th><th>Circle 1</th><th>Circle 2</th></tr></thead><tbody><tr><td>drag quickly back and forth</td><td>drag stops</td><td>yes ⛌</td><td>no ✓</td></tr><tr><td>drag outside diagram, come back in</td><td>drag stops</td><td>yes ⛌</td><td>no ✓</td></tr><tr><td>drag outside diagram, let go</td><td>drag stops</td><td>no ⛌</td><td>yes ✓</td></tr><tr><td>drag outside diagram, let go, come back in</td><td>drag stops</td><td>no ⛌</td><td>yes ✓</td></tr><tr><td>drag, alt+tab to another window</td><td>drag stops</td><td>no ⛌</td><td>yes ✓</td></tr></tbody></table></div>
+<p>Drag 1 Drag 2</p>
+<p>Dragging without and with pointer capture</p>
+<p><strong>Try</strong> this demo with a mouse.</p>
+<ul>
+<li>Circle 1 doesn’t use pointer capture on mouse. Pointer capture is the default on touch devices.</li>
+<li>Circle 2 uses pointer capture on both mouse and touch devices.</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> x <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span> y<span class="token operator">:</span> y <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="32--fix-scrolling-with-touch">3.2. 👆 Fix: scrolling with touch<a href="https://www.redblobgames.com/making-of/draggable/#fix-scroll">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#32--fix-scrolling-with-touch"></a></h3>
+<p>On touch devices, single-finger drag will scroll the page. But single-finger drag <em>also</em> drags the circle. By default, it will do <em>both</em>! The simplest fix is to add CSS <kbd>touch-action: none</kbd> on the diagram. But this prevents scrolling <em>anywhere</em> in the diagram:</p>
+<p>Drag 1</p>
+<p>Stop touch from scrolling anywhere on the diagram</p>
+<p><strong>Try</strong> dragging the circle on a touch device. It shouldn’t scroll. But then try scrolling by dragging the diagram. It doesn’t scroll either, but I want it to. I want to stop scrolling <em>only</em> if dragging the circle, not when dragging the diagram.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Try this</th><th>Watch for</th><th>Circle 1</th><th>Circle 2</th><th>Circle 3</th><th>Circle 4</th></tr></thead><tbody><tr><td>drag circle</td><td>page scrolls</td><td>no ✓</td><td>yes ⛌</td><td>yes ⛌</td><td>no ✓</td></tr><tr><td>drag diagram</td><td>page scrolls</td><td>no ⛌</td><td>yes ✓</td><td>yes ✓</td><td>yes ✓</td></tr></tbody></table></div>
+<p>Drag 2 Drag 3 Drag 4</p>
+<p>Dragging affects scrolling</p>
+<p><strong>Try</strong> these on a touch device.</p>
+<ul>
+<li>Circle 1 (<kbd>touch-action: none</kbd> on the diagram) stops scrolling on the circle and also on the diagram.</li>
+<li>Circle 2 (default) doesn’t stop scrolling on either.</li>
+<li>Circle 3 (<kbd>touch-action: none</kbd> on the circle only) behaves badly. It looks like the CSS has to be on the diagram to have an effect; applying it only to the circle is not enough.</li>
+<li>Circle 4 (<kbd>.preventDefault()</kbd> on <code>touchstart</code>) behaves the way I want, and this is the code for it:</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> x <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span> y<span class="token operator">:</span> y <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>I use the <kbd>.preventDefault()</kbd> solution. Note that it needs to be on <code>touchstart</code>, not on <code>pointerstart</code>. It works in most situations but I’ve run into situations where it did not stop scrolling on certain systems.</p>
+<h3 id="33-️-feature-handle-drag-offset">3.3. 🖱️ Feature: handle drag offset<a href="https://www.redblobgames.com/making-of/draggable/#feature-offset">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#33-️-feature-handle-drag-offset"></a></h3>
+<p>This isn’t necessary but it makes dragging feel nicer. If you pick up the edge of an object then you want to keep holding it at <em>that</em> point, not from the center of the object. The solution is to remember where the center is relative to where the drag started. Then when moving the object, add that offset back in.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Try this</th><th>Watch for</th><th>Circle 1</th><th>Circle 2</th></tr></thead><tbody><tr><td>drag from edge of circle</td><td>circle jumps</td><td>yes ⛌</td><td>no ✓</td></tr></tbody></table></div>
+<p>Drag 1 Drag 2</p>
+<p>Dragging feels better if relative to the initial pickup point</p>
+<p><strong>Try</strong> with the mouse: drag the circle from the edge. Watch Circle 1 jump whereas Circle 2 does not. The same effect happens on touch devices but your finger might hide the jump. The fix is to change the <code>dragging</code> state from <code>true</code> / <code>false</code> to the relative position where the object was picked up, and then use that offset when later setting the position:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> x <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span> y<span class="token operator">:</span> y <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Tracking the offset makes dragging feel better. I’ve also written about this <a href="https://www.redblobgames.com/making-of/little-things/#drag-point">on my page about little details</a>.</p>
+<h3 id="34-️-fix-context-menu">3.4. 🖱️ Fix: context menu<a href="https://www.redblobgames.com/making-of/draggable/#fix-contextmenu">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#34-️-fix-context-menu"></a></h3>
+<p>Context menus are different across platforms, and that makes handling it tricky. I want to allow context menus without them interfering with dragging the circle.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>System</th><th>Activation</th></tr></thead><tbody><tr><td>Windows</td><td>right click (down+up), <kbd>Shift</kbd> + <kbd>F10</kbd> key</td></tr><tr><td>Linux</td><td>right button down, <kbd>Shift</kbd> + <kbd>F10</kbd> key</td></tr><tr><td>Mac</td><td>right button down, <kbd>Ctrl</kbd> + left click</td></tr><tr><td>iOS</td><td>long press on text only</td></tr><tr><td>Android</td><td>long press on anything</td></tr></tbody></table></div>
+<p>One problem is that I will see a <code>pointerdown</code> event and only <em>sometimes</em> a <code>pointerup</code> event. That means I might think the button is still down when it’s not. It’s frustrating! I realized that I should only set the dragging state on <em>left</em> mouse button, and ignore the right mouse button. Then I don’t have to worry about most of the differences.</p>
+<p>I made some notes during testing, but most of them don’t matter for my use case.</p>
+<p>Across platforms, it looks like Firefox lets the page see events outside the menu overlay, whereas Chrome doesn’t let the page see any events while the menu is up.</p>
+<p>Windows, right click, no capture:</p>
+<p>Firefox, Chrome, Edge</p>
+<p><code>pointerdown</code>, <code>pointerup</code>, <code>auxclick</code>, <code>contextmenu</code></p>
+<p>Windows, right click, capture:</p>
+<p>Firefox</p>
+<p><code>pointerdown</code>, <code>gotpointercapture</code>, <code>pointerup</code>, <code>lostpointercapture</code>, <code>auxclick</code>, <code>contextmenu</code></p>
+<p>Chrome, Edge</p>
+<p><code>pointerdown</code>, <code>gotpointercapture</code>, <code>pointerup</code>, <code>auxclick</code>, <code>lostpointercapture</code>, <code>contextmenu</code></p>
+<p>Linux right click, no capture:</p>
+<p>Firefox</p>
+<p><code>pointerdown</code>, <code>contextmenu</code>, <code>pointermove</code> while menu is up</p>
+<p>Chrome</p>
+<p><code>pointerdown</code>, <code>contextmenu</code>, no <code>pointermove</code> while menu is up</p>
+<p>Linux hold right down, no capture:</p>
+<p>Firefox</p>
+<p><code>pointerdown</code>, <code>contextmenu</code>, <code>pointermove</code> while menu is up</p>
+<p>Chrome</p>
+<p><code>pointerdown</code>, <code>contextmenu</code>, no <code>pointermove</code> while menu is up</p>
+<p>Linux right click, capture:</p>
+<p>Firefox</p>
+<p><code>pointerdown</code>, <code>contextmenu</code>, <code>gotpointercapture</code>, <code>pointermove</code> while menu is up tells us button released</p>
+<p>Chrome</p>
+<p><code>pointerdown</code>, <code>contextmenu</code>, <code>gotpointercapture</code>; not until another click do we get <code>pointerup</code>, <code>lostpointercapture</code></p>
+<p>Linux hold right down, capture:</p>
+<p>Firefox</p>
+<p><code>pointerdown</code>, <code>contextmenu</code>, <code>gotpointercapture</code>, <code>pointermove</code> while menu is up tells us button released; when releasing button, menu stays up but we get <code>pointerup</code>, <code>lostpointercapture</code></p>
+<p>Chrome</p>
+<p><code>pointerdown</code>, <code>contextmenu</code>, <code>gotpointercapture</code>, no <code>pointermove</code> while menu is up; when releasing button, menu stays up but we don’t get <code>pointerup</code>; not until another click do we get <code>pointerup</code>, click, <code>lostpointercapture</code></p>
+<p>Mac, ctrl + left click:</p>
+<p>Firefox</p>
+<p><code>pointermove</code> with buttons≠0, <code>contextmenu</code> (no <code>pointerdown</code> or <code>pointerup</code>)</p>
+<p>Chrome</p>
+<p><code>pointerdown</code> with button=left, <code>contextmenu</code> (no <code>pointerup</code>)</p>
+<p>Safari</p>
+<p><code>pointerdown</code> with button=left, <code>contextmenu</code> (no <code>pointerup</code>); but subsequent clicks only fire <code>contextmenu</code></p>
+<p>Mac, right button down:</p>
+<p>Firefox</p>
+<p><code>pointerdown</code> with button=right, <code>contextmenu</code> (no <code>pointerup</code>)</p>
+<p>Chrome</p>
+<p><code>pointerdown</code> with button=right, <code>contextmenu</code> (no <code>pointerup</code>)</p>
+<p>Safari</p>
+<p><code>pointerdown</code> with button=right, <code>contextmenu</code> (no <code>pointerup</code>); but subsequent right clicks only fire <code>contextmenu</code></p>
+<p>If we capture events on <code>pointerdown</code>, Firefox and Safari will keep the capture even after the button is released. Chrome will keep capture until you move the mouse, and then it will release capture. [This seems like a Firefox/Safari bug to me, as pointer capture is supposed to be automatically released on mouse up]</p>
+<p>It’s frustrating that on Mac, there’s no <code>pointerup</code> or <code>pointercapture</code> when releasing the mouse button. On Linux, the <code>pointerup</code> only shows up if you click to exit the context menu. It doesn’t show up if you press <kbd>Esc</kbd> to exit. The workaround is to watch <code>pointermove</code> events to see when no buttons are set. Windows doesn’t seem to have these issues, as both <code>pointerdown</code> and <code>pointerup</code> are delivered before the context menu.</p>
+<p>Android, long press:</p>
+<p>Firefox</p>
+<p><code>pointerdown</code>, get capture, <code>contextmenu</code>, <code>pointerup</code>, lose capture</p>
+<p>Chrome</p>
+<p><code>pointerdown</code>, get capture, <code>contextmenu</code>, <code>pointerup</code> or <code>pointercancel</code> (if the finger moves at all, this starts a scroll event which cancels the captured pointer), lose capture</p>
+<p>What are my options?</p>
+<ul>
+<li><a href="https://www.w3.org/TR/pointerevents/#the-pointerdown-event">The spec says about pointerdown</a><sup class="print-endnote">[9]</sup> that <code>preventDefault()</code><em>not</em> stop click or <code>contextmenu</code> events. I can <code>preventDefault()</code> on <code>contextmenu</code> to prevent the menu. But I still want to get <code>pointerup</code> and/or <code>pointercancel</code>! I think I have to treat <code>contextmenu</code> as the up event which means I’ll get multiple up events on Windows.</li>
+<li><a href="https://w3c.github.io/pointerevents/#the-button-property">The spec says about the button property</a><sup class="print-endnote">[10]</sup> that <code>button</code> = 0 indicates the primary button. This is how I will exclude the middle and right buttons. But I still get a <code>pointerdown.left</code> on Mac/Chrome and Mac/Safari (but not on Mac/Firefox) so I also have to check for the <kbd>Ctrl</kbd> key.</li>
+<li>Button changes not communicated through <code>pointerdown</code> or <code>pointerup</code> can still be sent on <code>pointermove</code>. It’s mentioned as a workaround on <a href="https://github.com/w3c/pointerevents/issues/408">W3C’s pointerevents issues page</a><sup class="print-endnote">[11]</sup>.</li>
+</ul>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Try this</th><th>Watch for</th><th>Circle 1</th><th>Circle 2</th><th>Circle 3</th><th>Circle 4</th></tr></thead><tbody><tr><td>right click</td><td>circle turns blue</td><td>yes ⛌</td><td>yes</td><td>no ✓</td><td>no ✓</td></tr><tr><td>right click</td><td>context menu</td><td>yes ⛌</td><td>no</td><td>no ✓</td><td>no ✓</td></tr><tr><td>middle click</td><td>circle turns blue</td><td>yes ⛌</td><td>yes ⛌</td><td>no ✓</td><td>no ✓</td></tr><tr><td>right drag</td><td>circle is blue</td><td>yes ⛌</td><td>yes</td><td>no ✓</td><td>no ✓</td></tr><tr><td>middle drag</td><td>circle is blue</td><td>yes ⛌</td><td>yes</td><td>no ✓</td><td>no ✓</td></tr><tr><td>ctrl+click (mac)</td><td>circle turns blue¹</td><td>yes ⛌</td><td>no ✓</td><td>yes ⛌</td><td>no ✓</td></tr><tr><td>ctrl+click (mac)</td><td>context menu</td><td>yes ⛌</td><td>no ✓</td><td>yes ⛌</td><td>no ✓</td></tr></tbody></table></div>
+<p>¹ it will turn blue in Chrome and Safari but not in Firefox, which treats <kbd>Ctrl</kbd> + click differently</p>
+<p>Drag 1 Drag 2 Drag 3 (Mac) Drag 4</p>
+<p>Right mouse button down interferes with drag</p>
+<p><strong>Try</strong> with the mouse: right click or drag on the circles. Try dismissing the menu with a click elsewhere, or by pressing <kbd>Esc</kbd>. Behavior varies across browsers and operating systems.</p>
+<ul>
+<li>Circle 1 sometimes get stuck in a dragging state.</li>
+<li>Circle 2 uses <kbd>.preventDefault()</kbd> on <code>contextmenu</code>. This allows the right button to be used for dragging. However, it interferes with the default operation of middle click or drag, which is used for scrolling on some systems.</li>
+<li>Circle 3 drags only with the left button, but on Mac <kbd>Ctrl</kbd> + click on Chrome/Safari will trigger drag.</li>
+<li>Circle 4 drags only with the left button, if <kbd>Ctrl</kbd> isn’t pressed.</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">ctrlKey</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// ignore ctrl+click</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="4-️-variant-draggable-textimages">4 <a href="https://www.redblobgames.com/making-of/draggable/#variant-text">🖱️ Variant: draggable text/images</a><a href="https://www.redblobgames.com/making-of/draggable/#variant-text">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#4-️-variant-draggable-textimages"></a></h2>
+<p>These changes are needed if you have text or images inside your draggable element:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+    el<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">userSelect</span> <span class="token operator">=</span> <span class="token string">"none"</span> <span class="token comment">// if there's text</span>
+    el<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">webkitUserSelect</span> <span class="token operator">=</span> <span class="token string">"none"</span> <span class="token comment">// safari</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+    el<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">userSelect</span> <span class="token operator">=</span> <span class="token string">""</span> <span class="token comment">// if there's text</span>
+    el<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">webkitUserSelect</span> <span class="token operator">=</span> <span class="token string">""</span> <span class="token comment">// safari</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> x <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span> y<span class="token operator">:</span> y <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"dragstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="41-️-fix-text-selection">4.1. 🖱️ Fix: text selection<a href="https://www.redblobgames.com/making-of/draggable/#fix-user-select">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#41-️-fix-text-selection"></a></h3>
+<p>When dragging the circle, the text inside gets selected sometimes. To fix this, use CSS <kbd>user-select: none</kbd> on the circle. There are two choices: either we can apply it <em>all</em> the time, or apply it <em>only</em> while dragging. If I apply it all the time, then the text won’t ever be selectable.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Try this</th><th>Watch for</th><th>Circle 1</th><th>Circle 2</th><th>Circle 3</th></tr></thead><tbody><tr><td>drag circle</td><td>text is selected</td><td>yes ⛌</td><td>no ✓</td><td>no ✓</td></tr><tr><td>select all text</td><td>text is selected</td><td>yes</td><td>no</td><td>yes</td></tr></tbody></table></div>
+<p>Drag text 1 Drag text 2 Drag text 3</p>
+<p>Dragging affects text selection</p>
+<p><strong>Try</strong> dragging quickly with the mouse. <strong>Try</strong> selecting all text on the page to see whether the text inside the circle is selectable when not dragging.</p>
+<ul>
+<li>Circle 1 never uses <kbd>user-select: none</kbd></li>
+<li>Circle 2 always uses <kbd>user-select: none</kbd></li>
+<li>Circle 3 uses <kbd>user-select: none</kbd> only when dragging</li>
+</ul>
+<p>I think either Circle 2 or Circle 3’s behavior is a reasonable choice. Note that as of early 2023, Safari <em>still</em>  <a href="https://caniuse.com/?search=user-select">doesn’t support the unprefixed version</a><sup class="print-endnote">[12]</sup> (<a href="https://bugs.webkit.org/show_bug.cgi?id=208677">tracking bug</a><sup class="print-endnote">[13]</sup>), so we have to also set the prefixed version.</p>
+<h3 id="42-️-fix-text-and-image-drag">4.2. 🖱️ Fix: text and image drag<a href="https://www.redblobgames.com/making-of/draggable/#fix-systemdrag">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#42-️-fix-text-and-image-drag"></a></h3>
+<p>Windows, Linux, and Mac support inter-application <em>drag and drop</em> of text and images, and an alternative to copy/paste. This interferes with the object dragging on my pages. The fix is to <kbd>preventDefault()</kbd> on <code>dragstart</code>.</p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Try this</th><th>Watch for</th><th>Circle 1</th><th>Circle 2</th></tr></thead><tbody><tr><td>select text, drag circle</td><td>page text drags</td><td>yes ⛌</td><td>no ✓</td></tr></tbody></table></div>
+<p><strong>Select text</strong> → [from here</p>
+<p>1 2</p>
+<p>to here] ←</p>
+<p>Selected text interferes with dragging</p>
+<p><strong>Try</strong> this demo with a mouse. Select the text around the diagram, then drag Circle 1. On most desktop systems I’ve tested, text or image dragging takes priority over the circle dragging by default. Circle 2 prioritizes the circle dragging. Behavior varies a little bit across browsers and operating systems. The fix is one extra line:</p>
+<h2 id="5-more-cases">5 <a href="https://www.redblobgames.com/making-of/draggable/#more-cases">More cases</a><a href="https://www.redblobgames.com/making-of/draggable/#more-cases">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#5-more-cases"></a></h2>
+<h3 id="51--feature-simultaneous-dragging">5.1. 👆 Feature: simultaneous dragging<a href="https://www.redblobgames.com/making-of/draggable/#feature-simultaneous-dragging">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#51--feature-simultaneous-dragging"></a></h3>
+<p>I think this is an edge case, but I was curious what it would take to support. Can we drag multiple objects at once, using different fingers or different mice?</p>
+<p>For touch, the code I presented should already work! Go back to one of the previous demos and try it. However the code doesn’t handle using two fingers to drag the <em>same</em> object. The fix is when handling <code>pointerdown</code>, save <kbd>event.pointerId</kbd> to <code>state.dragging</code>. Then when handling <code>pointermove</code>, ignore the even if it’s not the same <code>pointerId</code>. I don’t have that implemented here, but try it out <a href="https://www.redblobgames.com/making-of/draggable/targets.html#canvas-drag-a-handle">on my canvas dragging test</a>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pointerId</span> <span class="token operator">=</span> event<span class="token punctuation">.</span><span class="token property-access">pointerId</span> <span class="token comment">// keep track of finger</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>state<span class="token punctuation">.</span><span class="token property-access">pointerId</span> <span class="token operator">!==</span> event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// check finger id</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> x <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span> y<span class="token operator">:</span> y <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>What about mice? The <a href="https://www.w3.org/TR/pointerevents/#the-primary-pointer">Pointer Events spec</a><sup class="print-endnote">[14]</sup> says</p>
+<blockquote>
+<p>Current operating systems and user agents don’t usually have a concept of multiple mouse inputs. When more than one mouse device is present (for instance, on a laptop with both a trackpad and an external mouse), all mouse devices are generally treated as a single device - movements on any of the devices are translated to movement of a single mouse pointer, and there is no distinction between button presses on different mouse devices. For this reason, there will usually only be a single mouse pointer, and that pointer will be primary.</p>
+</blockquote>
+<p>I think there isn’t any way to drag different objects with different mice.</p>
+<h3 id="52-️-edge-case-chorded-button-presses">5.2. 🖱️ Edge case: chorded button presses<a href="https://www.redblobgames.com/making-of/draggable/#fix-chords">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#52-️-edge-case-chorded-button-presses"></a></h3>
+<p>So here’s a tricky one. If you are using multiple buttons at the same time, what happens? Mouse Events send <code>mousedown</code> for each button press and <code>mouseup</code> for each button release. But Pointer Events work differently. The <a href="https://www.w3.org/TR/pointerevents/#chorded-button-interactions">Pointer Events spec</a><sup class="print-endnote">[15]</sup> says that the <em>first</em> button that was pressed leads to a <code>pointerdown</code> event, and the <em>last</em> one that was released leads to a <code>pointerup</code> event. But that means we might get a up event on a different button than the down event!</p>
+<p><a href="https://www.redblobgames.com/making-of/draggable/build/multiple-buttons.svg">multiple-buttons.svg</a></p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Try this</th><th>Watch for</th><th>Circle 1</th><th>Circle 2</th></tr></thead><tbody><tr><td>left down, right down, left up</td><td>dragging</td><td>yes ⛌</td><td>no ✓</td></tr></tbody></table></div>
+<p>Drag 1 Drag 2</p>
+<p>Multiple button presses is tricky</p>
+<p><strong>Try</strong> with the mouse: press the left button, press the right button (this may bring up a context menu but ignore it), then release the left button. Is the circle still dragging?</p>
+<p>The fix is to check the button state in <code>pointermove</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">buttons</span> <span class="token operator">&#x26;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token function">end</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token comment">// edge case: chords</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> x <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span> y<span class="token operator">:</span> y <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Separately, the <em>pointer capture</em> continues until you release <em>all</em> the buttons, unless you explicitly release capture. I’m not handling this or many other edge cases.</p>
+<h3 id="53-️-variant-nested-dragging">5.3. 🖱️👆 Variant: nested dragging<a href="https://www.redblobgames.com/making-of/draggable/#variant-nesting">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#53-️-variant-nested-dragging"></a></h3>
+<p>If the draggable element contains <em>another</em> draggable element inside of it, both elements will handle the dragging. The fix is to add <kbd>.stopPropagation()</kbd> to prevent the inner draggable from passing events up to outer draggable. I don’t have a demo here, but <a href="https://play.vuejs.org/#eNq1Vk1zmzAQ/SsqkxnsqUOcyY06nbZpDumhzbQ5JDMcQswalICkkYSNS/nvXUngQOLaTT/sA9Lbt2L37bJQe++FCJYleKE3U3NJhSYKdCneRowWgktNaiJhQRqykLwgPlL9iEVszpnSpCKnxjqajjtk/QxZ0URnLXo8fcQzoGmmB4bOlMg4RUMdMWLXKWVpSBZxrmBiMMEp0yATvmIjWALTY8clRGdUBZ2LOSKpQlIFyzgvgRwSSw7mOcXL9YQk65CstxpvmjfuwBYspcTrVSxT0AEKdOkiOIuFLiW4III2rItkbJ2bfqyl2BOpze65X8GX7fEbT7ogo1cD9zFqiHGwNuYu39NhvuT18KZBUrUOnQZDh5vnDutNgE1XKwmKfjeu/6Raq9D1yy8rloVt4/y3snXOSnNxKbmI01hTzkZ/V9QXnPonJd91OBlIurcpVq3TQOa9nZH1O2N25EYJDhHcaChEHmvAHSGzhC5JqPQ6h9PIq7WMmVpwWYTk1q4NcXRQV42oJgf1Gi/j24lLACkHtV0hiqAL0KJu6eC7eP6QSl6yJCT+GvKcr/wJ8UsF8lBBDnPto4FxBggLrqiRChEJeG+6NCj2jeISMVMKv4k8pwj+3vWaOchhoTEJI0LXRAbfQi/FE14ptrDM3Z7wDNRnal7OM6VjiW0rbUnQoUewGhPy0QzQAkjt9PoxbZrrulXJbBzrSS16WsR3iuelNlpIJ7I/xfUd15pjqeymrYl/PBUVbrtqdPtBGSQkfVnZSsGhGxx71XW039F3yNyl8JD5Uo03Ks+OUEDX1e1qdtRrdvf3Jp5WOCoXNA3uFWf4orUPdeTNeSFoDvKLMKqryAu7xz3yYtO2nyymZenmqPXJYP6wBb9XlcEi7xJzA2kS2tgwExx/znz+7TNUuN4YC56UObJ3GL+CbQaM0dE+YE0x7B7PRnthPxdwGFyp80oDU11SJtDHIRd5+AlxtiP1x3BPghPrhzPFa34CpcvwOQ==">I made one elsewhere</a><sup class="print-endnote">[16]</sup>, where the red draggable is a child of the yellow draggable.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">makeDraggable</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> el<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">button</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token comment">// left button only</span>
+    event<span class="token punctuation">.</span><span class="token method function property-access">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// for nested draggables</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> state<span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    el<span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    event<span class="token punctuation">.</span><span class="token method function property-access">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// for nested draggables</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">.</span><span class="token method function property-access">eventToCoordinates</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    state<span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> x <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span> y<span class="token operator">:</span> y <span class="token operator">+</span> state<span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerdown"</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointerup"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointercancel"</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"pointermove"</span><span class="token punctuation">,</span> move<span class="token punctuation">)</span>
+  el<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"touchstart"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="54-️-variant-dragging-on-canvas">5.4. 🖱️👆 Variant: dragging on canvas<a href="https://www.redblobgames.com/making-of/draggable/#variant-canvas">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#54-️-variant-dragging-on-canvas"></a></h3>
+<p>I normally work with SVG, but if working with a <code>&#x3C;canvas></code> (either 2D Canvas or WebGL), I can’t set the event handlers or mouse pointer shape on the <em>draggable</em> element only. So I set the event handler on the <code>&#x3C;canvas></code> and then:</p>
+<ol>
+<li><code>pointerdown</code>, <code>touchstart</code>, <code>dragstart</code>: early <kbd>return</kbd> if not over a draggable object</li>
+<li><code>pointermove</code>: set the cursor based on whether it’s over a draggable object</li>
+</ol>
+<h3 id="55-variant-hover-with-mouse">5.5. Variant: hover with mouse<a href="https://www.redblobgames.com/making-of/draggable/#variant-hover">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#55-variant-hover-with-mouse"></a></h3>
+<p>Sometimes I want to act on <em>hover</em> with the mouse (no buttons pressed) but that doesn’t work with touch devices, so I use <em>drag</em> with touch. I modify the recipe by removing the <kbd>if (!state.dragging)</kbd> line from <code>pointermove</code>.</p>
+<p>{ DEMO? }</p>
+<p>Do I need to release the capture? <strong>Yes</strong> releasing capture turns out to be important on many of my pages, like responsive-design</p>
+<h3 id="56-variant-toggle-paint">5.6. Variant: toggle paint<a aria-hidden="true" class="anchor-heading icon-link" href="#56-variant-toggle-paint"></a></h3>
+<p>{ idea is that in addition to <code>dragging</code> I also want to capture the state of the first grid space I’m on, and then use that for all the move events; maybe this should go on a different page }</p>
+<h3 id="57-todo-lostpointercapture">5.7. TODO: lostpointercapture<a aria-hidden="true" class="anchor-heading icon-link" href="#57-todo-lostpointercapture"></a></h3>
+<p>I know that <code>lostpointercapture</code> can be used to detect that we lost pointer capture, but I haven’t yet figured out all the situations in which it fires, and what I should do about them.</p>
+<h2 id="6-vue-component">6 <a href="https://www.redblobgames.com/making-of/draggable/#vue">Vue component</a><a href="https://www.redblobgames.com/making-of/draggable/#vue">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#6-vue-component"></a></h2>
+<p>Here’s an attempt at a <code>&#x3C;Draggable></code> component in Vue v3, Options API:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>g</span>
+    <span class="token attr-name">:transform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>`translate(${modelValue.x},${modelValue.y})`<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@pointerdown.left</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>start<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@pointerup</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>end<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@pointercancel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>end<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@pointermove</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dragging ? move($event) : null<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@touchstart.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span>
+    <span class="token attr-name">@dragstart.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span>
+    <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{dragging}<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>slot</span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>g</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> convertPixelToSvgCoord <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"./svgcoords.js"</span>
+
+  <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+    props<span class="token operator">:</span> <span class="token punctuation">{</span> modelValue<span class="token operator">:</span> <span class="token known-class-name class-name">Object</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">// should be {x, y}</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span> dragging<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">ctrlKey</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+        <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">convertPixelToSvgCoord</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">modelValue</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">modelValue</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+        event<span class="token punctuation">.</span><span class="token property-access">currentTarget</span><span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">_event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dragging</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">convertPixelToSvgCoord</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">$emit</span><span class="token punctuation">(</span><span class="token string">"update:modelValue"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          x<span class="token operator">:</span> x <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span>
+          y<span class="token operator">:</span> y <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dragging</span><span class="token punctuation">.</span><span class="token property-access">dy</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">g</span> <span class="token punctuation">{</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> grab<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">g<span class="token class">.dragging</span></span> <span class="token punctuation">{</span>
+    <span class="token property">user-select</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> grabbing<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>and here’s the same thing in the Composition API:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>g</span>
+    <span class="token attr-name">:transform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>`translate(${modelValue.x},${modelValue.y})`<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@pointerdown.left</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>start<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@pointerup</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>end<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@pointercancel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>end<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@pointermove</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dragging ? move($event) : null<span class="token punctuation">"</span></span>
+    <span class="token attr-name">@touchstart.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span>
+    <span class="token attr-name">@dragstart.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span>
+    <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{dragging}<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>slot</span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>g</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> convertPixelToSvgCoord <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"./svgcoords.js"</span>
+
+  <span class="token keyword">const</span> props <span class="token operator">=</span> <span class="token function">defineProps</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    modelValue<span class="token operator">:</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">,</span> <span class="token comment">// should be {x, y}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> emit <span class="token operator">=</span> <span class="token function">defineEmits</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"update:modelValue"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> dragging <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">ctrlKey</span><span class="token punctuation">)</span> <span class="token keyword control-flow">return</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">convertPixelToSvgCoord</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    dragging<span class="token punctuation">.</span><span class="token property-access">value</span> <span class="token operator">=</span> <span class="token punctuation">{</span> dx<span class="token operator">:</span> props<span class="token punctuation">.</span><span class="token property-access">modelValue</span><span class="token punctuation">.</span><span class="token property-access">x</span> <span class="token operator">-</span> x<span class="token punctuation">,</span> dy<span class="token operator">:</span> props<span class="token punctuation">.</span><span class="token property-access">modelValue</span><span class="token punctuation">.</span><span class="token property-access">y</span> <span class="token operator">-</span> y <span class="token punctuation">}</span>
+    event<span class="token punctuation">.</span><span class="token property-access">currentTarget</span><span class="token punctuation">.</span><span class="token method function property-access">setPointerCapture</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">pointerId</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    dragging<span class="token punctuation">.</span><span class="token property-access">value</span> <span class="token operator">=</span> <span class="token keyword null nil">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">convertPixelToSvgCoord</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+    <span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">"update:modelValue"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      x<span class="token operator">:</span> x <span class="token operator">+</span> dragging<span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">.</span><span class="token property-access">dx</span><span class="token punctuation">,</span>
+      y<span class="token operator">:</span> y <span class="token operator">+</span> dragging<span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">.</span><span class="token property-access">dy</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">g</span> <span class="token punctuation">{</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> grab<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">g<span class="token class">.dragging</span></span> <span class="token punctuation">{</span>
+    <span class="token property">user-select</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> grabbing<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>This component only handles SVG elements, as that’s my primary need. You’ll have to modify it if you’re dragging HTML elements. You can use <em>computed setters</em> on the model value if you want to apply constraints like bounds checking or grid snapping. If you’re using Vue v2 (whether Options API or Composition API), you’ll need to change the v-model prop from <code>modelValue</code> to <code>value</code> and the event from <code>update:modelValue</code> to <code>input</code>.</p>
+<p>To use this component, create position variables (<code>data</code> in Options API or <code>ref</code> in Composition API) of type <code>{x, y}</code>, and then draw the desired shape as the child slot of the draggable component. In this example, I have <code>redCircle</code> and <code>blueSquare</code> positions:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>svg</span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-100 -100 200 200<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode color">#eee</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>Draggable</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>redCircle<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>circle</span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hsl(0 50% 50%)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>Draggable</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>Draggable</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blueSquare<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-10<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-10<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hsl(220 50% 50%)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>Draggable</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>svg</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>I put a full example of this <a href="https://play.vuejs.org/#eNrtV2tv2zYU/SsXXofImS2lAfbFSfbyimEYhgZIUGyYh1WWrmQ2kqiRlB8z/N93SD0sO26WtRj2pQZsi+S5l/d5RG4H35alv6x4MBkE58TrMC8zJplQrMKUwiLGgywpkYr0MiXOOOfC6KtZQURRWNCcKZexSATHZCStpHqglTALWpg86/BYkrWMZsaSKfUkCFarla84nmdynoY5az+SeZCHD6JIxzIJrAlpOM84oPNgVsyKax0pURroMFX5lVUn8lIqQ1vFyY4SJXM6gzNnbqsgaJe/bxU1ED/oZl6XRshC2xDUUv8sMpWAaGHl9mL2G0GRITg0FSqC5A2eE2+7ntCXFyPaTGh8ebEbOngNnWcV3/1ZhaqPHTfgBnsd1E7DXQwMIz+hYef8tc3IUvDqO7m+mQ3GLy8urDQkLwjPswFps8kYS/MwekiVrIp4Qp8x82zgFEDF3s/lGHnkDOjOgw4GYFT7pLD+0qpORGaxC515F/Dvc/sdYj5oNe8D9tRe+xD0N1McGWp8gs5N97QSsVlgdGkHCxbpwrSjnkGXl88yCaFdpni6DnphHYwG78s0euQoAWmteGJUWGj0SA4D3rqBxXgvts7NNyGc9Ne70cF4sxu+nQ1qBd+UUhSGVSxXhZ9xYp3SJlTmGFCVWOEihlftFJowcqF004fwXC5t+l0joanoa/TqEnbxEk05pAkVVZZ1QkZW0cJt65fKQSBrd7Lyj+cb36Ms1BoT23aX3b66dCZNE/7r4FGojxu67qKnWrpdQ/ssWZlbsebsXt4t06mUKm7hvs1rZGe0/04f92cJPtPot5gTUfCtHXnb2t59dib0ev7OFiFIRC9klcWW6LZrdObOYps23mvlXJhO6SsMtPfbWVXG8HSyV3v2+9C63Qp1eam7PwkzzVaxRSRVEdnCQw8j8F6TscZQkVA940dGZT/xZggFplJFzbGUMYLkjIXq08FqNDYCrSX+0poJoW0MKnKh8vs1TGOC2hj09Ghtg7XNrtHXGFcphf/7UKVsfCT5ti7LaVjCWG5caGr1x7g2BvE98B9lfeT9I2NtFZ+UddV+KPyvQ2Mz651I5ajVSIRQremLI7v8eD1qAYjX5gRg0wCaaoL1h2zv6Jt0JEuOXROltCUEVUs1oVSF8ysrg2m/q6QtVZrVWOPFGxn0tyz46kBkDpQTw1ZW/RHl9d6Hn+juP6K7g5PLh1EZr5006CasMmhx88b15IR6YW95bDd6H5OhnUITeuiPhkLw0Lo2IUdJtEPBoFRnBhTJZiFju0lb26f46Tkc9UHNaD9mIfS+4BuqcpOnmep46YCoPpKsXPd2bW6p6o/HkTg2uKOrQ+kTZPVxMXrxDOrq0deBmX326jHYEaYlsB6J9X3a2Z//mdn6/eMuOec0rYNYt5gLHeIKiCgQJ9JlGDF5eHuYBVMZpjy0F5u7Nz/0ULDtvEXa246o0dhsRAtZSGUtVqxLcKlY4tjMWvyFuVF9gg3qo6sN07m7ZDWn+KG76DTN3b3Fnkr6CFesmxMF3JVQfdKwN4UbQH0wLiv48qq+mPXOCyUAgPmRYjgIiKt/r81qiZaChnqnTODvl25lc7Tya7uC+dLPQ6PE+r59Z3h2E1h4h424mN7/7A19YR3U7A3b3RoqKjFEQge7vwFtIua8">on the Vue Playground</a><sup class="print-endnote">[17]</sup>, with both Options API and Composition API components.</p>

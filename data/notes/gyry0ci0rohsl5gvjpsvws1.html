@@ -1,0 +1,112 @@
+<h1 id="db-tools">DB tools<a aria-hidden="true" class="anchor-heading icon-link" href="#db-tools"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li>
+<p><a href="https://rxdb.info/slow-indexeddb.html">Why IndexedDB is slow and what to use instead</a></p>
+</li>
+<li>
+<p><a href="https://www.shayon.dev/post/2022/17/why-i-enjoy-postgresql-infrastructure-engineers-perspective/">Why I enjoy PostgreSQL - Infrastructure Engineer's Perspective</a></p>
+</li>
+<li>
+<p><a href="https://github.com/NocoDB/NocoDB">NocoDB</a> - Open Source Airtable Alternative - turns any MySQL, Postgres database into a collaborative spreadsheet with REST APIs.</p>
+</li>
+<li>
+<p><a href="https://github.com/share/sharedb">ShareDB</a> - Realtime database backend based on Operational Transformation (OT)</p>
+</li>
+<li>
+<p><a href="https://github.com/rqlite/rqlite">rqlite</a> - The lightweight, distributed relational database built on SQLite</p>
+</li>
+<li>
+<p><a href="https://github.com/benbjohnson/litestream">Litestream</a> is a standalone disaster recovery tool for SQLite. It runs as a background process and safely replicates changes incrementally to another file or S3.</p>
+</li>
+<li>
+<p><a href="https://github.com/jawj/zapatos">Zapatos</a> - Zero-abstraction Postgres for TypeScript: a non-ORM database library</p>
+</li>
+<li>
+<p><a href="https://duckdb.org/why_duckdb">DuckDB</a> is an in-process SQL OLAP Database Management System <a href="https://betterprogramming.pub/duckdb-whats-the-hype-about-5d46aaa73196">— What’s the Hype About?</a></p>
+<ul>
+<li>Processing and storing tabular datasets, e.g. from CSV or Parquet files</li>
+<li>Interactive data analysis, e.g. Joining &#x26; aggregate multiple large tables</li>
+<li>Concurrent large changes, to multiple large tables, e.g. appending rows, adding/removing/updating columns</li>
+<li>Large result set transfer to client</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/kyleconroy/sqlc">sqlc</a> - A SQL Compiler</p>
+</li>
+<li>
+<p><a href="https://github.com/turbot/steampipe">Steampipe</a> is the universal interface to APIs. Use SQL to query cloud infrastructure, SaaS, code, logs, and more.</p>
+<ul>
+<li><a href="https://github.com/turbot/steampipe-plugin-googlesheets">https://github.com/turbot/steampipe-plugin-googlesheets</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/0x6b/libgsqlite">libgsqlite</a> - A SQLite extension which loads a Google Sheet as a virtual table.</p>
+</li>
+<li>
+<p><a href="https://github.com/libsql/libsql">libSQL</a> is a fork of SQLite that is both Open Source, and Open Contributions.</p>
+</li>
+<li>
+<p><a href="https://github.com/getlago/lago/wiki/Is-ORM-still-an-%27anti-pattern%27%3F">Is ORM still an 'anti pattern'?</a></p>
+<blockquote>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=36500429">"ORMs make the easy parts slightly easier, but they make the hard parts really hard"</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Sequelize is extremely simpler and writing code with it is a joy compared to hibernate.</li>
+<li>A year ago i had to develop a big Java application without orm (cto’s choice): i didn’t remember how tedious, error prone and slow is development without orm!!! Never do it again!</li>
+<li>I think the best approach is to use orm for common crud tasks and add specific sql queries when things get a little bit complicated.
+<a href="https://news.ycombinator.com/item?id=36503105">andretti1977</a></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><a href="https://gajus.medium.com/stop-using-knex-js-and-earn-30-bf410349856c">Stop using Knex.js</a> - Using SQL query builder is an anti-pattern</p>
+<blockquote>
+<p>Knex.js (and other query builders) was designed to be a building block for ORMs; it does not add value when majority of the query is static.<br>
+I recommend that you use a query builder for those few queries that need to be generated dynamically, and use raw SQL for everything else. It is not one or the other; the two work together.</p>
+<blockquote>
+<p><a href="https://github.com/gajus/slonik">Slonik</a> - A <a href="https://github.com/gajus/slonik#user-content-battle-tested">battle-tested</a> Node.js PostgreSQL client with strict types, detailed logging and assertions.</p>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p><a href="https://aws.amazon.com/compare/the-difference-between-olap-and-oltp/">What’s the Difference Between OLAP and OLTP?</a></p>
+</li>
+</ul>
+<h2 id="client">client<a aria-hidden="true" class="anchor-heading icon-link" href="#client"></a></h2>
+<ul>
+<li><a href="https://github.com/dbeaver/dbeaver">DBeaver</a> - Free universal database tool and SQL client</li>
+<li><a href="https://www.jetbrains.com/datagrip/">DataGrip</a></li>
+<li><a href="https://github.com/Sequel-Ace/Sequel-Ace">Sequel-Ace</a> - MySQL/MariaDB database management for macOS</li>
+<li><a href="https://github.com/sqlitebrowser/sqlitebrowser">DB Browser for SQLite</a></li>
+<li><a href="https://tableplus.com/">TablePlus</a> - Database management made easy</li>
+</ul>
+<h2 id="query-builder">Query builder<a aria-hidden="true" class="anchor-heading icon-link" href="#query-builder"></a></h2>
+<ul>
+<li><a href="https://github.com/kysely-org/kysely">Kysely</a> is a type-safe and autocompletion-friendly typescript SQL query builder.</li>
+</ul>
+<h2 id="sqlite">SQLite<a aria-hidden="true" class="anchor-heading icon-link" href="#sqlite"></a></h2>
+<h3 id="tools">Tools<a aria-hidden="true" class="anchor-heading icon-link" href="#tools"></a></h3>
+<ul>
+<li><a href="https://fly.io/docs/litefs/">LiteFS - Distributed SQLite</a></li>
+<li><a href="https://turso.tech/">Turso</a> which uses SQLite under the hood and even has a concept called "embedded replicas" for zero latency reads.</li>
+<li><a href="https://docs.servicestack.net/ormlite/litestream#litestream">Litestream</a></li>
+</ul>
+<h3 id="sqlite-is-not-without-its-shortcomings"><a href="https://www.epicweb.dev/why-you-should-probably-be-using-sqlite#weaknesses">SQLite is not without its shortcomings.</a><a aria-hidden="true" class="anchor-heading icon-link" href="#sqlite-is-not-without-its-shortcomings"></a></h3>
+<ul>
+<li>SQLite does not support subscriptions which can be a limitation on certain real-time use cases. However, there are plenty of reasons to recommend against using database subscriptions for real-time use cases anyway. Scaling real-time use cases is quite challenging, and personally have really enjoyed letting <a href="https://www.partykit.io/">Partykit</a> do that part for me in my apps.</li>
+<li>SQLite being a file on disk does make connecting from external clients effectively impossible. But with <a href="http://fly.io/">Fly.io</a> at least, it’s easy to run prisma studio on the production server and proxy that for local access. If you need to connect to it from another app, then you’re out of luck and have to set up HTTP endpoints on the host app for any data you need (<a href="https://github.com/superfly/litefs/issues/326">for now</a>).</li>
+<li>SQLite does not support plugins like <a href="https://github.com/timescale/timescaledb">TimescaleDB</a> for Postgres. While time-series data is possible with SQLite, I do not have experience with this use case and can't speak to the challenges there. My intuition says it's not advisable to use SQLite for that use case, but maybe someone else can offer me more insight.</li>
+<li>SQLite does not support enums which means you're forced to use strings. I have mixed feelings about this, but I mostly don't like enums anyway. The main drawback to this is when it comes to the typings for the client which doesn't allow you to ensure all values of a column are only within a set of specific possible values for the string. However, with Prisma client extensions, handling this kind of enforcement at the client (and typing) level <a href="https://github.com/L-Steinmacher/epic-stack-with-prisma-client-extensions">is possible</a>.</li>
+</ul>
+<blockquote>
+<p><a href="https://news.ycombinator.com/item?id=38036921">https://news.ycombinator.com/item?id=38036921</a></p>
+</blockquote>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/26iw6iack7n1dffhwlsyvzj">Redis Explained</a></li>
+</ol>

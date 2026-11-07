@@ -1,0 +1,54 @@
+<h1 id="playwright">Playwright<a aria-hidden="true" class="anchor-heading icon-link" href="#playwright"></a></h1>
+<h2 id="collection">Collection<a aria-hidden="true" class="anchor-heading icon-link" href="#collection"></a></h2>
+<ul>
+<li><a href="https://playwright.dev/docs/test-parallel">Parallelism</a>
+<blockquote>
+<p><a href="https://playwright.dev/docs/api/class-test#test-describe-configure"><code>test.describe.configure({ mode: 'parallel' });</code></a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="snippets">Snippets<a aria-hidden="true" class="anchor-heading icon-link" href="#snippets"></a></h2>
+<h3 id="wait">Wait<a aria-hidden="true" class="anchor-heading icon-link" href="#wait"></a></h3>
+<pre class="language-js"><code class="language-js"><span class="token comment">// wait for 1 second https://playwright.dev/docs/api/class-page#page-wait-for-timeout</span>
+<span class="token keyword control-flow">await</span> page<span class="token punctuation">.</span><span class="token method function property-access">waitForTimeout</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="create-tests-via-a-csv-file"><a href="https://playwright.dev/docs/test-parameterize#create-tests-via-a-csv-file">Create tests via a CSV file</a><a aria-hidden="true" class="anchor-heading icon-link" href="#create-tests-via-a-csv-file"></a></h3>
+<p>The Playwright test-runner runs in Node.js, this means you can directly read files from the file system and parse them with your preferred CSV library.</p>
+<p>See for example this CSV file, in our example <code>input.csv</code>:</p>
+<pre class="language-csv"><code class="language-csv"><span class="token value">"test_case"</span><span class="token punctuation">,</span><span class="token value">"some_value"</span><span class="token punctuation">,</span><span class="token value">"some_other_value"</span>
+<span class="token value">"value 1"</span><span class="token punctuation">,</span><span class="token value">"value 11"</span><span class="token punctuation">,</span><span class="token value">"foobar1"</span>
+<span class="token value">"value 2"</span><span class="token punctuation">,</span><span class="token value">"value 22"</span><span class="token punctuation">,</span><span class="token value">"foobar21"</span>
+<span class="token value">"value 3"</span><span class="token punctuation">,</span><span class="token value">"value 33"</span><span class="token punctuation">,</span><span class="token value">"foobar321"</span>
+<span class="token value">"value 4"</span><span class="token punctuation">,</span><span class="token value">"value 44"</span><span class="token punctuation">,</span><span class="token value">"foobar4321"</span>
+</code></pre>
+<p>Based on this we'll generate some tests by using the <a href="https://www.npmjs.com/package/csv-parse">csv-parse</a> library from NPM:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// test.spec.ts</span>
+<span class="token keyword module">import</span> <span class="token imports">fs</span> <span class="token keyword module">from</span> <span class="token string">"fs"</span>
+<span class="token keyword module">import</span> <span class="token imports">path</span> <span class="token keyword module">from</span> <span class="token string">"path"</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> test <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"@playwright/test"</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> parse <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"csv-parse/sync"</span>
+<span class="token keyword">const</span> records <span class="token operator">=</span> <span class="token function">parse</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token method function property-access">readFileSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">"input.csv"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  columns<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  skip_empty_lines<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> record <span class="token keyword">of</span> records<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">test</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">foo: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>record<span class="token punctuation">.</span><span class="token property-access">test_case</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> page <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span><span class="token property-access">test_case</span><span class="token punctuation">,</span> record<span class="token punctuation">.</span><span class="token property-access">some_value</span><span class="token punctuation">,</span> record<span class="token punctuation">.</span><span class="token property-access">some_other_value</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="performance">Performance<a aria-hidden="true" class="anchor-heading icon-link" href="#performance"></a></h2>
+<h3 id="why-pagegoto-is-slowing-down-your-playwright-tests"><a href="https://www.checklyhq.com/blog/why-page-goto-is-slowing-down-your-playwright-test/">Why "page.goto()" is slowing down your Playwright tests</a><a aria-hidden="true" class="anchor-heading icon-link" href="#why-pagegoto-is-slowing-down-your-playwright-tests"></a></h3>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Wait until the HTML starts loading.</span>
+<span class="token keyword control-flow">await</span> page<span class="token punctuation">.</span><span class="token method function property-access">goto</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> waitUntil<span class="token operator">:</span> <span class="token string">"commit"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Wait until the HTML is parsed</span>
+<span class="token comment">// and deferred scripts (`&#x3C;script deferred>` and `&#x3C;script type="module">`) are loaded.</span>
+<span class="token keyword control-flow">await</span> page<span class="token punctuation">.</span><span class="token method function property-access">goto</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> waitUntil<span class="token operator">:</span> <span class="token string">"domcontentloaded"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Wait until all initially included resources are loaded.</span>
+<span class="token keyword control-flow">await</span> page<span class="token punctuation">.</span><span class="token method function property-access">goto</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> waitUntil<span class="token operator">:</span> <span class="token string">"load"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Wait until every resource is loaded and the network is silent for 500ms.</span>
+<span class="token keyword control-flow">await</span> page<span class="token punctuation">.</span><span class="token method function property-access">goto</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> waitUntil<span class="token operator">:</span> <span class="token string">"networkidle"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>

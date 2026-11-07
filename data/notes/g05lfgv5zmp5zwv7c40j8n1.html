@@ -1,0 +1,178 @@
+<h1 id="css-snippets">CSS snippets<a aria-hidden="true" class="anchor-heading icon-link" href="#css-snippets"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://smolcss.dev">SmolCSS</a>: Minimal snippets for modern CSS layouts and components</li>
+<li><a href="https://iamkate.com/code/tree-views/">Tree views in css</a> - <code>details open</code></li>
+</ul>
+<h2 id="outlining-the-page"><a href="https://ishadeed.com/article/threads-app-css-part-2/#outlining-the-page">Outlining The Page</a><a aria-hidden="true" class="anchor-heading icon-link" href="#outlining-the-page"></a></h2>
+<p>It’s important to remember that anything you see on the screen is a box, even if it’s a circle or a <code>1px</code> separator. Everything is a box.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">*<span class="token punctuation">,</span>
+*<span class="token pseudo-element">:before</span><span class="token punctuation">,</span>
+*<span class="token pseudo-element">:after</span></span> <span class="token punctuation">{</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> solid <span class="token number">0.5</span><span class="token unit">px</span> <span class="token hexcode color">#db6a7d</span><span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>An outline with <code>0.5px</code> width. I picked half a pixel so that it’s easier to look at the boxes. I also removed all borders as they cause confusion.</p>
+<h2 id="image-inside-div-has-extra-space-below-the-image"><a href="https://stackoverflow.com/questions/5804256/image-inside-div-has-extra-space-below-the-image">Image inside div has extra space below the image</a><a aria-hidden="true" class="anchor-heading icon-link" href="#image-inside-div-has-extra-space-below-the-image"></a></h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="how-to-align-the-text-of-the-last-paragraph-line"><a href="https://www.stefanjudis.com/today-i-learned/how-to-align-the-text-of-the-last-paragraph-line/">How to align the text of the last paragraph line</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-align-the-text-of-the-last-paragraph-line"></a></h2>
+<blockquote>
+<p><code>text-align-last</code></p>
+</blockquote>
+<h2 id="how-to-think-about-html-responsive-images"><a href="https://danburzo.ro/responsive-images-html/">How to think about HTML responsive images</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-think-about-html-responsive-images"></a></h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>picture</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(prefers-color-scheme: dark)<span class="token punctuation">"</span></span> <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>macos-dark.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>source</span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>print<span class="token punctuation">"</span></span> <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>macos-contrast.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>macos-light.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>…<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>picture</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="the-power-of-has-in-css"><a href="https://css-tricks.com/the-power-of-has-in-css/">The Power of :has() in CSS</a><a aria-hidden="true" class="anchor-heading icon-link" href="#the-power-of-has-in-css"></a></h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">h1<span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token combinator">+</span> h2<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">blue</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="default-setting">Default setting<a aria-hidden="true" class="anchor-heading icon-link" href="#default-setting"></a></h2>
+<pre class="language-scss"><code class="language-scss"><span class="token comment">// fonts</span>
+<span class="token selector">* </span><span class="token punctuation">{</span>
+  &#x26;<span class="token punctuation">:</span><span class="token function">lang</span><span class="token punctuation">(</span>ko<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property">word-break</span><span class="token punctuation">:</span> keep-all<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  &#x26;<span class="token punctuation">:</span><span class="token function">lang</span><span class="token punctuation">(</span>en<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property">word-break</span><span class="token punctuation">:</span> keep-all<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  &#x26;<span class="token punctuation">:</span><span class="token function">lang</span><span class="token punctuation">(</span>ja<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property">word-break</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+    <span class="token property">word-break</span><span class="token punctuation">:</span> auto-phrase<span class="token punctuation">;</span> <span class="token comment">// From Chrome 119. https://developer.chrome.com/blog/css-i18n-features?hl=en</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">*,
+code,
+kbd,
+samp,
+pre </span><span class="token punctuation">{</span>
+  <span class="token comment">// 따로 지정하지 않고 *만 쓰면 나머지 tag는 tailwind 기본 reset style이 적용됨.</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"Apple SD Gothic Neo"</span><span class="token punctuation">,</span> -apple-system<span class="token punctuation">,</span> BlinkMacSystemFont<span class="token punctuation">,</span> <span class="token string">"Segoe UI"</span><span class="token punctuation">,</span>
+    Roboto<span class="token punctuation">,</span> Helvetica<span class="token punctuation">,</span> Arial<span class="token punctuation">,</span> sans-serif<span class="token punctuation">,</span> <span class="token string">"Apple Color Emoji"</span><span class="token punctuation">,</span> <span class="token string">"Segoe UI Emoji"</span><span class="token punctuation">,</span>
+    <span class="token string">"Segoe UI Symbol"</span><span class="token punctuation">;</span>
+  <span class="token property">word-break</span><span class="token punctuation">:</span> keep-all<span class="token punctuation">;</span>
+  <span class="token property">-webkit-font-smoothing</span><span class="token punctuation">:</span> antialiased<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// #region text-wrap - https://codersblock.com/blog/nicer-text-wrapping-with-css-text-wrap/#in-closing</span>
+<span class="token selector">h1,
+h2,
+h3,
+h4,
+h5,
+h6 </span><span class="token punctuation">{</span>
+  <span class="token property">text-wrap</span><span class="token punctuation">:</span> balance<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">div,
+p </span><span class="token punctuation">{</span>
+  <span class="token property">text-wrap</span><span class="token punctuation">:</span> pretty<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// #endregion</span>
+
+<span class="token comment">// reset</span>
+<span class="token atrule"><span class="token rule">@layer</span> reset</span> <span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@tailwind</span> base<span class="token punctuation">;</span>
+
+  body</span> <span class="token punctuation">{</span>
+    @apply text-16 text-grey-900<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="get-the-screen-width--height-without-javascript"><a href="https://css-tip.com/screen-dimension/">Get The Screen Width &#x26; Height Without JavaScript</a><a aria-hidden="true" class="anchor-heading icon-link" href="#get-the-screen-width--height-without-javascript"></a></h2>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@property</span> <span class="token variable">--_w</span></span> <span class="token punctuation">{</span>
+  <span class="token property">syntax</span><span class="token punctuation">:</span> <span class="token string">"&#x3C;length>"</span><span class="token punctuation">;</span>
+  <span class="token property">inherits</span><span class="token punctuation">:</span> true<span class="token punctuation">;</span>
+  <span class="token property">initial-value</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">vw</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@property</span> <span class="token variable">--_h</span></span> <span class="token punctuation">{</span>
+  <span class="token property">syntax</span><span class="token punctuation">:</span> <span class="token string">"&#x3C;length>"</span><span class="token punctuation">;</span>
+  <span class="token property">inherits</span><span class="token punctuation">:</span> true<span class="token punctuation">;</span>
+  <span class="token property">initial-value</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">vh</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token pseudo-class">:root</span></span> <span class="token punctuation">{</span>
+  <span class="token variable">--w</span><span class="token punctuation">:</span> <span class="token color">tan</span><span class="token punctuation">(</span><span class="token function">atan2</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span><span class="token variable">--_w</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* screen width */</span>
+  <span class="token variable">--h</span><span class="token punctuation">:</span> <span class="token color">tan</span><span class="token punctuation">(</span>
+    <span class="token function">atan2</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span><span class="token variable">--_h</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* screen height*/</span> <span class="token comment">/* The result is an integer without unit */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="a-guide-to-image-overlays-in-css"><a href="https://blog.logrocket.com/css-overlay/">A guide to image overlays in CSS</a><a aria-hidden="true" class="anchor-heading icon-link" href="#a-guide-to-image-overlays-in-css"></a></h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sample Image<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>600<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>overlay-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The Pros and Cons of Buying vs. Renting a Home<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.image-wrapper</span><span class="token pseudo-element">::before</span></span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token color"><span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.3</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.image-wrapper</span></span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token comment">/* Other styles */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="adactio"><a href="https://adactio.com/journal/21896">adactio</a><a aria-hidden="true" class="anchor-heading icon-link" href="#adactio"></a></h2>
+<p>For instance, I’m a huge fan of view transitions and I enable them by default on every new project, but I do it like this:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">prefers-reduced-motion</span><span class="token punctuation">:</span> no-preference<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@view-transition</span></span> <span class="token punctuation">{</span>
+    <span class="token property">navigation</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">ul<span class="token punctuation">,</span>
+ol<span class="token punctuation">,</span>
+dl<span class="token punctuation">,</span>
+dt<span class="token punctuation">,</span>
+dd<span class="token punctuation">,</span>
+p<span class="token punctuation">,</span>
+figure<span class="token punctuation">,</span>
+blockquote</span> <span class="token punctuation">{</span>
+  <span class="token property">hanging-punctuation</span><span class="token punctuation">:</span> first last<span class="token punctuation">;</span>
+  <span class="token property">text-wrap</span><span class="token punctuation">:</span> pretty<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h1<span class="token punctuation">,</span>
+h2<span class="token punctuation">,</span>
+h3<span class="token punctuation">,</span>
+h4<span class="token punctuation">,</span>
+h5<span class="token punctuation">,</span>
+h6</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">text-wrap</span><span class="token punctuation">:</span> balance<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="the-universal-focus-ring"><a href="https://css-tip.com/universal-focus/">The Universal Focus Ring</a><a aria-hidden="true" class="anchor-heading icon-link" href="#the-universal-focus-ring"></a></h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">html<span class="token pseudo-element">::after</span></span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+  <span class="token property">position-anchor</span><span class="token punctuation">:</span> <span class="token variable">--focus</span><span class="token punctuation">;</span>
+  <span class="token property">inset</span><span class="token punctuation">:</span> <span class="token function">anchor</span><span class="token punctuation">(</span>inside<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">px</span> solid <span class="token color">darkred</span><span class="token punctuation">;</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token number">0.4</span><span class="token unit">s</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">*<span class="token pseudo-class">:focus-visible</span></span> <span class="token punctuation">{</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">anchor-name</span><span class="token punctuation">:</span> <span class="token variable">--focus</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/fhqiguqk4tmhvgqwol1sgku">Checklist in pure CSS</a></li>
+<li><a href="/notes/47hsgmnzjkgzea5s5nrg8qx">HTML center</a></li>
+<li><a href="/notes/db1iy80kfrgwmlb2ggnwf8p">Simple tooltip using attr()</a></li>
+<li><a href="/notes/utfpb5303hi2tjwtucpx4i9">font</a></li>
+</ol>
