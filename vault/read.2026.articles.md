@@ -2,9 +2,17 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1793956281791
+updated: 1794208859329
 created: 1766965709816
 ---
+
+## Week 46, 2026
+
+- [Writing as a thinking tool](https://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html)
+- [Comparative advantage and costly signals](https://muratbuffalo.blogspot.com/2026/08/the-safest-job-from-ai-may-be-writing.html#:~:text=Comparative%20advantage%20and%20costly%20signals)
+  > even if AI has an absolute advantage in typing speed and generating volume at zero marginal cost, our human labor is still governed by the opportunity cost of where our scarce resources would be least wasted.  
+  > The opportunity cost for a human burning their scarce cognitive capacity on generic and repetitive tasks is now infinitely high. Instead, human effort shines where AI fails, that is for navigating wicked-problems and pushing for creativity.  
+  > This is where economics meets evolutionary biology, as "**human proof-of-work**" becomes the ultimate [costly signal.](https://muratbuffalo.blogspot.com/2026/02/do-you-think-i-am-goldfish.html) In nature, a costly signal (like a peacock’s tail or an elk's antlers) works because it is expensive to produce and impossible to fake. As AI slop saturates the web, with the same token (pardon my pun), the economic value shifts entirely to an authentic human voice.
 
 ## Week 45, 2026
 

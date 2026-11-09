@@ -2,7 +2,7 @@
 id: mypgro52ia913gzkptgglu8
 title: With AI
 desc: ""
-updated: 1780291199438
+updated: 1794208880608
 created: 1688605282146
 ---
 
@@ -155,6 +155,12 @@ created: 1688605282146
   > What if we had one system just for speed? Everyone focused on bringing things to life could work here. AI agents, our own generated and unreviewed code, junior devs, marketing etc.
 
 ## ETC
+
+### [Comparative advantage and costly signals](https://muratbuffalo.blogspot.com/2026/08/the-safest-job-from-ai-may-be-writing.html#:~:text=Comparative%20advantage%20and%20costly%20signals)
+
+> even if AI has an absolute advantage in typing speed and generating volume at zero marginal cost, our human labor is still governed by the opportunity cost of where our scarce resources would be least wasted.  
+> The opportunity cost for a human burning their scarce cognitive capacity on generic and repetitive tasks is now infinitely high. Instead, human effort shines where AI fails, that is for navigating wicked-problems and pushing for creativity.  
+> This is where economics meets evolutionary biology, as "**human proof-of-work**" becomes the ultimate [costly signal.](https://muratbuffalo.blogspot.com/2026/02/do-you-think-i-am-goldfish.html) In nature, a costly signal (like a peacock’s tail or an elk's antlers) works because it is expensive to produce and impossible to fake. As AI slop saturates the web, with the same token (pardon my pun), the economic value shifts entirely to an authentic human voice.
 
 ### [nerdponx](https://news.ycombinator.com/item?id=43471910)
 
