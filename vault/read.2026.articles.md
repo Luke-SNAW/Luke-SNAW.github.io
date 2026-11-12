@@ -2,12 +2,13 @@
 id: ataxcwed7jsdij9iwqz5m9e
 title: Articles I read in 2026
 desc: ""
-updated: 1794208859329
+updated: 1794365028801
 created: 1766965709816
 ---
 
 ## Week 46, 2026
 
+- [How to Launch on X: The Launch-Day Playbook for Startups](https://www.flowjam.com/blog/launch-day-twitter-strategy-2026)
 - [Writing as a thinking tool](https://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html)
 - [Comparative advantage and costly signals](https://muratbuffalo.blogspot.com/2026/08/the-safest-job-from-ai-may-be-writing.html#:~:text=Comparative%20advantage%20and%20costly%20signals)
   > even if AI has an absolute advantage in typing speed and generating volume at zero marginal cost, our human labor is still governed by the opportunity cost of where our scarce resources would be least wasted.  

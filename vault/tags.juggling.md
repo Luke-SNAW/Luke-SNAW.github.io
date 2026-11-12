@@ -2,7 +2,7 @@
 id: 57o7d6e8autamxgb2jka1qf
 title: Juggling
 desc: ""
-updated: 1792124982265
+updated: 1794476595249
 created: 1779352821282
 ---
 
@@ -36,7 +36,9 @@ created: 1779352821282
 - 오른쪽 2in1 columns (Level 1?) 100개 달성 - 2026-09-28
 - 왼쪽 2in1 columns (Level 1?) 시작 - 2026-10-02
 - 왼쪽 2in1 columns (Level 1?) 30개 돌파 - 2026-10-03
+  - 20개 넘어가니 지구력 도전으로 느껴짐. 다음 단계 탐색 - 2026-11-12
 - 오른쪽 Fake Columns (Level 2) 30개 돌파 - 2026-10-05
+  - 20개 넘어가니 지구력 도전으로 느껴짐. 다음 단계 탐색 - 2026-11-12
 
 ---
 
