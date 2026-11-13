@@ -1,0 +1,49 @@
+<h1 id="set-all-cypress-env-values-using-a-single-github-actions-secret">Set All Cypress Env Values Using A Single GitHub Actions Secret<a aria-hidden="true" class="anchor-heading icon-link" href="#set-all-cypress-env-values-using-a-single-github-actions-secret"></a></h1>
+<p><a href="https://glebbahmutov.com/blog/secrets-to-env/">https://glebbahmutov.com/blog/secrets-to-env/</a></p>
+<p>You can pass an entire JSON object of values using a single GitHub Actions secret by saving it as cypress.env.json file.</p>
+<pre class="language-shell"><code class="language-shell">npx cypress run --env <span class="token assign-left variable">userName</span><span class="token operator">=</span><span class="token variable">${{ secrets.USERNAME }</span><span class="token punctuation">}</span>,password<span class="token operator">=</span><span class="token variable">${{ secrets.PASSWORD }</span><span class="token punctuation">}</span>
+</code></pre>
+<p>It all works if you only have a few simple values to pass. If you have multiple values, or if they are complex JSON objects, passing them via command line is bound to break due to parsing and quotes. Luckily, there are other ways, and this blog post shows one good way for GitHub Actions.</p>
+<pre class="language-json"><code class="language-json"><span class="token comment">// cypress.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">"env"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"person"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Jane"</span><span class="token punctuation">,</span>
+      <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">25</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"location"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"city"</span><span class="token operator">:</span> <span class="token string">"San Francisco"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// cypress/integration/spec.js</span>
+<span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"has valid env values"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span><span class="token maybe-class-name">Cypress</span><span class="token punctuation">.</span><span class="token method function property-access">env</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token property-access">to</span><span class="token punctuation">.</span><span class="token property-access">be</span><span class="token punctuation">.</span><span class="token method function property-access">an</span><span class="token punctuation">(</span><span class="token string">"object"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token property-access">and</span><span class="token punctuation">.</span><span class="token property-access">to</span><span class="token punctuation">.</span><span class="token property-access">include</span><span class="token punctuation">.</span><span class="token method function property-access">keys</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">,</span> <span class="token string">"location"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cy<span class="token punctuation">.</span><span class="token method function property-access">wrap</span><span class="token punctuation">(</span><span class="token maybe-class-name">Cypress</span><span class="token punctuation">.</span><span class="token method function property-access">env</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token method function property-access">should</span><span class="token punctuation">(</span><span class="token string">"have.keys"</span><span class="token punctuation">,</span> <span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"age"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token method function property-access">its</span><span class="token punctuation">(</span><span class="token string">"age"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token method function property-access">should</span><span class="token punctuation">(</span><span class="token string">"be.within"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">99</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cy<span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"**name:** "</span> <span class="token operator">+</span> <span class="token maybe-class-name">Cypress</span><span class="token punctuation">.</span><span class="token method function property-access">env</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cy<span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"**city:** "</span> <span class="token operator">+</span> <span class="token maybe-class-name">Cypress</span><span class="token punctuation">.</span><span class="token method function property-access">env</span><span class="token punctuation">(</span><span class="token string">"location"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">city</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// save a screenshot of the test runner</span>
+  <span class="token comment">// to show what the env values were</span>
+  cy<span class="token punctuation">.</span><span class="token method function property-access">screenshot</span><span class="token punctuation">(</span><span class="token string">"env"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> capture<span class="token operator">:</span> <span class="token string">"runner"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>To better separate Cypress own configuration values from the user's own values, you could move the env object from cypress.json to cypress.env.json file.</p>
+<pre class="language-json"><code class="language-json"><span class="token comment">// cypress.env.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">"person"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Jane"</span><span class="token punctuation">,</span>
+    <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">25</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"location"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"city"</span><span class="token operator">:</span> <span class="token string">"San Francisco"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+```
+</code></pre>

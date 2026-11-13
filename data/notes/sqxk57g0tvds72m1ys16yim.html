@@ -1,0 +1,17 @@
+<h1 id="cors-is-stupid---kevin-cox">CORS is Stupid - Kevin Cox<a aria-hidden="true" class="anchor-heading icon-link" href="#cors-is-stupid---kevin-cox"></a></h1>
+<blockquote>
+<p><a href="https://kevincox.ca/2024/08/24/cors/">https://kevincox.ca/2024/08/24/cors/</a></p>
+</blockquote>
+<h2 id="summary-by-universal-summarizer-of-kagi">Summary by Universal Summarizer of Kagi<a aria-hidden="true" class="anchor-heading icon-link" href="#summary-by-universal-summarizer-of-kagi"></a></h2>
+<ul>
+<li>CORS (Cross-Origin Resource Sharing) and the same-origin policy are often conflated, as they work together to manage cross-origin resource access.</li>
+<li>CORS was developed as a workaround for security vulnerabilities but is fundamentally flawed, as it does not adequately prevent cross-site request forgery (XSRF) attacks.</li>
+<li>Implicit credentials in web browsers can lead to security risks, allowing malicious sites to make unauthorized requests using a user's credentials (e.g., cookies).</li>
+<li>The default CORS policy allows requests but prevents reading results, which does not fully protect against certain types of attacks, such as unauthorized fund transfers.</li>
+<li>The recommended approach to secure applications is to ignore implicit credentials for cross-origin requests and only allow explicit credentials through controlled exceptions.</li>
+<li>Utilizing explicit credentials, such as API tokens or OAuth tokens in the Authorization header, can effectively mitigate XSRF risks and support multi-account functionality.</li>
+<li>Setting the SameSite attribute on cookies to 'Lax' or 'Strict' can help prevent cookies from being sent with cross-origin requests, enhancing security.</li>
+<li>A simple CORS policy allowing anonymous requests can protect against unauthorized access while still permitting necessary functionality.</li>
+<li>Developers should be cautious about creating overly specific CORS policies, as they may inadvertently introduce new vulnerabilities or hinder legitimate use cases.</li>
+<li>The web's security model is hindered by legacy decisions, but there are ongoing efforts by browser developers to enhance user privacy and security, albeit in an uncoordinated manner.</li>
+</ul>

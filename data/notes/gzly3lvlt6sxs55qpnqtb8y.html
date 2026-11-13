@@ -1,0 +1,139 @@
+<h1 id="functional-composition">Functional composition<a aria-hidden="true" class="anchor-heading icon-link" href="#functional-composition"></a></h1>
+<blockquote>
+<p><a href="https://blog.bitsrc.io/functional-programming-composition-2e9b863d8bcb">https://blog.bitsrc.io/functional-programming-composition-2e9b863d8bcb</a></p>
+</blockquote>
+<h1 id="what-is-functional-composition"><strong>What is</strong> Functional <strong>Composition</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-functional-composition"></a></h1>
+<p>Composition is the process of <strong>composing</strong> small units into bigger units that solve bigger problems. Where Input of one function comes from the output of previous one.</p>
+<p>For example, if we want to build a castle 🏰 we’ll have to compose bricks 🧱</p>
+<h1 id="examples">Examples:<a aria-hidden="true" class="anchor-heading icon-link" href="#examples"></a></h1>
+<p>Note: as a personal preference <strong>I’ll be using</strong> <code>pipe</code> in the examples.</p>
+<p>Let’s say we need to build a simple price calculator, where we can apply:</p>
+<ol>
+<li>Discount</li>
+<li>Coupon</li>
+<li>Tax (default = 30%)</li>
+<li>Service fees (default = 10)</li>
+<li>Weight-based shipping cost</li>
+</ol>
+<p>Let’s first design the API of the price calculator based on the given requirements</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">priceCalculator</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+  <span class="token parameter">taxPercentage <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">,</span>
+  serviceFees <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  price<span class="token punctuation">,</span>
+  discount<span class="token punctuation">,</span>
+  percentCoupon<span class="token punctuation">,</span>
+  valueCoupon<span class="token punctuation">,</span>
+  weight<span class="token punctuation">,</span>
+  $PerKg</span>
+<span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* logic */</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>We defaulted <code>tax</code> to 30% and <code>serviceFees</code> to 10$. Waiting for the rest of the params</p>
+<h2 id="the-bad-way-non-compositional">The bad way (non compositional)<a aria-hidden="true" class="anchor-heading icon-link" href="#the-bad-way-non-compositional"></a></h2>
+<p>Let’s build it as an atomic mathematical equation:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">priceCalculator</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+  <span class="token parameter">taxPercentage <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">,</span>
+  serviceFees <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  price<span class="token punctuation">,</span>
+  discount<span class="token punctuation">,</span>
+  percentCoupon<span class="token punctuation">,</span>
+  valueCoupon<span class="token punctuation">,</span>
+  weight<span class="token punctuation">,</span>
+  $PerKg</span>
+<span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+    <span class="token punctuation">(</span>price <span class="token operator">-</span>
+      price <span class="token operator">*</span> percentCoupon <span class="token operator">-</span>
+      discount <span class="token operator">-</span>
+      couponValue <span class="token operator">+</span>
+      weight <span class="token operator">*</span> $PerKg <span class="token operator">+</span>
+      serviceFees<span class="token punctuation">)</span> <span class="token operator">*</span>
+    <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> taxPercentage<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>It does the job. <strong>But</strong> <strong>it has very poor reading, testing, debugging and maintenance experiences.</strong></p>
+<h2 id="lets-do-it-the-good-way-composition-approach">Let’s do it the good way (composition approach)<a aria-hidden="true" class="anchor-heading icon-link" href="#lets-do-it-the-good-way-composition-approach"></a></h2>
+<p>Let’s compose…</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">priceCalculator</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+  <span class="token parameter">taxPercentage <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">,</span>
+  serviceFees <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  price<span class="token punctuation">,</span>
+  discount<span class="token punctuation">,</span>
+  percentCoupon<span class="token punctuation">,</span>
+  valueCoupon<span class="token punctuation">,</span>
+  weight<span class="token punctuation">,</span>
+  $PerKg</span>
+<span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyTax</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> taxPercentage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyServiceFees</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">+</span> serviceFees<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyPercentCoupon</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">-</span> val <span class="token operator">*</span> percentCoupon<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyValueCoupon</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">-</span> valueCoupon<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyDiscount</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">-</span> discount<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyShippingCost</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">+</span> weight <span class="token operator">*</span> $PerKg<span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token function">pipe</span><span class="token punctuation">(</span>
+    applyPercentCoupon<span class="token punctuation">,</span>
+    applyDiscount<span class="token punctuation">,</span>
+    applyValueCoupon<span class="token punctuation">,</span>
+    applyShippingCost<span class="token punctuation">,</span>
+    applyServiceFees<span class="token punctuation">,</span>
+    applyTax
+  <span class="token punctuation">)</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>This looks so much cleaner, more testable, debuggable and maintainable. All due to the modular mindset we’re adapting to.</p>
+<p>We split each operation to be living on its own, then we <code>pipe</code> them and apply <code>price</code> to the piped functions.</p>
+<h2 id="give-it-a-try"><strong>Give it a try</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#give-it-a-try"></a></h2>
+<pre class="language-js"><code class="language-js"><span class="token function">priceCalculator</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// NaN</span>
+</code></pre>
+<p>We got a <code>NaN</code> and that’s unexpected, right?! How can we fix this?</p>
+<h2 id="lets-debug-first">Let’s debug first<a aria-hidden="true" class="anchor-heading icon-link" href="#lets-debug-first"></a></h2>
+<p>Let me introduce a very useful utility to debug chains (<code>pipe</code> and <code>compose</code>); <code>inspect</code> function. It’s very simple. It only logs what it gets, and returns it.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">inspect</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">tag</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>tag<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>x<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">return</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Now let’s add that to our chain of functions</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">priceCalculator</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+  <span class="token parameter">taxPercentage <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">,</span>
+  serviceFees <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  price<span class="token punctuation">,</span>
+  discount<span class="token punctuation">,</span>
+  percentCoupon<span class="token punctuation">,</span>
+  valueCoupon<span class="token punctuation">,</span>
+  weight<span class="token punctuation">,</span>
+  $PerKg</span>
+<span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyTax</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> taxPercentage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyServiceFees</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">+</span> serviceFees<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyPercentCoupon</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">-</span> val <span class="token operator">*</span> percentCoupon<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyValueCoupon</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">-</span> valueCoupon<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyDiscount</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">-</span> discount<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">applyShippingCost</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> val <span class="token operator">+</span> weight <span class="token operator">*</span> $PerKg<span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token function">pipe</span><span class="token punctuation">(</span>
+    <span class="token function">inspect</span><span class="token punctuation">(</span><span class="token string">"price"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    applyPercentCoupon<span class="token punctuation">,</span>
+    <span class="token function">inspect</span><span class="token punctuation">(</span><span class="token string">"after applyPercentCoupon"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    applyDiscount<span class="token punctuation">,</span>
+    <span class="token function">inspect</span><span class="token punctuation">(</span><span class="token string">"after applyDiscount"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    applyValueCoupon<span class="token punctuation">,</span>
+    <span class="token function">inspect</span><span class="token punctuation">(</span><span class="token string">"after applyValueCoupon"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    applyShippingCost<span class="token punctuation">,</span>
+    <span class="token function">inspect</span><span class="token punctuation">(</span><span class="token string">"after applyShippingCost"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    applyServiceFees<span class="token punctuation">,</span>
+    <span class="token function">inspect</span><span class="token punctuation">(</span><span class="token string">"after applyServiceFees"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    applyTax
+  <span class="token punctuation">)</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The results would look something like</p>
+<pre class="language-js"><code class="language-js"><span class="token function">priceCalculator</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// price: undefined</span>
+<span class="token comment">// after applyPercentCoupon: NaN</span>
+<span class="token comment">//...</span>
+</code></pre>
+<p>Oh! The <code>price</code> is <code>undefined</code>, haha that’s because the <code>price</code> is the 3rd parameter, and we’re passing it first instead!</p>

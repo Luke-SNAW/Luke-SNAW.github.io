@@ -1,0 +1,63 @@
+<h1 id="ai-assisted-code-completion">Ai Assisted Code Completion<a aria-hidden="true" class="anchor-heading icon-link" href="#ai-assisted-code-completion"></a></h1>
+<p><a href="https://github.com/features/copilot/">Github Copilot</a>(이하 C) vs <a href="https://www.tabnine.com/">Tabnine</a>(이하 T)</p>
+<h1 id="사용경험">사용경험<a aria-hidden="true" class="anchor-heading icon-link" href="#사용경험"></a></h1>
+<p>Copilot만 몇 개월 경험.</p>
+<ul>
+<li>하단과 JSON 비슷한 데이터 셋팅에 자주 도움 됨. 가끔가다 어캐했누 소리가 절로 나옴.
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token constant">REPORT</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">"Basic 20+"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    categories<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"cancer"</span><span class="token punctuation">,</span> <span class="token string">"general-disease"</span><span class="token punctuation">,</span> <span class="token string">"ancestry"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span>toLabel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    txtCountItems<span class="token operator">:</span> <span class="token function">toLabel</span><span class="token punctuation">(</span><span class="token string">"items-total-basic"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"Standard 80+"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    categories<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"cancer"</span><span class="token punctuation">,</span> <span class="token string">"general-disease"</span><span class="token punctuation">,</span> <span class="token string">"ancestry"</span><span class="token punctuation">,</span> <span class="token string">"traits"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span>
+      toLabel
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    txtCountItems<span class="token operator">:</span> <span class="token function">toLabel</span><span class="token punctuation">(</span><span class="token string">"items-total-standard"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"GPFA 15"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    categories<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"cancer"</span><span class="token punctuation">,</span> <span class="token string">"general-disease"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span>toLabel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    txtCountItems<span class="token operator">:</span> <span class="token function">toLabel</span><span class="token punctuation">(</span><span class="token string">"items-total-gpfa"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"GPFA 25"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    categories<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"cancer"</span><span class="token punctuation">,</span> <span class="token string">"general-disease"</span><span class="token punctuation">,</span> <span class="token string">"traits"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span>toLabel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    txtCountItems<span class="token operator">:</span> <span class="token function">toLabel</span><span class="token punctuation">(</span><span class="token string">"items-total-gpfa-two"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
+<li>일반 코드 snippet도 기존 code 찾아서 copy&#x26;paste하는 시간보다 제시된 코드 수정하는게 빠를 때가 종종 있음.</li>
+<li>naming에 가끔 도움 됨</li>
+<li>개인적인 의견으로 5% 미만으로 시간 단축시켜주나 영혼출타를 부르는 단순작업의 뼈대 세워주는 것만해도 사용추천</li>
+</ul>
+<h1 id="테스트-plan">테스트 Plan<a aria-hidden="true" class="anchor-heading icon-link" href="#테스트-plan"></a></h1>
+<ul>
+<li>C - 2달 무료</li>
+<li>T - 무료 plan (하루 횟수 제한이라 짜증날 수도)</li>
+</ul>
+<h1 id="지원-ide">지원 IDE<a aria-hidden="true" class="anchor-heading icon-link" href="#지원-ide"></a></h1>
+<ul>
+<li>C - VS, VS code, Neovim, JetBrains IDEs (<a href="https://github.com/features/copilot">https://github.com/features/copilot</a>)</li>
+<li>T - 많음. vs code, IntelliJ 포함</li>
+</ul>
+<h1 id="code-제안-특징">code 제안 특징<a aria-hidden="true" class="anchor-heading icon-link" href="#code-제안-특징"></a></h1>
+<ul>
+<li>C
+<ul>
+<li>한 번에 한 code block만 제안. 응답 속도가 좀 있음. 약간 답답
+<img src="https://www.actuia.com/wp-content/uploads/2021/07/GitHub-Copilot.gif" alt="https://www.actuia.com/wp-content/uploads/2021/07/GitHub-Copilot.gif"></li>
+</ul>
+</li>
+<li>T
+<ul>
+<li>제안 code는 몇 가지 옵션을 제시. typing 속도에 맞춰 code 제시. 응답 속도 빠름
+<img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1635891875639/jbvlAGpKS.gif?auto=format,compress&#x26;gif-q=60&#x26;format=webm" alt="https://cdn.hashnode.com/res/hashnode/image/upload/v1635891875639/jbvlAGpKS.gif?auto=format,compress&#x26;gif-q=60&#x26;format=webm"></li>
+<li>local code 학습 능력이 있다고 함</li>
+</ul>
+</li>
+</ul>
+<h1 id="개인정보-보호">개인정보 보호?<a aria-hidden="true" class="anchor-heading icon-link" href="#개인정보-보호"></a></h1>
+<ul>
+<li>C - 무슨 정보 보호 정책이 있긴한데 일단 github 측으로 코드 전송이 있다고 함</li>
+<li>T - 기본인지 옵션 설정인지 모르겠지만 code 전송 없음</li>
+</ul>

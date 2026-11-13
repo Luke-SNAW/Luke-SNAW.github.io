@@ -1,0 +1,12 @@
+<h1 id="components-render-twice">Components render twice<a aria-hidden="true" class="anchor-heading icon-link" href="#components-render-twice"></a></h1>
+<h1 id="react-components-render-twice---any-way-to-fix-this"><a href="https://www.heissenberger.at/en/blog/react-components-reder-twice/">React Components render twice - any way to fix this?</a><a aria-hidden="true" class="anchor-heading icon-link" href="#react-components-render-twice---any-way-to-fix-this"></a></h1>
+<blockquote>
+<p>The reason why this happens is an intentional feature of the React.StrictMode. It<strong> only happens in development mode</strong> and should help to find accidental side effects in the render phase.</p>
+</blockquote>
+<h2 id="what-is-happening-behind-the-scenes">What is happening behind the scenes?<a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-happening-behind-the-scenes"></a></h2>
+<p>The main reason is <code>React.StrictMode</code> which was introduced in version 16.3.0. Back then it only could be used for class components. With the release of 16.8.0 it is also applied for hooks.</p>
+<h2 id="why-should-i-use-reactstrictmode">Why should I use React.StrictMode?<a aria-hidden="true" class="anchor-heading icon-link" href="#why-should-i-use-reactstrictmode"></a></h2>
+<p>React will soon provide a new <a href="https://reactjs.org/docs/concurrent-mode-intro.html"><strong>Concurrent Mode</strong></a> which will break render work into multiple parts. Pausing and resuming the work between this parts should avoid the blocking of the browsers main thread.</p>
+<blockquote>
+<p>This means that the render phase could be invoked multiple times and should be a Pure Function without any side effects!</p>
+</blockquote>

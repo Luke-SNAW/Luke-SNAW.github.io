@@ -1,0 +1,327 @@
+<h1 id="how-to-use-v-model-with-form-inputs-in-vue">How to Use v-model with Form Inputs in Vue<a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-use-v-model-with-form-inputs-in-vue"></a></h1>
+<blockquote>
+<p><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/">https://dmitripavlutin.com/vue-v-model-form-inputs/</a></p>
+</blockquote>
+<p>The idea of <code>v-model</code> in Vue is simple.</p>
+<p>Define a reactive <code>text</code> (usually a ref), and then bind this value to an input using <code>v-model="text"</code>. This creates a two-way data flow:</p>
+<ol>
+<li>User types into the input and <code>text</code> ref changes.</li>
+<li><code>text</code> ref changes programmaticaly and the input value changes.</li>
+</ol>
+<p>Let's see how to use <code>v-model</code> to bind form inputs in Vue 3.</p>
+<hr>
+<h2 id="1-binding-a-form-input">1. Binding a form input<a aria-hidden="true" class="anchor-heading icon-link" href="#1-binding-a-form-input"></a></h2>
+<p>Let's implement a component that renders an input field with the initial value <code>'Unknown'</code>. The value that user introduces into the input field renders on the screen.</p>
+<p><code>v-model</code> fits nicely to implement such a component. Connecting <code>v-model</code> with the input field requires 2 simple steps:</p>
+<ol>
+<li><code>const text = ref()</code>: reactive value to serve as a <em>data bus</em> for <code>v-model</code></li>
+<li><code>v-model="text"</code>: add <code>v-model</code> to the input field tag assigned with <code>text</code>.</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"Unknown"</span><span class="token punctuation">)</span> <span class="token comment">// Step 1: create data bus</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token comment">&#x3C;!-- Step 2: assign data bus to v-model --></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>{{ text }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Open the demo. The input field contains initially <code>'Unknown'</code>. Type something into the input field: and both the input value and the text on the screen update.</p>
+<p><code>v-model="text"</code> is <em>two-way data binding</em> in Vue.</p>
+<p>The first direction of flow happens during the initialization. The input value is initialized with <code>'Unknown'</code> — <code>text</code>'s initial value.</p>
+<p>The second direction of flow occurs when you type into the input field. <code>v-model</code> takes the value of the input and updates <code>text</code> ref with it.</p>
+<p><a href="https://dmitripavlutin.com/f3d136e04f9ab5d189b7212cedde6a9c/vue-v-model-3.svg">Vue v-model binding</a></p>
+<h2 id="2-v-model-vs-v-bind"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#2-v-model-vs-v-bind"></a>2. v-model vs v-bind<a aria-hidden="true" class="anchor-heading icon-link" href="#2-v-model-vs-v-bind"></a></h2>
+<p><a href="https://vuejs.org/api/built-in-directives.html#v-bind">v-bind</a> is another data binding mechanism in Vue:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name"><span class="token namespace">v-bind:</span>value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>which can be shortened to:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>What is the difference between <code>v-model</code> and <code>:value</code>? <code>&#x3C;input :value="value" /></code> is a <em>one-way</em> data flow mechanism.</p>
+<p>To understand the difference let's change the previous example's input tag from <code>v-model="text"</code> to <code>:value="text"</code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"Unknown"</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>{{ text }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Open the demo. The input field is initialized with <code>'Unknown'</code>.</p>
+<p>Type some characters into the input field... and the text rendered on the screen always stays the same — <code>'Unknown'</code>. <code>text</code> ref <em>is not updated</em> when the input field changes.</p>
+<p><code>:value="text"</code> makes data flow in one direction only: from the <code>text</code> ref to the input field. Changing the input field value, however, doesn't change <code>text</code> ref.</p>
+<p><a href="https://dmitripavlutin.com//32f0a80e66967deb2d37f62d61cb769a/vue-v-bind-3.svg">Vue v-bind binding</a></p>
+<p>In conclusion, <code>v-model</code> enables a <em>two-way</em> data flow, while <code>:value</code> enables a <em>one-way</em> data flow.</p>
+<h3 id="21-emulating-v-model"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#21-emulating-v-model"></a>2.1 Emulating v-model<a aria-hidden="true" class="anchor-heading icon-link" href="#21-emulating-v-model"></a></h3>
+<p>Despite the difference, <code>v-model</code> can be emulated using <code>:value</code> and <code>@input</code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>can be expressed as:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">@input</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text = $event.target.value<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>The following code doesn't use <code>v-model</code>, but still has two-way data flow working:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"Unknown"</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">@input</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text = $event.target.value<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>{{ text }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Open the demo and type some characters into the input. The two-way binding is working correctly.</p>
+<p>The regular binding <code>:value="text"</code> enables the first flow.</p>
+<p><code>@input="text = $event.target.value"</code> updates <code>text</code> when user types into the input field gets triggered. That's the second flow.</p>
+<h2 id="3-binding-using-reactive"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#3-binding-using-reactive"></a>3. Binding using reactive()<a aria-hidden="true" class="anchor-heading icon-link" href="#3-binding-using-reactive"></a></h2>
+<p><a href="https://vuejs.org/api/reactivity-core.html#reactive">reactive()</a> is a Vue reactivity API that makes an object reactive.</p>
+<p>The main <a href="https://dmitripavlutin.com/ref-reactive-differences-vue/">difference</a> between <code>ref()</code> and <code>reactive()</code> is that refs can store primitives and objects, while <code>reactive()</code> accepts only objects. And <code>reactive()</code> object can be access directly (without <code>.value</code> property as in the case of refs).</p>
+<p>Binding a reactive object to form inputs is handy when you have a lot of inputs. You can bind each input field with a specific property of the reactive object.</p>
+<p>Let's implement a form having first and last name inputs, and bound these to a reactive object's properties:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> reactive <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> firstName<span class="token operator">:</span> <span class="token string">"John"</span><span class="token punctuation">,</span> lastName<span class="token operator">:</span> <span class="token string">"Smith"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>person.firstName<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>person.lastName<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>Full name is {{ person.firstName }} {{ person.lastName }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>const person = reactive({ firstName: '', lastName: '' })</code> creates a reactive object.</p>
+<p><code>v-model="person.firstName"</code> binds with the first name property, as well as <code>v-model="person.lastName"</code> binds to the last name property.</p>
+<p>Open the demo. Type into the first or last name inputs, and you'll see that the rendered text changes according to the name you type.</p>
+<p>Pretty nice! Properties of a reactive object can serve as data buses for <code>v-model</code>. Use this approach to bind many input fields.</p>
+<h2 id="4-binding-different-input-types"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#4-binding-different-input-types"></a>4. Binding different input types<a aria-hidden="true" class="anchor-heading icon-link" href="#4-binding-different-input-types"></a></h2>
+<p>Many other input types like select, textarea, checkboxes, radio buttons can bind using <code>v-model</code>. Let's explore them.</p>
+<h3 id="41-textareas"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#41-textareas"></a>4.1 Textareas<a aria-hidden="true" class="anchor-heading icon-link" href="#41-textareas"></a></h3>
+<p>Binding a textarea to a ref is straightforward. Just use <code>v-model</code> on the textarea tag <code>&#x3C;textarea v-model="longText" /></code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> longText <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"Well... here's my story. One morning..."</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>textarea</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>longText<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>{{ longText }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="42-select-fields"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#42-select-fields"></a>4.2 Select fields<a aria-hidden="true" class="anchor-heading icon-link" href="#42-select-fields"></a></h3>
+<p>The select (aka dropdown) field offers user a pre-defined set of options to choose from.</p>
+<p>Binding a select is simple: <code>&#x3C;select v-model="selected" /></code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> employeeId <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>select</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>employeeId<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Jane Doe<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>option</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>John Doe<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>option</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>John Smith<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>option</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>select</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>Selected id: {{ employeeId }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>employeeId</code> is the ref bound to the select and will get the value of the option being selected.</p>
+<p>Because <code>employeeId</code> ref is initialized with <code>'2'</code>, <code>John Doe</code> option is initially selected.</p>
+<p>When you select another option, you can see that <code>employeeId</code> updates with the newly selected option value.</p>
+<p>If the select options do not have <code>value</code> attributes, then the binding works with the <em>text</em> of the options:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> employee <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"Jane Doe"</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>select</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>employee<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>option</span><span class="token punctuation">></span></span>Jane Doe<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>option</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>option</span><span class="token punctuation">></span></span>John Doe<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>option</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>option</span><span class="token punctuation">></span></span>John Smith<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>option</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>select</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>Selected: {{ employee }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Now the binding works directly with the textual value of the options. If you'd select the second option, then <code>employee</code> ref is assigned with <code>'John Doe'</code>.</p>
+<h3 id="43-checkboxes"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#43-checkboxes"></a>4.3 Checkboxes<a aria-hidden="true" class="anchor-heading icon-link" href="#43-checkboxes"></a></h3>
+<p>Thanks to <code>v-model</code> binding checkboxes is easy:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checked<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p><code>checked</code> ref is assigned with a boolean value indicating whether the checkbox is checked or not.</p>
+<p>Let's create a checkbox that bounds to a <code>checked</code> ref:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> checked <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>label</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checked<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>Want a pizza?<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>label</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>{{ checked }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>checked</code> ref is initialized with <code>true</code> and thus initially the checkbox is checked. Checking or unchecking the checkbox updates <code>checked</code> ref correspondingly with <code>true</code> or <code>false</code>. No rocket science here.</p>
+<p>To customize the checked/unchecked binding to other values that a boolean, then Vue offers 2 Vue-specific attributes on the checkbox:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checked<span class="token punctuation">"</span></span> <span class="token attr-name">true-value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Yes!<span class="token punctuation">"</span></span> <span class="token attr-name">false-value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>No<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>Now <code>checked</code> would be assigned to <code>'Yes!'</code> (as true value) or <code>'No'</code> (as false value) string depending on the checkbox status.</p>
+<p>Let's modify the previous example to use the custom values <code>'Yes!'</code> and <code>'No'</code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> answer <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"Yes!"</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>label</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span>
+      <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span>
+      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span>
+      <span class="token attr-name">true-value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Yes!<span class="token punctuation">"</span></span>
+      <span class="token attr-name">false-value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>No<span class="token punctuation">"</span></span>
+    <span class="token punctuation">/></span></span>
+
+    Want a pizza?
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>label</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>{{ answer }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>answer</code> now can have either <code>'Yes!'</code> or <code>'No'</code> depending on the checkbox's check status.</p>
+<h3 id="44-radio-buttons"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#44-radio-buttons"></a>4.4 Radio buttons<a aria-hidden="true" class="anchor-heading icon-link" href="#44-radio-buttons"></a></h3>
+<p>To bind a group of radio buttons apply to the group the same the same bus binding <code>v-model="option"</code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>option<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>a<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>option<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>b<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>option<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>c<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>For example, let's implement a radio buttons group to select the color of a T-shirt:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> color <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"white"</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>label</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>color<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>white<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>White<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>label</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>color<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>Red<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>label</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>color<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>Blue<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>T-shirt color: {{ color }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Initially, the <code>White</code> radio is selected because the <code>color</code> ref is initialized with <code>'white'</code>.</p>
+<p>Click on any other T-shirt color, and the <code>color</code> ref changes according to the selected color.</p>
+<p><code>value</code> attribute of the radio is bindable: you can use <code>:value</code>. That is helpful when the list of options comes from an array, for example:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> color <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"white"</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token constant">COLORS</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> option<span class="token operator">:</span> <span class="token string">"white"</span><span class="token punctuation">,</span> label<span class="token operator">:</span> <span class="token string">"White"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token punctuation">{</span> option<span class="token operator">:</span> <span class="token string">"black"</span><span class="token punctuation">,</span> label<span class="token operator">:</span> <span class="token string">"Black"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token punctuation">{</span> option<span class="token operator">:</span> <span class="token string">"blue"</span><span class="token punctuation">,</span> label<span class="token operator">:</span> <span class="token string">"Blue"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>label</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{ option, label } in COLORS<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>option<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>color<span class="token punctuation">"</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>option<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span> {{ label }}
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>label</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>T-shirt color: {{ color }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="5-v-model-modifiers"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#5-v-model-modifiers"></a>5. v-model modifiers<a aria-hidden="true" class="anchor-heading icon-link" href="#5-v-model-modifiers"></a></h2>
+<p>On top of doing a wonderful job with binding form inputs, <code>v-model</code> has an additional feature called modifier.</p>
+<blockquote>
+<p><em>A modifier</em> is a piece of logic applied to <code>v-model</code> to customize its behavior. A modifier is applied to <code>v-model</code> by using a dot syntax <code>v-model.&#x3C;modifier></code>, for example <code>v-mode.trim</code>.</p>
+</blockquote>
+<p>By default Vue offers 3 modifies: trim, number, and lazy.</p>
+<h3 id="51-trim"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#51-trim"></a>5.1 trim<a aria-hidden="true" class="anchor-heading icon-link" href="#51-trim"></a></h3>
+<p>Trimming a string means removing whitespaces from the beginning and the end of the string. For example, trim applied to <code>' Wow! '</code> results in <code>'Wow!'</code>.</p>
+<p><code>v-model.trim</code> modifier trims the input field value before assinging the value to the bound ref.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">v-model.trim</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>pre</span><span class="token punctuation">></span></span>"{{ text }}"<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>pre</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Open the demo. Type a value that starts or ends with spaces, e.g. <code>' Hi! '</code>. You'll see that the rendered text <code>'Hi!'</code> doesn't have spaces on both ends.</p>
+<h3 id="52-number"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#52-number"></a>5.2 number<a aria-hidden="true" class="anchor-heading icon-link" href="#52-number"></a></h3>
+<p><code>v-mode.number</code> modifier applies a number parser on the input field value.</p>
+<p><code>v-model.number="number"</code> assigns to <code>number</code> a real number if the user introduced a value that can be parsed to a number. In other cases, if the introduced value is not numeric, <code>number</code> ref is just assigned to the original string.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> number <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">v-model.number</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>{{ typeof number }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><a href="https://codesandbox.io/s/v-model-number-vbeifz?file=/src/App.vue">Open the demo.</a></p>
+<p>When you introduce <code>'345'</code> into the input, then <code>number</code> ref becomes <code>345</code> (a number). Value parsing happens automatically.</p>
+<p>But if you introduce a non-numeric value into the input, like <code>'abc'</code>, then <code>number</code> ref is assigned with the same value <code>'abc'</code>.</p>
+<h3 id="53-lazy"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#53-lazy"></a>5.3 lazy<a aria-hidden="true" class="anchor-heading icon-link" href="#53-lazy"></a></h3>
+<p>By default, <code>v-model</code> uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event">"input"</a> event to determine when to update the bound ref. But using the modifier <code>v-model.lazy</code> you can alter the event to be <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event">"change"</a> event.</p>
+<p>What's the main difference between <code>input</code> and <code>change</code> events?</p>
+<p><code>input</code> is triggered every time you keypress in the input field.</p>
+<p><code>change</code>, however, is triggered <em>only</em> when you take the focus from the input field. Typing into the input field does not trigger <code>change</code>.</p>
+<p>The following example uses lazy binding:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> ref <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"vue"</span>
+
+  <span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"Unknown"</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span> <span class="token attr-name">v-model.lazy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span>{{ text }}<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Open the demo and type a few characters into the input. The rendered text stays the same: <code>Unknown</code>.</p>
+<p>Now click somewhere outside of the input field to make it lose focus. The rendered text updates to the value that you introduced earlier.</p>
+<p>If you have a form with many input fields and heavy state, you can apply the lazy modifier to disable realtime reactivity as the user types. That could prevent page <em>freezes</em> during typing.</p>
+<h2 id="6-conclusion"><a href="https://dmitripavlutin.com/vue-v-model-form-inputs/#6-conclusion"></a>6. Conclusion<a aria-hidden="true" class="anchor-heading icon-link" href="#6-conclusion"></a></h2>
+<p>From all the details you've read, remember just one.</p>
+<p><code>v-model</code> binds form inputs to refs or reactive objects.</p>
+<p>Binding is performed in 2 easy steps:</p>
+<ul>
+<li>First, create the ref <code>const text = ref('')</code>.</li>
+<li>Second, assign the ref to the <code>v-model</code> attribute: <code>&#x3C;input v-model="text" type="text" /></code></li>
+</ul>
+<p><code>text</code> ref is kept in sync (bound) with the input field value.</p>

@@ -1,0 +1,90 @@
+<h1 id="tips-for-typing-import-statements-in-javascript">Tips for typing import statements in JavaScript<a aria-hidden="true" class="anchor-heading icon-link" href="#tips-for-typing-import-statements-in-javascript"></a></h1>
+<blockquote>
+<p><a href="https://2ality.com/2017/08/typing-import-statements.html">https://2ality.com/2017/08/typing-import-statements.html</a></p>
+</blockquote>
+<p>This blog post gives tips for typing import statements more quickly, including a helpful text snippet for Visual Studio Code.</p>
+<hr>
+<h2 id="does-javascripts-import-statement-have-the-wrong-syntax">Does JavaScript’s <code>import</code> statement have the wrong syntax?  <a href="https://2ality.com/2017/08/typing-import-statements.html#wrong-import-statement-syntax">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#does-javascripts-import-statement-have-the-wrong-syntax"></a></h2>
+<p>People occasionally complain that JavaScript’s import statement has it backwards. The syntax is:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> one<span class="token punctuation">,</span> two<span class="token punctuation">,</span> three <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"./my-module.js"</span>
+</code></pre>
+<p>They argue that it should be:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">from</span> <span class="token string">'./my-module.js'</span> <span class="token keyword module">import</span> <span class="token punctuation">{</span>one<span class="token punctuation">,</span> two<span class="token punctuation">,</span> three<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>As an aside, that’s how Python does imports.</p>
+<p>Why? It would make auto-expansion easier: We’d first type the module specifier <code>'./my-module.js'</code> and then the imported values <code>{one, two, three}</code>. During the latter step, the IDE has the necessary context for helping us out.</p>
+<p>The reasons for the different order in JavaScript are:</p>
+<ul>
+<li>It’s the same order as variable declarations.</li>
+<li>It’s the same order as using <code>require()</code> in Node.js modules.</li>
+</ul>
+<p>Given that we only write code once but read it many times, the focus should be on which version is easier to read. And there, I slightly prefer JavaScript’s current syntax.</p>
+<h2 id="auto-importing">Auto-importing  <a href="https://2ality.com/2017/08/typing-import-statements.html#auto-importing">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#auto-importing"></a></h2>
+<p>These days, I mostly write TypeScript and I mostly use Visual Studio Code (VSC).</p>
+<p>There, auto-importing has gotten really good: If there is a value I want to import, I type its name, auto-expand it (Control-Space on macOS) and VSC imports it for me. I neither have to know the name of the module nor get its relative path right.</p>
+<p>Additionally, I use the “Organize Imports” command (which has a keyboard shortcut that you can look up via the Command Palette) to:</p>
+<ul>
+<li>Remove unused imports.</li>
+<li>Show modules and imported values in a consistent order.</li>
+</ul>
+<h2 id="manually-typing-import-statements">Manually typing <code>import</code> statements  <a href="https://2ality.com/2017/08/typing-import-statements.html#manually-typing-import-statements">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#manually-typing-import-statements"></a></h2>
+<p>When typing import statements manually:</p>
+<ol>
+<li>
+<p>I import nothing via <code>{}</code> and auto-expand the module specifier:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span><span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"█"</span>
+</code></pre>
+</li>
+<li>
+<p>I go back and auto-expand the imported values:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span>█<span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'./my-module.js'</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
+</ol>
+<h2 id="a-code-snippet-for-faster-entry">A code snippet for faster entry  <a href="https://2ality.com/2017/08/typing-import-statements.html#a-code-snippet-for-faster-entry">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#a-code-snippet-for-faster-entry"></a></h2>
+<p>To create a snippet for Visual Studio Code that helps with <code>import</code> statements, follow these steps:</p>
+<ol>
+<li>
+<p>Execute the menu command <code>File > Preferences > User Snippets</code> (Mac: <code>Code > Preferences > User Snippets</code>).</p>
+</li>
+<li>
+<p>Pick the language “JavaScript”.</p>
+</li>
+<li>
+<p>Add this property to the JSON file:</p>
+<pre class="language-js"><code class="language-js"><span class="token string">"import"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"prefix"</span><span class="token operator">:</span> <span class="token string">"imp"</span><span class="token punctuation">,</span>
+    <span class="token string">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"import ${2:values} from '${1:specifier}';$0"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"description"</span><span class="token operator">:</span> <span class="token string">"import statement"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ol>
+<p>Explanation:</p>
+<ul>
+<li>Initially, place the cursor after <code>from</code> (position <code>$1</code>). The placeholder we’ll see at that position is <code>specifier</code>.</li>
+<li>The next time we press the <code>&#x3C;tab></code> key, the cursor will jump to after <code>import</code> (position <code>$2</code>).</li>
+<li>The last tab stop is after the semicolon (position <code>$0</code>).</li>
+</ul>
+<p>Now editing works as follows:</p>
+<ol>
+<li><code>imp &#x3C;tab></code></li>
+<li><code>import values from '█';</code></li>
+<li>Use auto-expansion.</li>
+<li><code>import values from './my-module.js█';</code></li>
+<li><code>&#x3C;tab></code></li>
+<li><code>import █ from './my-module.js';</code></li>
+<li><code>import {█} from './my-module.js';</code></li>
+<li>Use auto-expansion.</li>
+<li><code>import {one, two, three█} from './my-module.js';</code></li>
+<li><code>&#x3C;tab></code></li>
+<li><code>import {one, two, three} from './my-module.js';█</code></li>
+</ol>
+<p><strong>Update 2017-09-20:</strong> A similar snippet is now built into Visual Studio Code for <code>.js(x)</code> files (previously, only TypeScript was supported (<a href="https://github.com/Microsoft/vscode/pull/34682">more information</a>).</p>
+<h2 id="further-reading">Further reading  <a href="https://2ality.com/2017/08/typing-import-statements.html#further-reading">#</a><a aria-hidden="true" class="anchor-heading icon-link" href="#further-reading"></a></h2>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets">Creating your own Snippets in Visual Studio Code</a></li>
+<li><a href="http://exploringjs.com/es6/ch_modules.html">Chapter “Modules”</a> in “JavaScript for impatient programmers”</li>
+</ul>

@@ -1,0 +1,29 @@
+<h1 id="style-a-parent-element-based-on-its-number-of-children-using-css-has">style-a-parent-element-based-on-its-number-of-children-using-css-has<a aria-hidden="true" class="anchor-heading icon-link" href="#style-a-parent-element-based-on-its-number-of-children-using-css-has"></a></h1>
+<blockquote>
+<p><a href="https://www.bram.us/2022/11/17/style-a-parent-element-based-on-its-number-of-children-using-css-has/">https://www.bram.us/2022/11/17/style-a-parent-element-based-on-its-number-of-children-using-css-has/</a></p>
+</blockquote>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* At most 3 (3 or less, excluding 0) children */</span>
+<span class="token selector">ul<span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token combinator">></span> <span class="token pseudo-class">:nth-child</span><span class="token punctuation">(</span><span class="token n-th"><span class="token operator">-</span><span class="token number">n</span> <span class="token operator">+</span> <span class="token number">3</span></span><span class="token punctuation">)</span><span class="token pseudo-class">:last-child</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token color">red</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* At most 3 (3 or less, including 0) children */</span>
+<span class="token selector">ul<span class="token pseudo-class">:not</span><span class="token punctuation">(</span><span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token combinator">></span> <span class="token pseudo-class">:nth-child</span><span class="token punctuation">(</span><span class="token n-th"><span class="token number">3</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token color">red</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Exactly 5 children */</span>
+<span class="token selector">ul<span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token combinator">></span> <span class="token pseudo-class">:nth-child</span><span class="token punctuation">(</span><span class="token n-th"><span class="token number">5</span></span><span class="token punctuation">)</span><span class="token pseudo-class">:last-child</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token color">blue</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* At least 10 (10 or more) children */</span>
+<span class="token selector">ul<span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token combinator">></span> <span class="token pseudo-class">:nth-child</span><span class="token punctuation">(</span><span class="token n-th"><span class="token number">10</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token color">green</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Between 7 and 9 children (boundaries inclusive) */</span>
+<span class="token selector">ul<span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token combinator">></span> <span class="token pseudo-class">:nth-child</span><span class="token punctuation">(</span><span class="token n-th"><span class="token number">7</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token pseudo-class">:has</span><span class="token punctuation">(</span><span class="token combinator">></span> <span class="token pseudo-class">:nth-child</span><span class="token punctuation">(</span><span class="token n-th"><span class="token operator">-</span><span class="token number">n</span> <span class="token operator">+</span> <span class="token number">9</span></span><span class="token punctuation">)</span><span class="token pseudo-class">:last-child</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token color">yellow</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>

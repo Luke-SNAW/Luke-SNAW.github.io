@@ -1,0 +1,190 @@
+<h1 id="javascript-closure-a-simple-explanation">JavaScript Closure: A Simple Explanation<a aria-hidden="true" class="anchor-heading icon-link" href="#javascript-closure-a-simple-explanation"></a></h1>
+<blockquote>
+<p><a href="https://dmitripavlutin.com/javascript-closure/">https://dmitripavlutin.com/javascript-closure/</a></p>
+</blockquote>
+<p>The callbacks, event handlers, higher-order functions can access outer scope variables thanks to the closure. The closure concept is important in functional programming and is often asked during the JavaScript coding interview.</p>
+<p>While being used everywhere, closures are difficult to grasp. If you haven't had your "Aha!" moment in understanding closures, then this post is for you.</p>
+<p>I'll start with the fundamental terms: scope and lexical scope. Then, after grasping the basics, you'll need just one step to finally understand closures.</p>
+<p>Before starting, I suggest you resist the urge to skip the scope and lexical scope sections. These concepts are crucial to closures, and if you get them well, the idea of closure becomes self-evident.</p>
+<h2 id="1-the-scope"><a href="https://dmitripavlutin.com/javascript-closure/#1-the-scope"></a>1. The scope<a aria-hidden="true" class="anchor-heading icon-link" href="#1-the-scope"></a></h2>
+<p>When you define a variable, you want it to exist within some boundaries. E.g. a <code>result</code> variable makes sense to exist within a <code>calculate()</code> function, as an internal detail. Outside of the <code>calculate()</code>, the <code>result</code> variable is useless.</p>
+<p>The accessibility of variables is managed by <em>scope</em>. You are free to access the variable defined within its scope. But outside of that scope, the variable is inaccessible.</p>
+<p>In JavaScript, a scope is created by a function or a code block.</p>
+<p>Let's see how the scope affects the availability of a variable <code>count</code>. This variable belongs to the scope created by function <code>foo()</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// The function scope</span>
+  <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span> <span class="token comment">// logs 0</span>
+<span class="token punctuation">}</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span> <span class="token comment">// ReferenceError: count is not defined</span>
+</code></pre>
+<p><code>count</code> is freely accessed within the scope of <code>foo()</code>.</p>
+<p>However, outside of the <code>foo()</code> scope, <code>count</code> is inaccessible. If you try to access <code>count</code> from outside anyways, JavaScript throws <code>ReferenceError: count is not defined</code>.</p>
+<p>If you've defined a variable inside of a function or code block, then you can use this variable only within that function or code block. The above example demonstrates this behavior.</p>
+<p>Now, let's see a general formulation:</p>
+<blockquote>
+<p><em>The scope</em> is a space policy that rules the accessibility of variables.</p>
+</blockquote>
+<p>An immediate property arises — the scope <em>isolates</em> variables. That's great because <em>different scopes can have variables with the same name</em>.</p>
+<p>You can reuse common variables names (<code>count</code>, <code>index</code>, <code>current</code>, <code>value</code>, etc) in different scopes without collisions.</p>
+<p><code>foo()</code> and <code>bar()</code> function scopes have their own, but same named, variables <code>count</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// "foo" function scope</span>
+  <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span> <span class="token comment">// logs 0</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// "bar" function scope</span>
+  <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span> <span class="token comment">// logs 1</span>
+<span class="token punctuation">}</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>count</code> variables from <code>foo()</code> and <code>bar()</code> function scopes do not collide.</p>
+<h2 id="2-scopes-nesting"><a href="https://dmitripavlutin.com/javascript-closure/#2-scopes-nesting"></a>2. Scopes nesting<a aria-hidden="true" class="anchor-heading icon-link" href="#2-scopes-nesting"></a></h2>
+<p>Let's play a bit more with scopes, and nest one scope into another. For example, the function <code>innerFunc()</code> is nested inside an outer function <code>outerFunc()</code>.</p>
+<p>How would the 2 function scopes interact with each other? Can I access the variable <code>outerVar</code> of <code>outerFunc()</code> from within <code>innerFunc()</code> scope?</p>
+<p>Let's try that in the example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">outerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// the outer scope</span>
+  <span class="token keyword">let</span> outerVar <span class="token operator">=</span> <span class="token string">"I am outside!"</span>
+  <span class="token keyword">function</span> <span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the inner scope</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>outerVar<span class="token punctuation">)</span> <span class="token comment">// => logs "I am outside!"</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">outerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Indeed, <code>outerVar</code> variable is accessible inside <code>innerFunc()</code> scope. The variables of the outer scope are accessible inside the inner scope.</p>
+<p>Now you know 2 interesting things:</p>
+<ul>
+<li><em>Scopes can be nested</em></li>
+<li><em>The variables of the outer scope are accessible inside the inner scope</em></li>
+</ul>
+<h2 id="3-the-lexical-scope">3. The lexical scope<a aria-hidden="true" class="anchor-heading icon-link" href="#3-the-lexical-scope"></a></h2>
+<p>How does JavaScript understand that <code>outerVar</code> inside <code>innerFunc()</code> corresponds to the variable <code>outerVar</code> of <code>outerFunc()</code>?</p>
+<p>JavaScript implements a scoping mechanism named <em>lexical scoping</em> (or static scoping). Lexical scoping means that the accessibility of variables is determined by the position of the variables inside the nested scopes.</p>
+<p>Simpler, the lexical scoping means that inside the inner scope you can access variables of outer scopes.</p>
+<p>It's called <em>lexical</em> (or <em>static</em>) because the engine determines (at <a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexing time</a>) the nesting of scopes just by looking at the JavaScript source code, without executing it.</p>
+<p>The distilled idea of the lexical scope:</p>
+<blockquote>
+<p><em>The lexical scope</em> consists of outer scopes determined statically.</p>
+</blockquote>
+<p>For example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> myGlobal <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> myVar <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>myGlobal<span class="token punctuation">)</span> <span class="token comment">// logs "0"</span>
+  <span class="token keyword">function</span> <span class="token function">innerOfFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> myInnerVar <span class="token operator">=</span> <span class="token number">2</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>myVar<span class="token punctuation">,</span> myGlobal<span class="token punctuation">)</span> <span class="token comment">// logs "1 0"</span>
+    <span class="token keyword">function</span> <span class="token function">innerOfInnerOfFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>myInnerVar<span class="token punctuation">,</span> myVar<span class="token punctuation">,</span> myGlobal<span class="token punctuation">)</span> <span class="token comment">// logs "2 1 0"</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">innerOfInnerOfFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">innerOfFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The lexical scope of <code>innerOfInnerOfFunc()</code> consits of scopes of <code>innerOfFunc()</code>, <code>func()</code> and global scope (the outermost scope). Within <code>innerOfInnerOfFunc()</code> you can access the lexical scope variables <code>myInnerVar</code>, <code>myVar</code> and <code>myGlobal</code>.</p>
+<p>The lexical scope of <code>innerFunc()</code> consists of <code>func()</code> and global scope. Within <code>innerOfFunc()</code> you can access the lexical scope variables <code>myVar</code> and <code>myGlobal</code>.</p>
+<p>Finally, the lexical scope of <code>func()</code> consists of only the global scope. Within <code>func()</code> you can access the lexical scope variable <code>myGlobal</code>.</p>
+<h2 id="4-the-closure"><a href="https://dmitripavlutin.com/javascript-closure/#4-the-closure"></a>4. The closure<a aria-hidden="true" class="anchor-heading icon-link" href="#4-the-closure"></a></h2>
+<p>Ok, the lexical scope allows to access the variables statically of the outer scopes. There's just one step until the closure!</p>
+<p>Let's take a look again at the <code>outerFunc()</code> and <code>innerFunc()</code> example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">outerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> outerVar <span class="token operator">=</span> <span class="token string">"I am outside!"</span>
+  <span class="token keyword">function</span> <span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>outerVar<span class="token punctuation">)</span> <span class="token comment">// => logs "I am outside!"</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">outerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Inside the <code>innerFunc()</code> scope, the variable <code>outerVar</code> is accessed from the lexical scope. That's known already.</p>
+<p>Note that <code>innerFunc()</code> invocation happens inside its lexical scope (the scope of <code>outerFunc()</code>).</p>
+<p>Let's make a change: <code>innerFunc()</code> to be invoked outside of its lexical scope: in a function <code>exec()</code>. Would <code>innerFunc()</code> still be able to access <code>outerVar</code>?</p>
+<p>Let's make the adjustments to the code snippet:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">outerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> outerVar <span class="token operator">=</span> <span class="token string">"I am outside!"</span>
+  <span class="token keyword">function</span> <span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>outerVar<span class="token punctuation">)</span> <span class="token comment">// => logs "I am outside!"</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow">return</span> innerFunc
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> myInnerFunc <span class="token operator">=</span> <span class="token function">outerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">myInnerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Now <code>innerFunc()</code> is executed outside of its lexical scope, but exactly in the scope of <code>exec()</code> function. And what's important:</p>
+<p><em><code>innerFunc()</code> still has access to <code>outerVar</code> from its lexical scope, even being executed outside of its lexical scope.</em></p>
+<p>In other words, <code>innerFunc()</code> <em>closes over</em> (a.k.a. captures, remembers) the variable <code>outerVar</code> from its lexical scope.</p>
+<p>In other words, <code>innerFunc()</code> is a <em>closure</em> because it closes over the variable <code>outerVar</code> from its lexical scope.</p>
+<p>You've made the final step to understanding what a closure is:</p>
+<blockquote>
+<p><em>The closure</em> is a function that accesses its lexical scope even executed outside of its lexical scope.</p>
+</blockquote>
+<p>Simpler, the closure is a function that remembers the variables from the place where it is defined, regardless of where it is executed later.</p>
+<p>A rule of thumb to identify a closure: if inside a function you see an alien variable (not defined inside that function), most likely that function is a closure because the alien variable is captured.</p>
+<p>In the previous code snippet, <code>outerVar</code> is an alien variable inside the closure <code>innerFunc()</code> captured from <code>outerFunc()</code> scope.</p>
+<p>Let's continue with examples that demonstrate why the closure is useful.</p>
+<h2 id="5-closure-examples"><a href="https://dmitripavlutin.com/javascript-closure/#5-closure-examples"></a>5. Closure examples<a aria-hidden="true" class="anchor-heading icon-link" href="#5-closure-examples"></a></h2>
+<h3 id="51-event-handler"><a href="https://dmitripavlutin.com/javascript-closure/#51-event-handler"></a>5.1 Event handler<a aria-hidden="true" class="anchor-heading icon-link" href="#51-event-handler"></a></h3>
+<p>Let's display how many times a button is clicked:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> countClicked <span class="token operator">=</span> <span class="token number">0</span>
+myButton<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  countClicked<span class="token operator">++</span>
+  myText<span class="token punctuation">.</span><span class="token property-access">innerText</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">You clicked </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>countClicked<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> times</span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>When the button is clicked, <code>handleClick()</code> is executed somewhere inside of the DOM code. The execution happens far from the place of the definition.</p>
+<p>But being a closure, <code>handleClick()</code> captures <code>countClicked</code> from the lexical scope and updates it when a click happens. Even more, <code>myText</code> is captured too.</p>
+<h3 id="52-callbacks"><a href="https://dmitripavlutin.com/javascript-closure/#52-callbacks"></a>5.2 Callbacks<a aria-hidden="true" class="anchor-heading icon-link" href="#52-callbacks"></a></h3>
+<p>Capturing variables from the lexical scope is useful in callbacks.</p>
+<p>A <code>setTimeout()</code> callback:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token string">"Hello, World!"</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token comment">// logs "Hello, World!"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The <code>callback()</code> is a closure because it captures the variable <code>message</code>.</p>
+<p>An iterator function for <code>forEach()</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> countEven <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span>
+items<span class="token punctuation">.</span><span class="token method function property-access">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">iterator</span><span class="token punctuation">(</span><span class="token parameter">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>number <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    countEven<span class="token operator">++</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+countEven <span class="token comment">// => 2</span>
+</code></pre>
+<p>The <code>iterator</code> is a closure because it captures <code>countEven</code> variable.</p>
+<h3 id="53-functional-programming"><a href="https://dmitripavlutin.com/javascript-closure/#53-functional-programming"></a>5.3 Functional programming<a aria-hidden="true" class="anchor-heading icon-link" href="#53-functional-programming"></a></h3>
+<p>Currying happens when a function returns another function until the arguments are fully supplied.</p>
+<p>For example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token keyword">function</span> <span class="token function">executeMultiply</span><span class="token punctuation">(</span><span class="token parameter">b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> a <span class="token operator">*</span> b
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> double <span class="token operator">=</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">double</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">// => 6</span>
+<span class="token function">double</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment">// => 10</span>
+<span class="token keyword">const</span> triple <span class="token operator">=</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token function">triple</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">// => 12</span>
+</code></pre>
+<p><code>multiply</code> is a curried function that returns another function.</p>
+<p>Currying, an important concept of functional programming, is also possible thanks to closures.</p>
+<p><code>executeMultiply(b)</code> is a closure that captures <code>a</code> from its lexical scope. When the closure is invoked, the captured variable <code>a</code> and the parameter <code>b</code> are used to calculate <code>a * b</code>.</p>
+<h2 id="6-conclusion"><a href="https://dmitripavlutin.com/javascript-closure/#6-conclusion"></a>6. Conclusion<a aria-hidden="true" class="anchor-heading icon-link" href="#6-conclusion"></a></h2>
+<p>The scope rules the accessibility of variables. There can be a function or a block scope.</p>
+<p>The lexical scope allows a function scope to access statically the variables from the outer scopes.</p>
+<p>Finally, a closure is a function that captures variables from its lexical scope. In simple words, the closure remembers the variables from the place where it is defined, no matter where it is executed.</p>
+<p>Closures allow event handlers, callbacks to capture variables. They're used in functional programming. Moreover, you could be asked how closures work during a Frontend job interview.</p>
+<p>What about a challenge? <a href="https://dmitripavlutin.com/javascript-closures-interview-questions/">7 Interview Questions on JavaScript Closures. Can You Answer Them?</a></p>

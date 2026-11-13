@@ -1,0 +1,175 @@
+<h1 id="rds-blue-green-deployment-qa">Rds Blue Green Deployment Qa<a aria-hidden="true" class="anchor-heading icon-link" href="#rds-blue-green-deployment-qa"></a></h1>
+<p>Claude Opus 4.5 문답</p>
+<h1 id="aws-rds-bluegreen-배포-qa">AWS RDS Blue/Green 배포 Q&#x26;A<a aria-hidden="true" class="anchor-heading icon-link" href="#aws-rds-bluegreen-배포-qa"></a></h1>
+<h2 id="1-blue-환경의-변경사항이-green에-자동-반영되는가">1. Blue 환경의 변경사항이 Green에 자동 반영되는가?<a aria-hidden="true" class="anchor-heading icon-link" href="#1-blue-환경의-변경사항이-green에-자동-반영되는가"></a></h2>
+<p><strong>네, 자동으로 복제됩니다.</strong></p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>자동 복제 여부</th></tr></thead><tbody><tr><td>데이터 변경 (INSERT/UPDATE/DELETE)</td><td>✅ 자동 복제 (논리적 복제)</td></tr><tr><td>스키마 변경 (DDL)</td><td>⚠️ 복제되지만 주의 필요</td></tr><tr><td>파라미터 그룹 변경</td><td>❌ 별도 적용 필요</td></tr><tr><td>DB 엔진 버전</td><td>❌ Green에서 별도 설정</td></tr></tbody></table></div>
+<p><strong>주의사항:</strong></p>
+<ul>
+<li>Green 환경은 생성 시점부터 Blue의 변경사항을 <strong>논리적 복제(Logical Replication)</strong>로 동기화</li>
+<li>DDL 변경(테이블 구조 변경 등)은 복제 지연이나 오류를 일으킬 수 있음</li>
+<li>Switchover 전까지 Green은 <strong>읽기 전용</strong></li>
+<li>Switchover 시 약 1분 미만의 다운타임 발생</li>
+</ul>
+<hr>
+<h2 id="2-switchover-후-엔드포인트는-어떻게-전환되는가">2. Switchover 후 엔드포인트는 어떻게 전환되는가?<a aria-hidden="true" class="anchor-heading icon-link" href="#2-switchover-후-엔드포인트는-어떻게-전환되는가"></a></h2>
+<p><strong>기존 엔드포인트로 접근하면 자동으로 새 Blue(이전 Green)에 연결됩니다.</strong></p>
+<p><strong>Switchover 전:</strong>
+| 환경 | 인스턴스 ID | 엔드포인트 |
+|------|------------|-----------|
+| Blue (현재 운영) | <code>partners-product</code> | <code>partners-product.xxx.rds.amazonaws.com</code> |
+| Green (대기) | <code>partners-product-green-1ngi7u</code> | <code>partners-product-green-1ngi7u.xxx.rds.amazonaws.com</code> |</p>
+<p><strong>Switchover 후:</strong>
+| 환경 | 인스턴스 ID | 엔드포인트 |
+|------|------------|-----------|
+| 새 Blue (운영) | <code>partners-product</code> | <code>partners-product.xxx.rds.amazonaws.com</code> ← Green이 승격 |
+| 이전 Blue | <code>partners-product-old1</code> | <code>partners-product-old1.xxx.rds.amazonaws.com</code> |</p>
+<p><strong>핵심 포인트:</strong></p>
+<ul>
+<li>애플리케이션의 <code>DATABASE_URL</code>을 변경할 필요 없음</li>
+<li>이전 Blue 인스턴스는 <code>-old</code> 접미사가 붙은 새 이름으로 변경되어 유지됨</li>
+</ul>
+<hr>
+<h2 id="3-switchover-중-데이터-조작은-어떻게-처리되는가">3. Switchover 중 데이터 조작은 어떻게 처리되는가?<a aria-hidden="true" class="anchor-heading icon-link" href="#3-switchover-중-데이터-조작은-어떻게-처리되는가"></a></h2>
+<p><strong>Switchover 중 쓰기 작업은 차단(block)됩니다. 따로 저장 후 나중에 적용되지 않습니다.</strong></p>
+<p><strong>Switchover 과정:</strong></p>
+<ol>
+<li><strong>쓰기 차단</strong> - Blue 환경의 쓰기 작업 중단</li>
+<li><strong>복제 완료 대기</strong> - Green이 Blue의 모든 변경사항을 따라잡을 때까지 대기</li>
+<li><strong>엔드포인트 전환</strong> - DNS 전환</li>
+<li><strong>쓰기 재개</strong> - 새 Blue(이전 Green)에서 쓰기 허용</li>
+</ol>
+<p><strong>쓰기 요청 처리 방식:</strong></p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>상황</th><th>결과</th></tr></thead><tbody><tr><td>Switchover 중 INSERT/UPDATE/DELETE</td><td>연결 대기 또는 타임아웃 에러</td></tr><tr><td>Switchover 중 SELECT</td><td>짧은 지연 후 성공 가능</td></tr><tr><td>Switchover 완료 후</td><td>정상 처리</td></tr></tbody></table></div>
+<p>실패한 트랜잭션은 애플리케이션에서 재시도해야 합니다.</p>
+<p><strong>애플리케이션 권장 사항:</strong></p>
+<ul>
+<li>DB 연결에 재시도 로직 구현</li>
+<li>타임아웃 설정 적절히 조정</li>
+<li>Switchover는 트래픽이 적은 시간대에 수행</li>
+</ul>
+<hr>
+<h2 id="4-switchover-후-롤백이-가능한가">4. Switchover 후 롤백이 가능한가?<a aria-hidden="true" class="anchor-heading icon-link" href="#4-switchover-후-롤백이-가능한가"></a></h2>
+<p><strong>자동 롤백 기능은 없습니다.</strong> 하지만 수동으로 되돌릴 수 있습니다.</p>
+<p><strong>Switchover 후 상황:</strong></p>
+<ul>
+<li>이전 Blue 인스턴스(<code>partners-product-old1</code>)가 그대로 유지됨</li>
+<li>이 인스턴스는 삭제하지 않는 한 계속 존재</li>
+</ul>
+<p><strong>수동 롤백 방법:</strong></p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>방법</th><th>설명</th><th>주의사항</th></tr></thead><tbody><tr><td>인스턴스 이름 변경</td><td>이전 Blue의 이름을 원래대로 복원</td><td>Switchover 이후 새 데이터 유실</td></tr><tr><td>새 Blue/Green 배포</td><td>이전 Blue를 소스로 새 배포 생성</td><td>시간 소요</td></tr></tbody></table></div>
+<p><strong>핵심 문제점:</strong></p>
+<pre><code>Switchover 후 새 Blue에 쓰인 데이터는 이전 Blue에 없음
+→ 롤백 시 Switchover 이후의 데이터 유실
+</code></pre>
+<p><strong>권장 사항:</strong></p>
+<ol>
+<li>Switchover 전 스냅샷 생성</li>
+<li>이전 Blue 인스턴스 즉시 삭제하지 않기 (검증 기간 확보)</li>
+<li>충분한 테스트 후 Switchover 진행</li>
+<li>문제 발생 시 빠른 판단 필요 (새 데이터가 쌓이기 전에 결정)</li>
+</ol>
+<hr>
+<h2 id="5-switchover-후-새-blue의-데이터가-이전-blue에-복제되는가">5. Switchover 후 새 Blue의 데이터가 이전 Blue에 복제되는가?<a aria-hidden="true" class="anchor-heading icon-link" href="#5-switchover-후-새-blue의-데이터가-이전-blue에-복제되는가"></a></h2>
+<p><strong>복제되지 않습니다.</strong></p>
+<p>Switchover 완료 후 Blue/Green 배포는 <strong>종료</strong>됩니다.</p>
+<p><strong>Switchover 후 상태:</strong></p>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>인스턴스</th><th>상태</th><th>복제</th></tr></thead><tbody><tr><td>새 Blue (<code>partners-product</code>)</td><td>독립 운영</td><td>❌ 복제 없음</td></tr><tr><td>이전 Blue (<code>partners-product-old1</code>)</td><td>독립 인스턴스로 유지</td><td>❌ 복제 없음</td></tr></tbody></table></div>
+<p><strong>Blue/Green 배포 생명주기:</strong></p>
+<pre><code>생성 → Blue에서 Green으로 복제 → Switchover → 배포 종료
+                                              ↓
+                                    두 인스턴스는 완전히 분리됨
+</code></pre>
+<p><strong>따라서:</strong></p>
+<ul>
+<li>Switchover 후 이전 Blue는 그 시점의 스냅샷 상태로 고정</li>
+<li>롤백용으로 보관하려면 직접 유지해야 함</li>
+<li>더 이상 필요 없으면 수동으로 삭제</li>
+</ul>
+<p>이것이 롤백 시 "Switchover 이후 데이터 유실" 문제가 발생하는 이유입니다.</p>

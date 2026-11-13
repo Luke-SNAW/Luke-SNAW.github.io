@@ -1,0 +1,56 @@
+<h1 id="javascript-debug">Javascript debug<a aria-hidden="true" class="anchor-heading icon-link" href="#javascript-debug"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://www.builder.io/blog/inspect-interactions-in-the-browser">How to Inspect Interactions in the Browser</a></li>
+<li><a href="https://dbushell.com/2025/03/29/et-tu-grammarly/">Et Tu, Grammarly?</a></li>
+</ul>
+<h2 id="developer-tools-secrets-that-shouldnt-be-secrets"><a href="https://christianheilmann.com/2021/11/01/developer-tools-secrets-that-shouldnt-be-secrets/">Developer Tools secrets that shouldn’t be secrets</a><a aria-hidden="true" class="anchor-heading icon-link" href="#developer-tools-secrets-that-shouldnt-be-secrets"></a></h2>
+<pre class="language-javascript"><code class="language-javascript"><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span>width<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">third</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span><span class="token punctuation">(</span><span class="token operator">!</span>name<span class="token punctuation">)</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Name isn't defined :(</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token keyword control-flow">else</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">assert</span><span class="token punctuation">(</span>
+      name<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&#x3C;=</span> <span class="token number">8</span><span class="token punctuation">,</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is not less than eight letters"</span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>console.group()</li>
+<li>console.table()</li>
+<li>Blinging it up: <span class="math math-inline"><span class="katex-error" title="ParseError: KaTeX parse error: Can&#x27;t use function &#x27;$&#x27; in math mode at position 8: () and $̲" style="color:#cc0000">() and $</span></span>()</li>
+<li><a href="https://docs.microsoft.com/microsoft-edge/devtools-guide-chromium/console/utilities">Console Utilities</a></li>
+</ul>
+<h2 id="monitor-events-and-function-calls-via-console"><a href="https://davidwalsh.name/monitorevents">Monitor Events and Function Calls via Console</a><a aria-hidden="true" class="anchor-heading icon-link" href="#monitor-events-and-function-calls-via-console"></a></h2>
+<h3 id="monitor-events">Monitor Events<a aria-hidden="true" class="anchor-heading icon-link" href="#monitor-events"></a></h3>
+<p>Pass an element and a series of events to <code>monitorEvents</code> to get a console log when the event happens:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Monitor any clicks within the window</span>
+<span class="token function">monitorEvents</span><span class="token punctuation">(</span><span class="token dom variable">window</span><span class="token punctuation">,</span> <span class="token string">"click"</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Monitor for keyup and keydown events on the body</span>
+<span class="token function">monitorEvents</span><span class="token punctuation">(</span><span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"keyup"</span><span class="token punctuation">,</span> <span class="token string">"keydown"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>You can pass an array of events to listen for multiple events. The logged <code>event</code> represents the same event you'd see if you manually called <code>addEventListener</code>.</p>
+<h3 id="monitor-function-calls">Monitor Function Calls<a aria-hidden="true" class="anchor-heading icon-link" href="#monitor-function-calls"></a></h3>
+<p>The <code>monitor</code> method allows you to listen for calls on a specific function:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Define a sample function</span>
+<span class="token keyword">function</span> <span class="token function">myFn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token comment">// Monitor it</span>
+<span class="token function">monitor</span><span class="token punctuation">(</span>myFn<span class="token punctuation">)</span>
+
+<span class="token comment">// Usage 1: Basic call</span>
+<span class="token function">myFn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// function myFn called</span>
+
+<span class="token comment">// Usage 2: Arguments</span>
+<span class="token function">myFn</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">// function myFn called with arguments: 1</span>
+</code></pre>
+<p>I really like that you can view the arguments provided, which is great for inspecting.</p>
+<p>I usually opt for <a href="https://davidwalsh.name/logpoints">logpoints</a> instead of embedding <code>console</code> statements in code, but <code>monitor</code> and <code>monitorEvents</code> provide an alternative to both.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/c5tvp4foed0gftuld7b40yb">Debugging dynamic content in browser dev tools</a></li>
+</ol>

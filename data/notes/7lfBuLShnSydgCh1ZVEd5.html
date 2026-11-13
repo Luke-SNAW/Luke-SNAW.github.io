@@ -1,0 +1,50 @@
+<h1 id="divops-tools">Divops Tools<a aria-hidden="true" class="anchor-heading icon-link" href="#divops-tools"></a></h1>
+<h2 id="collections">Collections<a aria-hidden="true" class="anchor-heading icon-link" href="#collections"></a></h2>
+<ul>
+<li><a href="https://swc.rs/">Speedy Web Compiler</a> - Rust-based platform for the Web</li>
+<li><a href="https://bun.sh/">bun</a> is like postcss, babel, node &#x26; webpack in one 100x faster tool for building modern web frontends. Early access</li>
+<li><a href="https://github.com/BuilderIO/partytown">Partytown</a> is a lazy-loaded library to help relocate resource intensive scripts into a web worker, and off of the main thread. Its goal is to help speed up sites by dedicating the main thread to your code, and offloading third-party scripts to a web worker.</li>
+<li><a href="https://github.com/pnpm/pnpm">pnpm</a> - Fast, disk space efficient package manager
+<ul>
+<li>Fast. Up to 2x faster than the alternatives (see benchmark).</li>
+<li>Efficient. Files inside node_modules are linked from a single content-addressable storage.</li>
+<li>Great for monorepos.</li>
+<li>Strict. A package can access only dependencies that are specified in its package.json.</li>
+<li>Deterministic. Has a lockfile called pnpm-lock.yaml.</li>
+<li>Works as a Node.js version manager. See pnpm env use.</li>
+<li>Works everywhere. Supports Windows, Linux, and macOS.</li>
+<li>Battle-tested. Used in production by teams of all sizes since 2016.</li>
+<li><a href="https://pnpm.io/cli/import">https://pnpm.io/cli/import</a></li>
+<li><code>pnpm outdated --json</code> <a href="https://github.com/pnpm/pnpm/releases/tag/v7.15.0">https://github.com/pnpm/pnpm/releases/tag/v7.15.0</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/raineorshine/npm-check-updates">npm-check-updates</a> - Find newer versions of package dependencies than what your package.json allows
+<blockquote>
+<p>Selectively update the dependencies that you choose</p>
+<pre class="language-shell"><code class="language-shell">  ncu -i
+</code></pre>
+</blockquote>
+</li>
+<li><a href="https://github.com/volta-cli/volta">Volta</a> - The Hassle-Free JavaScript Tool Manager
+<ul>
+<li><a href="https://sirre.al/2021/02/12/volta-vs-nvm-for-managing-javascript-tooling/">Volta vs. nvm for JavaScript tooling</a></li>
+<li><a href="https://github.com/volta-cli/volta/issues/855#issuecomment-713218171">remove old node image</a></li>
+</ul>
+</li>
+<li><a href="https://upgraderoo.janez.tech/">Upgraderoo</a> helps you upgrade NPM packages, discover outdated packages and saves you time to focus on building your product.</li>
+<li><a href="https://vitejs.dev/blog/announcing-vite3.html">Vite 3.0 is out!</a>
+<blockquote>
+<p><a href="https://kit.svelte.dev/">SvelteKit</a>, <a href="https://astro.build/">Astro</a>, <a href="https://hydrogen.shopify.dev/">Hydrogen</a>, and <a href="https://docs.solidjs.com/start">SolidStart</a> are all built with Vite. <a href="https://laravel.com/docs/9.x/vite">Laravel has now decided to use Vite by default</a>. <a href="https://vite-ruby.netlify.app/">Vite Ruby</a> shows how Vite can improve Rails DX. <a href="https://vitest.dev/">Vitest</a> is making strides as a Vite-native alternative to Jest. Vite is behind <a href="https://docs.cypress.io/guides/component-testing/writing-your-first-component-test">Cypress</a> and <a href="https://playwright.dev/docs/test-components">Playwright</a>'s new Component Testing features, Storybook has <a href="https://github.com/storybookjs/builder-vite">Vite as an official builder</a>. And <a href="https://patak.dev/vite/ecosystem.html">the list goes on</a>.</p>
+</blockquote>
+</li>
+<li><a href="https://patak.dev/vite/build.html">vite build</a></li>
+</ul>
+<h2 id="pnpm">pnpm<a aria-hidden="true" class="anchor-heading icon-link" href="#pnpm"></a></h2>
+<h3 id="how-to-manage-multiple-nodejs-versions-with-pnpm"><a href="https://medium.com/frontendweb/how-to-manage-multiple-nodejs-versions-with-pnpm-8bcce90abedb">How to manage multiple nodejs versions with pnpm?</a><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-manage-multiple-nodejs-versions-with-pnpm"></a></h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">pnpm</span> <span class="token function">env</span> use --global lts
+</code></pre>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/JjnZGSlKYcKidhIXatYpe">Qwik</a></li>
+</ol>

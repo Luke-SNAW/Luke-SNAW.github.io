@@ -1,0 +1,177 @@
+<h1 id="what-sets-an-exceptional-programmer-apart-from-an-ordinary-programmer">What Sets an Exceptional Programmer Apart From an Ordinary Programmer<a aria-hidden="true" class="anchor-heading icon-link" href="#what-sets-an-exceptional-programmer-apart-from-an-ordinary-programmer"></a></h1>
+<p><a href="https://levelup.gitconnected.com/what-sets-an-exceptional-programmer-apart-from-an-ordinary-programmer-73d3fce24e21">https://levelup.gitconnected.com/what-sets-an-exceptional-programmer-apart-from-an-ordinary-programmer-73d3fce24e21</a></p>
+<p>Programming is a discipline which you can master with time.</p>
+<p>The general rule is that the more time you <em>mentally</em> spend with your code (not necessarily in front of your monitor), the better programmer you become.</p>
+<p>That is the reason I personally do not like labels such as <em>exceptional</em> and <em>ordinary</em>.</p>
+<p>That said, this question always nags interviewers, because they are forced to make comparisons. Interview candidates also go through an intense amount of stress regarding how to demonstrate themselves better than others, as against being simply good — which is what is truly needed on the job.</p>
+<p>What differentiates an exceptional programmer from an average one is the set of ideas, exhibited during the interview/interaction process. Those ideas have been described in detail in the greatest programming books.</p>
+<p>Apart from those ideas, exceptional programmers also exhibit certain behavioural symptoms, gained via industry experience, or good collaboration practices. Those behavioural symptoms are visible through their habits, and interviewers expect to witness them during the interviews.</p>
+<p>Here, we aim to go through the essence of being exceptional. Let’s begin.</p>
+<h2 id="1-scope-refinement">#1: Scope Refinement:<a aria-hidden="true" class="anchor-heading icon-link" href="#1-scope-refinement"></a></h2>
+<p>A wise person said once: Asking the right questions is 50% solution.</p>
+<p>When presented with a code problem, good programmers start solving a problem. Exceptional programmers first try to define it.</p>
+<p>This is because good programmers feel they have known enough. They can’t resist the temptation to show “<em>I know the kind of problem you are trying to solve. That’s why you should hire me.</em>” I described this trait in my story <a href="https://betterprogramming.pub/the-most-underrated-technique-to-nail-senior-developer-interviews-f917025453b7">The Most Underrated Technique To Nail Senior Developer Interviews</a></p>
+<p>Exceptional programmers, on the other hand, begin to show how it’s done.</p>
+<p>They do it by starting to keep quiet, and listen. They try to ponder upon the overall context of the challenge that is presented. They already know how to code the solution. But even when they don’t, they know how to isolate that complex part, and make it seem minuscule compared to the overall solution.</p>
+<p>They implicitly show that coding is the only (more often, the last) part of the solution.</p>
+<blockquote>
+<p>By refining scope, an exceptional programmer drives the interviewers towards his/her intended solution.</p>
+</blockquote>
+<p>When an interviewer asks “<em>Given an array of a town’s citizens, how to calculate the average age of the voters?</em>”, a good programmer will quickly scribble the following solution:</p>
+<p>function calculateAge(votersArray: [Citizen]) {<br>
+if (votersArray.count &#x3C; 1) {<br>
+return 0<br>
+} sum = 0<br>
+for person in votersArray {<br>
+sum =+ voter.age<br>
+} average = sum / votersArray.count<br>
+return average<br>
+}</p>
+<p>On the other hand, an exceptional programmer will ask the following questions:</p>
+<ul>
+<li>What is the minimum voting age? (remember this is a <strong>citizen</strong> array, not the readymade list of voters!)</li>
+<li>Is there a data item to signal if a voter is a registered one with the electoral body?</li>
+</ul>
+<p>At this point, most interviewers do not give concrete answers. They rather allow the candidate the freedom to implement it the best way they can. (Although they mentally assign some points for asking questions, and more points for asking the right ones)</p>
+<p>The exceptional programmer will then code his/her solution like this (the solution does not adhere to any programming language):</p>
+<p>class Citizen {<br>
+var age: Int<br>
+var isRegistered: Bool<br>
+}function calculateAge(citizensArray: [Citizen], filterFunction: (Voter) -> Bool) {<br>
+if (citizensArray.count &#x3C; 1) {<br>
+logMessage("Citizen list is empty!")<br>
+return 0<br>
+}var votersCount = 0 //tracks only the eligible voters<br>
+for citizen in citizensArray {<br>
+if (citizen.age >= MINIMUM_VOTER_AGE &#x26;&#x26; citizen.isRegistered == true)<br>
+sum =+ sum + citizen.age<br>
+votersCount += 1<br>
+}<br>
+} average = votersCount > 0 ? (sum / votersCount) : 0<br>
+return average<br>
+}<strong>// Usage:</strong>citizen1 = Citizen(age: 38, isRegistered: true)<br>
+citizen2 = Citizen(age: 30, isRegistered: true)<br>
+citizen3 = Citizen(age: 28, isRegistered: false)citizens = [citizen1, citizen2, citizen3]//finds average age of voters - returns 34<br>
+let average = calculateAge(citizensArray: citizens)</p>
+<p>Notice the difference refining the scope makes? By doing it, the exceptional programmer-</p>
+<ul>
+<li>Shows his/her object design skills, where the abstraction and cohesiveness of data (citizen age, registration etc) are tested.</li>
+<li>Not only takes care of the boundary conditions, but is also instrumental in defining them (15000 registered voters vs 89000 citizens). By refining scope, he/she helps (and effectively drives) the interviewers towards his/her intended solution.</li>
+<li>Reports the errors. Here, empty citizens list is reported via logging, but exceptions can be another way to report them, too.</li>
+<li>Shows the benefit of his/her solution, by including the client call examples under the usage section.</li>
+</ul>
+<p>Now, if you look at the good programmer’s solution in retrospect, you will observe that it is a correct solution to the problem narrated by the interviewers.</p>
+<p>But it seems rooted in the online coding tests environment, where checking the boundary conditions is considered the end objective of perfect programming. That leads one to limit the area of the problem.</p>
+<p>An exceptional programmer expands the problem area beyond mere coding, and in doing so, ends up creating more usable code that can be more readily deployed in production.</p>
+<h2 id="2-clean-code">#2: Clean Code:<a aria-hidden="true" class="anchor-heading icon-link" href="#2-clean-code"></a></h2>
+<p>Scope refinements leads one to solve 50% of the problem. Clean code accomplishes the rest.</p>
+<p>Clean code is not a trait, but a state that is achieved with hours of working on the same piece of already well-functioning code. In other words, it is a result of countless hours of refactoring, done with clear knowledge of SOLID principles.</p>
+<blockquote>
+<p>Clean code is not a trait, but a state that is achieved with hours of refactoring</p>
+</blockquote>
+<p>If you are the kind who copies solutions from StackOverflow and ship it without at least 3 iterations, you probably have much work to do in this area. I know, because I was one, and heavily paid for it throughout my career as a senior developer.</p>
+<p>Let’s understand this with an example. In a typical coding assignment, interviewers ask about fetching data from an API, and display it in the UI.</p>
+<p>This is typically done by converting API data (<strong><em>api/restaurants</em></strong>) into domain objects (<strong>Restaurant</strong> array), and write UI code that depends upon this domain objects.</p>
+<p>A good programmer who has worked in areas ranging from IoT to media streaming is still likely to produce the code such as this:</p>
+<p>var restaurantArray = Array<restaurant>()<br>
+if JSONDeSerializer().decode(httpResponse) != Error {<br>
+restaurantArray = JSONDeSerializer().decode(httpResponse)<br>
+} else if XMLDeSerializer().decode(httpResponse) != Error {<br>
+restaurantArray = XMLDeSerializer().decode(httpResponse)<br>
+}</restaurant></p>
+<p>The problem? Not only this code decodes the response twice (first in the check, then in the actual conversion), it is also soon likely to bubble into spaghetti. What if there are more deserialisation formats beyond XML and JSON?</p>
+<blockquote>
+<p>If-else is poor man’s polymorphism.</p>
+</blockquote>
+<p>To reiterate, the problem isn’t the conversion itself, but the pattern. If you have a business logic that deals with checking 4 fields today, how likely it will accommodate 10 more, if you code it with <strong>if-else approach</strong> shown above?</p>
+<p>Someone has rightly termed if-else as poor man’s polymorphism.</p>
+<p>The exceptional programmer already realises this, and devises his/her solution something like this:</p>
+<p>class APIDownloader {<br>
+APIDownloader(deserializer: Deserializer) {<br>
+this.deserializer = deserializer<br>
+} function downloadData() {<br>
+//downloading logic<br>
+deserializer.decode(httpResponse)<br>
+}<br>
+}</p>
+<p>What is <strong>Deserialiser</strong>? It is an interface/protocol that defines <strong>decode(HttpResponse)</strong> function. It must be implemented/conformed by <strong>JSONDeSerializer</strong> and <strong>XMLDeSerializer</strong> classes, which provide concrete implementations of the <strong>decode</strong>() function (mostly, open source)</p>
+<p>Where is deserialiser coming from? From outside <strong>APIDownloader</strong>. It isn’t APIDownloader’s responsibility to decide what HTTP response format it is dealing with. Some other class creates an object of type <strong>Deserializer</strong> (which could be an instance of a class <strong>JSONDeSerializer</strong> or <strong>XMLDeSerializer</strong>), and hands it to the APIDownloader.</p>
+<blockquote>
+<p>The strategy is to push if/else outside the very class you are coding, eventually replacing it with switch/case</p>
+</blockquote>
+<p>That <em>some other class</em> could be an <strong>APIClient</strong> class, who, before even making an HTTP request, knows which format the HTTP response is going to be. Or, it could be a unit test for the <strong>APIDownloader,</strong> which makes the task for APIDownloader quite well-defined: Just download the data, and return to me the XML/JSON domain objects.</p>
+<p>If you think it one more time, this whole exercise is aimed at pushing if-else outside the scope of the very class you are coding. APIDownloader delegates if-else to <strong>APIClient</strong>/unit test, and so on<strong>.</strong> When it becomes absolutely necessary to use it, one can replace it with <strong>switch case</strong>, which makes the job of compiler fairly easy (of course, depending upon the programming language)</p>
+<p>In programming parlance, this technique is called dependency injection, and it is one of the founding cornerstones of clean code.</p>
+<p>It is so, because it automatically enforces the fundamental principles of clean code:</p>
+<ul>
+<li>Class design and separation of concerns (aka the S in the SOLID)</li>
+<li>Single layer of abstraction (APIDownloader deals with only downloading, not conversion<strong>)</strong></li>
+<li>Polymorphism (<strong>Deserialiser</strong> abstract interface<strong>)</strong></li>
+<li>Test driven development</li>
+</ul>
+<p>If you only know how to use the dependency injection technique, you will start self-correcting and refactoring your code more often. It has its limitations, yes — especially when you end up injecting N arguments into your class, at which point you should simply lay out a separate class by coalescing them.</p>
+<p>But in general, when you start using DI, it will become a habit quite easily. You will turn into an exceptional version of yourself before you even realise.</p>
+<h2 id="3-build-capabilities-not-features">#3: Build capabilities, not features:<a aria-hidden="true" class="anchor-heading icon-link" href="#3-build-capabilities-not-features"></a></h2>
+<p>If you revisit the example we saw in #1, you will realise one glaring shortcoming in the exceptional programmer’s approach. In demonstrating the scope refining capabilities, he/she ends up adding two more fields (<strong>isRegistered</strong> and <strong>age</strong>) to the <strong>Citizen</strong> class.</p>
+<p>While these are the crucial details, they make the solution laden with an extra set of <em>if</em> conditions (<strong>citizen.age >= MINIMUM_VOTER_AGE &#x26;&#x26; citizen.isRegistered == true).</strong></p>
+<p>There can be an endless list of attributes that can be added to the <strong>Citizen</strong> class. But for the time it takes to code/present the solution, will it demonstrate more capabilities of the candidate? Not at all.</p>
+<p>Interviewers will invariably spot this too, although when they reject such a candidate, all they will say is “<em>Candidate ended up doing things outside the scope.</em>”</p>
+<p>What they might omit to report (although it was a fact) was this statement:</p>
+<blockquote>
+<p>With no other capability demonstrated.</p>
+</blockquote>
+<p>Good programmers can implement features without bugs, exactly as presented in the requirements. When they go an extra mile, their <strong>complexity vs outcome</strong> graph is linear. In achieving more, they end up making the code much more complex.</p>
+<p>Exceptional programmers will implement features with or without bugs. But in doing so, they will leave the code to their successors with extra capabilities. These capabilities ensure that any amount of increase in attributes or functions can be handled with minimal extra altercations.</p>
+<p>Exceptional programmers’ <strong>complexity vs outcome</strong> graph would be better than linear — probably an exponential one. In other words, they will achieve much better outcomes with less amount of added complexity.</p>
+<p>During scope refinement, an exceptional programmer might additionally ask:</p>
+<blockquote>
+<p>Are we interested in just the overall age average, or also the average age of a certain group of voters (e.g. right-wing voters, female voters, educated voters etc.)</p>
+</blockquote>
+<p>Once again, the interviewers won’t offer anything concrete, but they will observe the keenness to go an extra mile. More importantly, though, they will be interested in seeing how the candidate pulls <strong><em>it</em></strong> off.</p>
+<p>The bold+italicised <strong><em>it</em></strong> part in the above sentence stands for capabilities to verify/evaluate any number of extra Citizen attributes, without bloating the code with unnecessary if/else conditions, adhering to the #2 above.</p>
+<p><strong>type CitizenEvaluator =</strong> <strong>(Citizen) -> Bool</strong>function calculateAge(citizensArray: [Citizen], <strong>filterFunction</strong>: <strong>CitizenEvaluator</strong>) {<br>
+if (citizensArray.count &#x3C; 1) {<br>
+logMessage("Citizen list is empty!")<br>
+return 0<br>
+} var eligibleVotersCount = 0 //tracks only the eligible voters<br>
+for citizen in citizensArray {<br>
+if (fliterFunction(citizen) == true)<br>
+sum =+ sum + citizen.age<br>
+eligibleVotersCount += 1<br>
+}<br>
+} average = eligibleVotersCount > 0 ? (sum / eligibleVotersCount) : 0<br>
+return average<br>
+}<strong>// Usage:<br>
+</strong>ageEligibleFilterFunction = function(citizen) {<br>
+return citizen.age >= MINIMUM_VOTER_AGE<br>
+}registrationFilterFunction = function(citizen) {<br>
+return citizen.isRegistered == true<br>
+}function maleVoterFilterFunction = function(citizen) {<br>
+return ageEligibleFilterFunction(citizen) &#x26;&#x26; registrationFilterFunction(citizen) &#x26;&#x26; citizen.gender == MALE<br>
+}femaleVoterGraduateFilterFunction = function(citizen) {<br>
+return ageEligibleFilterFunction(citizen) &#x26;&#x26; registrationFilterFunction(citizen) &#x26;&#x26; (citizen.gender == FEMALE &#x26;&#x26; citizen.education > GRADUATE)<br>
+}citizen1 = Citizen(age: 34, isRegistered: true, gender: MALE, education: GRADUATE)<br>
+citizen2 = Citizen(age: 23, isRegistered: true, gender: FEMALE, education: POSTGRADUATE)<br>
+citizen3 = Citizen(age: 9, isRegistered: false, gender: FEMALE, education: STUDY)<br>
+citizen4 = Citizen(age: 28, isRegistered: false, gender: FEMALE, education: GRADUATE)citizens = [citizen1, citizen2, citizen3, citizen4]//finds the average age of male voters<br>
+let maleAverage = calculateAge(citizensArray: citizens, filterFunction: <strong>maleFilterFunction</strong>)//finds the average age of female, post-graduate voters<br>
+let femalePGAverage = calculateAge(citizensArray: citizens, filterFunction: <strong>femaleGraduateFilterFunction</strong>)</p>
+<p>Notice the <strong>CitizenEvaluator type,</strong> which is a type alias to a function that accepts a Citizen argument, and returns a boolean based on various attributes of the Citizen object. It is added as an argument to the <strong>calculateAge()</strong> function, thus enforcing all its clients to supply their suitable if conditions themselves, thus ridding the <strong>calculateAge()</strong> off any of the <strong>if-else</strong> madness.</p>
+<p>Both <strong>ageEligibleFilterFunction</strong> and <strong>registrationFilterFunction are of</strong> CitizenEvaluator type<strong>.</strong> The <strong>maleVoterFilterFunction</strong> and <strong>femaleVoterFilterFunction</strong> are also of the CitizenEvaluator type<strong>,</strong> but they additionally rely on ageEligibleFilterFunction and registrationFilterFunction — not unlike object composition design pattern, where an object can contain other nested objects.</p>
+<p>As you can see, a highly customised and powerful chain of capabilities can be built on top of each other, using function block approach shown above.</p>
+<p>Using this approach, an exceptional developer can demonstrate several traits:</p>
+<ul>
+<li><strong>Abstraction in communication:</strong> While asking questions, the exceptional programmer does not discuss about the technical aspects of the intended solution (e.g. things such as <em>should I use functional programming?</em>). He/she just asks using terms surrounding the functionality. Talking at the code level would be necessary only if he/she would be discussing about the code problems/quality. This ability is known as working at the right level of abstractions, and it is intensely necessary in real programmers’ lives.</li>
+<li><strong>Functionality understanding</strong>: The solution not only shows how much can be achieved with minimal lines, but also how much details a simple statistical average can reveal about a collection of data (voter education, voter gender etc.).</li>
+<li><strong>Simplicity:</strong> Details can be added in a linear fashion by average programmers, but they do not add to the complexity of the function developed by the exceptional programmer. In a way, the exceptional programmer enables infinite number of features to be added to the product, and they do not need to be added by himself/herself. Even average programmers can use this code to build a product with incremental feature set.</li>
+<li><strong>Conciseness:</strong> The Citizen attribute list can be endless, but the two items (gender and education) are enough to demonstrate he/she can put the problem in the right context, before even trying to solve it.</li>
+</ul>
+<p>When interviewers meet such an exceptional candidate, they are much less likely to even consider other candidates, unless they are fearful of their own obliteration by a much better replacement.</p>
+<h2 id="conclusion">Conclusion:<a aria-hidden="true" class="anchor-heading icon-link" href="#conclusion"></a></h2>
+<p>Achieving the functionality is the #1 requirement in the interviews. This conclusion is heavily inspired by coding interview schools, which trains candidates to better their presentation by separating and sorting things they should address to comfort the interviewers.</p>
+<p>While this is an acceptable version of the truth, it is not the complete truth. In hiring for technically advanced roles, interviewers are looking for things beyond their line of questioning. They want someone who can supplement their thoughts, thus guiding the solution process.</p>
+<p>That someone can be a living monument of the Leonardo Da Vinci’s timeless quote that says:</p>
+<blockquote>
+<p>Simplicity is the ultimate sophistication.</p>
+</blockquote>
+<p>Mastering these 3 powerful attributes makes one an exceptional programmer, not just an exceptional candidate. Success in the interviews, then, becomes a by-product rather than the goal of life.</p>
